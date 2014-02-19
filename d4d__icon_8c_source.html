@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_icon.c Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__icon_8c_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">d4d_icon.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="d4d__icon_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">* This program is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">* but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">* You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">* and the GNU Lesser General Public License along with this program.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">* If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">***************************************************************************/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="d4d_8h.html">d4d.h</a>&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="d4d__private_8h.html">common_files/d4d_private.h</a>&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">//Internal API</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> <a class="code" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b">D4D_IconOnMessage</a>(<a class="code" href="group__doxd4d__base__type.html#struct_d4_d___m_e_s_s_a_g_e___s">D4D_MESSAGE</a>* pMsg);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<a class="code" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s">D4D_STRING</a>* <a class="code" href="d4d__icon_8c.html#a5211e297326d20c332ed1f413784c2fd">D4D_IconGetTextBuffer</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<a class="code" href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a> <a class="code" href="group__doxd4d__icon__func.html#ga95c35a5b19281ec8b5461304adbae0d3">D4D_IconGetBmpCount</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="d4d__icon_8h.html#af58fc9c0e43d41472f4f9d3addf2474d">   54</a></span>&#160;<span class="keyword">const</span> <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION</a> <a class="code" href="d4d__icon_8c.html#af58fc9c0e43d41472f4f9d3addf2474d">d4d_iconSysFunc</a> = </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;Icon&quot;</span>),</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <a class="code" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b">D4D_IconOnMessage</a>,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="d4d__icon_8c.html#a5211e297326d20c332ed1f413784c2fd">D4D_IconGetTextBuffer</a></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">// temporary structure for icon coordinate calculation</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> position;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> txtPos;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___g_e_o_m_e_t_r_y">D4D_GEOMETRY</a> contentGeom; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} D4D_ICON_TMP_VAL;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="d4d__icon_8c.html#a29c9428934bd225223acc290d395e75f">   70</a></span>&#160;<span class="preprocessor">#define _calc (*((D4D_ICON_TMP_VAL*)d4d_scratchPad))</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="d4d__icon_8c.html#a82d4c53289c4ae6f45ca0f1ce304944b">   73</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="d4d__icon_8c.html#a82d4c53289c4ae6f45ca0f1ce304944b">D4D_IconValue2Coor</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="struct_d4_d___i_c_o_n.html">D4D_ICON</a>* pIcon = <a class="code" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pThis);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <a class="code" href="d4d__icon_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.position = <a class="code" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f">D4D_GetClientToScreenPoint</a>(pThis, &amp;pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#ad5270f999a216f38b6caacb734acb98a">position</a>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681">D4D_ComputeGeometry</a>(&amp;<a class="code" href="d4d__icon_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.contentGeom, pThis);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="d4d__icon_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtPos = <a class="code" href="d4d__icon_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.contentGeom.pnt;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <a class="code" href="d4d__icon_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtPos.x += pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#aad0929707a8cd585902000bd7045e57c">txtOff</a>.<a class="code" href="group__doxd4d__types__type.html#a14b95612df1026b6a956ac9e2f64cd9d">x</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <a class="code" href="d4d__icon_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtPos.y += pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#aad0929707a8cd585902000bd7045e57c">txtOff</a>.<a class="code" href="group__doxd4d__types__type.html#a559d923ef369983d0809c3cc39a3df5a">y</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">/*******************************************************</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">* ICON Drawing routine</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">*******************************************************/</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140">   91</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140">D4D_IconOnDraw</a>(<a class="code" href="group__doxd4d__base__type.html#struct_d4_d___m_e_s_s_a_g_e___s">D4D_MESSAGE</a>* pMsg)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis  =  pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="struct_d4_d___i_c_o_n.html">D4D_ICON</a>* pIcon = <a class="code" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pThis);    </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="group__doxd4d__base__type.html#ga484e26d234a753cbb498c29fa9da90f0">D4D_OBJECT_DRAWFLAGS</a> draw = pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a65e56fff8e0b0136541d1cf58a3a5be4">prm</a>.<a class="code" href="group__doxd4d__base__type.html#a47e2d41ba1f83dd4d861f430548850df">draw</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> clrT, clrB;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="group__doxd4d__bmp__type.html#ga138d45951f88dd9ccbd423f3f712d226">D4D_BMP_PROPERTIES</a> bmpProp;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="d4d__icon_8c.html#a82d4c53289c4ae6f45ca0f1ce304944b">D4D_IconValue2Coor</a>(pThis);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    bmpProp = (<a class="code" href="group__doxd4d__base__const__alignmasks.html#ga207a5d3859b158a4662582d72c7dd6b6">D4D_ALIGN_V_TOP_MASK</a> | <a class="code" href="group__doxd4d__base__const__alignmasks.html#ga48c85b4a97dd8dfb1edab7a36a137f47">D4D_ALIGN_H_CENTER_MASK</a>);    </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    clrT = <a class="code" href="group__doxd4d__scheme__func.html#ga4f46b75cc9161aaf0ca1c447a76e045b">D4D_ObjectGetForeColor</a>(pThis, draw);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    clrB = <a class="code" href="group__doxd4d__scheme__func.html#gacd90e36cd0d99094155abb8b3f7fb74c">D4D_ObjectGetBckgColor</a>(pThis, draw);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">// Draw the frame</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">if</span>(draw &amp; (<a class="code" href="group__doxd4d__base__type.html#gac321808c8891a07430be706ad33e85cd">D4D_OBJECT_DRAWFLAGS_COMPLETE</a> | <a class="code" href="group__doxd4d__base__type.html#ga543912fe2405b703133f00f97ec5707e">D4D_OBJECT_DRAWFLAGS_STATE</a>))</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <a class="code" href="group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e">D4D_DrawFrame</a>(pThis, clrT, clrB);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">// draw the bitmap        </span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">if</span>(pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#ababb00a9c8425a6cc57bc91e6a7206f6">pBmpX</a>[pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a30bd07194d7e425c1ab6f19817097e40">pData</a>-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#a2b8e3bb42360eb18577c79f41b230c22">index</a>] != <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <a class="code" href="d4d_8h.html#a8b6750763951e364ec2accbf765f953b">D4D_DrawRBmpRect</a>(&amp;<a class="code" href="d4d__icon_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.contentGeom.pnt,&amp;<a class="code" href="d4d__icon_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.contentGeom.sz, pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#ababb00a9c8425a6cc57bc91e6a7206f6">pBmpX</a>[pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a30bd07194d7e425c1ab6f19817097e40">pData</a>-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#a2b8e3bb42360eb18577c79f41b230c22">index</a>], bmpProp, clrB, (<a class="code" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>)(!<a class="code" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15">D4D_IsEnabled</a>(pThis)), pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#a7f1e7bfcc708c8473ff73d2134fd5ddd">radius</a>);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">// draw the text</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">if</span>(pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a0282e8131234174f2a773cdb658f0252">textBuff</a>.<a class="code" href="group__doxd4d__string__type.html#ae845f84572ab1ac6e74ca3eb433bd6ac">pText</a> != <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a> tmp_size;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      tmp_size.<a class="code" href="group__doxd4d__types__type.html#abbd0548ae6e15a76f53891ddab7bc6bd">cx</a> = <a class="code" href="group__doxd4d__string__func.html#ga30a1542cae1d27c9bfcfcfd02c4c873c">D4D_GetTextWidth</a>(pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a0282e8131234174f2a773cdb658f0252">textBuff</a>.<a class="code" href="group__doxd4d__string__type.html#aa1721f7716b057280b5dff1eaba1ff47">fontId</a>, pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a0282e8131234174f2a773cdb658f0252">textBuff</a>.<a class="code" href="group__doxd4d__string__type.html#ae845f84572ab1ac6e74ca3eb433bd6ac">pText</a>);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      tmp_size.<a class="code" href="group__doxd4d__types__type.html#ac3caf46346bdb18d16381f44808262d4">cy</a> = <a class="code" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83">D4D_GetFontHeight</a>(pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a0282e8131234174f2a773cdb658f0252">textBuff</a>.<a class="code" href="group__doxd4d__string__type.html#aa1721f7716b057280b5dff1eaba1ff47">fontId</a>);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <a class="code" href="group__doxd4d__basic__draw__macro.html#ga4da725f24f7729d457ad7d790fbfcd00">D4D_DrawTextRect</a>(&amp;<a class="code" href="d4d__icon_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtPos, &amp;tmp_size, &amp;pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a0282e8131234174f2a773cdb658f0252">textBuff</a>, clrT, clrB); </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }    </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">* Begin of D4D_ICON public functions</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="group__doxd4d__icon__func.html#ga95c35a5b19281ec8b5461304adbae0d3">  137</a></span>&#160;<a class="code" href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a> <a class="code" href="group__doxd4d__icon__func.html#ga95c35a5b19281ec8b5461304adbae0d3">D4D_IconGetBmpCount</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;{</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;   <a class="code" href="struct_d4_d___i_c_o_n.html">D4D_ICON</a>* pIcon = <a class="code" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pThis);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;   <a class="code" href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a>  ix = 0;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;   </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;   </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;   <span class="keywordflow">while</span>(pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#ababb00a9c8425a6cc57bc91e6a7206f6">pBmpX</a>[ix] != <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;   {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;     ix++;  </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;   }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;   </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;   <span class="keywordflow">return</span> ix;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="group__doxd4d__icon__func.html#gac995ed6c5a43718a15c84bc7945831d9">  158</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__doxd4d__icon__func.html#gac995ed6c5a43718a15c84bc7945831d9">D4D_IconSetIndex</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis, <a class="code" href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a> index)</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;{</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <a class="code" href="struct_d4_d___i_c_o_n.html">D4D_ICON</a>* pIcon = <a class="code" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pThis);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html">D4D_ICON_DATA</a>* pData = pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a30bd07194d7e425c1ab6f19817097e40">pData</a>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">if</span>(pData-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#a2b8e3bb42360eb18577c79f41b230c22">index</a> == index)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        return ;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="group__doxd4d__icon__func.html#ga95c35a5b19281ec8b5461304adbae0d3">D4D_IconGetBmpCount</a>(pThis) == 0)  <span class="comment">// There is no loaded bitmaps - go out</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">if</span>(index &gt;= <a class="code" href="group__doxd4d__icon__func.html#ga95c35a5b19281ec8b5461304adbae0d3">D4D_IconGetBmpCount</a>(pThis))  <span class="comment">// If value is bigger then count of BMPs</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="comment">// remember new value</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    pData-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#a2b8e3bb42360eb18577c79f41b230c22">index</a> = index;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <a class="code" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9">D4D_InvalidateObject</a>(pThis, <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="comment">// notify user that the value has changed        </span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">if</span>(pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a1d9c33b37f642b6653eb92303a1af4e1">OnValueChanged</a>)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a1d9c33b37f642b6653eb92303a1af4e1">OnValueChanged</a>((<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>*)pThis);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;}</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="group__doxd4d__icon__func.html#ga7e63c380dbb0c6237f6282db00c8e08c">  190</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__doxd4d__icon__func.html#ga7e63c380dbb0c6237f6282db00c8e08c">D4D_IconChangeIndex</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis, <a class="code" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a> incr)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;{</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <a class="code" href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a> tmp_ix = (<a class="code" href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a>)(<a class="code" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pThis)-&gt;pData-&gt;index + incr);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="keywordflow">if</span>(tmp_ix &gt;= <a class="code" href="group__doxd4d__icon__func.html#ga95c35a5b19281ec8b5461304adbae0d3">D4D_IconGetBmpCount</a>(pThis))</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    tmp_ix = 0;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <a class="code" href="group__doxd4d__icon__func.html#gac995ed6c5a43718a15c84bc7945831d9">D4D_IconSetIndex</a>(pThis, tmp_ix);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;}</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="group__doxd4d__icon__func.html#ga91c5123a72f9617c193a3408a5fd39db">  207</a></span>&#160;<a class="code" href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a> <a class="code" href="group__doxd4d__icon__func.html#ga91c5123a72f9617c193a3408a5fd39db">D4D_IconGetIndex</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis)</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;{</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <a class="code" href="struct_d4_d___i_c_o_n.html">D4D_ICON</a>* pIcon = <a class="code" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pThis);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">return</span> pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a30bd07194d7e425c1ab6f19817097e40">pData</a>-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#a2b8e3bb42360eb18577c79f41b230c22">index</a>;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor">#if D4D_ICON_ENABLE_ANIMATION == D4D_TRUE</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="group__doxd4d__icon__func.html#gab4fd525ec7b62f0019946965b96f06af">  222</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__doxd4d__icon__func.html#gab4fd525ec7b62f0019946965b96f06af">D4D_IconAnimationStart</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis)</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;{</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <a class="code" href="struct_d4_d___i_c_o_n.html">D4D_ICON</a>* pIcon = <a class="code" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pThis);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  <a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html">D4D_ICON_DATA</a>* pData = pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a30bd07194d7e425c1ab6f19817097e40">pData</a>;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="group__doxd4d__icon__func.html#ga95c35a5b19281ec8b5461304adbae0d3">D4D_IconGetBmpCount</a>(pThis))</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    pData-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#aca41334b3e18e2c926cf23be6596cde7">animationEnabled</a> = <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    pData-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#a5c5908939b9ee3eb46c2d76a7364e460">tickCounter</a> = 0;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <a class="code" href="group__doxd4d__object__func.html#gaa9f46d48550c211ae359d6469f1a1be3">D4D_EnableTimeTicks</a>(pThis, <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;}</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="group__doxd4d__icon__func.html#ga95d72deffa099e2d17a482b2f0997080">  242</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__doxd4d__icon__func.html#ga95d72deffa099e2d17a482b2f0997080">D4D_IconAnimationStop</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis)</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;{</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <a class="code" href="struct_d4_d___i_c_o_n.html">D4D_ICON</a>* pIcon = <a class="code" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pThis);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html">D4D_ICON_DATA</a>* pData = pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a30bd07194d7e425c1ab6f19817097e40">pData</a>;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  pData-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#aca41334b3e18e2c926cf23be6596cde7">animationEnabled</a> = <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <a class="code" href="group__doxd4d__object__func.html#gaa9f46d48550c211ae359d6469f1a1be3">D4D_EnableTimeTicks</a>(pThis, <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;}</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="group__doxd4d__icon__func.html#ga78b220f62c90293dc7322f536b642ed7">  259</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__doxd4d__icon__func.html#ga78b220f62c90293dc7322f536b642ed7">D4D_IconAnimationSetCounts</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis, <a class="code" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> cnt)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;{</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <a class="code" href="struct_d4_d___i_c_o_n.html">D4D_ICON</a>* pIcon = <a class="code" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pThis);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html">D4D_ICON_DATA</a>* pData = pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a30bd07194d7e425c1ab6f19817097e40">pData</a>;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  pData-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#a9478930a7420351529748f0c228c6a83">tickCounterTrshld</a> = cnt;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;}</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment">*       End of public functions                                               */</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="comment">/******************************************************************************/</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment">/**************************************************************/</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment">/*******************************************************</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment">* The main ICON message handler </span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">*******************************************************/</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b">  290</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b">D4D_IconOnMessage</a>(<a class="code" href="group__doxd4d__base__type.html#struct_d4_d___m_e_s_s_a_g_e___s">D4D_MESSAGE</a>* pMsg)</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;{</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="preprocessor">#if D4D_ICON_ENABLE_ANIMATION == D4D_TRUE</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="preprocessor"></span>  <a class="code" href="struct_d4_d___i_c_o_n.html">D4D_ICON</a>* pIcon = <a class="code" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>);</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html">D4D_ICON_DATA</a>* pData = pIcon-&gt;<a class="code" href="struct_d4_d___i_c_o_n.html#a30bd07194d7e425c1ab6f19817097e40">pData</a>;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <span class="keywordflow">switch</span>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#aaad42c03604f1bbff065480aac72b03c">nMsgId</a>)</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  {</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aada78bc4fb19bad4ada34a532547ab68d">D4D_MSG_DRAW</a>:</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      <a class="code" href="d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140">D4D_IconOnDraw</a>(pMsg);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="preprocessor">#ifdef D4D_LLD_TCH       </span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa0dc9200ede00936d39ee379a6418030f">D4D_MSG_TOUCHED</a>:</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      <a class="code" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d">D4D_FocusSet</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a091fdaa012d36f085ba2c6465b195718">pScreen</a>, pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="preprocessor">#if D4D_ICON_ENABLE_ANIMATION == D4D_TRUE</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa81583830e066532a8613816949c845ee">D4D_MSG_ONINIT</a>:</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>-&gt;<a class="code" href="group__doxd4d__object__type.html#a8f6651f30678cbad72e9ee50bc8256ad">pData</a>-&gt;<a class="code" href="group__doxd4d__object__type.html#a2d9b543b57a3d54b958787d383e34ba5">flags</a> &amp;= ~<a class="code" href="d4d__object_8h.html#aca1d2a0aa474af1630897c78765054a6">D4D_OBJECT_F_NOTINIT</a>;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      </div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      pData-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#a9478930a7420351529748f0c228c6a83">tickCounterTrshld</a> = <a class="code" href="group__doxd4d__icon__const.html#ga0f75e0c638fd6ec9e7dd657ca890fa51">D4D_ICON_ANIMATION_TICK_COUNTER</a>;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa2164b1cfef9161fd50aac07eba245f8e">D4D_MSG_TIMETICK</a>:</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      <span class="keywordflow">if</span>(pData-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#aca41334b3e18e2c926cf23be6596cde7">animationEnabled</a>)</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      {</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keywordflow">if</span>(++(pData-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#a5c5908939b9ee3eb46c2d76a7364e460">tickCounter</a>) &gt; pData-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#a9478930a7420351529748f0c228c6a83">tickCounterTrshld</a>)</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;          pData-&gt;<a class="code" href="struct_d4_d___i_c_o_n___d_a_t_a.html#a5c5908939b9ee3eb46c2d76a7364e460">tickCounter</a> = 0;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;          <span class="comment">// update animation (change icon)</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;          <a class="code" href="group__doxd4d__icon__func.html#ga7e63c380dbb0c6237f6282db00c8e08c">D4D_IconChangeIndex</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>, 1);  </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        }</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      }</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="preprocessor">#endif      </span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      <span class="comment">// call the default behavior of all objects</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;      <a class="code" href="d4d__object_8c.html#a71af54d42c496cf96eb44fcb42c7928a">D4D_ObjOnMessage</a>(pMsg);</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  }</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;}</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment">/**************************************************************/</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno"><a class="line" href="d4d__icon_8c.html#a5211e297326d20c332ed1f413784c2fd">  345</a></span>&#160;<a class="code" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s">D4D_STRING</a>* <a class="code" href="d4d__icon_8c.html#a5211e297326d20c332ed1f413784c2fd">D4D_IconGetTextBuffer</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis)</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;{</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  <span class="keywordflow">return</span> &amp;(<a class="code" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pThis)-&gt;textBuff);  </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;}</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
+<div class="ttc" id="group__doxd4d__scheme__func_html_gacd90e36cd0d99094155abb8b3f7fb74c"><div class="ttname"><a href="group__doxd4d__scheme__func.html#gacd90e36cd0d99094155abb8b3f7fb74c">D4D_ObjectGetBckgColor</a></div><div class="ttdeci">D4D_COLOR D4D_ObjectGetBckgColor(D4D_OBJECT *pObj, D4D_OBJECT_DRAWFLAGS draw)</div><div class="ttdoc">Function return object current background color. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__scheme_8c_source.html#l00185">d4d_scheme.c:185</a></div></div>
+<div class="ttc" id="struct_d4_d___i_c_o_n_html_a30bd07194d7e425c1ab6f19817097e40"><div class="ttname"><a href="struct_d4_d___i_c_o_n.html#a30bd07194d7e425c1ab6f19817097e40">D4D_ICON::pData</a></div><div class="ttdeci">D4D_ICON_DATA * pData</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00141">d4d_icon.h:141</a></div></div>
+<div class="ttc" id="group__doxd4d__scheme__func_html_ga4f46b75cc9161aaf0ca1c447a76e045b"><div class="ttname"><a href="group__doxd4d__scheme__func.html#ga4f46b75cc9161aaf0ca1c447a76e045b">D4D_ObjectGetForeColor</a></div><div class="ttdeci">D4D_COLOR D4D_ObjectGetForeColor(D4D_OBJECT *pObj, D4D_OBJECT_DRAWFLAGS draw)</div><div class="ttdoc">Function return object current fore color. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__scheme_8c_source.html#l00161">d4d_scheme.c:161</a></div></div>
+<div class="ttc" id="d4d__icon_8c_html_a847a2ae44532fd0fd94a3a335887423b"><div class="ttname"><a href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b">D4D_IconOnMessage</a></div><div class="ttdeci">void D4D_IconOnMessage(D4D_MESSAGE *pMsg)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00290">d4d_icon.c:290</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_struct_d4_d___p_o_i_n_t"><div class="ttname"><a href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a></div><div class="ttdoc">Type definition of eGUI point structure. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00223">d4d_types.h:223</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_ggad12ff85fd58969142331c6b806cefc6aa81583830e066532a8613816949c845ee"><div class="ttname"><a href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa81583830e066532a8613816949c845ee">D4D_MSG_ONINIT</a></div><div class="ttdoc">On Init message - is send for first time when the object is inicialized. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00370">d4d_base.h:370</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_struct_d4_d___m_e_s_s_a_g_e___s"><div class="ttname"><a href="group__doxd4d__base__type.html#struct_d4_d___m_e_s_s_a_g_e___s">D4D_MESSAGE_S</a></div><div class="ttdoc">D4D object messages structure. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00400">d4d_base.h:400</a></div></div>
+<div class="ttc" id="group__doxd4d__object__type_html_a8f6651f30678cbad72e9ee50bc8256ad"><div class="ttname"><a href="group__doxd4d__object__type.html#a8f6651f30678cbad72e9ee50bc8256ad">D4D_OBJECT_S::pData</a></div><div class="ttdeci">D4D_OBJECT_DATA_PTR pData</div><div class="ttdoc">Pointer on runtime object data. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00180">d4d_object.h:180</a></div></div>
+<div class="ttc" id="struct_d4_d___i_c_o_n_html_a1d9c33b37f642b6653eb92303a1af4e1"><div class="ttname"><a href="struct_d4_d___i_c_o_n.html#a1d9c33b37f642b6653eb92303a1af4e1">D4D_ICON::OnValueChanged</a></div><div class="ttdeci">D4D_ICON_ON_CHANGE OnValueChanged</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00140">d4d_icon.h:140</a></div></div>
+<div class="ttc" id="group__doxd4d__types__const_html_gab3ce154a4d50cbbf5dc2bc8a995279d4"><div class="ttname"><a href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a></div><div class="ttdeci">#define D4D_FALSE</div><div class="ttdoc">This is definition of boolean operation value in eGUI - FALSE. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00104">d4d_types.h:104</a></div></div>
+<div class="ttc" id="group__doxd4d__string__type_html_struct_d4_d___s_t_r_i_n_g___s"><div class="ttname"><a href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s">D4D_STRING_S</a></div><div class="ttdoc">The string type. This structure contains all properties about string in eGUI. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__string_8h_source.html#l00100">d4d_string.h:100</a></div></div>
+<div class="ttc" id="group__doxd4d__basic__draw__macro_html_ga4da725f24f7729d457ad7d790fbfcd00"><div class="ttname"><a href="group__doxd4d__basic__draw__macro.html#ga4da725f24f7729d457ad7d790fbfcd00">D4D_DrawTextRect</a></div><div class="ttdeci">#define D4D_DrawTextRect(ppt, psz, buffText, colorText, colorBkgd)</div><div class="ttdoc">Function that draw text into defined rectangle on the screen. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__basic__draw_8h_source.html#l00139">d4d_basic_draw.h:139</a></div></div>
+<div class="ttc" id="group__doxd4d__bmp__type_html_ga138d45951f88dd9ccbd423f3f712d226"><div class="ttname"><a href="group__doxd4d__bmp__type.html#ga138d45951f88dd9ccbd423f3f712d226">D4D_BMP_PROPERTIES</a></div><div class="ttdeci">Byte D4D_BMP_PROPERTIES</div><div class="ttdoc">D4D_BMP_PROPERTIES type of image properties. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__bmp_8h_source.html#l00117">d4d_bmp.h:117</a></div></div>
+<div class="ttc" id="group__doxd4d__string__type_html_aa1721f7716b057280b5dff1eaba1ff47"><div class="ttname"><a href="group__doxd4d__string__type.html#aa1721f7716b057280b5dff1eaba1ff47">D4D_STRING_S::fontId</a></div><div class="ttdeci">D4D_FONT fontId</div><div class="ttdoc">index of used font </div><div class="ttdef"><b>Definition:</b> <a href="d4d__string_8h_source.html#l00104">d4d_string.h:104</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_ggad12ff85fd58969142331c6b806cefc6aa2164b1cfef9161fd50aac07eba245f8e"><div class="ttname"><a href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa2164b1cfef9161fd50aac07eba245f8e">D4D_MSG_TIMETICK</a></div><div class="ttdoc">Time Tick Occur message - is send with each time tick to object. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00393">d4d_base.h:393</a></div></div>
+<div class="ttc" id="group__doxd4d__types__const_html_gaef0c14acbf3da8063aa4117fc7e1bab5"><div class="ttname"><a href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a></div><div class="ttdeci">#define D4D_TRUE</div><div class="ttdoc">This is definition of boolean operation value in eGUI - TRUE. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00106">d4d_types.h:106</a></div></div>
+<div class="ttc" id="group__doxd4d__basic__draw__func_html_ga2a94dcb1c71ab3cd8c8008c5330a434e"><div class="ttname"><a href="group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e">D4D_DrawFrame</a></div><div class="ttdeci">void D4D_DrawFrame(D4D_OBJECT *pObject, D4D_COLOR clrT, D4D_COLOR clrB)</div><div class="ttdoc">Function draw standard object frame based on the object settings and current state. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__basic__draw_8c_source.html#l01654">d4d_basic_draw.c:1654</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_a0de852dcc4a916bb415eeec3410df1d7"><div class="ttname"><a href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">D4D_MESSAGE_S::pObject</a></div><div class="ttdeci">struct D4D_OBJECT_S * pObject</div><div class="ttdoc">Pointer to object who is receiver of this message. If the receiver is just screen this field must be ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00402">d4d_base.h:402</a></div></div>
+<div class="ttc" id="d4d_8h_html"><div class="ttname"><a href="d4d_8h.html">d4d.h</a></div><div class="ttdoc">D4D Driver main header file. </div></div>
+<div class="ttc" id="group__doxd4d__object__type_html_a2d9b543b57a3d54b958787d383e34ba5"><div class="ttname"><a href="group__doxd4d__object__type.html#a2d9b543b57a3d54b958787d383e34ba5">D4D_OBJECT_DATA_S::flags</a></div><div class="ttdeci">D4D_OBJECT_FLAGS flags</div><div class="ttdoc">runtime object flags </div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00145">d4d_object.h:145</a></div></div>
+<div class="ttc" id="struct_d4_d___i_c_o_n___d_a_t_a_html_a5c5908939b9ee3eb46c2d76a7364e460"><div class="ttname"><a href="struct_d4_d___i_c_o_n___d_a_t_a.html#a5c5908939b9ee3eb46c2d76a7364e460">D4D_ICON_DATA::tickCounter</a></div><div class="ttdeci">Word tickCounter</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00127">d4d_icon.h:127</a></div></div>
+<div class="ttc" id="group__doxd4d__screen__func_html_gac8938c4e965acfa7f40094d4508e039d"><div class="ttname"><a href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d">D4D_FocusSet</a></div><div class="ttdeci">void D4D_FocusSet(D4D_SCREEN *pScreen, D4D_OBJECT_PTR pObject)</div><div class="ttdoc">The function set the obejct focus to new object. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__screen_8c_source.html#l00430">d4d_screen.c:430</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_gac321808c8891a07430be706ad33e85cd"><div class="ttname"><a href="group__doxd4d__base__type.html#gac321808c8891a07430be706ad33e85cd">D4D_OBJECT_DRAWFLAGS_COMPLETE</a></div><div class="ttdeci">#define D4D_OBJECT_DRAWFLAGS_COMPLETE</div><div class="ttdoc">Draw complete flag. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00361">d4d_base.h:361</a></div></div>
+<div class="ttc" id="struct_d4_d___i_c_o_n_html_ababb00a9c8425a6cc57bc91e6a7206f6"><div class="ttname"><a href="struct_d4_d___i_c_o_n.html#ababb00a9c8425a6cc57bc91e6a7206f6">D4D_ICON::pBmpX</a></div><div class="ttdeci">const D4D_ICON_BMPS *const * pBmpX</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00139">d4d_icon.h:139</a></div></div>
+<div class="ttc" id="d4d__private_8h_html"><div class="ttname"><a href="d4d__private_8h.html">d4d_private.h</a></div><div class="ttdoc">D4D Driver private header file. </div></div>
+<div class="ttc" id="d4d__icon_8h_html_a30c2754b6a60ceca241d98dbefd0df78"><div class="ttname"><a href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a></div><div class="ttdeci">#define D4D_GET_ICON(pObj)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00149">d4d_icon.h:149</a></div></div>
+<div class="ttc" id="group__doxd4d__string__macro_html_ga04fbb7ead0c10eb6adb39da7272e36a3"><div class="ttname"><a href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a></div><div class="ttdeci">#define D4D_DEFSTR(str)</div><div class="ttdoc">Macro that helps declare the strings in eGUI. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__string_8h_source.html#l00246">d4d_string.h:246</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_abbd0548ae6e15a76f53891ddab7bc6bd"><div class="ttname"><a href="group__doxd4d__types__type.html#abbd0548ae6e15a76f53891ddab7bc6bd">D4D_SIZE::cx</a></div><div class="ttdeci">D4D_COOR cx</div><div class="ttdoc">Size in axis X (width) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00232">d4d_types.h:232</a></div></div>
+<div class="ttc" id="group__doxd4d__icon__func_html_gab4fd525ec7b62f0019946965b96f06af"><div class="ttname"><a href="group__doxd4d__icon__func.html#gab4fd525ec7b62f0019946965b96f06af">D4D_IconAnimationStart</a></div><div class="ttdeci">void D4D_IconAnimationStart(D4D_OBJECT_PTR pThis)</div><div class="ttdoc">Function starts the animation of icon. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00222">d4d_icon.c:222</a></div></div>
+<div class="ttc" id="group__doxd4d__object__type_html_ad5270f999a216f38b6caacb734acb98a"><div class="ttname"><a href="group__doxd4d__object__type.html#ad5270f999a216f38b6caacb734acb98a">D4D_OBJECT_S::position</a></div><div class="ttdeci">D4D_POINT position</div><div class="ttdoc">Position on the screen/object. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00169">d4d_object.h:169</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_ga543912fe2405b703133f00f97ec5707e"><div class="ttname"><a href="group__doxd4d__base__type.html#ga543912fe2405b703133f00f97ec5707e">D4D_OBJECT_DRAWFLAGS_STATE</a></div><div class="ttdeci">#define D4D_OBJECT_DRAWFLAGS_STATE</div><div class="ttdoc">Draw just change of state flag. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00364">d4d_base.h:364</a></div></div>
+<div class="ttc" id="group__doxd4d__object__type_html_a7f1e7bfcc708c8473ff73d2134fd5ddd"><div class="ttname"><a href="group__doxd4d__object__type.html#a7f1e7bfcc708c8473ff73d2134fd5ddd">D4D_OBJECT_S::radius</a></div><div class="ttdeci">D4D_COOR radius</div><div class="ttdoc">Object corners radius. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00171">d4d_object.h:171</a></div></div>
+<div class="ttc" id="d4d_8h_html_a8b6750763951e364ec2accbf765f953b"><div class="ttname"><a href="d4d_8h.html#a8b6750763951e364ec2accbf765f953b">D4D_DrawRBmpRect</a></div><div class="ttdeci">#define D4D_DrawRBmpRect(ppt,psz, pBmp, bmpProp, colorBkgd, greyScale, radius)</div><div class="ttdef"><b>Definition:</b> <a href="d4d_8h_source.html#l00187">d4d.h:187</a></div></div>
+<div class="ttc" id="d4d__object_8c_html_a71af54d42c496cf96eb44fcb42c7928a"><div class="ttname"><a href="d4d__object_8c.html#a71af54d42c496cf96eb44fcb42c7928a">D4D_ObjOnMessage</a></div><div class="ttdeci">void D4D_ObjOnMessage(D4D_MESSAGE *pMsg)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8c_source.html#l00443">d4d_object.c:443</a></div></div>
+<div class="ttc" id="struct_d4_d___i_c_o_n_html_aad0929707a8cd585902000bd7045e57c"><div class="ttname"><a href="struct_d4_d___i_c_o_n.html#aad0929707a8cd585902000bd7045e57c">D4D_ICON::txtOff</a></div><div class="ttdeci">D4D_POINT txtOff</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00138">d4d_icon.h:138</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdoc">Type definition of null pointer. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00184">d4d_types.h:184</a></div></div>
+<div class="ttc" id="d4d__icon_8c_html_a82d4c53289c4ae6f45ca0f1ce304944b"><div class="ttname"><a href="d4d__icon_8c.html#a82d4c53289c4ae6f45ca0f1ce304944b">D4D_IconValue2Coor</a></div><div class="ttdeci">static void D4D_IconValue2Coor(D4D_OBJECT *pThis)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00073">d4d_icon.c:73</a></div></div>
+<div class="ttc" id="group__doxd4d__string__type_html_ae845f84572ab1ac6e74ca3eb433bd6ac"><div class="ttname"><a href="group__doxd4d__string__type.html#ae845f84572ab1ac6e74ca3eb433bd6ac">D4D_STRING_S::pText</a></div><div class="ttdeci">D4D_TCHAR * pText</div><div class="ttdoc">pointer to text array </div><div class="ttdef"><b>Definition:</b> <a href="d4d__string_8h_source.html#l00102">d4d_string.h:102</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_a559d923ef369983d0809c3cc39a3df5a"><div class="ttname"><a href="group__doxd4d__types__type.html#a559d923ef369983d0809c3cc39a3df5a">D4D_POINT::y</a></div><div class="ttdeci">D4D_COOR y</div><div class="ttdoc">Coordination in axis Y. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00226">d4d_types.h:226</a></div></div>
+<div class="ttc" id="d4d__object_8h_html_aca1d2a0aa474af1630897c78765054a6"><div class="ttname"><a href="d4d__object_8h.html#aca1d2a0aa474af1630897c78765054a6">D4D_OBJECT_F_NOTINIT</a></div><div class="ttdeci">#define D4D_OBJECT_F_NOTINIT</div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00113">d4d_object.h:113</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_aaad42c03604f1bbff065480aac72b03c"><div class="ttname"><a href="group__doxd4d__base__type.html#aaad42c03604f1bbff065480aac72b03c">D4D_MESSAGE_S::nMsgId</a></div><div class="ttdeci">D4D_MSGID nMsgId</div><div class="ttdoc">Type of message. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00404">d4d_base.h:404</a></div></div>
+<div class="ttc" id="group__doxd4d__screen__func_html_ga1eb7eb33d47b83e63379713256eace5f"><div class="ttname"><a href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f">D4D_GetClientToScreenPoint</a></div><div class="ttdeci">D4D_POINT D4D_GetClientToScreenPoint(D4D_OBJECT *pObject, D4D_POINT *nClientPoint)</div><div class="ttdoc">The function convert client point on the screen to the global screen point. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__screen_8c_source.html#l00536">d4d_screen.c:536</a></div></div>
+<div class="ttc" id="group__doxd4d__object__type_html_struct_d4_d___o_b_j_e_c_t___s"><div class="ttname"><a href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_S</a></div><div class="ttdoc">The object main structure type definition. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00167">d4d_object.h:167</a></div></div>
+<div class="ttc" id="d4d__icon_8c_html_a29c9428934bd225223acc290d395e75f"><div class="ttname"><a href="d4d__icon_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a></div><div class="ttdeci">#define _calc</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00070">d4d_icon.c:70</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_ggad12ff85fd58969142331c6b806cefc6aada78bc4fb19bad4ada34a532547ab68d"><div class="ttname"><a href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aada78bc4fb19bad4ada34a532547ab68d">D4D_MSG_DRAW</a></div><div class="ttdoc">Draw message - is send when the object should be redrawed. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00371">d4d_base.h:371</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_gaa0c2c6a500dad45afc02baea68c403db"><div class="ttname"><a href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a></div><div class="ttdeci">signed char sByte</div><div class="ttdoc">Type definition of sByte (signed 8-bit). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00155">d4d_types.h:155</a></div></div>
+<div class="ttc" id="group__doxd4d__icon__func_html_ga91c5123a72f9617c193a3408a5fd39db"><div class="ttname"><a href="group__doxd4d__icon__func.html#ga91c5123a72f9617c193a3408a5fd39db">D4D_IconGetIndex</a></div><div class="ttdeci">D4D_ICON_INDEX D4D_IconGetIndex(D4D_OBJECT_PTR pThis)</div><div class="ttdoc">Function returns current visible bitmap index. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00207">d4d_icon.c:207</a></div></div>
+<div class="ttc" id="struct_d4_d___i_c_o_n___d_a_t_a_html_a2b8e3bb42360eb18577c79f41b230c22"><div class="ttname"><a href="struct_d4_d___i_c_o_n___d_a_t_a.html#a2b8e3bb42360eb18577c79f41b230c22">D4D_ICON_DATA::index</a></div><div class="ttdeci">D4D_ICON_INDEX index</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00123">d4d_icon.h:123</a></div></div>
+<div class="ttc" id="group__doxd4d__base__const__alignmasks_html_ga48c85b4a97dd8dfb1edab7a36a137f47"><div class="ttname"><a href="group__doxd4d__base__const__alignmasks.html#ga48c85b4a97dd8dfb1edab7a36a137f47">D4D_ALIGN_H_CENTER_MASK</a></div><div class="ttdeci">#define D4D_ALIGN_H_CENTER_MASK</div><div class="ttdoc">The horizontal center aligment option mask (for texts and also bitmaps). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00225">d4d_base.h:225</a></div></div>
+<div class="ttc" id="d4d__base_8c_html_accc5380c29749c30aab246b10c532681"><div class="ttname"><a href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681">D4D_ComputeGeometry</a></div><div class="ttdeci">void D4D_ComputeGeometry(D4D_GEOMETRY *pGeometry, D4D_OBJECT *pObject)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8c_source.html#l01016">d4d_base.c:1016</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ac3caf46346bdb18d16381f44808262d4"><div class="ttname"><a href="group__doxd4d__types__type.html#ac3caf46346bdb18d16381f44808262d4">D4D_SIZE::cy</a></div><div class="ttdeci">D4D_COOR cy</div><div class="ttdoc">Size in axis Y (height) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00233">d4d_types.h:233</a></div></div>
+<div class="ttc" id="group__doxd4d__object__type_html_struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s"><div class="ttname"><a href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION_S</a></div><div class="ttdoc">The object system function needed for each object - this is part of D4D_OBJECT main structure...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00134">d4d_object.h:134</a></div></div>
+<div class="ttc" id="struct_d4_d___i_c_o_n___d_a_t_a_html"><div class="ttname"><a href="struct_d4_d___i_c_o_n___d_a_t_a.html">D4D_ICON_DATA</a></div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00121">d4d_icon.h:121</a></div></div>
+<div class="ttc" id="struct_d4_d___i_c_o_n_html"><div class="ttname"><a href="struct_d4_d___i_c_o_n.html">D4D_ICON</a></div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00135">d4d_icon.h:135</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_ggad12ff85fd58969142331c6b806cefc6aa0dc9200ede00936d39ee379a6418030f"><div class="ttname"><a href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa0dc9200ede00936d39ee379a6418030f">D4D_MSG_TOUCHED</a></div><div class="ttdoc">Touched message - is send when the object is touched by touch screen driver. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00379">d4d_base.h:379</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga282e8e76dcee1993c566755a8976c7dc"><div class="ttname"><a href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a></div><div class="ttdeci">LWord D4D_BOOL</div><div class="ttdoc">Type definition of eGUI boolean. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00204">d4d_types.h:204</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_struct_d4_d___s_i_z_e"><div class="ttname"><a href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a></div><div class="ttdoc">Type definition of eGUI size structure. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00230">d4d_types.h:230</a></div></div>
+<div class="ttc" id="group__doxd4d__icon__type_html_gaa8eed76eceae16e4e86005b604b5e3ad"><div class="ttname"><a href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a></div><div class="ttdeci">Byte D4D_ICON_INDEX</div><div class="ttdoc">This is icon index variable, it used in API functions to choose the active icon in the list...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00108">d4d_icon.h:108</a></div></div>
+<div class="ttc" id="group__doxd4d__string__func_html_ga30a1542cae1d27c9bfcfcfd02c4c873c"><div class="ttname"><a href="group__doxd4d__string__func.html#ga30a1542cae1d27c9bfcfcfd02c4c873c">D4D_GetTextWidth</a></div><div class="ttdeci">D4D_COOR D4D_GetTextWidth(D4D_FONT ix, D4D_TCHAR *pText)</div><div class="ttdoc">The function returns width of text in pixels. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__string_8c_source.html#l00357">d4d_string.c:357</a></div></div>
+<div class="ttc" id="d4d__icon_8c_html_a5211e297326d20c332ed1f413784c2fd"><div class="ttname"><a href="d4d__icon_8c.html#a5211e297326d20c332ed1f413784c2fd">D4D_IconGetTextBuffer</a></div><div class="ttdeci">D4D_STRING * D4D_IconGetTextBuffer(D4D_OBJECT *pThis)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00345">d4d_icon.c:345</a></div></div>
+<div class="ttc" id="struct_d4_d___i_c_o_n___d_a_t_a_html_aca41334b3e18e2c926cf23be6596cde7"><div class="ttname"><a href="struct_d4_d___i_c_o_n___d_a_t_a.html#aca41334b3e18e2c926cf23be6596cde7">D4D_ICON_DATA::animationEnabled</a></div><div class="ttdeci">D4D_BOOL animationEnabled</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00126">d4d_icon.h:126</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_a47e2d41ba1f83dd4d861f430548850df"><div class="ttname"><a href="group__doxd4d__base__type.html#a47e2d41ba1f83dd4d861f430548850df">D4D_MESSAGE_S::draw</a></div><div class="ttdeci">D4D_OBJECT_DRAWFLAGS draw</div><div class="ttdoc">Contains draw flags - is valid with D4D_MSG_DRAW and D4D_MSG_DRAWDONE message. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00408">d4d_base.h:408</a></div></div>
+<div class="ttc" id="group__doxd4d__object__func_html_gaa9f46d48550c211ae359d6469f1a1be3"><div class="ttname"><a href="group__doxd4d__object__func.html#gaa9f46d48550c211ae359d6469f1a1be3">D4D_EnableTimeTicks</a></div><div class="ttdeci">void D4D_EnableTimeTicks(D4D_OBJECT_PTR pObj, D4D_BOOL bEnable)</div><div class="ttdoc">Function enable or diasble receiving timeticks for an OBJECT. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8c_source.html#l00172">d4d_object.c:172</a></div></div>
+<div class="ttc" id="group__doxd4d__icon__func_html_ga95d72deffa099e2d17a482b2f0997080"><div class="ttname"><a href="group__doxd4d__icon__func.html#ga95d72deffa099e2d17a482b2f0997080">D4D_IconAnimationStop</a></div><div class="ttdeci">void D4D_IconAnimationStop(D4D_OBJECT_PTR pThis)</div><div class="ttdoc">Function stops the animation of icon. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00242">d4d_icon.c:242</a></div></div>
+<div class="ttc" id="group__doxd4d__icon__const_html_ga0f75e0c638fd6ec9e7dd657ca890fa51"><div class="ttname"><a href="group__doxd4d__icon__const.html#ga0f75e0c638fd6ec9e7dd657ca890fa51">D4D_ICON_ANIMATION_TICK_COUNTER</a></div><div class="ttdeci">#define D4D_ICON_ANIMATION_TICK_COUNTER</div><div class="ttdoc">This is icon animation time tick timeout (in ticks of eGUI time ticks - D4D_TimeTickPut), it can be changed in runtime. If not defined, it sets to ( 4 ) as a default. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00085">d4d_icon.h:85</a></div></div>
+<div class="ttc" id="d4d__icon_8c_html_afae00088914b63ae0bd0ad9999ef3140"><div class="ttname"><a href="d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140">D4D_IconOnDraw</a></div><div class="ttdeci">static void D4D_IconOnDraw(D4D_MESSAGE *pMsg)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00091">d4d_icon.c:91</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_struct_d4_d___g_e_o_m_e_t_r_y"><div class="ttname"><a href="group__doxd4d__types__type.html#struct_d4_d___g_e_o_m_e_t_r_y">D4D_GEOMETRY</a></div><div class="ttdoc">Type definition of eGUI geometry structure. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00237">d4d_types.h:237</a></div></div>
+<div class="ttc" id="struct_d4_d___i_c_o_n___d_a_t_a_html_a9478930a7420351529748f0c228c6a83"><div class="ttname"><a href="struct_d4_d___i_c_o_n___d_a_t_a.html#a9478930a7420351529748f0c228c6a83">D4D_ICON_DATA::tickCounterTrshld</a></div><div class="ttdeci">Word tickCounterTrshld</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00128">d4d_icon.h:128</a></div></div>
+<div class="ttc" id="struct_d4_d___i_c_o_n_html_a0282e8131234174f2a773cdb658f0252"><div class="ttname"><a href="struct_d4_d___i_c_o_n.html#a0282e8131234174f2a773cdb658f0252">D4D_ICON::textBuff</a></div><div class="ttdeci">D4D_STRING textBuff</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8h_source.html#l00137">d4d_icon.h:137</a></div></div>
+<div class="ttc" id="group__doxd4d__base__const__alignmasks_html_ga207a5d3859b158a4662582d72c7dd6b6"><div class="ttname"><a href="group__doxd4d__base__const__alignmasks.html#ga207a5d3859b158a4662582d72c7dd6b6">D4D_ALIGN_V_TOP_MASK</a></div><div class="ttdeci">#define D4D_ALIGN_V_TOP_MASK</div><div class="ttdoc">The vertical top aligment option mask (for texts and also bitmaps). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00230">d4d_base.h:230</a></div></div>
+<div class="ttc" id="group__doxd4d__icon__func_html_ga95c35a5b19281ec8b5461304adbae0d3"><div class="ttname"><a href="group__doxd4d__icon__func.html#ga95c35a5b19281ec8b5461304adbae0d3">D4D_IconGetBmpCount</a></div><div class="ttdeci">D4D_ICON_INDEX D4D_IconGetBmpCount(D4D_OBJECT_PTR pThis)</div><div class="ttdoc">Function returns the icon bitmap count. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00137">d4d_icon.c:137</a></div></div>
+<div class="ttc" id="d4d__icon_8c_html_af58fc9c0e43d41472f4f9d3addf2474d"><div class="ttname"><a href="d4d__icon_8c.html#af58fc9c0e43d41472f4f9d3addf2474d">d4d_iconSysFunc</a></div><div class="ttdeci">const D4D_OBJECT_SYS_FUNCTION d4d_iconSysFunc</div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00054">d4d_icon.c:54</a></div></div>
+<div class="ttc" id="group__doxd4d__object__func_html_gaefb01366bfbf9ac020c19584a2a3c3b9"><div class="ttname"><a href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9">D4D_InvalidateObject</a></div><div class="ttdeci">void D4D_InvalidateObject(D4D_OBJECT_PTR pObject, D4D_BOOL bComplete)</div><div class="ttdoc">Function invalidate object to redraw on screen. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8c_source.html#l00071">d4d_object.c:71</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_ga484e26d234a753cbb498c29fa9da90f0"><div class="ttname"><a href="group__doxd4d__base__type.html#ga484e26d234a753cbb498c29fa9da90f0">D4D_OBJECT_DRAWFLAGS</a></div><div class="ttdeci">Byte D4D_OBJECT_DRAWFLAGS</div><div class="ttdoc">Drawing object flags type, handled to object in D4D_MSG_DRAW events. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00359">d4d_base.h:359</a></div></div>
+<div class="ttc" id="group__doxd4d__icon__func_html_gac995ed6c5a43718a15c84bc7945831d9"><div class="ttname"><a href="group__doxd4d__icon__func.html#gac995ed6c5a43718a15c84bc7945831d9">D4D_IconSetIndex</a></div><div class="ttdeci">void D4D_IconSetIndex(D4D_OBJECT_PTR pThis, D4D_ICON_INDEX index)</div><div class="ttdoc">Function sets the new bitmap of icon by icon index. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00158">d4d_icon.c:158</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_gaa5900ad2e15cbb6e0cb577ca31bfb891"><div class="ttname"><a href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a></div><div class="ttdeci">LWord D4D_COLOR</div><div class="ttdoc">Type definition of eGUI color variables. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00262">d4d_types.h:262</a></div></div>
+<div class="ttc" id="group__doxd4d__icon__func_html_ga78b220f62c90293dc7322f536b642ed7"><div class="ttname"><a href="group__doxd4d__icon__func.html#ga78b220f62c90293dc7322f536b642ed7">D4D_IconAnimationSetCounts</a></div><div class="ttdeci">void D4D_IconAnimationSetCounts(D4D_OBJECT_PTR pThis, Word cnt)</div><div class="ttdoc">Function sets the time tick tresholds for animation speed. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00259">d4d_icon.c:259</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_a091fdaa012d36f085ba2c6465b195718"><div class="ttname"><a href="group__doxd4d__base__type.html#a091fdaa012d36f085ba2c6465b195718">D4D_MESSAGE_S::pScreen</a></div><div class="ttdeci">struct D4D_SCREEN_S * pScreen</div><div class="ttdoc">Pointer to screen who is receiver of this message. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00403">d4d_base.h:403</a></div></div>
+<div class="ttc" id="group__doxd4d__icon__func_html_ga7e63c380dbb0c6237f6282db00c8e08c"><div class="ttname"><a href="group__doxd4d__icon__func.html#ga7e63c380dbb0c6237f6282db00c8e08c">D4D_IconChangeIndex</a></div><div class="ttdeci">void D4D_IconChangeIndex(D4D_OBJECT_PTR pThis, sByte incr)</div><div class="ttdoc">Function sets the new bitmap of icon by icon index difference. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__icon_8c_source.html#l00190">d4d_icon.c:190</a></div></div>
+<div class="ttc" id="d4d__font_8c_html_aae629b70981b64e916bda3d9229f7e83"><div class="ttname"><a href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83">D4D_GetFontHeight</a></div><div class="ttdeci">D4D_FONT_SIZE D4D_GetFontHeight(D4D_FONT ix)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__font_8c_source.html#l00381">d4d_font.c:381</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_gafc195f1f7876b0c82fcc3cb86dec59f9"><div class="ttname"><a href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a></div><div class="ttdeci">unsigned short Word</div><div class="ttdoc">Type definition of Word (unsigned 16-bit). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00159">d4d_types.h:159</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_a14b95612df1026b6a956ac9e2f64cd9d"><div class="ttname"><a href="group__doxd4d__types__type.html#a14b95612df1026b6a956ac9e2f64cd9d">D4D_POINT::x</a></div><div class="ttdeci">D4D_COOR x</div><div class="ttdoc">Coordination in axis X. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00225">d4d_types.h:225</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_a65e56fff8e0b0136541d1cf58a3a5be4"><div class="ttname"><a href="group__doxd4d__base__type.html#a65e56fff8e0b0136541d1cf58a3a5be4">D4D_MESSAGE_S::prm</a></div><div class="ttdeci">union D4D_MESSAGE_S::@0 prm</div><div class="ttdoc">Additional data for some type of messages. </div></div>
+<div class="ttc" id="group__doxd4d__object__func_html_gada4f81524444a3cabef73d4fa2988b15"><div class="ttname"><a href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15">D4D_IsEnabled</a></div><div class="ttdeci">D4D_BOOL D4D_IsEnabled(D4D_OBJECT *pObject)</div><div class="ttdoc">Function find out if the object is enabled or not. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8c_source.html#l00303">d4d_object.c:303</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__icon_8c.html">d4d_icon.c</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:00 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

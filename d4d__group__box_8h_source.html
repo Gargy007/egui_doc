@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_group_box.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__group__box_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">d4d_group_box.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="d4d__group__box_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">* This program is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">* but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">* You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">* and the GNU Lesser General Public License along with this program.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">* If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">***************************************************************************/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#ifndef __D4D_GROUP_BOX_H</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __D4D_GROUP_BOX_H</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION</a> <a class="code" href="d4d__group__box_8c.html#a7453dabb411ca55843934dbc75cb06ab">d4d_groupBoxSysFunc</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">* D4D GROUP BOX setting  constants</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//********************* Group Box flags for its specific flags *****************</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__const__flags.html#gad516c7eece76aaf68f1dfcf0d717033b">   69</a></span>&#160;<span class="comment"></span><span class="preprocessor">  #define D4D_GROUP_BOX_F_CONTENT_OUTLINE            (0x01 &lt;&lt; D4D_OBJECT_F_OBJECT_SHIFT)        </span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#ifndef D4D_GROUP_BOX_F_DEFAULT</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__const.html#gabccb9c35e692e5a920eb250fe5f220e2">   77</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_GROUP_BOX_F_DEFAULT  (D4D_OBJECT_F_VISIBLE | D4D_OBJECT_F_ENABLED | D4D_OBJECT_F_MOUSE_NORMAL |  D4D_OBJECT_F_TOUCHENABLE | D4D_OBJECT_F_BEVEL_RAISED | D4D_GROUP_BOX_F_CONTENT_OUTLINE)</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#ifndef D4D_GROUP_BOX_TEXT_OFFSET</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__const.html#gaf25d3cf7258d9c5ef78c0d15d32240cd">   83</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_GROUP_BOX_TEXT_OFFSET 6</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#ifndef D4D_GROUP_BOX_HEADER_MARGIN</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__const.html#gab5ae535787989d618191b68af682738c">   89</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_GROUP_BOX_HEADER_MARGIN 16</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#ifndef D4D_GROUP_BOX_FRAME_MARGIN</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__const.html#ga8dccbbac1053f1e7680b9d2736254e2f">   95</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_GROUP_BOX_FRAME_MARGIN 4</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">* Types</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">******************************************************************************/</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">// groupBox configuration (goes to ROM by default)</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_o_u_p___b_o_x.html">  106</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_o_u_p___b_o_x.html#a0282e8131234174f2a773cdb658f0252">  108</a></span>&#160;    <a class="code" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s">D4D_STRING</a> <a class="code" href="struct_d4_d___g_r_o_u_p___b_o_x.html#a0282e8131234174f2a773cdb658f0252">textBuff</a>;    <span class="comment">// group box text    </span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;} <a class="code" href="struct_d4_d___g_r_o_u_p___b_o_x.html">D4D_GROUP_BOX</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">* Macros </span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">******************************************************************************/</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">// getting the GROUP_BOX structure from general OBJECT</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="d4d__group__box_8h.html#a961292b94d87218e8e7afddd160cef54">  117</a></span>&#160;<span class="preprocessor">#define D4D_GET_GROUP_BOX(pObj) ((D4D_GROUP_BOX*)((pObj)-&gt;pParam))</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">* D4D GROUP BOX setting  public macros</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__macro.html#ga8252ed5fe00afb3776535fd75d45bcec">  148</a></span>&#160;<span class="preprocessor">#define _D4D_DECLARE_GROUP_BOX(type, name, x, y, cx, cy, radius, pMargin, pRelations, text, fontId, flags, pScheme, pUser, pOnUsrMsg) \</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor">    static D4D_STR_PROPERTIES name##_strPrties = { D4D_FNT_PRTY_TRANSPARENT_NO_MASK, (D4D_TXT_PRTY_ALIGN_H_CENTER_MASK | D4D_TXT_PRTY_ALIGN_V_CENTER_MASK)}; \</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">    static type D4D_GROUP_BOX name##_params = \</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">    { \</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">        { text, sizeof(text), fontId,  &amp;name##_strPrties, D4D_OBJECT_MAX_TEXT_LEN(text), 0}, </span><span class="comment">/* textBuff */</span><span class="preprocessor"> \</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">    }; \</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor">    \</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">    D4D_DECLARE_OBJECT(type, name, x, y, cx, cy, radius, pMargin, pRelations, pOnUsrMsg, &amp;d4d_groupBoxSysFunc, &amp;(name##_params), flags, pUser, pScheme)</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor"></span>   </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;   </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;   </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__macro.html#ga5e1ad291c833044a2c84d23425f1a06a">  190</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_GROUP_BOX_BEGIN(name, x, y, cx, cy, radius, pParent, pMargin, text, fontId, flags, pScheme, pUser, pOnUsrMsg)\</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">    extern const D4D_OBJECT* const name##_pRelations[];\</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">    _D4D_DECLARE_GROUP_BOX(D4D_CONST, name, x, y, cx, cy, radius, pMargin, name##_pRelations, text, fontId, flags, pScheme, pUser, pOnUsrMsg)\</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">    D4D_DECLARE_OBJECT_RELATIONS_BEGIN(name##_pRelations, pParent)</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__macro.html#ga09887684b2b461dd95d410d3e232e16b">  208</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_GROUP_BOX_OBJECT(name)  D4D_DECLARE_OBJECT_RELATIONS_CHILD(name)</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__macro.html#ga8ffe382191d09292e7fc58bab5b351a6">  222</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_GROUP_BOX_OBJECT_END    D4D_DECLARE_OBJECT_RELATIONS_END</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__macro.html#gae078df3860d55007402608e68e34e01d">  250</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STD_GROUP_BOX_BEGIN(name, x, y, cx, cy, radius, pParent, text, fontId) \</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="preprocessor">  D4D_DECLARE_GROUP_BOX_BEGIN(name, x, y, cx, cy, radius, pParent, &amp;groupBox_marginDefault, text, fontId, (D4D_GROUP_BOX_F_DEFAULT), NULL, NULL, NULL)</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">//IN RAM instantions macros</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__macro.html#gae44a1c53b3aeb94ee56fce6ccb9a2050">  258</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_GROUP_BOX_BEGIN_INRAM(name, x, y, cx, cy, radius, pParent, pMargin, text, fontId, flags, pScheme, pUser, pOnUsrMsg)\</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="preprocessor">    extern const D4D_OBJECT* const name##_pRelations[];\</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="preprocessor">    _D4D_DECLARE_GROUP_BOX(D4D_NO_CONST, name, x, y, cx, cy, radius, pMargin, name##_pRelations, text, fontId, flags, pScheme, pUser, pOnUsrMsg)\</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="preprocessor">    D4D_DECLARE_OBJECT_RELATIONS_BEGIN(name##_pRelations, pParent)      </span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="group__doxd4d__group__box__macro.html#gacdb47034d2eb990e1b70f18543686874">  266</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STD_GROUP_BOX_BEGIN_INRAM(name, x, y, cx, cy, radius, pParent, text, fontId) \</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="preprocessor">  D4D_DECLARE_GROUP_BOX_BEGIN_INRAM(name, x, y, cx, cy, radius, pParent, &amp;groupBox_marginDefault, text, fontId, (D4D_GROUP_BOX_F_DEFAULT), NULL,  NULL, NULL) </span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="comment">* Global variables</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="comment">******************************************************************************/</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;   </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="keyword">extern</span> <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a> <a class="code" href="d4d__group__box_8c.html#ae5e6cafbd1902daa349c9d8beac4e34f">groupBox_marginDefault</a>;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="comment">* Global functions</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="comment">******************************************************************************/</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __D4D_GROUP_BOX_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="struct_d4_d___g_r_o_u_p___b_o_x_html_a0282e8131234174f2a773cdb658f0252"><div class="ttname"><a href="struct_d4_d___g_r_o_u_p___b_o_x.html#a0282e8131234174f2a773cdb658f0252">D4D_GROUP_BOX::textBuff</a></div><div class="ttdeci">D4D_STRING textBuff</div><div class="ttdef"><b>Definition:</b> <a href="d4d__group__box_8h_source.html#l00108">d4d_group_box.h:108</a></div></div>
+<div class="ttc" id="group__doxd4d__string__type_html_struct_d4_d___s_t_r_i_n_g___s"><div class="ttname"><a href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s">D4D_STRING_S</a></div><div class="ttdoc">The string type. This structure contains all properties about string in eGUI. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__string_8h_source.html#l00100">d4d_string.h:100</a></div></div>
+<div class="ttc" id="struct_d4_d___g_r_o_u_p___b_o_x_html"><div class="ttname"><a href="struct_d4_d___g_r_o_u_p___b_o_x.html">D4D_GROUP_BOX</a></div><div class="ttdef"><b>Definition:</b> <a href="d4d__group__box_8h_source.html#l00106">d4d_group_box.h:106</a></div></div>
+<div class="ttc" id="d4d__group__box_8c_html_a7453dabb411ca55843934dbc75cb06ab"><div class="ttname"><a href="d4d__group__box_8c.html#a7453dabb411ca55843934dbc75cb06ab">d4d_groupBoxSysFunc</a></div><div class="ttdeci">const D4D_OBJECT_SYS_FUNCTION d4d_groupBoxSysFunc</div><div class="ttdef"><b>Definition:</b> <a href="d4d__group__box_8c_source.html#l00061">d4d_group_box.c:61</a></div></div>
+<div class="ttc" id="d4d__group__box_8c_html_ae5e6cafbd1902daa349c9d8beac4e34f"><div class="ttname"><a href="d4d__group__box_8c.html#ae5e6cafbd1902daa349c9d8beac4e34f">groupBox_marginDefault</a></div><div class="ttdeci">D4D_MARGIN groupBox_marginDefault</div><div class="ttdef"><b>Definition:</b> <a href="d4d__group__box_8c_source.html#l00053">d4d_group_box.c:53</a></div></div>
+<div class="ttc" id="group__doxd4d__object__type_html_struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s"><div class="ttname"><a href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION_S</a></div><div class="ttdoc">The object system function needed for each object - this is part of D4D_OBJECT main structure...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00134">d4d_object.h:134</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_struct_d4_d___m_a_r_g_i_n"><div class="ttname"><a href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a></div><div class="ttdoc">Type definition of eGUI client area margin structure. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00244">d4d_types.h:244</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__group__box_8h.html">d4d_group_box.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:00 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

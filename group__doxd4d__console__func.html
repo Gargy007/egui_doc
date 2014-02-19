@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D CONSOLE API Functions Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__console__func.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D CONSOLE API Functions Specification<div class="ingroups"><a class="el" href="group__doxd4d__console.html">D4D Console Widget</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D CONSOLE API Functions Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__console__func.gif" border="0" alt="" usemap="#group____doxd4d____console____func"/>
+<map name="group____doxd4d____console____func" id="group____doxd4d____console____func">
+<area shape="rect" id="node1" href="group__doxd4d__console.html" title="D4D Console Widget" alt="" coords="6,12,149,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga826950533ef85db079652105cec49441"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__console__func.html#ga826950533ef85db079652105cec49441">D4D_CnslPutChar</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> ch)</td></tr>
+<tr class="memdesc:ga826950533ef85db079652105cec49441"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function puts one char on cursor position and updates cursor.  <a href="#ga826950533ef85db079652105cec49441">More...</a><br/></td></tr>
+<tr class="separator:ga826950533ef85db079652105cec49441"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa0fa842e0211a956e39193c0600cef5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__console__func.html#gaa0fa842e0211a956e39193c0600cef5c">D4D_CnslPutString</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *pText)</td></tr>
+<tr class="memdesc:gaa0fa842e0211a956e39193c0600cef5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function puts string on cursor position and updates cursor.  <a href="#gaa0fa842e0211a956e39193c0600cef5c">More...</a><br/></td></tr>
+<tr class="separator:gaa0fa842e0211a956e39193c0600cef5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5668d3c9c114b7057564b40e9f94f39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__console__func.html#gab5668d3c9c114b7057564b40e9f94f39">D4D_CnslClearLine</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj, <a class="el" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> line)</td></tr>
+<tr class="memdesc:gab5668d3c9c114b7057564b40e9f94f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function clear one line in console.  <a href="#gab5668d3c9c114b7057564b40e9f94f39">More...</a><br/></td></tr>
+<tr class="separator:gab5668d3c9c114b7057564b40e9f94f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga37d178734f9df81830be2807c4aff49b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__console__func.html#ga37d178734f9df81830be2807c4aff49b">D4D_CnslGoToXY</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> newPosition)</td></tr>
+<tr class="memdesc:ga37d178734f9df81830be2807c4aff49b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function move cursor on new position if possible.  <a href="#ga37d178734f9df81830be2807c4aff49b">More...</a><br/></td></tr>
+<tr class="separator:ga37d178734f9df81830be2807c4aff49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1fffa43ac111aecaea887659dba5a1ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__console__func.html#ga1fffa43ac111aecaea887659dba5a1ac">D4D_CnslGetCursor</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj)</td></tr>
+<tr class="memdesc:ga1fffa43ac111aecaea887659dba5a1ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function returns the cursor position.  <a href="#ga1fffa43ac111aecaea887659dba5a1ac">More...</a><br/></td></tr>
+<tr class="separator:ga1fffa43ac111aecaea887659dba5a1ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab75a500a23b24cd9f4c461d98e44487"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__console__func.html#gaab75a500a23b24cd9f4c461d98e44487">D4D_CnslEnsureVisible</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj)</td></tr>
+<tr class="memdesc:gaab75a500a23b24cd9f4c461d98e44487"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function update automatically the scroll bars to ensure visible position of cursor.  <a href="#gaab75a500a23b24cd9f4c461d98e44487">More...</a><br/></td></tr>
+<tr class="separator:gaab75a500a23b24cd9f4c461d98e44487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8043f01a19533df48ae3892fcd8238f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__console__func.html#ga8043f01a19533df48ae3892fcd8238f6">D4D_CnslSetScrollBarPosition</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj, <a class="el" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> hor, <a class="el" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> ver)</td></tr>
+<tr class="memdesc:ga8043f01a19533df48ae3892fcd8238f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function move the scroll bars on to new position if it's applicable.  <a href="#ga8043f01a19533df48ae3892fcd8238f6">More...</a><br/></td></tr>
+<tr class="separator:ga8043f01a19533df48ae3892fcd8238f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84bb597512954981d91073e64a734222"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__console__func.html#ga84bb597512954981d91073e64a734222">D4D_CnslGetScrollBarPosition</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj)</td></tr>
+<tr class="memdesc:ga84bb597512954981d91073e64a734222"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function returns the scroll bars position.  <a href="#ga84bb597512954981d91073e64a734222">More...</a><br/></td></tr>
+<tr class="separator:ga84bb597512954981d91073e64a734222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga65b164b0169a9baf208c9d1fb78b0fd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__console__func.html#ga65b164b0169a9baf208c9d1fb78b0fd7">D4D_CnslClearAll</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj)</td></tr>
+<tr class="memdesc:ga65b164b0169a9baf208c9d1fb78b0fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function clear whole console data.  <a href="#ga65b164b0169a9baf208c9d1fb78b0fd7">More...</a><br/></td></tr>
+<tr class="separator:ga65b164b0169a9baf208c9d1fb78b0fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact usage for each API function.</p>
+<p>THE EXTERNAL API FUNCTIONS </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga65b164b0169a9baf208c9d1fb78b0fd7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_CnslClearAll </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pObj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function clear whole console data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pObj</td><td>- pointer to the console object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>It's take something like software reset to default state of console. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__console_8c_source.html#l00734">734</a> of file <a class="el" href="d4d__console_8c_source.html">d4d_console.c</a>.</p>
+
+<p>References <a class="el" href="d4d__console_8h_source.html#l00133">D4D_CNSL_DATA_S::cursorPos</a>, <a class="el" href="d4d__types_8h_source.html#l00232">D4D_SIZE::cx</a>, <a class="el" href="d4d__types_8h_source.html#l00233">D4D_SIZE::cy</a>, <a class="el" href="d4d__console_8h_source.html#l00124">D4D_CNSL_FLAGS_CHECKLINE</a>, <a class="el" href="d4d__console_8h_source.html#l00125">D4D_CNSL_FLAGS_REDRAWALL</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__console_8h_source.html#l00159">D4D_GET_CONSOLE</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__console_8h_source.html#l00134">D4D_CNSL_DATA_S::flags</a>, <a class="el" href="d4d__console_8h_source.html#l00147">D4D_CONSOLE::pData</a>, <a class="el" href="d4d__console_8h_source.html#l00143">D4D_CONSOLE::pTxtArr</a>, <a class="el" href="d4d__console_8h_source.html#l00144">D4D_CONSOLE::txtArrSize</a>, <a class="el" href="d4d__types_8h_source.html#l00225">D4D_POINT::x</a>, and <a class="el" href="d4d__types_8h_source.html#l00226">D4D_POINT::y</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__console__func_ga65b164b0169a9baf208c9d1fb78b0fd7_cgraph.gif" border="0" usemap="#group__doxd4d__console__func_ga65b164b0169a9baf208c9d1fb78b0fd7_cgraph" alt=""/></div>
+<map name="group__doxd4d__console__func_ga65b164b0169a9baf208c9d1fb78b0fd7_cgraph" id="group__doxd4d__console__func_ga65b164b0169a9baf208c9d1fb78b0fd7_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="179,29,325,56"/><area shape="rect" id="node3" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="373,29,517,56"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gab5668d3c9c114b7057564b40e9f94f39"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_CnslClearLine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pObj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a>&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function clear one line in console. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pObj</td><td>- pointer to the console object </td></tr>
+    <tr><td class="paramname">line</td><td>- index of line that should be cleared </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__console_8c_source.html#l00619">619</a> of file <a class="el" href="d4d__console_8c_source.html">d4d_console.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00232">D4D_SIZE::cx</a>, <a class="el" href="d4d__types_8h_source.html#l00233">D4D_SIZE::cy</a>, <a class="el" href="d4d__console_8h_source.html#l00159">D4D_GET_CONSOLE</a>, <a class="el" href="d4d__console_8h_source.html#l00132">D4D_CNSL_DATA_S::lastLineIx</a>, <a class="el" href="d4d__console_8h_source.html#l00147">D4D_CONSOLE::pData</a>, <a class="el" href="d4d__console_8h_source.html#l00143">D4D_CONSOLE::pTxtArr</a>, and <a class="el" href="d4d__console_8h_source.html#l00144">D4D_CONSOLE::txtArrSize</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__console_8c_source.html#l00443">D4D_CnslNewLine()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__console__func_gab5668d3c9c114b7057564b40e9f94f39_icgraph.gif" border="0" usemap="#group__doxd4d__console__func_gab5668d3c9c114b7057564b40e9f94f39_icgraph" alt=""/></div>
+<map name="group__doxd4d__console__func_gab5668d3c9c114b7057564b40e9f94f39_icgraph" id="group__doxd4d__console__func_gab5668d3c9c114b7057564b40e9f94f39_icgraph">
+<area shape="rect" id="node2" href="d4d__console_8c.html#ad4ecb03f16735d20cc49ffbb756d7a37" title="D4D_CnslNewLine" alt="" coords="190,5,319,32"/><area shape="rect" id="node3" href="group__doxd4d__console__func.html#ga826950533ef85db079652105cec49441" title="The function puts one char on cursor position and updates cursor. " alt="" coords="558,5,685,32"/><area shape="rect" id="node5" href="d4d__console_8c.html#a4228dfd77d8dbf3a3f12c532561228eb" title="D4D_CnslPutCharInt" alt="" coords="368,31,509,57"/><area shape="rect" id="node4" href="group__doxd4d__console__func.html#gaa0fa842e0211a956e39193c0600cef5c" title="The function puts string on cursor position and updates cursor. " alt="" coords="734,5,869,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gaab75a500a23b24cd9f4c461d98e44487"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_CnslEnsureVisible </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pObj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function update automatically the scroll bars to ensure visible position of cursor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pObj</td><td>- pointer to the console object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__console_8c_source.html#l00680">680</a> of file <a class="el" href="d4d__console_8c_source.html">d4d_console.c</a>.</p>
+
+<p>References <a class="el" href="d4d__console_8c_source.html#l00405">D4D_CnslUpdateScrollbars()</a>, and <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__console__func_gaab75a500a23b24cd9f4c461d98e44487_cgraph.gif" border="0" usemap="#group__doxd4d__console__func_gaab75a500a23b24cd9f4c461d98e44487_cgraph" alt=""/></div>
+<map name="group__doxd4d__console__func_gaab75a500a23b24cd9f4c461d98e44487_cgraph" id="group__doxd4d__console__func_gaab75a500a23b24cd9f4c461d98e44487_cgraph">
+<area shape="rect" id="node2" href="d4d__console_8c.html#aed9184953b7b6029a5d06c8dcf9313c9" title="D4D_CnslUpdateScrollbars" alt="" coords="213,136,392,163"/><area shape="rect" id="node3" href="d4d__console_8c.html#af24a955ab36f6586cc5ca859caf7e45e" title="D4D_CnslValue2Coor" alt="" coords="445,107,592,133"/><area shape="rect" id="node15" href="group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="440,192,597,219"/><area shape="rect" id="node4" href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="645,5,808,32"/><area shape="rect" id="node5" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="857,56,1050,83"/><area shape="rect" id="node12" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1309,107,1448,133"/><area shape="rect" id="node14" href="d4d__font_8c.html#a361368f9b194c61a3f510a6dbd13cd4a" title="D4D_GetFontWidth" alt="" coords="1113,157,1247,184"/><area shape="rect" id="node6" href="d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="1099,56,1261,83"/><area shape="rect" id="node7" href="group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1309,56,1448,83"/><area shape="rect" id="node8" href="group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1496,56,1640,83"/><area shape="rect" id="node9" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1692,5,1839,32"/><area shape="rect" id="node10" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1688,56,1843,83"/><area shape="rect" id="node11" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1714,107,1817,133"/><area shape="rect" id="node13" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1517,132,1619,159"/><area shape="rect" id="node16" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="654,220,799,247"/><area shape="rect" id="node17" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="881,232,1025,259"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga1fffa43ac111aecaea887659dba5a1ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> D4D_CnslGetCursor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pObj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function returns the cursor position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pObj</td><td>- pointer to the console object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>cursor position </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__console_8c_source.html#l00664">664</a> of file <a class="el" href="d4d__console_8c_source.html">d4d_console.c</a>.</p>
+
+<p>References <a class="el" href="d4d__console_8h_source.html#l00133">D4D_CNSL_DATA_S::cursorPos</a>, <a class="el" href="d4d__console_8h_source.html#l00160">D4D_GET_CONSOLE_DATA</a>, <a class="el" href="d4d__base_8c_source.html#l00075">d4d_point_zero</a>, and <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga84bb597512954981d91073e64a734222"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> D4D_CnslGetScrollBarPosition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pObj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function returns the scroll bars position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pObj</td><td>- pointer to the console object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>scroll bars position </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__console_8c_source.html#l00715">715</a> of file <a class="el" href="d4d__console_8c_source.html">d4d_console.c</a>.</p>
+
+<p>References <a class="el" href="d4d__console_8h_source.html#l00161">D4D_GET_LIST_BOX_SCROLL_BAR_HOR</a>, <a class="el" href="d4d__console_8h_source.html#l00162">D4D_GET_LIST_BOX_SCROLL_BAR_VER</a>, <a class="el" href="d4d__base_8c_source.html#l00075">d4d_point_zero</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00457">D4D_ScrlBrGetPosition()</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__types_8h_source.html#l00225">D4D_POINT::x</a>, and <a class="el" href="d4d__types_8h_source.html#l00226">D4D_POINT::y</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__console__func_ga84bb597512954981d91073e64a734222_cgraph.gif" border="0" usemap="#group__doxd4d__console__func_ga84bb597512954981d91073e64a734222_cgraph" alt=""/></div>
+<map name="group__doxd4d__console__func_ga84bb597512954981d91073e64a734222_cgraph" id="group__doxd4d__console__func_ga84bb597512954981d91073e64a734222_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__scroll__bar__func.html#ga0d95ab40880b3119168a0dd0f5a58800" title="The function gets the scroll bar position. " alt="" coords="257,5,415,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga37d178734f9df81830be2807c4aff49b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_CnslGoToXY </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pObj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a>&#160;</td>
+          <td class="paramname"><em>newPosition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function move cursor on new position if possible. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pObj</td><td>- pointer to the console object </td></tr>
+    <tr><td class="paramname">newPosition</td><td>- new cursor position </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The new position of cursor is set if it's possible. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__console_8c_source.html#l00643">643</a> of file <a class="el" href="d4d__console_8c_source.html">d4d_console.c</a>.</p>
+
+<p>References <a class="el" href="d4d__console_8h_source.html#l00133">D4D_CNSL_DATA_S::cursorPos</a>, <a class="el" href="d4d__types_8h_source.html#l00232">D4D_SIZE::cx</a>, <a class="el" href="d4d__types_8h_source.html#l00233">D4D_SIZE::cy</a>, <a class="el" href="d4d__console_8h_source.html#l00124">D4D_CNSL_FLAGS_CHECKLINE</a>, <a class="el" href="d4d__console_8h_source.html#l00125">D4D_CNSL_FLAGS_REDRAWALL</a>, <a class="el" href="d4d__console_8h_source.html#l00159">D4D_GET_CONSOLE</a>, <a class="el" href="d4d__console_8h_source.html#l00134">D4D_CNSL_DATA_S::flags</a>, <a class="el" href="d4d__console_8h_source.html#l00147">D4D_CONSOLE::pData</a>, <a class="el" href="d4d__console_8h_source.html#l00144">D4D_CONSOLE::txtArrSize</a>, <a class="el" href="d4d__types_8h_source.html#l00225">D4D_POINT::x</a>, and <a class="el" href="d4d__types_8h_source.html#l00226">D4D_POINT::y</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga826950533ef85db079652105cec49441"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> D4D_CnslPutChar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pObj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function puts one char on cursor position and updates cursor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pObj</td><td>- pointer to the console object </td></tr>
+    <tr><td class="paramname">ch</td><td>- char that will be puts on console </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>D4D_TRUE - cursor was wrapped / D4D_FALSE - cursor was not wrapped </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The result returns if the cursor has been wrapped or not. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__console_8c_source.html#l00498">498</a> of file <a class="el" href="d4d__console_8c_source.html">d4d_console.c</a>.</p>
+
+<p>References <a class="el" href="d4d__console_8h_source.html#l00133">D4D_CNSL_DATA_S::cursorPos</a>, <a class="el" href="d4d__types_8h_source.html#l00232">D4D_SIZE::cx</a>, <a class="el" href="d4d__types_8h_source.html#l00233">D4D_SIZE::cy</a>, <a class="el" href="d4d__console_8h_source.html#l00126">D4D_CNSL_FLAGS_REDRAWLINE</a>, <a class="el" href="d4d__console_8c_source.html#l00443">D4D_CnslNewLine()</a>, <a class="el" href="d4d__console_8c_source.html#l00352">D4D_CnslPutCharInt()</a>, <a class="el" href="d4d__console_8c_source.html#l00405">D4D_CnslUpdateScrollbars()</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__console_8h_source.html#l00159">D4D_GET_CONSOLE</a>, <a class="el" href="d4d__console_8h_source.html#l00160">D4D_GET_CONSOLE_DATA</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__console_8h_source.html#l00134">D4D_CNSL_DATA_S::flags</a>, <a class="el" href="d4d__console_8h_source.html#l00132">D4D_CNSL_DATA_S::lastLineIx</a>, <a class="el" href="d4d__console_8h_source.html#l00143">D4D_CONSOLE::pTxtArr</a>, <a class="el" href="d4d__console_8h_source.html#l00146">D4D_CONSOLE::tabSize</a>, <a class="el" href="d4d__console_8h_source.html#l00144">D4D_CONSOLE::txtArrSize</a>, <a class="el" href="d4d__types_8h_source.html#l00225">D4D_POINT::x</a>, and <a class="el" href="d4d__types_8h_source.html#l00226">D4D_POINT::y</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__console_8c_source.html#l00579">D4D_CnslPutString()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__console__func_ga826950533ef85db079652105cec49441_cgraph.gif" border="0" usemap="#group__doxd4d__console__func_ga826950533ef85db079652105cec49441_cgraph" alt=""/></div>
+<map name="group__doxd4d__console__func_ga826950533ef85db079652105cec49441_cgraph" id="group__doxd4d__console__func_ga826950533ef85db079652105cec49441_cgraph">
+<area shape="rect" id="node2" href="d4d__console_8c.html#ad4ecb03f16735d20cc49ffbb756d7a37" title="D4D_CnslNewLine" alt="" coords="371,119,501,145"/><area shape="rect" id="node20" href="d4d__console_8c.html#a4228dfd77d8dbf3a3f12c532561228eb" title="D4D_CnslPutCharInt" alt="" coords="181,119,323,145"/><area shape="rect" id="node4" href="d4d__console_8c.html#aed9184953b7b6029a5d06c8dcf9313c9" title="D4D_CnslUpdateScrollbars" alt="" coords="549,169,728,196"/><area shape="rect" id="node18" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="990,220,1135,247"/><area shape="rect" id="node3" href="group__doxd4d__console__func.html#gab5668d3c9c114b7057564b40e9f94f39" title="The function clear one line in console. " alt="" coords="571,119,706,145"/><area shape="rect" id="node5" href="d4d__console_8c.html#af24a955ab36f6586cc5ca859caf7e45e" title="D4D_CnslValue2Coor" alt="" coords="781,107,928,133"/><area shape="rect" id="node17" href="group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="776,169,933,196"/><area shape="rect" id="node6" href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="981,5,1144,32"/><area shape="rect" id="node7" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="1193,56,1386,83"/><area shape="rect" id="node14" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1645,107,1784,133"/><area shape="rect" id="node16" href="d4d__font_8c.html#a361368f9b194c61a3f510a6dbd13cd4a" title="D4D_GetFontWidth" alt="" coords="1449,157,1583,184"/><area shape="rect" id="node8" href="d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="1435,56,1597,83"/><area shape="rect" id="node9" href="group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1645,56,1784,83"/><area shape="rect" id="node10" href="group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1832,56,1976,83"/><area shape="rect" id="node11" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="2028,5,2175,32"/><area shape="rect" id="node12" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="2024,56,2179,83"/><area shape="rect" id="node13" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="2050,107,2153,133"/><area shape="rect" id="node15" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1853,132,1955,159"/><area shape="rect" id="node19" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="1217,232,1361,259"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__console__func_ga826950533ef85db079652105cec49441_icgraph.gif" border="0" usemap="#group__doxd4d__console__func_ga826950533ef85db079652105cec49441_icgraph" alt=""/></div>
+<map name="group__doxd4d__console__func_ga826950533ef85db079652105cec49441_icgraph" id="group__doxd4d__console__func_ga826950533ef85db079652105cec49441_icgraph">
+<area shape="rect" id="node2" href="group__doxd4d__console__func.html#gaa0fa842e0211a956e39193c0600cef5c" title="The function puts string on cursor position and updates cursor. " alt="" coords="182,5,317,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gaa0fa842e0211a956e39193c0600cef5c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> D4D_CnslPutString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pObj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td>
+          <td class="paramname"><em>pText</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function puts string on cursor position and updates cursor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pObj</td><td>- pointer to the console object </td></tr>
+    <tr><td class="paramname">pText</td><td>- string that will be puts on console </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>D4D_TRUE - cursor was wrapped / D4D_FALSE - cursor was not wrapped </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The result returns if the cursor has been wrapped or not. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__console_8c_source.html#l00579">579</a> of file <a class="el" href="d4d__console_8c_source.html">d4d_console.c</a>.</p>
+
+<p>References <a class="el" href="d4d__console_8h_source.html#l00125">D4D_CNSL_FLAGS_REDRAWALL</a>, <a class="el" href="d4d__console_8c_source.html#l00498">D4D_CnslPutChar()</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__console_8h_source.html#l00160">D4D_GET_CONSOLE_DATA</a>, <a class="el" href="d4d__console_8h_source.html#l00161">D4D_GET_LIST_BOX_SCROLL_BAR_HOR</a>, <a class="el" href="d4d__console_8h_source.html#l00162">D4D_GET_LIST_BOX_SCROLL_BAR_VER</a>, <a class="el" href="d4d__object_8h_source.html#l00072">D4D_OBJECT_F_VISIBLE</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00457">D4D_ScrlBrGetPosition()</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__types_8h_source.html#l00225">D4D_POINT::x</a>, and <a class="el" href="d4d__types_8h_source.html#l00226">D4D_POINT::y</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__console__func_gaa0fa842e0211a956e39193c0600cef5c_cgraph.gif" border="0" usemap="#group__doxd4d__console__func_gaa0fa842e0211a956e39193c0600cef5c_cgraph" alt=""/></div>
+<map name="group__doxd4d__console__func_gaa0fa842e0211a956e39193c0600cef5c_cgraph" id="group__doxd4d__console__func_gaa0fa842e0211a956e39193c0600cef5c_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__console__func.html#ga826950533ef85db079652105cec49441" title="The function puts one char on cursor position and updates cursor. " alt="" coords="206,144,333,171"/><area shape="rect" id="node22" href="group__doxd4d__scroll__bar__func.html#ga0d95ab40880b3119168a0dd0f5a58800" title="The function gets the scroll bar position. " alt="" coords="190,195,349,221"/><area shape="rect" id="node3" href="d4d__console_8c.html#ad4ecb03f16735d20cc49ffbb756d7a37" title="D4D_CnslNewLine" alt="" coords="587,119,717,145"/><area shape="rect" id="node21" href="d4d__console_8c.html#a4228dfd77d8dbf3a3f12c532561228eb" title="D4D_CnslPutCharInt" alt="" coords="397,119,539,145"/><area shape="rect" id="node5" href="d4d__console_8c.html#aed9184953b7b6029a5d06c8dcf9313c9" title="D4D_CnslUpdateScrollbars" alt="" coords="765,169,944,196"/><area shape="rect" id="node19" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="1206,220,1351,247"/><area shape="rect" id="node4" href="group__doxd4d__console__func.html#gab5668d3c9c114b7057564b40e9f94f39" title="The function clear one line in console. " alt="" coords="787,119,922,145"/><area shape="rect" id="node6" href="d4d__console_8c.html#af24a955ab36f6586cc5ca859caf7e45e" title="D4D_CnslValue2Coor" alt="" coords="997,107,1144,133"/><area shape="rect" id="node18" href="group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="992,169,1149,196"/><area shape="rect" id="node7" href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="1197,5,1360,32"/><area shape="rect" id="node8" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="1409,56,1602,83"/><area shape="rect" id="node15" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1861,107,2000,133"/><area shape="rect" id="node17" href="d4d__font_8c.html#a361368f9b194c61a3f510a6dbd13cd4a" title="D4D_GetFontWidth" alt="" coords="1665,157,1799,184"/><area shape="rect" id="node9" href="d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="1651,56,1813,83"/><area shape="rect" id="node10" href="group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1861,56,2000,83"/><area shape="rect" id="node11" href="group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="2048,56,2192,83"/><area shape="rect" id="node12" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="2244,5,2391,32"/><area shape="rect" id="node13" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="2240,56,2395,83"/><area shape="rect" id="node14" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="2266,107,2369,133"/><area shape="rect" id="node16" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="2069,132,2171,159"/><area shape="rect" id="node20" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="1433,232,1577,259"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga8043f01a19533df48ae3892fcd8238f6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_CnslSetScrollBarPosition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pObj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a>&#160;</td>
+          <td class="paramname"><em>hor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a>&#160;</td>
+          <td class="paramname"><em>ver</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function move the scroll bars on to new position if it's applicable. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pObj</td><td>- pointer to the console object </td></tr>
+    <tr><td class="paramname">hor</td><td>- new position of horizontal scroll bar </td></tr>
+    <tr><td class="paramname">ver</td><td>- new position of vertical scroll bar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__console_8c_source.html#l00696">696</a> of file <a class="el" href="d4d__console_8c_source.html">d4d_console.c</a>.</p>
+
+<p>References <a class="el" href="d4d__console_8h_source.html#l00161">D4D_GET_LIST_BOX_SCROLL_BAR_HOR</a>, <a class="el" href="d4d__console_8h_source.html#l00162">D4D_GET_LIST_BOX_SCROLL_BAR_VER</a>, <a class="el" href="d4d__object_8h_source.html#l00072">D4D_OBJECT_F_VISIBLE</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00428">D4D_ScrlBrSetPosition()</a>, and <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__console__func_ga8043f01a19533df48ae3892fcd8238f6_cgraph.gif" border="0" usemap="#group__doxd4d__console__func_ga8043f01a19533df48ae3892fcd8238f6_cgraph" alt=""/></div>
+<map name="group__doxd4d__console__func_ga8043f01a19533df48ae3892fcd8238f6_cgraph" id="group__doxd4d__console__func_ga8043f01a19533df48ae3892fcd8238f6_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="253,29,411,56"/><area shape="rect" id="node3" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="459,29,605,56"/><area shape="rect" id="node4" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="653,29,797,56"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:06 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

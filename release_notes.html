@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: Release Notes</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li class="current"><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('release_notes.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Release Notes </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>This contains release notes of D4D driver since the version 0.9.</p>
+<p>Changes in API for version Freescale eGUI/D4D 1.0:</p>
+<p>Fonts:</p>
+<ul>
+<li>This version brings completelly new font support:<ul>
+<li>the driver support proportional / monospace fonts</li>
+<li>the size of font is not restricted in this version (in version 0.9 fonts was limited to 8 pixels width)</li>
+<li>the font table could be linear (full) or nonlinear (restricted)</li>
+<li>the nonlinear fonts could used two types of index table lookup and map style (toachive better utilization of flash)</li>
+<li>the font could be packed in little/big endian format and could be packed or not</li>
+<li>the new fonts are described by new structure D4D_FONT_DESCRIPTOR</li>
+<li>the new fonts support different char/line spacing</li>
+</ul>
+</li>
+<li>The fonts data has been moved from driver to the user application, so it depends on user application that fonts will use</li>
+<li>D4D_DECLARE_FONT_TABLE is renamed to D4D_DECLARE_FONT</li>
+<li>D4D_DECLARE_FONT macro was extended to support different char/line spacing (new two parameters added)</li>
+<li>There is new Textdraw function (D4D_DrawTextRect) that supports text alligment</li>
+</ul>
+<p>BitMaps: All bitmap drawing function was moved to special file <a class="el" href="d4d__bmp_8c.html" title="D4D driver bmp decoder functions c file. ">d4d_bmp.c</a>/h</p>
+<p>Low Level Drivers:</p>
+<ul>
+<li>for this version is created comletelly new low level drivers structure with better flexibility</li>
+</ul>
+<p>Main Types:</p>
+<ul>
+<li>LWord/sLWord was redefined from "int" to "long"</li>
+<li>DLWord/sDLWord was redefined from "long" to "long long"</li>
+</ul>
+<p>Keys:</p>
+<ul>
+<li>the original bitmap way of handling keys in D4D was repalced by event driven scan codes for better flexibility with hadling more keys. For this is added to driver new scancode macros definition D4D_KEY_SCANCODE_XX, where XX is key name as UP, DOWN, ENTER etc. The highest bit in scan code (0x80) determine the event for the key (push, release).</li>
+<li>the new API function has been add void <a class="el" href="group__doxd4d__base__func.html#gaa77552bc19d7169fd2a2a429757471c9" title="Place to key event into key buffer. ">D4D_NewKeyEvent(D4D_KEY_SCANCODE scanCode)</a> for handling keys events into D4D</li>
+<li>the old input API function D4D_KeysChanged with bitmap oriented input parameter is keep in project for backward compatibility but only with support for basic keys (up, down, left, right, enter, esc)</li>
+<li>all D4D driver at this version runs on scancodes included hadling keys into user application over messages</li>
+</ul>
+<p>Touch Screen:</p>
+<p>Graphic Objects: General:</p>
+<ul>
+<li>For most objects the the function D4D_XxxSetText (where Xxx is nick of object) was replaced by general one D4D_SetTex</li>
+</ul>
+<p>Button:</p>
+<ul>
+<li>The Button declaration macros (D4D_DECLARE_BUTTON, D4D_DECLARE_STD_BUTTON, D4D_DECLARE_TXT_BUTTON) was reduce by two parameter text offset x / y. The functionality of text offset is stand in by Text alligment proporties</li>
+</ul>
+<p>Configuration file:</p>
+<ul>
+<li>The is new type of configuration low level drivers - more in DRM1116</li>
+<li>added D4D_MCU_TYPE definition - for settings the used MCu</li>
+<li>added D4D_MCU_BUS_CLOCK definition - for general used of driver</li>
+<li>for most graphic object added macro D4D_xx_TXT_PRTY_DEFAULT and D4D_xx_FNT_PRTY_DEFAULT to setup default text behaviour of object</li>
+</ul>
+<p>Changes in API for version Freescale eGUI/D4D 1.01: </p>
+<pre class="fragment">      Low level drivers section:
+        - add beta version of frame buffer low level driver and it was tested on MCF52277 with 3.25" (320x240) and 12" (800x600) LCD
+        - add beta version of touch screen low level driver based on MCF52277 ASP peripherial     
+</pre><p>Changes in API for version Freescale eGUI/D4D 1.11:</p>
+<pre class="fragment">        Graphic Object:
+        - add new beta version of scroll bar graphic object (touch screen/ keyboard controlled, autosize capability, OnChange callBack)
+        - add new beta version of console graphic object (autosize capability, scroll bars capability)  
+        - Each graphic object can be forced into RAM memory to allow change basic properties in runtime _INRAM postfix in declaration macros   
+
+      Added function to get screen client area size : D4D_SIZE D4D_GetClientScreenSize(D4D_SCREEN* pScreen);
+      Added functions to allow change screen title text properties :
+        - void D4D_SetScreenTextProperties(D4D_SCREEN* pScreen, D4D_TEXT_PROPERTIES property);
+        - void D4D_SetScreenFontProperties(D4D_SCREEN* pScreen, D4D_FONT_PROPERTIES property);
+
+      Added function that allows force initialization of screen before it first use: void D4D_InitScreen(D4D_SCREEN* pScreen)
+
+      Added new three configuration defines into main d4d_cfg.h configuration header file:  
+        - D4D_COLOR_SYSTEM_FORE - System fore color (for example for calibration screen)
+        - D4D_COLOR_SYSTEM_BCKG - System background color (for example for calibration screen)
+        - D4D_FONT_SYSTEM_DEFAULT - System default font (for example for calibration screen)
+
+      Added new message Id :D4D_MSG_TIMETICK - message with this Id is called by D4D_RedrawScreen  function and send to all active objects
+      to provide time functions as blinking with cursor etc.
+
+      Some minor bugs has been fixed
+</pre><p>Changes in API for version Freescale eGUI/D4D 1.12:</p>
+<p>Low level drivers section:</p>
+<ul>
+<li>add beta version of frame buffer low level driver for MPC5125 on MQX 3.6.</li>
+<li>add low level driver beta version of LCD controller LGDP4531, its tested only on SPI interfaface called SPIX.</li>
+</ul>
+<p>Changes in API for version Freescale eGUI/D4D 1.20: </p>
+<pre class="fragment">        Graphic Object:
+        - add new beta version of text box graphic object (touch screen/ keyboard controlled, autosize capability) to show larger texts on screen.
+          It support new line, tab special chars and for texts bigger then screen it shows vertical scroll bar on right size.
+
+      Scroll Bar - fixed bug in touch screen support
+
+      Fixed bug in print text routine for transparent prints (double size spce between chars in string).
+
+
+
+      Some minor bugs has been fixed  
+</pre><p>Changes in API for version Freescale eGUI/D4D 2.00: </p>
+<pre class="fragment">      Added object round corners support
+
+      Object button has been updated to support round corners
+
+      Some minor bugs has been fixed
+</pre><p>Changes in version Freescale eGUI/D4D 2.01: Add support for Kinetis MCU - little endian, alpha low level drivers etc.</p>
+<p>Fixed some new bugs founds under IAR compiler.</p>
+<p>Changes in version Freescale eGUI/D4D 2.02: Fixed issue with screen changes (Activate, escape). Bug - during changes of screens the D4D_MSG_GET_FOCUS and D4D_MSG_SET_FOCUS wasn't generated.</p>
+<p>Changes in version Freescale eGUI/D4D 2.03: Added rounded corners functionality to <a class="el" href="struct_d4_d___c_h_e_c_k_b_o_x.html">D4D_CHECKBOX</a>, <a class="el" href="struct_d4_d___i_c_o_n.html">D4D_ICON</a> and <a class="el" href="struct_d4_d___p_i_c_t_u_r_e.html">D4D_PICTURE</a>.</p>
+<p>Changes in version Freescale eGUI/D4D 2.04: Changed system of colors in D4D, from this moment can be used various representation of color in D4D. Added into configuration file D4D_COLOR_SYSTEM macro.</p>
+<p>Changes in version Freescale eGUI/D4D 2.05: Fixed bug in drawing Slider bar. There was problem with "overflow" of slider bar into neighbourhood inside whole <a class="el" href="struct_d4_d___s_l_i_d_e_r.html">D4D_SLIDER</a> object.</p>
+<p>Changes in version Freescale eGUI/D4D 2.06: Added rounded corners functionality to <a class="el" href="struct_d4_d___g_a_u_g_e.html">D4D_GAUGE</a>, <a class="el" href="struct_d4_d___m_e_n_u.html">D4D_MENU</a>, <a class="el" href="struct_d4_d___c_o_n_s_o_l_e.html">D4D_CONSOLE</a> and <a class="el" href="struct_d4_d___t_e_x_t_b_o_x.html">D4D_TEXTBOX</a>. Added new object D4D_PROGRESSBAR. Updated <a class="el" href="struct_d4_d___m_e_n_u.html">D4D_MENU</a> with standard scroll bar instead of simple sidebar. Add to <a class="el" href="struct_d4_d___m_e_n_u.html">D4D_MENU</a> D4D_DECLARE_MENU_ITEM_FULL declaration macro that allows add to all items user data and add some new functions D4D_MenuSetIndex, D4D_MenuGetItemCount, D4D_MenuFindUserDataItem, D4D_MenuGetItemUserData, D4D_MenuGetItemTextD4D_MenuGetItemText. Add to <a class="el" href="struct_d4_d___s_l_i_d_e_r.html">D4D_SLIDER</a> and also to D4D_PROGRESSBAR scaled colors of active bar.</p>
+<p>Changes in version Freescale eGUI/D4D 2.07: All Objects and screen support round corners! Added kinetis Bare metal low level drivers!</p>
+<p>Changes in version Freescale eGUI/D4D 2.10: Official release with Kinetis full support.</p>
+<p>Changes in version Freescale eGUI/D4D 2.20: Added external BMP files support!</p>
+<p>Changes in version Freescale eGUI/D4D 2.22: Extended <a class="el" href="struct_d4_d___b_u_t_t_o_n.html">D4D_BUTTON</a> to support 3D appearence, the new functionality code is enabled ib d4d_user_cfg.h file (#define D4D_BTN_3D_ENABLE D4D_TRUE) and the 3D appearence is enabling by D4D_BTN_F_3D. Also add new system message D4D_MSG_TOUCH_LOST, that occur when the touch screen is still touched but finger go out of the touched object.</p>
+<p>Changes in version Freescale eGUI/D4D 2.23: Extended functionality of printing strings to reduce strings that are longer then specified max size. In practice, the API functions D4D_DrawRextText... draw text never exceed the specified rectangle.</p>
+<p>Changes in version Freescale eGUI/D4D 2.24: Redesigned bitmap drawing functions (from internal memory). The code size of this decoders has been redused by 45% and the round corners bitmaps for 2 and 16 colors has been added.</p>
+<p>Changes in version Freescale eGUI/D4D 2.25: Fix bug in <a class="el" href="struct_d4_d___b_u_t_t_o_n.html">D4D_BUTTON</a>: the bitmaps wasn't draw in greyscale when the button was disabled. Add to the <a class="el" href="struct_d4_d___i_c_o_n.html">D4D_ICON</a> functionality of redrawing icon background in case that the new showed picture is smaller then previous one. The limitation is taht the object has to has manually specified size.</p>
+<ol type="1">
+<li><p class="startli">3. 2012 Changes in version Freescale eGUI/D4D 2.30: Changed LCD low level driver API, the data width reflect size of D4D_COLOR type to flexible support bigger color depth. (Example: unsigned char (*D4DLCD_Send_PixelColor)(D4D_COLOR value);). Changed the system of the includes in whole driver, at the moment all includes has relative path to base d4d directory. In practice in the final project could be added only one include path to base directory of d4d. Added support for 18-bit color depth (6-6-6), never tested!!! Add low level driver for K70 LCDC and TWR-LCD-RGB board. Add low level touch screen driver for CRTOUCH chip. The driver is at the moemnt just in I2C version but it can be configured as baremetal as MQX version. Add decoders for 24-bit color depth bitmaps (internal form Flash). Add transparent color support to extend drawing capabilities of whole driver. Add BackSpace char capability into <a class="el" href="struct_d4_d___c_o_n_s_o_l_e.html">D4D_CONSOLE</a> object. Add external font support. (This allow load different national character sets or skinning the application) Add UNICODE support. (For example for Chinesse language support).</p>
+<p class="startli">The new object <a class="el" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html">D4D_RADIOBUTTON</a> has been added. The original functioonality of D4D_CHECK_BOX works like radio button has been removed.</p>
+<p class="startli">Fixed bug with bad touch screen calibration in PORTRAIT mode when the frame buffer was used. (The problem was in bad orientations in frame buffer). Fixed bug with cursor in <a class="el" href="struct_d4_d___c_o_n_s_o_l_e.html">D4D_CONSOLE</a> OBJECT.</p>
+<p class="startli">Removed some API: All functions about drawing texts with "Adv" suffix. (Example :D4D_DrawTextRectTabAdv) The only one diffencies to standard (D4D_DrawTextRectTab) functions (no Adv) was text offset parameter that was moved into D4D_STRING structure.</p>
+</li>
+</ol>
+<p>Changes in version Freescale eGUI/D4D 2.xx: Added basic support of compouded objects Added Group Box object <a class="el" href="struct_d4_d___g_r_o_u_p___b_o_x.html">D4D_GROUP_BOX</a> Added Bevel drawing functions: void D4D_Bevel(D4D_POINT* ppt, D4D_SIZE* psz, D4D_COLOR fore, D4D_COLOR bck); void D4D_RBevel(D4D_POINT* ppt, D4D_SIZE* psz, D4D_COLOR fore, D4D_COLOR bck, D4D_COOR radius);</p>
+<p>Added Margin for objects</p>
+<p>Fixed bugs: The one pixel drawed on position 0,0 when the scroll bar is used. Now OK. The fonts has been drawed with some "mesh extra pixels" in high optimizations under IAR. Now OK.</p>
+<p>Changed API: Type D4D_OBJECT_PTR has been changed from "const" to standard. <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t" title="Type definition of eGUI point structure. ">D4D_POINT</a> D4D_GetScreenToClientPoint(D4D_SCREEN* pScreen, D4D_POINT* nScreenPoint) to <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t" title="Type definition of eGUI point structure. ">D4D_POINT</a> <a class="el" href="group__doxd4d__screen__func.html#gae4f92cca7a0fe6298b6cfc80b2c5d23c" title="The function convert global screen point on the screen to the client point. ">D4D_GetScreenToClientPoint(D4D_OBJECT* pObject, D4D_POINT* nScreenPoint)</a> <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t" title="Type definition of eGUI point structure. ">D4D_POINT</a> D4D_GetClientToScreenPoint(D4D_SCREEN* pScreen, D4D_POINT* nClientPoint) to <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t" title="Type definition of eGUI point structure. ">D4D_POINT</a> <a class="el" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. ">D4D_GetClientToScreenPoint(D4D_OBJECT* pObject, D4D_POINT* nClientPoint)</a> <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e" title="Type definition of eGUI size structure. ">D4D_SIZE</a> D4D_GetClientScreenSize(D4D_SCREEN* pScreen) to <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e" title="Type definition of eGUI size structure. ">D4D_SIZE</a> <a class="el" href="group__doxd4d__object__func.html#gaec5a3027b8480837f358672b9cfd0756" title="The function return the real client size of object. ">D4D_GetClientScreenSize(D4D_OBJECT* pObject)</a> <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t" title="Type definition of eGUI point structure. ">D4D_POINT</a> D4D_GetTouchScreenCoordinates(void) to <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t" title="Type definition of eGUI point structure. ">D4D_POINT</a> <a class="el" href="d4d_8h.html#ab7b7c4b3073afdc5ba2bedc553f3b2d8">D4D_GetTouchScreenCoordinates(D4D_OBJECT* pObject)</a></p>
+<p>Changed internal OBJECT structure D4D_OBJECT_SYS_FUNCTION. Item type to item strName. This allow adding objects without any changes in eGUI itself. :-) ChangedLow Level drivers API for Flush functions - Add parameter mode where is type of flush.</p>
+<p>Removed all AUTOSIZE MACRO declarations for objects</p>
+<p>OBSOLETE:</p>
+<p>D4D_CHECKBOX_BORDER_OFFSET</p>
+<p>_D4D_DECLARE_CONSOLE replace by _D4D_DECLARE_CONSOLE2</p>
+<p>Removed D4D_KEYS <a class="el" href="d4d__base_8h.html#a47191a9a72c210fc3d1f4fbbef1a9d4b">D4D_GetKeys(void)</a> function. Is obsolete. </p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:04 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

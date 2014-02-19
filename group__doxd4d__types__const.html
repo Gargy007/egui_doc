@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D TYPES API Constant Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__types__const.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#groups">Modules</a> &#124;
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D TYPES API Constant Specification<div class="ingroups"><a class="el" href="group__doxd4d__types.html">D4D TYPES Definition</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D TYPES API Constant Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__types__const.gif" border="0" alt="" usemap="#group____doxd4d____types____const"/>
+<map name="group____doxd4d____types____const" id="group____doxd4d____types____const">
+<area shape="rect" id="node1" href="group__doxd4d__types__const__mcu_types.html" title="D4D TYPES Defines MCU\l types constants" alt="" coords="430,5,605,46"/><area shape="rect" id="node2" href="group__doxd4d__types.html" title="D4D TYPES Definition" alt="" coords="6,12,157,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group__doxd4d__types__const__mcu_types"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__types__const__mcu_types.html">D4D TYPES Defines MCU types constants</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gab3ce154a4d50cbbf5dc2bc8a995279d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a></td></tr>
+<tr class="memdesc:gab3ce154a4d50cbbf5dc2bc8a995279d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is definition of boolean operation value in eGUI - FALSE.  <a href="#gab3ce154a4d50cbbf5dc2bc8a995279d4">More...</a><br/></td></tr>
+<tr class="separator:gab3ce154a4d50cbbf5dc2bc8a995279d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaef0c14acbf3da8063aa4117fc7e1bab5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a></td></tr>
+<tr class="memdesc:gaef0c14acbf3da8063aa4117fc7e1bab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is definition of boolean operation value in eGUI - TRUE.  <a href="#gaef0c14acbf3da8063aa4117fc7e1bab5">More...</a><br/></td></tr>
+<tr class="separator:gaef0c14acbf3da8063aa4117fc7e1bab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga56ba07cca08841658fb384fa35dd3d8c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__types__const.html#ga56ba07cca08841658fb384fa35dd3d8c">D4D_USE_STANDARD_TYPES</a></td></tr>
+<tr class="memdesc:ga56ba07cca08841658fb384fa35dd3d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard variable types disable eGUI declaration. If not defined, it sets to (D4D_FALSE) as a default. So it's enable type definition like Byte, Word, etc...  <a href="#ga56ba07cca08841658fb384fa35dd3d8c">More...</a><br/></td></tr>
+<tr class="separator:ga56ba07cca08841658fb384fa35dd3d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact constants used by module. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="gab3ce154a4d50cbbf5dc2bc8a995279d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FALSE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is definition of boolean operation value in eGUI - FALSE. </p>
+
+<p>Definition at line <a class="el" href="d4d__types_8h_source.html#l00104">104</a> of file <a class="el" href="d4d__types_8h_source.html">d4d_types.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__imgdec__d4dint_8c_source.html#l00773">D4D_BmpHeaderCheckEndianism()</a>, <a class="el" href="d4d__button_8c_source.html#l00318">D4D_BtnKillFocus()</a>, <a class="el" href="d4d__button_8c_source.html#l00274">D4D_BtnOnKeyDown()</a>, <a class="el" href="d4d__button_8c_source.html#l00292">D4D_BtnOnKeyUp()</a>, <a class="el" href="d4d__button_8c_source.html#l00399">D4D_BtnOnMessage()</a>, <a class="el" href="d4d__object_8c_source.html#l00190">D4D_CaptureKeys()</a>, <a class="el" href="d4d__screen_8c_source.html#l00702">D4D_ChangeScreen()</a>, <a class="el" href="d4d__check__box_8c_source.html#l00197">D4D_CheckBoxOnKeyDown()</a>, <a class="el" href="d4d__check__box_8c_source.html#l00215">D4D_CheckBoxOnKeyUp()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00569">D4D_Circle()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00586">D4D_CircleXY()</a>, <a class="el" href="d4d__console_8c_source.html#l00734">D4D_CnslClearAll()</a>, <a class="el" href="d4d__console_8c_source.html#l00297">D4D_CnslOnInit()</a>, <a class="el" href="d4d__console_8c_source.html#l00498">D4D_CnslPutChar()</a>, <a class="el" href="d4d__console_8c_source.html#l00352">D4D_CnslPutCharInt()</a>, <a class="el" href="d4d__console_8c_source.html#l00579">D4D_CnslPutString()</a>, <a class="el" href="d4d__console_8c_source.html#l00394">D4D_CnslScrollBarsFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00131">D4D_ComboBoxListFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00288">D4D_ComboBoxStornoSelection()</a>, <a class="el" href="d4d__console_8c_source.html#l00145">D4D_ConsoleOnDraw()</a>, <a class="el" href="d4d__console_8c_source.html#l00774">D4D_ConsoleOnMessage()</a>, <a class="el" href="d4d__console_8c_source.html#l00323">D4D_ConsoleTimeTick()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00621">D4D_EditBoxClearAll()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00681">D4D_EditBoxOnMessage()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00393">D4D_EditBoxPutChar()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00346">D4D_EditBoxPutCharInt()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00455">D4D_EditBoxPutString()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00490">D4D_EditBoxSetCursor()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00316">D4D_EditBoxTimeTick()</a>, <a class="el" href="d4d__object_8c_source.html#l00273">D4D_EnableObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00286">D4D_FocusNextObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00356">D4D_FocusPrevObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00430">D4D_FocusSet()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00234">D4D_GaugSetValue()</a>, <a class="el" href="d4d__screen_8c_source.html#l00818">D4D_GetScrHeaderExitBtnCoor()</a>, <a class="el" href="d4d__graph_8c_source.html#l00592">D4D_GraphAddTraceData()</a>, <a class="el" href="d4d__graph_8c_source.html#l00655">D4D_GraphAddTracesData()</a>, <a class="el" href="d4d__graph_8c_source.html#l00262">D4D_GraphDrawEmptyGraph()</a>, <a class="el" href="d4d__graph_8c_source.html#l00161">D4D_GraphGetSizeLblY()</a>, <a class="el" href="d4d__graph_8c_source.html#l00764">D4D_GraphSetDataWidth()</a>, <a class="el" href="d4d__graph_8c_source.html#l00738">D4D_GraphSetScaleX()</a>, <a class="el" href="d4d__base_8c_source.html#l00567">D4D_HandleKeys()</a>, <a class="el" href="d4d__object_8c_source.html#l00479">D4D_HasObjectChildren()</a>, <a class="el" href="d4d__icon_8c_source.html#l00242">D4D_IconAnimationStop()</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00067">D4D_ImgDecBmpDraw()</a>, <a class="el" href="d4d__base_8c_source.html#l00122">D4D_Init()</a>, <a class="el" href="d4d__object_8c_source.html#l00303">D4D_IsEnabled()</a>, <a class="el" href="d4d__object_8c_source.html#l00348">D4D_IsMineFocus()</a>, <a class="el" href="d4d__object_8c_source.html#l00325">D4D_IsVisible()</a>, <a class="el" href="d4d__low_8c_source.html#l00086">D4D_LCD_Init()</a>, <a class="el" href="d4d__string_8c_source.html#l00635">D4D_LCD_PrintStr()</a>, <a class="el" href="d4d__low_8c_source.html#l00466">D4D_LCD_RRect()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00280">D4D_ListBoxFocusNextItem()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00304">D4D_ListBoxFocusPreviousItem()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00472">D4D_ListBoxScrollBarsFeedBack()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00533">D4D_ListBoxSetIndex()</a>, <a class="el" href="d4d__menu_8c_source.html#l00432">D4D_MenuOnKeyDown()</a>, <a class="el" href="d4d__menu_8c_source.html#l00455">D4D_MenuOnKeyUp()</a>, <a class="el" href="d4d__menu_8c_source.html#l00548">D4D_MenuScrollBarSetup()</a>, <a class="el" href="d4d__menu_8c_source.html#l00597">D4D_MenuScrollBarsFeedBack()</a>, <a class="el" href="d4d__object_8c_source.html#l00459">D4D_ObjectCheckCoordinates()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00235">D4D_PrgrsBarSetBarColor()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00199">D4D_PrgrsBarSetValue()</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00862">D4D_PrintScreenToBMP()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01111">D4D_Quadrant()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01128">D4D_QuadrantXY()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00334">D4D_RadioButtonChangeValue()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00194">D4D_RadioButtonOnKeyDown()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00212">D4D_RadioButtonOnKeyUp()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01282">D4D_RndCornerGetNonPrintedPxl()</a>, <a class="el" href="d4d__screen_8c_source.html#l00634">D4D_ScrCheckCoor()</a>, <a class="el" href="d4d__screen_8c_source.html#l01134">D4D_ScrCheckExitBtnCoor()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00241">D4D_ScrlBrDrawArrow()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00506">D4D_ScrlBrOnMessage()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00428">D4D_ScrlBrSetPosition()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00368">D4D_ScrlBrSetRange()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00403">D4D_ScrlBrSetStep()</a>, <a class="el" href="d4d__base_8c_source.html#l00470">D4D_SetFontProperties()</a>, <a class="el" href="d4d__screen_8c_source.html#l00503">D4D_SetScreenFontProperties()</a>, <a class="el" href="d4d__screen_8c_source.html#l00519">D4D_SetScreenTextProperties()</a>, <a class="el" href="d4d__string_8c_source.html#l00573">D4D_SetText()</a>, <a class="el" href="d4d__base_8c_source.html#l00496">D4D_SetTextProperties()</a>, <a class="el" href="d4d__object_8c_source.html#l00092">D4D_ShowObject()</a>, <a class="el" href="d4d__slider_8c_source.html#l00536">D4D_SldrSetBarColor()</a>, <a class="el" href="d4d__slider_8c_source.html#l00492">D4D_SldrSetValue()</a>, <a class="el" href="d4d__slider_8c_source.html#l00087">D4D_SldrValue2Coor()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00248">D4D_TextBoxGetCharsToLine()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00178">D4D_TextBoxGetWordSpec()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00128">D4D_TextBoxGetWordSpecInt()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00461">D4D_TextBoxOnDraw()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00430">D4D_TextBoxScrollBarSetup()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00557">D4D_TextBoxScrollBarsFeedBack()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaef0c14acbf3da8063aa4117fc7e1bab5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_TRUE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is definition of boolean operation value in eGUI - TRUE. </p>
+
+<p>Definition at line <a class="el" href="d4d__types_8h_source.html#l00106">106</a> of file <a class="el" href="d4d__types_8h_source.html">d4d_types.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__imgdec__d4dint_8c_source.html#l00773">D4D_BmpHeaderCheckEndianism()</a>, <a class="el" href="d4d__screen_8c_source.html#l00702">D4D_ChangeScreen()</a>, <a class="el" href="d4d__check__box_8c_source.html#l00296">D4D_CheckBoxSetValue()</a>, <a class="el" href="d4d__console_8c_source.html#l00297">D4D_CnslOnInit()</a>, <a class="el" href="d4d__console_8c_source.html#l00498">D4D_CnslPutChar()</a>, <a class="el" href="d4d__console_8c_source.html#l00352">D4D_CnslPutCharInt()</a>, <a class="el" href="d4d__console_8c_source.html#l00579">D4D_CnslPutString()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00214">D4D_ComboBoxButtonFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00131">D4D_ComboBoxListFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00288">D4D_ComboBoxStornoSelection()</a>, <a class="el" href="d4d__console_8c_source.html#l00145">D4D_ConsoleOnDraw()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00267">D4D_EditBoxOnInit()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00393">D4D_EditBoxPutChar()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00346">D4D_EditBoxPutCharInt()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00455">D4D_EditBoxPutString()</a>, <a class="el" href="d4d__object_8c_source.html#l00273">D4D_EnableObject()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00539">D4D_FillCircle()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00554">D4D_FillCircleXY()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01079">D4D_FillQuadrant()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01095">D4D_FillQuadrantXY()</a>, <a class="el" href="d4d__screen_8c_source.html#l00676">D4D_FindObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00356">D4D_FocusPrevObject()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00325">D4D_GaugSetDir()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00274">D4D_GaugSetLimits()</a>, <a class="el" href="d4d__screen_8c_source.html#l00818">D4D_GetScrHeaderExitBtnCoor()</a>, <a class="el" href="d4d__graph_8c_source.html#l00592">D4D_GraphAddTraceData()</a>, <a class="el" href="d4d__graph_8c_source.html#l00694">D4D_GraphClearAll()</a>, <a class="el" href="d4d__graph_8c_source.html#l00262">D4D_GraphDrawEmptyGraph()</a>, <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>, <a class="el" href="d4d__graph_8c_source.html#l00764">D4D_GraphSetDataWidth()</a>, <a class="el" href="d4d__graph_8c_source.html#l00738">D4D_GraphSetScaleX()</a>, <a class="el" href="d4d__object_8c_source.html#l00479">D4D_HasObjectChildren()</a>, <a class="el" href="d4d__icon_8c_source.html#l00222">D4D_IconAnimationStart()</a>, <a class="el" href="d4d__icon_8c_source.html#l00158">D4D_IconSetIndex()</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00067">D4D_ImgDecBmpDraw()</a>, <a class="el" href="d4d__base_8c_source.html#l00122">D4D_Init()</a>, <a class="el" href="d4d__screen_8c_source.html#l00184">D4D_InitScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00238">D4D_InvalidateScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00303">D4D_IsEnabled()</a>, <a class="el" href="d4d__object_8c_source.html#l00348">D4D_IsMineFocus()</a>, <a class="el" href="d4d__object_8c_source.html#l00325">D4D_IsVisible()</a>, <a class="el" href="d4d__low_8c_source.html#l00086">D4D_LCD_Init()</a>, <a class="el" href="d4d__string_8c_source.html#l00635">D4D_LCD_PrintStr()</a>, <a class="el" href="d4d__low_8c_source.html#l00410">D4D_LCD_RBox()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00438">D4D_ListBoxOnInit()</a>, <a class="el" href="d4d__menu_8c_source.html#l00586">D4D_MenuOnInit()</a>, <a class="el" href="d4d__menu_8c_source.html#l00548">D4D_MenuScrollBarSetup()</a>, <a class="el" href="d4d__object_8c_source.html#l00459">D4D_ObjectCheckCoordinates()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00199">D4D_PrgrsBarSetValue()</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00862">D4D_PrintScreenToBMP()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00295">D4D_RadioButtonSetValue()</a>, <a class="el" href="d4d__screen_8c_source.html#l01058">D4D_RedrawScreen()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01282">D4D_RndCornerGetNonPrintedPxl()</a>, <a class="el" href="d4d__screen_8c_source.html#l00634">D4D_ScrCheckCoor()</a>, <a class="el" href="d4d__screen_8c_source.html#l01134">D4D_ScrCheckExitBtnCoor()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00241">D4D_ScrlBrDrawArrow()</a>, <a class="el" href="d4d__object_8c_source.html#l00748">D4D_SetObjectFlags()</a>, <a class="el" href="d4d__base_8c_source.html#l00213">D4D_SetOrientation()</a>, <a class="el" href="d4d__object_8c_source.html#l00092">D4D_ShowObject()</a>, <a class="el" href="d4d__slider_8c_source.html#l00087">D4D_SldrValue2Coor()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00248">D4D_TextBoxGetCharsToLine()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00178">D4D_TextBoxGetWordSpec()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00128">D4D_TextBoxGetWordSpecInt()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00461">D4D_TextBoxOnDraw()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00535">D4D_TextBoxOnInit()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00430">D4D_TextBoxScrollBarSetup()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00557">D4D_TextBoxScrollBarsFeedBack()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00095">D4D_TextBoxValue2Coor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga56ba07cca08841658fb384fa35dd3d8c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_USE_STANDARD_TYPES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Standard variable types disable eGUI declaration. If not defined, it sets to (D4D_FALSE) as a default. So it's enable type definition like Byte, Word, etc... </p>
+
+<p>Definition at line <a class="el" href="d4d__types_8h_source.html#l00136">136</a> of file <a class="el" href="d4d__types_8h_source.html">d4d_types.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:05 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

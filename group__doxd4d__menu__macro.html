@@ -1,0 +1,1425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D MENU API Macro&#39;s Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__menu__macro.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D MENU API Macro's Specification<div class="ingroups"><a class="el" href="group__doxd4d__menu.html">D4D Menu Widget</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D MENU API Macro's Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__menu__macro.gif" border="0" alt="" usemap="#group____doxd4d____menu____macro"/>
+<map name="group____doxd4d____menu____macro" id="group____doxd4d____menu____macro">
+<area shape="rect" id="node2" href="group__doxd4d__menu.html" title="D4D Menu Widget" alt="" coords="5,12,133,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga38d7153759a4baf8f02da83aa499ad30"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#ga38d7153759a4baf8f02da83aa499ad30">_D4D_DECLARE_MENU_BEGIN</a>(type, name, title_text, title_font, x, y, cx, cy, radius, pMargin, pParent, flags, pScheme, indexFontId, itemsFontId, posCnt, menuItemsOff, pIcon, pUser, pOnClick, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga38d7153759a4baf8f02da83aa499ad30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Menu object structure in memory including all substructures.  <a href="#ga38d7153759a4baf8f02da83aa499ad30">More...</a><br/></td></tr>
+<tr class="separator:ga38d7153759a4baf8f02da83aa499ad30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a1bf29ea48d04c5617c7671627a211d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(pText, pIcon)</td></tr>
+<tr class="memdesc:ga6a1bf29ea48d04c5617c7671627a211d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that is used to add item to menu definition.  <a href="#ga6a1bf29ea48d04c5617c7671627a211d">More...</a><br/></td></tr>
+<tr class="separator:ga6a1bf29ea48d04c5617c7671627a211d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga405d5d6eb9dd6755ad6dac1dab9489bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#ga405d5d6eb9dd6755ad6dac1dab9489bb">D4D_DECLARE_MENU_ITEM_FULL</a>(pText, pIcon, pUser)</td></tr>
+<tr class="memdesc:ga405d5d6eb9dd6755ad6dac1dab9489bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that is used to add item with user data menu definition.  <a href="#ga405d5d6eb9dd6755ad6dac1dab9489bb">More...</a><br/></td></tr>
+<tr class="separator:ga405d5d6eb9dd6755ad6dac1dab9489bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga671d1dd016c1933ffa8bd28fc80f17e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#ga671d1dd016c1933ffa8bd28fc80f17e1">_D4D_DECLARE_MENU_END</a>()</td></tr>
+<tr class="memdesc:ga671d1dd016c1933ffa8bd28fc80f17e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that is used to close the item list for menu definition.  <a href="#ga671d1dd016c1933ffa8bd28fc80f17e1">More...</a><br/></td></tr>
+<tr class="separator:ga671d1dd016c1933ffa8bd28fc80f17e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga241427a269502cd82e3dfaa5b318ab0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>(name)</td></tr>
+<tr class="memdesc:ga241427a269502cd82e3dfaa5b318ab0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that is used to close the item list for menu definition.  <a href="#ga241427a269502cd82e3dfaa5b318ab0f">More...</a><br/></td></tr>
+<tr class="separator:ga241427a269502cd82e3dfaa5b318ab0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78548ae6e72df1c1dc93ac34c9a551ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#ga78548ae6e72df1c1dc93ac34c9a551ac">D4D_DECLARE_MENU_BEGIN</a>(name, title_text, title_font, x, y, cx, cy, flags, pScheme, indexFontId, itemsFontId, posCnt, menuItemsOff, pIcon, pUser, pOnClick, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga78548ae6e72df1c1dc93ac34c9a551ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Menu object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="#ga78548ae6e72df1c1dc93ac34c9a551ac">More...</a><br/></td></tr>
+<tr class="separator:ga78548ae6e72df1c1dc93ac34c9a551ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacad90ea264624a56eb532aa0811e43a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#gacad90ea264624a56eb532aa0811e43a3">D4D_DECLARE_STD_MENU_BEGIN</a>(name, title_text, title_font, x, y, cx, cy, indexFontId, itemsFontId, pIcon, pOnClick)</td></tr>
+<tr class="memdesc:gacad90ea264624a56eb532aa0811e43a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Menu object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values.  <a href="#gacad90ea264624a56eb532aa0811e43a3">More...</a><br/></td></tr>
+<tr class="separator:gacad90ea264624a56eb532aa0811e43a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae6ae8cb20233948456843f530d522b4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#gae6ae8cb20233948456843f530d522b4a">D4D_DECLARE_RMENU_BEGIN</a>(name, title_text, title_font, x, y, cx, cy, radius, flags, pScheme, indexFontId, itemsFontId, posCnt, menuItemsOff, pIcon, pUser, pOnClick, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gae6ae8cb20233948456843f530d522b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Menu object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="#gae6ae8cb20233948456843f530d522b4a">More...</a><br/></td></tr>
+<tr class="separator:gae6ae8cb20233948456843f530d522b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5e84839736478919b4cc12ca47f06467"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#ga5e84839736478919b4cc12ca47f06467">D4D_DECLARE_STD_RMENU_BEGIN</a>(name, title_text, title_font, x, y, cx, cy, radius, indexFontId, itemsFontId, pIcon, pOnClick)</td></tr>
+<tr class="memdesc:ga5e84839736478919b4cc12ca47f06467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Menu object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values.  <a href="#ga5e84839736478919b4cc12ca47f06467">More...</a><br/></td></tr>
+<tr class="separator:ga5e84839736478919b4cc12ca47f06467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53d9e311d30c9932979cd38c35ad8b71"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#ga53d9e311d30c9932979cd38c35ad8b71">D4D_DECLARE_MENU_BEGIN_INRAM</a>(name, title_text, title_font, x, y, cx, cy, flags, pScheme, indexFontId, itemsFontId, posCnt, menuItemsOff, pIcon, pUser, pOnClick, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga53d9e311d30c9932979cd38c35ad8b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__menu__macro.html#ga78548ae6e72df1c1dc93ac34c9a551ac">D4D_DECLARE_MENU_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="#ga53d9e311d30c9932979cd38c35ad8b71">More...</a><br/></td></tr>
+<tr class="separator:ga53d9e311d30c9932979cd38c35ad8b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae19eba0c906fe15a89bfd99827f3a1e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#gae19eba0c906fe15a89bfd99827f3a1e8">D4D_DECLARE_STD_MENU_BEGIN_INRAM</a>(name, title_text, title_font, x, y, cx, cy, IndexFontId, ItemsFontId, pIcon, pOnClick)</td></tr>
+<tr class="memdesc:gae19eba0c906fe15a89bfd99827f3a1e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__menu__macro.html#gacad90ea264624a56eb532aa0811e43a3">D4D_DECLARE_STD_MENU_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="#gae19eba0c906fe15a89bfd99827f3a1e8">More...</a><br/></td></tr>
+<tr class="separator:gae19eba0c906fe15a89bfd99827f3a1e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c15bec74d221b301839ec0e8dd500ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#ga2c15bec74d221b301839ec0e8dd500ef">D4D_DECLARE_RMENU_BEGIN_INRAM</a>(name, title_text, title_font, x, y, cx, cy, radius, flags, pScheme, indexFontId, itemsFontId, posCnt, menuItemsOff, pIcon, pUser, pOnClick, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga2c15bec74d221b301839ec0e8dd500ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__menu__macro.html#gae6ae8cb20233948456843f530d522b4a">D4D_DECLARE_RMENU_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="#ga2c15bec74d221b301839ec0e8dd500ef">More...</a><br/></td></tr>
+<tr class="separator:ga2c15bec74d221b301839ec0e8dd500ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad63f701a71f1ff1b382b6a19232f79d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__menu__macro.html#gad63f701a71f1ff1b382b6a19232f79d8">D4D_DECLARE_STD_RMENU_BEGIN_INRAM</a>(name, title_text, title_font, x, y, cx, cy, radius, IndexFontId, ItemsFontId, pIcon, pOnClick)</td></tr>
+<tr class="memdesc:gad63f701a71f1ff1b382b6a19232f79d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__menu__macro.html#ga5e84839736478919b4cc12ca47f06467">D4D_DECLARE_STD_RMENU_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="#gad63f701a71f1ff1b382b6a19232f79d8">More...</a><br/></td></tr>
+<tr class="separator:gad63f701a71f1ff1b382b6a19232f79d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact usage for each API macro. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ga38d7153759a4baf8f02da83aa499ad30"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _D4D_DECLARE_MENU_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pMargin, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pParent, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">indexFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">itemsFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">posCnt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">menuItemsOff, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pIcon, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnClick, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Menu object structure in memory including all substructures. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>- type of object &lt;D4D_CONST; D4D_NO_CONST&gt; </td></tr>
+    <tr><td class="paramname">name</td><td>- name of menu object </td></tr>
+    <tr><td class="paramname">title_text</td><td>- title text </td></tr>
+    <tr><td class="paramname">title_font</td><td>- title text font id </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of menu in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of menu in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of menu in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of menu in Y axis (height) (with hidden list box) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">pMargin</td><td>- pointer to margin structure (*D4D_MARGIN)(Could be NULL) </td></tr>
+    <tr><td class="paramname">pParent</td><td>- pointer to parent object (Could be NULL) </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__menu__const__flags.html">D4D MENU Defines masks of menu specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw menu </td></tr>
+    <tr><td class="paramname">indexFontId</td><td>- identification number of the used index text font </td></tr>
+    <tr><td class="paramname">itemsFontId</td><td>- identification number of the used item text font </td></tr>
+    <tr><td class="paramname">posCnt</td><td>- count of visible positions </td></tr>
+    <tr><td class="paramname">menuItemsOff</td><td>- offset between the individual items in pixels </td></tr>
+    <tr><td class="paramname">pIcon</td><td>- pointer to <a class="el" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a> structure to title </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of menu </td></tr>
+    <tr><td class="paramname">pOnClick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__menu__type.html#gaa5e11ec313882427117cb8634b0a381b">D4D_MENU_ON_CLICK</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___m_e_n_u.html">D4D_MENU</a> structure, including the object data sub structure. Is used to define all properties of menu. It must be followed by <a class="el" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a> or <a class="el" href="group__doxd4d__menu__macro.html#ga405d5d6eb9dd6755ad6dac1dab9489bb">D4D_DECLARE_MENU_ITEM_FULL</a> or at least <a class="el" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00235">235</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga671d1dd016c1933ffa8bd28fc80f17e1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _D4D_DECLARE_MENU_END</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that is used to close the item list for menu definition. </p>
+<dl class="section note"><dt>Note</dt><dd>This macro is used after the menu items declaration to close the list of items Here is an example demonstrating how to used it. <div class="fragment"><div class="line">*       D4D_DECLARE_STD_RMENU_AUTOSIZE_BEGIN(my_menu, <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Menu&quot;</span>), MU_BIG_FONT, 10, 10, 100, 120, 6, MY_SMALL_FONT, MY_FONT, &amp;my_icon, NULL)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item1&quot;</span>), &amp;myIcon1, 0)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item2&quot;</span>), &amp;myIcon2, 1)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga671d1dd016c1933ffa8bd28fc80f17e1">_D4D_DECLARE_MENU_END</a>()  </div>
+<div class="line">* </div>
+</div><!-- fragment --> </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00305">305</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga78548ae6e72df1c1dc93ac34c9a551ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_MENU_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">indexFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">itemsFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">posCnt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">menuItemsOff, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pIcon, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnClick, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Menu object structure in memory including all substructures with restricted count of parameters to simplify definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of menu object </td></tr>
+    <tr><td class="paramname">title_text</td><td>- title text </td></tr>
+    <tr><td class="paramname">title_font</td><td>- title text font id </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of menu in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of menu in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of menu in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of menu in Y axis (height) (with hidden list box) </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__menu__const__flags.html">D4D MENU Defines masks of menu specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw menu </td></tr>
+    <tr><td class="paramname">indexFontId</td><td>- identification number of the used index text font </td></tr>
+    <tr><td class="paramname">itemsFontId</td><td>- identification number of the used item text font </td></tr>
+    <tr><td class="paramname">posCnt</td><td>- count of visible positions </td></tr>
+    <tr><td class="paramname">menuItemsOff</td><td>- offset between the individual items in pixels </td></tr>
+    <tr><td class="paramname">pIcon</td><td>- pointer to <a class="el" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a> structure to title </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of menu </td></tr>
+    <tr><td class="paramname">pOnClick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__menu__type.html#gaa5e11ec313882427117cb8634b0a381b">D4D_MENU_ON_CLICK</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___m_e_n_u.html">D4D_MENU</a> structure, including the object data sub structure. Is used to define all properties of menu. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__menu__macro.html#ga38d7153759a4baf8f02da83aa499ad30">_D4D_DECLARE_MENU_BEGIN</a> instead of this one. It must be followed by <a class="el" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a> or <a class="el" href="group__doxd4d__menu__macro.html#ga405d5d6eb9dd6755ad6dac1dab9489bb">D4D_DECLARE_MENU_ITEM_FULL</a> or at least <a class="el" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00348">348</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga53d9e311d30c9932979cd38c35ad8b71"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_MENU_BEGIN_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">indexFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">itemsFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">posCnt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">menuItemsOff, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pIcon, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnClick, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__menu__macro.html#ga78548ae6e72df1c1dc93ac34c9a551ac">D4D_DECLARE_MENU_BEGIN</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00442">442</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga241427a269502cd82e3dfaa5b318ab0f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_MENU_END</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that is used to close the item list for menu definition. </p>
+<dl class="section note"><dt>Note</dt><dd>This macro is used after the menu items declaration to close the list of items Here is an example demonstrating how to used it. This is obsolete macro, the parameter is not needed. It can be used <a class="el" href="group__doxd4d__menu__macro.html#ga671d1dd016c1933ffa8bd28fc80f17e1">_D4D_DECLARE_MENU_END()</a> instead of. <div class="fragment"><div class="line">*       D4D_DECLARE_STD_RMENU_AUTOSIZE_BEGIN(my_menu, <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Menu&quot;</span>), MU_BIG_FONT, 10, 10, 100, 120, 6, MY_SMALL_FONT, MY_FONT, &amp;my_icon, NULL)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item1&quot;</span>), &amp;myIcon1, 0)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item2&quot;</span>), &amp;myIcon2, 1)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga671d1dd016c1933ffa8bd28fc80f17e1">_D4D_DECLARE_MENU_END</a>()  </div>
+<div class="line">* </div>
+</div><!-- fragment --> </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00319">319</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga6a1bf29ea48d04c5617c7671627a211d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_MENU_ITEM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pText, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pIcon&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that is used to add item to menu definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pText</td><td>- text of item </td></tr>
+    <tr><td class="paramname">pIcon</td><td>- pointer to item icon bitmap </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro is used after the menu declaration to add new item Here is an example demonstrating how to used it. <div class="fragment"><div class="line">*       D4D_DECLARE_STD_RMENU_AUTOSIZE_BEGIN(my_menu, <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Menu&quot;</span>), MU_BIG_FONT, 10, 10, 100, 120, 6, MY_SMALL_FONT, MY_FONT, &amp;my_icon, NULL)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item1&quot;</span>), &amp;myIcon1)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item2&quot;</span>), &amp;myIcon2)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>(my_menu)    </div>
+<div class="line">* </div>
+</div><!-- fragment --> </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00276">276</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga405d5d6eb9dd6755ad6dac1dab9489bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_MENU_ITEM_FULL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pText, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pIcon, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that is used to add item with user data menu definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pText</td><td>- text of item </td></tr>
+    <tr><td class="paramname">pIcon</td><td>- pointer to item icon bitmap </td></tr>
+    <tr><td class="paramname">pUser</td><td>- pointer to user data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro is used after the menu declaration to add new item with user data Here is an example demonstrating how to used it. <div class="fragment"><div class="line">*       D4D_DECLARE_STD_RMENU_AUTOSIZE_BEGIN(my_menu, <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Menu&quot;</span>), MU_BIG_FONT, 10, 10, 100, 120, 6, MY_SMALL_FONT, MY_FONT, &amp;my_icon, NULL)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item1&quot;</span>), &amp;myIcon1, 0)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item2&quot;</span>), &amp;myIcon2, 1)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>(my_menu)    </div>
+<div class="line">* </div>
+</div><!-- fragment --> </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00292">292</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gae6ae8cb20233948456843f530d522b4a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_RMENU_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">indexFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">itemsFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">posCnt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">menuItemsOff, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pIcon, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnClick, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the rounded Menu object structure in memory including all substructures with restricted count of parameters to simplify definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of menu object </td></tr>
+    <tr><td class="paramname">title_text</td><td>- title text </td></tr>
+    <tr><td class="paramname">title_font</td><td>- title text font id </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of menu in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of menu in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of menu in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of menu in Y axis (height) (with hidden list box) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__menu__const__flags.html">D4D MENU Defines masks of menu specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw menu </td></tr>
+    <tr><td class="paramname">indexFontId</td><td>- identification number of the used index text font </td></tr>
+    <tr><td class="paramname">itemsFontId</td><td>- identification number of the used item text font </td></tr>
+    <tr><td class="paramname">posCnt</td><td>- count of visible positions </td></tr>
+    <tr><td class="paramname">menuItemsOff</td><td>- offset between the individual items in pixels </td></tr>
+    <tr><td class="paramname">pIcon</td><td>- pointer to <a class="el" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a> structure to title </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of menu </td></tr>
+    <tr><td class="paramname">pOnClick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__menu__type.html#gaa5e11ec313882427117cb8634b0a381b">D4D_MENU_ON_CLICK</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___m_e_n_u.html">D4D_MENU</a> structure, including the object data sub structure. Is used to define all properties of menu. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__menu__macro.html#ga38d7153759a4baf8f02da83aa499ad30">_D4D_DECLARE_MENU_BEGIN</a> instead of this one. It must be followed by <a class="el" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a> or <a class="el" href="group__doxd4d__menu__macro.html#ga405d5d6eb9dd6755ad6dac1dab9489bb">D4D_DECLARE_MENU_ITEM_FULL</a> or at least <a class="el" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00405">405</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga2c15bec74d221b301839ec0e8dd500ef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_RMENU_BEGIN_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">indexFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">itemsFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">posCnt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">menuItemsOff, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pIcon, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnClick, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__menu__macro.html#gae6ae8cb20233948456843f530d522b4a">D4D_DECLARE_RMENU_BEGIN</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00460">460</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gacad90ea264624a56eb532aa0811e43a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_MENU_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">indexFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">itemsFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pIcon, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnClick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Menu object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of menu object </td></tr>
+    <tr><td class="paramname">title_text</td><td>- title text </td></tr>
+    <tr><td class="paramname">title_font</td><td>- title text font id </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of menu in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of menu in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of menu in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of menu in Y axis (height) (with hidden list box) </td></tr>
+    <tr><td class="paramname">indexFontId</td><td>- identification number of the used index text font </td></tr>
+    <tr><td class="paramname">itemsFontId</td><td>- identification number of the used item text font </td></tr>
+    <tr><td class="paramname">pIcon</td><td>- pointer to <a class="el" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a> structure to title </td></tr>
+    <tr><td class="paramname">pOnClick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__menu__type.html#gaa5e11ec313882427117cb8634b0a381b">D4D_MENU_ON_CLICK</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___m_e_n_u.html">D4D_MENU</a> structure, including the object data sub structure. Is used to define all properties of menu. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__menu__macro.html#ga38d7153759a4baf8f02da83aa499ad30">_D4D_DECLARE_MENU_BEGIN</a> instead of this one. The main advantage is less parameters of this macro against the full version. It must be followed by <a class="el" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a> or <a class="el" href="group__doxd4d__menu__macro.html#ga405d5d6eb9dd6755ad6dac1dab9489bb">D4D_DECLARE_MENU_ITEM_FULL</a> or at least <a class="el" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00373">373</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gae19eba0c906fe15a89bfd99827f3a1e8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_MENU_BEGIN_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">IndexFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ItemsFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pIcon, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnClick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__menu__macro.html#gacad90ea264624a56eb532aa0811e43a3">D4D_DECLARE_STD_MENU_BEGIN</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00451">451</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga5e84839736478919b4cc12ca47f06467"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_RMENU_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">indexFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">itemsFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pIcon, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnClick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the rounded Menu object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of menu object </td></tr>
+    <tr><td class="paramname">title_text</td><td>- title text </td></tr>
+    <tr><td class="paramname">title_font</td><td>- title text font id </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of menu in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of menu in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of menu in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of menu in Y axis (height) (with hidden list box) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">indexFontId</td><td>- identification number of the used index text font </td></tr>
+    <tr><td class="paramname">itemsFontId</td><td>- identification number of the used item text font </td></tr>
+    <tr><td class="paramname">pIcon</td><td>- pointer to <a class="el" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a> structure to title </td></tr>
+    <tr><td class="paramname">pOnClick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__menu__type.html#gaa5e11ec313882427117cb8634b0a381b">D4D_MENU_ON_CLICK</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___m_e_n_u.html">D4D_MENU</a> structure, including the object data sub structure. Is used to define all properties of menu. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__menu__macro.html#ga38d7153759a4baf8f02da83aa499ad30">_D4D_DECLARE_MENU_BEGIN</a> instead of this one. The main advantage is less parameters of this macro against the full version. It must be followed by <a class="el" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a> or <a class="el" href="group__doxd4d__menu__macro.html#ga405d5d6eb9dd6755ad6dac1dab9489bb">D4D_DECLARE_MENU_ITEM_FULL</a> or at least <a class="el" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00433">433</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gad63f701a71f1ff1b382b6a19232f79d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_RMENU_BEGIN_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">title_font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">IndexFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ItemsFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pIcon, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnClick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__menu__macro.html#ga5e84839736478919b4cc12ca47f06467">D4D_DECLARE_STD_RMENU_BEGIN</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00470">470</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:06 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

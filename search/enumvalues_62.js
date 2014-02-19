@@ -1,0 +1,11 @@
+var searchData=
+[
+  ['bpp1',['BPP1',['../d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7',1,'BPP1():&#160;d4dlcdhw_dragonfire_lcdc.h'],['../d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7',1,'BPP1():&#160;d4dlcdhw_k70_lcdc.h']]],
+  ['bpp12',['BPP12',['../d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e',1,'BPP12():&#160;d4dlcdhw_dragonfire_lcdc.h'],['../d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e',1,'BPP12():&#160;d4dlcdhw_k70_lcdc.h']]],
+  ['bpp16',['BPP16',['../d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c',1,'BPP16():&#160;d4dlcdhw_dragonfire_lcdc.h'],['../d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c',1,'BPP16():&#160;d4dlcdhw_k70_lcdc.h']]],
+  ['bpp18',['BPP18',['../d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970',1,'BPP18():&#160;d4dlcdhw_dragonfire_lcdc.h'],['../d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970',1,'BPP18():&#160;d4dlcdhw_k70_lcdc.h']]],
+  ['bpp2',['BPP2',['../d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c',1,'BPP2():&#160;d4dlcdhw_dragonfire_lcdc.h'],['../d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c',1,'BPP2():&#160;d4dlcdhw_k70_lcdc.h']]],
+  ['bpp24',['BPP24',['../d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a4963c5d43c76a0097bcb52bb9f92fa8a',1,'d4dlcdhw_k70_lcdc.h']]],
+  ['bpp4',['BPP4',['../d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c',1,'BPP4():&#160;d4dlcdhw_dragonfire_lcdc.h'],['../d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c',1,'BPP4():&#160;d4dlcdhw_k70_lcdc.h']]],
+  ['bpp8',['BPP8',['../d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a',1,'BPP8():&#160;d4dlcdhw_dragonfire_lcdc.h'],['../d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a',1,'BPP8():&#160;d4dlcdhw_k70_lcdc.h']]]
+];

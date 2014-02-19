@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_gauge.c File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__gauge_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_gauge.c File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="d4d_8h_source.html">d4d.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="d4d__private_8h_source.html">common_files/d4d_private.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for d4d_gauge.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__gauge_8c__incl.gif" border="0" usemap="#d4d__gauge_8c" alt=""/></div>
+<map name="d4d__gauge_8c" id="d4d__gauge_8c">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="2890,80,2944,107"/><area shape="rect" id="node38" href="d4d__private_8h.html" title="D4D Driver private header file. " alt="" coords="2969,80,3151,107"/><area shape="rect" id="node4" href="d4d__types_8h.html" title="D4D Driver global types header file. " alt="" coords="139,163,316,189"/><area shape="rect" id="node5" href="d4d__base_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="341,163,515,189"/><area shape="rect" id="node6" href="d4d__string_8h.html" title="D4D Driver strings header file. " alt="" coords="1171,163,1348,189"/><area shape="rect" id="node8" href="d4d__basic__draw_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="589,155,755,197"/><area shape="rect" id="node9" href="d4d__object_8h.html" title="D4D Driver object functions header file. " alt="" coords="779,163,959,189"/><area shape="rect" id="node10" href="d4d__low_8h.html" title="D4D driver low level graphic function header file. " alt="" coords="983,163,1147,189"/><area shape="rect" id="node11" href="d4d__bmp_8h.html" title="D4D driver bmp decoder header file. " alt="" coords="1579,163,1749,189"/><area shape="rect" id="node15" href="d4d__extsrc_8h.html" title="D4D Driver extscr helper functions header file. " alt="" coords="1373,163,1555,189"/><area shape="rect" id="node7" href="d4d__font_8h.html" title="D4D Driver fonts header file. " alt="" coords="822,253,988,280"/><area shape="rect" id="node16" href="d4d__math_8h.html" title="D4D Driver math helper functions header file. " alt="" coords="1774,163,1948,189"/><area shape="rect" id="node17" href="d4d__scheme_8h.html" title="D4D Driver color scheme header file. " alt="" coords="1973,163,2163,189"/><area shape="rect" id="node18" href="d4d__screen_8h.html" title="D4D driver screen header file. " alt="" coords="2188,163,2372,189"/><area shape="rect" id="node19" href="d4d__mouse_8h.html" title="D4D Driver mouse functions header file. " alt="" coords="2396,163,2580,189"/><area shape="rect" id="node20" href="d4d__picture_8h.html" title="D4D Driver picture object header file. " alt="" coords="2604,155,2743,197"/><area shape="rect" id="node21" href="d4d__button_8h.html" title="D4D Driver button object header file. " alt="" coords="2767,155,2905,197"/><area shape="rect" id="node22" href="d4d__check__box_8h.html" title="D4D Driver check box object header file. " alt="" coords="2929,155,3068,197"/><area shape="rect" id="node23" href="d4d__gauge_8h.html" title="D4D Driver gauge object header file. " alt="" coords="3092,155,3231,197"/><area shape="rect" id="node24" href="d4d__slider_8h.html" title="D4D Driver slider object header file. " alt="" coords="3255,155,3393,197"/><area shape="rect" id="node25" href="d4d__label_8h.html" title="D4D Driver label object header file. " alt="" coords="3417,155,3556,197"/><area shape="rect" id="node26" href="d4d__icon_8h.html" title="D4D Driver icon object header file. " alt="" coords="3580,155,3719,197"/><area shape="rect" id="node27" href="d4d__menu_8h.html" title="D4D Driver menu object header file. " alt="" coords="3743,155,3881,197"/><area shape="rect" id="node28" href="d4d__graph_8h.html" title="D4D Driver graph object header file. " alt="" coords="3905,155,4044,197"/><area shape="rect" id="node29" href="d4d__scroll__bar_8h.html" title="D4D Driver label object header file. " alt="" coords="4068,155,4207,197"/><area shape="rect" id="node30" href="d4d__console_8h.html" title="D4D Driver label object header file. " alt="" coords="4231,155,4369,197"/><area shape="rect" id="node31" href="d4d__text__box_8h.html" title="D4D Driver label object header file. " alt="" coords="4393,155,4532,197"/><area shape="rect" id="node32" href="d4d__progress__bar_8h.html" title="D4D Driver progress_bar object header file. " alt="" coords="4556,155,4695,197"/><area shape="rect" id="node33" href="d4d__radio__button_8h.html" title="D4D Driver radio button object header file. " alt="" coords="4719,155,4857,197"/><area shape="rect" id="node34" href="d4d__group__box_8h.html" title="D4D Driver groupBox object header file. " alt="" coords="4881,155,5020,197"/><area shape="rect" id="node35" href="d4d__list__box_8h.html" title="D4D Driver listBox object header file. " alt="" coords="5044,155,5183,197"/><area shape="rect" id="node36" href="d4d__edit__box_8h.html" title="D4D Driver editBox object header file. " alt="" coords="5207,155,5345,197"/><area shape="rect" id="node37" href="d4d__combo__box_8h.html" title="D4D Driver comboBox object header file. " alt="" coords="5369,155,5508,197"/><area shape="rect" id="node12" href="d4d__imgdec__d4dint_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="1776,246,1952,287"/><area shape="rect" id="node13" href="d4d__imgdec__d4d_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="1376,246,1552,287"/><area shape="rect" id="node14" href="d4d__imgdec__bmp_8h.html" title="D4D driver external bmp files decoder header file. " alt="" coords="1576,246,1752,287"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a29c9428934bd225223acc290d395e75f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__gauge_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a></td></tr>
+<tr class="separator:a29c9428934bd225223acc290d395e75f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a437037bf60b0dd61c0d869e71fff57b8"><td class="memItemLeft" align="right" valign="top">typedef struct D4D_GAUGE_VAL2PT_S&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__gauge_8c.html#a437037bf60b0dd61c0d869e71fff57b8">D4D_GAUGE_VAL2PT</a></td></tr>
+<tr class="separator:a437037bf60b0dd61c0d869e71fff57b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:af4b30bc28e048e9f52054f74f7ad37da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da">D4D_GaugOnMessage</a> (<a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *pMsg)</td></tr>
+<tr class="separator:af4b30bc28e048e9f52054f74f7ad37da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38282014f6a0080edd2672a169843b7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__gauge_8c.html#a38282014f6a0080edd2672a169843b7a">D4D_GaugeGetTextBuffer</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis)</td></tr>
+<tr class="separator:a38282014f6a0080edd2672a169843b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c77163e803d3968ccebd64ab6bde0bb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__gauge_8c.html#a3c77163e803d3968ccebd64ab6bde0bb">D4D_GaugeGetAnglePoint</a> (<a class="el" href="struct_d4_d___g_a_u_g_e.html">D4D_GAUGE</a> *pGaug, <a class="el" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a> value)</td></tr>
+<tr class="separator:a3c77163e803d3968ccebd64ab6bde0bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19ae4e69b08d36c269553590ca0f6226"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__gauge_8c.html#a19ae4e69b08d36c269553590ca0f6226">D4D_GaugValue2Point</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis)</td></tr>
+<tr class="separator:a19ae4e69b08d36c269553590ca0f6226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5270c9136868e96ae29c6dc9bc63b67"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67">D4D_GaugOnDraw</a> (<a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *pMsg)</td></tr>
+<tr class="separator:ab5270c9136868e96ae29c6dc9bc63b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b40a0f89fd53f8d0d36ff4da9def3f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#ga7b40a0f89fd53f8d0d36ff4da9def3f2">D4D_GaugSetValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a> value)</td></tr>
+<tr class="memdesc:ga7b40a0f89fd53f8d0d36ff4da9def3f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function sets the new value of gauge.  <a href="group__doxd4d__gauge__func.html#ga7b40a0f89fd53f8d0d36ff4da9def3f2">More...</a><br/></td></tr>
+<tr class="separator:ga7b40a0f89fd53f8d0d36ff4da9def3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46eb288ce539fb7b27abd51455739738"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#ga46eb288ce539fb7b27abd51455739738">D4D_GaugGetValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:ga46eb288ce539fb7b27abd51455739738"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function gets the current value of gauge.  <a href="group__doxd4d__gauge__func.html#ga46eb288ce539fb7b27abd51455739738">More...</a><br/></td></tr>
+<tr class="separator:ga46eb288ce539fb7b27abd51455739738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb98ec4a3b9e3d796a81a6eac1c880f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#gacb98ec4a3b9e3d796a81a6eac1c880f9">D4D_GaugSetLimits</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, const <a class="el" href="group__doxd4d__gauge__type.html#struct_d4_d___g_a_u_g_e___l_i_m_i_t_s">D4D_GAUGE_LIMITS</a> *pLimits)</td></tr>
+<tr class="memdesc:gacb98ec4a3b9e3d796a81a6eac1c880f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function sets the new limits values of gauge.  <a href="group__doxd4d__gauge__func.html#gacb98ec4a3b9e3d796a81a6eac1c880f9">More...</a><br/></td></tr>
+<tr class="separator:gacb98ec4a3b9e3d796a81a6eac1c880f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44be50a833bd8ee7d8d68ced0b00936c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#ga44be50a833bd8ee7d8d68ced0b00936c">D4D_GaugGetLimits</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__gauge__type.html#struct_d4_d___g_a_u_g_e___l_i_m_i_t_s">D4D_GAUGE_LIMITS</a> *pLimits)</td></tr>
+<tr class="memdesc:ga44be50a833bd8ee7d8d68ced0b00936c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function gets the values of gauge limit structure.  <a href="group__doxd4d__gauge__func.html#ga44be50a833bd8ee7d8d68ced0b00936c">More...</a><br/></td></tr>
+<tr class="separator:ga44be50a833bd8ee7d8d68ced0b00936c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae47240f89eeeaf652ca0afc74893ff62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#gae47240f89eeeaf652ca0afc74893ff62">D4D_GaugSetDir</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__types__type.html#ga9a27fd136eb003c46603ebf54f068414">D4D_TREND</a> trend)</td></tr>
+<tr class="memdesc:gae47240f89eeeaf652ca0afc74893ff62"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function set the trend/direction of gauge.  <a href="group__doxd4d__gauge__func.html#gae47240f89eeeaf652ca0afc74893ff62">More...</a><br/></td></tr>
+<tr class="separator:gae47240f89eeeaf652ca0afc74893ff62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4dfc8a5b58bb2a2f145c7ddbbf4d20f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga9a27fd136eb003c46603ebf54f068414">D4D_TREND</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#ga4dfc8a5b58bb2a2f145c7ddbbf4d20f1">D4D_GaugGetDir</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:ga4dfc8a5b58bb2a2f145c7ddbbf4d20f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function gets the trend/direction of gauge object.  <a href="group__doxd4d__gauge__func.html#ga4dfc8a5b58bb2a2f145c7ddbbf4d20f1">More...</a><br/></td></tr>
+<tr class="separator:ga4dfc8a5b58bb2a2f145c7ddbbf4d20f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac1d01d031ea33edfbcfc945bddc7aa23"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__gauge_8c.html#ac1d01d031ea33edfbcfc945bddc7aa23">d4d_gaugeSysFunc</a></td></tr>
+<tr class="separator:ac1d01d031ea33edfbcfc945bddc7aa23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D driver gauge object c file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.57.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Oct-15-2013 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a29c9428934bd225223acc290d395e75f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _calc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00074">74</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__gauge_8c_source.html#l00084">D4D_GaugeGetAnglePoint()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>, and <a class="el" href="d4d__gauge_8c_source.html#l00116">D4D_GaugValue2Point()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a437037bf60b0dd61c0d869e71fff57b8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct D4D_GAUGE_VAL2PT_S  <a class="el" href="d4d__gauge_8c.html#a437037bf60b0dd61c0d869e71fff57b8">D4D_GAUGE_VAL2PT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a3c77163e803d3968ccebd64ab6bde0bb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> D4D_GaugeGetAnglePoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_d4_d___g_a_u_g_e.html">D4D_GAUGE</a> *&#160;</td>
+          <td class="paramname"><em>pGaug</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a>&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00084">84</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>References <a class="el" href="d4d__gauge_8c_source.html#l00074">_calc</a>, <a class="el" href="d4d__gauge_8h_source.html#l00141">D4D_GAUGE_LIMITS::angleMax</a>, <a class="el" href="d4d__gauge_8h_source.html#l00140">D4D_GAUGE_LIMITS::angleMin</a>, <a class="el" href="d4d__types_8h_source.html#l00315">D4D_CLOCK_WISE</a>, <a class="el" href="d4d__math_8c_source.html#l00502">D4D_Cos()</a>, <a class="el" href="d4d__math_8h_source.html#l00104">D4D_MulDivSU</a>, <a class="el" href="d4d__math_8c_source.html#l00206">D4D_MulDivUU8()</a>, <a class="el" href="d4d__math_8c_source.html#l00472">D4D_Sin()</a>, <a class="el" href="d4d__gauge_8h_source.html#l00157">D4D_GAUGE_DATA::limits</a>, <a class="el" href="d4d__gauge_8h_source.html#l00172">D4D_GAUGE::pData</a>, <a class="el" href="d4d__gauge_8h_source.html#l00167">D4D_GAUGE::pointerLen</a>, <a class="el" href="d4d__gauge_8h_source.html#l00156">D4D_GAUGE_DATA::trend</a>, <a class="el" href="d4d__gauge_8h_source.html#l00139">D4D_GAUGE_LIMITS::valueMax</a>, <a class="el" href="d4d__gauge_8h_source.html#l00138">D4D_GAUGE_LIMITS::valueMin</a>, <a class="el" href="d4d__types_8h_source.html#l00225">D4D_POINT::x</a>, and <a class="el" href="d4d__types_8h_source.html#l00226">D4D_POINT::y</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__gauge_8c_source.html#l00116">D4D_GaugValue2Point()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__gauge_8c_a3c77163e803d3968ccebd64ab6bde0bb_cgraph.gif" border="0" usemap="#d4d__gauge_8c_a3c77163e803d3968ccebd64ab6bde0bb_cgraph" alt=""/></div>
+<map name="d4d__gauge_8c_a3c77163e803d3968ccebd64ab6bde0bb_cgraph" id="d4d__gauge_8c_a3c77163e803d3968ccebd64ab6bde0bb_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__math__func.html#ga6d5d0f2dd7c1fd98511b060186979ee1" title="Cosine calculation using lookup table. " alt="" coords="249,5,327,32"/><area shape="rect" id="node3" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="229,56,347,83"/><area shape="rect" id="node5" href="group__doxd4d__math__func.html#gaf1d14621d86f2c3bca3e3d985e6f3587" title="Sine calculation using lookup table. " alt="" coords="251,107,325,133"/><area shape="rect" id="node4" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="395,56,490,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__gauge_8c_a3c77163e803d3968ccebd64ab6bde0bb_icgraph.gif" border="0" usemap="#d4d__gauge_8c_a3c77163e803d3968ccebd64ab6bde0bb_icgraph" alt=""/></div>
+<map name="d4d__gauge_8c_a3c77163e803d3968ccebd64ab6bde0bb_icgraph" id="d4d__gauge_8c_a3c77163e803d3968ccebd64ab6bde0bb_icgraph">
+<area shape="rect" id="node2" href="d4d__gauge_8c.html#a19ae4e69b08d36c269553590ca0f6226" title="D4D_GaugValue2Point" alt="" coords="229,5,384,32"/><area shape="rect" id="node3" href="d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67" title="D4D_GaugOnDraw" alt="" coords="432,5,563,32"/><area shape="rect" id="node4" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="611,5,765,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a38282014f6a0080edd2672a169843b7a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> * D4D_GaugeGetTextBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get object text buffer </p>
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00397">397</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>References <a class="el" href="d4d__gauge_8h_source.html#l00181">D4D_GET_GAUGE</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab5270c9136868e96ae29c6dc9bc63b67"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void D4D_GaugOnDraw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00145">145</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>References <a class="el" href="d4d__gauge_8c_source.html#l00074">_calc</a>, <a class="el" href="d4d__scheme_8h_source.html#l00581">D4D_CLR_SCHEME_S::bckg</a>, <a class="el" href="d4d__types_8h_source.html#l00232">D4D_SIZE::cx</a>, <a class="el" href="d4d__types_8h_source.html#l00233">D4D_SIZE::cy</a>, <a class="el" href="d4d__base_8h_source.html#l00225">D4D_ALIGN_H_CENTER_MASK</a>, <a class="el" href="d4d__base_8h_source.html#l00234">D4D_ALIGN_V_CENTER_MASK</a>, <a class="el" href="d4d__base_8h_source.html#l00582">D4D_ASSERT</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01654">D4D_DrawFrame()</a>, <a class="el" href="d4d_8h_source.html#l00187">D4D_DrawRBmpRect</a>, <a class="el" href="d4d__basic__draw_8h_source.html#l00139">D4D_DrawTextRect</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00539">D4D_FillCircle()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00920">D4D_FillRRect()</a>, <a class="el" href="d4d__gauge_8h_source.html#l00088">D4D_GAUGE_F_HUB</a>, <a class="el" href="d4d__gauge_8h_source.html#l00087">D4D_GAUGE_F_REDRAW_TEXT</a>, <a class="el" href="d4d__gauge_8h_source.html#l00089">D4D_GAUGE_F_THICK_POINTER</a>, <a class="el" href="d4d__gauge_8h_source.html#l00061">D4D_GAUGE_HUB_RADIUS</a>, <a class="el" href="d4d__gauge_8c_source.html#l00116">D4D_GaugValue2Point()</a>, <a class="el" href="d4d__gauge_8h_source.html#l00181">D4D_GET_GAUGE</a>, <a class="el" href="d4d__font_8c_source.html#l00381">D4D_GetFontHeight()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00333">D4D_GetGreyScale()</a>, <a class="el" href="d4d__string_8c_source.html#l00357">D4D_GetTextWidth()</a>, <a class="el" href="d4d__object_8c_source.html#l00303">D4D_IsEnabled()</a>, <a class="el" href="d4d__types_8h_source.html#l00291">D4D_LINE_THICK</a>, <a class="el" href="d4d__types_8h_source.html#l00290">D4D_LINE_THIN</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00164">D4D_LineTo()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00077">D4D_MoveTo()</a>, <a class="el" href="d4d__base_8h_source.html#l00361">D4D_OBJECT_DRAWFLAGS_COMPLETE</a>, <a class="el" href="d4d__base_8h_source.html#l00364">D4D_OBJECT_DRAWFLAGS_STATE</a>, <a class="el" href="d4d__scheme_8c_source.html#l00225">D4D_ObjectGetBckgFillColor()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00161">D4D_ObjectGetForeColor()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00109">D4D_ObjectGetScheme()</a>, <a class="el" href="d4d__base_8h_source.html#l00578">D4D_SCRATCHPAD_SIZE</a>, <a class="el" href="d4d__base_8h_source.html#l00408">D4D_MESSAGE_S::draw</a>, <a class="el" href="d4d__string_8h_source.html#l00104">D4D_STRING_S::fontId</a>, <a class="el" href="d4d__scheme_8h_source.html#l00567">D4D_CLR_SCHEME_OBJ::gauge</a>, <a class="el" href="d4d__scheme_8h_source.html#l00525">D4D_CLR_SCHEME_GAUG::hub</a>, <a class="el" href="d4d__object_8h_source.html#l00178">D4D_OBJECT_S::initFlags</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__scheme_8h_source.html#l00589">D4D_CLR_SCHEME_S::objectDepend</a>, <a class="el" href="d4d__gauge_8h_source.html#l00168">D4D_GAUGE::pBmpBkgd</a>, <a class="el" href="d4d__gauge_8h_source.html#l00172">D4D_GAUGE::pData</a>, <a class="el" href="d4d__base_8h_source.html#l00402">D4D_MESSAGE_S::pObject</a>, <a class="el" href="d4d__scheme_8h_source.html#l00526">D4D_CLR_SCHEME_GAUG::pointer</a>, <a class="el" href="group__doxd4d__base__type.html#a65e56fff8e0b0136541d1cf58a3a5be4">D4D_MESSAGE_S::prm</a>, <a class="el" href="d4d__string_8h_source.html#l00102">D4D_STRING_S::pText</a>, <a class="el" href="d4d__object_8h_source.html#l00171">D4D_OBJECT_S::radius</a>, <a class="el" href="d4d__object_8h_source.html#l00170">D4D_OBJECT_S::size</a>, <a class="el" href="d4d__gauge_8h_source.html#l00164">D4D_GAUGE::textBuff</a>, <a class="el" href="d4d__gauge_8h_source.html#l00165">D4D_GAUGE::txtOff</a>, <a class="el" href="d4d__gauge_8h_source.html#l00154">D4D_GAUGE_DATA::value</a>, <a class="el" href="d4d__gauge_8h_source.html#l00155">D4D_GAUGE_DATA::valueLast</a>, <a class="el" href="d4d__types_8h_source.html#l00225">D4D_POINT::x</a>, and <a class="el" href="d4d__types_8h_source.html#l00226">D4D_POINT::y</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__gauge_8c_source.html#l00374">D4D_GaugOnMessage()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__gauge_8c_ab5270c9136868e96ae29c6dc9bc63b67_cgraph.gif" border="0" usemap="#d4d__gauge_8c_ab5270c9136868e96ae29c6dc9bc63b67_cgraph" alt=""/></div>
+<map name="d4d__gauge_8c_ab5270c9136868e96ae29c6dc9bc63b67_cgraph" id="d4d__gauge_8c_ab5270c9136868e96ae29c6dc9bc63b67_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e" title="Function draw standard object frame based on the object settings and current state. " alt="" coords="220,397,340,424"/><area shape="rect" id="node32" href="group__doxd4d__basic__draw__func.html#ga59c119fb78cba1c01efd20a9bd524681" title="Function draw filled circle on the screen. " alt="" coords="228,499,332,525"/><area shape="rect" id="node37" href="group__doxd4d__basic__draw__func.html#ga8e67d983050dc41e2984a44af9f989c5" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="227,600,333,627"/><area shape="rect" id="node39" href="d4d__gauge_8c.html#a19ae4e69b08d36c269553590ca0f6226" title="D4D_GaugValue2Point" alt="" coords="203,701,357,728"/><area shape="rect" id="node5" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1129,803,1268,829"/><area shape="rect" id="node44" href="group__doxd4d__scheme__func.html#ga4ee216fb62548357ee1b19f460d29087" title="Compute the grayscale color. " alt="" coords="212,752,348,779"/><area shape="rect" id="node45" href="group__doxd4d__string__func.html#ga30a1542cae1d27c9bfcfcfd02c4c873c" title="The function returns width of text in pixels. " alt="" coords="213,853,347,880"/><area shape="rect" id="node50" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="465,993,575,1020"/><area shape="rect" id="node52" href="group__doxd4d__basic__draw__func.html#gaccc98a88c426ccb03b4a7c508872fd68" title="Function draw line on the screen. " alt="" coords="942,245,1034,272"/><area shape="rect" id="node53" href="group__doxd4d__basic__draw__func.html#gaeaf75234e6158d0c84eb03c5eaef6eef" title="Function move logic cursor to new position. " alt="" coords="231,955,329,981"/><area shape="rect" id="node54" href="group__doxd4d__scheme__func.html#gaad25fd67fd667b9517bfb75f36f0b426" title="Function return object current fill background color. " alt="" coords="185,1056,375,1083"/><area shape="rect" id="node57" href="group__doxd4d__scheme__func.html#ga4f46b75cc9161aaf0ca1c447a76e045b" title="Function return object current fore color. " alt="" coords="195,1005,365,1032"/><area shape="rect" id="node55" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="439,1068,601,1095"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="665,752,858,779"/><area shape="rect" id="node12" href="group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="439,296,601,323"/><area shape="rect" id="node13" href="group__doxd4d__basic__draw__func.html#gab2a67b0452682941ea6930ad5df6a824" title="Function draw standard object bevel specified by parameters. " alt="" coords="477,397,563,424"/><area shape="rect" id="node27" href="group__doxd4d__basic__draw__func.html#ga0396be35ce2a28935e3aed036cf52a80" title="Function draw rectangle on the screen with round corners. " alt="" coords="475,347,565,373"/><area shape="rect" id="node4" href="d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="907,752,1069,779"/><area shape="rect" id="node7" href="group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1129,752,1268,779"/><area shape="rect" id="node6" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1364,853,1465,880"/><area shape="rect" id="node8" href="group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1343,752,1487,779"/><area shape="rect" id="node9" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1549,701,1704,728"/><area shape="rect" id="node10" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1575,752,1678,779"/><area shape="rect" id="node11" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1553,803,1700,829"/><area shape="rect" id="node14" href="group__doxd4d__scheme__func.html#ga77e2ec7e804c88e475f5621053773268" title="Compute change of color intesity. " alt="" coords="676,347,847,373"/><area shape="rect" id="node18" href="group__doxd4d__basic__draw__func.html#ga4ea4484aca8a7a3bdeaa24aa26bfd02a" title="Function draw quadrant of circle on the screen. " alt="" coords="708,397,815,424"/><area shape="rect" id="node26" href="group__doxd4d__basic__draw__func.html#gaab878b72dcc003891ceaf705088c611c" title="Function draw filled rectangle on the screen. " alt="" coords="1149,499,1248,525"/><area shape="rect" id="node15" href="group__doxd4d__math__func.html#gace9b50d1b3fc631ced8489183a714804" title="Calculation of absolute value &#45; 8 bit. " alt="" coords="949,296,1027,323"/><area shape="rect" id="node16" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="929,448,1047,475"/><area shape="rect" id="node17" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1151,448,1246,475"/><area shape="rect" id="node19" href="d4d__low_8c.html#a0b3fcdb3eb314f2fe830cc257627de8c" title="D4D_LCD_QCircle" alt="" coords="923,347,1053,373"/><area shape="rect" id="node20" href="d4d__low_8c.html#a7df9d0f828a7a12cbf56d640217a7d8a" title="D4D_LCD_PutPixel" alt="" coords="1559,245,1694,272"/><area shape="rect" id="node21" href="d4d__low_8c.html#a8567ee4b31298bfe6f6e7959bcf5456f" title="D4D_LCD_QPlot8points" alt="" coords="1118,347,1279,373"/><area shape="rect" id="node22" href="d4d__low_8c.html#a97e36119e00202bde366aab6f0c61672" title="D4D_LCD_QPlot4pointsfill" alt="" coords="1328,347,1501,373"/><area shape="rect" id="node25" href="d4d__low_8c.html#afde60e05692fa0721250ce6925313e17" title="D4D_LCD_QPlot4points" alt="" coords="1334,296,1495,323"/><area shape="rect" id="node23" href="d4d__low_8c.html#a65810021c5d69c06eeefa40f0c800b60" title="D4D_LCD_Box" alt="" coords="1572,397,1681,424"/><area shape="rect" id="node24" href="d4d__low_8c.html#a450664aef631dc065b1d290e8b75f863" title="D4D_LCD_SwapCoor" alt="" coords="1753,220,1898,247"/><area shape="rect" id="node28" href="d4d__low_8c.html#a8f9c6276de8111853b9b73e87e2b004a" title="D4D_LCD_RRect" alt="" coords="700,195,823,221"/><area shape="rect" id="node29" href="d4d__low_8c.html#a3aca803259156c65646263edab27275a" title="D4D_LCD_Line" alt="" coords="1143,144,1254,171"/><area shape="rect" id="node31" href="d4d__low_8c.html#a61637753b03d0ada6e7f8ca501f0e70b" title="D4D_LCD_Rect" alt="" coords="931,195,1045,221"/><area shape="rect" id="node30" href="group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b" title="Calculation of absolute value &#45; 16 bit. " alt="" coords="1369,144,1460,171"/><area shape="rect" id="node33" href="d4d__low_8c.html#a82fcd52a6a286fac5a82430bcbf0176e" title="D4D_LCD_Circle" alt="" coords="929,397,1047,424"/><area shape="rect" id="node34" href="d4d__low_8c.html#ac26d74564f028a4acc22ff5fb054b79a" title="D4D_LCD_Plot8points" alt="" coords="1123,397,1274,424"/><area shape="rect" id="node35" href="d4d__low_8c.html#a85aa3440da00098f400163cd3f974f63" title="D4D_LCD_Plot4pointsfill" alt="" coords="1333,448,1496,475"/><area shape="rect" id="node36" href="d4d__low_8c.html#aa74d7db1a2ca150728d1b7e0c51e0d28" title="D4D_LCD_Plot4points" alt="" coords="1339,397,1490,424"/><area shape="rect" id="node38" href="d4d__low_8c.html#a69f1735f580a19e4a777736f017cf0c1" title="D4D_LCD_RBox" alt="" coords="702,549,821,576"/><area shape="rect" id="node40" href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="439,701,601,728"/><area shape="rect" id="node41" href="d4d__gauge_8c.html#a3c77163e803d3968ccebd64ab6bde0bb" title="D4D_GaugeGetAnglePoint" alt="" coords="432,600,608,627"/><area shape="rect" id="node42" href="group__doxd4d__math__func.html#ga6d5d0f2dd7c1fd98511b060186979ee1" title="Cosine calculation using lookup table. " alt="" coords="723,701,800,728"/><area shape="rect" id="node43" href="group__doxd4d__math__func.html#gaf1d14621d86f2c3bca3e3d985e6f3587" title="Sine calculation using lookup table. " alt="" coords="725,651,798,677"/><area shape="rect" id="node46" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="424,853,616,880"/><area shape="rect" id="node47" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b" title="D4D_GetCharWidth" alt="" coords="452,904,588,931"/><area shape="rect" id="node48" href="d4d__font_8c.html#a43acdd475ef7db17e00a6999cde00578" title="D4D_LCD_GetCharPlace" alt="" coords="678,853,845,880"/><area shape="rect" id="node49" href="d4d__font_8c.html#a4dc0aafa5f109feee7a6fea4e98e5df2" title="D4D_GetCharIndex" alt="" coords="921,853,1055,880"/><area shape="rect" id="node51" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="686,1005,837,1032"/><area shape="rect" id="node56" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="679,1068,843,1095"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__gauge_8c_ab5270c9136868e96ae29c6dc9bc63b67_icgraph.gif" border="0" usemap="#d4d__gauge_8c_ab5270c9136868e96ae29c6dc9bc63b67_icgraph" alt=""/></div>
+<map name="d4d__gauge_8c_ab5270c9136868e96ae29c6dc9bc63b67_icgraph" id="d4d__gauge_8c_ab5270c9136868e96ae29c6dc9bc63b67_icgraph">
+<area shape="rect" id="node2" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="184,5,339,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af4b30bc28e048e9f52054f74f7ad37da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_GaugOnMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>THE INTERNAL API FUNCTIONS </p>
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00374">374</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>References <a class="el" href="d4d__screen_8c_source.html#l00430">D4D_FocusSet()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>, <a class="el" href="d4d__base_8h_source.html#l00371">D4D_MSG_DRAW</a>, <a class="el" href="d4d__base_8h_source.html#l00379">D4D_MSG_TOUCHED</a>, <a class="el" href="d4d__object_8c_source.html#l00443">D4D_ObjOnMessage()</a>, <a class="el" href="d4d__base_8h_source.html#l00404">D4D_MESSAGE_S::nMsgId</a>, <a class="el" href="d4d__base_8h_source.html#l00402">D4D_MESSAGE_S::pObject</a>, and <a class="el" href="d4d__base_8h_source.html#l00403">D4D_MESSAGE_S::pScreen</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__gauge_8c_af4b30bc28e048e9f52054f74f7ad37da_cgraph.gif" border="0" usemap="#d4d__gauge_8c_af4b30bc28e048e9f52054f74f7ad37da_cgraph" alt=""/></div>
+<map name="d4d__gauge_8c_af4b30bc28e048e9f52054f74f7ad37da_cgraph" id="d4d__gauge_8c_af4b30bc28e048e9f52054f74f7ad37da_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="225,131,335,157"/><area shape="rect" id="node12" href="d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67" title="D4D_GaugOnDraw" alt="" coords="215,511,345,537"/><area shape="rect" id="node67" href="d4d__object_8c.html#a71af54d42c496cf96eb44fcb42c7928a" title="D4D_ObjOnMessage" alt="" coords="208,561,352,588"/><area shape="rect" id="node3" href="d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="437,56,555,83"/><area shape="rect" id="node9" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="681,232,791,259"/><area shape="rect" id="node10" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="424,131,568,157"/><area shape="rect" id="node11" href="d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="427,5,565,32"/><area shape="rect" id="node4" href="d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="664,56,808,83"/><area shape="rect" id="node5" href="d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1355,29,1557,56"/><area shape="rect" id="node6" href="d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1123,29,1306,56"/><area shape="rect" id="node8" href="d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="886,81,1069,122"/><area shape="rect" id="node7" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="1381,181,1531,208"/><area shape="rect" id="node13" href="group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e" title="Function draw standard object frame based on the object settings and current state. " alt="" coords="436,591,556,617"/><area shape="rect" id="node43" href="group__doxd4d__basic__draw__func.html#ga59c119fb78cba1c01efd20a9bd524681" title="Function draw filled circle on the screen. " alt="" coords="684,492,788,519"/><area shape="rect" id="node48" href="group__doxd4d__basic__draw__func.html#ga8e67d983050dc41e2984a44af9f989c5" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="443,641,549,668"/><area shape="rect" id="node50" href="d4d__gauge_8c.html#a19ae4e69b08d36c269553590ca0f6226" title="D4D_GaugValue2Point" alt="" coords="419,847,573,873"/><area shape="rect" id="node16" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1387,1049,1525,1076"/><area shape="rect" id="node55" href="group__doxd4d__scheme__func.html#ga4ee216fb62548357ee1b19f460d29087" title="Compute the grayscale color. " alt="" coords="428,692,564,719"/><area shape="rect" id="node56" href="group__doxd4d__string__func.html#ga30a1542cae1d27c9bfcfcfd02c4c873c" title="The function returns width of text in pixels. " alt="" coords="429,999,563,1025"/><area shape="rect" id="node61" href="group__doxd4d__basic__draw__func.html#gaccc98a88c426ccb03b4a7c508872fd68" title="Function draw line on the screen. " alt="" coords="1169,333,1261,360"/><area shape="rect" id="node62" href="group__doxd4d__basic__draw__func.html#gaeaf75234e6158d0c84eb03c5eaef6eef" title="Function move logic cursor to new position. " alt="" coords="447,283,545,309"/><area shape="rect" id="node63" href="group__doxd4d__scheme__func.html#gaad25fd67fd667b9517bfb75f36f0b426" title="Function return object current fill background color. " alt="" coords="401,384,591,411"/><area shape="rect" id="node66" href="group__doxd4d__scheme__func.html#ga4f46b75cc9161aaf0ca1c447a76e045b" title="Function return object current fore color. " alt="" coords="411,333,581,360"/><area shape="rect" id="node64" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="655,359,817,385"/><area shape="rect" id="node14" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="881,948,1074,975"/><area shape="rect" id="node23" href="group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="655,593,817,620"/><area shape="rect" id="node24" href="group__doxd4d__basic__draw__func.html#gab2a67b0452682941ea6930ad5df6a824" title="Function draw standard object bevel specified by parameters. " alt="" coords="693,644,779,671"/><area shape="rect" id="node38" href="group__doxd4d__basic__draw__func.html#ga0396be35ce2a28935e3aed036cf52a80" title="Function draw rectangle on the screen with round corners. " alt="" coords="691,543,781,569"/><area shape="rect" id="node15" href="d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="1133,948,1296,975"/><area shape="rect" id="node18" href="group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1387,952,1525,979"/><area shape="rect" id="node17" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1641,1075,1743,1101"/><area shape="rect" id="node19" href="group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1620,955,1764,981"/><area shape="rect" id="node20" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1827,929,1981,956"/><area shape="rect" id="node21" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1853,980,1955,1007"/><area shape="rect" id="node22" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1831,1031,1977,1057"/><area shape="rect" id="node25" href="group__doxd4d__scheme__func.html#ga77e2ec7e804c88e475f5621053773268" title="Compute change of color intesity. " alt="" coords="892,695,1063,721"/><area shape="rect" id="node29" href="group__doxd4d__basic__draw__func.html#ga4ea4484aca8a7a3bdeaa24aa26bfd02a" title="Function draw quadrant of circle on the screen. " alt="" coords="924,593,1031,620"/><area shape="rect" id="node37" href="group__doxd4d__basic__draw__func.html#gaab878b72dcc003891ceaf705088c611c" title="Function draw filled rectangle on the screen. " alt="" coords="1643,777,1741,804"/><area shape="rect" id="node26" href="group__doxd4d__math__func.html#gace9b50d1b3fc631ced8489183a714804" title="Calculation of absolute value &#45; 8 bit. " alt="" coords="1176,695,1253,721"/><area shape="rect" id="node27" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="1156,752,1273,779"/><area shape="rect" id="node28" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1409,752,1503,779"/><area shape="rect" id="node30" href="d4d__low_8c.html#a0b3fcdb3eb314f2fe830cc257627de8c" title="D4D_LCD_QCircle" alt="" coords="1150,536,1279,563"/><area shape="rect" id="node31" href="d4d__low_8c.html#a7df9d0f828a7a12cbf56d640217a7d8a" title="D4D_LCD_PutPixel" alt="" coords="1837,499,1971,525"/><area shape="rect" id="node32" href="d4d__low_8c.html#a8567ee4b31298bfe6f6e7959bcf5456f" title="D4D_LCD_QPlot8points" alt="" coords="1375,536,1537,563"/><area shape="rect" id="node33" href="d4d__low_8c.html#a97e36119e00202bde366aab6f0c61672" title="D4D_LCD_QPlot4pointsfill" alt="" coords="1605,676,1779,703"/><area shape="rect" id="node36" href="d4d__low_8c.html#afde60e05692fa0721250ce6925313e17" title="D4D_LCD_QPlot4points" alt="" coords="1611,524,1773,551"/><area shape="rect" id="node34" href="d4d__low_8c.html#a65810021c5d69c06eeefa40f0c800b60" title="D4D_LCD_Box" alt="" coords="1849,701,1959,728"/><area shape="rect" id="node35" href="d4d__low_8c.html#a450664aef631dc065b1d290e8b75f863" title="D4D_LCD_SwapCoor" alt="" coords="2030,512,2175,539"/><area shape="rect" id="node39" href="d4d__low_8c.html#a8f9c6276de8111853b9b73e87e2b004a" title="D4D_LCD_RRect" alt="" coords="916,492,1039,519"/><area shape="rect" id="node40" href="d4d__low_8c.html#a3aca803259156c65646263edab27275a" title="D4D_LCD_Line" alt="" coords="1401,423,1511,449"/><area shape="rect" id="node42" href="d4d__low_8c.html#a61637753b03d0ada6e7f8ca501f0e70b" title="D4D_LCD_Rect" alt="" coords="1158,485,1271,512"/><area shape="rect" id="node41" href="group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b" title="Calculation of absolute value &#45; 16 bit. " alt="" coords="1647,372,1737,399"/><area shape="rect" id="node44" href="d4d__low_8c.html#a82fcd52a6a286fac5a82430bcbf0176e" title="D4D_LCD_Circle" alt="" coords="1155,593,1274,620"/><area shape="rect" id="node45" href="d4d__low_8c.html#ac26d74564f028a4acc22ff5fb054b79a" title="D4D_LCD_Plot8points" alt="" coords="1381,593,1531,620"/><area shape="rect" id="node46" href="d4d__low_8c.html#a85aa3440da00098f400163cd3f974f63" title="D4D_LCD_Plot4pointsfill" alt="" coords="1611,727,1773,753"/><area shape="rect" id="node47" href="d4d__low_8c.html#aa74d7db1a2ca150728d1b7e0c51e0d28" title="D4D_LCD_Plot4points" alt="" coords="1617,625,1767,652"/><area shape="rect" id="node49" href="d4d__low_8c.html#a69f1735f580a19e4a777736f017cf0c1" title="D4D_LCD_RBox" alt="" coords="918,745,1037,772"/><area shape="rect" id="node51" href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="655,897,817,924"/><area shape="rect" id="node52" href="d4d__gauge_8c.html#a3c77163e803d3968ccebd64ab6bde0bb" title="D4D_GaugeGetAnglePoint" alt="" coords="648,796,824,823"/><area shape="rect" id="node53" href="group__doxd4d__math__func.html#ga6d5d0f2dd7c1fd98511b060186979ee1" title="Cosine calculation using lookup table. " alt="" coords="939,897,1016,924"/><area shape="rect" id="node54" href="group__doxd4d__math__func.html#gaf1d14621d86f2c3bca3e3d985e6f3587" title="Sine calculation using lookup table. " alt="" coords="941,847,1014,873"/><area shape="rect" id="node57" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="640,1049,832,1076"/><area shape="rect" id="node58" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b" title="D4D_GetCharWidth" alt="" coords="668,999,804,1025"/><area shape="rect" id="node59" href="d4d__font_8c.html#a43acdd475ef7db17e00a6999cde00578" title="D4D_LCD_GetCharPlace" alt="" coords="894,999,1061,1025"/><area shape="rect" id="node60" href="d4d__font_8c.html#a4dc0aafa5f109feee7a6fea4e98e5df2" title="D4D_GetCharIndex" alt="" coords="1148,999,1281,1025"/><area shape="rect" id="node65" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="895,359,1059,385"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a19ae4e69b08d36c269553590ca0f6226"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void D4D_GaugValue2Point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00116">116</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>References <a class="el" href="d4d__gauge_8c_source.html#l00074">_calc</a>, <a class="el" href="d4d__base_8c_source.html#l01016">D4D_ComputeGeometry()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00084">D4D_GaugeGetAnglePoint()</a>, <a class="el" href="d4d__gauge_8h_source.html#l00181">D4D_GET_GAUGE</a>, <a class="el" href="d4d__screen_8c_source.html#l00536">D4D_GetClientToScreenPoint()</a>, <a class="el" href="d4d__gauge_8h_source.html#l00166">D4D_GAUGE::hubOff</a>, <a class="el" href="d4d__gauge_8h_source.html#l00172">D4D_GAUGE::pData</a>, <a class="el" href="d4d__object_8h_source.html#l00169">D4D_OBJECT_S::position</a>, <a class="el" href="d4d__gauge_8h_source.html#l00154">D4D_GAUGE_DATA::value</a>, <a class="el" href="d4d__gauge_8h_source.html#l00155">D4D_GAUGE_DATA::valueLast</a>, <a class="el" href="d4d__types_8h_source.html#l00225">D4D_POINT::x</a>, and <a class="el" href="d4d__types_8h_source.html#l00226">D4D_POINT::y</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__gauge_8c_a19ae4e69b08d36c269553590ca0f6226_cgraph.gif" border="0" usemap="#d4d__gauge_8c_a19ae4e69b08d36c269553590ca0f6226_cgraph" alt=""/></div>
+<map name="d4d__gauge_8c_a19ae4e69b08d36c269553590ca0f6226_cgraph" id="d4d__gauge_8c_a19ae4e69b08d36c269553590ca0f6226_cgraph">
+<area shape="rect" id="node2" href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="215,31,377,57"/><area shape="rect" id="node12" href="d4d__gauge_8c.html#a3c77163e803d3968ccebd64ab6bde0bb" title="D4D_GaugeGetAnglePoint" alt="" coords="208,132,384,159"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="433,31,626,57"/><area shape="rect" id="node4" href="d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="675,31,837,57"/><area shape="rect" id="node5" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="885,5,1024,32"/><area shape="rect" id="node7" href="group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="885,56,1024,83"/><area shape="rect" id="node6" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1093,5,1195,32"/><area shape="rect" id="node8" href="group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1072,56,1216,83"/><area shape="rect" id="node9" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1264,5,1419,32"/><area shape="rect" id="node10" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1290,56,1393,83"/><area shape="rect" id="node11" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1268,107,1415,133"/><area shape="rect" id="node13" href="group__doxd4d__math__func.html#ga6d5d0f2dd7c1fd98511b060186979ee1" title="Cosine calculation using lookup table. " alt="" coords="491,81,568,108"/><area shape="rect" id="node14" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="471,132,588,159"/><area shape="rect" id="node16" href="group__doxd4d__math__func.html#gaf1d14621d86f2c3bca3e3d985e6f3587" title="Sine calculation using lookup table. " alt="" coords="493,183,566,209"/><area shape="rect" id="node15" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="709,132,803,159"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__gauge_8c_a19ae4e69b08d36c269553590ca0f6226_icgraph.gif" border="0" usemap="#d4d__gauge_8c_a19ae4e69b08d36c269553590ca0f6226_icgraph" alt=""/></div>
+<map name="d4d__gauge_8c_a19ae4e69b08d36c269553590ca0f6226_icgraph" id="d4d__gauge_8c_a19ae4e69b08d36c269553590ca0f6226_icgraph">
+<area shape="rect" id="node2" href="d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67" title="D4D_GaugOnDraw" alt="" coords="208,5,339,32"/><area shape="rect" id="node3" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="387,5,541,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="ac1d01d031ea33edfbcfc945bddc7aa23"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a> d4d_gaugeSysFunc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00055">55</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__gauge_8c.html">d4d_gauge.c</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:02 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['scale',['scale',['../struct_d4_d___f_o_n_t___t_y_p_e.html#a057925b12a91f1ca1d7fa562f4765bf8',1,'D4D_FONT_TYPE']]],
+  ['screen',['screen',['../group__doxd4d__scheme__type.html#a86c4a916def40826906a502db3424eb7',1,'D4D_CLR_SCHEME_S']]],
+  ['screencalibrated',['ScreenCalibrated',['../group__doxd4d__types__type.html#a4362d56ab696ced4fc263f37b53d1133',1,'D4D_TOUCHSCREEN_CALIB']]],
+  ['size',['size',['../struct_d4_d___b_i_t_m_a_p_h_e_a_d_e_r.html#a5f6d05bfa88002969afc9fe0be63a23f',1,'D4D_BITMAPHEADER::size()'],['../group__doxd4d__object__type.html#ab99580f14459a5ea1eac3cd665b4dc55',1,'D4D_OBJECT_S::size()'],['../group__doxd4d__screen__type.html#ab99580f14459a5ea1eac3cd665b4dc55',1,'D4D_SCREEN_S::size()']]],
+  ['size_5fx',['size_x',['../group__doxd4d__lldapi__types.html#a45c936e8dcf5bd9e33a6175799844760',1,'D4DMOUSE_DESC']]],
+  ['size_5fy',['size_y',['../group__doxd4d__lldapi__types.html#a6dfcb89f29db27247e0eb5f602794a3e',1,'D4DMOUSE_DESC']]],
+  ['slider',['slider',['../group__doxd4d__scheme__type.html#a7df8dfc36aa3678f0eab0bca42e93336',1,'D4D_CLR_SCHEME_OBJ']]],
+  ['startchar',['startChar',['../struct_d4_d___f_o_n_t___d_e_s_c_r_i_p_t_o_r___s.html#a0a63cbe88e4f6302dc016a537c9d206d',1,'D4D_FONT_DESCRIPTOR_S']]],
+  ['status1',['status1',['../struct_c_r_t_o_u_c_h___r_e_s___s_i_m_p_l_e.html#af8fb9992ed99c0585bddfa2ab32c1e8b',1,'CRTOUCH_RES_SIMPLE']]],
+  ['status2',['status2',['../struct_c_r_t_o_u_c_h___r_e_s___s_i_m_p_l_e.html#a9ad5687e9ed4771968fb4082a7e0aec0',1,'CRTOUCH_RES_SIMPLE']]],
+  ['step',['step',['../struct_d4_d___s_c_r_l_b_a_r___d_a_t_a___s.html#a31e2cbedcb16f09f099fb1b3bdc254c6',1,'D4D_SCRLBAR_DATA_S::step()'],['../group__doxd4d__slider__type.html#aa5677dd0802ab2f3ea9eb0872db94ff1',1,'D4D_SLIDER_LIMITS::step()']]],
+  ['str_5fproperties',['str_properties',['../group__doxd4d__string__type.html#a8b93b45cc9d53c91d620d44dea00a75a',1,'D4D_STRING_S']]],
+  ['string',['string',['../struct_d4_d___e_d_i_t___b_o_x___d_a_t_a.html#ab7be89761e43134cdb4a18e8d4738d25',1,'D4D_EDIT_BOX_DATA']]],
+  ['stringcount',['stringCount',['../struct_d4_d___s_t_r_i_n_g___t_a_b_l_e.html#a22eadaca7fd7f09af04ee96a6bc0bf8b',1,'D4D_STRING_TABLE']]],
+  ['stringid',['stringId',['../struct_d4_d___s_t_r_i_n_g___t_a_b_l_e.html#a1bf6745946f1da3288ef690b2869bfd2',1,'D4D_STRING_TABLE']]],
+  ['stringtable',['stringTable',['../struct_d4_d___s_t_r_i_n_g___t_a_b_l_e.html#a36c29980df37acd8d9a74c4ab086a7d1',1,'D4D_STRING_TABLE']]],
+  ['strname',['strName',['../group__doxd4d__object__type.html#a5fc20c52922706928c85ce60a69825df',1,'D4D_OBJECT_SYS_FUNCTION_S']]],
+  ['sz',['sz',['../group__doxd4d__types__type.html#a34c70b695bbf8f3a09e098ad88f975ec',1,'D4D_GEOMETRY']]]
+];

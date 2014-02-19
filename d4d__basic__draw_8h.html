@@ -1,0 +1,1559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_basic_draw.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__basic__draw_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_basic_draw.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__basic__draw_8h__dep__incl.gif" border="0" usemap="#d4d__basic__draw_8hdep" alt=""/></div>
+<map name="d4d__basic__draw_8hdep" id="d4d__basic__draw_8hdep">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="5118,80,5172,107"/><area shape="rect" id="node3" href="d4d__base_8c.html" title="D4D driver core and base function c file. " alt="" coords="5,163,93,189"/><area shape="rect" id="node4" href="d4d__basic__draw_8c.html" title="D4D driver basic drawing functions c file. " alt="" coords="118,163,244,189"/><area shape="rect" id="node5" href="d4d__bmp_8c.html" title="D4D driver bmp decoder functions c file. " alt="" coords="269,163,355,189"/><area shape="rect" id="node6" href="d4d__extsrc_8c.html" title="D4D driver extscr functions c file. " alt="" coords="379,163,476,189"/><area shape="rect" id="node7" href="d4d__font_8c.html" title="D4D driver font c file. " alt="" coords="501,163,584,189"/><area shape="rect" id="node8" href="d4d__imgdec__bmp_8c.html" title="D4D driver external bmp files decoder functions c file. " alt="" coords="609,163,743,189"/><area shape="rect" id="node9" href="d4d__imgdec__d4d_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="768,163,899,189"/><area shape="rect" id="node10" href="d4d__imgdec__d4dint_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="923,163,1068,189"/><area shape="rect" id="node11" href="d4d__low_8c.html" title="D4D driver low level graphic function c file. " alt="" coords="1093,163,1173,189"/><area shape="rect" id="node12" href="d4d__math_8c.html" title="D4D driver math functions c file. " alt="" coords="1197,163,1288,189"/><area shape="rect" id="node13" href="d4d__mouse_8c.html" title="D4D driver core and base function c file. " alt="" coords="1313,163,1412,189"/><area shape="rect" id="node14" href="d4d__object_8c.html" title="D4D driver object function c file. " alt="" coords="1437,163,1533,189"/><area shape="rect" id="node15" href="d4d__scheme_8c.html" title="D4D driver color scheme c file. " alt="" coords="1557,163,1664,189"/><area shape="rect" id="node16" href="d4d__screen_8c.html" title="D4D driver screen functions c file. " alt="" coords="1689,163,1788,189"/><area shape="rect" id="node17" href="d4d__string_8c.html" title="D4D driver font c file. " alt="" coords="1813,163,1907,189"/><area shape="rect" id="node18" href="d4d__button_8c.html" title="D4D driver button object c file. " alt="" coords="1931,163,2028,189"/><area shape="rect" id="node19" href="d4d__check__box_8c.html" title="D4D driver check box object c file. " alt="" coords="2053,163,2176,189"/><area shape="rect" id="node20" href="d4d__combo__box_8c.html" title="D4D driver comboBox object c file. " alt="" coords="2201,163,2329,189"/><area shape="rect" id="node21" href="d4d__console_8c.html" title="D4D driver console object c file. " alt="" coords="2353,163,2460,189"/><area shape="rect" id="node22" href="d4d__edit__box_8c.html" title="D4D driver editBox object c file. " alt="" coords="2485,163,2595,189"/><area shape="rect" id="node23" href="d4d__gauge_8c.html" title="D4D driver gauge object c file. " alt="" coords="2620,163,2716,189"/><area shape="rect" id="node24" href="d4d__graph_8c.html" title="D4D driver graph object c file. " alt="" coords="2740,163,2833,189"/><area shape="rect" id="node25" href="d4d__group__box_8c.html" title="D4D driver groupBox object c file. " alt="" coords="2858,163,2979,189"/><area shape="rect" id="node26" href="d4d__icon_8c.html" title="D4D driver icon object c file. " alt="" coords="3004,163,3089,189"/><area shape="rect" id="node27" href="d4d__label_8c.html" title="D4D driver label object c file. " alt="" coords="3113,163,3201,189"/><area shape="rect" id="node28" href="d4d__list__box_8c.html" title="D4D driver listBox object c file. " alt="" coords="3225,163,3332,189"/><area shape="rect" id="node29" href="d4d__menu_8c.html" title="D4D driver menu object c file. " alt="" coords="3356,163,3449,189"/><area shape="rect" id="node30" href="d4d__picture_8c.html" title="D4D driver picture object c file. " alt="" coords="3474,163,3573,189"/><area shape="rect" id="node31" href="d4d__progress__bar_8c.html" title="D4D driver progress_bar object c file. " alt="" coords="3599,163,3735,189"/><area shape="rect" id="node32" href="d4d__radio__button_8c.html" title="D4D driver radio button object c file. " alt="" coords="3759,163,3891,189"/><area shape="rect" id="node33" href="d4d__scroll__bar_8c.html" title="D4D driver scroll_bar object c file. " alt="" coords="3916,163,4033,189"/><area shape="rect" id="node34" href="d4d__slider_8c.html" title="D4D driver slider object c file. " alt="" coords="4058,163,4149,189"/><area shape="rect" id="node35" href="d4d__text__box_8c.html" title="D4D driver textbox object c file. " alt="" coords="4174,163,4284,189"/><area shape="rect" id="node36" href="d4dlcd__frame__buffer_8c.html" title="D4D driver &#45; frame_buffer lcd driver source c file. " alt="" coords="4309,163,4456,189"/><area shape="rect" id="node37" href="d4dlcd___f_s_a506_8c.html" title="D4D driver &#45; fsa506 lcd driver source c file. " alt="" coords="4481,163,4607,189"/><area shape="rect" id="node38" href="d4dlcd__lgdp4531_8c.html" title="D4D driver &#45; lgdp4531 lcd driver source c file. " alt="" coords="4631,163,4761,189"/><area shape="rect" id="node39" href="d4dlcd___l_s020_8c.html" title="D4D driver &#45; ls020 lcd driver source c file. " alt="" coords="4785,163,4900,189"/><area shape="rect" id="node40" href="d4dlcd___s_s_d1289_8c.html" title="D4D driver &#45; ssd1289 lcd driver source c file. " alt="" coords="4924,163,5057,189"/><area shape="rect" id="node41" href="d4dlcd__ssd1926_8c.html" title="D4D driver &#45; ssd1926 lcd driver source c file. " alt="" coords="5082,163,5208,189"/><area shape="rect" id="node42" href="d4dlcd__template_8c.html" title="D4D driver &#45; template lcd driver source c file. " alt="" coords="5233,163,5361,189"/><area shape="rect" id="node43" href="d4dlcdhw__common_8c.html" title="D4D driver &#45; common general low level drivers c file. " alt="" coords="5385,163,5529,189"/><area shape="rect" id="node44" href="d4dlcdhw__dragonfire__lcdc_8c.html" title="D4D driver &#45; dragonfire_lcdc hardware lcd driver source c file. " alt="" coords="5553,155,5692,197"/><area shape="rect" id="node45" href="d4dlcdhw__flexbus__16b_8c.html" title="D4D driver &#45; flexbus_16b hardware lcd driver source c file. " alt="" coords="5716,163,5879,189"/><area shape="rect" id="node46" href="d4dlcdhw__flexbus__8b_8c.html" title="D4D driver &#45; flexbus_8b hardware lcd driver source c file. " alt="" coords="5903,163,6059,189"/><area shape="rect" id="node47" href="d4dlcdhw__gpio6800__8b_8c.html" title="D4D driver &#45; gpio6800_8b hardware lcd driver source c file. " alt="" coords="6083,163,6249,189"/><area shape="rect" id="node48" href="d4dlcdhw__gpio8080__16b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6274,163,6448,189"/><area shape="rect" id="node49" href="d4dlcdhw__gpio8080__8b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6473,163,6639,189"/><area shape="rect" id="node50" href="d4dlcdhw__gpio8080__byte__8b_8c.html" title="D4D driver &#45; gpio8080_byte_8b hardware lcd driver source c file. " alt="" coords="6663,163,6861,189"/><area shape="rect" id="node51" href="d4dlcdhw__k70__lcdc_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="6887,163,7033,189"/><area shape="rect" id="node52" href="d4dlcdhw__twrrgba_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7057,163,7193,189"/><area shape="rect" id="node53" href="d4dlcdhw__twrrgbb_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7217,163,7353,189"/><area shape="rect" id="node54" href="d4dlcdhw__kinetis__spi_8c.html" title="D4D driver &#45; kinetis_spi hardware lcd driver source c file. " alt="" coords="7378,163,7533,189"/><area shape="rect" id="node55" href="d4dlcdhw__mqx__fb_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7559,163,7695,189"/><area shape="rect" id="node56" href="d4dlcdhw__mqx__mpc5125__diu_8c.html" title="D4D driver &#45; mqx_mpc5125_diu hardware lcd driver source c file. " alt="" coords="7719,155,7887,197"/><area shape="rect" id="node57" href="d4dlcdhw__mqx__spi_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7911,163,8053,189"/><area shape="rect" id="node58" href="d4dlcdhw__px__dcu__fb_8c.html" title="D4D driver &#45; px_dcu_fb hardware lcd driver source c file. " alt="" coords="8078,163,8231,189"/><area shape="rect" id="node59" href="d4dlcdhw__s12__spi__16b_8c.html" title="D4D driver &#45; s12_spi_16b hardware lcd driver source c file. " alt="" coords="8255,163,8421,189"/><area shape="rect" id="node60" href="d4dlcdhw__spi__16b_8c.html" title="D4D driver &#45; spi_16b hardware lcd driver source c file. " alt="" coords="8447,163,8585,189"/><area shape="rect" id="node61" href="d4dlcdhw__spi__8b_8c.html" title="D4D driver &#45; spi_8b hardware lcd driver source c file. " alt="" coords="8610,163,8741,189"/><area shape="rect" id="node62" href="d4dlcdhw__swspi__16b_8c.html" title="D4D driver &#45; swspi_16b hardware lcd driver source c file. " alt="" coords="8767,163,8921,189"/><area shape="rect" id="node63" href="d4dlcdhw__spi__swc__8b_8c.html" title="D4D driver &#45; spi_swc_8b hardware lcd driver source c file. " alt="" coords="8945,163,9108,189"/><area shape="rect" id="node64" href="d4dlcdhw__template_8c.html" title="D4D driver &#45; template hardware lcd driver source c file. " alt="" coords="9132,163,9276,189"/><area shape="rect" id="node65" href="d4dlcdhw__template__fb_8c.html" title="D4D driver &#45; template_fb hardware lcd driver source c file. " alt="" coords="9301,163,9461,189"/><area shape="rect" id="node66" href="d4dtch__cr__touch_8c.html" title="D4D driver &#45; cr_touch touch screen driver source c file. " alt="" coords="9486,163,9615,189"/><area shape="rect" id="node67" href="hw__iic__cfg_8h.html" title="HardI2C configuration. " alt="" coords="9640,163,9733,189"/><area shape="rect" id="node69" href="mqx__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9758,163,9836,189"/><area shape="rect" id="node70" href="d4dtch__mcf52277__asp_8c.html" title="D4D driver &#45; mcf52277_asp touch screen driver source c file. " alt="" coords="9861,163,10024,189"/><area shape="rect" id="node71" href="d4dtch__resistive_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10049,163,10175,189"/><area shape="rect" id="node72" href="d4dtch__resistive__mqx_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10199,163,10357,189"/><area shape="rect" id="node73" href="d4dtch__template_8c.html" title="D4D driver &#45; template touch screen driver source c file. " alt="" coords="10382,163,10511,189"/><area shape="rect" id="node74" href="d4dtch___t_s_c2046_8c.html" title="D4D driver &#45; tsc2046 touch screen driver source c file. " alt="" coords="10535,163,10667,189"/><area shape="rect" id="node75" href="d4dtchhw__kinetis__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="10691,163,10852,189"/><area shape="rect" id="node76" href="d4dtchhw__mcf52259__adc_8c.html" title="D4D driver &#45; mcf52259_adc hardware touch screen driver source c file. " alt="" coords="10877,163,11056,189"/><area shape="rect" id="node77" href="d4dtchhw__px__adc_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11081,163,11217,189"/><area shape="rect" id="node78" href="d4dtchhw__s08__adc_8c.html" title="D4D driver &#45; s08_adc hardware touch screen driver source c file. " alt="" coords="11243,163,11387,189"/><area shape="rect" id="node79" href="d4dtchhw__s12__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="11411,163,11555,189"/><area shape="rect" id="node80" href="d4dtchhw__template_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11579,163,11724,189"/><area shape="rect" id="node68" href="hw__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9652,245,9721,272"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gade0df5f3edbcc99ca14213067a611f3a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__const.html#gade0df5f3edbcc99ca14213067a611f3a">D4D_BEVEL_WIDTH</a></td></tr>
+<tr class="memdesc:gade0df5f3edbcc99ca14213067a611f3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D_BEVEL_WIDTH constant declaration - can't be changed!  <a href="group__doxd4d__basic__draw__const.html#gade0df5f3edbcc99ca14213067a611f3a">More...</a><br/></td></tr>
+<tr class="separator:gade0df5f3edbcc99ca14213067a611f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a6d2a72b4df9574196c6ee40e1ede1f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__const.html#ga9a6d2a72b4df9574196c6ee40e1ede1f">D4D_BEVEL_FORE_INTENSITY</a></td></tr>
+<tr class="memdesc:ga9a6d2a72b4df9574196c6ee40e1ede1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D_BEVEL_FORE_INTENSITY constant default declaration. Sets the percentual change of color for bevel frame for fore color.  <a href="group__doxd4d__basic__draw__const.html#ga9a6d2a72b4df9574196c6ee40e1ede1f">More...</a><br/></td></tr>
+<tr class="separator:ga9a6d2a72b4df9574196c6ee40e1ede1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf34f4ef25c631ddbe278d6d4924d7d14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__const.html#gaf34f4ef25c631ddbe278d6d4924d7d14">D4D_BEVEL_BCKG_INTENSITY</a></td></tr>
+<tr class="memdesc:gaf34f4ef25c631ddbe278d6d4924d7d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D_BEVEL_BCKG_INTENSITY constant default declaration. Sets the percentual change of color for bevel frame for background color.  <a href="group__doxd4d__basic__draw__const.html#gaf34f4ef25c631ddbe278d6d4924d7d14">More...</a><br/></td></tr>
+<tr class="separator:gaf34f4ef25c631ddbe278d6d4924d7d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4448c0ca5ffc7d9bc03244af373c60a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__macro.html#ga4448c0ca5ffc7d9bc03244af373c60a3">D4D_DrawTextXY</a>(x, y, buffText, colorText, colorBkgd)</td></tr>
+<tr class="memdesc:ga4448c0ca5ffc7d9bc03244af373c60a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw text on the screen the coordination is sets directly XY.  <a href="group__doxd4d__basic__draw__macro.html#ga4448c0ca5ffc7d9bc03244af373c60a3">More...</a><br/></td></tr>
+<tr class="separator:ga4448c0ca5ffc7d9bc03244af373c60a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac4c1a11c905daf0da6b9d9d0c89855df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__macro.html#gac4c1a11c905daf0da6b9d9d0c89855df">D4D_DrawText</a>(ppt, buffText, colorText, colorBkgd)</td></tr>
+<tr class="memdesc:gac4c1a11c905daf0da6b9d9d0c89855df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw simple text on the screen.  <a href="group__doxd4d__basic__draw__macro.html#gac4c1a11c905daf0da6b9d9d0c89855df">More...</a><br/></td></tr>
+<tr class="separator:gac4c1a11c905daf0da6b9d9d0c89855df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7033243448c08424409d2f49ec2eb12f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__macro.html#ga7033243448c08424409d2f49ec2eb12f">D4D_DrawTextTab</a>(ppt, buffText, pTab, colorText, colorBkgd)</td></tr>
+<tr class="memdesc:ga7033243448c08424409d2f49ec2eb12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw text on the screen and respects Tabulator functionality.  <a href="group__doxd4d__basic__draw__macro.html#ga7033243448c08424409d2f49ec2eb12f">More...</a><br/></td></tr>
+<tr class="separator:ga7033243448c08424409d2f49ec2eb12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4da725f24f7729d457ad7d790fbfcd00"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__macro.html#ga4da725f24f7729d457ad7d790fbfcd00">D4D_DrawTextRect</a>(ppt, psz, buffText, colorText, colorBkgd)</td></tr>
+<tr class="memdesc:ga4da725f24f7729d457ad7d790fbfcd00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw text into defined rectangle on the screen.  <a href="group__doxd4d__basic__draw__macro.html#ga4da725f24f7729d457ad7d790fbfcd00">More...</a><br/></td></tr>
+<tr class="separator:ga4da725f24f7729d457ad7d790fbfcd00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c6d0d31619d4dd1107114d231c1e9cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__macro.html#ga9c6d0d31619d4dd1107114d231c1e9cc">D4D_DrawTextRectTo</a>(ppt, buffText, colorText, colorBkgd)</td></tr>
+<tr class="memdesc:ga9c6d0d31619d4dd1107114d231c1e9cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw text into defined rectangle on the screen from previous draw point to to point specify by ppt structure.  <a href="group__doxd4d__basic__draw__macro.html#ga9c6d0d31619d4dd1107114d231c1e9cc">More...</a><br/></td></tr>
+<tr class="separator:ga9c6d0d31619d4dd1107114d231c1e9cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga47553561aecc2821517b02a40aef56e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__macro.html#ga47553561aecc2821517b02a40aef56e1">D4D_DrawTextRectXY</a>(x1, y1, x2, y2, buffText, colorText, colorBkgd)</td></tr>
+<tr class="memdesc:ga47553561aecc2821517b02a40aef56e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw text into defined rectangle on the screen.  <a href="group__doxd4d__basic__draw__macro.html#ga47553561aecc2821517b02a40aef56e1">More...</a><br/></td></tr>
+<tr class="separator:ga47553561aecc2821517b02a40aef56e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41ca5da44b928483d4a26c0fece7d7d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__macro.html#ga41ca5da44b928483d4a26c0fece7d7d7">D4D_DrawTextRectToXY</a>(x, y, buffText, colorText, colorBkgd)</td></tr>
+<tr class="memdesc:ga41ca5da44b928483d4a26c0fece7d7d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw text into defined rectangle on the screen from previous draw point to to point specify by ppt structure.  <a href="group__doxd4d__basic__draw__macro.html#ga41ca5da44b928483d4a26c0fece7d7d7">More...</a><br/></td></tr>
+<tr class="separator:ga41ca5da44b928483d4a26c0fece7d7d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga732dfe5faaa8af6f030b63b6cd19dfff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__macro.html#ga732dfe5faaa8af6f030b63b6cd19dfff">D4D_DrawTextRRect</a>(ppt, psz, buffText, colorText, colorBkgd, radius)</td></tr>
+<tr class="memdesc:ga732dfe5faaa8af6f030b63b6cd19dfff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw text into defined rectangle on the screen with corner radius.  <a href="group__doxd4d__basic__draw__macro.html#ga732dfe5faaa8af6f030b63b6cd19dfff">More...</a><br/></td></tr>
+<tr class="separator:ga732dfe5faaa8af6f030b63b6cd19dfff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga63afa2bbee23e1a845d626ac985a4767"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__macro.html#ga63afa2bbee23e1a845d626ac985a4767">D4D_DrawTextRRectTo</a>(ppt, buffText, colorText, colorBkgd, radius)</td></tr>
+<tr class="memdesc:ga63afa2bbee23e1a845d626ac985a4767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw text into defined rectangle with corner radius on the screen from previous draw point to to point specify by ppt structure.  <a href="group__doxd4d__basic__draw__macro.html#ga63afa2bbee23e1a845d626ac985a4767">More...</a><br/></td></tr>
+<tr class="separator:ga63afa2bbee23e1a845d626ac985a4767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga015e80f604207e268140d803283851ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__macro.html#ga015e80f604207e268140d803283851ea">D4D_DrawTextRRectXY</a>(x1, y1, x2, y2, buffText, colorText, colorBkgd, radius)</td></tr>
+<tr class="memdesc:ga015e80f604207e268140d803283851ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw text into defined rectangle on the screen with corner radius.  <a href="group__doxd4d__basic__draw__macro.html#ga015e80f604207e268140d803283851ea">More...</a><br/></td></tr>
+<tr class="separator:ga015e80f604207e268140d803283851ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b468f388b830bba456f5bd70eb4127f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__macro.html#ga9b468f388b830bba456f5bd70eb4127f">D4D_DrawTextRRectToXY</a>(x, y, buffText, colorText, colorBkgd, radius)</td></tr>
+<tr class="memdesc:ga9b468f388b830bba456f5bd70eb4127f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that draw text into defined rectangle with corner radius on the screen from previous draw point to to point specify by ppt structure.  <a href="group__doxd4d__basic__draw__macro.html#ga9b468f388b830bba456f5bd70eb4127f">More...</a><br/></td></tr>
+<tr class="separator:ga9b468f388b830bba456f5bd70eb4127f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12f0981d5011dcd042a560990e7c9b04"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a12f0981d5011dcd042a560990e7c9b04">D4D_RRect</a>(ppt, psz, ltype, color, radius)</td></tr>
+<tr class="separator:a12f0981d5011dcd042a560990e7c9b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc4db7548edee4311e32179d1815a2f1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#afc4db7548edee4311e32179d1815a2f1">D4D_RRectXY</a>(x1, y1, x2, y2, ltype, color, radius)</td></tr>
+<tr class="separator:afc4db7548edee4311e32179d1815a2f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65b0b3caa6a6ff860148d8d51dd03a04"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a65b0b3caa6a6ff860148d8d51dd03a04">D4D_RRectTo</a>(ppt, ltype, color, radius)</td></tr>
+<tr class="separator:a65b0b3caa6a6ff860148d8d51dd03a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab31bc7626dba8172de558d3adce8761e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#ab31bc7626dba8172de558d3adce8761e">D4D_RRectToXY</a>(x, y, ltype, color, radius)</td></tr>
+<tr class="separator:ab31bc7626dba8172de558d3adce8761e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a819e127b963264d479e26cba0fb9c4b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a819e127b963264d479e26cba0fb9c4b8">D4D_FillRRect</a>(ppt, psz, color, radius)</td></tr>
+<tr class="separator:a819e127b963264d479e26cba0fb9c4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bf22262f79ced3cfac63e6e80e6b17f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a9bf22262f79ced3cfac63e6e80e6b17f">D4D_FillRRectXY</a>(x1, y1, x2, y2, color, radius)</td></tr>
+<tr class="separator:a9bf22262f79ced3cfac63e6e80e6b17f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9b53e53ffdb4fe5b5304fa58596f7a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a9e9b53e53ffdb4fe5b5304fa58596f7a">D4D_FillRRectTo</a>(ppt, color, radius)</td></tr>
+<tr class="separator:a9e9b53e53ffdb4fe5b5304fa58596f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8a274f734be7b0f801dedb163189bcd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#ac8a274f734be7b0f801dedb163189bcd">D4D_FillRRectToXY</a>(x, y, color, radius)</td></tr>
+<tr class="separator:ac8a274f734be7b0f801dedb163189bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaf6db4ae4c0591c4a7474ff9b18b001"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#afaf6db4ae4c0591c4a7474ff9b18b001">D4D_RBox</a>(ppt, psz, ltype, colorLine, colorFill, radius)</td></tr>
+<tr class="separator:afaf6db4ae4c0591c4a7474ff9b18b001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98d93232bac889ae0ca8f9f707f14011"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a98d93232bac889ae0ca8f9f707f14011">D4D_RBoxXY</a>(x1, y1, x2, y2, ltype, colorLine, colorFill, radius)</td></tr>
+<tr class="separator:a98d93232bac889ae0ca8f9f707f14011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f791496849b7281310c644e1ae83b75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a6f791496849b7281310c644e1ae83b75">D4D_RBoxTo</a>(ppt, ltype, colorLine, colorFill, radius)</td></tr>
+<tr class="separator:a6f791496849b7281310c644e1ae83b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810116a8a7d8fe0d4ea5abacc2fcf014"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a810116a8a7d8fe0d4ea5abacc2fcf014">D4D_RBoxToXY</a>(x, y, ltype, colorLine, colorFill, radius)</td></tr>
+<tr class="separator:a810116a8a7d8fe0d4ea5abacc2fcf014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80afc532e4fc948cd243714e3116aa07"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a80afc532e4fc948cd243714e3116aa07">D4D_FillQuadrant</a>(pCenter, radius, color, quadrant)</td></tr>
+<tr class="separator:a80afc532e4fc948cd243714e3116aa07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e43981b6c50eeb97fd09e5e988c8be3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a2e43981b6c50eeb97fd09e5e988c8be3">D4D_FillQuadrantXY</a>(x, y, radius, color, quadrant)</td></tr>
+<tr class="separator:a2e43981b6c50eeb97fd09e5e988c8be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63dfd9ff80cad913a302982cd363cd2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#ac63dfd9ff80cad913a302982cd363cd2">D4D_Quadrant</a>(pCenter, radius, ltype, color, quadrant)</td></tr>
+<tr class="separator:ac63dfd9ff80cad913a302982cd363cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace4a517c3e76fe0354d644845cb325a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#ace4a517c3e76fe0354d644845cb325a4">D4D_QuadrantXY</a>(x, y, radius, ltype, color, quadrant)</td></tr>
+<tr class="separator:ace4a517c3e76fe0354d644845cb325a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd0fb976a44fff215206e41e4ab031ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#acd0fb976a44fff215206e41e4ab031ff">D4D_FillRRectColorScale</a>(ppt, psz, startColor, endColor, direction, radius)</td></tr>
+<tr class="separator:acd0fb976a44fff215206e41e4ab031ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bad9298d719dcac5a831d792a76a54c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a9bad9298d719dcac5a831d792a76a54c">D4D_FillRRectColorScaleXY</a>(x1, y1, x2, y2, startColor, endColor, direction, radius)</td></tr>
+<tr class="separator:a9bad9298d719dcac5a831d792a76a54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06074738df686546516c1d6aa37bc4aa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a06074738df686546516c1d6aa37bc4aa">D4D_FillRRectColorScaleTo</a>(ppt, startColor, endColor, direction, radius)</td></tr>
+<tr class="separator:a06074738df686546516c1d6aa37bc4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6840911d184c42d01bc665707a26bd2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#aa6840911d184c42d01bc665707a26bd2">D4D_FillRRectColorScaleToXY</a>(x, y, startColor, endColor, direction, radius)</td></tr>
+<tr class="separator:aa6840911d184c42d01bc665707a26bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2337d44c70c36e0e5bf8af7af45c4ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#ab2337d44c70c36e0e5bf8af7af45c4ba">D4D_DrawTextRRectTab</a>(ppt, psz, buffText, pTab, colorText, colorBkgd, radius)</td></tr>
+<tr class="separator:ab2337d44c70c36e0e5bf8af7af45c4ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa476c39bd0cc081280749f6f68a4d386"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#aa476c39bd0cc081280749f6f68a4d386">D4D_DrawTextRRectTabTo</a>(ppt, buffText, pTab, colorText, colorBkgd, radius)</td></tr>
+<tr class="separator:aa476c39bd0cc081280749f6f68a4d386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d8767a3a7570f60f2edc382623e0565"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a0d8767a3a7570f60f2edc382623e0565">D4D_DrawTextRRectTabXY</a>(x1, y1, x2, y2, buffText, pTab, colorText, colorBkgd, radius)</td></tr>
+<tr class="separator:a0d8767a3a7570f60f2edc382623e0565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d90a16a777d4c7d5b2c2047bbd5248f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__basic__draw_8h.html#a8d90a16a777d4c7d5b2c2047bbd5248f">D4D_DrawTextRRectTabToXY</a>(x, y, buffText, pTab, colorText, colorBkgd, radius)</td></tr>
+<tr class="separator:a8d90a16a777d4c7d5b2c2047bbd5248f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gae1e6ddc28ad9fd3476000e7147a188f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gae1e6ddc28ad9fd3476000e7147a188f9">D4D_PutPixel</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> type, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:gae1e6ddc28ad9fd3476000e7147a188f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function puts one pixel on the screen.  <a href="group__doxd4d__basic__draw__func.html#gae1e6ddc28ad9fd3476000e7147a188f9">More...</a><br/></td></tr>
+<tr class="separator:gae1e6ddc28ad9fd3476000e7147a188f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga81e72eb678a79d6f94d99da6305d230e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga81e72eb678a79d6f94d99da6305d230e">D4D_PutPixelTo</a> (<a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> type, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:ga81e72eb678a79d6f94d99da6305d230e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function puts one pixel on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga81e72eb678a79d6f94d99da6305d230e">More...</a><br/></td></tr>
+<tr class="separator:ga81e72eb678a79d6f94d99da6305d230e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2814d1fd1fcd4527456de30f0857ef9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga2814d1fd1fcd4527456de30f0857ef9e">D4D_PutPixelXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> type, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:ga2814d1fd1fcd4527456de30f0857ef9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function puts one pixel on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga2814d1fd1fcd4527456de30f0857ef9e">More...</a><br/></td></tr>
+<tr class="separator:ga2814d1fd1fcd4527456de30f0857ef9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeaf75234e6158d0c84eb03c5eaef6eef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gaeaf75234e6158d0c84eb03c5eaef6eef">D4D_MoveTo</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt)</td></tr>
+<tr class="memdesc:gaeaf75234e6158d0c84eb03c5eaef6eef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function move logic cursor to new position.  <a href="group__doxd4d__basic__draw__func.html#gaeaf75234e6158d0c84eb03c5eaef6eef">More...</a><br/></td></tr>
+<tr class="separator:gaeaf75234e6158d0c84eb03c5eaef6eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0abad4b2e7c821f3a5535c9983ad667"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gab0abad4b2e7c821f3a5535c9983ad667">D4D_MoveToXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y)</td></tr>
+<tr class="memdesc:gab0abad4b2e7c821f3a5535c9983ad667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function move logic cursor to new position.  <a href="group__doxd4d__basic__draw__func.html#gab0abad4b2e7c821f3a5535c9983ad667">More...</a><br/></td></tr>
+<tr class="separator:gab0abad4b2e7c821f3a5535c9983ad667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaccc98a88c426ccb03b4a7c508872fd68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gaccc98a88c426ccb03b4a7c508872fd68">D4D_LineTo</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:gaccc98a88c426ccb03b4a7c508872fd68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw line on the screen.  <a href="group__doxd4d__basic__draw__func.html#gaccc98a88c426ccb03b4a7c508872fd68">More...</a><br/></td></tr>
+<tr class="separator:gaccc98a88c426ccb03b4a7c508872fd68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8db8f53e5e3b5dea0a6f14efb982986d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga8db8f53e5e3b5dea0a6f14efb982986d">D4D_LineToXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:ga8db8f53e5e3b5dea0a6f14efb982986d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw line on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga8db8f53e5e3b5dea0a6f14efb982986d">More...</a><br/></td></tr>
+<tr class="separator:ga8db8f53e5e3b5dea0a6f14efb982986d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab878b72dcc003891ceaf705088c611c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gaab878b72dcc003891ceaf705088c611c">D4D_FillRect</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a> *psz, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:gaab878b72dcc003891ceaf705088c611c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle on the screen.  <a href="group__doxd4d__basic__draw__func.html#gaab878b72dcc003891ceaf705088c611c">More...</a><br/></td></tr>
+<tr class="separator:gaab878b72dcc003891ceaf705088c611c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacba553dcf011737f9e0ee584387b514f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gacba553dcf011737f9e0ee584387b514f">D4D_FillRectXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x1, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y1, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x2, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y2, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:gacba553dcf011737f9e0ee584387b514f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle on the screen.  <a href="group__doxd4d__basic__draw__func.html#gacba553dcf011737f9e0ee584387b514f">More...</a><br/></td></tr>
+<tr class="separator:gacba553dcf011737f9e0ee584387b514f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2cf59f7c39d487390258bf95f81e9fd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga2cf59f7c39d487390258bf95f81e9fd6">D4D_FillRectTo</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:ga2cf59f7c39d487390258bf95f81e9fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga2cf59f7c39d487390258bf95f81e9fd6">More...</a><br/></td></tr>
+<tr class="separator:ga2cf59f7c39d487390258bf95f81e9fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bff2614bb8d141f66fe873876e27e6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga1bff2614bb8d141f66fe873876e27e6f">D4D_FillRectToXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:ga1bff2614bb8d141f66fe873876e27e6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga1bff2614bb8d141f66fe873876e27e6f">More...</a><br/></td></tr>
+<tr class="separator:ga1bff2614bb8d141f66fe873876e27e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae88eda5cdf98e8fc1ea05030ac093f54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gae88eda5cdf98e8fc1ea05030ac093f54">D4D_FillRectColorScale</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a> *psz, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> startColor, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> endColor, <a class="el" href="group__doxd4d__types__type.html#gab6a9d6f312a908f9cd6c3b83b6007cbb">D4D_DIRECTION</a> direction)</td></tr>
+<tr class="memdesc:gae88eda5cdf98e8fc1ea05030ac093f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle with changing color (cross color from start to end color) on the screen.  <a href="group__doxd4d__basic__draw__func.html#gae88eda5cdf98e8fc1ea05030ac093f54">More...</a><br/></td></tr>
+<tr class="separator:gae88eda5cdf98e8fc1ea05030ac093f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b51347a0983fe65dd4a5397bd9a9231"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga9b51347a0983fe65dd4a5397bd9a9231">D4D_FillRectColorScaleXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x1, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y1, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x2, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y2, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> startColor, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> endColor, <a class="el" href="group__doxd4d__types__type.html#gab6a9d6f312a908f9cd6c3b83b6007cbb">D4D_DIRECTION</a> direction)</td></tr>
+<tr class="memdesc:ga9b51347a0983fe65dd4a5397bd9a9231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle with changing color (cross color from start to end color) on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga9b51347a0983fe65dd4a5397bd9a9231">More...</a><br/></td></tr>
+<tr class="separator:ga9b51347a0983fe65dd4a5397bd9a9231"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3995607458f5aacd6270d9ca70fd16c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gaf3995607458f5aacd6270d9ca70fd16c">D4D_FillRectColorScaleTo</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> startColor, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> endColor, <a class="el" href="group__doxd4d__types__type.html#gab6a9d6f312a908f9cd6c3b83b6007cbb">D4D_DIRECTION</a> direction)</td></tr>
+<tr class="memdesc:gaf3995607458f5aacd6270d9ca70fd16c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle with changing color (cross color from start to end color) on the screen.  <a href="group__doxd4d__basic__draw__func.html#gaf3995607458f5aacd6270d9ca70fd16c">More...</a><br/></td></tr>
+<tr class="separator:gaf3995607458f5aacd6270d9ca70fd16c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaefab2b6969a4de25596a24b4ff2ca25f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gaefab2b6969a4de25596a24b4ff2ca25f">D4D_FillRectColorScaleToXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> startColor, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> endColor, <a class="el" href="group__doxd4d__types__type.html#gab6a9d6f312a908f9cd6c3b83b6007cbb">D4D_DIRECTION</a> direction)</td></tr>
+<tr class="memdesc:gaefab2b6969a4de25596a24b4ff2ca25f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle with changing color (cross color from start to end color) on the screen.  <a href="group__doxd4d__basic__draw__func.html#gaefab2b6969a4de25596a24b4ff2ca25f">More...</a><br/></td></tr>
+<tr class="separator:gaefab2b6969a4de25596a24b4ff2ca25f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09ff800c960293d30b034e4f17a1dc28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga09ff800c960293d30b034e4f17a1dc28">D4D_Rect</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a> *psz, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:ga09ff800c960293d30b034e4f17a1dc28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw rectangle on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga09ff800c960293d30b034e4f17a1dc28">More...</a><br/></td></tr>
+<tr class="separator:ga09ff800c960293d30b034e4f17a1dc28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadcaa2995f83e396460caa3c2c99d2877"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gadcaa2995f83e396460caa3c2c99d2877">D4D_RectXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x1, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y1, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x2, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y2, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:gadcaa2995f83e396460caa3c2c99d2877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw rectangle on the screen.  <a href="group__doxd4d__basic__draw__func.html#gadcaa2995f83e396460caa3c2c99d2877">More...</a><br/></td></tr>
+<tr class="separator:gadcaa2995f83e396460caa3c2c99d2877"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2b0f8afefc9a45df65632c1d9d3f4318"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga2b0f8afefc9a45df65632c1d9d3f4318">D4D_RectTo</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:ga2b0f8afefc9a45df65632c1d9d3f4318"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw rectangle on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga2b0f8afefc9a45df65632c1d9d3f4318">More...</a><br/></td></tr>
+<tr class="separator:ga2b0f8afefc9a45df65632c1d9d3f4318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab085b71435d799696a01a374335f19d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gaab085b71435d799696a01a374335f19d">D4D_RectToXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:gaab085b71435d799696a01a374335f19d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw rectangle on the screen.  <a href="group__doxd4d__basic__draw__func.html#gaab085b71435d799696a01a374335f19d">More...</a><br/></td></tr>
+<tr class="separator:gaab085b71435d799696a01a374335f19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18615f3bb272b93be0ed350939c31910"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga18615f3bb272b93be0ed350939c31910">D4D_Box</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a> *psz, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorLine, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorFill)</td></tr>
+<tr class="memdesc:ga18615f3bb272b93be0ed350939c31910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle with outline on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga18615f3bb272b93be0ed350939c31910">More...</a><br/></td></tr>
+<tr class="separator:ga18615f3bb272b93be0ed350939c31910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9eb1a2cf63817ad28be6eaf6876c7edb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga9eb1a2cf63817ad28be6eaf6876c7edb">D4D_BoxXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x1, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y1, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x2, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y2, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorLine, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorFill)</td></tr>
+<tr class="memdesc:ga9eb1a2cf63817ad28be6eaf6876c7edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle with outline on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga9eb1a2cf63817ad28be6eaf6876c7edb">More...</a><br/></td></tr>
+<tr class="separator:ga9eb1a2cf63817ad28be6eaf6876c7edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ab65a5fcb8ec26b74344d3f9a8de9aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga8ab65a5fcb8ec26b74344d3f9a8de9aa">D4D_BoxTo</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorLine, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorFill)</td></tr>
+<tr class="memdesc:ga8ab65a5fcb8ec26b74344d3f9a8de9aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle with outline on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga8ab65a5fcb8ec26b74344d3f9a8de9aa">More...</a><br/></td></tr>
+<tr class="separator:ga8ab65a5fcb8ec26b74344d3f9a8de9aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2fdc66b474b4bf74ec97a6688e20f014"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga2fdc66b474b4bf74ec97a6688e20f014">D4D_BoxToXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorLine, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorFill)</td></tr>
+<tr class="memdesc:ga2fdc66b474b4bf74ec97a6688e20f014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled rectangle with outline on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga2fdc66b474b4bf74ec97a6688e20f014">More...</a><br/></td></tr>
+<tr class="separator:ga2fdc66b474b4bf74ec97a6688e20f014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga59c119fb78cba1c01efd20a9bd524681"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga59c119fb78cba1c01efd20a9bd524681">D4D_FillCircle</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *pCenter, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> r, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:ga59c119fb78cba1c01efd20a9bd524681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled circle on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga59c119fb78cba1c01efd20a9bd524681">More...</a><br/></td></tr>
+<tr class="separator:ga59c119fb78cba1c01efd20a9bd524681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada2ce714d71f4ddee923974559561a92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gada2ce714d71f4ddee923974559561a92">D4D_FillCircleXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> r, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:gada2ce714d71f4ddee923974559561a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw filled circle on the screen.  <a href="group__doxd4d__basic__draw__func.html#gada2ce714d71f4ddee923974559561a92">More...</a><br/></td></tr>
+<tr class="separator:gada2ce714d71f4ddee923974559561a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0e67e944be7e0176361917709beba3f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga0e67e944be7e0176361917709beba3f7">D4D_Circle</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *pCenter, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> r, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:ga0e67e944be7e0176361917709beba3f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw circle on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga0e67e944be7e0176361917709beba3f7">More...</a><br/></td></tr>
+<tr class="separator:ga0e67e944be7e0176361917709beba3f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61617c76bd72daf0accf3260433b829e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga61617c76bd72daf0accf3260433b829e">D4D_CircleXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> r, <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> ltype, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:ga61617c76bd72daf0accf3260433b829e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw circle on the screen.  <a href="group__doxd4d__basic__draw__func.html#ga61617c76bd72daf0accf3260433b829e">More...</a><br/></td></tr>
+<tr class="separator:ga61617c76bd72daf0accf3260433b829e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2a67b0452682941ea6930ad5df6a824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gab2a67b0452682941ea6930ad5df6a824">D4D_Bevel</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a> *psz, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color, <a class="el" href="group__doxd4d__types__type.html#ga18ef1e7c0642718fbf2a59c61f535220">D4D_BEVEL</a> type, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> radius)</td></tr>
+<tr class="memdesc:gab2a67b0452682941ea6930ad5df6a824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw standard object bevel specified by parameters.  <a href="group__doxd4d__basic__draw__func.html#gab2a67b0452682941ea6930ad5df6a824">More...</a><br/></td></tr>
+<tr class="separator:gab2a67b0452682941ea6930ad5df6a824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1813324d6d3fb8d6c4b77ee66e973d97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga1813324d6d3fb8d6c4b77ee66e973d97">D4D_DrawTextTabXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y, <a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> *buffText, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a> *pTab, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorText, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorBkgd)</td></tr>
+<tr class="memdesc:ga1813324d6d3fb8d6c4b77ee66e973d97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw text on XY coordination with TAB function.  <a href="group__doxd4d__basic__draw__func.html#ga1813324d6d3fb8d6c4b77ee66e973d97">More...</a><br/></td></tr>
+<tr class="separator:ga1813324d6d3fb8d6c4b77ee66e973d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab332bc2c704ef43ec582ef625ea10111"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111">D4D_DrawTextRectTab</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a> *psz, <a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> *buffText, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a> *pTab, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorText, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorBkgd)</td></tr>
+<tr class="memdesc:gab332bc2c704ef43ec582ef625ea10111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw text with TAB function in rectangle.  <a href="group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111">More...</a><br/></td></tr>
+<tr class="separator:gab332bc2c704ef43ec582ef625ea10111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb313812718a9191072558b192a796c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gadb313812718a9191072558b192a796c0">D4D_DrawTextRectTabTo</a> (<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *ppt, <a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> *buffText, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a> *pTab, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorText, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorBkgd)</td></tr>
+<tr class="memdesc:gadb313812718a9191072558b192a796c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw text on XY coordination with TAB function in rectangle.  <a href="group__doxd4d__basic__draw__func.html#gadb313812718a9191072558b192a796c0">More...</a><br/></td></tr>
+<tr class="separator:gadb313812718a9191072558b192a796c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga061b16aca16a733400b188ffc9edc9ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga061b16aca16a733400b188ffc9edc9ea">D4D_DrawTextRectTabXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x1, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y1, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x2, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y2, <a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> *buffText, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a> *pTab, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorText, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorBkgd)</td></tr>
+<tr class="memdesc:ga061b16aca16a733400b188ffc9edc9ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw text with TAB function in rectangle.  <a href="group__doxd4d__basic__draw__func.html#ga061b16aca16a733400b188ffc9edc9ea">More...</a><br/></td></tr>
+<tr class="separator:ga061b16aca16a733400b188ffc9edc9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b6cd5259ee791dd0db29277bc0e1a2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#ga7b6cd5259ee791dd0db29277bc0e1a2d">D4D_DrawTextRectTabToXY</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y, <a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> *buffText, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a> *pTab, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorText, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> colorBkgd)</td></tr>
+<tr class="memdesc:ga7b6cd5259ee791dd0db29277bc0e1a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function draw text on XY coordination with TAB function in rectangle.  <a href="group__doxd4d__basic__draw__func.html#ga7b6cd5259ee791dd0db29277bc0e1a2d">More...</a><br/></td></tr>
+<tr class="separator:ga7b6cd5259ee791dd0db29277bc0e1a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9ab8d211b69c39ba0327953005c69a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__basic__draw__func.html#gad9ab8d211b69c39ba0327953005c69a9">D4D_RndCornerGetNonPrintedPxl</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> radius, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> line)</td></tr>
+<tr class="memdesc:gad9ab8d211b69c39ba0327953005c69a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that counts number of printed pixels in specified line of circle quadrant.  <a href="group__doxd4d__basic__draw__func.html#gad9ab8d211b69c39ba0327953005c69a9">More...</a><br/></td></tr>
+<tr class="separator:gad9ab8d211b69c39ba0327953005c69a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77e2ec7e804c88e475f5621053773268"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__func.html#ga77e2ec7e804c88e475f5621053773268">D4D_ChangeColorIntesity</a> (<a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color, <a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a> intensity)</td></tr>
+<tr class="memdesc:ga77e2ec7e804c88e475f5621053773268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute change of color intesity.  <a href="group__doxd4d__scheme__func.html#ga77e2ec7e804c88e475f5621053773268">More...</a><br/></td></tr>
+<tr class="separator:ga77e2ec7e804c88e475f5621053773268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D Driver core and base functions header file. </p>
+<dl class="section author"><dt>Author</dt><dd>Michal hanak, Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.2.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Oct-2-2013 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ab2337d44c70c36e0e5bf8af7af45c4ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DrawTextRRectTab</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ppt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">psz, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">buffText, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pTab, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorText, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorBkgd, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00339">339</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa476c39bd0cc081280749f6f68a4d386"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DrawTextRRectTabTo</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ppt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">buffText, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pTab, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorText, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorBkgd, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00340">340</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8d90a16a777d4c7d5b2c2047bbd5248f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DrawTextRRectTabToXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">buffText, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pTab, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorText, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorBkgd, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00342">342</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d8767a3a7570f60f2edc382623e0565"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DrawTextRRectTabXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">buffText, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pTab, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorText, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorBkgd, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00341">341</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a80afc532e4fc948cd243714e3116aa07"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FillQuadrant</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pCenter, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">quadrant&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00331">331</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e43981b6c50eeb97fd09e5e988c8be3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FillQuadrantXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">quadrant&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00332">332</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a819e127b963264d479e26cba0fb9c4b8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FillRRect</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ppt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">psz, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00323">323</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acd0fb976a44fff215206e41e4ab031ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FillRRectColorScale</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ppt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">psz, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">startColor, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">endColor, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">direction, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00335">335</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a06074738df686546516c1d6aa37bc4aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FillRRectColorScaleTo</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ppt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">startColor, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">endColor, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">direction, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00337">337</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa6840911d184c42d01bc665707a26bd2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FillRRectColorScaleToXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">startColor, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">endColor, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">direction, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00338">338</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9bad9298d719dcac5a831d792a76a54c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FillRRectColorScaleXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">startColor, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">endColor, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">direction, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00336">336</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e9b53e53ffdb4fe5b5304fa58596f7a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FillRRectTo</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ppt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00325">325</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac8a274f734be7b0f801dedb163189bcd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FillRRectToXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00326">326</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9bf22262f79ced3cfac63e6e80e6b17f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FillRRectXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00324">324</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac63dfd9ff80cad913a302982cd363cd2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_Quadrant</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pCenter, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ltype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">quadrant&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00333">333</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ace4a517c3e76fe0354d644845cb325a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_QuadrantXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ltype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">quadrant&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00334">334</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afaf6db4ae4c0591c4a7474ff9b18b001"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_RBox</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ppt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">psz, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ltype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorLine, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorFill, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00327">327</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f791496849b7281310c644e1ae83b75"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_RBoxTo</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ppt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ltype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorLine, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorFill, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00329">329</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a810116a8a7d8fe0d4ea5abacc2fcf014"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_RBoxToXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ltype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorLine, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorFill, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00330">330</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a98d93232bac889ae0ca8f9f707f14011"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_RBoxXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ltype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorLine, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">colorFill, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00328">328</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a12f0981d5011dcd042a560990e7c9b04"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_RRect</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ppt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">psz, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ltype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00319">319</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65b0b3caa6a6ff860148d8d51dd03a04"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_RRectTo</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ppt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ltype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00321">321</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab31bc7626dba8172de558d3adce8761e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_RRectToXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ltype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00322">322</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afc4db7548edee4311e32179d1815a2f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_RRectXY</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ltype, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">color, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__basic__draw_8h_source.html#l00320">320</a> of file <a class="el" href="d4d__basic__draw_8h_source.html">d4d_basic_draw.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cde53fb8fb9dbb8ac34f83e30855a423.html">common_files</a></li><li class="navelem"><a class="el" href="d4d__basic__draw_8h.html">d4d_basic_draw.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:01 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

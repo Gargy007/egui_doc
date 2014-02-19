@@ -1,0 +1,1461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D BUTTON API Macro&#39;s Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__button__macro.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D BUTTON API Macro's Specification<div class="ingroups"><a class="el" href="group__doxd4d__button.html">D4D Button Widget</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D BUTTON API Macro's Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__button__macro.gif" border="0" alt="" usemap="#group____doxd4d____button____macro"/>
+<map name="group____doxd4d____button____macro" id="group____doxd4d____button____macro">
+<area shape="rect" id="node2" href="group__doxd4d__button.html" title="D4D Button Widget" alt="" coords="6,12,141,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gabf98ad9caa21b922854d0d2ae0083ad8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#gabf98ad9caa21b922854d0d2ae0083ad8">_D4D_DECLARE_BUTTON</a>(type, name, text, x, y, cx, cy, radius, pMargin, pRelations, flags, pBmpN, pBmpF, pScheme, fontId, pUser, onclick, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gabf98ad9caa21b922854d0d2ae0083ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Button object structure in memory including all substructures.  <a href="#gabf98ad9caa21b922854d0d2ae0083ad8">More...</a><br/></td></tr>
+<tr class="separator:gabf98ad9caa21b922854d0d2ae0083ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabac2a6e26bc237fae4b903dcf41bd28f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#gabac2a6e26bc237fae4b903dcf41bd28f">D4D_DECLARE_BUTTON</a>(name, text, x, y, cx, cy, flags, pBmpN, pBmpF, pScheme, fontId, pUser, onclick, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gabac2a6e26bc237fae4b903dcf41bd28f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Button object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="#gabac2a6e26bc237fae4b903dcf41bd28f">More...</a><br/></td></tr>
+<tr class="separator:gabac2a6e26bc237fae4b903dcf41bd28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbb589e2ddb47f4bd806eb1c0f991b4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#gadbb589e2ddb47f4bd806eb1c0f991b4a">D4D_DECLARE_STD_BUTTON</a>(name, text, x, y, cx, cy, pBmpN, pBmpF, fontId, onclick)</td></tr>
+<tr class="memdesc:gadbb589e2ddb47f4bd806eb1c0f991b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Button object structure in memory including all substructures with restricted count of parameters to simplify definition. The missing parameters are replaced by default values.  <a href="#gadbb589e2ddb47f4bd806eb1c0f991b4a">More...</a><br/></td></tr>
+<tr class="separator:gadbb589e2ddb47f4bd806eb1c0f991b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf14760ea4c5d8b2ba191375ee7196a9c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#gaf14760ea4c5d8b2ba191375ee7196a9c">D4D_DECLARE_TXT_BUTTON</a>(name, text, x, y, cx, cy, fontId, onclick)</td></tr>
+<tr class="memdesc:gaf14760ea4c5d8b2ba191375ee7196a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the only text Button object structure in memory including all substructures with restricted count of parameters to simplify definition. The missing parameters are replaced by default values.  <a href="#gaf14760ea4c5d8b2ba191375ee7196a9c">More...</a><br/></td></tr>
+<tr class="separator:gaf14760ea4c5d8b2ba191375ee7196a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95288d69855d73538e5a9bae11a00d0a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#ga95288d69855d73538e5a9bae11a00d0a">D4D_DECLARE_RBUTTON</a>(name, text, x, y, cx, cy, radius, flags, pBmpN, pBmpF, pScheme, fontId, pUser, onclick, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga95288d69855d73538e5a9bae11a00d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the round Button object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="#ga95288d69855d73538e5a9bae11a00d0a">More...</a><br/></td></tr>
+<tr class="separator:ga95288d69855d73538e5a9bae11a00d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga614e47d3229e7da6ed3229085c06eef0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#ga614e47d3229e7da6ed3229085c06eef0">D4D_DECLARE_STD_RBUTTON</a>(name, text, x, y, cx, cy, radius, pBmpN, pBmpF, fontId, onclick)</td></tr>
+<tr class="memdesc:ga614e47d3229e7da6ed3229085c06eef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the round Button object structure in memory including all substructures with restricted count of parameters to simplify definition. The missing parameters are replaced by default values.  <a href="#ga614e47d3229e7da6ed3229085c06eef0">More...</a><br/></td></tr>
+<tr class="separator:ga614e47d3229e7da6ed3229085c06eef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae09d35e128aa2c36aac013e34cc61a85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#gae09d35e128aa2c36aac013e34cc61a85">D4D_DECLARE_TXT_RBUTTON</a>(name, text, x, y, cx, cy, radius, fontId, onclick)</td></tr>
+<tr class="memdesc:gae09d35e128aa2c36aac013e34cc61a85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the only text round Button object structure in memory including all substructures with restricted count of parameters to simplify definition. The missing parameters are replaced by default values.  <a href="#gae09d35e128aa2c36aac013e34cc61a85">More...</a><br/></td></tr>
+<tr class="separator:gae09d35e128aa2c36aac013e34cc61a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0795283c251109243e93de3baf19567"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#gaf0795283c251109243e93de3baf19567">D4D_DECLARE_BUTTON_INRAM</a>(name, text, x, y, cx, cy, flags, pBmpN, pBmpF, pScheme, fontId, pUser, onclick, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gaf0795283c251109243e93de3baf19567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__button__macro.html#gabac2a6e26bc237fae4b903dcf41bd28f">D4D_DECLARE_BUTTON</a>, but is created in RAM instead of the ROM memory.  <a href="#gaf0795283c251109243e93de3baf19567">More...</a><br/></td></tr>
+<tr class="separator:gaf0795283c251109243e93de3baf19567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab387af3a891fcfa931502d1d2652cdd8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#gab387af3a891fcfa931502d1d2652cdd8">D4D_DECLARE_STD_BUTTON_INRAM</a>(name, text, x, y, cx, cy, bmpN, bmpF, fontId, onclick)</td></tr>
+<tr class="memdesc:gab387af3a891fcfa931502d1d2652cdd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__button__macro.html#gadbb589e2ddb47f4bd806eb1c0f991b4a">D4D_DECLARE_STD_BUTTON</a>, but is created in RAM instead of the ROM memory.  <a href="#gab387af3a891fcfa931502d1d2652cdd8">More...</a><br/></td></tr>
+<tr class="separator:gab387af3a891fcfa931502d1d2652cdd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9583751126d6388bd7c92b7edfa23a93"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#ga9583751126d6388bd7c92b7edfa23a93">D4D_DECLARE_TXT_BUTTON_INRAM</a>(name, text, x, y, cx, cy, fontId, onclick)</td></tr>
+<tr class="memdesc:ga9583751126d6388bd7c92b7edfa23a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__button__macro.html#gaf14760ea4c5d8b2ba191375ee7196a9c">D4D_DECLARE_TXT_BUTTON</a>, but is created in RAM instead of the ROM memory.  <a href="#ga9583751126d6388bd7c92b7edfa23a93">More...</a><br/></td></tr>
+<tr class="separator:ga9583751126d6388bd7c92b7edfa23a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad97a726c91bfbe601fb7a98627c5463d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#gad97a726c91bfbe601fb7a98627c5463d">D4D_DECLARE_RBUTTON_INRAM</a>(name, text, x, y, cx, cy, radius, flags, pBmpN, pBmpF, pScheme, fontId, pUser, onclick, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gad97a726c91bfbe601fb7a98627c5463d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__button__macro.html#ga95288d69855d73538e5a9bae11a00d0a">D4D_DECLARE_RBUTTON</a>, but is created in RAM instead of the ROM memory.  <a href="#gad97a726c91bfbe601fb7a98627c5463d">More...</a><br/></td></tr>
+<tr class="separator:gad97a726c91bfbe601fb7a98627c5463d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga92a0b46ff7be9ff97c57068dde8cec90"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#ga92a0b46ff7be9ff97c57068dde8cec90">D4D_DECLARE_STD_RBUTTON_INRAM</a>(name, text, x, y, cx, cy, radius, bmpN, bmpF, fontId, onclick)</td></tr>
+<tr class="memdesc:ga92a0b46ff7be9ff97c57068dde8cec90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__button__macro.html#ga614e47d3229e7da6ed3229085c06eef0">D4D_DECLARE_STD_RBUTTON</a>, but is created in RAM instead of the ROM memory.  <a href="#ga92a0b46ff7be9ff97c57068dde8cec90">More...</a><br/></td></tr>
+<tr class="separator:ga92a0b46ff7be9ff97c57068dde8cec90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10a824565de4b3c99b886f595b2eb422"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__button__macro.html#ga10a824565de4b3c99b886f595b2eb422">D4D_DECLARE_TXT_RBUTTON_INRAM</a>(name, text, x, y, cx, cy, radius, fontId, onclick)</td></tr>
+<tr class="memdesc:ga10a824565de4b3c99b886f595b2eb422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__button__macro.html#gae09d35e128aa2c36aac013e34cc61a85">D4D_DECLARE_TXT_RBUTTON</a>, but is created in RAM instead of the ROM memory.  <a href="#ga10a824565de4b3c99b886f595b2eb422">More...</a><br/></td></tr>
+<tr class="separator:ga10a824565de4b3c99b886f595b2eb422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact usage for each API macro. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="gabf98ad9caa21b922854d0d2ae0083ad8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _D4D_DECLARE_BUTTON</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pMargin, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pRelations, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpN, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpF, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Button object structure in memory including all substructures. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>- type of object &lt;<a class="el" href="d4d__base_8h.html#a8cde856308c73fd6cb3773f847b805dd">D4D_CONST</a>; <a class="el" href="d4d__base_8h.html#aa73c7966a77e163e939bcc5884d1df30">D4D_NO_CONST</a>&gt; </td></tr>
+    <tr><td class="paramname">name</td><td>- name of button object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of button </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of button in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of button in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of button in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of button in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">pMargin</td><td>- pointer to margin structure (*<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a>)(Could be NULL) </td></tr>
+    <tr><td class="paramname">pRelations</td><td>- pointer to object relation array (Could be NULL) </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__button__const__flags.html">D4D BUTTON Defines masks of button specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pBmpN</td><td>- pointer to a bitmap that is shown in a normal state of the button (Could be NULL) </td></tr>
+    <tr><td class="paramname">pBmpF</td><td>- pointer to a bitmap that is shown in a focus state of the button (Could be NULL) </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw button </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of button </td></tr>
+    <tr><td class="paramname">onclick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__button__type.html#gaa1c8cd9e664918c157ef5ee970da2ac1">D4D_BTN_ON_CLICK</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___b_u_t_t_o_n.html">D4D_BUTTON</a> structure, including the object data sub structure. Is used to define all properties of Button. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00197">197</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gabac2a6e26bc237fae4b903dcf41bd28f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_BUTTON</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpN, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpF, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Button object structure in memory including all substructures with restricted count of parameters to simplify definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of button object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of button </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of button in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of button in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of button in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of button in Y axis (height) </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__button__const__flags.html">D4D BUTTON Defines masks of button specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pBmpN</td><td>- pointer to a bitmap that is shown in a normal state of the button (Could be NULL) </td></tr>
+    <tr><td class="paramname">pBmpF</td><td>- pointer to a bitmap that is shown in a focus state of the button (Could be NULL) </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw button </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of button </td></tr>
+    <tr><td class="paramname">onclick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__button__type.html#gaa1c8cd9e664918c157ef5ee970da2ac1">D4D_BTN_ON_CLICK</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___b_u_t_t_o_n.html">D4D_BUTTON</a> structure, including the object data sub structure. Is used to define all properties of Button. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__button__macro.html#gabf98ad9caa21b922854d0d2ae0083ad8">_D4D_DECLARE_BUTTON</a> instead of this one. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00233">233</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaf0795283c251109243e93de3baf19567"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_BUTTON_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpN, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpF, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__button__macro.html#gabac2a6e26bc237fae4b903dcf41bd28f">D4D_DECLARE_BUTTON</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00352">352</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga95288d69855d73538e5a9bae11a00d0a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_RBUTTON</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpN, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpF, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the round Button object structure in memory including all substructures with restricted count of parameters to simplify definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of button object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of button </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of button in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of button in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of button in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of button in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__button__const__flags.html">D4D BUTTON Defines masks of button specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pBmpN</td><td>- pointer to a bitmap that is shown in a normal state of the button (Could be NULL) </td></tr>
+    <tr><td class="paramname">pBmpF</td><td>- pointer to a bitmap that is shown in a focus state of the button (Could be NULL) </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw button </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of button </td></tr>
+    <tr><td class="paramname">onclick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__button__type.html#gaa1c8cd9e664918c157ef5ee970da2ac1">D4D_BTN_ON_CLICK</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the D4D_MSG_SKIP return value, in a normal case the return value must be D4D_MSG_NOSKIP</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___b_u_t_t_o_n.html">D4D_BUTTON</a> structure, including the object data sub structure. Is used to define all properties of Button. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__button__macro.html#gabf98ad9caa21b922854d0d2ae0083ad8">_D4D_DECLARE_BUTTON</a> instead of this one. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00302">302</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gad97a726c91bfbe601fb7a98627c5463d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_RBUTTON_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpN, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpF, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__button__macro.html#ga95288d69855d73538e5a9bae11a00d0a">D4D_DECLARE_RBUTTON</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00372">372</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gadbb589e2ddb47f4bd806eb1c0f991b4a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_BUTTON</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpN, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpF, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Button object structure in memory including all substructures with restricted count of parameters to simplify definition. The missing parameters are replaced by default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of button object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of button </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of button in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of button in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of button in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of button in Y axis (height) </td></tr>
+    <tr><td class="paramname">pBmpN</td><td>- pointer to a bitmap that is shown in a normal state of the button (Could be NULL) </td></tr>
+    <tr><td class="paramname">pBmpF</td><td>- pointer to a bitmap that is shown in a focus state of the button (Could be NULL) </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">onclick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__button__type.html#gaa1c8cd9e664918c157ef5ee970da2ac1">D4D_BTN_ON_CLICK</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___b_u_t_t_o_n.html">D4D_BUTTON</a> structure, including the object data sub structure. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__button__macro.html#gabf98ad9caa21b922854d0d2ae0083ad8">_D4D_DECLARE_BUTTON</a> instead of this one. The main advantage is less parameters of this macro against the full version. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00254">254</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gab387af3a891fcfa931502d1d2652cdd8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_BUTTON_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bmpN, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bmpF, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__button__macro.html#gadbb589e2ddb47f4bd806eb1c0f991b4a">D4D_DECLARE_STD_BUTTON</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00358">358</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga614e47d3229e7da6ed3229085c06eef0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_RBUTTON</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpN, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmpF, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the round Button object structure in memory including all substructures with restricted count of parameters to simplify definition. The missing parameters are replaced by default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of button object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of button </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of button in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of button in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of button in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of button in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">pBmpN</td><td>- pointer to a bitmap that is shown in a normal state of the button (Could be NULL) </td></tr>
+    <tr><td class="paramname">pBmpF</td><td>- pointer to a bitmap that is shown in a focus state of the button (Could be NULL) </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">onclick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__button__type.html#gaa1c8cd9e664918c157ef5ee970da2ac1">D4D_BTN_ON_CLICK</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___b_u_t_t_o_n.html">D4D_BUTTON</a> structure, including the object data sub structure. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__button__macro.html#gabf98ad9caa21b922854d0d2ae0083ad8">_D4D_DECLARE_BUTTON</a> instead of this one. The main advantage is less parameters of this macro against the full version. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00324">324</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga92a0b46ff7be9ff97c57068dde8cec90"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_RBUTTON_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bmpN, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bmpF, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__button__macro.html#ga614e47d3229e7da6ed3229085c06eef0">D4D_DECLARE_STD_RBUTTON</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00378">378</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaf14760ea4c5d8b2ba191375ee7196a9c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_TXT_BUTTON</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the only text Button object structure in memory including all substructures with restricted count of parameters to simplify definition. The missing parameters are replaced by default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of button object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of button </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of button in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of button in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of button in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of button in Y axis (height) </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">onclick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__button__type.html#gaa1c8cd9e664918c157ef5ee970da2ac1">D4D_BTN_ON_CLICK</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___b_u_t_t_o_n.html">D4D_BUTTON</a> structure, including the object data sub structure. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__button__macro.html#gabf98ad9caa21b922854d0d2ae0083ad8">_D4D_DECLARE_BUTTON</a> instead of this one. The main advantage is less parameters of this macro against the full version. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00273">273</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga9583751126d6388bd7c92b7edfa23a93"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_TXT_BUTTON_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__button__macro.html#gaf14760ea4c5d8b2ba191375ee7196a9c">D4D_DECLARE_TXT_BUTTON</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00364">364</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gae09d35e128aa2c36aac013e34cc61a85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_TXT_RBUTTON</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the only text round Button object structure in memory including all substructures with restricted count of parameters to simplify definition. The missing parameters are replaced by default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of button object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of button </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of button in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of button in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of button in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of button in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">onclick</td><td>- Pointer to an on-click user callback function <a class="el" href="group__doxd4d__button__type.html#gaa1c8cd9e664918c157ef5ee970da2ac1">D4D_BTN_ON_CLICK</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___b_u_t_t_o_n.html">D4D_BUTTON</a> structure, including the object data sub structure. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__button__macro.html#gabf98ad9caa21b922854d0d2ae0083ad8">_D4D_DECLARE_BUTTON</a> instead of this one. The main advantage is less parameters of this macro against the full version. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00344">344</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga10a824565de4b3c99b886f595b2eb422"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_TXT_RBUTTON_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onclick&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__button__macro.html#gae09d35e128aa2c36aac013e34cc61a85">D4D_DECLARE_TXT_RBUTTON</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__button_8h_source.html#l00384">384</a> of file <a class="el" href="d4d__button_8h_source.html">d4d_button.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:05 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

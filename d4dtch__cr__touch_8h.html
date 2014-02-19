@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4dtch_cr_touch.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4dtch__cr__touch_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">d4dtch_cr_touch.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;d4dtch_cr_touch_cfg.h&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for d4dtch_cr_touch.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4dtch__cr__touch_8h__incl.gif" border="0" usemap="#d4dtch__cr__touch_8h" alt=""/></div>
+<map name="d4dtch__cr__touch_8h" id="d4dtch__cr__touch_8h">
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a6fedb76263130e5a3f80a4964916521a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a6fedb76263130e5a3f80a4964916521a">CRTCH_STATUS</a></td></tr>
+<tr class="separator:a6fedb76263130e5a3f80a4964916521a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9774d3ad749a647aada5a62620be7f19"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a9774d3ad749a647aada5a62620be7f19">CRTCH_STATUS1</a></td></tr>
+<tr class="separator:a9774d3ad749a647aada5a62620be7f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a548eddbb89563cf16f312dd0f6add933"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a548eddbb89563cf16f312dd0f6add933">CRTCH_STATUS2</a></td></tr>
+<tr class="separator:a548eddbb89563cf16f312dd0f6add933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49f7d034ff233f87efae7492b9dd47e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a49f7d034ff233f87efae7492b9dd47e7">CRTCH_X</a></td></tr>
+<tr class="separator:a49f7d034ff233f87efae7492b9dd47e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f1ea934d28a4b4a135fb2672aec192"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a45f1ea934d28a4b4a135fb2672aec192">CRTCH_Y</a></td></tr>
+<tr class="separator:a45f1ea934d28a4b4a135fb2672aec192"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a4c2dd576ed8999acb2413fd5a8ebdb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a9a4c2dd576ed8999acb2413fd5a8ebdb">CRTCH_PRESS</a></td></tr>
+<tr class="separator:a9a4c2dd576ed8999acb2413fd5a8ebdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a980588d9381701dc663af35c04db4a1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a980588d9381701dc663af35c04db4a1e">CRTCH_FIFO_ST</a></td></tr>
+<tr class="separator:a980588d9381701dc663af35c04db4a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee98bbd9be7cf581df0b14265b054be9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#aee98bbd9be7cf581df0b14265b054be9">CRTCH_FIFO_X</a></td></tr>
+<tr class="separator:aee98bbd9be7cf581df0b14265b054be9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd2aa39f871810b4195a5d37f9865fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#aebd2aa39f871810b4195a5d37f9865fe">CRTCH_FIFO_Y</a></td></tr>
+<tr class="separator:aebd2aa39f871810b4195a5d37f9865fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4399489c623b3dc92d34ee9afabb309"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#ae4399489c623b3dc92d34ee9afabb309">CRTCH_FIFO_PRESS</a></td></tr>
+<tr class="separator:ae4399489c623b3dc92d34ee9afabb309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3339053c701f3dd820157b99c54efa92"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a3339053c701f3dd820157b99c54efa92">CRTCH_UART_BAUD</a></td></tr>
+<tr class="separator:a3339053c701f3dd820157b99c54efa92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a505c045dc6cc9a2ee9865e0e1c897606"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a505c045dc6cc9a2ee9865e0e1c897606">CRTCH_RES_CFG</a></td></tr>
+<tr class="separator:a505c045dc6cc9a2ee9865e0e1c897606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a364d39ab2149c0ab2f97cac078ecc4be"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a364d39ab2149c0ab2f97cac078ecc4be">CRTCH_STATUS1_RTST_MASK</a></td></tr>
+<tr class="separator:a364d39ab2149c0ab2f97cac078ecc4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad755e435d3fb8e3e55ab7a7e803ce68a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#ad755e435d3fb8e3e55ab7a7e803ce68a">CRTCH_STATUS1_RTSRDY_MASK</a></td></tr>
+<tr class="separator:ad755e435d3fb8e3e55ab7a7e803ce68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c25bf8ca4d41ccc70b29fe6aaebccea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a2c25bf8ca4d41ccc70b29fe6aaebccea">CRTCH_RES_CFG_RTPRESEN_MASK</a></td></tr>
+<tr class="separator:a2c25bf8ca4d41ccc70b29fe6aaebccea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa5c4f7147b57a5fe73f12e20c8c5057"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#afa5c4f7147b57a5fe73f12e20c8c5057">CRTCH_STATUS2_RTSD_MASK</a></td></tr>
+<tr class="separator:afa5c4f7147b57a5fe73f12e20c8c5057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af77b9540089748dea8355602f75a53c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#af77b9540089748dea8355602f75a53c9">D4DTCH_FULL_SCALE</a></td></tr>
+<tr class="separator:af77b9540089748dea8355602f75a53c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65bdc25f91c6d998f0e6ce063b70c491"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a65bdc25f91c6d998f0e6ce063b70c491">D4DTCH_X_TOUCH_MIN</a></td></tr>
+<tr class="separator:a65bdc25f91c6d998f0e6ce063b70c491"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65cba10cca1ccf16ec60dbbfe4f2008d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a65cba10cca1ccf16ec60dbbfe4f2008d">D4DTCH_Y_TOUCH_MIN</a></td></tr>
+<tr class="separator:a65cba10cca1ccf16ec60dbbfe4f2008d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f2819073ed9d8ecd058f651567005bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a9f2819073ed9d8ecd058f651567005bf">D4DTCH_X_TOUCH_OFFMAX</a></td></tr>
+<tr class="separator:a9f2819073ed9d8ecd058f651567005bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51023298d836e1e618dcb0841126980f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a51023298d836e1e618dcb0841126980f">D4DTCH_Y_TOUCH_OFFMAX</a></td></tr>
+<tr class="separator:a51023298d836e1e618dcb0841126980f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a106dbdb7fc2a6c5f21b6dd1cbf9dedd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a106dbdb7fc2a6c5f21b6dd1cbf9dedd7">D4DTCH_SAMPLE_MARGIN</a></td></tr>
+<tr class="separator:a106dbdb7fc2a6c5f21b6dd1cbf9dedd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a4fc7b824b9e3723722c33c81af835"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a08a4fc7b824b9e3723722c33c81af835">D4DTCH_IIC_BAUDRATE</a></td></tr>
+<tr class="separator:a08a4fc7b824b9e3723722c33c81af835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07fdb78a8acd35033b02122b832f242e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a07fdb78a8acd35033b02122b832f242e">D4DTCH_IIC_ADDRESS</a></td></tr>
+<tr class="separator:a07fdb78a8acd35033b02122b832f242e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c09e32a9bdf919c1f1219196c300607"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a0c09e32a9bdf919c1f1219196c300607">D4DTCH_INVERSE_X</a></td></tr>
+<tr class="separator:a0c09e32a9bdf919c1f1219196c300607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa774a2455a909d7f0e86eff53bf90638"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#aa774a2455a909d7f0e86eff53bf90638">D4DTCH_INVERSE_Y</a></td></tr>
+<tr class="separator:aa774a2455a909d7f0e86eff53bf90638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58c7a54cea1a0561933791ac76cccafd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a58c7a54cea1a0561933791ac76cccafd">D4DTCH_SWAP_AXES</a></td></tr>
+<tr class="separator:a58c7a54cea1a0561933791ac76cccafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92976d3c165cf327c783acb3a08fd542"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a92976d3c165cf327c783acb3a08fd542">D4D_LLD_TCH_HW_CRTOUCH</a></td></tr>
+<tr class="separator:a92976d3c165cf327c783acb3a08fd542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a48e7b35e5f36b9fd034a97fc6dac3c9c"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct_d4_d_t_c_h_h_w_c_r_t_o_u_c_h___f_u_n_c_t_i_o_n_s___s.html">D4DTCHHWCRTOUCH_FUNCTIONS_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a48e7b35e5f36b9fd034a97fc6dac3c9c">D4DTCHHWCRTOUCH_FUNCTIONS</a></td></tr>
+<tr class="separator:a48e7b35e5f36b9fd034a97fc6dac3c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a4f215130cb5cc60c652468a3421516d7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="d4dtch__cr__touch_8h.html#a48e7b35e5f36b9fd034a97fc6dac3c9c">D4DTCHHWCRTOUCH_FUNCTIONS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtch__cr__touch_8h.html#a4f215130cb5cc60c652468a3421516d7">D4D_LLD_TCH_HW_CRTOUCH</a></td></tr>
+<tr class="separator:a4f215130cb5cc60c652468a3421516d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D driver - cr_touch touch screen driver function header file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.3.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Dec-7-2011 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ae4399489c623b3dc92d34ee9afabb309"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_FIFO_PRESS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00068">68</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a980588d9381701dc663af35c04db4a1e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_FIFO_ST</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00065">65</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aee98bbd9be7cf581df0b14265b054be9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_FIFO_X</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00066">66</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aebd2aa39f871810b4195a5d37f9865fe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_FIFO_Y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00067">67</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9a4c2dd576ed8999acb2413fd5a8ebdb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_PRESS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00064">64</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a505c045dc6cc9a2ee9865e0e1c897606"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_RES_CFG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00071">71</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2c25bf8ca4d41ccc70b29fe6aaebccea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_RES_CFG_RTPRESEN_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00077">77</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6fedb76263130e5a3f80a4964916521a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_STATUS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00059">59</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9774d3ad749a647aada5a62620be7f19"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_STATUS1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00060">60</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad755e435d3fb8e3e55ab7a7e803ce68a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_STATUS1_RTSRDY_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00075">75</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a364d39ab2149c0ab2f97cac078ecc4be"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_STATUS1_RTST_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00074">74</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a548eddbb89563cf16f312dd0f6add933"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_STATUS2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00061">61</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afa5c4f7147b57a5fe73f12e20c8c5057"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_STATUS2_RTSD_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00079">79</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3339053c701f3dd820157b99c54efa92"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_UART_BAUD</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00069">69</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a49f7d034ff233f87efae7492b9dd47e7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_X</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00062">62</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a45f1ea934d28a4b4a135fb2672aec192"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CRTCH_Y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00063">63</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a92976d3c165cf327c783acb3a08fd542"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_LLD_TCH_HW_CRTOUCH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00131">131</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af77b9540089748dea8355602f75a53c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_FULL_SCALE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00086">86</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a07fdb78a8acd35033b02122b832f242e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_IIC_ADDRESS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00115">115</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a08a4fc7b824b9e3723722c33c81af835"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_IIC_BAUDRATE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00111">111</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c09e32a9bdf919c1f1219196c300607"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_INVERSE_X</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00119">119</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa774a2455a909d7f0e86eff53bf90638"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_INVERSE_Y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00123">123</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a106dbdb7fc2a6c5f21b6dd1cbf9dedd7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_SAMPLE_MARGIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00106">106</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a58c7a54cea1a0561933791ac76cccafd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_SWAP_AXES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00127">127</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65bdc25f91c6d998f0e6ce063b70c491"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_X_TOUCH_MIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00090">90</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f2819073ed9d8ecd058f651567005bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_X_TOUCH_OFFMAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00098">98</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65cba10cca1ccf16ec60dbbfe4f2008d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_Y_TOUCH_MIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00094">94</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51023298d836e1e618dcb0841126980f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_Y_TOUCH_OFFMAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtch__cr__touch_8h_source.html#l00102">102</a> of file <a class="el" href="d4dtch__cr__touch_8h_source.html">d4dtch_cr_touch.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a48e7b35e5f36b9fd034a97fc6dac3c9c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_d4_d_t_c_h_h_w_c_r_t_o_u_c_h___f_u_n_c_t_i_o_n_s___s.html">D4DTCHHWCRTOUCH_FUNCTIONS_S</a> <a class="el" href="d4dtch__cr__touch_8h.html#a48e7b35e5f36b9fd034a97fc6dac3c9c">D4DTCHHWCRTOUCH_FUNCTIONS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a4f215130cb5cc60c652468a3421516d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="d4dtch__cr__touch_8h.html#a48e7b35e5f36b9fd034a97fc6dac3c9c">D4DTCHHWCRTOUCH_FUNCTIONS</a> D4D_LLD_TCH_HW_CRTOUCH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_ed2bb5cc41b5c3fd4e21ecf2d834403c.html">touch_screen</a></li><li class="navelem"><a class="el" href="dir_a7f84c726997ab4dd84843acdc3a84ef.html">touch_screen_drivers</a></li><li class="navelem"><a class="el" href="dir_4cd2c86a9391e73fb391e5869dc4a73a.html">cr_touch</a></li><li class="navelem"><a class="el" href="d4dtch__cr__touch_8h.html">d4dtch_cr_touch.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:04 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

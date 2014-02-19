@@ -1,0 +1,1068 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D SCHEME API Types Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__scheme__type.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D SCHEME API Types Specification<div class="ingroups"><a class="el" href="group__doxd4d__scheme.html">D4D SCHEME Handler</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D SCHEME API Types Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__scheme__type.gif" border="0" alt="" usemap="#group____doxd4d____scheme____type"/>
+<map name="group____doxd4d____scheme____type" id="group____doxd4d____scheme____type">
+<area shape="rect" id="node2" href="group__doxd4d__scheme.html" title="D4D SCHEME Handler" alt="" coords="5,12,160,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r">D4D_CLR_SCHEME_SCR</a></td></tr>
+<tr class="memdesc:struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the structure of the color scheme for screens in the D4D. It contains all the necessary colors to draw a screen under the common color scheme.  <a href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r">More...</a><br/></td></tr>
+<tr class="separator:struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g">D4D_CLR_SCHEME_GAUG</a></td></tr>
+<tr class="memdesc:struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g"><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure contains specific colors (non-standard) for the gauge object.  <a href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g">More...</a><br/></td></tr>
+<tr class="separator:struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r">D4D_CLR_SCHEME_SLDR</a></td></tr>
+<tr class="memdesc:struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r"><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure contains specific colors (non-standard) for the slider object.  <a href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r">More...</a><br/></td></tr>
+<tr class="separator:struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b">D4D_CLR_SCHEME_CHECKB</a></td></tr>
+<tr class="memdesc:struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure contains specific colors (non-standard) for the check box object.  <a href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b">More...</a><br/></td></tr>
+<tr class="separator:struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h">D4D_CLR_SCHEME_GRAPH</a></td></tr>
+<tr class="memdesc:struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h"><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure contains specific colors (non-standard) for the graph object.  <a href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h">More...</a><br/></td></tr>
+<tr class="separator:struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r">D4D_CLR_SCHEME_PRGRS_BAR</a></td></tr>
+<tr class="memdesc:struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r"><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure contains specific colors (non-standard) for the progress bar object.  <a href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r">More...</a><br/></td></tr>
+<tr class="separator:struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j">D4D_CLR_SCHEME_OBJ</a></td></tr>
+<tr class="memdesc:struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j"><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure contains all object dependent colors of the color scheme in the D4D. It is divided into the small objects that describe structures containing individual colors.  <a href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j">More...</a><br/></td></tr>
+<tr class="separator:struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_d4_d___c_l_r___s_c_h_e_m_e___s"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s">D4D_CLR_SCHEME_S</a></td></tr>
+<tr class="memdesc:struct_d4_d___c_l_r___s_c_h_e_m_e___s"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main structure of the color scheme in the D4D. It contains all the necessary colors to run the whole driver under the common color scheme. The screen colors are placed in <a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r" title="This is the structure of the color scheme for screens in the D4D. It contains all the necessary color...">D4D_CLR_SCHEME_SCR</a> structure and object dependent colors are placed in <a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j" title="This structure contains all object dependent colors of the color scheme in the D4D. It is divided into the small objects that describe structures containing individual colors. ">D4D_CLR_SCHEME_OBJ</a> structure.  <a href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s">More...</a><br/></td></tr>
+<tr class="separator:struct_d4_d___c_l_r___s_c_h_e_m_e___s"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga01f0246231e8f3f78c97b9e13d6c42e9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s">D4D_CLR_SCHEME_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#ga01f0246231e8f3f78c97b9e13d6c42e9">D4D_CLR_SCHEME</a></td></tr>
+<tr class="memdesc:ga01f0246231e8f3f78c97b9e13d6c42e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main structure of the color scheme in the D4D. It contains all the necessary colors to run the whole driver under the common color scheme. The screen colors are placed in <a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r" title="This is the structure of the color scheme for screens in the D4D. It contains all the necessary color...">D4D_CLR_SCHEME_SCR</a> structure and object dependent colors are placed in <a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j" title="This structure contains all object dependent colors of the color scheme in the D4D. It is divided into the small objects that describe structures containing individual colors. ">D4D_CLR_SCHEME_OBJ</a> structure.  <a href="#ga01f0246231e8f3f78c97b9e13d6c42e9">More...</a><br/></td></tr>
+<tr class="separator:ga01f0246231e8f3f78c97b9e13d6c42e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4bcd8a94dfe9a84cf66a650b55005f16"><td class="memItemLeft" align="right" valign="top">typedef const <a class="el" href="group__doxd4d__scheme__type.html#ga01f0246231e8f3f78c97b9e13d6c42e9">D4D_CLR_SCHEME</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#ga4bcd8a94dfe9a84cf66a650b55005f16">D4D_CLR_SCHEME_PTR</a></td></tr>
+<tr class="separator:ga4bcd8a94dfe9a84cf66a650b55005f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact type for each typedef definition. </p>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r" id="struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct D4D_CLR_SCHEME_SCR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Collaboration diagram for D4D_CLR_SCHEME_SCR:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r__coll__graph.gif" border="0" usemap="#_d4_d___c_l_r___s_c_h_e_m_e___s_c_r_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___c_l_r___s_c_h_e_m_e___s_c_r_coll__map" id="_d4_d___c_l_r___s_c_h_e_m_e___s_c_r_coll__map">
+</map>
+</div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a37de1f56aed63f2880cdf402c558edc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a37de1f56aed63f2880cdf402c558edc1">desktop</a></td></tr>
+<tr class="memdesc:a37de1f56aed63f2880cdf402c558edc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color of screen desktop.  <a href="#a37de1f56aed63f2880cdf402c558edc1">More...</a><br/></td></tr>
+<tr class="separator:a37de1f56aed63f2880cdf402c558edc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa346ef3d637eac590500a836a18e5d2c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#aa346ef3d637eac590500a836a18e5d2c">outline</a></td></tr>
+<tr class="memdesc:aa346ef3d637eac590500a836a18e5d2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color of screen outline (if enabled)  <a href="#aa346ef3d637eac590500a836a18e5d2c">More...</a><br/></td></tr>
+<tr class="separator:aa346ef3d637eac590500a836a18e5d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aa4d23213052fef32b41d8e081fb3d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a6aa4d23213052fef32b41d8e081fb3d6">title_bar</a></td></tr>
+<tr class="memdesc:a6aa4d23213052fef32b41d8e081fb3d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color of screen title bar (if enabled)  <a href="#a6aa4d23213052fef32b41d8e081fb3d6">More...</a><br/></td></tr>
+<tr class="separator:a6aa4d23213052fef32b41d8e081fb3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3571bcd66b6a1e02f3c0ac172fcc1e60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a3571bcd66b6a1e02f3c0ac172fcc1e60">title_text</a></td></tr>
+<tr class="memdesc:a3571bcd66b6a1e02f3c0ac172fcc1e60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color of screen title bar text (if enabled)  <a href="#a3571bcd66b6a1e02f3c0ac172fcc1e60">More...</a><br/></td></tr>
+<tr class="separator:a3571bcd66b6a1e02f3c0ac172fcc1e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ff4b828d98aa88b339f1b92bef9b481"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a7ff4b828d98aa88b339f1b92bef9b481">exitBtnFore</a></td></tr>
+<tr class="memdesc:a7ff4b828d98aa88b339f1b92bef9b481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fore color of screen exit button.  <a href="#a7ff4b828d98aa88b339f1b92bef9b481">More...</a><br/></td></tr>
+<tr class="separator:a7ff4b828d98aa88b339f1b92bef9b481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2a2712883d37b54d763fae5400d7724"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#ad2a2712883d37b54d763fae5400d7724">exitBtnBckg</a></td></tr>
+<tr class="memdesc:ad2a2712883d37b54d763fae5400d7724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Background color of screen exit button (if enabled)  <a href="#ad2a2712883d37b54d763fae5400d7724">More...</a><br/></td></tr>
+<tr class="separator:ad2a2712883d37b54d763fae5400d7724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="a37de1f56aed63f2880cdf402c558edc1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> desktop</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Color of screen desktop. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00513">513</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00864">D4D_DrawScreenNC()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad2a2712883d37b54d763fae5400d7724"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> exitBtnBckg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Background color of screen exit button (if enabled) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00518">518</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00864">D4D_DrawScreenNC()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7ff4b828d98aa88b339f1b92bef9b481"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> exitBtnFore</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fore color of screen exit button. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00517">517</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00864">D4D_DrawScreenNC()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa346ef3d637eac590500a836a18e5d2c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> outline</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Color of screen outline (if enabled) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00514">514</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00864">D4D_DrawScreenNC()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6aa4d23213052fef32b41d8e081fb3d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> title_bar</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Color of screen title bar (if enabled) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00515">515</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00864">D4D_DrawScreenNC()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3571bcd66b6a1e02f3c0ac172fcc1e60"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> title_text</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Color of screen title bar text (if enabled) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00516">516</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00864">D4D_DrawScreenNC()</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g" id="struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct D4D_CLR_SCHEME_GAUG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Collaboration diagram for D4D_CLR_SCHEME_GAUG:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g__coll__graph.gif" border="0" usemap="#_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g_coll__map" id="_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g_coll__map">
+</map>
+</div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a5705611de9de5c9baf4850d3ebd93902"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a5705611de9de5c9baf4850d3ebd93902">hub</a></td></tr>
+<tr class="memdesc:a5705611de9de5c9baf4850d3ebd93902"><td class="mdescLeft">&#160;</td><td class="mdescRight">The gauge hub color.  <a href="#a5705611de9de5c9baf4850d3ebd93902">More...</a><br/></td></tr>
+<tr class="separator:a5705611de9de5c9baf4850d3ebd93902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf21f9cfa6115dcf702273a0cc633e15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#abf21f9cfa6115dcf702273a0cc633e15">pointer</a></td></tr>
+<tr class="memdesc:abf21f9cfa6115dcf702273a0cc633e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">The gauge pointer color.  <a href="#abf21f9cfa6115dcf702273a0cc633e15">More...</a><br/></td></tr>
+<tr class="separator:abf21f9cfa6115dcf702273a0cc633e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="a5705611de9de5c9baf4850d3ebd93902"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> hub</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The gauge hub color. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00525">525</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf21f9cfa6115dcf702273a0cc633e15"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> pointer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The gauge pointer color. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00526">526</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r" id="struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct D4D_CLR_SCHEME_SLDR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Collaboration diagram for D4D_CLR_SCHEME_SLDR:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r__coll__graph.gif" border="0" usemap="#_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r_coll__map" id="_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r_coll__map">
+</map>
+</div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a0ced1696a41dfa4fc7d768cfc250c052"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a0ced1696a41dfa4fc7d768cfc250c052">barBckg</a></td></tr>
+<tr class="memdesc:a0ced1696a41dfa4fc7d768cfc250c052"><td class="mdescLeft">&#160;</td><td class="mdescRight">The slider bar background color.  <a href="#a0ced1696a41dfa4fc7d768cfc250c052">More...</a><br/></td></tr>
+<tr class="separator:a0ced1696a41dfa4fc7d768cfc250c052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb1552129b17c5d4e9238462e5b6abe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#aceb1552129b17c5d4e9238462e5b6abe">barFore</a></td></tr>
+<tr class="memdesc:aceb1552129b17c5d4e9238462e5b6abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The slider bar fore color.  <a href="#aceb1552129b17c5d4e9238462e5b6abe">More...</a><br/></td></tr>
+<tr class="separator:aceb1552129b17c5d4e9238462e5b6abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac999351ef3c0b04b760d50134081e56c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#ac999351ef3c0b04b760d50134081e56c">barStart</a></td></tr>
+<tr class="memdesc:ac999351ef3c0b04b760d50134081e56c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The slider bar fore start color for case that the D4D_SLDR_F_BAR_SCALECOLOR flag is enabled.  <a href="#ac999351ef3c0b04b760d50134081e56c">More...</a><br/></td></tr>
+<tr class="separator:ac999351ef3c0b04b760d50134081e56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9af680a68f4944749262f5223470dfa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a9af680a68f4944749262f5223470dfa9">barEnd</a></td></tr>
+<tr class="memdesc:a9af680a68f4944749262f5223470dfa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The slider bar fore end color for case that the D4D_SLDR_F_BAR_SCALECOLOR flag is enabled.  <a href="#a9af680a68f4944749262f5223470dfa9">More...</a><br/></td></tr>
+<tr class="separator:a9af680a68f4944749262f5223470dfa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="a0ced1696a41dfa4fc7d768cfc250c052"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> barBckg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The slider bar background color. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00533">533</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__slider_8c_source.html#l00292">D4D_SldrOnDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9af680a68f4944749262f5223470dfa9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> barEnd</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The slider bar fore end color for case that the D4D_SLDR_F_BAR_SCALECOLOR flag is enabled. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00536">536</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__slider_8c_source.html#l00462">D4D_SldrComputeColorBar()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aceb1552129b17c5d4e9238462e5b6abe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> barFore</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The slider bar fore color. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00534">534</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__slider_8c_source.html#l00630">D4D_SldrOnMessage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac999351ef3c0b04b760d50134081e56c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> barStart</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The slider bar fore start color for case that the D4D_SLDR_F_BAR_SCALECOLOR flag is enabled. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00535">535</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__slider_8c_source.html#l00462">D4D_SldrComputeColorBar()</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b" id="struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct D4D_CLR_SCHEME_CHECKB</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Collaboration diagram for D4D_CLR_SCHEME_CHECKB:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b__coll__graph.gif" border="0" usemap="#_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b_coll__map" id="_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b_coll__map">
+</map>
+</div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:af9057687130baaf6a9b1678b56d7cb80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#af9057687130baaf6a9b1678b56d7cb80">iconBckg</a></td></tr>
+<tr class="memdesc:af9057687130baaf6a9b1678b56d7cb80"><td class="mdescLeft">&#160;</td><td class="mdescRight">The checkbox background of icon.  <a href="#af9057687130baaf6a9b1678b56d7cb80">More...</a><br/></td></tr>
+<tr class="separator:af9057687130baaf6a9b1678b56d7cb80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="af9057687130baaf6a9b1678b56d7cb80"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> iconBckg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The checkbox background of icon. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00543">543</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__check__box_8c_source.html#l00122">D4D_CheckBoxOnDraw()</a>, and <a class="el" href="d4d__radio__button_8c_source.html#l00130">D4D_RadioButtonOnDraw()</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h" id="struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct D4D_CLR_SCHEME_GRAPH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Collaboration diagram for D4D_CLR_SCHEME_GRAPH:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h__coll__graph.gif" border="0" usemap="#_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h_coll__map" id="_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h_coll__map">
+</map>
+</div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a5c96b180fc27fdd24c7f04bc1e3bb715"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a5c96b180fc27fdd24c7f04bc1e3bb715">grid</a></td></tr>
+<tr class="memdesc:a5c96b180fc27fdd24c7f04bc1e3bb715"><td class="mdescLeft">&#160;</td><td class="mdescRight">The graph grid color.  <a href="#a5c96b180fc27fdd24c7f04bc1e3bb715">More...</a><br/></td></tr>
+<tr class="separator:a5c96b180fc27fdd24c7f04bc1e3bb715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="a5c96b180fc27fdd24c7f04bc1e3bb715"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> grid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The graph grid color. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00550">550</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__graph_8c_source.html#l00262">D4D_GraphDrawEmptyGraph()</a>, and <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r" id="struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct D4D_CLR_SCHEME_PRGRS_BAR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Collaboration diagram for D4D_CLR_SCHEME_PRGRS_BAR:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r__coll__graph.gif" border="0" usemap="#_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r_coll__map" id="_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r_coll__map">
+</map>
+</div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a0ced1696a41dfa4fc7d768cfc250c052"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a0ced1696a41dfa4fc7d768cfc250c052">barBckg</a></td></tr>
+<tr class="memdesc:a0ced1696a41dfa4fc7d768cfc250c052"><td class="mdescLeft">&#160;</td><td class="mdescRight">The progress bar, bar background color.  <a href="#a0ced1696a41dfa4fc7d768cfc250c052">More...</a><br/></td></tr>
+<tr class="separator:a0ced1696a41dfa4fc7d768cfc250c052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb1552129b17c5d4e9238462e5b6abe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#aceb1552129b17c5d4e9238462e5b6abe">barFore</a></td></tr>
+<tr class="memdesc:aceb1552129b17c5d4e9238462e5b6abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The progress bar, bar fore start color for case that the D4D_PRGRS_BAR_F_BAR_SCALECOLOR flag is enabled, if not it's used a standard fore bar color.  <a href="#aceb1552129b17c5d4e9238462e5b6abe">More...</a><br/></td></tr>
+<tr class="separator:aceb1552129b17c5d4e9238462e5b6abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9af680a68f4944749262f5223470dfa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a9af680a68f4944749262f5223470dfa9">barEnd</a></td></tr>
+<tr class="memdesc:a9af680a68f4944749262f5223470dfa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The progress bar, bar fore end color for case that the D4D_PRGRS_BAR_F_BAR_SCALECOLOR flag is enabled.  <a href="#a9af680a68f4944749262f5223470dfa9">More...</a><br/></td></tr>
+<tr class="separator:a9af680a68f4944749262f5223470dfa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="a0ced1696a41dfa4fc7d768cfc250c052"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> barBckg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The progress bar, bar background color. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00557">557</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__progress__bar_8c_source.html#l00137">D4D_PrgrsBarOnDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9af680a68f4944749262f5223470dfa9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> barEnd</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The progress bar, bar fore end color for case that the D4D_PRGRS_BAR_F_BAR_SCALECOLOR flag is enabled. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00559">559</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__progress__bar_8c_source.html#l00185">D4D_PrgrsBarComputeColorBar()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aceb1552129b17c5d4e9238462e5b6abe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> barFore</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The progress bar, bar fore start color for case that the D4D_PRGRS_BAR_F_BAR_SCALECOLOR flag is enabled, if not it's used a standard fore bar color. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00558">558</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__progress__bar_8c_source.html#l00185">D4D_PrgrsBarComputeColorBar()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00137">D4D_PrgrsBarOnDraw()</a>, and <a class="el" href="d4d__progress__bar_8c_source.html#l00296">D4D_PrgrsBarOnMessage()</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j" id="struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct D4D_CLR_SCHEME_OBJ</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Collaboration diagram for D4D_CLR_SCHEME_OBJ:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j__coll__graph.gif" border="0" usemap="#_d4_d___c_l_r___s_c_h_e_m_e___o_b_j_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___c_l_r___s_c_h_e_m_e___o_b_j_coll__map" id="_d4_d___c_l_r___s_c_h_e_m_e___o_b_j_coll__map">
+<area shape="rect" id="node2" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r" title="This structure contains specific colors (non&#45;standard) for the slider object. " alt="" coords="5,6,187,127"/><area shape="rect" id="node3" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r" title="This structure contains specific colors (non&#45;standard) for the progress bar object. " alt="" coords="212,13,441,120"/><area shape="rect" id="node4" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h" title="This structure contains specific colors (non&#45;standard) for the graph object. " alt="" coords="465,28,660,105"/><area shape="rect" id="node5" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g" title="This structure contains specific colors (non&#45;standard) for the gauge object. " alt="" coords="684,21,871,113"/><area shape="rect" id="node6" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b" title="This structure contains specific colors (non&#45;standard) for the check box object. " alt="" coords="895,28,1097,105"/></map>
+</div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:af13ce5f25e7c11398fcfc29511abc8ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g">D4D_CLR_SCHEME_GAUG</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#af13ce5f25e7c11398fcfc29511abc8ab">gauge</a></td></tr>
+<tr class="memdesc:af13ce5f25e7c11398fcfc29511abc8ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">The non standard colors of gauge object.  <a href="#af13ce5f25e7c11398fcfc29511abc8ab">More...</a><br/></td></tr>
+<tr class="separator:af13ce5f25e7c11398fcfc29511abc8ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df8dfc36aa3678f0eab0bca42e93336"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r">D4D_CLR_SCHEME_SLDR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a7df8dfc36aa3678f0eab0bca42e93336">slider</a></td></tr>
+<tr class="memdesc:a7df8dfc36aa3678f0eab0bca42e93336"><td class="mdescLeft">&#160;</td><td class="mdescRight">The non standard colors of slider object.  <a href="#a7df8dfc36aa3678f0eab0bca42e93336">More...</a><br/></td></tr>
+<tr class="separator:a7df8dfc36aa3678f0eab0bca42e93336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac086e96039b028dfde9e8490b195e46e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b">D4D_CLR_SCHEME_CHECKB</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#ac086e96039b028dfde9e8490b195e46e">checkBox</a></td></tr>
+<tr class="memdesc:ac086e96039b028dfde9e8490b195e46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The non standard colors of check box object.  <a href="#ac086e96039b028dfde9e8490b195e46e">More...</a><br/></td></tr>
+<tr class="separator:ac086e96039b028dfde9e8490b195e46e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38ecba13f8971adf1930aa11ed680ea6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h">D4D_CLR_SCHEME_GRAPH</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a38ecba13f8971adf1930aa11ed680ea6">graph</a></td></tr>
+<tr class="memdesc:a38ecba13f8971adf1930aa11ed680ea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The non standard colors of graph object.  <a href="#a38ecba13f8971adf1930aa11ed680ea6">More...</a><br/></td></tr>
+<tr class="separator:a38ecba13f8971adf1930aa11ed680ea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7fdb807c046b5905fce5fd1479b62df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r">D4D_CLR_SCHEME_PRGRS_BAR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#ac7fdb807c046b5905fce5fd1479b62df">progressBar</a></td></tr>
+<tr class="memdesc:ac7fdb807c046b5905fce5fd1479b62df"><td class="mdescLeft">&#160;</td><td class="mdescRight">The non standard colors of progerss bar object.  <a href="#ac7fdb807c046b5905fce5fd1479b62df">More...</a><br/></td></tr>
+<tr class="separator:ac7fdb807c046b5905fce5fd1479b62df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="ac086e96039b028dfde9e8490b195e46e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b">D4D_CLR_SCHEME_CHECKB</a> checkBox</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The non standard colors of check box object. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00569">569</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__check__box_8c_source.html#l00122">D4D_CheckBoxOnDraw()</a>, and <a class="el" href="d4d__radio__button_8c_source.html#l00130">D4D_RadioButtonOnDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af13ce5f25e7c11398fcfc29511abc8ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g">D4D_CLR_SCHEME_GAUG</a> gauge</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The non standard colors of gauge object. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00567">567</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a38ecba13f8971adf1930aa11ed680ea6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h">D4D_CLR_SCHEME_GRAPH</a> graph</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The non standard colors of graph object. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00570">570</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__graph_8c_source.html#l00262">D4D_GraphDrawEmptyGraph()</a>, and <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac7fdb807c046b5905fce5fd1479b62df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r">D4D_CLR_SCHEME_PRGRS_BAR</a> progressBar</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The non standard colors of progerss bar object. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00571">571</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__progress__bar_8c_source.html#l00185">D4D_PrgrsBarComputeColorBar()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00137">D4D_PrgrsBarOnDraw()</a>, and <a class="el" href="d4d__progress__bar_8c_source.html#l00296">D4D_PrgrsBarOnMessage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7df8dfc36aa3678f0eab0bca42e93336"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r">D4D_CLR_SCHEME_SLDR</a> slider</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The non standard colors of slider object. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00568">568</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__slider_8c_source.html#l00462">D4D_SldrComputeColorBar()</a>, <a class="el" href="d4d__slider_8c_source.html#l00292">D4D_SldrOnDraw()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00630">D4D_SldrOnMessage()</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="struct_d4_d___c_l_r___s_c_h_e_m_e___s" id="struct_d4_d___c_l_r___s_c_h_e_m_e___s"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct D4D_CLR_SCHEME_S</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Collaboration diagram for D4D_CLR_SCHEME_S:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___c_l_r___s_c_h_e_m_e___s__coll__graph.gif" border="0" usemap="#_d4_d___c_l_r___s_c_h_e_m_e___s_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___c_l_r___s_c_h_e_m_e___s_coll__map" id="_d4_d___c_l_r___s_c_h_e_m_e___s_coll__map">
+<area shape="rect" id="node2" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j" title="This structure contains all object dependent colors of the color scheme in the D4D. It is divided into the small objects that describe structures containing individual colors. " alt="" coords="475,229,649,307"/><area shape="rect" id="node3" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r" title="This structure contains specific colors (non&#45;standard) for the slider object. " alt="" coords="5,6,187,127"/><area shape="rect" id="node4" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r" title="This structure contains specific colors (non&#45;standard) for the progress bar object. " alt="" coords="212,13,441,120"/><area shape="rect" id="node5" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h" title="This structure contains specific colors (non&#45;standard) for the graph object. " alt="" coords="465,28,660,105"/><area shape="rect" id="node6" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g" title="This structure contains specific colors (non&#45;standard) for the gauge object. " alt="" coords="684,21,871,113"/><area shape="rect" id="node7" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b" title="This structure contains specific colors (non&#45;standard) for the check box object. " alt="" coords="895,28,1097,105"/><area shape="rect" id="node8" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r" title="This is the structure of the color scheme for screens in the D4D. It contains all the necessary color..." alt="" coords="675,193,851,343"/></map>
+</div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a86c4a916def40826906a502db3424eb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r">D4D_CLR_SCHEME_SCR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a86c4a916def40826906a502db3424eb7">screen</a></td></tr>
+<tr class="memdesc:a86c4a916def40826906a502db3424eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sub structure of screen colors.  <a href="#a86c4a916def40826906a502db3424eb7">More...</a><br/></td></tr>
+<tr class="separator:a86c4a916def40826906a502db3424eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac904d216ca34f8142d6f6da7599932de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#ac904d216ca34f8142d6f6da7599932de">bckg</a></td></tr>
+<tr class="memdesc:ac904d216ca34f8142d6f6da7599932de"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object background color in standard state.  <a href="#ac904d216ca34f8142d6f6da7599932de">More...</a><br/></td></tr>
+<tr class="separator:ac904d216ca34f8142d6f6da7599932de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa414bc9e50fdf81a5c4bda5a1a0e9737"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#aa414bc9e50fdf81a5c4bda5a1a0e9737">bckgDis</a></td></tr>
+<tr class="memdesc:aa414bc9e50fdf81a5c4bda5a1a0e9737"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object background color in disabled state.  <a href="#aa414bc9e50fdf81a5c4bda5a1a0e9737">More...</a><br/></td></tr>
+<tr class="separator:aa414bc9e50fdf81a5c4bda5a1a0e9737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac703c594bef8a4c934804a5c0b778dfe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#ac703c594bef8a4c934804a5c0b778dfe">bckgFocus</a></td></tr>
+<tr class="memdesc:ac703c594bef8a4c934804a5c0b778dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object background color in focused state.  <a href="#ac703c594bef8a4c934804a5c0b778dfe">More...</a><br/></td></tr>
+<tr class="separator:ac703c594bef8a4c934804a5c0b778dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95798531b576589bbf4e25c559a4c858"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a95798531b576589bbf4e25c559a4c858">bckgCapture</a></td></tr>
+<tr class="memdesc:a95798531b576589bbf4e25c559a4c858"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object background color in captured state.  <a href="#a95798531b576589bbf4e25c559a4c858">More...</a><br/></td></tr>
+<tr class="separator:a95798531b576589bbf4e25c559a4c858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae82bb4dda004886153fefec2c0da4362"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#ae82bb4dda004886153fefec2c0da4362">fore</a></td></tr>
+<tr class="memdesc:ae82bb4dda004886153fefec2c0da4362"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object fore color in standard state.  <a href="#ae82bb4dda004886153fefec2c0da4362">More...</a><br/></td></tr>
+<tr class="separator:ae82bb4dda004886153fefec2c0da4362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48263becca808ff69b05e4ed5a2961b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a48263becca808ff69b05e4ed5a2961b1">foreDis</a></td></tr>
+<tr class="memdesc:a48263becca808ff69b05e4ed5a2961b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object fore color in disabled state.  <a href="#a48263becca808ff69b05e4ed5a2961b1">More...</a><br/></td></tr>
+<tr class="separator:a48263becca808ff69b05e4ed5a2961b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998c50357d6db3b3f03c5ae4d0ce8492"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a998c50357d6db3b3f03c5ae4d0ce8492">foreFocus</a></td></tr>
+<tr class="memdesc:a998c50357d6db3b3f03c5ae4d0ce8492"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object fore color in focused state.  <a href="#a998c50357d6db3b3f03c5ae4d0ce8492">More...</a><br/></td></tr>
+<tr class="separator:a998c50357d6db3b3f03c5ae4d0ce8492"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a796ed0ca97d08a804d5800924077f12f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a796ed0ca97d08a804d5800924077f12f">foreCapture</a></td></tr>
+<tr class="memdesc:a796ed0ca97d08a804d5800924077f12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object fore color in captured state.  <a href="#a796ed0ca97d08a804d5800924077f12f">More...</a><br/></td></tr>
+<tr class="separator:a796ed0ca97d08a804d5800924077f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fb6417ddabe718e3b01328ad50df114"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j">D4D_CLR_SCHEME_OBJ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__type.html#a4fb6417ddabe718e3b01328ad50df114">objectDepend</a></td></tr>
+<tr class="memdesc:a4fb6417ddabe718e3b01328ad50df114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sub structure of object non standard colors.  <a href="#a4fb6417ddabe718e3b01328ad50df114">More...</a><br/></td></tr>
+<tr class="separator:a4fb6417ddabe718e3b01328ad50df114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="ac904d216ca34f8142d6f6da7599932de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> bckg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object background color in standard state. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00581">581</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00185">D4D_ObjectGetBckgColor()</a>, and <a class="el" href="d4d__scheme_8c_source.html#l00225">D4D_ObjectGetBckgFillColor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a95798531b576589bbf4e25c559a4c858"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> bckgCapture</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object background color in captured state. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00584">584</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__scheme_8c_source.html#l00185">D4D_ObjectGetBckgColor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa414bc9e50fdf81a5c4bda5a1a0e9737"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> bckgDis</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object background color in disabled state. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00582">582</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__scheme_8c_source.html#l00185">D4D_ObjectGetBckgColor()</a>, and <a class="el" href="d4d__scheme_8c_source.html#l00225">D4D_ObjectGetBckgFillColor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac703c594bef8a4c934804a5c0b778dfe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> bckgFocus</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object background color in focused state. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00583">583</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__edit__box_8c_source.html#l00094">D4D_EditBoxOnDraw()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00180">D4D_ListBoxOnDraw()</a>, <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>, and <a class="el" href="d4d__scheme_8c_source.html#l00185">D4D_ObjectGetBckgColor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae82bb4dda004886153fefec2c0da4362"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> fore</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object fore color in standard state. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00585">585</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__scheme_8c_source.html#l00161">D4D_ObjectGetForeColor()</a>, and <a class="el" href="d4d__scheme_8c_source.html#l00208">D4D_ObjectGetForeFillColor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a796ed0ca97d08a804d5800924077f12f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> foreCapture</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object fore color in captured state. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00588">588</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__scheme_8c_source.html#l00161">D4D_ObjectGetForeColor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a48263becca808ff69b05e4ed5a2961b1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> foreDis</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object fore color in disabled state. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00586">586</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__scheme_8c_source.html#l00161">D4D_ObjectGetForeColor()</a>, and <a class="el" href="d4d__scheme_8c_source.html#l00208">D4D_ObjectGetForeFillColor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a998c50357d6db3b3f03c5ae4d0ce8492"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> foreFocus</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object fore color in focused state. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00587">587</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__list__box_8c_source.html#l00180">D4D_ListBoxOnDraw()</a>, <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>, and <a class="el" href="d4d__scheme_8c_source.html#l00161">D4D_ObjectGetForeColor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4fb6417ddabe718e3b01328ad50df114"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j">D4D_CLR_SCHEME_OBJ</a> objectDepend</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sub structure of object non standard colors. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00589">589</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__check__box_8c_source.html#l00122">D4D_CheckBoxOnDraw()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>, <a class="el" href="d4d__graph_8c_source.html#l00262">D4D_GraphDrawEmptyGraph()</a>, <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00185">D4D_PrgrsBarComputeColorBar()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00137">D4D_PrgrsBarOnDraw()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00296">D4D_PrgrsBarOnMessage()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00130">D4D_RadioButtonOnDraw()</a>, <a class="el" href="d4d__slider_8c_source.html#l00462">D4D_SldrComputeColorBar()</a>, <a class="el" href="d4d__slider_8c_source.html#l00292">D4D_SldrOnDraw()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00630">D4D_SldrOnMessage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a86c4a916def40826906a502db3424eb7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r">D4D_CLR_SCHEME_SCR</a> screen</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sub structure of screen colors. </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00580">580</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00864">D4D_DrawScreenNC()</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="ga01f0246231e8f3f78c97b9e13d6c42e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s">D4D_CLR_SCHEME_S</a> <a class="el" href="group__doxd4d__scheme__type.html#ga01f0246231e8f3f78c97b9e13d6c42e9">D4D_CLR_SCHEME</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is the main structure of the color scheme in the D4D. It contains all the necessary colors to run the whole driver under the common color scheme. The screen colors are placed in <a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r" title="This is the structure of the color scheme for screens in the D4D. It contains all the necessary color...">D4D_CLR_SCHEME_SCR</a> structure and object dependent colors are placed in <a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j" title="This structure contains all object dependent colors of the color scheme in the D4D. It is divided into the small objects that describe structures containing individual colors. ">D4D_CLR_SCHEME_OBJ</a> structure. </p>
+<dl class="section note"><dt>Note</dt><dd>This is main eGUI color scheme structure. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga4bcd8a94dfe9a84cf66a650b55005f16"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef const <a class="el" href="group__doxd4d__scheme__type.html#ga01f0246231e8f3f78c97b9e13d6c42e9">D4D_CLR_SCHEME</a>* <a class="el" href="group__doxd4d__scheme__type.html#ga4bcd8a94dfe9a84cf66a650b55005f16">D4D_CLR_SCHEME_PTR</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00592">592</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:05 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

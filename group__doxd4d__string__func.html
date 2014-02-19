@@ -1,0 +1,857 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D STRING API Functions Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__string__func.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D STRING API Functions Specification<div class="ingroups"><a class="el" href="group__doxd4d__string.html">D4D STRING Handler</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D STRING API Functions Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__string__func.gif" border="0" alt="" usemap="#group____doxd4d____string____func"/>
+<map name="group____doxd4d____string____func" id="group____doxd4d____string____func">
+<area shape="rect" id="node2" href="group__doxd4d__string.html" title="D4D STRING Handler" alt="" coords="5,12,152,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga07b135522d3dfd761361887272ae26dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd">D4D_GetInternalStringPointer</a> (const <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *originTxt)</td></tr>
+<tr class="memdesc:ga07b135522d3dfd761361887272ae26dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function gets the real internal pointer to string.  <a href="#ga07b135522d3dfd761361887272ae26dd">More...</a><br/></td></tr>
+<tr class="separator:ga07b135522d3dfd761361887272ae26dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga438a9f4039e26ebf820e1222b6246934"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#ga438a9f4039e26ebf820e1222b6246934">D4D_SprintDecU32</a> (<a class="el" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> val, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *pText, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> fill)</td></tr>
+<tr class="memdesc:ga438a9f4039e26ebf820e1222b6246934"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function convert decimal unsigned 32 bit number to string.  <a href="#ga438a9f4039e26ebf820e1222b6246934">More...</a><br/></td></tr>
+<tr class="separator:ga438a9f4039e26ebf820e1222b6246934"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad0f961aac7f5ea3b41f02316c4aec9ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#gad0f961aac7f5ea3b41f02316c4aec9ab">D4D_SprintDecS32</a> (<a class="el" href="group__doxd4d__types__type.html#ga292b151822cbfa176ac5f8256991c058">sLWord</a> val, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *pText, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> fill)</td></tr>
+<tr class="memdesc:gad0f961aac7f5ea3b41f02316c4aec9ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function convert decimal signed 32 bit number to string.  <a href="#gad0f961aac7f5ea3b41f02316c4aec9ab">More...</a><br/></td></tr>
+<tr class="separator:gad0f961aac7f5ea3b41f02316c4aec9ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaddaa9a36e054a4a40f5391f18c821c50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#gaddaa9a36e054a4a40f5391f18c821c50">D4D_SprintDecU16</a> (<a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> val, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *pText, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> fill)</td></tr>
+<tr class="memdesc:gaddaa9a36e054a4a40f5391f18c821c50"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function convert decimal unsigned 16 bit number to string.  <a href="#gaddaa9a36e054a4a40f5391f18c821c50">More...</a><br/></td></tr>
+<tr class="separator:gaddaa9a36e054a4a40f5391f18c821c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66e56f42d2c467dc645f7790e1670524"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#ga66e56f42d2c467dc645f7790e1670524">D4D_SprintDecS16</a> (<a class="el" href="group__doxd4d__types__type.html#ga8cae62bef8ad9c6b207f3fa74b27ba7a">sWord</a> val, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *pText, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> fill)</td></tr>
+<tr class="memdesc:ga66e56f42d2c467dc645f7790e1670524"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function convert decimal signed 16 bit number to string.  <a href="#ga66e56f42d2c467dc645f7790e1670524">More...</a><br/></td></tr>
+<tr class="separator:ga66e56f42d2c467dc645f7790e1670524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae6bca6f1322673191dcfe7c2b0c06178"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#gae6bca6f1322673191dcfe7c2b0c06178">D4D_SprintDecU8</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> val, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *pText, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> fill)</td></tr>
+<tr class="memdesc:gae6bca6f1322673191dcfe7c2b0c06178"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function convert decimal unsigned 8 bit number to string.  <a href="#gae6bca6f1322673191dcfe7c2b0c06178">More...</a><br/></td></tr>
+<tr class="separator:gae6bca6f1322673191dcfe7c2b0c06178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d5b1dd7ebad7ca15aa06d737e6347cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#ga0d5b1dd7ebad7ca15aa06d737e6347cf">D4D_SprintDecS8</a> (<a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a> val, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *pText, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> fill)</td></tr>
+<tr class="memdesc:ga0d5b1dd7ebad7ca15aa06d737e6347cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function convert decimal signed 8 bit number to string.  <a href="#ga0d5b1dd7ebad7ca15aa06d737e6347cf">More...</a><br/></td></tr>
+<tr class="separator:ga0d5b1dd7ebad7ca15aa06d737e6347cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2f503f80f133685009aef0f41e91175"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#gaa2f503f80f133685009aef0f41e91175">D4D_GetTextLength</a> (<a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *pText)</td></tr>
+<tr class="memdesc:gaa2f503f80f133685009aef0f41e91175"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function returns lenght of text.  <a href="#gaa2f503f80f133685009aef0f41e91175">More...</a><br/></td></tr>
+<tr class="separator:gaa2f503f80f133685009aef0f41e91175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30a1542cae1d27c9bfcfcfd02c4c873c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#ga30a1542cae1d27c9bfcfcfd02c4c873c">D4D_GetTextWidth</a> (<a class="el" href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a> ix, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *pText)</td></tr>
+<tr class="memdesc:ga30a1542cae1d27c9bfcfcfd02c4c873c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function returns width of text in pixels.  <a href="#ga30a1542cae1d27c9bfcfcfd02c4c873c">More...</a><br/></td></tr>
+<tr class="separator:ga30a1542cae1d27c9bfcfcfd02c4c873c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada3f65b64c55a4229740bbd7e721f0f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#gada3f65b64c55a4229740bbd7e721f0f8">D4D_GetTextBuffWidthTab</a> (<a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> *text_buffer, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a> *pTab)</td></tr>
+<tr class="memdesc:gada3f65b64c55a4229740bbd7e721f0f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function returns width of text in pixels, also with tab table.  <a href="#gada3f65b64c55a4229740bbd7e721f0f8">More...</a><br/></td></tr>
+<tr class="separator:gada3f65b64c55a4229740bbd7e721f0f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga609e5f5ee7cea40f6d827def8e0cf1bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#ga609e5f5ee7cea40f6d827def8e0cf1bd">D4D_GetTextMaxLength</a> (<a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> *pString, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> maxWidth)</td></tr>
+<tr class="memdesc:ga609e5f5ee7cea40f6d827def8e0cf1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function find out the maximal text length that fits to maximal pixel width.  <a href="#ga609e5f5ee7cea40f6d827def8e0cf1bd">More...</a><br/></td></tr>
+<tr class="separator:ga609e5f5ee7cea40f6d827def8e0cf1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab7d26923d7016f858a77cb93eee3355"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__string__func.html#gaab7d26923d7016f858a77cb93eee3355">D4D_SetText</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObject, <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *pText)</td></tr>
+<tr class="memdesc:gaab7d26923d7016f858a77cb93eee3355"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function change the text in main object text buffer.  <a href="#gaab7d26923d7016f858a77cb93eee3355">More...</a><br/></td></tr>
+<tr class="separator:gaab7d26923d7016f858a77cb93eee3355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact usage for each API function. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga07b135522d3dfd761361887272ae26dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* D4D_GetInternalStringPointer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td>
+          <td class="paramname"><em>originTxt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function gets the real internal pointer to string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">originTxt</td><td>- the defined string in application </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to real string - in case of string table pointer to right table to right place, in case of non string table texts it return s same as input one </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>None. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00108">108</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__string_8h.html#aeda1bb3d0650a7577a062193390f3d95">d4d_StringTable</a>, <a class="el" href="d4d__types_8h_source.html#l00088">D4D_STRINGTABLE_PREFIX</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, and <a class="el" href="d4d__string_8h_source.html#l00119">D4D_STRING_TABLE::stringTable</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__edit__box_8c_source.html#l00455">D4D_EditBoxPutString()</a>, <a class="el" href="d4d__string_8c_source.html#l00403">D4D_GetTextBuffWidthTab()</a>, <a class="el" href="d4d__string_8c_source.html#l00329">D4D_GetTextLength()</a>, <a class="el" href="d4d__string_8c_source.html#l00492">D4D_GetTextMaxLength()</a>, <a class="el" href="d4d__string_8c_source.html#l00357">D4D_GetTextWidth()</a>, <a class="el" href="d4d__string_8c_source.html#l00635">D4D_LCD_PrintStr()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00607">D4D_ListBoxGetItemText()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00620">D4D_ListBoxGetItemTextIx()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00248">D4D_TextBoxGetCharsToLine()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00178">D4D_TextBoxGetWordSpec()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_ga07b135522d3dfd761361887272ae26dd_icgraph.gif" border="0" usemap="#group__doxd4d__string__func_ga07b135522d3dfd761361887272ae26dd_icgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_ga07b135522d3dfd761361887272ae26dd_icgraph" id="group__doxd4d__string__func_ga07b135522d3dfd761361887272ae26dd_icgraph">
+<area shape="rect" id="node2" href="group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254" title="The function puts string on cursor position and updates cursor. " alt="" coords="1245,56,1400,83"/><area shape="rect" id="node5" href="group__doxd4d__string__func.html#gada3f65b64c55a4229740bbd7e721f0f8" title="The function returns width of text in pixels, also with tab table. " alt="" coords="254,461,431,488"/><area shape="rect" id="node29" href="group__doxd4d__string__func.html#gaa2f503f80f133685009aef0f41e91175" title="The function returns lenght of text. " alt="" coords="273,715,412,741"/><area shape="rect" id="node41" href="group__doxd4d__string__func.html#ga609e5f5ee7cea40f6d827def8e0cf1bd" title="The function find out the maximal text length that fits to maximal pixel width. " alt="" coords="261,259,425,285"/><area shape="rect" id="node42" href="group__doxd4d__string__func.html#ga30a1542cae1d27c9bfcfcfd02c4c873c" title="The function returns width of text in pixels. " alt="" coords="275,943,410,969"/><area shape="rect" id="node27" href="d4d__string_8h.html#a8accd14b97d74f03ca1d9995720992fe" title="D4D_LCD_PrintStr" alt="" coords="527,613,657,640"/><area shape="rect" id="node51" href="group__doxd4d__list__box__func.html#ga1c74b381309142b76f1f29ce4b2e0394" title="Function gets the selected item text. " alt="" coords="1238,5,1407,32"/><area shape="rect" id="node52" href="group__doxd4d__list__box__func.html#ga3bfe951a39c5ae727c2e89bfcae6b838" title="Function gets the text of item choosed by item index. " alt="" coords="253,1095,432,1121"/><area shape="rect" id="node53" href="d4d__text__box_8c.html#a6e96ae30228ab801488d4a664634522b" title="D4D_TextBoxGetCharsToLine" alt="" coords="245,993,440,1020"/><area shape="rect" id="node63" href="d4d__text__box_8c.html#adcacc5c76b66f54e82287a2254ad58a3" title="D4D_TextBoxGetWordSpec" alt="" coords="251,1044,435,1071"/><area shape="rect" id="node3" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1486,56,1685,83"/><area shape="rect" id="node4" href="d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972" title="D4D_ComboBoxOnMessage" alt="" coords="1491,5,1679,32"/><area shape="rect" id="node6" href="group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111" title="Function draw text with TAB function in rectangle. " alt="" coords="762,563,918,589"/><area shape="rect" id="node10" href="group__doxd4d__basic__draw__func.html#ga0fc64a9353c4d9319f75a0554d45bc3c" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="995,500,1160,527"/><area shape="rect" id="node18" href="d4d__console_8c.html#a4aec40f52339c770d7c0bf4b30da952e" title="D4D_ConsoleOnDraw" alt="" coords="519,411,665,437"/><area shape="rect" id="node20" href="d4d__edit__box_8c.html#afda23f9d81aa217a8e7b4bc838a83847" title="D4D_EditBoxOnDraw" alt="" coords="1004,360,1151,387"/><area shape="rect" id="node22" href="group__doxd4d__edit__box__func.html#gaccc64f7d124d35dd570e832a847c4464" title="The function chenge the cursor position to new one. " alt="" coords="513,259,671,285"/><area shape="rect" id="node7" href="group__doxd4d__basic__draw__func.html#gadb313812718a9191072558b192a796c0" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="992,551,1163,577"/><area shape="rect" id="node8" href="group__doxd4d__basic__draw__func.html#ga061b16aca16a733400b188ffc9edc9ea" title="Function draw text with TAB function in rectangle. " alt="" coords="991,601,1163,628"/><area shape="rect" id="node9" href="group__doxd4d__basic__draw__func.html#ga7b6cd5259ee791dd0db29277bc0e1a2d" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="984,652,1171,679"/><area shape="rect" id="node16" href="d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773" title="D4D_TextBoxOnDraw" alt="" coords="1249,1171,1397,1197"/><area shape="rect" id="node11" href="d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="1263,588,1383,615"/><area shape="rect" id="node13" href="group__doxd4d__basic__draw__func.html#gad0eca6a7cf5d6f26470de9ebca89c4e2" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="1233,436,1412,463"/><area shape="rect" id="node14" href="group__doxd4d__basic__draw__func.html#ga0e320973d270d5adf0462b0ac2328269" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="1225,487,1420,513"/><area shape="rect" id="node15" href="group__doxd4d__basic__draw__func.html#ga910b67c691e60e697818978e2c49f55a" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="1232,537,1413,564"/><area shape="rect" id="node12" href="d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="1513,588,1657,615"/><area shape="rect" id="node17" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1745,1184,1917,1211"/><area shape="rect" id="node19" href="d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="755,411,925,437"/><area shape="rect" id="node21" href="d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1500,309,1671,336"/><area shape="rect" id="node23" href="d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1245,259,1401,285"/><area shape="rect" id="node24" href="d4d__edit__box_8c.html#ac04e4a23673e89c0b33068da720a8af0" title="D4D_EditBoxOnInit" alt="" coords="773,309,907,336"/><area shape="rect" id="node25" href="d4d__edit__box_8c.html#a8ae69ab63cec13b3ebe92bf116210b69" title="D4D_EditBoxPutCharInt" alt="" coords="759,157,921,184"/><area shape="rect" id="node26" href="group__doxd4d__edit__box__func.html#ga71575226e364b1edf67ca5348aa23bf4" title="The function puts one char on cursor position and updates cursor. " alt="" coords="1004,157,1151,184"/><area shape="rect" id="node28" href="group__doxd4d__basic__draw__func.html#ga1813324d6d3fb8d6c4b77ee66e973d97" title="Function draw text on XY coordination with TAB function. " alt="" coords="767,613,913,640"/><area shape="rect" id="node30" href="d4d__graph_8c.html#a0197130e0a2bf19b66bbbc0060e16281" title="D4D_GraphGetSizeLblY" alt="" coords="759,867,921,893"/><area shape="rect" id="node33" href="d4d__graph_8c.html#a76aee1d400aae8592779ef15158c9339" title="D4D_GraphPrintLabel" alt="" coords="519,765,665,792"/><area shape="rect" id="node35" href="d4d__list__box_8c.html#a9b6a4954e7a9e0fa6e1c198bfbf93f9f" title="D4D_ListBoxOnDraw" alt="" coords="520,664,664,691"/><area shape="rect" id="node37" href="d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="526,917,658,944"/><area shape="rect" id="node39" href="d4d__string_8c.html#a711dcfd6dc3d02f606a3990ae589fb7a" title="D4D_ChangeText" alt="" coords="531,715,653,741"/><area shape="rect" id="node31" href="d4d__graph_8c.html#a640ef0f76a594f52ac2a87009342fc6d" title="D4D_GraphOnDraw" alt="" coords="1010,816,1145,843"/><area shape="rect" id="node32" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="1243,841,1402,868"/><area shape="rect" id="node34" href="d4d__graph_8c.html#afc1fe5446b67d4fe5692aaa2f144f30a" title="D4D_GraphDrawEmptyGraph" alt="" coords="745,816,935,843"/><area shape="rect" id="node36" href="d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="756,664,924,691"/><area shape="rect" id="node38" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="762,917,918,944"/><area shape="rect" id="node40" href="group__doxd4d__string__func.html#gaab7d26923d7016f858a77cb93eee3355" title="The function change the text in main object text buffer. " alt="" coords="791,715,889,741"/><area shape="rect" id="node43" href="d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67" title="D4D_GaugOnDraw" alt="" coords="527,1019,657,1045"/><area shape="rect" id="node45" href="d4d__group__box_8c.html#a54e514b02a2327f550d8ad9acae0e96c" title="D4D_GroupBoxOnDraw" alt="" coords="513,1069,671,1096"/><area shape="rect" id="node47" href="d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140" title="D4D_IconOnDraw" alt="" coords="530,1120,654,1147"/><area shape="rect" id="node49" href="d4d__slider_8c.html#a60e15d945bece050aec9d38321fd2a95" title="D4D_SldrOnDraw" alt="" coords="531,968,653,995"/><area shape="rect" id="node44" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="763,1019,917,1045"/><area shape="rect" id="node46" href="d4d__group__box_8c.html#a5e02a7833523423f991ee1e142d7d725" title="D4D_GroupBoxOnMessage" alt="" coords="749,1069,931,1096"/><area shape="rect" id="node48" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="766,1120,914,1147"/><area shape="rect" id="node50" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="767,968,913,995"/><area shape="rect" id="node54" href="d4d__text__box_8c.html#ac29d1b3bd98c3d79e6ca08a8f86c026d" title="D4D_TextBoxGetMaxLineChars" alt="" coords="489,1171,695,1197"/><area shape="rect" id="node55" href="d4d__text__box_8c.html#a2511e5b05b4779181755aa356fc1da55" title="D4D_TextBoxFindLineStartChar" alt="" coords="1219,1221,1426,1248"/><area shape="rect" id="node57" href="d4d__text__box_8c.html#aea39df6a545ad9a845f8a393c2baa84e" title="D4D_TextBoxGetLineCount" alt="" coords="749,1272,931,1299"/><area shape="rect" id="node56" href="d4d__text__box_8h.html#ac22412813d39c4a80111acb4b83a85da" title="D4D_TextBoxScrollBarsFeedBack" alt="" coords="1475,1221,1696,1248"/><area shape="rect" id="node58" href="d4d__text__box_8c.html#ac3bfefe93d27aba170ef56fea53e0fcc" title="D4D_TextBoxScrollBarSetup" alt="" coords="1228,1272,1417,1299"/><area shape="rect" id="node62" href="d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb" title="D4D_TextBoxValue2Coor" alt="" coords="993,1272,1162,1299"/><area shape="rect" id="node59" href="d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374" title="D4D_TextBoxOnInit" alt="" coords="1517,1272,1653,1299"/><area shape="rect" id="node60" href="group__doxd4d__text__box__func.html#ga39b0345e200085c6c1a6c3b3d6797195" title="The function change the text of the text box. " alt="" coords="1745,1297,1916,1324"/><area shape="rect" id="node61" href="group__doxd4d__text__box__func.html#gaac5a5ecdeb225c15c8d4d0386b99f273" title="The function reinitialize whole object. " alt="" coords="1750,1247,1911,1273"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gada3f65b64c55a4229740bbd7e721f0f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> D4D_GetTextBuffWidthTab </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> *&#160;</td>
+          <td class="paramname"><em>text_buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a> *&#160;</td>
+          <td class="paramname"><em>pTab</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function returns width of text in pixels, also with tab table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text_buffer</td><td>- pointer to full string descriptor (MUST be full filled) </td></tr>
+    <tr><td class="paramname">pTab</td><td>- pointer to teb table </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>width of text in pixels </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The function find out the width of string printed with all specified properties in string descriptor. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00403">403</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__base_8h_source.html#l00167">D4D_EXTSRC_BUFF_SIZE</a>, <a class="el" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>, <a class="el" href="d4d__extsrc_8h.html#a927c6f32090768161b3dcf6ab02cfe53">d4d_extsrcLocale</a>, <a class="el" href="d4d__font_8c_source.html#l00415">D4D_GetCharWidth()</a>, <a class="el" href="d4d__string_8c_source.html#l00108">D4D_GetInternalStringPointer()</a>, <a class="el" href="d4d__font_8c_source.html#l00618">D4D_GetNextTab()</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00183">D4DLOCALE_FUNCTIONS_S::D4DLOCALE_TranslateStr</a>, <a class="el" href="d4d__string_8h_source.html#l00104">D4D_STRING_S::fontId</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__string_8h_source.html#l00106">D4D_STRING_S::printLen</a>, <a class="el" href="d4d__string_8h_source.html#l00107">D4D_STRING_S::printOff</a>, <a class="el" href="d4d__string_8h_source.html#l00102">D4D_STRING_S::pText</a>, and <a class="el" href="d4d__types_8h_source.html#l00256">D4D_TAB::tabOffset</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__console_8c_source.html#l00145">D4D_ConsoleOnDraw()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00634">D4D_DrawTextRectTab()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01343">D4D_DrawTextRRectTab()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00094">D4D_EditBoxOnDraw()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00490">D4D_EditBoxSetCursor()</a>, and <a class="el" href="d4d__string_8c_source.html#l00635">D4D_LCD_PrintStr()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_gada3f65b64c55a4229740bbd7e721f0f8_cgraph.gif" border="0" usemap="#group__doxd4d__string__func_gada3f65b64c55a4229740bbd7e721f0f8_cgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_gada3f65b64c55a4229740bbd7e721f0f8_cgraph" id="group__doxd4d__string__func_gada3f65b64c55a4229740bbd7e721f0f8_cgraph">
+<area shape="rect" id="node2" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b" title="D4D_GetCharWidth" alt="" coords="260,31,396,57"/><area shape="rect" id="node6" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="232,81,424,108"/><area shape="rect" id="node7" href="d4d__font_8c.html#a39d8e8e703e0f108970fff86f6179bd1" title="D4D_GetNextTab" alt="" coords="267,132,389,159"/><area shape="rect" id="node3" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="505,5,607,32"/><area shape="rect" id="node4" href="d4d__font_8c.html#a43acdd475ef7db17e00a6999cde00578" title="D4D_LCD_GetCharPlace" alt="" coords="473,56,639,83"/><area shape="rect" id="node5" href="d4d__font_8c.html#a4dc0aafa5f109feee7a6fea4e98e5df2" title="D4D_GetCharIndex" alt="" coords="688,56,821,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_gada3f65b64c55a4229740bbd7e721f0f8_icgraph.gif" border="0" usemap="#group__doxd4d__string__func_gada3f65b64c55a4229740bbd7e721f0f8_icgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_gada3f65b64c55a4229740bbd7e721f0f8_icgraph" id="group__doxd4d__string__func_gada3f65b64c55a4229740bbd7e721f0f8_icgraph">
+<area shape="rect" id="node2" href="d4d__console_8c.html#a4aec40f52339c770d7c0bf4b30da952e" title="D4D_ConsoleOnDraw" alt="" coords="239,56,385,83"/><area shape="rect" id="node4" href="group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111" title="Function draw text with TAB function in rectangle. " alt="" coords="447,461,603,488"/><area shape="rect" id="node8" href="group__doxd4d__basic__draw__func.html#ga0fc64a9353c4d9319f75a0554d45bc3c" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="669,360,835,387"/><area shape="rect" id="node16" href="d4d__edit__box_8c.html#afda23f9d81aa217a8e7b4bc838a83847" title="D4D_EditBoxOnDraw" alt="" coords="239,259,385,285"/><area shape="rect" id="node18" href="group__doxd4d__edit__box__func.html#gaccc64f7d124d35dd570e832a847c4464" title="The function chenge the cursor position to new one. " alt="" coords="233,157,391,184"/><area shape="rect" id="node26" href="d4d__string_8h.html#a8accd14b97d74f03ca1d9995720992fe" title="D4D_LCD_PrintStr" alt="" coords="247,385,377,412"/><area shape="rect" id="node3" href="d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="440,5,611,32"/><area shape="rect" id="node5" href="group__doxd4d__basic__draw__func.html#gadb313812718a9191072558b192a796c0" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="667,461,837,488"/><area shape="rect" id="node6" href="group__doxd4d__basic__draw__func.html#ga061b16aca16a733400b188ffc9edc9ea" title="Function draw text with TAB function in rectangle. " alt="" coords="666,512,838,539"/><area shape="rect" id="node7" href="group__doxd4d__basic__draw__func.html#ga7b6cd5259ee791dd0db29277bc0e1a2d" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="659,411,845,437"/><area shape="rect" id="node14" href="d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773" title="D4D_TextBoxOnDraw" alt="" coords="678,563,826,589"/><area shape="rect" id="node9" href="d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="931,461,1051,488"/><area shape="rect" id="node11" href="group__doxd4d__basic__draw__func.html#gad0eca6a7cf5d6f26470de9ebca89c4e2" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="901,309,1080,336"/><area shape="rect" id="node12" href="group__doxd4d__basic__draw__func.html#ga0e320973d270d5adf0462b0ac2328269" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="893,360,1088,387"/><area shape="rect" id="node13" href="group__doxd4d__basic__draw__func.html#ga910b67c691e60e697818978e2c49f55a" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="900,411,1081,437"/><area shape="rect" id="node10" href="d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="1164,461,1308,488"/><area shape="rect" id="node15" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="905,563,1077,589"/><area shape="rect" id="node17" href="d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1151,208,1321,235"/><area shape="rect" id="node19" href="d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="913,157,1069,184"/><area shape="rect" id="node20" href="d4d__edit__box_8c.html#ac04e4a23673e89c0b33068da720a8af0" title="D4D_EditBoxOnInit" alt="" coords="458,208,593,235"/><area shape="rect" id="node21" href="d4d__edit__box_8c.html#a8ae69ab63cec13b3ebe92bf116210b69" title="D4D_EditBoxPutCharInt" alt="" coords="445,107,606,133"/><area shape="rect" id="node22" href="group__doxd4d__edit__box__func.html#ga71575226e364b1edf67ca5348aa23bf4" title="The function puts one char on cursor position and updates cursor. " alt="" coords="679,107,825,133"/><area shape="rect" id="node23" href="group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254" title="The function puts string on cursor position and updates cursor. " alt="" coords="913,107,1068,133"/><area shape="rect" id="node24" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1137,81,1335,108"/><area shape="rect" id="node25" href="d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972" title="D4D_ComboBoxOnMessage" alt="" coords="1142,132,1330,159"/><area shape="rect" id="node27" href="group__doxd4d__basic__draw__func.html#ga1813324d6d3fb8d6c4b77ee66e973d97" title="Function draw text on XY coordination with TAB function. " alt="" coords="453,360,598,387"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gaa2f503f80f133685009aef0f41e91175"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> D4D_GetTextLength </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td>
+          <td class="paramname"><em>pText</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function returns lenght of text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pText</td><td>- pointer to text </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of characters in text </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>None. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00329">329</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__extsrc_8h.html#a927c6f32090768161b3dcf6ab02cfe53">d4d_extsrcLocale</a>, <a class="el" href="d4d__string_8c_source.html#l00108">D4D_GetInternalStringPointer()</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00184">D4DLOCALE_FUNCTIONS_S::D4DLOCALE_GetTranslateStrLength</a>, and <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__string_8c_source.html#l00599">D4D_ChangeText()</a>, <a class="el" href="d4d__graph_8c_source.html#l00161">D4D_GraphGetSizeLblY()</a>, <a class="el" href="d4d__graph_8c_source.html#l00196">D4D_GraphPrintLabel()</a>, <a class="el" href="d4d__string_8c_source.html#l00635">D4D_LCD_PrintStr()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00180">D4D_ListBoxOnDraw()</a>, and <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_gaa2f503f80f133685009aef0f41e91175_cgraph.gif" border="0" usemap="#group__doxd4d__string__func_gaa2f503f80f133685009aef0f41e91175_cgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_gaa2f503f80f133685009aef0f41e91175_cgraph" id="group__doxd4d__string__func_gaa2f503f80f133685009aef0f41e91175_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="192,5,384,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_gaa2f503f80f133685009aef0f41e91175_icgraph.gif" border="0" usemap="#group__doxd4d__string__func_gaa2f503f80f133685009aef0f41e91175_icgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_gaa2f503f80f133685009aef0f41e91175_icgraph" id="group__doxd4d__string__func_gaa2f503f80f133685009aef0f41e91175_icgraph">
+<area shape="rect" id="node2" href="d4d__string_8c.html#a711dcfd6dc3d02f606a3990ae589fb7a" title="D4D_ChangeText" alt="" coords="204,19,327,45"/><area shape="rect" id="node4" href="d4d__graph_8c.html#a0197130e0a2bf19b66bbbc0060e16281" title="D4D_GraphGetSizeLblY" alt="" coords="401,56,564,83"/><area shape="rect" id="node7" href="d4d__graph_8c.html#a76aee1d400aae8592779ef15158c9339" title="D4D_GraphPrintLabel" alt="" coords="192,157,339,184"/><area shape="rect" id="node9" href="d4d__string_8h.html#a8accd14b97d74f03ca1d9995720992fe" title="D4D_LCD_PrintStr" alt="" coords="200,233,331,260"/><area shape="rect" id="node23" href="d4d__list__box_8c.html#a9b6a4954e7a9e0fa6e1c198bfbf93f9f" title="D4D_ListBoxOnDraw" alt="" coords="193,296,337,323"/><area shape="rect" id="node25" href="d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="199,372,331,399"/><area shape="rect" id="node3" href="group__doxd4d__string__func.html#gaab7d26923d7016f858a77cb93eee3355" title="The function change the text in main object text buffer. " alt="" coords="433,5,532,32"/><area shape="rect" id="node5" href="d4d__graph_8c.html#a640ef0f76a594f52ac2a87009342fc6d" title="D4D_GraphOnDraw" alt="" coords="653,81,787,108"/><area shape="rect" id="node6" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="879,56,1038,83"/><area shape="rect" id="node8" href="d4d__graph_8c.html#afc1fe5446b67d4fe5692aaa2f144f30a" title="D4D_GraphDrawEmptyGraph" alt="" coords="387,157,578,184"/><area shape="rect" id="node10" href="group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111" title="Function draw text with TAB function in rectangle. " alt="" coords="405,208,561,235"/><area shape="rect" id="node14" href="group__doxd4d__basic__draw__func.html#ga0fc64a9353c4d9319f75a0554d45bc3c" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="637,335,803,361"/><area shape="rect" id="node22" href="group__doxd4d__basic__draw__func.html#ga1813324d6d3fb8d6c4b77ee66e973d97" title="Function draw text on XY coordination with TAB function. " alt="" coords="410,309,555,336"/><area shape="rect" id="node11" href="group__doxd4d__basic__draw__func.html#gadb313812718a9191072558b192a796c0" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="635,284,805,311"/><area shape="rect" id="node12" href="group__doxd4d__basic__draw__func.html#ga061b16aca16a733400b188ffc9edc9ea" title="Function draw text with TAB function in rectangle. " alt="" coords="634,132,806,159"/><area shape="rect" id="node13" href="group__doxd4d__basic__draw__func.html#ga7b6cd5259ee791dd0db29277bc0e1a2d" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="627,183,813,209"/><area shape="rect" id="node20" href="d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773" title="D4D_TextBoxOnDraw" alt="" coords="646,233,794,260"/><area shape="rect" id="node15" href="d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="899,335,1019,361"/><area shape="rect" id="node17" href="group__doxd4d__basic__draw__func.html#gad0eca6a7cf5d6f26470de9ebca89c4e2" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="869,385,1048,412"/><area shape="rect" id="node18" href="group__doxd4d__basic__draw__func.html#ga0e320973d270d5adf0462b0ac2328269" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="861,436,1056,463"/><area shape="rect" id="node19" href="group__doxd4d__basic__draw__func.html#ga910b67c691e60e697818978e2c49f55a" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="868,284,1049,311"/><area shape="rect" id="node16" href="d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="1104,335,1248,361"/><area shape="rect" id="node21" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="873,233,1045,260"/><area shape="rect" id="node24" href="d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="399,360,567,387"/><area shape="rect" id="node26" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="405,411,561,437"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga609e5f5ee7cea40f6d827def8e0cf1bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> D4D_GetTextMaxLength </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> *&#160;</td>
+          <td class="paramname"><em>pString</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>&#160;</td>
+          <td class="paramname"><em>maxWidth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function find out the maximal text length that fits to maximal pixel width. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pString</td><td>- pointer to full string descriptor (MUST be full filled) </td></tr>
+    <tr><td class="paramname">maxWidth</td><td>- maximal width where the text should fits </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>length of text that's fits to given maximal width </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>None. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00492">492</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__base_8h_source.html#l00167">D4D_EXTSRC_BUFF_SIZE</a>, <a class="el" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>, <a class="el" href="d4d__extsrc_8h.html#a927c6f32090768161b3dcf6ab02cfe53">d4d_extsrcLocale</a>, <a class="el" href="d4d__font_8c_source.html#l00415">D4D_GetCharWidth()</a>, <a class="el" href="d4d__string_8c_source.html#l00108">D4D_GetInternalStringPointer()</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00183">D4DLOCALE_FUNCTIONS_S::D4DLOCALE_TranslateStr</a>, <a class="el" href="d4d__string_8h_source.html#l00104">D4D_STRING_S::fontId</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__string_8h_source.html#l00106">D4D_STRING_S::printLen</a>, <a class="el" href="d4d__string_8h_source.html#l00107">D4D_STRING_S::printOff</a>, and <a class="el" href="d4d__string_8h_source.html#l00102">D4D_STRING_S::pText</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__edit__box_8c_source.html#l00267">D4D_EditBoxOnInit()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00393">D4D_EditBoxPutChar()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00346">D4D_EditBoxPutCharInt()</a>, and <a class="el" href="d4d__edit__box_8c_source.html#l00490">D4D_EditBoxSetCursor()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_ga609e5f5ee7cea40f6d827def8e0cf1bd_cgraph.gif" border="0" usemap="#group__doxd4d__string__func_ga609e5f5ee7cea40f6d827def8e0cf1bd_cgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_ga609e5f5ee7cea40f6d827def8e0cf1bd_cgraph" id="group__doxd4d__string__func_ga609e5f5ee7cea40f6d827def8e0cf1bd_cgraph">
+<area shape="rect" id="node2" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b" title="D4D_GetCharWidth" alt="" coords="247,31,383,57"/><area shape="rect" id="node6" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="219,81,411,108"/><area shape="rect" id="node3" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="492,5,593,32"/><area shape="rect" id="node4" href="d4d__font_8c.html#a43acdd475ef7db17e00a6999cde00578" title="D4D_LCD_GetCharPlace" alt="" coords="459,56,626,83"/><area shape="rect" id="node5" href="d4d__font_8c.html#a4dc0aafa5f109feee7a6fea4e98e5df2" title="D4D_GetCharIndex" alt="" coords="675,56,808,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_ga609e5f5ee7cea40f6d827def8e0cf1bd_icgraph.gif" border="0" usemap="#group__doxd4d__string__func_ga609e5f5ee7cea40f6d827def8e0cf1bd_icgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_ga609e5f5ee7cea40f6d827def8e0cf1bd_icgraph" id="group__doxd4d__string__func_ga609e5f5ee7cea40f6d827def8e0cf1bd_icgraph">
+<area shape="rect" id="node2" href="d4d__edit__box_8c.html#ac04e4a23673e89c0b33068da720a8af0" title="D4D_EditBoxOnInit" alt="" coords="441,5,575,32"/><area shape="rect" id="node4" href="group__doxd4d__edit__box__func.html#ga71575226e364b1edf67ca5348aa23bf4" title="The function puts one char on cursor position and updates cursor. " alt="" coords="637,145,784,172"/><area shape="rect" id="node9" href="d4d__edit__box_8c.html#a8ae69ab63cec13b3ebe92bf116210b69" title="D4D_EditBoxPutCharInt" alt="" coords="427,157,589,184"/><area shape="rect" id="node10" href="group__doxd4d__edit__box__func.html#gaccc64f7d124d35dd570e832a847c4464" title="The function chenge the cursor position to new one. " alt="" coords="219,107,378,133"/><area shape="rect" id="node3" href="d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1052,19,1223,45"/><area shape="rect" id="node5" href="d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="833,56,989,83"/><area shape="rect" id="node6" href="group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254" title="The function puts string on cursor position and updates cursor. " alt="" coords="833,145,988,172"/><area shape="rect" id="node7" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1038,95,1237,121"/><area shape="rect" id="node8" href="d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972" title="D4D_ComboBoxOnMessage" alt="" coords="1043,145,1231,172"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga30a1542cae1d27c9bfcfcfd02c4c873c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> D4D_GetTextWidth </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a>&#160;</td>
+          <td class="paramname"><em>ix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td>
+          <td class="paramname"><em>pText</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function returns width of text in pixels. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ix</td><td>- font index </td></tr>
+    <tr><td class="paramname">pText</td><td>- pointer to text </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>width of text in pixels </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The function find out the width of string printed in given font. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00357">357</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__base_8h_source.html#l00167">D4D_EXTSRC_BUFF_SIZE</a>, <a class="el" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>, <a class="el" href="d4d__extsrc_8h.html#a927c6f32090768161b3dcf6ab02cfe53">d4d_extsrcLocale</a>, <a class="el" href="d4d__font_8c_source.html#l00415">D4D_GetCharWidth()</a>, <a class="el" href="d4d__string_8c_source.html#l00108">D4D_GetInternalStringPointer()</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00183">D4DLOCALE_FUNCTIONS_S::D4DLOCALE_TranslateStr</a>, and <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>, <a class="el" href="d4d__group__box_8c_source.html#l00075">D4D_GroupBoxOnDraw()</a>, <a class="el" href="d4d__icon_8c_source.html#l00091">D4D_IconOnDraw()</a>, <a class="el" href="d4d__string_8c_source.html#l00635">D4D_LCD_PrintStr()</a>, <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00292">D4D_SldrOnDraw()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_ga30a1542cae1d27c9bfcfcfd02c4c873c_cgraph.gif" border="0" usemap="#group__doxd4d__string__func_ga30a1542cae1d27c9bfcfcfd02c4c873c_cgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_ga30a1542cae1d27c9bfcfcfd02c4c873c_cgraph" id="group__doxd4d__string__func_ga30a1542cae1d27c9bfcfcfd02c4c873c_cgraph">
+<area shape="rect" id="node2" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b" title="D4D_GetCharWidth" alt="" coords="217,31,353,57"/><area shape="rect" id="node6" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="189,81,381,108"/><area shape="rect" id="node3" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="463,5,564,32"/><area shape="rect" id="node4" href="d4d__font_8c.html#a43acdd475ef7db17e00a6999cde00578" title="D4D_LCD_GetCharPlace" alt="" coords="430,56,597,83"/><area shape="rect" id="node5" href="d4d__font_8c.html#a4dc0aafa5f109feee7a6fea4e98e5df2" title="D4D_GetCharIndex" alt="" coords="645,56,779,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_ga30a1542cae1d27c9bfcfcfd02c4c873c_icgraph.gif" border="0" usemap="#group__doxd4d__string__func_ga30a1542cae1d27c9bfcfcfd02c4c873c_icgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_ga30a1542cae1d27c9bfcfcfd02c4c873c_icgraph" id="group__doxd4d__string__func_ga30a1542cae1d27c9bfcfcfd02c4c873c_icgraph">
+<area shape="rect" id="node2" href="d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67" title="D4D_GaugOnDraw" alt="" coords="204,9,335,36"/><area shape="rect" id="node4" href="d4d__group__box_8c.html#a54e514b02a2327f550d8ad9acae0e96c" title="D4D_GroupBoxOnDraw" alt="" coords="190,67,349,93"/><area shape="rect" id="node6" href="d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140" title="D4D_IconOnDraw" alt="" coords="207,129,331,156"/><area shape="rect" id="node8" href="d4d__string_8h.html#a8accd14b97d74f03ca1d9995720992fe" title="D4D_LCD_PrintStr" alt="" coords="204,205,335,232"/><area shape="rect" id="node22" href="d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="203,268,335,295"/><area shape="rect" id="node24" href="d4d__slider_8c.html#a60e15d945bece050aec9d38321fd2a95" title="D4D_SldrOnDraw" alt="" coords="208,344,331,371"/><area shape="rect" id="node3" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="412,5,567,32"/><area shape="rect" id="node5" href="d4d__group__box_8c.html#a5e02a7833523423f991ee1e142d7d725" title="D4D_GroupBoxOnMessage" alt="" coords="398,56,581,83"/><area shape="rect" id="node7" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="415,107,563,133"/><area shape="rect" id="node9" href="group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111" title="Function draw text with TAB function in rectangle. " alt="" coords="411,259,567,285"/><area shape="rect" id="node13" href="group__doxd4d__basic__draw__func.html#ga0fc64a9353c4d9319f75a0554d45bc3c" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="640,157,805,184"/><area shape="rect" id="node21" href="group__doxd4d__basic__draw__func.html#ga1813324d6d3fb8d6c4b77ee66e973d97" title="Function draw text on XY coordination with TAB function. " alt="" coords="417,208,562,235"/><area shape="rect" id="node10" href="group__doxd4d__basic__draw__func.html#gadb313812718a9191072558b192a796c0" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="637,208,808,235"/><area shape="rect" id="node11" href="group__doxd4d__basic__draw__func.html#ga061b16aca16a733400b188ffc9edc9ea" title="Function draw text with TAB function in rectangle. " alt="" coords="637,259,809,285"/><area shape="rect" id="node12" href="group__doxd4d__basic__draw__func.html#ga7b6cd5259ee791dd0db29277bc0e1a2d" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="629,309,816,336"/><area shape="rect" id="node19" href="d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773" title="D4D_TextBoxOnDraw" alt="" coords="649,360,797,387"/><area shape="rect" id="node14" href="d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="901,132,1021,159"/><area shape="rect" id="node16" href="group__doxd4d__basic__draw__func.html#gad0eca6a7cf5d6f26470de9ebca89c4e2" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="872,183,1051,209"/><area shape="rect" id="node17" href="group__doxd4d__basic__draw__func.html#ga0e320973d270d5adf0462b0ac2328269" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="864,233,1059,260"/><area shape="rect" id="node18" href="group__doxd4d__basic__draw__func.html#ga910b67c691e60e697818978e2c49f55a" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="871,81,1052,108"/><area shape="rect" id="node15" href="d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="1107,132,1251,159"/><area shape="rect" id="node20" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="875,360,1047,387"/><area shape="rect" id="node23" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="411,309,567,336"/><area shape="rect" id="node25" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="416,360,563,387"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gaab7d26923d7016f858a77cb93eee3355"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_SetText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td>
+          <td class="paramname"><em>pText</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function change the text in main object text buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pObject</td><td>- pointer to object </td></tr>
+    <tr><td class="paramname">pText</td><td>- pointer to new string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The function change the text in the object text buffer if the object has it. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00573">573</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__string_8c_source.html#l00599">D4D_ChangeText()</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__object_8h_source.html#l00139">D4D_OBJECT_SYS_FUNCTION_S::GetTextBuffer</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, and <a class="el" href="d4d__object_8h_source.html#l00174">D4D_OBJECT_S::pObjFunc</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_gaab7d26923d7016f858a77cb93eee3355_cgraph.gif" border="0" usemap="#group__doxd4d__string__func_gaab7d26923d7016f858a77cb93eee3355_cgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_gaab7d26923d7016f858a77cb93eee3355_cgraph" id="group__doxd4d__string__func_gaab7d26923d7016f858a77cb93eee3355_cgraph">
+<area shape="rect" id="node2" href="d4d__private_8h.html#a711dcfd6dc3d02f606a3990ae589fb7a" title="D4D_ChangeText" alt="" coords="164,12,287,39"/><area shape="rect" id="node5" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="153,68,298,95"/><area shape="rect" id="node3" href="group__doxd4d__string__func.html#gaa2f503f80f133685009aef0f41e91175" title="The function returns lenght of text. " alt="" coords="349,5,488,32"/><area shape="rect" id="node4" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="539,5,731,32"/><area shape="rect" id="node6" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="347,80,491,107"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga66e56f42d2c467dc645f7790e1670524"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> D4D_SprintDecS16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga8cae62bef8ad9c6b207f3fa74b27ba7a">sWord</a>&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td>
+          <td class="paramname"><em>pText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>&#160;</td>
+          <td class="paramname"><em>fill</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function convert decimal signed 16 bit number to string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>- the input numerical value </td></tr>
+    <tr><td class="paramname">pText</td><td>- pointer to output text buffer </td></tr>
+    <tr><td class="paramname">fill</td><td>- the fill character for non number characters (before number) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of printed chars </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If fill parameter is 0 {'\0'}, only the numerical characters are printed. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00242">242</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__string_8c_source.html#l00201">D4D_SprintDecU16()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_ga66e56f42d2c467dc645f7790e1670524_cgraph.gif" border="0" usemap="#group__doxd4d__string__func_ga66e56f42d2c467dc645f7790e1670524_cgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_ga66e56f42d2c467dc645f7790e1670524_cgraph" id="group__doxd4d__string__func_ga66e56f42d2c467dc645f7790e1670524_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__string__func.html#gaddaa9a36e054a4a40f5391f18c821c50" title="The function convert decimal unsigned 16 bit number to string. " alt="" coords="190,5,325,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gad0f961aac7f5ea3b41f02316c4aec9ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> D4D_SprintDecS32 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga292b151822cbfa176ac5f8256991c058">sLWord</a>&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td>
+          <td class="paramname"><em>pText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>&#160;</td>
+          <td class="paramname"><em>fill</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function convert decimal signed 32 bit number to string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>- the input numerical value </td></tr>
+    <tr><td class="paramname">pText</td><td>- pointer to output text buffer </td></tr>
+    <tr><td class="paramname">fill</td><td>- the fill character for non number characters (before number) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of printed chars </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If fill parameter is 0 {'\0'}, only the numerical characters are printed. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00181">181</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__string_8c_source.html#l00140">D4D_SprintDecU32()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_gad0f961aac7f5ea3b41f02316c4aec9ab_cgraph.gif" border="0" usemap="#group__doxd4d__string__func_gad0f961aac7f5ea3b41f02316c4aec9ab_cgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_gad0f961aac7f5ea3b41f02316c4aec9ab_cgraph" id="group__doxd4d__string__func_gad0f961aac7f5ea3b41f02316c4aec9ab_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__string__func.html#ga438a9f4039e26ebf820e1222b6246934" title="The function convert decimal unsigned 32 bit number to string. " alt="" coords="190,5,325,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga0d5b1dd7ebad7ca15aa06d737e6347cf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> D4D_SprintDecS8 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a>&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td>
+          <td class="paramname"><em>pText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>&#160;</td>
+          <td class="paramname"><em>fill</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function convert decimal signed 8 bit number to string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>- the input numerical value </td></tr>
+    <tr><td class="paramname">pText</td><td>- pointer to output text buffer </td></tr>
+    <tr><td class="paramname">fill</td><td>- the fill character for non number characters (before number) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of printed chars </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If fill parameter is 0 {'\0'}, only the numerical characters are printed. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00311">311</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__string_8c_source.html#l00262">D4D_SprintDecU8()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_ga0d5b1dd7ebad7ca15aa06d737e6347cf_cgraph.gif" border="0" usemap="#group__doxd4d__string__func_ga0d5b1dd7ebad7ca15aa06d737e6347cf_cgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_ga0d5b1dd7ebad7ca15aa06d737e6347cf_cgraph" id="group__doxd4d__string__func_ga0d5b1dd7ebad7ca15aa06d737e6347cf_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__string__func.html#gae6bca6f1322673191dcfe7c2b0c06178" title="The function convert decimal unsigned 8 bit number to string. " alt="" coords="182,5,309,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gaddaa9a36e054a4a40f5391f18c821c50"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> D4D_SprintDecU16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a>&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td>
+          <td class="paramname"><em>pText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>&#160;</td>
+          <td class="paramname"><em>fill</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function convert decimal unsigned 16 bit number to string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>- the input numerical value </td></tr>
+    <tr><td class="paramname">pText</td><td>- pointer to output text buffer </td></tr>
+    <tr><td class="paramname">fill</td><td>- the fill character for non number characters (before number) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of printed chars </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If fill parameter is 0 {'\0'}, only the numerical characters are printed. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00201">201</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__graph_8c_source.html#l00196">D4D_GraphPrintLabel()</a>, and <a class="el" href="d4d__string_8c_source.html#l00242">D4D_SprintDecS16()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_gaddaa9a36e054a4a40f5391f18c821c50_icgraph.gif" border="0" usemap="#group__doxd4d__string__func_gaddaa9a36e054a4a40f5391f18c821c50_icgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_gaddaa9a36e054a4a40f5391f18c821c50_icgraph" id="group__doxd4d__string__func_gaddaa9a36e054a4a40f5391f18c821c50_icgraph">
+<area shape="rect" id="node2" href="d4d__graph_8c.html#a76aee1d400aae8592779ef15158c9339" title="D4D_GraphPrintLabel" alt="" coords="189,31,336,57"/><area shape="rect" id="node6" href="group__doxd4d__string__func.html#ga66e56f42d2c467dc645f7790e1670524" title="The function convert decimal signed 16 bit number to string. " alt="" coords="195,81,330,108"/><area shape="rect" id="node3" href="d4d__graph_8c.html#afc1fe5446b67d4fe5692aaa2f144f30a" title="D4D_GraphDrawEmptyGraph" alt="" coords="385,5,575,32"/><area shape="rect" id="node4" href="d4d__graph_8c.html#a640ef0f76a594f52ac2a87009342fc6d" title="D4D_GraphOnDraw" alt="" coords="625,31,759,57"/><area shape="rect" id="node5" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="809,31,967,57"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga438a9f4039e26ebf820e1222b6246934"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> D4D_SprintDecU32 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a>&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td>
+          <td class="paramname"><em>pText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>&#160;</td>
+          <td class="paramname"><em>fill</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function convert decimal unsigned 32 bit number to string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>- the input numerical value </td></tr>
+    <tr><td class="paramname">pText</td><td>- pointer to output text buffer </td></tr>
+    <tr><td class="paramname">fill</td><td>- the fill character for non number characters (before number) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of printed chars </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If fill parameter is 0 {'\0'}, only the numerical characters are printed. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00140">140</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__string_8c_source.html#l00181">D4D_SprintDecS32()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_ga438a9f4039e26ebf820e1222b6246934_icgraph.gif" border="0" usemap="#group__doxd4d__string__func_ga438a9f4039e26ebf820e1222b6246934_icgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_ga438a9f4039e26ebf820e1222b6246934_icgraph" id="group__doxd4d__string__func_ga438a9f4039e26ebf820e1222b6246934_icgraph">
+<area shape="rect" id="node2" href="group__doxd4d__string__func.html#gad0f961aac7f5ea3b41f02316c4aec9ab" title="The function convert decimal signed 32 bit number to string. " alt="" coords="190,5,325,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gae6bca6f1322673191dcfe7c2b0c06178"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> D4D_SprintDecU8 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td>
+          <td class="paramname"><em>pText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>&#160;</td>
+          <td class="paramname"><em>fill</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function convert decimal unsigned 8 bit number to string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">val</td><td>- the input numerical value </td></tr>
+    <tr><td class="paramname">pText</td><td>- pointer to output text buffer </td></tr>
+    <tr><td class="paramname">fill</td><td>- the fill character for non number characters (before number) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of printed chars </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If fill parameter is 0 {'\0'}, only the numerical characters are printed. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__string_8c_source.html#l00262">262</a> of file <a class="el" href="d4d__string_8c_source.html">d4d_string.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__graph_8c_source.html#l00196">D4D_GraphPrintLabel()</a>, <a class="el" href="d4d__menu_8c_source.html#l00154">D4D_MenuValue2Coor()</a>, and <a class="el" href="d4d__string_8c_source.html#l00311">D4D_SprintDecS8()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__string__func_gae6bca6f1322673191dcfe7c2b0c06178_icgraph.gif" border="0" usemap="#group__doxd4d__string__func_gae6bca6f1322673191dcfe7c2b0c06178_icgraph" alt=""/></div>
+<map name="group__doxd4d__string__func_gae6bca6f1322673191dcfe7c2b0c06178_icgraph" id="group__doxd4d__string__func_gae6bca6f1322673191dcfe7c2b0c06178_icgraph">
+<area shape="rect" id="node2" href="d4d__graph_8c.html#a76aee1d400aae8592779ef15158c9339" title="D4D_GraphPrintLabel" alt="" coords="185,56,332,83"/><area shape="rect" id="node6" href="d4d__menu_8c.html#a80844eac32711afcf3dc7cdff34c1014" title="D4D_MenuValue2Coor" alt="" coords="182,157,335,184"/><area shape="rect" id="node14" href="group__doxd4d__string__func.html#ga0d5b1dd7ebad7ca15aa06d737e6347cf" title="The function convert decimal signed 8 bit number to string. " alt="" coords="195,208,322,235"/><area shape="rect" id="node3" href="d4d__graph_8c.html#afc1fe5446b67d4fe5692aaa2f144f30a" title="D4D_GraphDrawEmptyGraph" alt="" coords="387,5,578,32"/><area shape="rect" id="node4" href="d4d__graph_8c.html#a640ef0f76a594f52ac2a87009342fc6d" title="D4D_GraphOnDraw" alt="" coords="642,5,777,32"/><area shape="rect" id="node5" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="838,5,997,32"/><area shape="rect" id="node7" href="d4d__menu_8c.html#ab0cb7791d811e8fb4ea8d09b3df6b054" title="D4D_MenuFocusNextItem" alt="" coords="395,107,570,133"/><area shape="rect" id="node10" href="d4d__menu_8c.html#a664a18b254e48df788c0a4e3f5361dd8" title="D4D_MenuFocusPreviousItem" alt="" coords="385,157,581,184"/><area shape="rect" id="node11" href="d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="643,208,775,235"/><area shape="rect" id="node12" href="d4d__menu_8c.html#a30a111e7b85c1666f66f4c43cc29a6aa" title="D4D_MenuScrollBarSetup" alt="" coords="396,259,569,285"/><area shape="rect" id="node8" href="d4d__menu_8c.html#aeb5fe2dbdd4ec9f922f5d894750b604c" title="D4D_MenuOnKeyDown" alt="" coords="630,107,789,133"/><area shape="rect" id="node9" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="839,157,995,184"/><area shape="rect" id="node13" href="d4d__menu_8c.html#a6ab43fd4338bde2868eb82cad52f2a89" title="D4D_MenuOnInit" alt="" coords="649,259,769,285"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:05 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

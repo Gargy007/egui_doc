@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: mqx_iic.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('mqx__iic_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">mqx_iic.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a57d0c95ccd7c129288743e9674a9e96d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a57d0c95ccd7c129288743e9674a9e96d">I2C_OK</a></td></tr>
+<tr class="separator:a57d0c95ccd7c129288743e9674a9e96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8538c01b879bf575254f3438c723cdcc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a8538c01b879bf575254f3438c723cdcc">I2C_FALSE</a></td></tr>
+<tr class="separator:a8538c01b879bf575254f3438c723cdcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e158b4c0d408e5d99a514c0db0d77b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#ad4e158b4c0d408e5d99a514c0db0d77b">I2C_ACK</a></td></tr>
+<tr class="separator:ad4e158b4c0d408e5d99a514c0db0d77b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af94e27af2eaa1aba2befc1fafe97ab44"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#af94e27af2eaa1aba2befc1fafe97ab44">I2C_NACK</a></td></tr>
+<tr class="separator:af94e27af2eaa1aba2befc1fafe97ab44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93153e63f32eb82a5c43f2f2054d3794"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a93153e63f32eb82a5c43f2f2054d3794">MQX_I2C_DEV</a></td></tr>
+<tr class="separator:a93153e63f32eb82a5c43f2f2054d3794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aaea540f65d67d145fc4b438c4b448bb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#aaea540f65d67d145fc4b438c4b448bb4">MqxIIC_Init</a> (void)</td></tr>
+<tr class="separator:aaea540f65d67d145fc4b438c4b448bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae377a7ae666ce2870c5e353f682cb35c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#ae377a7ae666ce2870c5e353f682cb35c">MqxIIC_DeInit</a> (void)</td></tr>
+<tr class="separator:ae377a7ae666ce2870c5e353f682cb35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea8ea26c468acd0500671e95ab3d3443"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#aea8ea26c468acd0500671e95ab3d3443">MqxIIC_SetAddress</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> address)</td></tr>
+<tr class="separator:aea8ea26c468acd0500671e95ab3d3443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae68c5e1f3dcf5b30065a021b9e55465e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#ae68c5e1f3dcf5b30065a021b9e55465e">MqxIIC_GetAddress</a> (void)</td></tr>
+<tr class="separator:ae68c5e1f3dcf5b30065a021b9e55465e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65f5c7634c728210ddcd541f4d1dc398"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a65f5c7634c728210ddcd541f4d1dc398">MqxIIC_ReadByte</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> regAdr, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *pData)</td></tr>
+<tr class="separator:a65f5c7634c728210ddcd541f4d1dc398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0448349e138a4d2e7488ecd99c656e15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a0448349e138a4d2e7488ecd99c656e15">MqxIIC_WriteByte</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> regAdr, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> data)</td></tr>
+<tr class="separator:a0448349e138a4d2e7488ecd99c656e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71cf28b912daa0e97de8407c6fb5940e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a71cf28b912daa0e97de8407c6fb5940e">MqxIIC_MultiReadBytes</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> regAdr, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *pData, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> cnt)</td></tr>
+<tr class="separator:a71cf28b912daa0e97de8407c6fb5940e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71d82e2ff9eef4b7b1a573b1aa7a285b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a71d82e2ff9eef4b7b1a573b1aa7a285b">MqxIIC_MultiWriteBytes</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> regAdr, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *pData, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> cnt)</td></tr>
+<tr class="separator:a71d82e2ff9eef4b7b1a573b1aa7a285b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f44f23df0457cf27056fe17b3516701"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a6f44f23df0457cf27056fe17b3516701">MqxIIC_ReadArrayDelayed</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> regAdr, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *pData, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> cnt, <a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> attemps)</td></tr>
+<tr class="separator:a6f44f23df0457cf27056fe17b3516701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98245f249b3f221b8c749b674283d46d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a98245f249b3f221b8c749b674283d46d">MqxIIC_ReadByte16</a> (<a class="el" href="union_i2_c___w_o_r_d___b_y_t_e.html">I2C_WORD_BYTE</a> regAdr, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *pData)</td></tr>
+<tr class="separator:a98245f249b3f221b8c749b674283d46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab212a50c08e37f231b2c9b2f046804cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#ab212a50c08e37f231b2c9b2f046804cb">MqxIIC_WriteByte16</a> (<a class="el" href="union_i2_c___w_o_r_d___b_y_t_e.html">I2C_WORD_BYTE</a> regAdr, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> data)</td></tr>
+<tr class="separator:ab212a50c08e37f231b2c9b2f046804cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15884395b15a765380f936202a9486b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a15884395b15a765380f936202a9486b0">MqxIIC_MultiReadBytes16</a> (<a class="el" href="union_i2_c___w_o_r_d___b_y_t_e.html">I2C_WORD_BYTE</a> regAdr, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *pData, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> cnt)</td></tr>
+<tr class="separator:a15884395b15a765380f936202a9486b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64da592f5a947a2511e6b466cb5f9bd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a64da592f5a947a2511e6b466cb5f9bd4">MqxIIC_MultiWriteBytes16</a> (<a class="el" href="union_i2_c___w_o_r_d___b_y_t_e.html">I2C_WORD_BYTE</a> regAdr, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *pData, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> cnt)</td></tr>
+<tr class="separator:a64da592f5a947a2511e6b466cb5f9bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ff3f83deda6b2b5751a06bbf46ef2a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a4ff3f83deda6b2b5751a06bbf46ef2a5">MqxIIC_LookForDevice</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> adr)</td></tr>
+<tr class="separator:a4ff3f83deda6b2b5751a06bbf46ef2a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ab6e72b63c4d70eca8916140d2720cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga292b151822cbfa176ac5f8256991c058">sLWord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mqx__iic_8h.html#a7ab6e72b63c4d70eca8916140d2720cd">MqxIIC_SetBaudRate</a> (<a class="el" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> baudRate)</td></tr>
+<tr class="separator:a7ab6e72b63c4d70eca8916140d2720cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>MqxI2C definitions. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0.3.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Mar-19-2012 </dd></dl>
+
+<p>Definition in file <a class="el" href="mqx__iic_8h_source.html">mqx_iic.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ad4e158b4c0d408e5d99a514c0db0d77b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define I2C_ACK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="mqx__iic_8h_source.html#l00056">56</a> of file <a class="el" href="mqx__iic_8h_source.html">mqx_iic.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8538c01b879bf575254f3438c723cdcc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define I2C_FALSE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="mqx__iic_8h_source.html#l00055">55</a> of file <a class="el" href="mqx__iic_8h_source.html">mqx_iic.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af94e27af2eaa1aba2befc1fafe97ab44"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define I2C_NACK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="mqx__iic_8h_source.html#l00057">57</a> of file <a class="el" href="mqx__iic_8h_source.html">mqx_iic.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57d0c95ccd7c129288743e9674a9e96d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define I2C_OK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="mqx__iic_8h_source.html#l00053">53</a> of file <a class="el" href="mqx__iic_8h_source.html">mqx_iic.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a93153e63f32eb82a5c43f2f2054d3794"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MQX_I2C_DEV</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="mqx__iic_8h_source.html#l00065">65</a> of file <a class="el" href="mqx__iic_8h_source.html">mqx_iic.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ae377a7ae666ce2870c5e353f682cb35c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_DeInit </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae68c5e1f3dcf5b30065a021b9e55465e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_GetAddress </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aaea540f65d67d145fc4b438c4b448bb4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4ff3f83deda6b2b5751a06bbf46ef2a5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_LookForDevice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>adr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a71cf28b912daa0e97de8407c6fb5940e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_MultiReadBytes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>regAdr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *&#160;</td>
+          <td class="paramname"><em>pData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a15884395b15a765380f936202a9486b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_MultiReadBytes16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="union_i2_c___w_o_r_d___b_y_t_e.html">I2C_WORD_BYTE</a>&#160;</td>
+          <td class="paramname"><em>regAdr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *&#160;</td>
+          <td class="paramname"><em>pData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a71d82e2ff9eef4b7b1a573b1aa7a285b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_MultiWriteBytes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>regAdr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *&#160;</td>
+          <td class="paramname"><em>pData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a64da592f5a947a2511e6b466cb5f9bd4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_MultiWriteBytes16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="union_i2_c___w_o_r_d___b_y_t_e.html">I2C_WORD_BYTE</a>&#160;</td>
+          <td class="paramname"><em>regAdr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *&#160;</td>
+          <td class="paramname"><em>pData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6f44f23df0457cf27056fe17b3516701"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_ReadArrayDelayed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>regAdr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *&#160;</td>
+          <td class="paramname"><em>pData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>cnt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a>&#160;</td>
+          <td class="paramname"><em>attemps</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a65f5c7634c728210ddcd541f4d1dc398"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_ReadByte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>regAdr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *&#160;</td>
+          <td class="paramname"><em>pData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a98245f249b3f221b8c749b674283d46d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_ReadByte16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="union_i2_c___w_o_r_d___b_y_t_e.html">I2C_WORD_BYTE</a>&#160;</td>
+          <td class="paramname"><em>regAdr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *&#160;</td>
+          <td class="paramname"><em>pData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aea8ea26c468acd0500671e95ab3d3443"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MqxIIC_SetAddress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>address</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7ab6e72b63c4d70eca8916140d2720cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga292b151822cbfa176ac5f8256991c058">sLWord</a> MqxIIC_SetBaudRate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a>&#160;</td>
+          <td class="paramname"><em>baudRate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0448349e138a4d2e7488ecd99c656e15"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_WriteByte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>regAdr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab212a50c08e37f231b2c9b2f046804cb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> MqxIIC_WriteByte16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="union_i2_c___w_o_r_d___b_y_t_e.html">I2C_WORD_BYTE</a>&#160;</td>
+          <td class="paramname"><em>regAdr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_ed2bb5cc41b5c3fd4e21ecf2d834403c.html">touch_screen</a></li><li class="navelem"><a class="el" href="dir_a7f84c726997ab4dd84843acdc3a84ef.html">touch_screen_drivers</a></li><li class="navelem"><a class="el" href="dir_4cd2c86a9391e73fb391e5869dc4a73a.html">cr_touch</a></li><li class="navelem"><a class="el" href="dir_b953d48e68cc8bed39639c38d48efbca.html">iic_mqx</a></li><li class="navelem"><a class="el" href="mqx__iic_8h.html">mqx_iic.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:04 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

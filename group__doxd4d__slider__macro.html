@@ -1,0 +1,2229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D SLIDER API Macro&#39;s Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__slider__macro.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D SLIDER API Macro's Specification<div class="ingroups"><a class="el" href="group__doxd4d__slider.html">D4D Slider Widget</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D SLIDER API Macro's Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__slider__macro.gif" border="0" alt="" usemap="#group____doxd4d____slider____macro"/>
+<map name="group____doxd4d____slider____macro" id="group____doxd4d____slider____macro">
+<area shape="rect" id="node2" href="group__doxd4d__slider.html" title="D4D Slider Widget" alt="" coords="6,12,135,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga2ed3d88b66e6e10948518f6e3ec480bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#ga2ed3d88b66e6e10948518f6e3ec480bd">_D4D_DECLARE_SLIDER</a>(type, name, text, x, y, cx, cy, radius, pMargin, pRelations, tx, ty, bx, by, bcx, bcy, flags, pBmp, pScheme, fontId, pUser, onvalch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga2ed3d88b66e6e10948518f6e3ec480bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Slider object structure in memory including all substructures.  <a href="#ga2ed3d88b66e6e10948518f6e3ec480bd">More...</a><br/></td></tr>
+<tr class="separator:ga2ed3d88b66e6e10948518f6e3ec480bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga219d3decb944ce13626f85766963644a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#ga219d3decb944ce13626f85766963644a">D4D_DECLARE_SLIDER</a>(name, text, x, y, cx, cy, tx, ty, bx, by, bcx, bcy, flags, pBmp, pScheme, fontId, pUser, onvalch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga219d3decb944ce13626f85766963644a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Slider object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="#ga219d3decb944ce13626f85766963644a">More...</a><br/></td></tr>
+<tr class="separator:ga219d3decb944ce13626f85766963644a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39c36505bf2f1eb570734da2b4d584f4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#ga39c36505bf2f1eb570734da2b4d584f4">D4D_DECLARE_STD_SLIDER</a>(name, text, x, y, cx, cy, tx, ty, bx, by, bcx, bcy, pBmp, fontId, onvalch)</td></tr>
+<tr class="memdesc:ga39c36505bf2f1eb570734da2b4d584f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values.  <a href="#ga39c36505bf2f1eb570734da2b4d584f4">More...</a><br/></td></tr>
+<tr class="separator:ga39c36505bf2f1eb570734da2b4d584f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee13d9ed5325f274c03d682c69752124"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#gaee13d9ed5325f274c03d682c69752124">D4D_DECLARE_SLIDER_AUTOSIZE</a>(name, text, x, y, cx, cy, flags, pBmp, pScheme, fontId, pUser, onvalch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gaee13d9ed5325f274c03d682c69752124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The internal coordination values are computed automatically to standard.  <a href="#gaee13d9ed5325f274c03d682c69752124">More...</a><br/></td></tr>
+<tr class="separator:gaee13d9ed5325f274c03d682c69752124"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c752b644452351dc69945fcb6c5a001"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#ga3c752b644452351dc69945fcb6c5a001">D4D_DECLARE_STD_SLIDER_AUTOSIZE</a>(name, text, x, y, cx, cy, pBmp, fontId, onvalch)</td></tr>
+<tr class="memdesc:ga3c752b644452351dc69945fcb6c5a001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values. The internal coordination values are computed automatically to standard.  <a href="#ga3c752b644452351dc69945fcb6c5a001">More...</a><br/></td></tr>
+<tr class="separator:ga3c752b644452351dc69945fcb6c5a001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacfdcfb905bf4950ea5847f2671c40e14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#gacfdcfb905bf4950ea5847f2671c40e14">D4D_DECLARE_RSLIDER</a>(name, text, x, y, cx, cy, radius, tx, ty, bx, by, bcx, bcy, flags, pBmp, pScheme, fontId, pUser, onvalch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gacfdcfb905bf4950ea5847f2671c40e14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Slider object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="#gacfdcfb905bf4950ea5847f2671c40e14">More...</a><br/></td></tr>
+<tr class="separator:gacfdcfb905bf4950ea5847f2671c40e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae10395d8e114940bc6bc048db016b42f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#gae10395d8e114940bc6bc048db016b42f">D4D_DECLARE_STD_RSLIDER</a>(name, text, x, y, cx, cy, radius, tx, ty, bx, by, bcx, bcy, pBmp, fontId, onvalch)</td></tr>
+<tr class="memdesc:gae10395d8e114940bc6bc048db016b42f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values.  <a href="#gae10395d8e114940bc6bc048db016b42f">More...</a><br/></td></tr>
+<tr class="separator:gae10395d8e114940bc6bc048db016b42f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44e3ac7b135774b49885bb165f07f043"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#ga44e3ac7b135774b49885bb165f07f043">D4D_DECLARE_RSLIDER_AUTOSIZE</a>(name, text, x, y, cx, cy, radius, flags, pBmp, pScheme, fontId, pUser, onvalch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga44e3ac7b135774b49885bb165f07f043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The internal coordination values are computed automatically to standard.  <a href="#ga44e3ac7b135774b49885bb165f07f043">More...</a><br/></td></tr>
+<tr class="separator:ga44e3ac7b135774b49885bb165f07f043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga45b7b019a2ab51a3e15223454b2e2486"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#ga45b7b019a2ab51a3e15223454b2e2486">D4D_DECLARE_STD_RSLIDER_AUTOSIZE</a>(name, text, x, y, cx, cy, radius, pBmp, fontId, onvalch)</td></tr>
+<tr class="memdesc:ga45b7b019a2ab51a3e15223454b2e2486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values. The internal coordination values are computed automatically to standard.  <a href="#ga45b7b019a2ab51a3e15223454b2e2486">More...</a><br/></td></tr>
+<tr class="separator:ga45b7b019a2ab51a3e15223454b2e2486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabd8f1424bbe34cb87d719676af8f21cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#gabd8f1424bbe34cb87d719676af8f21cc">D4D_DECLARE_SLIDER_INRAM</a>(name, text, x, y, cx, cy, tx, ty, bx, by, bcx, bcy, flags, pBmp, pScheme, fontId, pUser, onvalch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gabd8f1424bbe34cb87d719676af8f21cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__slider__macro.html#ga219d3decb944ce13626f85766963644a">D4D_DECLARE_SLIDER</a>, but is created in RAM instead of the ROM memory.  <a href="#gabd8f1424bbe34cb87d719676af8f21cc">More...</a><br/></td></tr>
+<tr class="separator:gabd8f1424bbe34cb87d719676af8f21cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e29709dfa03f1017b7bff10043c8a39"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#ga4e29709dfa03f1017b7bff10043c8a39">D4D_DECLARE_STD_SLIDER_INRAM</a>(name, text, x, y, cx, cy, tx, ty, bx, by, bcx, bcy, pBmp, fontId, onvalch)</td></tr>
+<tr class="memdesc:ga4e29709dfa03f1017b7bff10043c8a39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__slider__macro.html#ga39c36505bf2f1eb570734da2b4d584f4">D4D_DECLARE_STD_SLIDER</a>, but is created in RAM instead of the ROM memory.  <a href="#ga4e29709dfa03f1017b7bff10043c8a39">More...</a><br/></td></tr>
+<tr class="separator:ga4e29709dfa03f1017b7bff10043c8a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf532140734fa6ed4529ca44dc081f2f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#gaf532140734fa6ed4529ca44dc081f2f0">D4D_DECLARE_SLIDER_AUTOSIZE_INRAM</a>(name, text, x, y, cx, cy, flags, pBmp, pScheme, font, pUser, onvalch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gaf532140734fa6ed4529ca44dc081f2f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__slider__macro.html#gaee13d9ed5325f274c03d682c69752124">D4D_DECLARE_SLIDER_AUTOSIZE</a>, but is created in RAM instead of the ROM memory.  <a href="#gaf532140734fa6ed4529ca44dc081f2f0">More...</a><br/></td></tr>
+<tr class="separator:gaf532140734fa6ed4529ca44dc081f2f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14af818ce4af0029c51d18d2a2754bed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#ga14af818ce4af0029c51d18d2a2754bed">D4D_DECLARE_STD_SLIDER_AUTOSIZE_INRAM</a>(name, text, x, y, cx, cy, pBmp, font, onvalch)</td></tr>
+<tr class="memdesc:ga14af818ce4af0029c51d18d2a2754bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__slider__macro.html#ga39c36505bf2f1eb570734da2b4d584f4">D4D_DECLARE_STD_SLIDER</a>, but is created in RAM instead of the ROM memory.  <a href="#ga14af818ce4af0029c51d18d2a2754bed">More...</a><br/></td></tr>
+<tr class="separator:ga14af818ce4af0029c51d18d2a2754bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab57eb124cff54e869b8093ba83916cd2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#gab57eb124cff54e869b8093ba83916cd2">D4D_DECLARE_RSLIDER_INRAM</a>(name, text, x, y, cx, cy, radius, tx, ty, bx, by, bcx, bcy, flags, pBmp, pScheme, fontId, pUser, onvalch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gab57eb124cff54e869b8093ba83916cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__slider__macro.html#gacfdcfb905bf4950ea5847f2671c40e14">D4D_DECLARE_RSLIDER</a>, but is created in RAM instead of the ROM memory.  <a href="#gab57eb124cff54e869b8093ba83916cd2">More...</a><br/></td></tr>
+<tr class="separator:gab57eb124cff54e869b8093ba83916cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaebdea317c69b0134b610d8204906ecec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#gaebdea317c69b0134b610d8204906ecec">D4D_DECLARE_STD_RSLIDER_INRAM</a>(name, text, x, y, cx, cy, radius, tx, ty, bx, by, bcx, bcy, pBmp, fontId, onvalch)</td></tr>
+<tr class="memdesc:gaebdea317c69b0134b610d8204906ecec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__slider__macro.html#gae10395d8e114940bc6bc048db016b42f">D4D_DECLARE_STD_RSLIDER</a>, but is created in RAM instead of the ROM memory.  <a href="#gaebdea317c69b0134b610d8204906ecec">More...</a><br/></td></tr>
+<tr class="separator:gaebdea317c69b0134b610d8204906ecec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga152189b6d725dab582c85f32592181a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#ga152189b6d725dab582c85f32592181a7">D4D_DECLARE_RSLIDER_AUTOSIZE_INRAM</a>(name, text, x, y, cx, cy, radius, flags, pBmp, pScheme, font, pUser, onvalch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga152189b6d725dab582c85f32592181a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__slider__macro.html#ga44e3ac7b135774b49885bb165f07f043">D4D_DECLARE_RSLIDER_AUTOSIZE</a>, but is created in RAM instead of the ROM memory.  <a href="#ga152189b6d725dab582c85f32592181a7">More...</a><br/></td></tr>
+<tr class="separator:ga152189b6d725dab582c85f32592181a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5509ab3669c1d826d892062c7da7e20b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__macro.html#ga5509ab3669c1d826d892062c7da7e20b">D4D_DECLARE_STD_RSLIDER_AUTOSIZE_INRAM</a>(name, text, x, y, cx, cy, radius, pBmp, font, onvalch)</td></tr>
+<tr class="memdesc:ga5509ab3669c1d826d892062c7da7e20b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__slider__macro.html#ga45b7b019a2ab51a3e15223454b2e2486">D4D_DECLARE_STD_RSLIDER_AUTOSIZE</a>, but is created in RAM instead of the ROM memory.  <a href="#ga5509ab3669c1d826d892062c7da7e20b">More...</a><br/></td></tr>
+<tr class="separator:ga5509ab3669c1d826d892062c7da7e20b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact usage for each API macro. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ga2ed3d88b66e6e10948518f6e3ec480bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _D4D_DECLARE_SLIDER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pMargin, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pRelations, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">by, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Slider object structure in memory including all substructures. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>- type of object &lt;D4D_CONST; D4D_NO_CONST&gt; </td></tr>
+    <tr><td class="paramname">name</td><td>- name of slider object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of slider </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of slider in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of slider in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of slider in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of slider in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">pMargin</td><td>- pointer to margin structure (*D4D_MARGIN)(Could be NULL) </td></tr>
+    <tr><td class="paramname">pRelations</td><td>- pointer to object relation array (Could be NULL) </td></tr>
+    <tr><td class="paramname">tx</td><td>- coordination of slider text in X axis </td></tr>
+    <tr><td class="paramname">ty</td><td>- coordination of slider text in Y axis </td></tr>
+    <tr><td class="paramname">bx</td><td>- coordination of slider working bar in X axis </td></tr>
+    <tr><td class="paramname">by</td><td>- coordination of slider working bar in Y axis </td></tr>
+    <tr><td class="paramname">bcx</td><td>- size of slider working bar in X axis </td></tr>
+    <tr><td class="paramname">bcy</td><td>- size of slider working bar in Y axis </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__slider__const__flags.html">D4D SLIDER Defines masks of slider specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pBmp</td><td>- pointer to a bitmap that is shown in background (Could be NULL) </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw object </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of object </td></tr>
+    <tr><td class="paramname">onvalch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__slider__type.html#gae336d0fad962c60c4b6bbf5a6fd80ad7">D4D_SLDR_ON_CHANGE</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___s_l_i_d_e_r.html">D4D_SLIDER</a> structure, including the object data sub structure. Is used to define all properties of slider. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00239">239</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gacfdcfb905bf4950ea5847f2671c40e14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_RSLIDER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">by, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the rounded Slider object structure in memory including all substructures with restricted count of parameters to simplify definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of slider object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of slider </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of slider in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of slider in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of slider in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of slider in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">tx</td><td>- coordination of slider text in X axis </td></tr>
+    <tr><td class="paramname">ty</td><td>- coordination of slider text in Y axis </td></tr>
+    <tr><td class="paramname">bx</td><td>- coordination of slider working bar in X axis </td></tr>
+    <tr><td class="paramname">by</td><td>- coordination of slider working bar in Y axis </td></tr>
+    <tr><td class="paramname">bcx</td><td>- size of slider working bar in X axis </td></tr>
+    <tr><td class="paramname">bcy</td><td>- size of slider working bar in Y axis </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__slider__const__flags.html">D4D SLIDER Defines masks of slider specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pBmp</td><td>- pointer to a bitmap that is shown in background (Could be NULL) </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw object </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of object </td></tr>
+    <tr><td class="paramname">onvalch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__slider__type.html#gae336d0fad962c60c4b6bbf5a6fd80ad7">D4D_SLDR_ON_CHANGE</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___s_l_i_d_e_r.html">D4D_SLIDER</a> structure, including the object data sub structure. Is used to define all properties of slider. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__slider__macro.html#ga2ed3d88b66e6e10948518f6e3ec480bd">_D4D_DECLARE_SLIDER</a> instead of this one. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00387">387</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga44e3ac7b135774b49885bb165f07f043"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_RSLIDER_AUTOSIZE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the rounded Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The internal coordination values are computed automatically to standard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of slider object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of slider </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of slider in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of slider in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of slider in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of slider in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__slider__const__flags.html">D4D SLIDER Defines masks of slider specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pBmp</td><td>- pointer to a bitmap that is shown in background (Could be NULL) </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw object </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of object </td></tr>
+    <tr><td class="paramname">onvalch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__slider__type.html#gae336d0fad962c60c4b6bbf5a6fd80ad7">D4D_SLDR_ON_CHANGE</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___s_l_i_d_e_r.html">D4D_SLIDER</a> structure, including the object data sub structure. Is used to define all properties of slider. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__slider__macro.html#ga2ed3d88b66e6e10948518f6e3ec480bd">_D4D_DECLARE_SLIDER</a> instead of this one. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00440">440</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga152189b6d725dab582c85f32592181a7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_RSLIDER_AUTOSIZE_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__slider__macro.html#ga44e3ac7b135774b49885bb165f07f043">D4D_DECLARE_RSLIDER_AUTOSIZE</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00507">507</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gab57eb124cff54e869b8093ba83916cd2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_RSLIDER_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">by, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__slider__macro.html#gacfdcfb905bf4950ea5847f2671c40e14">D4D_DECLARE_RSLIDER</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00495">495</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga219d3decb944ce13626f85766963644a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_SLIDER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">by, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Slider object structure in memory including all substructures with restricted count of parameters to simplify definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of slider object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of slider </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of slider in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of slider in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of slider in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of slider in Y axis (height) </td></tr>
+    <tr><td class="paramname">tx</td><td>- coordination of slider text in X axis </td></tr>
+    <tr><td class="paramname">ty</td><td>- coordination of slider text in Y axis </td></tr>
+    <tr><td class="paramname">bx</td><td>- coordination of slider working bar in X axis </td></tr>
+    <tr><td class="paramname">by</td><td>- coordination of slider working bar in Y axis </td></tr>
+    <tr><td class="paramname">bcx</td><td>- size of slider working bar in X axis </td></tr>
+    <tr><td class="paramname">bcy</td><td>- size of slider working bar in Y axis </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__slider__const__flags.html">D4D SLIDER Defines masks of slider specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pBmp</td><td>- pointer to a bitmap that is shown in background (Could be NULL) </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw object </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of object </td></tr>
+    <tr><td class="paramname">onvalch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__slider__type.html#gae336d0fad962c60c4b6bbf5a6fd80ad7">D4D_SLDR_ON_CHANGE</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___s_l_i_d_e_r.html">D4D_SLIDER</a> structure, including the object data sub structure. Is used to define all properties of slider. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__slider__macro.html#ga2ed3d88b66e6e10948518f6e3ec480bd">_D4D_DECLARE_SLIDER</a> instead of this one. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00283">283</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaee13d9ed5325f274c03d682c69752124"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_SLIDER_AUTOSIZE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The internal coordination values are computed automatically to standard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of slider object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of slider </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of slider in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of slider in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of slider in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of slider in Y axis (height) </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__slider__const__flags.html">D4D SLIDER Defines masks of slider specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pBmp</td><td>- pointer to a bitmap that is shown in background (Could be NULL) </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw object </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of object </td></tr>
+    <tr><td class="paramname">onvalch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__slider__type.html#gae336d0fad962c60c4b6bbf5a6fd80ad7">D4D_SLDR_ON_CHANGE</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___s_l_i_d_e_r.html">D4D_SLIDER</a> structure, including the object data sub structure. Is used to define all properties of slider. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__slider__macro.html#ga2ed3d88b66e6e10948518f6e3ec480bd">_D4D_DECLARE_SLIDER</a> instead of this one. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00334">334</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaf532140734fa6ed4529ca44dc081f2f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_SLIDER_AUTOSIZE_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__slider__macro.html#gaee13d9ed5325f274c03d682c69752124">D4D_DECLARE_SLIDER_AUTOSIZE</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00482">482</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gabd8f1424bbe34cb87d719676af8f21cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_SLIDER_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">by, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__slider__macro.html#ga219d3decb944ce13626f85766963644a">D4D_DECLARE_SLIDER</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00470">470</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gae10395d8e114940bc6bc048db016b42f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_RSLIDER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">by, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the rounded Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of slider object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of slider </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of slider in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of slider in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of slider in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of slider in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">tx</td><td>- coordination of slider text in X axis </td></tr>
+    <tr><td class="paramname">ty</td><td>- coordination of slider text in Y axis </td></tr>
+    <tr><td class="paramname">bx</td><td>- coordination of slider working bar in X axis </td></tr>
+    <tr><td class="paramname">by</td><td>- coordination of slider working bar in Y axis </td></tr>
+    <tr><td class="paramname">bcx</td><td>- size of slider working bar in X axis </td></tr>
+    <tr><td class="paramname">bcy</td><td>- size of slider working bar in Y axis </td></tr>
+    <tr><td class="paramname">pBmp</td><td>- pointer to a bitmap that is shown in background (Could be NULL) </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">onvalch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__slider__type.html#gae336d0fad962c60c4b6bbf5a6fd80ad7">D4D_SLDR_ON_CHANGE</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___s_l_i_d_e_r.html">D4D_SLIDER</a> structure, including the object data sub structure. Is used to define all properties of slider. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__slider__macro.html#ga2ed3d88b66e6e10948518f6e3ec480bd">_D4D_DECLARE_SLIDER</a> instead of this one. The main advantage is less parameters of this macro against the full version. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00414">414</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga45b7b019a2ab51a3e15223454b2e2486"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_RSLIDER_AUTOSIZE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the rounded Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values. The internal coordination values are computed automatically to standard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of slider object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of slider </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of slider in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of slider in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of slider in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of slider in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">pBmp</td><td>- pointer to a bitmap that is shown in background (Could be NULL) </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">onvalch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__slider__type.html#gae336d0fad962c60c4b6bbf5a6fd80ad7">D4D_SLDR_ON_CHANGE</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___s_l_i_d_e_r.html">D4D_SLIDER</a> structure, including the object data sub structure. Is used to define all properties of slider. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__slider__macro.html#ga2ed3d88b66e6e10948518f6e3ec480bd">_D4D_DECLARE_SLIDER</a> instead of this one. The main advantage is less parameters of this macro against the full version. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00462">462</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga5509ab3669c1d826d892062c7da7e20b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_RSLIDER_AUTOSIZE_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__slider__macro.html#ga45b7b019a2ab51a3e15223454b2e2486">D4D_DECLARE_STD_RSLIDER_AUTOSIZE</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00513">513</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaebdea317c69b0134b610d8204906ecec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_RSLIDER_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">by, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__slider__macro.html#gae10395d8e114940bc6bc048db016b42f">D4D_DECLARE_STD_RSLIDER</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00501">501</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga39c36505bf2f1eb570734da2b4d584f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_SLIDER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">by, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of slider object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of slider </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of slider in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of slider in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of slider in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of slider in Y axis (height) </td></tr>
+    <tr><td class="paramname">tx</td><td>- coordination of slider text in X axis </td></tr>
+    <tr><td class="paramname">ty</td><td>- coordination of slider text in Y axis </td></tr>
+    <tr><td class="paramname">bx</td><td>- coordination of slider working bar in X axis </td></tr>
+    <tr><td class="paramname">by</td><td>- coordination of slider working bar in Y axis </td></tr>
+    <tr><td class="paramname">bcx</td><td>- size of slider working bar in X axis </td></tr>
+    <tr><td class="paramname">bcy</td><td>- size of slider working bar in Y axis </td></tr>
+    <tr><td class="paramname">pBmp</td><td>- pointer to a bitmap that is shown in background (Could be NULL) </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">onvalch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__slider__type.html#gae336d0fad962c60c4b6bbf5a6fd80ad7">D4D_SLDR_ON_CHANGE</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___s_l_i_d_e_r.html">D4D_SLIDER</a> structure, including the object data sub structure. Is used to define all properties of slider. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__slider__macro.html#ga2ed3d88b66e6e10948518f6e3ec480bd">_D4D_DECLARE_SLIDER</a> instead of this one. The main advantage is less parameters of this macro against the full version. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00309">309</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga3c752b644452351dc69945fcb6c5a001"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_SLIDER_AUTOSIZE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Slider object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values. The internal coordination values are computed automatically to standard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of slider object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of slider </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of slider in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of slider in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of slider in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of slider in Y axis (height) </td></tr>
+    <tr><td class="paramname">pBmp</td><td>- pointer to a bitmap that is shown in background (Could be NULL) </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">onvalch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__slider__type.html#gae336d0fad962c60c4b6bbf5a6fd80ad7">D4D_SLDR_ON_CHANGE</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___s_l_i_d_e_r.html">D4D_SLIDER</a> structure, including the object data sub structure. Is used to define all properties of slider. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__slider__macro.html#ga2ed3d88b66e6e10948518f6e3ec480bd">_D4D_DECLARE_SLIDER</a> instead of this one. The main advantage is less parameters of this macro against the full version. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00355">355</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga14af818ce4af0029c51d18d2a2754bed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_SLIDER_AUTOSIZE_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__slider__macro.html#ga39c36505bf2f1eb570734da2b4d584f4">D4D_DECLARE_STD_SLIDER</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00488">488</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga4e29709dfa03f1017b7bff10043c8a39"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_SLIDER_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">by, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bcy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__slider__macro.html#ga39c36505bf2f1eb570734da2b4d584f4">D4D_DECLARE_STD_SLIDER</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__slider_8h_source.html#l00476">476</a> of file <a class="el" href="d4d__slider_8h_source.html">d4d_slider.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:06 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

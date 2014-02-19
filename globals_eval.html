@@ -1,0 +1,637 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: Globals</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li><a href="globals.html"><span>All</span></a></li>
+      <li><a href="globals_func.html"><span>Functions</span></a></li>
+      <li><a href="globals_vars.html"><span>Variables</span></a></li>
+      <li><a href="globals_type.html"><span>Typedefs</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
+      <li class="current"><a href="globals_eval.html"><span>Enumerator</span></a></li>
+      <li><a href="globals_defs.html"><span>Macros</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_b"><span>b</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('globals_eval.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+&#160;
+
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>ACD_DIV_0
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7c2ad0d855a5011a178c6f2c9ebebd85">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7c2ad0d855a5011a178c6f2c9ebebd85">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>ACD_DIV_1
+: <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea1f5ba59b96a04d3fb2ef050ef72f88c4">d4dlcdhw_k70_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea1f5ba59b96a04d3fb2ef050ef72f88c4">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>ACD_DIV_10
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae40f805598081f705030578bd1ccaa75">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae40f805598081f705030578bd1ccaa75">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>ACD_DIV_11
+: <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea4f8dfac10749341f41eeeddd86009e92">d4dlcdhw_k70_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea4f8dfac10749341f41eeeddd86009e92">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>ACD_DIV_12
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eaee8fbd702ed8b6dd3b00bacde5f4576c">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eaee8fbd702ed8b6dd3b00bacde5f4576c">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>ACD_DIV_13
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea97b3cc4a390395d197dcee029de1240d">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea97b3cc4a390395d197dcee029de1240d">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>ACD_DIV_14
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae90b949ded699c384ad43694c0764aaf">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae90b949ded699c384ad43694c0764aaf">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>ACD_DIV_15
+: <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea83e50b4fc7f498d7a51cd19b5fb983d1">d4dlcdhw_k70_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea83e50b4fc7f498d7a51cd19b5fb983d1">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>ACD_DIV_2
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae1b4c3c1e9662d861670113dbf83b04b">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae1b4c3c1e9662d861670113dbf83b04b">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>ACD_DIV_3
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab526fd411657bd3ec2cd6ec6fef40054">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab526fd411657bd3ec2cd6ec6fef40054">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>ACD_DIV_4
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea72b43c8812ab780385b58fcca3b50cde">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea72b43c8812ab780385b58fcca3b50cde">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>ACD_DIV_5
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea3b6fc9ff71975e1edb0c68d100b79c55">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea3b6fc9ff71975e1edb0c68d100b79c55">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>ACD_DIV_6
+: <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea0cc9137f44eccc6dfc24839df49b827b">d4dlcdhw_k70_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea0cc9137f44eccc6dfc24839df49b827b">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>ACD_DIV_7
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7da7ab713d1a35465001ae0b51571cb9">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7da7ab713d1a35465001ae0b51571cb9">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>ACD_DIV_8
+: <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eabfc444afe4b3359dc065df2cac725d59">d4dlcdhw_k70_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eabfc444afe4b3359dc065df2cac725d59">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>ACD_DIV_9
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab118f4f777099404f1012cf391b562b0">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab118f4f777099404f1012cf391b562b0">d4dlcdhw_k70_lcdc.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>BPP1
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>BPP12
+: <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e">d4dlcdhw_k70_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>BPP16
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>BPP18
+: <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970">d4dlcdhw_k70_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>BPP2
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>BPP24
+: <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a4963c5d43c76a0097bcb52bb9f92fa8a">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>BPP4
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>BPP8
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a">d4dlcdhw_k70_lcdc.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>CSTN_PANEL
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14acb67cadb16322450a6a3df8bd58a3833">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14acb67cadb16322450a6a3df8bd58a3833">d4dlcdhw_k70_lcdc.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>D4D_ANTI_CLOCK_WISE
+: <a class="el" href="group__doxd4d__types__type.html#gga9a27fd136eb003c46603ebf54f068414a13602d7afd1c30904532fcbe4132471e">d4d_types.h</a>
+</li>
+<li>D4D_BC_BITFIELDS
+: <a class="el" href="d4d__imgdec__bmp_8h.html#a144111246b71784274bf42eb2b8919f3a1d939c4fc67584c8a977d4bcc20aed6f">d4d_imgdec_bmp.h</a>
+</li>
+<li>D4D_BC_JPEG
+: <a class="el" href="d4d__imgdec__bmp_8h.html#a144111246b71784274bf42eb2b8919f3a4296409cc6e61deb6d6989a9a6ecd2f8">d4d_imgdec_bmp.h</a>
+</li>
+<li>D4D_BC_PNG
+: <a class="el" href="d4d__imgdec__bmp_8h.html#a144111246b71784274bf42eb2b8919f3a53f4898245a8f0d1c864be2710d2f2a2">d4d_imgdec_bmp.h</a>
+</li>
+<li>D4D_BC_RGB
+: <a class="el" href="d4d__imgdec__bmp_8h.html#a144111246b71784274bf42eb2b8919f3abc654b99af53c57a16ee1abee0e8512a">d4d_imgdec_bmp.h</a>
+</li>
+<li>D4D_BC_RLE4
+: <a class="el" href="d4d__imgdec__bmp_8h.html#a144111246b71784274bf42eb2b8919f3aef649197fc11c0d9d0364af7e9025c13">d4d_imgdec_bmp.h</a>
+</li>
+<li>D4D_BC_RLE8
+: <a class="el" href="d4d__imgdec__bmp_8h.html#a144111246b71784274bf42eb2b8919f3a99f94cd5aa911e7bb2c82f6ff6a6b684">d4d_imgdec_bmp.h</a>
+</li>
+<li>D4D_BEVEL_DENTED
+: <a class="el" href="group__doxd4d__types__type.html#gga18ef1e7c0642718fbf2a59c61f535220a04f4db6cbed9666a9a3676284988c402">d4d_types.h</a>
+</li>
+<li>D4D_BEVEL_NONE
+: <a class="el" href="group__doxd4d__types__type.html#gga18ef1e7c0642718fbf2a59c61f535220a0a1b949a50353aa092ff012b515e5bb3">d4d_types.h</a>
+</li>
+<li>D4D_BEVEL_RAISED
+: <a class="el" href="group__doxd4d__types__type.html#gga18ef1e7c0642718fbf2a59c61f535220a14b91833ad1a8542f17dd580520dd71c">d4d_types.h</a>
+</li>
+<li>D4D_BEVEL_RESERVED
+: <a class="el" href="group__doxd4d__types__type.html#gga18ef1e7c0642718fbf2a59c61f535220ac6aa1731711ae0f417152eadc50b3e6a">d4d_types.h</a>
+</li>
+<li>D4D_CLOCK_WISE
+: <a class="el" href="group__doxd4d__types__type.html#gga9a27fd136eb003c46603ebf54f068414a33cc907a64132806a22e9425dcfe4a13">d4d_types.h</a>
+</li>
+<li>D4D_DIR_DOWN
+: <a class="el" href="group__doxd4d__types__type.html#ggab6a9d6f312a908f9cd6c3b83b6007cbbaecdb55f4f5191f1a40c3c0b2d348816e">d4d_types.h</a>
+</li>
+<li>D4D_DIR_LEFT
+: <a class="el" href="group__doxd4d__types__type.html#ggab6a9d6f312a908f9cd6c3b83b6007cbbaa3166a81e546cc539ae1d519c7c567c9">d4d_types.h</a>
+</li>
+<li>D4D_DIR_RIGHT
+: <a class="el" href="group__doxd4d__types__type.html#ggab6a9d6f312a908f9cd6c3b83b6007cbba345b18410d25cb96b5af074a8d9aba43">d4d_types.h</a>
+</li>
+<li>D4D_DIR_UP
+: <a class="el" href="group__doxd4d__types__type.html#ggab6a9d6f312a908f9cd6c3b83b6007cbba70826b6151b36145af1c662b220f75f9">d4d_types.h</a>
+</li>
+<li>D4D_EVENT_CNT
+: <a class="el" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265bac0c2d2094f855a886fcb1203d6a95b46">d4d_base.h</a>
+</li>
+<li>D4D_EVENT_ONCHANGE
+: <a class="el" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba536aa3bc7a936a40a711419c99091bc6">d4d_base.h</a>
+</li>
+<li>D4D_EVENT_ONCHANGEDONE
+: <a class="el" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba564c301339004b208045c8d7a6162ad9">d4d_base.h</a>
+</li>
+<li>D4D_EVENT_ONCLEAR
+: <a class="el" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265bac616bdb15ba4aeee8210bbd91832ec60">d4d_base.h</a>
+</li>
+<li>D4D_EVENT_ONCLICK
+: <a class="el" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba171621b56b5e24933f4a0275acc9279a">d4d_base.h</a>
+</li>
+<li>D4D_EVENT_ONDOUBLECLICK
+: <a class="el" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265baff9db8a78fa0785bd2427e0cf496bc13">d4d_base.h</a>
+</li>
+<li>D4D_EVENT_ONRELOAD
+: <a class="el" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba997095e2a2e3af5adc0e9edac31f8958">d4d_base.h</a>
+</li>
+<li>D4D_EXTIMG_BMP
+: <a class="el" href="group__doxd4d__bmp__type.html#gga1e0e6ad9ff632a8020788d2a93330d85aa512f7714d15d59c7355244d6c1b0289">d4d_bmp.h</a>
+</li>
+<li>D4D_EXTIMG_D4D
+: <a class="el" href="group__doxd4d__bmp__type.html#gga1e0e6ad9ff632a8020788d2a93330d85aa8792a78683be1e97201cac1329dcb01">d4d_bmp.h</a>
+</li>
+<li>D4D_EXTIMG_INTD4D
+: <a class="el" href="group__doxd4d__bmp__type.html#gga1e0e6ad9ff632a8020788d2a93330d85a6e6e0a39f48accf7bfbda546e752e3e5">d4d_bmp.h</a>
+</li>
+<li>D4D_EXTIMG_ITEMS_CNT
+: <a class="el" href="group__doxd4d__bmp__type.html#gga1e0e6ad9ff632a8020788d2a93330d85a53f156e33fb3afe09acbe6580729363d">d4d_bmp.h</a>
+</li>
+<li>D4D_EXTIMG_UNKNOWN
+: <a class="el" href="group__doxd4d__bmp__type.html#gga1e0e6ad9ff632a8020788d2a93330d85af8054cee92b468e0e7004090f3a7bce6">d4d_bmp.h</a>
+</li>
+<li>D4D_LINE_THICK
+: <a class="el" href="group__doxd4d__types__type.html#gga18ad463a26076500baed3a9310233e54a084b4d75f87ec6c15e173106d252d371">d4d_types.h</a>
+</li>
+<li>D4D_LINE_THIN
+: <a class="el" href="group__doxd4d__types__type.html#gga18ad463a26076500baed3a9310233e54a8a6e6606ddbcbf64a94546cd052978d8">d4d_types.h</a>
+</li>
+<li>D4D_MOUSE_CURSOR_TYPE_BUSY
+: <a class="el" href="group__doxd4d__mouse__type.html#gga43c99d59fd2a8fa7ca09a3ade6b9f54aa97da6ff223509dd093014cd7e83a2f07">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_CURSOR_TYPE_CNT
+: <a class="el" href="group__doxd4d__mouse__type.html#gga43c99d59fd2a8fa7ca09a3ade6b9f54aa78f7c0762f398e859a1542679e6def3c">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_CURSOR_TYPE_INACTIVE
+: <a class="el" href="group__doxd4d__mouse__type.html#gga43c99d59fd2a8fa7ca09a3ade6b9f54aaf26a0122fc9f378f2abeed0b0485b68d">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_CURSOR_TYPE_NORMAL
+: <a class="el" href="group__doxd4d__mouse__type.html#gga43c99d59fd2a8fa7ca09a3ade6b9f54aa7f9d86656fe79a077bdab4ccccce3755">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_CURSOR_TYPE_UNAVAILABLE
+: <a class="el" href="group__doxd4d__mouse__type.html#gga43c99d59fd2a8fa7ca09a3ade6b9f54aa1946f42acac89b324e68a856a759772e">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_EVENT_DOWN_L
+: <a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba2b46bd60cb2625753d1082aaa83d9eba">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_EVENT_DOWN_M
+: <a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba4a75454df3c2c61416206e510d7d2200">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_EVENT_DOWN_R
+: <a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602baddbf8c6c95613f2c353ac760403a29c4">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_EVENT_MOVE
+: <a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba96243ab9f1c815776761c6df72d0ff03">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_EVENT_SETPOS
+: <a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba74b2bec4b74d8635eb7e1bbc64316f16">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_EVENT_UP_L
+: <a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba0f97b8980ed0710cf581ac2b704090c4">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_EVENT_UP_M
+: <a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602baea04eb4fabd93d929f05d492ee7c3173">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_EVENT_UP_R
+: <a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba5042c4fbd6b9b8aee8ce0c7e5d485b39">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_EVENT_WHEEL_DOWN
+: <a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602bab28caa0a23dda583ed9bbeb84133bbbf">d4d_mouse.h</a>
+</li>
+<li>D4D_MOUSE_EVENT_WHEEL_UP
+: <a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba5b751f8909910f235dc7973835f7375e">d4d_mouse.h</a>
+</li>
+<li>D4D_MSG_DRAW
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aada78bc4fb19bad4ada34a532547ab68d">d4d_base.h</a>
+</li>
+<li>D4D_MSG_DRAWDONE
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aafbb5e4918c7e5dc6cbeec6dcb1a18715">d4d_base.h</a>
+</li>
+<li>D4D_MSG_KEYDOWN
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa689597092221a2c7f115af8baee1927d">d4d_base.h</a>
+</li>
+<li>D4D_MSG_KEYUP
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aad8273646b083aa49c33ccda4dbed08c8">d4d_base.h</a>
+</li>
+<li>D4D_MSG_KILLCAPTURE
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa40e904d13dd263387692a80a450cdac3">d4d_base.h</a>
+</li>
+<li>D4D_MSG_KILLFOCUS
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa6f99053f14d81f3be871577a0b39a03d">d4d_base.h</a>
+</li>
+<li>D4D_MSG_MOUSE_BTN_LEFT_DOWN
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa03e25f6ab2f27d9f890649fd72864f26">d4d_base.h</a>
+</li>
+<li>D4D_MSG_MOUSE_BTN_LEFT_UP
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa40cd69980eac29ec965c5b514caa87dc">d4d_base.h</a>
+</li>
+<li>D4D_MSG_MOUSE_BTN_MIDDLE_DOWN
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aadeb738edebf595c31cd9511be3cd9535">d4d_base.h</a>
+</li>
+<li>D4D_MSG_MOUSE_BTN_MIDDLE_UP
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa81b0134c7431ffa50e40470fd69f6a43">d4d_base.h</a>
+</li>
+<li>D4D_MSG_MOUSE_BTN_RIGHT_DOWN
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aadfa28d2457c62f3b38813f718818a432">d4d_base.h</a>
+</li>
+<li>D4D_MSG_MOUSE_BTN_RIGHT_UP
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aab4fcd902e9cb0d71c6575719a7cbdb1a">d4d_base.h</a>
+</li>
+<li>D4D_MSG_MOUSE_BTN_WHEEL_DOWN
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aac4892d0f08cbebdbb884c3bc328deb5d">d4d_base.h</a>
+</li>
+<li>D4D_MSG_MOUSE_BTN_WHEEL_UP
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aadf38b7fbb2cc4bb22f05dc32594e803c">d4d_base.h</a>
+</li>
+<li>D4D_MSG_MOUSE_ENTER
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aaf065a0998e894866d7a82bad365cbe07">d4d_base.h</a>
+</li>
+<li>D4D_MSG_MOUSE_LEAVE
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa0cf59f41f48162978f5e1ca1cdced437">d4d_base.h</a>
+</li>
+<li>D4D_MSG_NONE
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa3f755d01fd7533cd03c1c24183e8ecf2">d4d_base.h</a>
+</li>
+<li>D4D_MSG_NOSKIP
+: <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">d4d_base.h</a>
+</li>
+<li>D4D_MSG_ONINIT
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa81583830e066532a8613816949c845ee">d4d_base.h</a>
+</li>
+<li>D4D_MSG_SETCAPTURE
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aad6d893d1fc0e7d6d9c4cd2207f887c85">d4d_base.h</a>
+</li>
+<li>D4D_MSG_SETFOCUS
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aaab14ca387f004226d7165a07f9ba2a41">d4d_base.h</a>
+</li>
+<li>D4D_MSG_SKIP
+: <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">d4d_base.h</a>
+</li>
+<li>D4D_MSG_TIMETICK
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa2164b1cfef9161fd50aac07eba245f8e">d4d_base.h</a>
+</li>
+<li>D4D_MSG_TOUCH_AUTO
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aabf0befd7ab2738413c478cadfb5dd429">d4d_base.h</a>
+</li>
+<li>D4D_MSG_TOUCH_LOST
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa8ca4b3fb9dbde4410a258eb983cb250c">d4d_base.h</a>
+</li>
+<li>D4D_MSG_TOUCHED
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa0dc9200ede00936d39ee379a6418030f">d4d_base.h</a>
+</li>
+<li>D4D_MSG_UNTOUCHED
+: <a class="el" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa60077f6761b59e77b4b857bc0bdaef98">d4d_base.h</a>
+</li>
+<li>D4D_ORIENT_LANDSCAPE
+: <a class="el" href="group__doxd4d__types__type.html#gga37e9b6292896fd7540836d9fba4f2fdca66974c49982e7785d392ad880f584f40">d4d_types.h</a>
+</li>
+<li>D4D_ORIENT_LANDSCAPE180
+: <a class="el" href="group__doxd4d__types__type.html#gga37e9b6292896fd7540836d9fba4f2fdca4e99d4171ca63f412b1805ed4e99d488">d4d_types.h</a>
+</li>
+<li>D4D_ORIENT_PORTRAIT
+: <a class="el" href="group__doxd4d__types__type.html#gga37e9b6292896fd7540836d9fba4f2fdcadc7c835a075f20b5735fa5bd8225b6dd">d4d_types.h</a>
+</li>
+<li>D4D_ORIENT_PORTRAIT180
+: <a class="el" href="group__doxd4d__types__type.html#gga37e9b6292896fd7540836d9fba4f2fdca3d231668af6bb69d0d46fa84c5885da8">d4d_types.h</a>
+</li>
+<li>D4D_QUAD_1
+: <a class="el" href="group__doxd4d__types__type.html#ggac7de545bba5994d53d5782eae9ea7dbda6001541082d388cb79d0dd44f0b727df">d4d_types.h</a>
+</li>
+<li>D4D_QUAD_2
+: <a class="el" href="group__doxd4d__types__type.html#ggac7de545bba5994d53d5782eae9ea7dbdac3ebae7cfbe3a4adf745917506283043">d4d_types.h</a>
+</li>
+<li>D4D_QUAD_3
+: <a class="el" href="group__doxd4d__types__type.html#ggac7de545bba5994d53d5782eae9ea7dbda029023978898bfd1ee858fdd362b28cd">d4d_types.h</a>
+</li>
+<li>D4D_QUAD_4
+: <a class="el" href="group__doxd4d__types__type.html#ggac7de545bba5994d53d5782eae9ea7dbdafc32b7e8f7419da24a381f45f5173663">d4d_types.h</a>
+</li>
+<li>D4DHW_PIN_ADC_OFF
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba738fd1e18c7608b73fdcc5b6b0be9014">d4d_lldapi.h</a>
+</li>
+<li>D4DHW_PIN_ADC_ON
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2bab03179a50e7de4f4e91a50534edce8c9">d4d_lldapi.h</a>
+</li>
+<li>D4DHW_PIN_GET
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2baea01db7a226ffffc64d9bc6a0855f558">d4d_lldapi.h</a>
+</li>
+<li>D4DHW_PIN_IN
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba17e314b3b33c75050f2cd603ddfb308b">d4d_lldapi.h</a>
+</li>
+<li>D4DHW_PIN_OUT
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba8b790c13692ee037eb5942e60deb4378">d4d_lldapi.h</a>
+</li>
+<li>D4DHW_PIN_PULL_UP_OFF
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2bae105e79d1daace49423c6e7a9d8b2ed3">d4d_lldapi.h</a>
+</li>
+<li>D4DHW_PIN_PULL_UP_ON
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2baa13c2f4694267676562497c7d610acc9">d4d_lldapi.h</a>
+</li>
+<li>D4DHW_PIN_SET_0
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2babf80a3f0626cac79381265fc69e0740f">d4d_lldapi.h</a>
+</li>
+<li>D4DHW_PIN_SET_1
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba32c91c52a496845c203b6e55378e9e1c">d4d_lldapi.h</a>
+</li>
+<li>D4DLCD_BACKLIGHT_PIN
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga00cd63ffbd57b574f4d2a6f26a0770eca2fef9fcdf9d331556e03bf16e16a5d3f">d4d_lldapi.h</a>
+</li>
+<li>D4DLCD_CS_PIN
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga00cd63ffbd57b574f4d2a6f26a0770ecad66bd1ec83bc5b40c6021e00ba56b188">d4d_lldapi.h</a>
+</li>
+<li>D4DLCD_FLSH_ELEMENT
+: <a class="el" href="group__doxd4d__lldapi__types.html#ggac76a9d7086895254b321491b62360b4faadeea65786a50f5c43b1522a73d2e514">d4d_lldapi.h</a>
+</li>
+<li>D4DLCD_FLSH_FORCE
+: <a class="el" href="group__doxd4d__lldapi__types.html#ggac76a9d7086895254b321491b62360b4fae7aef24cd5ced5497e5d95f07830f4a5">d4d_lldapi.h</a>
+</li>
+<li>D4DLCD_FLSH_SCR_END
+: <a class="el" href="group__doxd4d__lldapi__types.html#ggac76a9d7086895254b321491b62360b4fa88d0a84776d0d0ed594297c43f557587">d4d_lldapi.h</a>
+</li>
+<li>D4DLCD_FLSH_SCR_START
+: <a class="el" href="group__doxd4d__lldapi__types.html#ggac76a9d7086895254b321491b62360b4fa8d5137435a468f187b1ef464aa6368aa">d4d_lldapi.h</a>
+</li>
+<li>D4DLCD_RESET_PIN
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga00cd63ffbd57b574f4d2a6f26a0770ecabe2d0e9c010b0cbff625f14266c1d526">d4d_lldapi.h</a>
+</li>
+<li>D4DTCH_X_MINUS_PIN
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3ac21e6d5278363039e2a413c7c849d19c">d4d_lldapi.h</a>
+</li>
+<li>D4DTCH_X_PLUS_PIN
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3a1cc1f9634d96f8851762eacd9c529cf8">d4d_lldapi.h</a>
+</li>
+<li>D4DTCH_Y_MINUS_PIN
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3a1d88caa29a363e50dbbb8bddd7a89f8e">d4d_lldapi.h</a>
+</li>
+<li>D4DTCH_Y_PLUS_PIN
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3ab872bfac861110c6cbaa6a6cb39e483b">d4d_lldapi.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>Landscape
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga0851863a1af14ff22038e0e4955cd16bae7083172018622dcf04df9a5989b10f4">d4d_lldapi.h</a>
+</li>
+<li>Landscape180
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga0851863a1af14ff22038e0e4955cd16bab0fb4262af428da4f920c050888641c9">d4d_lldapi.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>M52277EVB_PANEL
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faa647d1e47febd5a37859be19a61152bd5">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>MONO_PANEL
+: <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14ae56316e8b1d13b7d6ab8ca27c266f683">d4dlcdhw_k70_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14ae56316e8b1d13b7d6ab8ca27c266f683">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>PANEL_UNUSED
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14adf375b7df22b1e0917a0270fbc44075d">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14adf375b7df22b1e0917a0270fbc44075d">d4dlcdhw_k70_lcdc.h</a>
+</li>
+<li>Portrait
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga0851863a1af14ff22038e0e4955cd16ba99876b062ded0d7192d6f8576b9104b1">d4d_lldapi.h</a>
+</li>
+<li>Portrait180
+: <a class="el" href="group__doxd4d__lldapi__types.html#gga0851863a1af14ff22038e0e4955cd16ba4cc1e9a23c019c5943b8a26478f36bb4">d4d_lldapi.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>RESERVED
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070afe4c21755babfece7188666f75c7386b">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>SHARP_104VGA
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faa8db9f699fb6888658d56bafb8e8a7d4f">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>SHARP_12SVGA
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faa330a834e4ef86b525b4d5e7deca5dfc8">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>SHARP_35QVGA
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faa1839015b61fe1f553b404366838be542">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>SHARP_57QVGA
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faa781acc55022dc7b1fc5f8c9d24bd374f">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+<li>SHARP_64VGA
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faac16753bfc31334ae3cac2e7f768775cc">d4dlcdhw_dragonfire_lcdc.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>TFT_PANEL
+: <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14a297d842dedd87f8d6b95de55e1a1897e">d4dlcdhw_dragonfire_lcdc.h</a>
+, <a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14a297d842dedd87f8d6b95de55e1a1897e">d4dlcdhw_k70_lcdc.h</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:08 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_mouse.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__mouse_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_mouse.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__mouse_8h__dep__incl.gif" border="0" usemap="#d4d__mouse_8hdep" alt=""/></div>
+<map name="d4d__mouse_8hdep" id="d4d__mouse_8hdep">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="5118,80,5172,107"/><area shape="rect" id="node3" href="d4d__base_8c.html" title="D4D driver core and base function c file. " alt="" coords="5,163,93,189"/><area shape="rect" id="node4" href="d4d__basic__draw_8c.html" title="D4D driver basic drawing functions c file. " alt="" coords="118,163,244,189"/><area shape="rect" id="node5" href="d4d__bmp_8c.html" title="D4D driver bmp decoder functions c file. " alt="" coords="269,163,355,189"/><area shape="rect" id="node6" href="d4d__extsrc_8c.html" title="D4D driver extscr functions c file. " alt="" coords="379,163,476,189"/><area shape="rect" id="node7" href="d4d__font_8c.html" title="D4D driver font c file. " alt="" coords="501,163,584,189"/><area shape="rect" id="node8" href="d4d__imgdec__bmp_8c.html" title="D4D driver external bmp files decoder functions c file. " alt="" coords="609,163,743,189"/><area shape="rect" id="node9" href="d4d__imgdec__d4d_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="768,163,899,189"/><area shape="rect" id="node10" href="d4d__imgdec__d4dint_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="923,163,1068,189"/><area shape="rect" id="node11" href="d4d__low_8c.html" title="D4D driver low level graphic function c file. " alt="" coords="1093,163,1173,189"/><area shape="rect" id="node12" href="d4d__math_8c.html" title="D4D driver math functions c file. " alt="" coords="1197,163,1288,189"/><area shape="rect" id="node13" href="d4d__mouse_8c.html" title="D4D driver core and base function c file. " alt="" coords="1313,163,1412,189"/><area shape="rect" id="node14" href="d4d__object_8c.html" title="D4D driver object function c file. " alt="" coords="1437,163,1533,189"/><area shape="rect" id="node15" href="d4d__scheme_8c.html" title="D4D driver color scheme c file. " alt="" coords="1557,163,1664,189"/><area shape="rect" id="node16" href="d4d__screen_8c.html" title="D4D driver screen functions c file. " alt="" coords="1689,163,1788,189"/><area shape="rect" id="node17" href="d4d__string_8c.html" title="D4D driver font c file. " alt="" coords="1813,163,1907,189"/><area shape="rect" id="node18" href="d4d__button_8c.html" title="D4D driver button object c file. " alt="" coords="1931,163,2028,189"/><area shape="rect" id="node19" href="d4d__check__box_8c.html" title="D4D driver check box object c file. " alt="" coords="2053,163,2176,189"/><area shape="rect" id="node20" href="d4d__combo__box_8c.html" title="D4D driver comboBox object c file. " alt="" coords="2201,163,2329,189"/><area shape="rect" id="node21" href="d4d__console_8c.html" title="D4D driver console object c file. " alt="" coords="2353,163,2460,189"/><area shape="rect" id="node22" href="d4d__edit__box_8c.html" title="D4D driver editBox object c file. " alt="" coords="2485,163,2595,189"/><area shape="rect" id="node23" href="d4d__gauge_8c.html" title="D4D driver gauge object c file. " alt="" coords="2620,163,2716,189"/><area shape="rect" id="node24" href="d4d__graph_8c.html" title="D4D driver graph object c file. " alt="" coords="2740,163,2833,189"/><area shape="rect" id="node25" href="d4d__group__box_8c.html" title="D4D driver groupBox object c file. " alt="" coords="2858,163,2979,189"/><area shape="rect" id="node26" href="d4d__icon_8c.html" title="D4D driver icon object c file. " alt="" coords="3004,163,3089,189"/><area shape="rect" id="node27" href="d4d__label_8c.html" title="D4D driver label object c file. " alt="" coords="3113,163,3201,189"/><area shape="rect" id="node28" href="d4d__list__box_8c.html" title="D4D driver listBox object c file. " alt="" coords="3225,163,3332,189"/><area shape="rect" id="node29" href="d4d__menu_8c.html" title="D4D driver menu object c file. " alt="" coords="3356,163,3449,189"/><area shape="rect" id="node30" href="d4d__picture_8c.html" title="D4D driver picture object c file. " alt="" coords="3474,163,3573,189"/><area shape="rect" id="node31" href="d4d__progress__bar_8c.html" title="D4D driver progress_bar object c file. " alt="" coords="3599,163,3735,189"/><area shape="rect" id="node32" href="d4d__radio__button_8c.html" title="D4D driver radio button object c file. " alt="" coords="3759,163,3891,189"/><area shape="rect" id="node33" href="d4d__scroll__bar_8c.html" title="D4D driver scroll_bar object c file. " alt="" coords="3916,163,4033,189"/><area shape="rect" id="node34" href="d4d__slider_8c.html" title="D4D driver slider object c file. " alt="" coords="4058,163,4149,189"/><area shape="rect" id="node35" href="d4d__text__box_8c.html" title="D4D driver textbox object c file. " alt="" coords="4174,163,4284,189"/><area shape="rect" id="node36" href="d4dlcd__frame__buffer_8c.html" title="D4D driver &#45; frame_buffer lcd driver source c file. " alt="" coords="4309,163,4456,189"/><area shape="rect" id="node37" href="d4dlcd___f_s_a506_8c.html" title="D4D driver &#45; fsa506 lcd driver source c file. " alt="" coords="4481,163,4607,189"/><area shape="rect" id="node38" href="d4dlcd__lgdp4531_8c.html" title="D4D driver &#45; lgdp4531 lcd driver source c file. " alt="" coords="4631,163,4761,189"/><area shape="rect" id="node39" href="d4dlcd___l_s020_8c.html" title="D4D driver &#45; ls020 lcd driver source c file. " alt="" coords="4785,163,4900,189"/><area shape="rect" id="node40" href="d4dlcd___s_s_d1289_8c.html" title="D4D driver &#45; ssd1289 lcd driver source c file. " alt="" coords="4924,163,5057,189"/><area shape="rect" id="node41" href="d4dlcd__ssd1926_8c.html" title="D4D driver &#45; ssd1926 lcd driver source c file. " alt="" coords="5082,163,5208,189"/><area shape="rect" id="node42" href="d4dlcd__template_8c.html" title="D4D driver &#45; template lcd driver source c file. " alt="" coords="5233,163,5361,189"/><area shape="rect" id="node43" href="d4dlcdhw__common_8c.html" title="D4D driver &#45; common general low level drivers c file. " alt="" coords="5385,163,5529,189"/><area shape="rect" id="node44" href="d4dlcdhw__dragonfire__lcdc_8c.html" title="D4D driver &#45; dragonfire_lcdc hardware lcd driver source c file. " alt="" coords="5553,155,5692,197"/><area shape="rect" id="node45" href="d4dlcdhw__flexbus__16b_8c.html" title="D4D driver &#45; flexbus_16b hardware lcd driver source c file. " alt="" coords="5716,163,5879,189"/><area shape="rect" id="node46" href="d4dlcdhw__flexbus__8b_8c.html" title="D4D driver &#45; flexbus_8b hardware lcd driver source c file. " alt="" coords="5903,163,6059,189"/><area shape="rect" id="node47" href="d4dlcdhw__gpio6800__8b_8c.html" title="D4D driver &#45; gpio6800_8b hardware lcd driver source c file. " alt="" coords="6083,163,6249,189"/><area shape="rect" id="node48" href="d4dlcdhw__gpio8080__16b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6274,163,6448,189"/><area shape="rect" id="node49" href="d4dlcdhw__gpio8080__8b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6473,163,6639,189"/><area shape="rect" id="node50" href="d4dlcdhw__gpio8080__byte__8b_8c.html" title="D4D driver &#45; gpio8080_byte_8b hardware lcd driver source c file. " alt="" coords="6663,163,6861,189"/><area shape="rect" id="node51" href="d4dlcdhw__k70__lcdc_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="6887,163,7033,189"/><area shape="rect" id="node52" href="d4dlcdhw__twrrgba_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7057,163,7193,189"/><area shape="rect" id="node53" href="d4dlcdhw__twrrgbb_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7217,163,7353,189"/><area shape="rect" id="node54" href="d4dlcdhw__kinetis__spi_8c.html" title="D4D driver &#45; kinetis_spi hardware lcd driver source c file. " alt="" coords="7378,163,7533,189"/><area shape="rect" id="node55" href="d4dlcdhw__mqx__fb_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7559,163,7695,189"/><area shape="rect" id="node56" href="d4dlcdhw__mqx__mpc5125__diu_8c.html" title="D4D driver &#45; mqx_mpc5125_diu hardware lcd driver source c file. " alt="" coords="7719,155,7887,197"/><area shape="rect" id="node57" href="d4dlcdhw__mqx__spi_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7911,163,8053,189"/><area shape="rect" id="node58" href="d4dlcdhw__px__dcu__fb_8c.html" title="D4D driver &#45; px_dcu_fb hardware lcd driver source c file. " alt="" coords="8078,163,8231,189"/><area shape="rect" id="node59" href="d4dlcdhw__s12__spi__16b_8c.html" title="D4D driver &#45; s12_spi_16b hardware lcd driver source c file. " alt="" coords="8255,163,8421,189"/><area shape="rect" id="node60" href="d4dlcdhw__spi__16b_8c.html" title="D4D driver &#45; spi_16b hardware lcd driver source c file. " alt="" coords="8447,163,8585,189"/><area shape="rect" id="node61" href="d4dlcdhw__spi__8b_8c.html" title="D4D driver &#45; spi_8b hardware lcd driver source c file. " alt="" coords="8610,163,8741,189"/><area shape="rect" id="node62" href="d4dlcdhw__swspi__16b_8c.html" title="D4D driver &#45; swspi_16b hardware lcd driver source c file. " alt="" coords="8767,163,8921,189"/><area shape="rect" id="node63" href="d4dlcdhw__spi__swc__8b_8c.html" title="D4D driver &#45; spi_swc_8b hardware lcd driver source c file. " alt="" coords="8945,163,9108,189"/><area shape="rect" id="node64" href="d4dlcdhw__template_8c.html" title="D4D driver &#45; template hardware lcd driver source c file. " alt="" coords="9132,163,9276,189"/><area shape="rect" id="node65" href="d4dlcdhw__template__fb_8c.html" title="D4D driver &#45; template_fb hardware lcd driver source c file. " alt="" coords="9301,163,9461,189"/><area shape="rect" id="node66" href="d4dtch__cr__touch_8c.html" title="D4D driver &#45; cr_touch touch screen driver source c file. " alt="" coords="9486,163,9615,189"/><area shape="rect" id="node67" href="hw__iic__cfg_8h.html" title="HardI2C configuration. " alt="" coords="9640,163,9733,189"/><area shape="rect" id="node69" href="mqx__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9758,163,9836,189"/><area shape="rect" id="node70" href="d4dtch__mcf52277__asp_8c.html" title="D4D driver &#45; mcf52277_asp touch screen driver source c file. " alt="" coords="9861,163,10024,189"/><area shape="rect" id="node71" href="d4dtch__resistive_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10049,163,10175,189"/><area shape="rect" id="node72" href="d4dtch__resistive__mqx_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10199,163,10357,189"/><area shape="rect" id="node73" href="d4dtch__template_8c.html" title="D4D driver &#45; template touch screen driver source c file. " alt="" coords="10382,163,10511,189"/><area shape="rect" id="node74" href="d4dtch___t_s_c2046_8c.html" title="D4D driver &#45; tsc2046 touch screen driver source c file. " alt="" coords="10535,163,10667,189"/><area shape="rect" id="node75" href="d4dtchhw__kinetis__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="10691,163,10852,189"/><area shape="rect" id="node76" href="d4dtchhw__mcf52259__adc_8c.html" title="D4D driver &#45; mcf52259_adc hardware touch screen driver source c file. " alt="" coords="10877,163,11056,189"/><area shape="rect" id="node77" href="d4dtchhw__px__adc_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11081,163,11217,189"/><area shape="rect" id="node78" href="d4dtchhw__s08__adc_8c.html" title="D4D driver &#45; s08_adc hardware touch screen driver source c file. " alt="" coords="11243,163,11387,189"/><area shape="rect" id="node79" href="d4dtchhw__s12__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="11411,163,11555,189"/><area shape="rect" id="node80" href="d4dtchhw__template_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11579,163,11724,189"/><area shape="rect" id="node68" href="hw__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9652,245,9721,272"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga2280651cb8137d21d79f3aca9d0c6d1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__mouse__const.html#ga2280651cb8137d21d79f3aca9d0c6d1e">D4D_MOUSE_BUFF_LENGTH</a></td></tr>
+<tr class="memdesc:ga2280651cb8137d21d79f3aca9d0c6d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D_MOUSE_BUFF_LENGTH constant default declaration.  <a href="group__doxd4d__mouse__const.html#ga2280651cb8137d21d79f3aca9d0c6d1e">More...</a><br/></td></tr>
+<tr class="separator:ga2280651cb8137d21d79f3aca9d0c6d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44d8805173f596ddf3b5f1f514f3db49"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__mouse__const.html#ga44d8805173f596ddf3b5f1f514f3db49">D4D_MOUSE_NORMAL_BMP</a></td></tr>
+<tr class="memdesc:ga44d8805173f596ddf3b5f1f514f3db49"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D_MOUSE_NORMAL_BMP constant default declaration.  <a href="group__doxd4d__mouse__const.html#ga44d8805173f596ddf3b5f1f514f3db49">More...</a><br/></td></tr>
+<tr class="separator:ga44d8805173f596ddf3b5f1f514f3db49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a07ffec09610fae41c1a8db109704a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__mouse__const.html#ga3a07ffec09610fae41c1a8db109704a0">D4D_MOUSE_BUSY_BMP</a></td></tr>
+<tr class="memdesc:ga3a07ffec09610fae41c1a8db109704a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D_MOUSE_BUSY_BMP constant default declaration.  <a href="group__doxd4d__mouse__const.html#ga3a07ffec09610fae41c1a8db109704a0">More...</a><br/></td></tr>
+<tr class="separator:ga3a07ffec09610fae41c1a8db109704a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf82cf65c5853d7b0a1c8634564bc9ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__mouse__const.html#gadf82cf65c5853d7b0a1c8634564bc9ba">D4D_MOUSE_UNAVAILABLE_BMP</a></td></tr>
+<tr class="memdesc:gadf82cf65c5853d7b0a1c8634564bc9ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D_MOUSE_UNAVAILABLE_BMP constant default declaration.  <a href="group__doxd4d__mouse__const.html#gadf82cf65c5853d7b0a1c8634564bc9ba">More...</a><br/></td></tr>
+<tr class="separator:gadf82cf65c5853d7b0a1c8634564bc9ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaacef9a890b0e333f28e6ff5239175ae6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__mouse__const.html#gaacef9a890b0e333f28e6ff5239175ae6">D4D_MOUSE_BMP_KEY_COLOR</a></td></tr>
+<tr class="memdesc:gaacef9a890b0e333f28e6ff5239175ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D_MOUSE_BMP_KEY_COLOR constant default declaration.  <a href="group__doxd4d__mouse__const.html#gaacef9a890b0e333f28e6ff5239175ae6">More...</a><br/></td></tr>
+<tr class="separator:gaacef9a890b0e333f28e6ff5239175ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bde8eeadec2bceae57246becbaf08ae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a4bde8eeadec2bceae57246becbaf08ae">D4D_MOUSE_CURSOR_TYPES</a></td></tr>
+<tr class="separator:a4bde8eeadec2bceae57246becbaf08ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51468a05274cef776d0688d78142320d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a51468a05274cef776d0688d78142320d">D4D_MOUSE_BTN_LEFT_MASK</a></td></tr>
+<tr class="separator:a51468a05274cef776d0688d78142320d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa01b01f748c6cc463013780b81a5f65"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#aaa01b01f748c6cc463013780b81a5f65">D4D_MOUSE_BTN_RIGHT_MASK</a></td></tr>
+<tr class="separator:aaa01b01f748c6cc463013780b81a5f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afec69dd8680008364e5c62152c440ec4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#afec69dd8680008364e5c62152c440ec4">D4D_MOUSE_BTN_MIDDLE_MASK</a></td></tr>
+<tr class="separator:afec69dd8680008364e5c62152c440ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1a672fb20fcc452e2ba10204c33aca6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#aa1a672fb20fcc452e2ba10204c33aca6">D4D_MOUSE_CURSOR_MASK</a></td></tr>
+<tr class="separator:aa1a672fb20fcc452e2ba10204c33aca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa575802546430219e361e1ebc671c22c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#aa575802546430219e361e1ebc671c22c">D4D_MOUSE_VISIBLE_MASK</a></td></tr>
+<tr class="separator:aa575802546430219e361e1ebc671c22c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85ed1c46dc69d601f7b302cc8ca2f279"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a85ed1c46dc69d601f7b302cc8ca2f279">D4D_MOUSE_CURSOR_SHIFT</a></td></tr>
+<tr class="separator:a85ed1c46dc69d601f7b302cc8ca2f279"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga04c38806de369f93a54fab6456130aad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__mouse__macro.html#ga04c38806de369f93a54fab6456130aad">D4D_DECLARE_MOUSE_CURSOR_BMP</a>(name, pNormal, pBusy, pUnavailable, keyColor)</td></tr>
+<tr class="memdesc:ga04c38806de369f93a54fab6456130aad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that define the cursor bitmaps array.  <a href="group__doxd4d__mouse__macro.html#ga04c38806de369f93a54fab6456130aad">More...</a><br/></td></tr>
+<tr class="separator:ga04c38806de369f93a54fab6456130aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc6b5370b4e72059eccded32355f1f36"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#adc6b5370b4e72059eccded32355f1f36">D4D_ClearMouseInputBuffer</a>()</td></tr>
+<tr class="separator:adc6b5370b4e72059eccded32355f1f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa46f794abc88df293f4bc1e8397614e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#aa46f794abc88df293f4bc1e8397614e1">D4D_NewMouseEvent</a>(x, y, event)</td></tr>
+<tr class="separator:aa46f794abc88df293f4bc1e8397614e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58313da46f77fe368c71340d56a41bdc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a58313da46f77fe368c71340d56a41bdc">D4D_GetMouseHoverObject</a>()</td></tr>
+<tr class="separator:a58313da46f77fe368c71340d56a41bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43bece5f7496d70d61e8c3ffb1bd3342"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a43bece5f7496d70d61e8c3ffb1bd3342">D4D_GetMouseCoordinates</a>(pObject)</td></tr>
+<tr class="separator:a43bece5f7496d70d61e8c3ffb1bd3342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1541ad017d2f27c600177773b01f8a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#ae1541ad017d2f27c600177773b01f8a7">D4D_GetMouseRawCoordinates</a>()</td></tr>
+<tr class="separator:ae1541ad017d2f27c600177773b01f8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a144f11bc8b67c2531290d3957fe0e15d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a144f11bc8b67c2531290d3957fe0e15d">D4D_MouseShow</a>(show)</td></tr>
+<tr class="separator:a144f11bc8b67c2531290d3957fe0e15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a573946dad68ec4cf5df39cbbfcc77b83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a573946dad68ec4cf5df39cbbfcc77b83">D4D_MouseVisible</a>()</td></tr>
+<tr class="separator:a573946dad68ec4cf5df39cbbfcc77b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9354dc54e0afeaf99c3c119417d0530e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a9354dc54e0afeaf99c3c119417d0530e">D4D_SetMouseCursorType</a>(cursorIx, force)</td></tr>
+<tr class="separator:a9354dc54e0afeaf99c3c119417d0530e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f54a15d35d57cce1d20d53cdf1d41f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a6f54a15d35d57cce1d20d53cdf1d41f7">D4D_GetMouseCursorType</a>()</td></tr>
+<tr class="separator:a6f54a15d35d57cce1d20d53cdf1d41f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a077188ec8a74ec04f5a7c217e8b88b1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a077188ec8a74ec04f5a7c217e8b88b1e">D4D_ObjectSetMouseCursor</a>(pObj, cursorType)</td></tr>
+<tr class="separator:a077188ec8a74ec04f5a7c217e8b88b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a462c977d8db594ff579a68edd9b8d806"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a462c977d8db594ff579a68edd9b8d806">D4D_ObjectGetMouseCursor</a>(pObj)</td></tr>
+<tr class="separator:a462c977d8db594ff579a68edd9b8d806"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e31e3cd06c0bd549a1f577a215ea28b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a6e31e3cd06c0bd549a1f577a215ea28b">D4D_ScreenSetMouseCursor</a>(pScr, cursorType)</td></tr>
+<tr class="separator:a6e31e3cd06c0bd549a1f577a215ea28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae21bbb85727f1489541d5036b4325bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#aae21bbb85727f1489541d5036b4325bc">D4D_ScreenGetMouseCursor</a>(pScr)</td></tr>
+<tr class="separator:aae21bbb85727f1489541d5036b4325bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24e45294754c416cb87ac5c93e74195a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a24e45294754c416cb87ac5c93e74195a">D4D_MouseInit</a>()</td></tr>
+<tr class="separator:a24e45294754c416cb87ac5c93e74195a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26f47566ba8d9972b75fa8650c626124"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a26f47566ba8d9972b75fa8650c626124">D4D_HandleMouse</a>()</td></tr>
+<tr class="separator:a26f47566ba8d9972b75fa8650c626124"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1686d5e3327623f70566a50fff79fca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#ab1686d5e3327623f70566a50fff79fca">D4D_MouseCenterCursor</a>()</td></tr>
+<tr class="separator:ab1686d5e3327623f70566a50fff79fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64324a0c8ea16616c5f080c82318466c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a64324a0c8ea16616c5f080c82318466c">D4D_MouseChangedScreen</a>()</td></tr>
+<tr class="separator:a64324a0c8ea16616c5f080c82318466c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a33ee3c2bc05783bcb1d55ffccd15b2df"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__mouse_8h.html#a33ee3c2bc05783bcb1d55ffccd15b2df">D4D_MOUSE_STATUS</a></td></tr>
+<tr class="separator:a33ee3c2bc05783bcb1d55ffccd15b2df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga6c21a40335308f78d231b518dc18602b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__mouse__type.html#ga6c21a40335308f78d231b518dc18602b">D4D_MOUSE_EVENT</a> { <a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba96243ab9f1c815776761c6df72d0ff03">D4D_MOUSE_EVENT_MOVE</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba74b2bec4b74d8635eb7e1bbc64316f16">D4D_MOUSE_EVENT_SETPOS</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba2b46bd60cb2625753d1082aaa83d9eba">D4D_MOUSE_EVENT_DOWN_L</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba0f97b8980ed0710cf581ac2b704090c4">D4D_MOUSE_EVENT_UP_L</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602baddbf8c6c95613f2c353ac760403a29c4">D4D_MOUSE_EVENT_DOWN_R</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba5042c4fbd6b9b8aee8ce0c7e5d485b39">D4D_MOUSE_EVENT_UP_R</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba4a75454df3c2c61416206e510d7d2200">D4D_MOUSE_EVENT_DOWN_M</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602baea04eb4fabd93d929f05d492ee7c3173">D4D_MOUSE_EVENT_UP_M</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602ba5b751f8909910f235dc7973835f7375e">D4D_MOUSE_EVENT_WHEEL_UP</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga6c21a40335308f78d231b518dc18602bab28caa0a23dda583ed9bbeb84133bbbf">D4D_MOUSE_EVENT_WHEEL_DOWN</a>
+ }</td></tr>
+<tr class="memdesc:ga6c21a40335308f78d231b518dc18602b"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D_MOUSE_EVENT Mouse input events enumeration.  <a href="group__doxd4d__mouse__type.html#ga6c21a40335308f78d231b518dc18602b">More...</a><br/></td></tr>
+<tr class="separator:ga6c21a40335308f78d231b518dc18602b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43c99d59fd2a8fa7ca09a3ade6b9f54a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__mouse__type.html#ga43c99d59fd2a8fa7ca09a3ade6b9f54a">D4D_MOUSE_CURSOR_TYPE</a> { <a class="el" href="group__doxd4d__mouse__type.html#gga43c99d59fd2a8fa7ca09a3ade6b9f54aaf26a0122fc9f378f2abeed0b0485b68d">D4D_MOUSE_CURSOR_TYPE_INACTIVE</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga43c99d59fd2a8fa7ca09a3ade6b9f54aa7f9d86656fe79a077bdab4ccccce3755">D4D_MOUSE_CURSOR_TYPE_NORMAL</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga43c99d59fd2a8fa7ca09a3ade6b9f54aa97da6ff223509dd093014cd7e83a2f07">D4D_MOUSE_CURSOR_TYPE_BUSY</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga43c99d59fd2a8fa7ca09a3ade6b9f54aa1946f42acac89b324e68a856a759772e">D4D_MOUSE_CURSOR_TYPE_UNAVAILABLE</a>, 
+<a class="el" href="group__doxd4d__mouse__type.html#gga43c99d59fd2a8fa7ca09a3ade6b9f54aa78f7c0762f398e859a1542679e6def3c">D4D_MOUSE_CURSOR_TYPE_CNT</a>
+ }</td></tr>
+<tr class="memdesc:ga43c99d59fd2a8fa7ca09a3ade6b9f54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D_MOUSE_CURSOR_TYPE enumeration type contains all types of MOUSE cursors.  <a href="group__doxd4d__mouse__type.html#ga43c99d59fd2a8fa7ca09a3ade6b9f54a">More...</a><br/></td></tr>
+<tr class="separator:ga43c99d59fd2a8fa7ca09a3ade6b9f54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D Driver mouse functions header file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.3.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Oct-2-2013 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="adc6b5370b4e72059eccded32355f1f36"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_ClearMouseInputBuffer</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00223">223</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a43bece5f7496d70d61e8c3ffb1bd3342"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_GetMouseCoordinates</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pObject</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00226">226</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__list__box_8c_source.html#l00685">D4D_ListBoxOnMessage()</a>, <a class="el" href="d4d__menu_8c_source.html#l00737">D4D_MenuOnMessage()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00506">D4D_ScrlBrOnMessage()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00630">D4D_SldrOnMessage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f54a15d35d57cce1d20d53cdf1d41f7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_GetMouseCursorType</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00231">231</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a58313da46f77fe368c71340d56a41bdc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_GetMouseHoverObject</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00225">225</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__check__box_8c_source.html#l00352">D4D_CheckBoxOnMessage()</a>, and <a class="el" href="d4d__radio__button_8c_source.html#l00385">D4D_RadioButtonOnMessage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1541ad017d2f27c600177773b01f8a7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_GetMouseRawCoordinates</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00227">227</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26f47566ba8d9972b75fa8650c626124"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_HandleMouse</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00243">243</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00159">D4D_Poll()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51468a05274cef776d0688d78142320d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MOUSE_BTN_LEFT_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00151">151</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afec69dd8680008364e5c62152c440ec4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MOUSE_BTN_MIDDLE_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00153">153</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa01b01f748c6cc463013780b81a5f65"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MOUSE_BTN_RIGHT_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00152">152</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa1a672fb20fcc452e2ba10204c33aca6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MOUSE_CURSOR_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00155">155</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a85ed1c46dc69d601f7b302cc8ca2f279"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MOUSE_CURSOR_SHIFT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00158">158</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4bde8eeadec2bceae57246becbaf08ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MOUSE_CURSOR_TYPES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00089">89</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa575802546430219e361e1ebc671c22c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MOUSE_VISIBLE_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00156">156</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab1686d5e3327623f70566a50fff79fca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MouseCenterCursor</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00244">244</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00213">D4D_SetOrientation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a64324a0c8ea16616c5f080c82318466c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MouseChangedScreen</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00245">245</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00702">D4D_ChangeScreen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a24e45294754c416cb87ac5c93e74195a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MouseInit</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00242">242</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00122">D4D_Init()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a144f11bc8b67c2531290d3957fe0e15d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MouseShow</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">show</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00228">228</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a573946dad68ec4cf5df39cbbfcc77b83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MouseVisible</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00229">229</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa46f794abc88df293f4bc1e8397614e1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_NewMouseEvent</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">event&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00224">224</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a462c977d8db594ff579a68edd9b8d806"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_ObjectGetMouseCursor</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pObj</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00233">233</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a077188ec8a74ec04f5a7c217e8b88b1e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_ObjectSetMouseCursor</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pObj, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cursorType&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00232">232</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aae21bbb85727f1489541d5036b4325bc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_ScreenGetMouseCursor</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScr</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00235">235</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e31e3cd06c0bd549a1f577a215ea28b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_ScreenSetMouseCursor</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cursorType&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00234">234</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9354dc54e0afeaf99c3c119417d0530e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SetMouseCursorType</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cursorIx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">force&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00230">230</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a33ee3c2bc05783bcb1d55ffccd15b2df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> <a class="el" href="d4d__mouse_8h.html#a33ee3c2bc05783bcb1d55ffccd15b2df">D4D_MOUSE_STATUS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__mouse_8h_source.html#l00149">149</a> of file <a class="el" href="d4d__mouse_8h_source.html">d4d_mouse.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cde53fb8fb9dbb8ac34f83e30855a423.html">common_files</a></li><li class="navelem"><a class="el" href="d4d__mouse_8h.html">d4d_mouse.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:02 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

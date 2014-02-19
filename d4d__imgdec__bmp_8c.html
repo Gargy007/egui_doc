@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_imgdec_bmp.c File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__imgdec__bmp_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_imgdec_bmp.c File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="d4d_8h_source.html">d4d.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="d4d__lldapi_8h_source.html">common_files/d4d_lldapi.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="d4d__private_8h_source.html">common_files/d4d_private.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="d4d__imgdec__bmp_8h_source.html">common_files/d4d_imgdec_bmp.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for d4d_imgdec_bmp.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__imgdec__bmp_8c__incl.gif" border="0" usemap="#d4d__imgdec__bmp_8c" alt=""/></div>
+<map name="d4d__imgdec__bmp_8c" id="d4d__imgdec__bmp_8c">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="2692,80,2746,107"/><area shape="rect" id="node38" href="d4d__lldapi_8h.html" title="D4D driver &#45; resistive touch screen driver function header file. " alt="" coords="161,80,335,107"/><area shape="rect" id="node39" href="d4d__private_8h.html" title="D4D Driver private header file. " alt="" coords="2770,80,2952,107"/><area shape="rect" id="node14" href="d4d__imgdec__bmp_8h.html" title="D4D driver external bmp files decoder header file. " alt="" coords="30,246,206,287"/><area shape="rect" id="node4" href="d4d__types_8h.html" title="D4D Driver global types header file. " alt="" coords="160,163,336,189"/><area shape="rect" id="node5" href="d4d__base_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="4520,163,4694,189"/><area shape="rect" id="node6" href="d4d__string_8h.html" title="D4D Driver strings header file. " alt="" coords="4769,163,4946,189"/><area shape="rect" id="node8" href="d4d__basic__draw_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="4971,155,5136,197"/><area shape="rect" id="node9" href="d4d__object_8h.html" title="D4D Driver object functions header file. " alt="" coords="5161,163,5340,189"/><area shape="rect" id="node10" href="d4d__low_8h.html" title="D4D driver low level graphic function header file. " alt="" coords="5365,163,5528,189"/><area shape="rect" id="node11" href="d4d__bmp_8h.html" title="D4D driver bmp decoder header file. " alt="" coords="362,163,532,189"/><area shape="rect" id="node15" href="d4d__extsrc_8h.html" title="D4D Driver extscr helper functions header file. " alt="" coords="556,163,738,189"/><area shape="rect" id="node7" href="d4d__font_8h.html" title="D4D Driver fonts header file. " alt="" coords="4710,253,4876,280"/><area shape="rect" id="node16" href="d4d__math_8h.html" title="D4D Driver math helper functions header file. " alt="" coords="762,163,936,189"/><area shape="rect" id="node17" href="d4d__scheme_8h.html" title="D4D Driver color scheme header file. " alt="" coords="961,163,1151,189"/><area shape="rect" id="node18" href="d4d__screen_8h.html" title="D4D driver screen header file. " alt="" coords="1176,163,1360,189"/><area shape="rect" id="node19" href="d4d__mouse_8h.html" title="D4D Driver mouse functions header file. " alt="" coords="1384,163,1568,189"/><area shape="rect" id="node20" href="d4d__picture_8h.html" title="D4D Driver picture object header file. " alt="" coords="1592,155,1731,197"/><area shape="rect" id="node21" href="d4d__button_8h.html" title="D4D Driver button object header file. " alt="" coords="1755,155,1894,197"/><area shape="rect" id="node22" href="d4d__check__box_8h.html" title="D4D Driver check box object header file. " alt="" coords="1918,155,2056,197"/><area shape="rect" id="node23" href="d4d__gauge_8h.html" title="D4D Driver gauge object header file. " alt="" coords="2080,155,2219,197"/><area shape="rect" id="node24" href="d4d__slider_8h.html" title="D4D Driver slider object header file. " alt="" coords="2243,155,2382,197"/><area shape="rect" id="node25" href="d4d__label_8h.html" title="D4D Driver label object header file. " alt="" coords="2406,155,2544,197"/><area shape="rect" id="node26" href="d4d__icon_8h.html" title="D4D Driver icon object header file. " alt="" coords="2568,155,2707,197"/><area shape="rect" id="node27" href="d4d__menu_8h.html" title="D4D Driver menu object header file. " alt="" coords="2731,155,2870,197"/><area shape="rect" id="node28" href="d4d__graph_8h.html" title="D4D Driver graph object header file. " alt="" coords="2894,155,3032,197"/><area shape="rect" id="node29" href="d4d__scroll__bar_8h.html" title="D4D Driver label object header file. " alt="" coords="3056,155,3195,197"/><area shape="rect" id="node30" href="d4d__console_8h.html" title="D4D Driver label object header file. " alt="" coords="3219,155,3358,197"/><area shape="rect" id="node31" href="d4d__text__box_8h.html" title="D4D Driver label object header file. " alt="" coords="3382,155,3520,197"/><area shape="rect" id="node32" href="d4d__progress__bar_8h.html" title="D4D Driver progress_bar object header file. " alt="" coords="3544,155,3683,197"/><area shape="rect" id="node33" href="d4d__radio__button_8h.html" title="D4D Driver radio button object header file. " alt="" coords="3707,155,3846,197"/><area shape="rect" id="node34" href="d4d__group__box_8h.html" title="D4D Driver groupBox object header file. " alt="" coords="3870,155,4008,197"/><area shape="rect" id="node35" href="d4d__list__box_8h.html" title="D4D Driver listBox object header file. " alt="" coords="4032,155,4171,197"/><area shape="rect" id="node36" href="d4d__edit__box_8h.html" title="D4D Driver editBox object header file. " alt="" coords="4195,155,4334,197"/><area shape="rect" id="node37" href="d4d__combo__box_8h.html" title="D4D Driver comboBox object header file. " alt="" coords="4358,155,4496,197"/><area shape="rect" id="node12" href="d4d__imgdec__d4dint_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="459,246,635,287"/><area shape="rect" id="node13" href="d4d__imgdec__d4d_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="259,246,435,287"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a7194053a42881b1b4bc8546b4c8713e9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#a7194053a42881b1b4bc8546b4c8713e9">COUNTER</a></td></tr>
+<tr class="separator:a7194053a42881b1b4bc8546b4c8713e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20a971802b51e37a201825ed45dd73ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#a20a971802b51e37a201825ed45dd73ef">COLOR_IX</a></td></tr>
+<tr class="separator:a20a971802b51e37a201825ed45dd73ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3a0d5a32051fef2a946a99914e711f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#ae3a0d5a32051fef2a946a99914e711f8">OFFSET_X</a></td></tr>
+<tr class="separator:ae3a0d5a32051fef2a946a99914e711f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a701197e83c96ca5814113ebe72527a68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#a701197e83c96ca5814113ebe72527a68">OFFSET_Y</a></td></tr>
+<tr class="separator:a701197e83c96ca5814113ebe72527a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b5014034c9aac136ab8c82c2d16dc82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#a4b5014034c9aac136ab8c82c2d16dc82">COLOR</a></td></tr>
+<tr class="separator:a4b5014034c9aac136ab8c82c2d16dc82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:adf5c1e8010dd3e7ff887c45399fa21d4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#adf5c1e8010dd3e7ff887c45399fa21d4">D4D_PrintPixel</a> (<a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> greyScale)</td></tr>
+<tr class="separator:adf5c1e8010dd3e7ff887c45399fa21d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d402543bb8a9cebfacd00674fa235b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#a6d402543bb8a9cebfacd00674fa235b0">D4D_ImgDecBmpDraw</a> (<a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> x, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> y, <a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *pFileName, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> greyScale, <a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> radius)</td></tr>
+<tr class="separator:a6d402543bb8a9cebfacd00674fa235b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab463fcaa3169c34e584bc775f0193006"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#ab463fcaa3169c34e584bc775f0193006">D4D_ImgDecBmpGetWidth</a> (<a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *pFileName)</td></tr>
+<tr class="separator:ab463fcaa3169c34e584bc775f0193006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81f55e77de661c4d1eb7a777576ca3f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#a81f55e77de661c4d1eb7a777576ca3f3">D4D_ImgDecBmpGetHeight</a> (<a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *pFileName)</td></tr>
+<tr class="separator:a81f55e77de661c4d1eb7a777576ca3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5347c6eff562c0f5501cd6f3fcb9ab3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#a5347c6eff562c0f5501cd6f3fcb9ab3b">D4D_ImgDecBmpGetSize</a> (<a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *pFileName)</td></tr>
+<tr class="separator:a5347c6eff562c0f5501cd6f3fcb9ab3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0793bf9e47c40e842444843253048b4d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#a0793bf9e47c40e842444843253048b4d">D4D_ImgDecBmpGetHeader</a> (<a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *pFileName, void *pBuff, int max_size)</td></tr>
+<tr class="separator:a0793bf9e47c40e842444843253048b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa675558712814176ac78f415ee8cae0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__imgdec__bmp_8c.html#aa675558712814176ac78f415ee8cae0d">D4D_PrintScreenToBMP</a> (<a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *pFileName)</td></tr>
+<tr class="memdesc:aa675558712814176ac78f415ee8cae0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function convert screen into BMP file.  <a href="#aa675558712814176ac78f415ee8cae0d">More...</a><br/></td></tr>
+<tr class="separator:aa675558712814176ac78f415ee8cae0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D driver external bmp files decoder functions c file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.17.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Oct-2-2013 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__imgdec__bmp_8c_source.html">d4d_imgdec_bmp.c</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a4b5014034c9aac136ab8c82c2d16dc82"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COLOR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00067">D4D_ImgDecBmpDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a20a971802b51e37a201825ed45dd73ef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COLOR_IX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00067">D4D_ImgDecBmpDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7194053a42881b1b4bc8546b4c8713e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COUNTER</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00067">D4D_ImgDecBmpDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae3a0d5a32051fef2a946a99914e711f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OFFSET_X</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00067">D4D_ImgDecBmpDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a701197e83c96ca5814113ebe72527a68"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OFFSET_Y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00067">D4D_ImgDecBmpDraw()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a6d402543bb8a9cebfacd00674fa235b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_ImgDecBmpDraw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *&#160;</td>
+          <td class="paramname"><em>pFileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td>
+          <td class="paramname"><em>greyScale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Draw BMP image file </p>
+
+<p>Definition at line <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00067">67</a> of file <a class="el" href="d4d__imgdec__bmp_8c_source.html">d4d_imgdec_bmp.c</a>.</p>
+
+<p>References <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00077">D4D_BITMAPINFOHEADER::bitspp</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00107">D4D_BGRA_S::Blue</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00079">D4D_BITMAPINFOHEADER::bmpBytesz</a>, <a class="el" href="union_d4_d___l_o_n_g___s.html#aa02525efe96ce104f377dfd92c135b0c">D4D_LONG_S::Bytes</a>, <a class="el" href="d4d__imgdec__bmp_8c.html#a4b5014034c9aac136ab8c82c2d16dc82">COLOR</a>, <a class="el" href="d4d__imgdec__bmp_8c.html#a20a971802b51e37a201825ed45dd73ef">COLOR_IX</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00115">D4D_LONG_S::complete</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00078">D4D_BITMAPINFOHEADER::compressType</a>, <a class="el" href="d4d__imgdec__bmp_8c.html#a7194053a42881b1b4bc8546b4c8713e9">COUNTER</a>, <a class="el" href="d4d__base_8h_source.html#l00582">D4D_ASSERT</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00092">D4D_BC_BITFIELDS</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00093">D4D_BC_JPEG</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00094">D4D_BC_PNG</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00089">D4D_BC_RGB</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00091">D4D_BC_RLE4</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00090">D4D_BC_RLE8</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00134">D4D_BITMAP_SIGNATURE</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00139">D4D_BITMAPHEADER_SIZE</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00141">D4D_BITMAPINFOHEADER_SIZE</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00365">D4D_BoxXY()</a>, <a class="el" href="d4d__scheme_8h_source.html#l00434">D4D_COLOR_RGB</a>, <a class="el" href="d4d__scheme_8h_source.html#l00319">D4D_COLOR_RGB555_GET_B</a>, <a class="el" href="d4d__scheme_8h_source.html#l00318">D4D_COLOR_RGB555_GET_G</a>, <a class="el" href="d4d__scheme_8h_source.html#l00317">D4D_COLOR_RGB555_GET_R</a>, <a class="el" href="d4d__base_8h_source.html#l00167">D4D_EXTSRC_BUFF_SIZE</a>, <a class="el" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00298">D4D_FileClose</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00300">D4D_FileRead</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00304">D4D_FileSeek</a>, <a class="el" href="d4d__screen_8c_source.html#l00078">D4D_GetActiveScreen()</a>, <a class="el" href="d4d__low_8c_source.html#l00192">D4D_LCD_PutPixel()</a>, <a class="el" href="d4d__types_8h_source.html#l00290">D4D_LINE_THIN</a>, <a class="el" href="d4d__lldapi_8h.html#a47dbc7d44ac8f57a28206c0a4b73ea4f">D4D_LLD_LCD</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00313">D4D_MemAlloc</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00322">D4D_MemFree</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00054">D4D_PrintPixel()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01015">D4D_RBoxXY()</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00240">D4D_READ16L</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00242">D4D_READ32L</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01282">D4D_RndCornerGetNonPrintedPxl()</a>, <a class="el" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180">D4D_ScreenGetScheme()</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00134">D4D_SEEK_CUR</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00132">D4D_SEEK_SET</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00143">D4D_TMP_PBITMAPHEADER</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__lldapi_8h_source.html#l00138">D4DLCD_FLSH_ELEMENT</a>, <a class="el" href="d4d__lldapi_8h_source.html#l00154">D4DLCD_FUNCTIONS_S::D4DLCD_FlushBuffer</a>, <a class="el" href="d4d__lldapi_8h_source.html#l00152">D4DLCD_FUNCTIONS_S::D4DLCD_Send_PixelColor</a>, <a class="el" href="d4d__lldapi_8h_source.html#l00150">D4DLCD_FUNCTIONS_S::D4DLCD_SetWindow</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00108">D4D_BGRA_S::Green</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00073">D4D_BITMAPINFOHEADER::headerSz</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00075">D4D_BITMAPINFOHEADER::height</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00080">D4D_BITMAPINFOHEADER::hres</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00126">D4D_LONG_S::ll</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00119">D4D_LONG_S::low</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00082">D4D_BITMAPINFOHEADER::ncolors</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00083">D4D_BITMAPINFOHEADER::nimpcolors</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00076">D4D_BITMAPINFOHEADER::nplanes</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__imgdec__bmp_8c.html#ae3a0d5a32051fef2a946a99914e711f8">OFFSET_X</a>, <a class="el" href="d4d__imgdec__bmp_8c.html#a701197e83c96ca5814113ebe72527a68">OFFSET_Y</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00109">D4D_BGRA_S::Red</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00081">D4D_BITMAPINFOHEADER::vres</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00074">D4D_BITMAPINFOHEADER::width</a>, and <a class="el" href="union_d4_d___l_o_n_g___s.html#a6d23c0d513fa5bb849c0ccc03b779815">D4D_LONG_S::Words</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__imgdec__bmp_8c_a6d402543bb8a9cebfacd00674fa235b0_cgraph.gif" border="0" usemap="#d4d__imgdec__bmp_8c_a6d402543bb8a9cebfacd00674fa235b0_cgraph" alt=""/></div>
+<map name="d4d__imgdec__bmp_8c_a6d402543bb8a9cebfacd00674fa235b0_cgraph" id="d4d__imgdec__bmp_8c_a6d402543bb8a9cebfacd00674fa235b0_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__basic__draw__func.html#ga9eb1a2cf63817ad28be6eaf6876c7edb" title="Function draw filled rectangle with outline on the screen. " alt="" coords="677,347,771,373"/><area shape="rect" id="node9" href="group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="242,195,393,221"/><area shape="rect" id="node8" href="d4d__low_8c.html#a7df9d0f828a7a12cbf56d640217a7d8a" title="D4D_LCD_PutPixel" alt="" coords="1270,119,1405,145"/><area shape="rect" id="node10" href="d4d__imgdec__bmp_8c.html#adf5c1e8010dd3e7ff887c45399fa21d4" title="D4D_PrintPixel" alt="" coords="262,296,373,323"/><area shape="rect" id="node12" href="group__doxd4d__basic__draw__func.html#gac00e96f797a9640ec342c688b2117f57" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="266,245,369,272"/><area shape="rect" id="node19" href="group__doxd4d__basic__draw__func.html#gad9ab8d211b69c39ba0327953005c69a9" title="Function that counts number of printed pixels in specified line of circle quadrant. " alt="" coords="208,397,427,424"/><area shape="rect" id="node20" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="235,448,399,475"/><area shape="rect" id="node3" href="d4d__low_8c.html#a65810021c5d69c06eeefa40f0c800b60" title="D4D_LCD_Box" alt="" coords="1283,284,1392,311"/><area shape="rect" id="node5" href="d4d__low_8c.html#a61637753b03d0ada6e7f8ca501f0e70b" title="D4D_LCD_Rect" alt="" coords="862,245,975,272"/><area shape="rect" id="node4" href="d4d__low_8c.html#a450664aef631dc065b1d290e8b75f863" title="D4D_LCD_SwapCoor" alt="" coords="1454,233,1599,260"/><area shape="rect" id="node6" href="d4d__low_8c.html#a3aca803259156c65646263edab27275a" title="D4D_LCD_Line" alt="" coords="1079,195,1190,221"/><area shape="rect" id="node7" href="group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b" title="Calculation of absolute value &#45; 16 bit. " alt="" coords="1292,233,1383,260"/><area shape="rect" id="node11" href="group__doxd4d__scheme__func.html#ga4ee216fb62548357ee1b19f460d29087" title="Compute the grayscale color. " alt="" coords="475,296,611,323"/><area shape="rect" id="node13" href="d4d__low_8c.html#a69f1735f580a19e4a777736f017cf0c1" title="D4D_LCD_RBox" alt="" coords="483,245,602,272"/><area shape="rect" id="node18" href="d4d__low_8c.html#a8f9c6276de8111853b9b73e87e2b004a" title="D4D_LCD_RRect" alt="" coords="481,195,604,221"/><area shape="rect" id="node14" href="d4d__low_8c.html#a0b3fcdb3eb314f2fe830cc257627de8c" title="D4D_LCD_QCircle" alt="" coords="659,195,789,221"/><area shape="rect" id="node15" href="d4d__low_8c.html#a8567ee4b31298bfe6f6e7959bcf5456f" title="D4D_LCD_QPlot8points" alt="" coords="838,195,999,221"/><area shape="rect" id="node16" href="d4d__low_8c.html#a97e36119e00202bde366aab6f0c61672" title="D4D_LCD_QPlot4pointsfill" alt="" coords="1048,245,1221,272"/><area shape="rect" id="node17" href="d4d__low_8c.html#afde60e05692fa0721250ce6925313e17" title="D4D_LCD_QPlot4points" alt="" coords="1054,144,1215,171"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0793bf9e47c40e842444843253048b4d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int D4D_ImgDecBmpGetHeader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *&#160;</td>
+          <td class="paramname"><em>pFileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pBuff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get header - BMP image file </p>
+
+<p>Definition at line <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00783">783</a> of file <a class="el" href="d4d__imgdec__bmp_8c_source.html">d4d_imgdec_bmp.c</a>.</p>
+
+<p>References <a class="el" href="d4d__base_8h_source.html#l00582">D4D_ASSERT</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00134">D4D_BITMAP_SIGNATURE</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00139">D4D_BITMAPHEADER_SIZE</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00141">D4D_BITMAPINFOHEADER_SIZE</a>, <a class="el" href="d4d__base_8h_source.html#l00167">D4D_EXTSRC_BUFF_SIZE</a>, <a class="el" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00298">D4D_FileClose</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00300">D4D_FileRead</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00240">D4D_READ16L</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00242">D4D_READ32L</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00143">D4D_TMP_PBITMAPHEADER</a>, and <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00754">D4D_ImgDecBmpGetSize()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__imgdec__bmp_8c_a0793bf9e47c40e842444843253048b4d_icgraph.gif" border="0" usemap="#d4d__imgdec__bmp_8c_a0793bf9e47c40e842444843253048b4d_icgraph" alt=""/></div>
+<map name="d4d__imgdec__bmp_8c_a0793bf9e47c40e842444843253048b4d_icgraph" id="d4d__imgdec__bmp_8c_a0793bf9e47c40e842444843253048b4d_icgraph">
+<area shape="rect" id="node2" href="d4d__imgdec__bmp_8h.html#a5347c6eff562c0f5501cd6f3fcb9ab3b" title="D4D_ImgDecBmpGetSize" alt="" coords="241,31,413,57"/><area shape="rect" id="node3" href="d4d__imgdec__bmp_8h.html#ab463fcaa3169c34e584bc775f0193006" title="D4D_ImgDecBmpGetWidth" alt="" coords="463,5,643,32"/><area shape="rect" id="node4" href="d4d__imgdec__bmp_8h.html#a81f55e77de661c4d1eb7a777576ca3f3" title="D4D_ImgDecBmpGetHeight" alt="" coords="462,56,645,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a81f55e77de661c4d1eb7a777576ca3f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> D4D_ImgDecBmpGetHeight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *&#160;</td>
+          <td class="paramname"><em>pFileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get height - BMP image file </p>
+
+<p>Definition at line <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00741">741</a> of file <a class="el" href="d4d__imgdec__bmp_8c_source.html">d4d_imgdec_bmp.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00233">D4D_SIZE::cy</a>, and <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00754">D4D_ImgDecBmpGetSize()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__imgdec__bmp_8c_a81f55e77de661c4d1eb7a777576ca3f3_cgraph.gif" border="0" usemap="#d4d__imgdec__bmp_8c_a81f55e77de661c4d1eb7a777576ca3f3_cgraph" alt=""/></div>
+<map name="d4d__imgdec__bmp_8c_a81f55e77de661c4d1eb7a777576ca3f3_cgraph" id="d4d__imgdec__bmp_8c_a81f55e77de661c4d1eb7a777576ca3f3_cgraph">
+<area shape="rect" id="node2" href="d4d__imgdec__bmp_8c.html#a5347c6eff562c0f5501cd6f3fcb9ab3b" title="D4D_ImgDecBmpGetSize" alt="" coords="238,5,410,32"/><area shape="rect" id="node3" href="d4d__imgdec__bmp_8c.html#a0793bf9e47c40e842444843253048b4d" title="D4D_ImgDecBmpGetHeader" alt="" coords="459,5,645,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5347c6eff562c0f5501cd6f3fcb9ab3b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a> D4D_ImgDecBmpGetSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *&#160;</td>
+          <td class="paramname"><em>pFileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get size - BMP image file </p>
+
+<p>Definition at line <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00754">754</a> of file <a class="el" href="d4d__imgdec__bmp_8c_source.html">d4d_imgdec_bmp.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00232">D4D_SIZE::cx</a>, <a class="el" href="d4d__types_8h_source.html#l00233">D4D_SIZE::cy</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00141">D4D_BITMAPINFOHEADER_SIZE</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00783">D4D_ImgDecBmpGetHeader()</a>, <a class="el" href="d4d__base_8c_source.html#l00074">d4d_size_zero</a>, <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00075">D4D_BITMAPINFOHEADER::height</a>, and <a class="el" href="d4d__imgdec__bmp_8h_source.html#l00074">D4D_BITMAPINFOHEADER::width</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00741">D4D_ImgDecBmpGetHeight()</a>, and <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00729">D4D_ImgDecBmpGetWidth()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__imgdec__bmp_8c_a5347c6eff562c0f5501cd6f3fcb9ab3b_cgraph.gif" border="0" usemap="#d4d__imgdec__bmp_8c_a5347c6eff562c0f5501cd6f3fcb9ab3b_cgraph" alt=""/></div>
+<map name="d4d__imgdec__bmp_8c_a5347c6eff562c0f5501cd6f3fcb9ab3b_cgraph" id="d4d__imgdec__bmp_8c_a5347c6eff562c0f5501cd6f3fcb9ab3b_cgraph">
+<area shape="rect" id="node2" href="d4d__imgdec__bmp_8c.html#a0793bf9e47c40e842444843253048b4d" title="D4D_ImgDecBmpGetHeader" alt="" coords="227,5,413,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__imgdec__bmp_8c_a5347c6eff562c0f5501cd6f3fcb9ab3b_icgraph.gif" border="0" usemap="#d4d__imgdec__bmp_8c_a5347c6eff562c0f5501cd6f3fcb9ab3b_icgraph" alt=""/></div>
+<map name="d4d__imgdec__bmp_8c_a5347c6eff562c0f5501cd6f3fcb9ab3b_icgraph" id="d4d__imgdec__bmp_8c_a5347c6eff562c0f5501cd6f3fcb9ab3b_icgraph">
+<area shape="rect" id="node2" href="d4d__imgdec__bmp_8h.html#a81f55e77de661c4d1eb7a777576ca3f3" title="D4D_ImgDecBmpGetHeight" alt="" coords="227,5,410,32"/><area shape="rect" id="node3" href="d4d__imgdec__bmp_8h.html#ab463fcaa3169c34e584bc775f0193006" title="D4D_ImgDecBmpGetWidth" alt="" coords="229,56,409,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab463fcaa3169c34e584bc775f0193006"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> D4D_ImgDecBmpGetWidth </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *&#160;</td>
+          <td class="paramname"><em>pFileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get width - BMP image file </p>
+
+<p>Definition at line <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00729">729</a> of file <a class="el" href="d4d__imgdec__bmp_8c_source.html">d4d_imgdec_bmp.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00232">D4D_SIZE::cx</a>, and <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00754">D4D_ImgDecBmpGetSize()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__imgdec__bmp_8c_ab463fcaa3169c34e584bc775f0193006_cgraph.gif" border="0" usemap="#d4d__imgdec__bmp_8c_ab463fcaa3169c34e584bc775f0193006_cgraph" alt=""/></div>
+<map name="d4d__imgdec__bmp_8c_ab463fcaa3169c34e584bc775f0193006_cgraph" id="d4d__imgdec__bmp_8c_ab463fcaa3169c34e584bc775f0193006_cgraph">
+<area shape="rect" id="node2" href="d4d__imgdec__bmp_8c.html#a5347c6eff562c0f5501cd6f3fcb9ab3b" title="D4D_ImgDecBmpGetSize" alt="" coords="235,5,407,32"/><area shape="rect" id="node3" href="d4d__imgdec__bmp_8c.html#a0793bf9e47c40e842444843253048b4d" title="D4D_ImgDecBmpGetHeader" alt="" coords="456,5,643,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="adf5c1e8010dd3e7ff887c45399fa21d4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void D4D_PrintPixel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td>
+          <td class="paramname"><em>greyScale</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00054">54</a> of file <a class="el" href="d4d__imgdec__bmp_8c_source.html">d4d_imgdec_bmp.c</a>.</p>
+
+<p>References <a class="el" href="d4d__scheme_8c_source.html#l00333">D4D_GetGreyScale()</a>, <a class="el" href="d4d__lldapi_8h.html#a47dbc7d44ac8f57a28206c0a4b73ea4f">D4D_LLD_LCD</a>, and <a class="el" href="d4d__lldapi_8h_source.html#l00152">D4DLCD_FUNCTIONS_S::D4DLCD_Send_PixelColor</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00067">D4D_ImgDecBmpDraw()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__imgdec__bmp_8c_adf5c1e8010dd3e7ff887c45399fa21d4_cgraph.gif" border="0" usemap="#d4d__imgdec__bmp_8c_adf5c1e8010dd3e7ff887c45399fa21d4_cgraph" alt=""/></div>
+<map name="d4d__imgdec__bmp_8c_adf5c1e8010dd3e7ff887c45399fa21d4_cgraph" id="d4d__imgdec__bmp_8c_adf5c1e8010dd3e7ff887c45399fa21d4_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__scheme__func.html#ga4ee216fb62548357ee1b19f460d29087" title="Compute the grayscale color. " alt="" coords="165,5,301,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__imgdec__bmp_8c_adf5c1e8010dd3e7ff887c45399fa21d4_icgraph.gif" border="0" usemap="#d4d__imgdec__bmp_8c_adf5c1e8010dd3e7ff887c45399fa21d4_icgraph" alt=""/></div>
+<map name="d4d__imgdec__bmp_8c_adf5c1e8010dd3e7ff887c45399fa21d4_icgraph" id="d4d__imgdec__bmp_8c_adf5c1e8010dd3e7ff887c45399fa21d4_icgraph">
+<area shape="rect" id="node2" href="d4d__imgdec__bmp_8h.html#a6d402543bb8a9cebfacd00674fa235b0" title="D4D_ImgDecBmpDraw" alt="" coords="165,5,320,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa675558712814176ac78f415ee8cae0d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> D4D_PrintScreenToBMP </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *&#160;</td>
+          <td class="paramname"><em>pFileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function convert screen into BMP file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pFileName</td><td>- pointer file name string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>D4D_TRUE - The BMP file has been saved, D4D_FALSE - error in creating BMP file </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The eGUI external buffer size MUST be &gt;= 64 </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00862">862</a> of file <a class="el" href="d4d__imgdec__bmp_8c_source.html">d4d_imgdec_bmp.c</a>.</p>
+
+<p>References <a class="el" href="d4d__scheme_8h_source.html#l00438">D4D_COLOR_GET_B</a>, <a class="el" href="d4d__scheme_8h_source.html#l00437">D4D_COLOR_GET_G</a>, <a class="el" href="d4d__scheme_8h_source.html#l00436">D4D_COLOR_GET_R</a>, <a class="el" href="d4d__base_8h_source.html#l00167">D4D_EXTSRC_BUFF_SIZE</a>, <a class="el" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00298">D4D_FileClose</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00302">D4D_FileWrite</a>, <a class="el" href="d4d__low_8c_source.html#l00147">D4D_LCD_GetOrientation()</a>, <a class="el" href="d4d__lldapi_8h.html#a47dbc7d44ac8f57a28206c0a4b73ea4f">D4D_LLD_LCD</a>, <a class="el" href="d4d__types_8h_source.html#l00340">D4D_ORIENT_PORTRAIT</a>, <a class="el" href="d4d__types_8h_source.html#l00341">D4D_ORIENT_PORTRAIT180</a>, <a class="el" href="d4d__base_8h_source.html#l00101">D4D_SCREEN_SIZE_LONGER_SIDE</a>, <a class="el" href="d4d__base_8h_source.html#l00108">D4D_SCREEN_SIZE_SHORTER_SIDE</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__base_8h_source.html#l00503">D4D_UNUSED</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00254">D4D_WRITE16L</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00256">D4D_WRITE32L</a>, <a class="el" href="d4d__lldapi_8h_source.html#l00153">D4DLCD_FUNCTIONS_S::D4DLCD_Read_PixelColor</a>, <a class="el" href="d4d__lldapi_8h_source.html#l00150">D4DLCD_FUNCTIONS_S::D4DLCD_SetWindow</a>, and <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__imgdec__bmp_8c_aa675558712814176ac78f415ee8cae0d_cgraph.gif" border="0" usemap="#d4d__imgdec__bmp_8c_aa675558712814176ac78f415ee8cae0d_cgraph" alt=""/></div>
+<map name="d4d__imgdec__bmp_8c_aa675558712814176ac78f415ee8cae0d_cgraph" id="d4d__imgdec__bmp_8c_aa675558712814176ac78f415ee8cae0d_cgraph">
+<area shape="rect" id="node2" href="d4d__low_8c.html#a835dc1a38346601cd9d64734fc3cf918" title="D4D_LCD_GetOrientation" alt="" coords="219,5,389,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cde53fb8fb9dbb8ac34f83e30855a423.html">common_files</a></li><li class="navelem"><a class="el" href="d4d__imgdec__bmp_8c.html">d4d_imgdec_bmp.c</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:02 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

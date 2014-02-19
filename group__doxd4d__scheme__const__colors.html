@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D SCHEME Defined standard colors</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__scheme__const__colors.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D SCHEME Defined standard colors<div class="ingroups"><a class="el" href="group__doxd4d__scheme__const.html">D4D SCHEME API Constant Specification</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D SCHEME Defined standard colors:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__scheme__const__colors.gif" border="0" alt="" usemap="#group____doxd4d____scheme____const____colors"/>
+<map name="group____doxd4d____scheme____const____colors" id="group____doxd4d____scheme____const____colors">
+<area shape="rect" id="node2" href="group__doxd4d__scheme__const.html" title="D4D SCHEME API Constant\l Specification" alt="" coords="6,5,194,46"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga3be91412384f8a4ab80b195161e9083a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga3be91412384f8a4ab80b195161e9083a">D4D_COLOR_DARK_BLUE</a></td></tr>
+<tr class="memdesc:ga3be91412384f8a4ab80b195161e9083a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dark Blue color (0, 0, 152)  <a href="#ga3be91412384f8a4ab80b195161e9083a">More...</a><br/></td></tr>
+<tr class="separator:ga3be91412384f8a4ab80b195161e9083a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga28b5659c43f96984806c7cd314c981f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga28b5659c43f96984806c7cd314c981f5">D4D_COLOR_BRIGHT_BLUE</a></td></tr>
+<tr class="memdesc:ga28b5659c43f96984806c7cd314c981f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bright Blue color (222, 219, 255)  <a href="#ga28b5659c43f96984806c7cd314c981f5">More...</a><br/></td></tr>
+<tr class="separator:ga28b5659c43f96984806c7cd314c981f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga94ffb4f411ea3aacba1b56eb233069bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga94ffb4f411ea3aacba1b56eb233069bb">D4D_COLOR_BLUE</a></td></tr>
+<tr class="memdesc:ga94ffb4f411ea3aacba1b56eb233069bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blue color (0, 0, 255)  <a href="#ga94ffb4f411ea3aacba1b56eb233069bb">More...</a><br/></td></tr>
+<tr class="separator:ga94ffb4f411ea3aacba1b56eb233069bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa4eba62f7d3f041634a20dc1be38786"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#gaaa4eba62f7d3f041634a20dc1be38786">D4D_COLOR_CYAN</a></td></tr>
+<tr class="memdesc:gaaa4eba62f7d3f041634a20dc1be38786"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cyan color (0, 255, 255)  <a href="#gaaa4eba62f7d3f041634a20dc1be38786">More...</a><br/></td></tr>
+<tr class="separator:gaaa4eba62f7d3f041634a20dc1be38786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae309e49baebcbb7acf51f1eba7cfafde"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#gae309e49baebcbb7acf51f1eba7cfafde">D4D_COLOR_BRIGHT_YELLOW</a></td></tr>
+<tr class="memdesc:gae309e49baebcbb7acf51f1eba7cfafde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bright Yellow color (255, 220, 120)  <a href="#gae309e49baebcbb7acf51f1eba7cfafde">More...</a><br/></td></tr>
+<tr class="separator:gae309e49baebcbb7acf51f1eba7cfafde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5b29a1a02faeab747a96aa8093c5e11"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#gac5b29a1a02faeab747a96aa8093c5e11">D4D_COLOR_YELLOW</a></td></tr>
+<tr class="memdesc:gac5b29a1a02faeab747a96aa8093c5e11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Yellow color (255, 255, 0)  <a href="#gac5b29a1a02faeab747a96aa8093c5e11">More...</a><br/></td></tr>
+<tr class="separator:gac5b29a1a02faeab747a96aa8093c5e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4db77705192e5db69d900124bf661ed7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga4db77705192e5db69d900124bf661ed7">D4D_COLOR_ORANGE</a></td></tr>
+<tr class="memdesc:ga4db77705192e5db69d900124bf661ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orange color (255, 152, 96)  <a href="#ga4db77705192e5db69d900124bf661ed7">More...</a><br/></td></tr>
+<tr class="separator:ga4db77705192e5db69d900124bf661ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7aadf6a32dc65746b3e629e216585818"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga7aadf6a32dc65746b3e629e216585818">D4D_COLOR_BRIGHT_RED</a></td></tr>
+<tr class="memdesc:ga7aadf6a32dc65746b3e629e216585818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bright Red color (255, 28, 24)  <a href="#ga7aadf6a32dc65746b3e629e216585818">More...</a><br/></td></tr>
+<tr class="separator:ga7aadf6a32dc65746b3e629e216585818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad94b0e50210c5d0d3affcbf362f90f3b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#gad94b0e50210c5d0d3affcbf362f90f3b">D4D_COLOR_RED</a></td></tr>
+<tr class="memdesc:gad94b0e50210c5d0d3affcbf362f90f3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Red color (255, 0, 0)  <a href="#gad94b0e50210c5d0d3affcbf362f90f3b">More...</a><br/></td></tr>
+<tr class="separator:gad94b0e50210c5d0d3affcbf362f90f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8b165eb5022957401bedcca8d0869fea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga8b165eb5022957401bedcca8d0869fea">D4D_COLOR_DARK_RED</a></td></tr>
+<tr class="memdesc:ga8b165eb5022957401bedcca8d0869fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dark Red color (152, 0, 0)  <a href="#ga8b165eb5022957401bedcca8d0869fea">More...</a><br/></td></tr>
+<tr class="separator:ga8b165eb5022957401bedcca8d0869fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77f25ea856a0104442c2b696719054c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga77f25ea856a0104442c2b696719054c9">D4D_COLOR_MAGENTA</a></td></tr>
+<tr class="memdesc:ga77f25ea856a0104442c2b696719054c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Magenta color (255, 0, 255)  <a href="#ga77f25ea856a0104442c2b696719054c9">More...</a><br/></td></tr>
+<tr class="separator:ga77f25ea856a0104442c2b696719054c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga596c0ac9bdb57cd6843cbe793adae3bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga596c0ac9bdb57cd6843cbe793adae3bd">D4D_COLOR_BRIGHT_GREEN</a></td></tr>
+<tr class="memdesc:ga596c0ac9bdb57cd6843cbe793adae3bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bright Green color (152, 255, 152)  <a href="#ga596c0ac9bdb57cd6843cbe793adae3bd">More...</a><br/></td></tr>
+<tr class="separator:ga596c0ac9bdb57cd6843cbe793adae3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad797248cb46af97a5b134dd2ae2b60c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#gad797248cb46af97a5b134dd2ae2b60c2">D4D_COLOR_GREEN</a></td></tr>
+<tr class="memdesc:gad797248cb46af97a5b134dd2ae2b60c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Green color (0, 255, 0)  <a href="#gad797248cb46af97a5b134dd2ae2b60c2">More...</a><br/></td></tr>
+<tr class="separator:gad797248cb46af97a5b134dd2ae2b60c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8293766310924a766219bbeb78884df7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga8293766310924a766219bbeb78884df7">D4D_COLOR_DARK_GREEN</a></td></tr>
+<tr class="memdesc:ga8293766310924a766219bbeb78884df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dark Green color (0, 128, 0)  <a href="#ga8293766310924a766219bbeb78884df7">More...</a><br/></td></tr>
+<tr class="separator:ga8293766310924a766219bbeb78884df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga794afd960c778d996ef374eb6c3c3d12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga794afd960c778d996ef374eb6c3c3d12">D4D_COLOR_BRIGHT_GREY</a></td></tr>
+<tr class="memdesc:ga794afd960c778d996ef374eb6c3c3d12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bright Grey color (48, 48, 48)  <a href="#ga794afd960c778d996ef374eb6c3c3d12">More...</a><br/></td></tr>
+<tr class="separator:ga794afd960c778d996ef374eb6c3c3d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7c3a7bbccb5d97abe1060576f74095a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#gae7c3a7bbccb5d97abe1060576f74095a">D4D_COLOR_LIGHT_GREY</a></td></tr>
+<tr class="memdesc:gae7c3a7bbccb5d97abe1060576f74095a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light Grey color (120, 120, 120)  <a href="#gae7c3a7bbccb5d97abe1060576f74095a">More...</a><br/></td></tr>
+<tr class="separator:gae7c3a7bbccb5d97abe1060576f74095a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2cc6b796e16cc91e40e510b485e45cb0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga2cc6b796e16cc91e40e510b485e45cb0">D4D_COLOR_GREY</a></td></tr>
+<tr class="memdesc:ga2cc6b796e16cc91e40e510b485e45cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grey color (24, 24, 24)  <a href="#ga2cc6b796e16cc91e40e510b485e45cb0">More...</a><br/></td></tr>
+<tr class="separator:ga2cc6b796e16cc91e40e510b485e45cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga07b6855b21051a0d77a6d9ed20a2d657"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga07b6855b21051a0d77a6d9ed20a2d657">D4D_COLOR_WHITE</a></td></tr>
+<tr class="memdesc:ga07b6855b21051a0d77a6d9ed20a2d657"><td class="mdescLeft">&#160;</td><td class="mdescRight">White color (255, 255, 255)  <a href="#ga07b6855b21051a0d77a6d9ed20a2d657">More...</a><br/></td></tr>
+<tr class="separator:ga07b6855b21051a0d77a6d9ed20a2d657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga76d1733da944d3df082345bf4f22bdc7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__scheme__const__colors.html#ga76d1733da944d3df082345bf4f22bdc7">D4D_COLOR_BLACK</a></td></tr>
+<tr class="memdesc:ga76d1733da944d3df082345bf4f22bdc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Black color (0, 0, 0)  <a href="#ga76d1733da944d3df082345bf4f22bdc7">More...</a><br/></td></tr>
+<tr class="separator:ga76d1733da944d3df082345bf4f22bdc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the list of standard colors. The list can be extend to any user colors. The definitions in brackets are in (R,G,B) </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ga76d1733da944d3df082345bf4f22bdc7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_BLACK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Black color (0, 0, 0) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00119">119</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga94ffb4f411ea3aacba1b56eb233069bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_BLUE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Blue color (0, 0, 255) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00103">103</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga28b5659c43f96984806c7cd314c981f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_BRIGHT_BLUE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bright Blue color (222, 219, 255) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00102">102</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga596c0ac9bdb57cd6843cbe793adae3bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_BRIGHT_GREEN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bright Green color (152, 255, 152) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00112">112</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga794afd960c778d996ef374eb6c3c3d12"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_BRIGHT_GREY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bright Grey color (48, 48, 48) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00115">115</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga7aadf6a32dc65746b3e629e216585818"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_BRIGHT_RED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bright Red color (255, 28, 24) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00108">108</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gae309e49baebcbb7acf51f1eba7cfafde"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_BRIGHT_YELLOW</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bright Yellow color (255, 220, 120) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00105">105</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaaa4eba62f7d3f041634a20dc1be38786"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_CYAN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cyan color (0, 255, 255) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00104">104</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga3be91412384f8a4ab80b195161e9083a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_DARK_BLUE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dark Blue color (0, 0, 152) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00101">101</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga8293766310924a766219bbeb78884df7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_DARK_GREEN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dark Green color (0, 128, 0) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00114">114</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga8b165eb5022957401bedcca8d0869fea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_DARK_RED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dark Red color (152, 0, 0) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00110">110</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gad797248cb46af97a5b134dd2ae2b60c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_GREEN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Green color (0, 255, 0) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00113">113</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga2cc6b796e16cc91e40e510b485e45cb0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_GREY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Grey color (24, 24, 24) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00117">117</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gae7c3a7bbccb5d97abe1060576f74095a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_LIGHT_GREY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Light Grey color (120, 120, 120) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00116">116</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga77f25ea856a0104442c2b696719054c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_MAGENTA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Magenta color (255, 0, 255) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00111">111</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga4db77705192e5db69d900124bf661ed7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_ORANGE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Orange color (255, 152, 96) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00107">107</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gad94b0e50210c5d0d3affcbf362f90f3b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_RED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Red color (255, 0, 0) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00109">109</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga07b6855b21051a0d77a6d9ed20a2d657"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_WHITE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>White color (255, 255, 255) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00118">118</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gac5b29a1a02faeab747a96aa8093c5e11"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_YELLOW</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Yellow color (255, 255, 0) </p>
+
+<p>Definition at line <a class="el" href="d4d__scheme_8h_source.html#l00106">106</a> of file <a class="el" href="d4d__scheme_8h_source.html">d4d_scheme.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:04 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

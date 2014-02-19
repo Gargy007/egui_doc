@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_progress_bar.c File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__progress__bar_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_progress_bar.c File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="d4d_8h_source.html">d4d.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="d4d__private_8h_source.html">common_files/d4d_private.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for d4d_progress_bar.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c__incl.gif" border="0" usemap="#d4d__progress__bar_8c" alt=""/></div>
+<map name="d4d__progress__bar_8c" id="d4d__progress__bar_8c">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="2890,80,2944,107"/><area shape="rect" id="node38" href="d4d__private_8h.html" title="D4D Driver private header file. " alt="" coords="2969,80,3151,107"/><area shape="rect" id="node4" href="d4d__types_8h.html" title="D4D Driver global types header file. " alt="" coords="139,163,316,189"/><area shape="rect" id="node5" href="d4d__base_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="341,163,515,189"/><area shape="rect" id="node6" href="d4d__string_8h.html" title="D4D Driver strings header file. " alt="" coords="1171,163,1348,189"/><area shape="rect" id="node8" href="d4d__basic__draw_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="589,155,755,197"/><area shape="rect" id="node9" href="d4d__object_8h.html" title="D4D Driver object functions header file. " alt="" coords="779,163,959,189"/><area shape="rect" id="node10" href="d4d__low_8h.html" title="D4D driver low level graphic function header file. " alt="" coords="983,163,1147,189"/><area shape="rect" id="node11" href="d4d__bmp_8h.html" title="D4D driver bmp decoder header file. " alt="" coords="1579,163,1749,189"/><area shape="rect" id="node15" href="d4d__extsrc_8h.html" title="D4D Driver extscr helper functions header file. " alt="" coords="1373,163,1555,189"/><area shape="rect" id="node7" href="d4d__font_8h.html" title="D4D Driver fonts header file. " alt="" coords="822,253,988,280"/><area shape="rect" id="node16" href="d4d__math_8h.html" title="D4D Driver math helper functions header file. " alt="" coords="1774,163,1948,189"/><area shape="rect" id="node17" href="d4d__scheme_8h.html" title="D4D Driver color scheme header file. " alt="" coords="1973,163,2163,189"/><area shape="rect" id="node18" href="d4d__screen_8h.html" title="D4D driver screen header file. " alt="" coords="2188,163,2372,189"/><area shape="rect" id="node19" href="d4d__mouse_8h.html" title="D4D Driver mouse functions header file. " alt="" coords="2396,163,2580,189"/><area shape="rect" id="node20" href="d4d__picture_8h.html" title="D4D Driver picture object header file. " alt="" coords="2604,155,2743,197"/><area shape="rect" id="node21" href="d4d__button_8h.html" title="D4D Driver button object header file. " alt="" coords="2767,155,2905,197"/><area shape="rect" id="node22" href="d4d__check__box_8h.html" title="D4D Driver check box object header file. " alt="" coords="2929,155,3068,197"/><area shape="rect" id="node23" href="d4d__gauge_8h.html" title="D4D Driver gauge object header file. " alt="" coords="3092,155,3231,197"/><area shape="rect" id="node24" href="d4d__slider_8h.html" title="D4D Driver slider object header file. " alt="" coords="3255,155,3393,197"/><area shape="rect" id="node25" href="d4d__label_8h.html" title="D4D Driver label object header file. " alt="" coords="3417,155,3556,197"/><area shape="rect" id="node26" href="d4d__icon_8h.html" title="D4D Driver icon object header file. " alt="" coords="3580,155,3719,197"/><area shape="rect" id="node27" href="d4d__menu_8h.html" title="D4D Driver menu object header file. " alt="" coords="3743,155,3881,197"/><area shape="rect" id="node28" href="d4d__graph_8h.html" title="D4D Driver graph object header file. " alt="" coords="3905,155,4044,197"/><area shape="rect" id="node29" href="d4d__scroll__bar_8h.html" title="D4D Driver label object header file. " alt="" coords="4068,155,4207,197"/><area shape="rect" id="node30" href="d4d__console_8h.html" title="D4D Driver label object header file. " alt="" coords="4231,155,4369,197"/><area shape="rect" id="node31" href="d4d__text__box_8h.html" title="D4D Driver label object header file. " alt="" coords="4393,155,4532,197"/><area shape="rect" id="node32" href="d4d__progress__bar_8h.html" title="D4D Driver progress_bar object header file. " alt="" coords="4556,155,4695,197"/><area shape="rect" id="node33" href="d4d__radio__button_8h.html" title="D4D Driver radio button object header file. " alt="" coords="4719,155,4857,197"/><area shape="rect" id="node34" href="d4d__group__box_8h.html" title="D4D Driver groupBox object header file. " alt="" coords="4881,155,5020,197"/><area shape="rect" id="node35" href="d4d__list__box_8h.html" title="D4D Driver listBox object header file. " alt="" coords="5044,155,5183,197"/><area shape="rect" id="node36" href="d4d__edit__box_8h.html" title="D4D Driver editBox object header file. " alt="" coords="5207,155,5345,197"/><area shape="rect" id="node37" href="d4d__combo__box_8h.html" title="D4D Driver comboBox object header file. " alt="" coords="5369,155,5508,197"/><area shape="rect" id="node12" href="d4d__imgdec__d4dint_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="1776,246,1952,287"/><area shape="rect" id="node13" href="d4d__imgdec__d4d_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="1376,246,1552,287"/><area shape="rect" id="node14" href="d4d__imgdec__bmp_8h.html" title="D4D driver external bmp files decoder header file. " alt="" coords="1576,246,1752,287"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a29c9428934bd225223acc290d395e75f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a></td></tr>
+<tr class="separator:a29c9428934bd225223acc290d395e75f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:af3247d54c70c618bfea073d943050acd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8c.html#af3247d54c70c618bfea073d943050acd">D4D_PrgrsBarOnMessage</a> (<a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *pMsg)</td></tr>
+<tr class="separator:af3247d54c70c618bfea073d943050acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6711f0441481b808c7acd34281925059"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8c.html#a6711f0441481b808c7acd34281925059">D4D_PrgrsBarComputeColorBar</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis, <a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a> value)</td></tr>
+<tr class="separator:a6711f0441481b808c7acd34281925059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48512f28833c7123f33c628f8472cb87"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8c.html#a48512f28833c7123f33c628f8472cb87">D4D_PrgrsBarValue2Coor</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis)</td></tr>
+<tr class="separator:a48512f28833c7123f33c628f8472cb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33da0e2c98a3ba0f6747aa681cd9f2af"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8c.html#a33da0e2c98a3ba0f6747aa681cd9f2af">D4D_PrgrsBarOnDraw</a> (<a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *pMsg)</td></tr>
+<tr class="separator:a33da0e2c98a3ba0f6747aa681cd9f2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb8021b6acf9220de318031cabf258b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8c.html#afb8021b6acf9220de318031cabf258b0">D4D_PrgrsBarSetValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a> value)</td></tr>
+<tr class="separator:afb8021b6acf9220de318031cabf258b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf810f963d1c7e27b3468a307770af9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8c.html#abf810f963d1c7e27b3468a307770af9f">D4D_PrgrsBarGetValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="separator:abf810f963d1c7e27b3468a307770af9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114de34c7dab38ce7e94eab48c306137"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8c.html#a114de34c7dab38ce7e94eab48c306137">D4D_PrgrsBarSetBarColor</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="separator:a114de34c7dab38ce7e94eab48c306137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ff21bb19ab6b711e1183897b6adc85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8c.html#a34ff21bb19ab6b711e1183897b6adc85">D4D_PrgrsBarGetBarColor</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="separator:a34ff21bb19ab6b711e1183897b6adc85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace415a5788e524096a081a0efc196647"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8c.html#ace415a5788e524096a081a0efc196647">D4D_PrgrsBarChangeValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a> incr)</td></tr>
+<tr class="separator:ace415a5788e524096a081a0efc196647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a35f31a463e24a5d6971702cba0c22d6e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8c.html#a35f31a463e24a5d6971702cba0c22d6e">d4d_progress_barSysFunc</a></td></tr>
+<tr class="separator:a35f31a463e24a5d6971702cba0c22d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D driver progress_bar object c file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.11.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Feb-19-2013 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a29c9428934bd225223acc290d395e75f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _calc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00074">74</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__progress__bar_8c_source.html#l00137">D4D_PrgrsBarOnDraw()</a>, and <a class="el" href="d4d__progress__bar_8c_source.html#l00086">D4D_PrgrsBarValue2Coor()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ace415a5788e524096a081a0efc196647"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_PrgrsBarChangeValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a>&#160;</td>
+          <td class="paramname"><em>incr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00265">265</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8h_source.html#l00108">D4D_COLOR_PRGRS_BAR_MAX_VAL</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, and <a class="el" href="d4d__progress__bar_8c_source.html#l00199">D4D_PrgrsBarSetValue()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c_ace415a5788e524096a081a0efc196647_cgraph.gif" border="0" usemap="#d4d__progress__bar_8c_ace415a5788e524096a081a0efc196647_cgraph" alt=""/></div>
+<map name="d4d__progress__bar_8c_ace415a5788e524096a081a0efc196647_cgraph" id="d4d__progress__bar_8c_ace415a5788e524096a081a0efc196647_cgraph">
+<area shape="rect" id="node2" href="d4d__progress__bar_8c.html#afb8021b6acf9220de318031cabf258b0" title="D4D_PrgrsBarSetValue" alt="" coords="238,151,397,177"/><area shape="rect" id="node3" href="d4d__progress__bar_8c.html#a6711f0441481b808c7acd34281925059" title="D4D_PrgrsBarComputeColorBar" alt="" coords="446,119,653,145"/><area shape="rect" id="node10" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="477,181,622,208"/><area shape="rect" id="node4" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="702,43,863,69"/><area shape="rect" id="node7" href="group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="713,93,852,120"/><area shape="rect" id="node8" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="936,132,1053,159"/><area shape="rect" id="node5" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="919,5,1070,32"/><area shape="rect" id="node6" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="913,56,1077,83"/><area shape="rect" id="node9" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1126,132,1221,159"/><area shape="rect" id="node11" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="711,219,855,245"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6711f0441481b808c7acd34281925059"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> D4D_PrgrsBarComputeColorBar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a>&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00185">185</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__scheme_8h_source.html#l00559">D4D_CLR_SCHEME_PRGRS_BAR::barEnd</a>, <a class="el" href="d4d__scheme_8h_source.html#l00558">D4D_CLR_SCHEME_PRGRS_BAR::barFore</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00108">D4D_COLOR_PRGRS_BAR_MAX_VAL</a>, <a class="el" href="d4d__scheme_8c_source.html#l00243">D4D_GetCrossColor()</a>, <a class="el" href="d4d__math_8c_source.html#l00206">D4D_MulDivUU8()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00109">D4D_ObjectGetScheme()</a>, <a class="el" href="d4d__scheme_8h_source.html#l00589">D4D_CLR_SCHEME_S::objectDepend</a>, and <a class="el" href="d4d__scheme_8h_source.html#l00571">D4D_CLR_SCHEME_OBJ::progressBar</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__progress__bar_8c_source.html#l00296">D4D_PrgrsBarOnMessage()</a>, and <a class="el" href="d4d__progress__bar_8c_source.html#l00199">D4D_PrgrsBarSetValue()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c_a6711f0441481b808c7acd34281925059_cgraph.gif" border="0" usemap="#d4d__progress__bar_8c_a6711f0441481b808c7acd34281925059_cgraph" alt=""/></div>
+<map name="d4d__progress__bar_8c_a6711f0441481b808c7acd34281925059_cgraph" id="d4d__progress__bar_8c_a6711f0441481b808c7acd34281925059_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="273,5,412,32"/><area shape="rect" id="node3" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="496,24,613,51"/><area shape="rect" id="node5" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="262,131,423,157"/><area shape="rect" id="node4" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="686,24,781,51"/><area shape="rect" id="node6" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="479,93,630,120"/><area shape="rect" id="node7" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="473,144,637,171"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c_a6711f0441481b808c7acd34281925059_icgraph.gif" border="0" usemap="#d4d__progress__bar_8c_a6711f0441481b808c7acd34281925059_icgraph" alt=""/></div>
+<map name="d4d__progress__bar_8c_a6711f0441481b808c7acd34281925059_icgraph" id="d4d__progress__bar_8c_a6711f0441481b808c7acd34281925059_icgraph">
+<area shape="rect" id="node2" href="d4d__progress__bar_8c.html#af3247d54c70c618bfea073d943050acd" title="D4D_PrgrsBarOnMessage" alt="" coords="262,5,437,32"/><area shape="rect" id="node3" href="d4d__progress__bar_8h.html#afb8021b6acf9220de318031cabf258b0" title="D4D_PrgrsBarSetValue" alt="" coords="270,56,429,83"/><area shape="rect" id="node4" href="d4d__progress__bar_8h.html#ace415a5788e524096a081a0efc196647" title="D4D_PrgrsBarChangeValue" alt="" coords="486,56,669,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a34ff21bb19ab6b711e1183897b6adc85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> D4D_PrgrsBarGetBarColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00252">252</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8h_source.html#l00136">D4D_PROGRESS_BAR_DATA::colorBar</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, and <a class="el" href="d4d__progress__bar_8h_source.html#l00143">D4D_PROGRESS_BAR::pData</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf810f963d1c7e27b3468a307770af9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a> D4D_PrgrsBarGetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00223">223</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00143">D4D_PROGRESS_BAR::pData</a>, and <a class="el" href="d4d__progress__bar_8h_source.html#l00134">D4D_PROGRESS_BAR_DATA::value</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a33da0e2c98a3ba0f6747aa681cd9f2af"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void D4D_PrgrsBarOnDraw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00137">137</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8c_source.html#l00074">_calc</a>, <a class="el" href="d4d__scheme_8h_source.html#l00557">D4D_CLR_SCHEME_PRGRS_BAR::barBckg</a>, <a class="el" href="d4d__scheme_8h_source.html#l00558">D4D_CLR_SCHEME_PRGRS_BAR::barFore</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00136">D4D_PROGRESS_BAR_DATA::colorBar</a>, <a class="el" href="d4d__base_8h_source.html#l00582">D4D_ASSERT</a>, <a class="el" href="d4d__types_8h_source.html#l00308">D4D_DIR_RIGHT</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01654">D4D_DrawFrame()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01166">D4D_FillRRectColorScaleXY()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00939">D4D_FillRRectXY()</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, <a class="el" href="d4d__scheme_8c_source.html#l00333">D4D_GetGreyScale()</a>, <a class="el" href="d4d__object_8c_source.html#l00303">D4D_IsEnabled()</a>, <a class="el" href="d4d__types_8h_source.html#l00290">D4D_LINE_THIN</a>, <a class="el" href="d4d__base_8h_source.html#l00361">D4D_OBJECT_DRAWFLAGS_COMPLETE</a>, <a class="el" href="d4d__base_8h_source.html#l00364">D4D_OBJECT_DRAWFLAGS_STATE</a>, <a class="el" href="d4d__scheme_8c_source.html#l00225">D4D_ObjectGetBckgFillColor()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00161">D4D_ObjectGetForeColor()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00109">D4D_ObjectGetScheme()</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00070">D4D_PRGRS_BAR_F_BAR_SCALECOLOR</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00086">D4D_PrgrsBarValue2Coor()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l00995">D4D_RBox()</a>, <a class="el" href="d4d__base_8h_source.html#l00578">D4D_SCRATCHPAD_SIZE</a>, <a class="el" href="d4d__base_8h_source.html#l00408">D4D_MESSAGE_S::draw</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00135">D4D_PROGRESS_BAR_DATA::drawActiveOnly</a>, <a class="el" href="d4d__object_8h_source.html#l00178">D4D_OBJECT_S::initFlags</a>, <a class="el" href="d4d__scheme_8h_source.html#l00589">D4D_CLR_SCHEME_S::objectDepend</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00143">D4D_PROGRESS_BAR::pData</a>, <a class="el" href="d4d__base_8h_source.html#l00402">D4D_MESSAGE_S::pObject</a>, <a class="el" href="group__doxd4d__base__type.html#a65e56fff8e0b0136541d1cf58a3a5be4">D4D_MESSAGE_S::prm</a>, <a class="el" href="d4d__scheme_8h_source.html#l00571">D4D_CLR_SCHEME_OBJ::progressBar</a>, <a class="el" href="d4d__object_8h_source.html#l00171">D4D_OBJECT_S::radius</a>, and <a class="el" href="d4d__object_8h_source.html#l00170">D4D_OBJECT_S::size</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__progress__bar_8c_source.html#l00296">D4D_PrgrsBarOnMessage()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c_a33da0e2c98a3ba0f6747aa681cd9f2af_cgraph.gif" border="0" usemap="#d4d__progress__bar_8c_a33da0e2c98a3ba0f6747aa681cd9f2af_cgraph" alt=""/></div>
+<map name="d4d__progress__bar_8c_a33da0e2c98a3ba0f6747aa681cd9f2af_cgraph" id="d4d__progress__bar_8c_a33da0e2c98a3ba0f6747aa681cd9f2af_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e" title="Function draw standard object frame based on the object settings and current state. " alt="" coords="241,309,361,336"/><area shape="rect" id="node32" href="group__doxd4d__basic__draw__func.html#gae46b00b491416a6ee86e3947eee7f110" title="Function draw filled rectangle with round corners with changing color (cross color from start to end ..." alt="" coords="208,561,395,588"/><area shape="rect" id="node36" href="group__doxd4d__basic__draw__func.html#ga625034711623c6e6321a0291805edb5b" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="240,485,363,512"/><area shape="rect" id="node38" href="group__doxd4d__scheme__func.html#ga4ee216fb62548357ee1b19f460d29087" title="Compute the grayscale color. " alt="" coords="233,612,369,639"/><area shape="rect" id="node39" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="499,739,610,765"/><area shape="rect" id="node41" href="group__doxd4d__scheme__func.html#gaad25fd67fd667b9517bfb75f36f0b426" title="Function return object current fill background color. " alt="" coords="206,764,397,791"/><area shape="rect" id="node44" href="group__doxd4d__scheme__func.html#ga4f46b75cc9161aaf0ca1c447a76e045b" title="Function return object current fore color. " alt="" coords="217,713,386,740"/><area shape="rect" id="node42" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="474,813,635,840"/><area shape="rect" id="node45" href="d4d__progress__bar_8c.html#a48512f28833c7123f33c628f8472cb87" title="D4D_PrgrsBarValue2Coor" alt="" coords="215,157,387,184"/><area shape="rect" id="node47" href="group__doxd4d__basic__draw__func.html#ga950feb5845ca062bf98e5aef1aa13b56" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="258,397,345,424"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="713,132,906,159"/><area shape="rect" id="node12" href="group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="473,309,636,336"/><area shape="rect" id="node13" href="group__doxd4d__basic__draw__func.html#gab2a67b0452682941ea6930ad5df6a824" title="Function draw standard object bevel specified by parameters. " alt="" coords="512,411,597,437"/><area shape="rect" id="node27" href="group__doxd4d__basic__draw__func.html#ga0396be35ce2a28935e3aed036cf52a80" title="Function draw rectangle on the screen with round corners. " alt="" coords="509,259,600,285"/><area shape="rect" id="node4" href="d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="955,81,1117,108"/><area shape="rect" id="node5" href="group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1177,81,1316,108"/><area shape="rect" id="node10" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1177,31,1316,57"/><area shape="rect" id="node6" href="group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1391,81,1535,108"/><area shape="rect" id="node7" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1597,5,1752,32"/><area shape="rect" id="node8" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1623,56,1726,83"/><area shape="rect" id="node9" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1601,107,1748,133"/><area shape="rect" id="node11" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1412,31,1513,57"/><area shape="rect" id="node14" href="group__doxd4d__scheme__func.html#ga77e2ec7e804c88e475f5621053773268" title="Compute change of color intesity. " alt="" coords="724,411,895,437"/><area shape="rect" id="node18" href="group__doxd4d__basic__draw__func.html#ga4ea4484aca8a7a3bdeaa24aa26bfd02a" title="Function draw quadrant of circle on the screen. " alt="" coords="756,335,863,361"/><area shape="rect" id="node26" href="group__doxd4d__basic__draw__func.html#gaab878b72dcc003891ceaf705088c611c" title="Function draw filled rectangle on the screen. " alt="" coords="1197,563,1296,589"/><area shape="rect" id="node15" href="group__doxd4d__math__func.html#gace9b50d1b3fc631ced8489183a714804" title="Calculation of absolute value &#45; 8 bit. " alt="" coords="997,360,1075,387"/><area shape="rect" id="node16" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="977,411,1095,437"/><area shape="rect" id="node17" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1199,411,1294,437"/><area shape="rect" id="node19" href="d4d__low_8c.html#a0b3fcdb3eb314f2fe830cc257627de8c" title="D4D_LCD_QCircle" alt="" coords="971,309,1101,336"/><area shape="rect" id="node20" href="d4d__low_8c.html#a7df9d0f828a7a12cbf56d640217a7d8a" title="D4D_LCD_PutPixel" alt="" coords="1607,335,1742,361"/><area shape="rect" id="node21" href="d4d__low_8c.html#a8567ee4b31298bfe6f6e7959bcf5456f" title="D4D_LCD_QPlot8points" alt="" coords="1166,360,1327,387"/><area shape="rect" id="node22" href="d4d__low_8c.html#afde60e05692fa0721250ce6925313e17" title="D4D_LCD_QPlot4points" alt="" coords="1382,360,1543,387"/><area shape="rect" id="node23" href="d4d__low_8c.html#a97e36119e00202bde366aab6f0c61672" title="D4D_LCD_QPlot4pointsfill" alt="" coords="1376,411,1549,437"/><area shape="rect" id="node24" href="d4d__low_8c.html#a65810021c5d69c06eeefa40f0c800b60" title="D4D_LCD_Box" alt="" coords="1620,512,1729,539"/><area shape="rect" id="node25" href="d4d__low_8c.html#a450664aef631dc065b1d290e8b75f863" title="D4D_LCD_SwapCoor" alt="" coords="1801,373,1946,400"/><area shape="rect" id="node28" href="d4d__low_8c.html#a8f9c6276de8111853b9b73e87e2b004a" title="D4D_LCD_RRect" alt="" coords="748,259,871,285"/><area shape="rect" id="node29" href="d4d__low_8c.html#a3aca803259156c65646263edab27275a" title="D4D_LCD_Line" alt="" coords="1407,259,1518,285"/><area shape="rect" id="node31" href="d4d__low_8c.html#a61637753b03d0ada6e7f8ca501f0e70b" title="D4D_LCD_Rect" alt="" coords="979,208,1093,235"/><area shape="rect" id="node30" href="group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b" title="Calculation of absolute value &#45; 16 bit. " alt="" coords="1629,233,1720,260"/><area shape="rect" id="node33" href="group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="740,563,879,589"/><area shape="rect" id="node34" href="group__doxd4d__basic__draw__func.html#gad9ab8d211b69c39ba0327953005c69a9" title="Function that counts number of printed pixels in specified line of circle quadrant. " alt="" coords="445,563,664,589"/><area shape="rect" id="node35" href="group__doxd4d__basic__draw__func.html#ga9b51347a0983fe65dd4a5397bd9a9231" title="Function draw filled rectangle with changing color (cross color from start to end color) on the scree..." alt="" coords="466,613,643,640"/><area shape="rect" id="node37" href="d4d__low_8c.html#a69f1735f580a19e4a777736f017cf0c1" title="D4D_LCD_RBox" alt="" coords="750,461,869,488"/><area shape="rect" id="node40" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="734,751,885,777"/><area shape="rect" id="node43" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="727,813,891,840"/><area shape="rect" id="node46" href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="473,107,636,133"/><area shape="rect" id="node48" href="group__doxd4d__basic__draw__func.html#gac00e96f797a9640ec342c688b2117f57" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="503,360,606,387"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c_a33da0e2c98a3ba0f6747aa681cd9f2af_icgraph.gif" border="0" usemap="#d4d__progress__bar_8c_a33da0e2c98a3ba0f6747aa681cd9f2af_icgraph" alt=""/></div>
+<map name="d4d__progress__bar_8c_a33da0e2c98a3ba0f6747aa681cd9f2af_icgraph" id="d4d__progress__bar_8c_a33da0e2c98a3ba0f6747aa681cd9f2af_icgraph">
+<area shape="rect" id="node2" href="d4d__progress__bar_8c.html#af3247d54c70c618bfea073d943050acd" title="D4D_PrgrsBarOnMessage" alt="" coords="206,5,381,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af3247d54c70c618bfea073d943050acd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_PrgrsBarOnMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>THE INTERNAL API FUNCTIONS </p>
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00296">296</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__scheme_8h_source.html#l00558">D4D_CLR_SCHEME_PRGRS_BAR::barFore</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, <a class="el" href="d4d__base_8h_source.html#l00371">D4D_MSG_DRAW</a>, <a class="el" href="d4d__base_8h_source.html#l00370">D4D_MSG_ONINIT</a>, <a class="el" href="d4d__object_8h_source.html#l00113">D4D_OBJECT_F_NOTINIT</a>, <a class="el" href="d4d__scheme_8c_source.html#l00109">D4D_ObjectGetScheme()</a>, <a class="el" href="d4d__object_8c_source.html#l00443">D4D_ObjOnMessage()</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00068">D4D_PRGRS_BAR_F_BAR_AUTOCOLOR</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00070">D4D_PRGRS_BAR_F_BAR_SCALECOLOR</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00185">D4D_PrgrsBarComputeColorBar()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00137">D4D_PrgrsBarOnDraw()</a>, <a class="el" href="d4d__object_8h_source.html#l00145">D4D_OBJECT_DATA_S::flags</a>, <a class="el" href="d4d__object_8h_source.html#l00178">D4D_OBJECT_S::initFlags</a>, <a class="el" href="d4d__base_8h_source.html#l00404">D4D_MESSAGE_S::nMsgId</a>, <a class="el" href="d4d__scheme_8h_source.html#l00589">D4D_CLR_SCHEME_S::objectDepend</a>, <a class="el" href="d4d__object_8h_source.html#l00180">D4D_OBJECT_S::pData</a>, <a class="el" href="d4d__base_8h_source.html#l00402">D4D_MESSAGE_S::pObject</a>, and <a class="el" href="d4d__scheme_8h_source.html#l00571">D4D_CLR_SCHEME_OBJ::progressBar</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c_af3247d54c70c618bfea073d943050acd_cgraph.gif" border="0" usemap="#d4d__progress__bar_8c_af3247d54c70c618bfea073d943050acd_cgraph" alt=""/></div>
+<map name="d4d__progress__bar_8c_af3247d54c70c618bfea073d943050acd_cgraph" id="d4d__progress__bar_8c_af3247d54c70c618bfea073d943050acd_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="714,941,875,968"/><area shape="rect" id="node5" href="d4d__object_8c.html#a71af54d42c496cf96eb44fcb42c7928a" title="D4D_ObjOnMessage" alt="" coords="233,733,377,760"/><area shape="rect" id="node6" href="d4d__progress__bar_8c.html#a6711f0441481b808c7acd34281925059" title="D4D_PrgrsBarComputeColorBar" alt="" coords="430,676,637,703"/><area shape="rect" id="node10" href="d4d__progress__bar_8c.html#a33da0e2c98a3ba0f6747aa681cd9f2af" title="D4D_PrgrsBarOnDraw" alt="" coords="230,784,381,811"/><area shape="rect" id="node3" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="974,1004,1125,1031"/><area shape="rect" id="node4" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="967,941,1131,968"/><area shape="rect" id="node7" href="group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="980,689,1119,716"/><area shape="rect" id="node8" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="1217,613,1335,640"/><area shape="rect" id="node9" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1439,613,1534,640"/><area shape="rect" id="node11" href="group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e" title="Function draw standard object frame based on the object settings and current state. " alt="" coords="473,512,593,539"/><area shape="rect" id="node39" href="group__doxd4d__basic__draw__func.html#gae46b00b491416a6ee86e3947eee7f110" title="Function draw filled rectangle with round corners with changing color (cross color from start to end ..." alt="" coords="440,736,627,763"/><area shape="rect" id="node42" href="group__doxd4d__basic__draw__func.html#ga625034711623c6e6321a0291805edb5b" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="472,347,595,373"/><area shape="rect" id="node44" href="group__doxd4d__scheme__func.html#ga4ee216fb62548357ee1b19f460d29087" title="Compute the grayscale color. " alt="" coords="465,787,601,813"/><area shape="rect" id="node45" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="739,1016,850,1043"/><area shape="rect" id="node46" href="group__doxd4d__scheme__func.html#gaad25fd67fd667b9517bfb75f36f0b426" title="Function return object current fill background color. " alt="" coords="438,939,629,965"/><area shape="rect" id="node47" href="group__doxd4d__scheme__func.html#ga4f46b75cc9161aaf0ca1c447a76e045b" title="Function return object current fore color. " alt="" coords="449,989,618,1016"/><area shape="rect" id="node48" href="d4d__progress__bar_8c.html#a48512f28833c7123f33c628f8472cb87" title="D4D_PrgrsBarValue2Coor" alt="" coords="447,259,619,285"/><area shape="rect" id="node50" href="group__doxd4d__basic__draw__func.html#ga950feb5845ca062bf98e5aef1aa13b56" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="490,436,577,463"/><area shape="rect" id="node12" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="953,233,1146,260"/><area shape="rect" id="node21" href="group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="713,563,876,589"/><area shape="rect" id="node22" href="group__doxd4d__basic__draw__func.html#gab2a67b0452682941ea6930ad5df6a824" title="Function draw standard object bevel specified by parameters. " alt="" coords="752,512,837,539"/><area shape="rect" id="node34" href="group__doxd4d__basic__draw__func.html#ga0396be35ce2a28935e3aed036cf52a80" title="Function draw rectangle on the screen with round corners. " alt="" coords="749,461,840,488"/><area shape="rect" id="node13" href="d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="1195,81,1357,108"/><area shape="rect" id="node14" href="group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1417,81,1556,108"/><area shape="rect" id="node19" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1417,31,1556,57"/><area shape="rect" id="node15" href="group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1631,81,1775,108"/><area shape="rect" id="node16" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1837,5,1992,32"/><area shape="rect" id="node17" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1863,56,1966,83"/><area shape="rect" id="node18" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1841,107,1988,133"/><area shape="rect" id="node20" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1652,31,1753,57"/><area shape="rect" id="node23" href="group__doxd4d__scheme__func.html#ga77e2ec7e804c88e475f5621053773268" title="Compute change of color intesity. " alt="" coords="964,563,1135,589"/><area shape="rect" id="node25" href="group__doxd4d__basic__draw__func.html#ga4ea4484aca8a7a3bdeaa24aa26bfd02a" title="Function draw quadrant of circle on the screen. " alt="" coords="996,461,1103,488"/><area shape="rect" id="node33" href="group__doxd4d__basic__draw__func.html#gaab878b72dcc003891ceaf705088c611c" title="Function draw filled rectangle on the screen. " alt="" coords="1437,512,1536,539"/><area shape="rect" id="node24" href="group__doxd4d__math__func.html#gace9b50d1b3fc631ced8489183a714804" title="Calculation of absolute value &#45; 8 bit. " alt="" coords="1237,563,1315,589"/><area shape="rect" id="node26" href="d4d__low_8c.html#a0b3fcdb3eb314f2fe830cc257627de8c" title="D4D_LCD_QCircle" alt="" coords="1211,411,1341,437"/><area shape="rect" id="node27" href="d4d__low_8c.html#a7df9d0f828a7a12cbf56d640217a7d8a" title="D4D_LCD_PutPixel" alt="" coords="1847,335,1982,361"/><area shape="rect" id="node28" href="d4d__low_8c.html#a8567ee4b31298bfe6f6e7959bcf5456f" title="D4D_LCD_QPlot8points" alt="" coords="1406,411,1567,437"/><area shape="rect" id="node29" href="d4d__low_8c.html#afde60e05692fa0721250ce6925313e17" title="D4D_LCD_QPlot4points" alt="" coords="1622,411,1783,437"/><area shape="rect" id="node30" href="d4d__low_8c.html#a97e36119e00202bde366aab6f0c61672" title="D4D_LCD_QPlot4pointsfill" alt="" coords="1616,461,1789,488"/><area shape="rect" id="node31" href="d4d__low_8c.html#a65810021c5d69c06eeefa40f0c800b60" title="D4D_LCD_Box" alt="" coords="1860,461,1969,488"/><area shape="rect" id="node32" href="d4d__low_8c.html#a450664aef631dc065b1d290e8b75f863" title="D4D_LCD_SwapCoor" alt="" coords="2041,373,2186,400"/><area shape="rect" id="node35" href="d4d__low_8c.html#a8f9c6276de8111853b9b73e87e2b004a" title="D4D_LCD_RRect" alt="" coords="988,411,1111,437"/><area shape="rect" id="node36" href="d4d__low_8c.html#a3aca803259156c65646263edab27275a" title="D4D_LCD_Line" alt="" coords="1647,259,1758,285"/><area shape="rect" id="node38" href="d4d__low_8c.html#a61637753b03d0ada6e7f8ca501f0e70b" title="D4D_LCD_Rect" alt="" coords="1219,284,1333,311"/><area shape="rect" id="node37" href="group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b" title="Calculation of absolute value &#45; 16 bit. " alt="" coords="1869,233,1960,260"/><area shape="rect" id="node40" href="group__doxd4d__basic__draw__func.html#gad9ab8d211b69c39ba0327953005c69a9" title="Function that counts number of printed pixels in specified line of circle quadrant. " alt="" coords="685,816,904,843"/><area shape="rect" id="node41" href="group__doxd4d__basic__draw__func.html#ga9b51347a0983fe65dd4a5397bd9a9231" title="Function draw filled rectangle with changing color (cross color from start to end color) on the scree..." alt="" coords="706,765,883,792"/><area shape="rect" id="node43" href="d4d__low_8c.html#a69f1735f580a19e4a777736f017cf0c1" title="D4D_LCD_RBox" alt="" coords="990,360,1109,387"/><area shape="rect" id="node49" href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="713,259,876,285"/><area shape="rect" id="node51" href="group__doxd4d__basic__draw__func.html#gac00e96f797a9640ec342c688b2117f57" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="743,411,846,437"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a114de34c7dab38ce7e94eab48c306137"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_PrgrsBarSetBarColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00235">235</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8h_source.html#l00136">D4D_PROGRESS_BAR_DATA::colorBar</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00068">D4D_PRGRS_BAR_F_BAR_AUTOCOLOR</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00070">D4D_PRGRS_BAR_F_BAR_SCALECOLOR</a>, <a class="el" href="d4d__object_8h_source.html#l00178">D4D_OBJECT_S::initFlags</a>, and <a class="el" href="d4d__progress__bar_8h_source.html#l00143">D4D_PROGRESS_BAR::pData</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c_a114de34c7dab38ce7e94eab48c306137_cgraph.gif" border="0" usemap="#d4d__progress__bar_8c_a114de34c7dab38ce7e94eab48c306137_cgraph" alt=""/></div>
+<map name="d4d__progress__bar_8c_a114de34c7dab38ce7e94eab48c306137_cgraph" id="d4d__progress__bar_8c_a114de34c7dab38ce7e94eab48c306137_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="230,29,375,56"/><area shape="rect" id="node3" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="424,29,568,56"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afb8021b6acf9220de318031cabf258b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_PrgrsBarSetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a>&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00199">199</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8h_source.html#l00136">D4D_PROGRESS_BAR_DATA::colorBar</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00068">D4D_PRGRS_BAR_F_BAR_AUTOCOLOR</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00070">D4D_PRGRS_BAR_F_BAR_SCALECOLOR</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00185">D4D_PrgrsBarComputeColorBar()</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00135">D4D_PROGRESS_BAR_DATA::drawActiveOnly</a>, <a class="el" href="d4d__object_8h_source.html#l00178">D4D_OBJECT_S::initFlags</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00143">D4D_PROGRESS_BAR::pData</a>, and <a class="el" href="d4d__progress__bar_8h_source.html#l00134">D4D_PROGRESS_BAR_DATA::value</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__progress__bar_8c_source.html#l00265">D4D_PrgrsBarChangeValue()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c_afb8021b6acf9220de318031cabf258b0_cgraph.gif" border="0" usemap="#d4d__progress__bar_8c_afb8021b6acf9220de318031cabf258b0_cgraph" alt=""/></div>
+<map name="d4d__progress__bar_8c_afb8021b6acf9220de318031cabf258b0_cgraph" id="d4d__progress__bar_8c_afb8021b6acf9220de318031cabf258b0_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="245,43,390,69"/><area shape="rect" id="node4" href="d4d__progress__bar_8c.html#a6711f0441481b808c7acd34281925059" title="D4D_PrgrsBarComputeColorBar" alt="" coords="214,119,421,145"/><area shape="rect" id="node3" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="479,29,623,56"/><area shape="rect" id="node5" href="group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="481,80,620,107"/><area shape="rect" id="node6" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="704,99,821,125"/><area shape="rect" id="node8" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="470,205,631,232"/><area shape="rect" id="node7" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="894,99,989,125"/><area shape="rect" id="node9" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="687,168,838,195"/><area shape="rect" id="node10" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="681,219,845,245"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c_afb8021b6acf9220de318031cabf258b0_icgraph.gif" border="0" usemap="#d4d__progress__bar_8c_afb8021b6acf9220de318031cabf258b0_icgraph" alt=""/></div>
+<map name="d4d__progress__bar_8c_afb8021b6acf9220de318031cabf258b0_icgraph" id="d4d__progress__bar_8c_afb8021b6acf9220de318031cabf258b0_icgraph">
+<area shape="rect" id="node2" href="d4d__progress__bar_8h.html#ace415a5788e524096a081a0efc196647" title="D4D_PrgrsBarChangeValue" alt="" coords="214,5,397,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a48512f28833c7123f33c628f8472cb87"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void D4D_PrgrsBarValue2Coor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00086">86</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8c_source.html#l00074">_calc</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00108">D4D_COLOR_PRGRS_BAR_MAX_VAL</a>, <a class="el" href="d4d__base_8c_source.html#l01016">D4D_ComputeGeometry()</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, <a class="el" href="d4d__screen_8c_source.html#l00536">D4D_GetClientToScreenPoint()</a>, <a class="el" href="d4d__math_8h_source.html#l00103">D4D_MulDivUU</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00084">D4D_PRGRS_BAR_BAR_OFF</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00143">D4D_PROGRESS_BAR::pData</a>, <a class="el" href="d4d__object_8h_source.html#l00169">D4D_OBJECT_S::position</a>, <a class="el" href="d4d__object_8h_source.html#l00171">D4D_OBJECT_S::radius</a>, and <a class="el" href="d4d__progress__bar_8h_source.html#l00134">D4D_PROGRESS_BAR_DATA::value</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__progress__bar_8c_source.html#l00137">D4D_PrgrsBarOnDraw()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c_a48512f28833c7123f33c628f8472cb87_cgraph.gif" border="0" usemap="#d4d__progress__bar_8c_a48512f28833c7123f33c628f8472cb87_cgraph" alt=""/></div>
+<map name="d4d__progress__bar_8c_a48512f28833c7123f33c628f8472cb87_cgraph" id="d4d__progress__bar_8c_a48512f28833c7123f33c628f8472cb87_cgraph">
+<area shape="rect" id="node2" href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="227,56,389,83"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="438,81,631,108"/><area shape="rect" id="node4" href="d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="680,81,843,108"/><area shape="rect" id="node5" href="group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="891,56,1029,83"/><area shape="rect" id="node10" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="891,107,1029,133"/><area shape="rect" id="node6" href="group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1077,56,1221,83"/><area shape="rect" id="node7" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1269,5,1424,32"/><area shape="rect" id="node8" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1295,56,1398,83"/><area shape="rect" id="node9" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1273,107,1420,133"/><area shape="rect" id="node11" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1099,107,1200,133"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8c_a48512f28833c7123f33c628f8472cb87_icgraph.gif" border="0" usemap="#d4d__progress__bar_8c_a48512f28833c7123f33c628f8472cb87_icgraph" alt=""/></div>
+<map name="d4d__progress__bar_8c_a48512f28833c7123f33c628f8472cb87_icgraph" id="d4d__progress__bar_8c_a48512f28833c7123f33c628f8472cb87_icgraph">
+<area shape="rect" id="node2" href="d4d__progress__bar_8c.html#a33da0e2c98a3ba0f6747aa681cd9f2af" title="D4D_PrgrsBarOnDraw" alt="" coords="227,5,378,32"/><area shape="rect" id="node3" href="d4d__progress__bar_8c.html#af3247d54c70c618bfea073d943050acd" title="D4D_PrgrsBarOnMessage" alt="" coords="427,5,602,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a35f31a463e24a5d6971702cba0c22d6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a> d4d_progress_barSysFunc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00052">52</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__progress__bar_8c.html">d4d_progress_bar.c</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:03 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

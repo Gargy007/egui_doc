@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4dlcdhw_k70_lcdc.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4dlcdhw__k70__lcdc_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">d4dlcdhw_k70_lcdc.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="d4dlcdhw__k70__lcdc_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">* This program is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">* but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">* You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">* and the GNU Lesser General Public License along with this program.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">* If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">***************************************************************************/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#ifndef __D4DLCDHW_K70_LCDC_H</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __D4DLCDHW_K70_LCDC_H</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">  #if (D4D_MK_STR(D4D_LLD_LCD_HW) == d4dlcdhw_k70_lcdc_ID)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">    * Includes</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">    ******************************************************************************/</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">    #include &quot;d4dlcdhw_k70_lcdc_cfg.h&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">    * Constants</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">    ******************************************************************************/</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// TWR-LCDRBG board revA - with TWR-K70 on SPI2</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#ac06f7b4c219834ac7a7d74e40645cd7e">   61</a></span>&#160;<span class="preprocessor">    #define TWR_LCDRGB_A 1    </span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// TWR-LCDRBG board revB</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#afe184fca1009a61df0a5921fdb59a6b3">   64</a></span>&#160;<span class="preprocessor">    #define TWR_LCDRGB_B 2</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_DOUBLE_BUFFER </span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#ad6b1edaea8def385e25b97ce4308ac7c">   67</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_DOUBLE_BUFFER 0</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_DMA_ENABLE </span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a7954cf9cbe0266ecdd2f744ea2ad26fb">   71</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_DMA_ENABLE 0</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif      </span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_DMA_CHANNEL </span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a34827ffc4f676b2400a7ecefdd78a06f">   75</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_DMA_CHANNEL 0</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif      </span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_DMA_CHPRI </span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a612f3199d6945f542b62670cb0294b18">   79</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_DMA_CHPRI (DMA_DCHPRI3_ECP_MASK | DMA_DCHPRI3_DPA_MASK | (D4DLCDHWFB_DMA_CHANNEL &amp; 0xf))</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a3c70cf54a420dde83b7c34def2e9c6a1">   82</a></span>&#160;<span class="preprocessor">    #define D4DLCDHWFB_DMA_INTVECT (INT_DMA0_DMA16 + (D4DLCDHWFB_DMA_CHANNEL &amp; 0xf))</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor"></span>        </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#aecbe2523fe35491d5b89f7cb4da5c5d0">   84</a></span>&#160;<span class="preprocessor">    #define D4DLCDHWFB_FRAMEBUFFER_SIZE  ((D4DLCDHWFB_X_MAX * D4DLCDHWFB_Y_MAX * D4DLCDHWFB_BPP_BYTE) + 32) // add 32 to manage non alligned buffer at 16 byte (burst line)</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span>      </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_START_ADDRESS </span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a30274ae01ac3d59644bf70ac48c1b0db">   87</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_START_ADDRESS 0</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"></span>     </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_START_ADDRESS_2ND </span></div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a893e3c1d366e8826fb761a25f52535cc">   91</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_START_ADDRESS_2ND 0</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_X_MAX </span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a6bd4c362288ba0519d5b2604286abb2a">   95</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_X_MAX 480</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif          </span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_Y_MAX </span></div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a9337cd35e88ce1510b585e0fac5b46f0">   99</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_Y_MAX 800</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif          </span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor"></span>              </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_BPP_BYTE </span></div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a96f2adb70fcea8966ff465bb02f3712d">  103</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_BPP_BYTE 4</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif          </span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_BPP </span></div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#acc24fea35d13f37908a1a1aac3014861">  107</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_BPP BPP24</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor"></span>              </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_MIRROWED</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#abc63b5f05be6fc55b37c0cf570c2079f">  111</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_MIRROWED 0</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">    #ifndef D4DLCDHWFB_CACHE_FLUSH_ENABLE</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#aa4d0da60fd301842d55085bef0aa643a">  115</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DLCDHWFB_CACHE_FLUSH_ENABLE 0</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif  </span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">    #ifndef D4DMOUSE_CURSOR_SIZE_X</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a36f0c1ff47f14c8970b16e0a9de094c6">  119</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DMOUSE_CURSOR_SIZE_X 16</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">    #ifndef D4DMOUSE_CURSOR_SIZE_Y</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a5bd531cb46589efb77072af82ec9ad63">  123</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DMOUSE_CURSOR_SIZE_Y 16</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor"></span>      </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">    #ifndef D4DMOUSE_CURSOR_BMPFORMAT</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#aa8de40f5f43bc2f5f846141acbe1c743">  127</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4DMOUSE_CURSOR_BMPFORMAT (D4D_BMP_ENDIAN_FLAG | D4D_BMP_16MNOPAL)</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">// List of supported LCD Panels</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">//  d4dlcdhw_k70_lcdc_twr_rgbA - TWR-LCD-RGB rev A; on TWR-K70 and SPI2 - it must be on TWR-PROTO board rerouted SPI2 signals</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">//  d4dlcdhw_k70_lcdc_twr_rgbB - TWR-LCD_RGB rev B; general (it doesn&#39;t need SPI initialization)</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">    #ifndef D4D_LLD_LCD_HW_K70LCDC      </span></div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#ad36b11b882ce50f72990857f79c7a096">  135</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">      #define D4D_LLD_LCD_HW_K70LCDC d4dlcdhw_k70_lcdc_twr_rgbB</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif          </span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;          </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">    * Types</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">    ******************************************************************************/</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="struct_d4_d_l_c_d_h_w_f_b_k70_l_c_d_c___f_u_n_c_t_i_o_n_s___s.html">  144</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct_d4_d_l_c_d_h_w_f_b_k70_l_c_d_c___f_u_n_c_t_i_o_n_s___s.html">D4DLCDHWFBK70LCDC_FUNCTIONS_S</a></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    {</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="struct_d4_d_l_c_d_h_w_f_b_k70_l_c_d_c___f_u_n_c_t_i_o_n_s___s.html#a9b7c6a15e46ee110fce16bc988a7cd98">  146</a></span>&#160;      <span class="keywordtype">unsigned</span> char (*<a class="code" href="struct_d4_d_l_c_d_h_w_f_b_k70_l_c_d_c___f_u_n_c_t_i_o_n_s___s.html#a9b7c6a15e46ee110fce16bc988a7cd98">D4DLCDHWFBK70LCDC_InitPanel</a>)(void);      </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    }<a class="code" href="d4dlcdhw__k70__lcdc_8h.html#ae7f2864684a62e301585af5fa9afe6ac">D4DLCDHWFBK70LCDC_FUNCTIONS</a>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">    * Macros </span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment">    ******************************************************************************/</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">    * Global variables</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment">    ******************************************************************************/</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="struct_d4_d_l_c_d_h_w_f_b_k70_l_c_d_c___f_u_n_c_t_i_o_n_s___s.html">D4DLCDHWFBK70LCDC_FUNCTIONS</a> <a class="code" href="d4dlcdhw__k70__lcdc_8h.html#ad36b11b882ce50f72990857f79c7a096">D4D_LLD_LCD_HW_K70LCDC</a>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">    * Global functions</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">    ******************************************************************************/</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">/************************* Structure/Union Data types ************************/</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768e">  169</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7c2ad0d855a5011a178c6f2c9ebebd85">  170</a></span>&#160;{ <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7c2ad0d855a5011a178c6f2c9ebebd85">ACD_DIV_0</a>=0,</div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea1f5ba59b96a04d3fb2ef050ef72f88c4">  171</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea1f5ba59b96a04d3fb2ef050ef72f88c4">ACD_DIV_1</a>,</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae1b4c3c1e9662d861670113dbf83b04b">  172</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae1b4c3c1e9662d861670113dbf83b04b">ACD_DIV_2</a>,</div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab526fd411657bd3ec2cd6ec6fef40054">  173</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab526fd411657bd3ec2cd6ec6fef40054">ACD_DIV_3</a>,</div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea72b43c8812ab780385b58fcca3b50cde">  174</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea72b43c8812ab780385b58fcca3b50cde">ACD_DIV_4</a>,</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea3b6fc9ff71975e1edb0c68d100b79c55">  175</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea3b6fc9ff71975e1edb0c68d100b79c55">ACD_DIV_5</a>,</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea0cc9137f44eccc6dfc24839df49b827b">  176</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea0cc9137f44eccc6dfc24839df49b827b">ACD_DIV_6</a>,</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7da7ab713d1a35465001ae0b51571cb9">  177</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7da7ab713d1a35465001ae0b51571cb9">ACD_DIV_7</a>,</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eabfc444afe4b3359dc065df2cac725d59">  178</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eabfc444afe4b3359dc065df2cac725d59">ACD_DIV_8</a>,</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab118f4f777099404f1012cf391b562b0">  179</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab118f4f777099404f1012cf391b562b0">ACD_DIV_9</a>,</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae40f805598081f705030578bd1ccaa75">  180</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae40f805598081f705030578bd1ccaa75">ACD_DIV_10</a>,</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea4f8dfac10749341f41eeeddd86009e92">  181</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea4f8dfac10749341f41eeeddd86009e92">ACD_DIV_11</a>,</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eaee8fbd702ed8b6dd3b00bacde5f4576c">  182</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eaee8fbd702ed8b6dd3b00bacde5f4576c">ACD_DIV_12</a>,</div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea97b3cc4a390395d197dcee029de1240d">  183</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea97b3cc4a390395d197dcee029de1240d">ACD_DIV_13</a>,</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae90b949ded699c384ad43694c0764aaf">  184</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae90b949ded699c384ad43694c0764aaf">ACD_DIV_14</a>,</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea83e50b4fc7f498d7a51cd19b5fb983d1">  185</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea83e50b4fc7f498d7a51cd19b5fb983d1">ACD_DIV_15</a>        </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;} <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768e">ACD_DIV</a>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14">  189</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> </div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14ae56316e8b1d13b7d6ab8ca27c266f683">  190</a></span>&#160;{ <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14ae56316e8b1d13b7d6ab8ca27c266f683">MONO_PANEL</a>=0,</div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14acb67cadb16322450a6a3df8bd58a3833">  191</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14acb67cadb16322450a6a3df8bd58a3833">CSTN_PANEL</a>,</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14adf375b7df22b1e0917a0270fbc44075d">  192</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14adf375b7df22b1e0917a0270fbc44075d">PANEL_UNUSED</a>,</div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14a297d842dedd87f8d6b95de55e1a1897e">  193</a></span>&#160;  <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14a297d842dedd87f8d6b95de55e1a1897e">TFT_PANEL</a>=3</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;} <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14">LCDC_PANEL_TYPE</a>;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070">  196</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;{</div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7">  198</a></span>&#160; <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7">BPP1</a>=0,</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c">  199</a></span>&#160; <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c">BPP2</a>=1,</div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c">  200</a></span>&#160; <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c">BPP4</a>=2,</div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a">  201</a></span>&#160; <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a">BPP8</a>=3,</div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e">  202</a></span>&#160; <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e">BPP12</a>=4,</div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c">  203</a></span>&#160; <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c">BPP16</a>=5,</div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970">  204</a></span>&#160; <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970">BPP18</a>=6,</div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a4963c5d43c76a0097bcb52bb9f92fa8a">  205</a></span>&#160; <a class="code" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a4963c5d43c76a0097bcb52bb9f92fa8a">BPP24</a>=7 </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;} <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070">BPP_TYPE</a>;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">  #endif</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif </span><span class="comment">/* __D4DLCDHW_K70_LCDC_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768ea3b6fc9ff71975e1edb0c68d100b79c55"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea3b6fc9ff71975e1edb0c68d100b79c55">ACD_DIV_5</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00120">d4dlcdhw_dragonfire_lcdc.h:120</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c">BPP2</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00153">d4dlcdhw_dragonfire_lcdc.h:153</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768eae90b949ded699c384ad43694c0764aaf"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae90b949ded699c384ad43694c0764aaf">ACD_DIV_14</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00129">d4dlcdhw_dragonfire_lcdc.h:129</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768e"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768e">ACD_DIV</a></div><div class="ttdeci">ACD_DIV</div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00114">d4dlcdhw_dragonfire_lcdc.h:114</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768ea4f8dfac10749341f41eeeddd86009e92"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea4f8dfac10749341f41eeeddd86009e92">ACD_DIV_11</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00126">d4dlcdhw_dragonfire_lcdc.h:126</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e">BPP12</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00156">d4dlcdhw_dragonfire_lcdc.h:156</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a">BPP8</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00155">d4dlcdhw_dragonfire_lcdc.h:155</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7">BPP1</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00152">d4dlcdhw_dragonfire_lcdc.h:152</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768eabfc444afe4b3359dc065df2cac725d59"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eabfc444afe4b3359dc065df2cac725d59">ACD_DIV_8</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00123">d4dlcdhw_dragonfire_lcdc.h:123</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a1b1bd72bd637241cc502cc27bd6eb070"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070">BPP_TYPE</a></div><div class="ttdeci">BPP_TYPE</div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00150">d4dlcdhw_dragonfire_lcdc.h:150</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c">BPP4</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00154">d4dlcdhw_dragonfire_lcdc.h:154</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970">BPP18</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00158">d4dlcdhw_dragonfire_lcdc.h:158</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768ea0cc9137f44eccc6dfc24839df49b827b"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea0cc9137f44eccc6dfc24839df49b827b">ACD_DIV_6</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00121">d4dlcdhw_dragonfire_lcdc.h:121</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a035cd81aba2cadc1fdf0387cad947b14acb67cadb16322450a6a3df8bd58a3833"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14acb67cadb16322450a6a3df8bd58a3833">CSTN_PANEL</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00145">d4dlcdhw_dragonfire_lcdc.h:145</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a035cd81aba2cadc1fdf0387cad947b14adf375b7df22b1e0917a0270fbc44075d"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14adf375b7df22b1e0917a0270fbc44075d">PANEL_UNUSED</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00146">d4dlcdhw_dragonfire_lcdc.h:146</a></div></div>
+<div class="ttc" id="struct_d4_d_l_c_d_h_w_f_b_k70_l_c_d_c___f_u_n_c_t_i_o_n_s___s_html"><div class="ttname"><a href="struct_d4_d_l_c_d_h_w_f_b_k70_l_c_d_c___f_u_n_c_t_i_o_n_s___s.html">D4DLCDHWFBK70LCDC_FUNCTIONS_S</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__k70__lcdc_8h_source.html#l00144">d4dlcdhw_k70_lcdc.h:144</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c">BPP16</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00157">d4dlcdhw_dragonfire_lcdc.h:157</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a035cd81aba2cadc1fdf0387cad947b14ae56316e8b1d13b7d6ab8ca27c266f683"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14ae56316e8b1d13b7d6ab8ca27c266f683">MONO_PANEL</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00144">d4dlcdhw_dragonfire_lcdc.h:144</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768eaee8fbd702ed8b6dd3b00bacde5f4576c"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eaee8fbd702ed8b6dd3b00bacde5f4576c">ACD_DIV_12</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00127">d4dlcdhw_dragonfire_lcdc.h:127</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768ea1f5ba59b96a04d3fb2ef050ef72f88c4"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea1f5ba59b96a04d3fb2ef050ef72f88c4">ACD_DIV_1</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00116">d4dlcdhw_dragonfire_lcdc.h:116</a></div></div>
+<div class="ttc" id="struct_d4_d_l_c_d_h_w_f_b_k70_l_c_d_c___f_u_n_c_t_i_o_n_s___s_html_a9b7c6a15e46ee110fce16bc988a7cd98"><div class="ttname"><a href="struct_d4_d_l_c_d_h_w_f_b_k70_l_c_d_c___f_u_n_c_t_i_o_n_s___s.html#a9b7c6a15e46ee110fce16bc988a7cd98">D4DLCDHWFBK70LCDC_FUNCTIONS_S::D4DLCDHWFBK70LCDC_InitPanel</a></div><div class="ttdeci">unsigned char(* D4DLCDHWFBK70LCDC_InitPanel)(void)</div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__k70__lcdc_8h_source.html#l00146">d4dlcdhw_k70_lcdc.h:146</a></div></div>
+<div class="ttc" id="d4dlcdhw__k70__lcdc_8h_html_a1b1bd72bd637241cc502cc27bd6eb070a4963c5d43c76a0097bcb52bb9f92fa8a"><div class="ttname"><a href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a4963c5d43c76a0097bcb52bb9f92fa8a">BPP24</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__k70__lcdc_8h_source.html#l00205">d4dlcdhw_k70_lcdc.h:205</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768ea97b3cc4a390395d197dcee029de1240d"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea97b3cc4a390395d197dcee029de1240d">ACD_DIV_13</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00128">d4dlcdhw_dragonfire_lcdc.h:128</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768eab118f4f777099404f1012cf391b562b0"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab118f4f777099404f1012cf391b562b0">ACD_DIV_9</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00124">d4dlcdhw_dragonfire_lcdc.h:124</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768eae40f805598081f705030578bd1ccaa75"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae40f805598081f705030578bd1ccaa75">ACD_DIV_10</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00125">d4dlcdhw_dragonfire_lcdc.h:125</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768eab526fd411657bd3ec2cd6ec6fef40054"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab526fd411657bd3ec2cd6ec6fef40054">ACD_DIV_3</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00118">d4dlcdhw_dragonfire_lcdc.h:118</a></div></div>
+<div class="ttc" id="d4dlcdhw__k70__lcdc_8h_html_ae7f2864684a62e301585af5fa9afe6ac"><div class="ttname"><a href="d4dlcdhw__k70__lcdc_8h.html#ae7f2864684a62e301585af5fa9afe6ac">D4DLCDHWFBK70LCDC_FUNCTIONS</a></div><div class="ttdeci">struct D4DLCDHWFBK70LCDC_FUNCTIONS_S D4DLCDHWFBK70LCDC_FUNCTIONS</div></div>
+<div class="ttc" id="d4dlcdhw__k70__lcdc_8h_html_ad36b11b882ce50f72990857f79c7a096"><div class="ttname"><a href="d4dlcdhw__k70__lcdc_8h.html#ad36b11b882ce50f72990857f79c7a096">D4D_LLD_LCD_HW_K70LCDC</a></div><div class="ttdeci">#define D4D_LLD_LCD_HW_K70LCDC</div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__k70__lcdc_8h_source.html#l00135">d4dlcdhw_k70_lcdc.h:135</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768ea7da7ab713d1a35465001ae0b51571cb9"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7da7ab713d1a35465001ae0b51571cb9">ACD_DIV_7</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00122">d4dlcdhw_dragonfire_lcdc.h:122</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768eae1b4c3c1e9662d861670113dbf83b04b"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae1b4c3c1e9662d861670113dbf83b04b">ACD_DIV_2</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00117">d4dlcdhw_dragonfire_lcdc.h:117</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a035cd81aba2cadc1fdf0387cad947b14"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14">LCDC_PANEL_TYPE</a></div><div class="ttdeci">LCDC_PANEL_TYPE</div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00143">d4dlcdhw_dragonfire_lcdc.h:143</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768ea83e50b4fc7f498d7a51cd19b5fb983d1"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea83e50b4fc7f498d7a51cd19b5fb983d1">ACD_DIV_15</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00130">d4dlcdhw_dragonfire_lcdc.h:130</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768ea7c2ad0d855a5011a178c6f2c9ebebd85"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7c2ad0d855a5011a178c6f2c9ebebd85">ACD_DIV_0</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00115">d4dlcdhw_dragonfire_lcdc.h:115</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a2f16e62fbe25f4aba83e20c81edf768ea72b43c8812ab780385b58fcca3b50cde"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea72b43c8812ab780385b58fcca3b50cde">ACD_DIV_4</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00119">d4dlcdhw_dragonfire_lcdc.h:119</a></div></div>
+<div class="ttc" id="d4dlcdhw__dragonfire__lcdc_8h_html_a035cd81aba2cadc1fdf0387cad947b14a297d842dedd87f8d6b95de55e1a1897e"><div class="ttname"><a href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14a297d842dedd87f8d6b95de55e1a1897e">TFT_PANEL</a></div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00147">d4dlcdhw_dragonfire_lcdc.h:147</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_e63864f3cf47839db9022321f26e31ad.html">LCD</a></li><li class="navelem"><a class="el" href="dir_23a5828fc9116e21f9b2ccfa5fee5622.html">lcd_hw_interface</a></li><li class="navelem"><a class="el" href="dir_e5c6bfdcae0961c3cb36584908317c3f.html">k70_lcdc</a></li><li class="navelem"><a class="el" href="d4dlcdhw__k70__lcdc_8h.html">d4dlcdhw_k70_lcdc.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:01 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

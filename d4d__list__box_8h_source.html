@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_list_box.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__list__box_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">d4d_list_box.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="d4d__list__box_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">* This program is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">* but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">* You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">* and the GNU Lesser General Public License along with this program.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">* If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">***************************************************************************/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#ifndef __D4D_LIST_BOX_H</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __D4D_LIST_BOX_H</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION</a> <a class="code" href="d4d__list__box_8c.html#a4c81bc343e5cb9d3ab805e44484fb52d">d4d_listBoxSysFunc</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> <a class="code" href="d4d__list__box_8c.html#a548129f714b7e0d1009be9a19ad2c7e4">D4D_ListBoxScrollBarsFeedBack</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis, <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> old_position, <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> new_position);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">* D4D LIST BOX setting  constants</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//********************* List Box flags for button specific flags *****************</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__const__flags.html#gaf6c817a7a5d23e4c1f314e859e8aae83">   69</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define D4D_LIST_BOX_F_SIDEBAR    (0x01 &lt;&lt; D4D_OBJECT_F_OBJECT_SHIFT)   </span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#ifndef D4D_LIST_BOX_F_DEFAULT</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__const.html#gaa695cd9c2de42a12fb33859d5834ba69">   75</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_LIST_BOX_F_DEFAULT  (D4D_OBJECT_F_VISIBLE | D4D_OBJECT_F_ENABLED | D4D_OBJECT_F_TABSTOP | D4D_OBJECT_F_TOUCHENABLE | D4D_OBJECT_F_MOUSE_NORMAL | D4D_OBJECT_F_BEVEL_DENTED)</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#ifndef D4D_LIST_BOX_F_SCRLBRS_DEFAULT</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__const.html#ga71fa6d397aa31ba9154f90065a3993c7">   81</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_LIST_BOX_F_SCRLBRS_DEFAULT  (D4D_OBJECT_F_ENABLED | D4D_OBJECT_F_TABSTOP | D4D_OBJECT_F_TOUCHENABLE | D4D_OBJECT_F_FASTTOUCH | D4D_OBJECT_F_BEVEL_RAISED | D4D_OBJECT_F_MOUSE_NORMAL)</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#ifndef D4D_LIST_BOX_SCRLBR_WIDTH</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__const.html#ga8d54ba042da4ba7edd31db07fafe2ca3">   87</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_LIST_BOX_SCRLBR_WIDTH  ( 20 )</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#ifndef D4D_LIST_BOX_SCRLBR_STEP</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__const.html#ga1b122418936a5579240419ea4bc9aed8">   93</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_LIST_BOX_SCRLBR_STEP  ( 1 )</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#ifndef D4D_LIST_BOX_ITEM_TXT_PRTY_DEFAULT</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__const.html#gaa52f6b516736e32c48284eed7bd4a427">   99</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_LIST_BOX_ITEM_TXT_PRTY_DEFAULT  ( D4D_ALIGN_V_CENTER_MASK | D4D_ALIGN_H_LEFT_MASK )</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#ifndef D4D_LIST_BOX_ITEM_FNT_PRTY_DEFAULT</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__const.html#ga21a0e5dcbe722c61a62a78662f107087">  105</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_LIST_BOX_ITEM_FNT_PRTY_DEFAULT  ( 0 )</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">* D4D LIST BOX setting  public types</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__type.html#gaaa97095c521e1a726e70a68be140c75f">  125</a></span>&#160;<span class="keyword">typedef</span> void (*<a class="code" href="group__doxd4d__list__box__type.html#gaaa97095c521e1a726e70a68be140c75f">D4D_LSTBX_ON_EVENT</a>)(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis, <a class="code" href="group__doxd4d__base__type.html#ga7d373fc79dfcb995cf22222da447265b">D4D_EVENTID</a> eventId);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">  128</a></span>&#160;<span class="keyword">typedef</span> <a class="code" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a> <a class="code" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__type.html">  131</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__type.html#ae845f84572ab1ac6e74ca3eb433bd6ac">  133</a></span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* <a class="code" href="group__doxd4d__list__box__type.html#ae845f84572ab1ac6e74ca3eb433bd6ac">pText</a>;     </div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__type.html#afcecb2add875c6162c0c6874d2c50faa">  134</a></span>&#160;  <span class="keywordtype">void</span>* <a class="code" href="group__doxd4d__list__box__type.html#afcecb2add875c6162c0c6874d2c50faa">pUser</a>;          </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}<a class="code" href="group__doxd4d__list__box__type.html#struct_d4_d___l_i_s_t___b_o_x___i_t_e_m">D4D_LIST_BOX_ITEM</a>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment">* Private Types</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">******************************************************************************/</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html">  143</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html#aa47e075842e33afb24affdda25d7a7e1">  145</a></span>&#160;   <a class="code" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> <a class="code" href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html#aa47e075842e33afb24affdda25d7a7e1">ix</a>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html#afb6ec2195fe9a431e9fa0b73855aa4ae">  146</a></span>&#160;   <a class="code" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> <a class="code" href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html#afb6ec2195fe9a431e9fa0b73855aa4ae">page_ix</a>;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html#ac66ae4518f5b91749b672bbc4dcaf2d0">  147</a></span>&#160;   <span class="keyword">const</span> <a class="code" href="group__doxd4d__list__box__type.html#struct_d4_d___l_i_s_t___b_o_x___i_t_e_m">D4D_LIST_BOX_ITEM</a>*  <a class="code" href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html#ac66ae4518f5b91749b672bbc4dcaf2d0">pItems</a>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;} <a class="code" href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html">D4D_LIST_BOX_DATA</a>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="struct_d4_d___l_i_s_t___b_o_x.html">  150</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;{</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="struct_d4_d___l_i_s_t___b_o_x.html#a63703152a03b51bc585d08162c0f6455">  152</a></span>&#160;    <a class="code" href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a>  <a class="code" href="struct_d4_d___l_i_s_t___b_o_x.html#a63703152a03b51bc585d08162c0f6455">itemsFontId</a>;</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="struct_d4_d___l_i_s_t___b_o_x.html#abe7aaa3ff38a263ee9a3f9eaab22b920">  153</a></span>&#160;    <a class="code" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> <a class="code" href="struct_d4_d___l_i_s_t___b_o_x.html#abe7aaa3ff38a263ee9a3f9eaab22b920">posCnt</a>; <span class="comment">// Number of visiable position</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="struct_d4_d___l_i_s_t___b_o_x.html#aac8557a29a9136e4bd1f98d20dc552f9">  154</a></span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> <a class="code" href="struct_d4_d___l_i_s_t___b_o_x.html#aac8557a29a9136e4bd1f98d20dc552f9">textOff</a>; <span class="comment">// text offset between individual item on screen</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="struct_d4_d___l_i_s_t___b_o_x.html#a0f3ad6263bb26cca5a941f18d80b3ddc">  155</a></span>&#160;    <a class="code" href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html">D4D_LIST_BOX_DATA</a>* <a class="code" href="struct_d4_d___l_i_s_t___b_o_x.html#a0f3ad6263bb26cca5a941f18d80b3ddc">pData</a>;     <span class="comment">// ListBox volatile data struct    </span></div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="struct_d4_d___l_i_s_t___b_o_x.html#a4b9b9248640839f91be3c13f2e1ed652">  156</a></span>&#160;    <a class="code" href="group__doxd4d__list__box__type.html#gaaa97095c521e1a726e70a68be140c75f">D4D_LSTBX_ON_EVENT</a> <a class="code" href="struct_d4_d___l_i_s_t___b_o_x.html#a4b9b9248640839f91be3c13f2e1ed652">OnEvent</a>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;} <a class="code" href="struct_d4_d___l_i_s_t___b_o_x.html">D4D_LIST_BOX</a>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="d4d__list__box_8h.html#a60f10e0de5ae80dd4d8460621f48a2a5">  160</a></span>&#160;<span class="preprocessor">#define D4D_LIST_BOX_CHILD_SCROLL_BAR_IX 1</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">* Macros </span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">******************************************************************************/</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">// getting the LIST_BOX structure from general OBJECT</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="d4d__list__box_8h.html#a2dd2e87365120a83f545cc33e0ac361f">  167</a></span>&#160;<span class="preprocessor">#define D4D_GET_LIST_BOX(pObj) ((D4D_LIST_BOX*)((pObj)-&gt;pParam))</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="d4d__list__box_8h.html#a2a3b0beb06a78286878a2c18b8f59475">  169</a></span>&#160;<span class="preprocessor">#define D4D_GET_LIST_BOX_SCROLL_BAR(pObj) ((D4D_OBJECT*)((pObj)-&gt;pRelations[D4D_LIST_BOX_CHILD_SCROLL_BAR_IX]))</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">* D4D LIST BOX setting  public macros</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__macro.html#ga8402ab9ec9349e6e8a963cf332a4de33">  203</a></span>&#160;<span class="preprocessor">#define _D4D_DECLARE_LIST_BOX_BEGIN(type, name, x, y, cx, cy, radius, pMargin, pParent, flags, pScheme,\</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor">    itemsFontId, posCnt, listBoxItemsOff, pUser, pOnEvent, pOnUsrMsg) \</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">    extern type D4D_LIST_BOX_ITEM name##_items[];\</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">    extern type D4D_OBJECT name##_scrollBarVer;\</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor">    static D4D_LIST_BOX_DATA name##_data = { 0, 0, (const D4D_LIST_BOX_ITEM*)&amp;(name##_items[0])};\</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">    static const D4D_OBJECT * const name##_relations[] = {pParent, &amp;name##_scrollBarVer, NULL};\</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor">    static type D4D_LIST_BOX name##_params = \</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">    { \</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">        itemsFontId,        \</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">        posCnt, \</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor">        listBoxItemsOff, \</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor">        &amp;(name##_data), \</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="preprocessor">        pOnEvent \</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="preprocessor">    }; \</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor">    \</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="preprocessor">    D4D_DECLARE_OBJECT(type, name, x, y, cx, cy, radius, pMargin, name##_relations, pOnUsrMsg, &amp;d4d_listBoxSysFunc, &amp;(name##_params), flags, pUser, pScheme)\</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="preprocessor">    \</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="preprocessor">    static const D4D_OBJECT* const name##_scrollBarVerRelations[] = {&amp;name, NULL};\</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="preprocessor">    _D4D_DECLARE_SCROLL_BAR(type, name##_scrollBarVer,  (D4D_COOR)(cx - D4D_LIST_BOX_SCRLBR_WIDTH - 2*D4D_BEVEL_WIDTH), 0, D4D_LIST_BOX_SCRLBR_WIDTH, (D4D_COOR)(cy - 2*D4D_BEVEL_WIDTH),\</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="preprocessor">     radius, NULL, name##_scrollBarVerRelations, D4D_LIST_BOX_F_SCRLBRS_DEFAULT, pScheme, (void*)&amp;name, D4D_ListBoxScrollBarsFeedBack, NULL) \</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor">    \</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="preprocessor">    type D4D_LIST_BOX_ITEM name##_items[] = { \</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="preprocessor">    </span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="preprocessor"></span>      </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__macro.html#ga751edafe62a85ca40891b2235d61aee8">  240</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_LIST_BOX_ITEM(pText, pUser) { pText, (void*)pUser},</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__macro.html#gac0e6cbf0d165782355e066cc8274bb34">  253</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_LIST_BOX_END() { NULL, NULL} };</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00278"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__macro.html#gaaf61de09c046b324812a8dc9f97c2242">  278</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_LIST_BOX_BEGIN(name, x, y, cx, cy, flags, pParent, pScheme, itemsFontId, posCnt, listBoxItemsOff, pUser, pOnEvent, pOnUsrMsg) \</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="preprocessor"> _D4D_DECLARE_LIST_BOX_BEGIN(D4D_CONST, name, x, y, cx, cy, 0, (D4D_MARGIN*)&amp;listBox_marginDefault, pParent, flags, pScheme,\</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="preprocessor">    itemsFontId, posCnt, listBoxItemsOff, pUser, pOnEvent, pOnUsrMsg)</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__macro.html#gaba8557c7d76f97dcfeb06fa700102b65">  299</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STD_LIST_BOX_BEGIN(name, x, y, cx, cy, pParent, itemsFontId, pOnEvent) \</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="preprocessor">    D4D_DECLARE_LIST_BOX_BEGIN(name, x, y, cx, cy, (D4D_LIST_BOX_F_DEFAULT), pParent, NULL, itemsFontId, 0, 0, NULL, pOnEvent, NULL)</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">// Rounded listBox definition</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00327"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__macro.html#ga7c8e9a9cf751ead2cfe573114374b1a0">  327</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_RLIST_BOX_BEGIN(name, x, y, cx, cy, radius, flags, pParent, pScheme, itemsFontId, posCnt, listBoxItemsOff, pUser, pOnEvent, pOnUsrMsg) \</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="preprocessor"> _D4D_DECLARE_LIST_BOX_BEGIN(D4D_CONST, name, x, y, cx, cy, radius, (D4D_MARGIN*)&amp;listBox_marginDefault, pParent, flags, pScheme,\</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="preprocessor">    itemsFontId, posCnt, listBoxItemsOff, pUser, pOnEvent, pOnUsrMsg)</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00349"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__macro.html#gaa725bb241cc5870cbc99237854e737f2">  349</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STD_RLIST_BOX_BEGIN(name, x, y, cx, cy, radius, pParent, itemsFontId, pOnEvent) \</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="preprocessor">    D4D_DECLARE_RLIST_BOX_BEGIN(name, x, y, cx, cy, radius, (D4D_LIST_BOX_F_DEFAULT), pParent, NULL, itemsFontId, 0, 0, NULL, pOnEvent, NULL)</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">//IN RAM instantions macros</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00357"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__macro.html#gaefd0de1d4f8c7fa13ba3b3bc10e2533a">  357</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_LIST_BOX_BEGIN_INRAM(name, x, y, cx, cy, flags, pParent, pScheme, itemsFontId, posCnt, listBoxItemsOff, pUser, pOnEvent, pOnUsrMsg) \</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="preprocessor"> _D4D_DECLARE_LIST_BOX_BEGIN(D4D_NO_CONST, name, x, y, cx, cy, 0, (D4D_MARGIN*)&amp;listBox_marginDefault, pParent, flags, pScheme,\</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="preprocessor">    itemsFontId, posCnt, listBoxItemsOff, pUser, pOnEvent, pOnUsrMsg)</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00364"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__macro.html#ga3143391ee4cf592bf8a4fe604329e724">  364</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STD_LIST_BOX_BEGIN_INRAM(name, x, y, cx, cy, pParent, itemsFontId, pOnEvent) \</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="preprocessor">    D4D_DECLARE_LIST_BOX_BEGIN_INRAM(name, x, y, cx, cy, (D4D_LIST_BOX_F_DEFAULT), pParent, NULL, itemsFontId, 0, 0, NULL, pOnEvent, NULL)</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">// Rounded listBox definition</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00372"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__macro.html#gade8f3beebfb11d2503ecb5498f7ea0fc">  372</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_RLIST_BOX_BEGIN_INRAM(name, x, y, cx, cy, radius, flags, pParent, pScheme, itemsFontId, posCnt, listBoxItemsOff, pUser, pOnEvent, pOnUsrMsg) \</span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="preprocessor"> _D4D_DECLARE_LIST_BOX_BEGIN(D4D_NO_CONST, name, x, y, cx, cy, radius, (D4D_MARGIN*)&amp;listBox_marginDefault, pParent, flags, pScheme,\</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="preprocessor">    itemsFontId, posCnt, listBoxItemsOff, pUser, pOnEvent, pOnUsrMsg)</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00379"></a><span class="lineno"><a class="line" href="group__doxd4d__list__box__macro.html#gaac67dff2213f71bca70e0c29a490dfe4">  379</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STD_RLIST_BOX_BEGIN_INRAM(name, x, y, cx, cy, radius, pParent, itemsFontId, pOnEvent) \</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="preprocessor">    D4D_DECLARE_RLIST_BOX_BEGIN_INRAM(name, x, y, cx, cy, radius, (D4D_LIST_BOX_F_DEFAULT), pParent, NULL, itemsFontId, 0, 0, NULL, pOnEvent, NULL)</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="preprocessor"></span>   </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="comment">* Global variables</span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment">******************************************************************************/</span>   </div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a> <a class="code" href="d4d__list__box_8c.html#a6b4addae0ae1218242a48a2a6f2a6684">listBox_marginDefault</a>;    </div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;   </div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment">* Global functions</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="comment">******************************************************************************/</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<a class="code" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> <a class="code" href="group__doxd4d__list__box__func.html#ga3690deaef195705cc4b006bfab0159f5">D4D_ListBoxGetIndex</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis);</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="keywordtype">void</span>  <a class="code" href="group__doxd4d__list__box__func.html#gac0ca84429c66cb1de4555407effc84ba">D4D_ListBoxSetIndex</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis, <a class="code" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> ix);</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<a class="code" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> <a class="code" href="group__doxd4d__list__box__func.html#gab6068cd81fb03508c3aae41f6bf4251d">D4D_ListBoxGetItemCount</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis);</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<a class="code" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> <a class="code" href="group__doxd4d__list__box__func.html#ga944c6bd2ee80068f531bef547d6600c9">D4D_ListBoxFindUserDataItem</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis, <span class="keywordtype">void</span>* pUser);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="keywordtype">void</span>* <a class="code" href="group__doxd4d__list__box__func.html#ga15c5e91c20cf4f74e290b12d6c5f8a03">D4D_ListBoxGetItemUserData</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis);</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* <a class="code" href="group__doxd4d__list__box__func.html#ga1c74b381309142b76f1f29ce4b2e0394">D4D_ListBoxGetItemText</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* <a class="code" href="group__doxd4d__list__box__func.html#ga3bfe951a39c5ae727c2e89bfcae6b838">D4D_ListBoxGetItemTextIx</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis, <a class="code" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> ix);</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__doxd4d__list__box__func.html#gafabebf1bfe5b1d4dea19acd07e62aeaa">D4D_ListBoxEnsureVisible</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2">D4D_ListBoxChangeItemList</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis, <span class="keyword">const</span> <a class="code" href="group__doxd4d__list__box__type.html#struct_d4_d___l_i_s_t___b_o_x___i_t_e_m">D4D_LIST_BOX_ITEM</a>* pItems);</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<a class="code" href="group__doxd4d__list__box__type.html#struct_d4_d___l_i_s_t___b_o_x___i_t_e_m">D4D_LIST_BOX_ITEM</a>* <a class="code" href="group__doxd4d__list__box__func.html#gaf46cf46f5a5ff3def7bb6777f31440b4">D4D_ListBoxGetItemList</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis);</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __D4D_LIST_BOX_H  */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;</div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga694bba8ee4d726d2af74838c2b6960d3"><div class="ttname"><a href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a></div><div class="ttdeci">D4D_WCHAR D4D_TCHAR</div><div class="ttdoc">Type definition of eGUI character (it depends on UNICODE setting if this is D4D_CHAR or D4D_WCHAR)...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00281">d4d_types.h:281</a></div></div>
+<div class="ttc" id="d4d__font_8h_html_a5ff2e19a723325abcaa1ad727f60802e"><div class="ttname"><a href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a></div><div class="ttdeci">Byte D4D_FONT</div><div class="ttdef"><b>Definition:</b> <a href="d4d__font_8h_source.html#l00171">d4d_font.h:171</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__func_html_gaf46cf46f5a5ff3def7bb6777f31440b4"><div class="ttname"><a href="group__doxd4d__list__box__func.html#gaf46cf46f5a5ff3def7bb6777f31440b4">D4D_ListBoxGetItemList</a></div><div class="ttdeci">D4D_LIST_BOX_ITEM * D4D_ListBoxGetItemList(D4D_OBJECT_PTR pThis)</div><div class="ttdoc">Function gets the current using item list. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00655">d4d_list_box.c:655</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__func_html_ga19d160c64d98695bce0d42925c3f23f2"><div class="ttname"><a href="group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2">D4D_ListBoxChangeItemList</a></div><div class="ttdeci">void D4D_ListBoxChangeItemList(D4D_OBJECT_PTR pThis, const D4D_LIST_BOX_ITEM *pItems)</div><div class="ttdoc">Function change the items list using by list box. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00637">d4d_list_box.c:637</a></div></div>
+<div class="ttc" id="d4d__list__box_8c_html_a6b4addae0ae1218242a48a2a6f2a6684"><div class="ttname"><a href="d4d__list__box_8c.html#a6b4addae0ae1218242a48a2a6f2a6684">listBox_marginDefault</a></div><div class="ttdeci">const D4D_MARGIN listBox_marginDefault</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00064">d4d_list_box.c:64</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__func_html_gab6068cd81fb03508c3aae41f6bf4251d"><div class="ttname"><a href="group__doxd4d__list__box__func.html#gab6068cd81fb03508c3aae41f6bf4251d">D4D_ListBoxGetItemCount</a></div><div class="ttdeci">D4D_LIST_BOX_INDEX D4D_ListBoxGetItemCount(D4D_OBJECT_PTR pThis)</div><div class="ttdoc">Function gets the count of list box items. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00560">d4d_list_box.c:560</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__type_html_struct_d4_d___l_i_s_t___b_o_x___i_t_e_m"><div class="ttname"><a href="group__doxd4d__list__box__type.html#struct_d4_d___l_i_s_t___b_o_x___i_t_e_m">D4D_LIST_BOX_ITEM</a></div><div class="ttdoc">This is list box item variable type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00131">d4d_list_box.h:131</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__type_html_ae845f84572ab1ac6e74ca3eb433bd6ac"><div class="ttname"><a href="group__doxd4d__list__box__type.html#ae845f84572ab1ac6e74ca3eb433bd6ac">D4D_LIST_BOX_ITEM::pText</a></div><div class="ttdeci">D4D_TCHAR * pText</div><div class="ttdoc">pointer to item text </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00133">d4d_list_box.h:133</a></div></div>
+<div class="ttc" id="d4d__list__box_8c_html_a4c81bc343e5cb9d3ab805e44484fb52d"><div class="ttname"><a href="d4d__list__box_8c.html#a4c81bc343e5cb9d3ab805e44484fb52d">d4d_listBoxSysFunc</a></div><div class="ttdeci">const D4D_OBJECT_SYS_FUNCTION d4d_listBoxSysFunc</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00056">d4d_list_box.c:56</a></div></div>
+<div class="ttc" id="struct_d4_d___l_i_s_t___b_o_x_html_aac8557a29a9136e4bd1f98d20dc552f9"><div class="ttname"><a href="struct_d4_d___l_i_s_t___b_o_x.html#aac8557a29a9136e4bd1f98d20dc552f9">D4D_LIST_BOX::textOff</a></div><div class="ttdeci">D4D_COOR textOff</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00154">d4d_list_box.h:154</a></div></div>
+<div class="ttc" id="struct_d4_d___l_i_s_t___b_o_x_html_a63703152a03b51bc585d08162c0f6455"><div class="ttname"><a href="struct_d4_d___l_i_s_t___b_o_x.html#a63703152a03b51bc585d08162c0f6455">D4D_LIST_BOX::itemsFontId</a></div><div class="ttdeci">D4D_FONT itemsFontId</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00152">d4d_list_box.h:152</a></div></div>
+<div class="ttc" id="struct_d4_d___l_i_s_t___b_o_x_html"><div class="ttname"><a href="struct_d4_d___l_i_s_t___b_o_x.html">D4D_LIST_BOX</a></div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00150">d4d_list_box.h:150</a></div></div>
+<div class="ttc" id="struct_d4_d___l_i_s_t___b_o_x_html_a0f3ad6263bb26cca5a941f18d80b3ddc"><div class="ttname"><a href="struct_d4_d___l_i_s_t___b_o_x.html#a0f3ad6263bb26cca5a941f18d80b3ddc">D4D_LIST_BOX::pData</a></div><div class="ttdeci">D4D_LIST_BOX_DATA * pData</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00155">d4d_list_box.h:155</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__func_html_ga3690deaef195705cc4b006bfab0159f5"><div class="ttname"><a href="group__doxd4d__list__box__func.html#ga3690deaef195705cc4b006bfab0159f5">D4D_ListBoxGetIndex</a></div><div class="ttdeci">D4D_LIST_BOX_INDEX D4D_ListBoxGetIndex(D4D_OBJECT *pThis)</div><div class="ttdoc">Function returns the current selected item index. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00516">d4d_list_box.c:516</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__func_html_ga3bfe951a39c5ae727c2e89bfcae6b838"><div class="ttname"><a href="group__doxd4d__list__box__func.html#ga3bfe951a39c5ae727c2e89bfcae6b838">D4D_ListBoxGetItemTextIx</a></div><div class="ttdeci">D4D_TCHAR * D4D_ListBoxGetItemTextIx(D4D_OBJECT_PTR pThis, D4D_LIST_BOX_INDEX ix)</div><div class="ttdoc">Function gets the text of item choosed by item index. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00620">d4d_list_box.c:620</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga5e8ce195e5479b7da008fb20874154b8"><div class="ttname"><a href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a></div><div class="ttdeci">Byte D4D_COOR</div><div class="ttdoc">Type definition of eGUI coordination variables. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00219">d4d_types.h:219</a></div></div>
+<div class="ttc" id="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a_html"><div class="ttname"><a href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html">D4D_LIST_BOX_DATA</a></div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00143">d4d_list_box.h:143</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__func_html_ga944c6bd2ee80068f531bef547d6600c9"><div class="ttname"><a href="group__doxd4d__list__box__func.html#ga944c6bd2ee80068f531bef547d6600c9">D4D_ListBoxFindUserDataItem</a></div><div class="ttdeci">D4D_LIST_BOX_INDEX D4D_ListBoxFindUserDataItem(D4D_OBJECT_PTR pThis, void *pUser)</div><div class="ttdoc">Function finds the index of items with specified user data. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00574">d4d_list_box.c:574</a></div></div>
+<div class="ttc" id="d4d__list__box_8c_html_a548129f714b7e0d1009be9a19ad2c7e4"><div class="ttname"><a href="d4d__list__box_8c.html#a548129f714b7e0d1009be9a19ad2c7e4">D4D_ListBoxScrollBarsFeedBack</a></div><div class="ttdeci">void D4D_ListBoxScrollBarsFeedBack(D4D_OBJECT *pThis, D4D_INDEX old_position, D4D_INDEX new_position)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00472">d4d_list_box.c:472</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__func_html_gac0ca84429c66cb1de4555407effc84ba"><div class="ttname"><a href="group__doxd4d__list__box__func.html#gac0ca84429c66cb1de4555407effc84ba">D4D_ListBoxSetIndex</a></div><div class="ttdeci">void D4D_ListBoxSetIndex(D4D_OBJECT *pThis, D4D_LIST_BOX_INDEX ix)</div><div class="ttdoc">Function select new item by index. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00533">d4d_list_box.c:533</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__type_html_ga501b8e87df056557dd9150c5c0827b67"><div class="ttname"><a href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a></div><div class="ttdeci">sByte D4D_LIST_BOX_INDEX</div><div class="ttdoc">This is list box item index variable type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00128">d4d_list_box.h:128</a></div></div>
+<div class="ttc" id="group__doxd4d__base__type_html_ga7d373fc79dfcb995cf22222da447265b"><div class="ttname"><a href="group__doxd4d__base__type.html#ga7d373fc79dfcb995cf22222da447265b">D4D_EVENTID</a></div><div class="ttdeci">D4D_EVENTID</div><div class="ttdoc">D4D events that is handled by object callback functions. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00429">d4d_base.h:429</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__func_html_gafabebf1bfe5b1d4dea19acd07e62aeaa"><div class="ttname"><a href="group__doxd4d__list__box__func.html#gafabebf1bfe5b1d4dea19acd07e62aeaa">D4D_ListBoxEnsureVisible</a></div><div class="ttdeci">void D4D_ListBoxEnsureVisible(D4D_OBJECT *pThis)</div><div class="ttdoc">Function ensure that the selected item in list will be scrolled to visible area. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00494">d4d_list_box.c:494</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga47cd271715c20f3f9a0c2c01aac3411a"><div class="ttname"><a href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a></div><div class="ttdeci">LWord D4D_INDEX</div><div class="ttdoc">Type definition of eGUI general index variables. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00206">d4d_types.h:206</a></div></div>
+<div class="ttc" id="group__doxd4d__object__type_html_struct_d4_d___o_b_j_e_c_t___s"><div class="ttname"><a href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_S</a></div><div class="ttdoc">The object main structure type definition. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00167">d4d_object.h:167</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_gaa0c2c6a500dad45afc02baea68c403db"><div class="ttname"><a href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a></div><div class="ttdeci">signed char sByte</div><div class="ttdoc">Type definition of sByte (signed 8-bit). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00155">d4d_types.h:155</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__func_html_ga1c74b381309142b76f1f29ce4b2e0394"><div class="ttname"><a href="group__doxd4d__list__box__func.html#ga1c74b381309142b76f1f29ce4b2e0394">D4D_ListBoxGetItemText</a></div><div class="ttdeci">D4D_TCHAR * D4D_ListBoxGetItemText(D4D_OBJECT_PTR pThis)</div><div class="ttdoc">Function gets the selected item text. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00607">d4d_list_box.c:607</a></div></div>
+<div class="ttc" id="group__doxd4d__object__type_html_struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s"><div class="ttname"><a href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION_S</a></div><div class="ttdoc">The object system function needed for each object - this is part of D4D_OBJECT main structure...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00134">d4d_object.h:134</a></div></div>
+<div class="ttc" id="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a_html_afb6ec2195fe9a431e9fa0b73855aa4ae"><div class="ttname"><a href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html#afb6ec2195fe9a431e9fa0b73855aa4ae">D4D_LIST_BOX_DATA::page_ix</a></div><div class="ttdeci">D4D_LIST_BOX_INDEX page_ix</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00146">d4d_list_box.h:146</a></div></div>
+<div class="ttc" id="struct_d4_d___l_i_s_t___b_o_x_html_a4b9b9248640839f91be3c13f2e1ed652"><div class="ttname"><a href="struct_d4_d___l_i_s_t___b_o_x.html#a4b9b9248640839f91be3c13f2e1ed652">D4D_LIST_BOX::OnEvent</a></div><div class="ttdeci">D4D_LSTBX_ON_EVENT OnEvent</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00156">d4d_list_box.h:156</a></div></div>
+<div class="ttc" id="struct_d4_d___l_i_s_t___b_o_x_html_abe7aaa3ff38a263ee9a3f9eaab22b920"><div class="ttname"><a href="struct_d4_d___l_i_s_t___b_o_x.html#abe7aaa3ff38a263ee9a3f9eaab22b920">D4D_LIST_BOX::posCnt</a></div><div class="ttdeci">D4D_LIST_BOX_INDEX posCnt</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00153">d4d_list_box.h:153</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__func_html_ga15c5e91c20cf4f74e290b12d6c5f8a03"><div class="ttname"><a href="group__doxd4d__list__box__func.html#ga15c5e91c20cf4f74e290b12d6c5f8a03">D4D_ListBoxGetItemUserData</a></div><div class="ttdeci">void * D4D_ListBoxGetItemUserData(D4D_OBJECT_PTR pThis)</div><div class="ttdoc">Function gets the selected item user data. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00595">d4d_list_box.c:595</a></div></div>
+<div class="ttc" id="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a_html_ac66ae4518f5b91749b672bbc4dcaf2d0"><div class="ttname"><a href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html#ac66ae4518f5b91749b672bbc4dcaf2d0">D4D_LIST_BOX_DATA::pItems</a></div><div class="ttdeci">const D4D_LIST_BOX_ITEM * pItems</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00147">d4d_list_box.h:147</a></div></div>
+<div class="ttc" id="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a_html_aa47e075842e33afb24affdda25d7a7e1"><div class="ttname"><a href="struct_d4_d___l_i_s_t___b_o_x___d_a_t_a.html#aa47e075842e33afb24affdda25d7a7e1">D4D_LIST_BOX_DATA::ix</a></div><div class="ttdeci">D4D_LIST_BOX_INDEX ix</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00145">d4d_list_box.h:145</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__type_html_afcecb2add875c6162c0c6874d2c50faa"><div class="ttname"><a href="group__doxd4d__list__box__type.html#afcecb2add875c6162c0c6874d2c50faa">D4D_LIST_BOX_ITEM::pUser</a></div><div class="ttdeci">void * pUser</div><div class="ttdoc">pointer to void (it can be retype to any other user data in size or less that is pointer size) ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00134">d4d_list_box.h:134</a></div></div>
+<div class="ttc" id="group__doxd4d__list__box__type_html_gaaa97095c521e1a726e70a68be140c75f"><div class="ttname"><a href="group__doxd4d__list__box__type.html#gaaa97095c521e1a726e70a68be140c75f">D4D_LSTBX_ON_EVENT</a></div><div class="ttdeci">void(* D4D_LSTBX_ON_EVENT)(D4D_OBJECT *pThis, D4D_EVENTID eventId)</div><div class="ttdoc">Type definition of list box on event callback function. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8h_source.html#l00125">d4d_list_box.h:125</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_struct_d4_d___m_a_r_g_i_n"><div class="ttname"><a href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a></div><div class="ttdoc">Type definition of eGUI client area margin structure. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00244">d4d_types.h:244</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__list__box_8h.html">d4d_list_box.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:00 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

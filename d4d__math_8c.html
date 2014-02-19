@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_math.c File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__math_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_math.c File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="d4d_8h_source.html">d4d.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="d4d__private_8h_source.html">common_files/d4d_private.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for d4d_math.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__math_8c__incl.gif" border="0" usemap="#d4d__math_8c" alt=""/></div>
+<map name="d4d__math_8c" id="d4d__math_8c">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="2890,80,2944,107"/><area shape="rect" id="node38" href="d4d__private_8h.html" title="D4D Driver private header file. " alt="" coords="2969,80,3151,107"/><area shape="rect" id="node4" href="d4d__types_8h.html" title="D4D Driver global types header file. " alt="" coords="139,163,316,189"/><area shape="rect" id="node5" href="d4d__base_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="341,163,515,189"/><area shape="rect" id="node6" href="d4d__string_8h.html" title="D4D Driver strings header file. " alt="" coords="1171,163,1348,189"/><area shape="rect" id="node8" href="d4d__basic__draw_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="589,155,755,197"/><area shape="rect" id="node9" href="d4d__object_8h.html" title="D4D Driver object functions header file. " alt="" coords="779,163,959,189"/><area shape="rect" id="node10" href="d4d__low_8h.html" title="D4D driver low level graphic function header file. " alt="" coords="983,163,1147,189"/><area shape="rect" id="node11" href="d4d__bmp_8h.html" title="D4D driver bmp decoder header file. " alt="" coords="1579,163,1749,189"/><area shape="rect" id="node15" href="d4d__extsrc_8h.html" title="D4D Driver extscr helper functions header file. " alt="" coords="1373,163,1555,189"/><area shape="rect" id="node7" href="d4d__font_8h.html" title="D4D Driver fonts header file. " alt="" coords="822,253,988,280"/><area shape="rect" id="node16" href="d4d__math_8h.html" title="D4D Driver math helper functions header file. " alt="" coords="1774,163,1948,189"/><area shape="rect" id="node17" href="d4d__scheme_8h.html" title="D4D Driver color scheme header file. " alt="" coords="1973,163,2163,189"/><area shape="rect" id="node18" href="d4d__screen_8h.html" title="D4D driver screen header file. " alt="" coords="2188,163,2372,189"/><area shape="rect" id="node19" href="d4d__mouse_8h.html" title="D4D Driver mouse functions header file. " alt="" coords="2396,163,2580,189"/><area shape="rect" id="node20" href="d4d__picture_8h.html" title="D4D Driver picture object header file. " alt="" coords="2604,155,2743,197"/><area shape="rect" id="node21" href="d4d__button_8h.html" title="D4D Driver button object header file. " alt="" coords="2767,155,2905,197"/><area shape="rect" id="node22" href="d4d__check__box_8h.html" title="D4D Driver check box object header file. " alt="" coords="2929,155,3068,197"/><area shape="rect" id="node23" href="d4d__gauge_8h.html" title="D4D Driver gauge object header file. " alt="" coords="3092,155,3231,197"/><area shape="rect" id="node24" href="d4d__slider_8h.html" title="D4D Driver slider object header file. " alt="" coords="3255,155,3393,197"/><area shape="rect" id="node25" href="d4d__label_8h.html" title="D4D Driver label object header file. " alt="" coords="3417,155,3556,197"/><area shape="rect" id="node26" href="d4d__icon_8h.html" title="D4D Driver icon object header file. " alt="" coords="3580,155,3719,197"/><area shape="rect" id="node27" href="d4d__menu_8h.html" title="D4D Driver menu object header file. " alt="" coords="3743,155,3881,197"/><area shape="rect" id="node28" href="d4d__graph_8h.html" title="D4D Driver graph object header file. " alt="" coords="3905,155,4044,197"/><area shape="rect" id="node29" href="d4d__scroll__bar_8h.html" title="D4D Driver label object header file. " alt="" coords="4068,155,4207,197"/><area shape="rect" id="node30" href="d4d__console_8h.html" title="D4D Driver label object header file. " alt="" coords="4231,155,4369,197"/><area shape="rect" id="node31" href="d4d__text__box_8h.html" title="D4D Driver label object header file. " alt="" coords="4393,155,4532,197"/><area shape="rect" id="node32" href="d4d__progress__bar_8h.html" title="D4D Driver progress_bar object header file. " alt="" coords="4556,155,4695,197"/><area shape="rect" id="node33" href="d4d__radio__button_8h.html" title="D4D Driver radio button object header file. " alt="" coords="4719,155,4857,197"/><area shape="rect" id="node34" href="d4d__group__box_8h.html" title="D4D Driver groupBox object header file. " alt="" coords="4881,155,5020,197"/><area shape="rect" id="node35" href="d4d__list__box_8h.html" title="D4D Driver listBox object header file. " alt="" coords="5044,155,5183,197"/><area shape="rect" id="node36" href="d4d__edit__box_8h.html" title="D4D Driver editBox object header file. " alt="" coords="5207,155,5345,197"/><area shape="rect" id="node37" href="d4d__combo__box_8h.html" title="D4D Driver comboBox object header file. " alt="" coords="5369,155,5508,197"/><area shape="rect" id="node12" href="d4d__imgdec__d4dint_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="1776,246,1952,287"/><area shape="rect" id="node13" href="d4d__imgdec__d4d_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="1376,246,1552,287"/><area shape="rect" id="node14" href="d4d__imgdec__bmp_8h.html" title="D4D driver external bmp files decoder header file. " alt="" coords="1576,246,1752,287"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a84562213c3bb119f9ed4afd0ce75cc52"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52">D4D_Divide8</a> (<a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> num, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> div)</td></tr>
+<tr class="memdesc:a84562213c3bb119f9ed4afd0ce75cc52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast 16/8=8 divide operation with rounding and saturation.  <a href="#a84562213c3bb119f9ed4afd0ce75cc52">More...</a><br/></td></tr>
+<tr class="separator:a84562213c3bb119f9ed4afd0ce75cc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d93a98ed21d577f86d754ee79170876"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__math_8c.html#a6d93a98ed21d577f86d754ee79170876">D4D_Divide16</a> (<a class="el" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> num, <a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> div)</td></tr>
+<tr class="separator:a6d93a98ed21d577f86d754ee79170876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1710a1b4ba7ec0d739c0fab1ab5b4ed9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9">D4D_MulDivUU8</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> u1, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> u2, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> d)</td></tr>
+<tr class="memdesc:ga1710a1b4ba7ec0d739c0fab1ab5b4ed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple proportion unsigned calculation - 8 bit.  <a href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9">More...</a><br/></td></tr>
+<tr class="separator:ga1710a1b4ba7ec0d739c0fab1ab5b4ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b5848c320410eed4c77c1ac1ee3c29f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#ga0b5848c320410eed4c77c1ac1ee3c29f">D4D_MulDivSU8</a> (<a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a> s, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> u, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> d)</td></tr>
+<tr class="memdesc:ga0b5848c320410eed4c77c1ac1ee3c29f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple proportion signed calculation - 8 bit.  <a href="group__doxd4d__math__func.html#ga0b5848c320410eed4c77c1ac1ee3c29f">More...</a><br/></td></tr>
+<tr class="separator:ga0b5848c320410eed4c77c1ac1ee3c29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a56c9736dcf6155bfc3c5159780d106"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#ga5a56c9736dcf6155bfc3c5159780d106">D4D_MulDivUU16</a> (<a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> u1, <a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> u2, <a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> d)</td></tr>
+<tr class="memdesc:ga5a56c9736dcf6155bfc3c5159780d106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple proportion unsigned calculation - 16 bit.  <a href="group__doxd4d__math__func.html#ga5a56c9736dcf6155bfc3c5159780d106">More...</a><br/></td></tr>
+<tr class="separator:ga5a56c9736dcf6155bfc3c5159780d106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ec54f48f2ff4f734afe764d75671a36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga8cae62bef8ad9c6b207f3fa74b27ba7a">sWord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#ga2ec54f48f2ff4f734afe764d75671a36">D4D_MulDivSU16</a> (<a class="el" href="group__doxd4d__types__type.html#ga8cae62bef8ad9c6b207f3fa74b27ba7a">sWord</a> s, <a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> u, <a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> d)</td></tr>
+<tr class="memdesc:ga2ec54f48f2ff4f734afe764d75671a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple proportion signed calculation - 8 bit.  <a href="group__doxd4d__math__func.html#ga2ec54f48f2ff4f734afe764d75671a36">More...</a><br/></td></tr>
+<tr class="separator:ga2ec54f48f2ff4f734afe764d75671a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace9b50d1b3fc631ced8489183a714804"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#gace9b50d1b3fc631ced8489183a714804">D4D_Abs</a> (<a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a> num)</td></tr>
+<tr class="memdesc:gace9b50d1b3fc631ced8489183a714804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation of absolute value - 8 bit.  <a href="group__doxd4d__math__func.html#gace9b50d1b3fc631ced8489183a714804">More...</a><br/></td></tr>
+<tr class="separator:gace9b50d1b3fc631ced8489183a714804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5913b7126e093be7728640d43ce4803b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b">D4D_Abs16</a> (<a class="el" href="group__doxd4d__types__type.html#ga8cae62bef8ad9c6b207f3fa74b27ba7a">sWord</a> num)</td></tr>
+<tr class="memdesc:ga5913b7126e093be7728640d43ce4803b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation of absolute value - 16 bit.  <a href="group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b">More...</a><br/></td></tr>
+<tr class="separator:ga5913b7126e093be7728640d43ce4803b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64597e9db6e9f2e80e045b44b73e53da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#ga64597e9db6e9f2e80e045b44b73e53da">D4D_Abs32</a> (<a class="el" href="group__doxd4d__types__type.html#ga292b151822cbfa176ac5f8256991c058">sLWord</a> num)</td></tr>
+<tr class="memdesc:ga64597e9db6e9f2e80e045b44b73e53da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation of absolute value - 32 bit.  <a href="group__doxd4d__math__func.html#ga64597e9db6e9f2e80e045b44b73e53da">More...</a><br/></td></tr>
+<tr class="separator:ga64597e9db6e9f2e80e045b44b73e53da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae42194b9ba97691bdec5dbd5faf20c87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#gae42194b9ba97691bdec5dbd5faf20c87">D4D_LimitU16</a> (<a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> val, <a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> min, <a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> max)</td></tr>
+<tr class="memdesc:gae42194b9ba97691bdec5dbd5faf20c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation of limitation value (unsigned) - 16 bit.  <a href="group__doxd4d__math__func.html#gae42194b9ba97691bdec5dbd5faf20c87">More...</a><br/></td></tr>
+<tr class="separator:gae42194b9ba97691bdec5dbd5faf20c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75e334e7849277a8632e930de93b5402"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga8cae62bef8ad9c6b207f3fa74b27ba7a">sWord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#ga75e334e7849277a8632e930de93b5402">D4D_LimitS16</a> (<a class="el" href="group__doxd4d__types__type.html#ga8cae62bef8ad9c6b207f3fa74b27ba7a">sWord</a> val, <a class="el" href="group__doxd4d__types__type.html#ga8cae62bef8ad9c6b207f3fa74b27ba7a">sWord</a> min, <a class="el" href="group__doxd4d__types__type.html#ga8cae62bef8ad9c6b207f3fa74b27ba7a">sWord</a> max)</td></tr>
+<tr class="memdesc:ga75e334e7849277a8632e930de93b5402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation of limitation value (signed) - 16 bit.  <a href="group__doxd4d__math__func.html#ga75e334e7849277a8632e930de93b5402">More...</a><br/></td></tr>
+<tr class="separator:ga75e334e7849277a8632e930de93b5402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga137e9531fe5806693d60db1058148b3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#ga137e9531fe5806693d60db1058148b3e">D4D_LimitU8</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> val, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> min, <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> max)</td></tr>
+<tr class="memdesc:ga137e9531fe5806693d60db1058148b3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation of limitation value (unsigned) - 8 bit.  <a href="group__doxd4d__math__func.html#ga137e9531fe5806693d60db1058148b3e">More...</a><br/></td></tr>
+<tr class="separator:ga137e9531fe5806693d60db1058148b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f9b5feb47a6a564947f81d4c97bb131"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#ga0f9b5feb47a6a564947f81d4c97bb131">D4D_LimitS8</a> (<a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a> val, <a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a> min, <a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a> max)</td></tr>
+<tr class="memdesc:ga0f9b5feb47a6a564947f81d4c97bb131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation of limitation value (signed) - 8 bit.  <a href="group__doxd4d__math__func.html#ga0f9b5feb47a6a564947f81d4c97bb131">More...</a><br/></td></tr>
+<tr class="separator:ga0f9b5feb47a6a564947f81d4c97bb131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf1d14621d86f2c3bca3e3d985e6f3587"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#gaf1d14621d86f2c3bca3e3d985e6f3587">D4D_Sin</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> x)</td></tr>
+<tr class="memdesc:gaf1d14621d86f2c3bca3e3d985e6f3587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sine calculation using lookup table.  <a href="group__doxd4d__math__func.html#gaf1d14621d86f2c3bca3e3d985e6f3587">More...</a><br/></td></tr>
+<tr class="separator:gaf1d14621d86f2c3bca3e3d985e6f3587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d5d0f2dd7c1fd98511b060186979ee1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__math__func.html#ga6d5d0f2dd7c1fd98511b060186979ee1">D4D_Cos</a> (<a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> x)</td></tr>
+<tr class="memdesc:ga6d5d0f2dd7c1fd98511b060186979ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cosine calculation using lookup table.  <a href="group__doxd4d__math__func.html#ga6d5d0f2dd7c1fd98511b060186979ee1">More...</a><br/></td></tr>
+<tr class="separator:ga6d5d0f2dd7c1fd98511b060186979ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:abd94186a3db7efba72d331f794f96ff7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__math_8c.html#abd94186a3db7efba72d331f794f96ff7">d4d_sinTbl</a> [64]</td></tr>
+<tr class="separator:abd94186a3db7efba72d331f794f96ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D driver math functions c file. </p>
+<dl class="section author"><dt>Author</dt><dd>Michal hanak, Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.28.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Oct-2-2013 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__math_8c_source.html">d4d_math.c</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a6d93a98ed21d577f86d754ee79170876"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> D4D_Divide16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a>&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a>&#160;</td>
+          <td class="paramname"><em>div</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__math_8c_source.html#l00181">181</a> of file <a class="el" href="d4d__math_8c_source.html">d4d_math.c</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__math_8c_source.html#l00276">D4D_MulDivSU16()</a>, and <a class="el" href="d4d__math_8c_source.html#l00257">D4D_MulDivUU16()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__math_8c_a6d93a98ed21d577f86d754ee79170876_icgraph.gif" border="0" usemap="#d4d__math_8c_a6d93a98ed21d577f86d754ee79170876_icgraph" alt=""/></div>
+<map name="d4d__math_8c_a6d93a98ed21d577f86d754ee79170876_icgraph" id="d4d__math_8c_a6d93a98ed21d577f86d754ee79170876_icgraph">
+<area shape="rect" id="node2" href="group__doxd4d__math__func.html#ga2ec54f48f2ff4f734afe764d75671a36" title="Simple proportion signed calculation &#45; 8 bit. " alt="" coords="158,145,282,172"/><area shape="rect" id="node3" href="group__doxd4d__math__func.html#ga5a56c9736dcf6155bfc3c5159780d106" title="Simple proportion unsigned calculation &#45; 16 bit. " alt="" coords="158,196,282,223"/><area shape="rect" id="node4" href="d4d__graph_8c.html#a137297e89adb6d5b1fcf1780a6783e19" title="D4D_GraphUpdateTempPosX" alt="" coords="549,5,741,32"/><area shape="rect" id="node7" href="d4d__graph_8c.html#a99226eb302a59a454999431ea74f799a" title="D4D_GraphGetGridCoorX" alt="" coords="332,120,500,147"/><area shape="rect" id="node10" href="d4d__graph_8c.html#ae1ac8c9ef2d3dba55e610c83d4f19d8c" title="D4D_GraphGetGridCoorY" alt="" coords="331,196,501,223"/><area shape="rect" id="node11" href="group__doxd4d__graph__func.html#gab57fe23340875527877a19882b184637" title="Function sets the new scale of axis X of the graph. " alt="" coords="341,247,491,273"/><area shape="rect" id="node12" href="d4d__scroll__bar_8c.html#aff2ec2058bcd3ab2f5969a78fa2fd3f1" title="D4D_ScrlBrValue2Coor" alt="" coords="337,309,495,336"/><area shape="rect" id="node5" href="d4d__graph_8c.html#a640ef0f76a594f52ac2a87009342fc6d" title="D4D_GraphOnDraw" alt="" coords="1030,107,1165,133"/><area shape="rect" id="node6" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="1214,107,1373,133"/><area shape="rect" id="node8" href="d4d__graph_8c.html#afc1fe5446b67d4fe5692aaa2f144f30a" title="D4D_GraphDrawEmptyGraph" alt="" coords="790,107,981,133"/><area shape="rect" id="node9" href="d4d__graph_8c.html#a76aee1d400aae8592779ef15158c9339" title="D4D_GraphPrintLabel" alt="" coords="572,157,719,184"/><area shape="rect" id="node13" href="d4d__scroll__bar_8c.html#ac4c442ecbebdefa83f0c9be779c8cdda" title="D4D_ScrlBrOnDraw" alt="" coords="577,309,713,336"/><area shape="rect" id="node14" href="d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="805,309,965,336"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a84562213c3bb119f9ed4afd0ce75cc52"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> D4D_Divide8 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a>&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td>
+          <td class="paramname"><em>div</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fast 16/8=8 divide operation with rounding and saturation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>The 16-bit numerator to be divided </td></tr>
+    <tr><td class="paramname">div</td><td>The 8-bit denominator</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function divides a given 16-bit value by a 8-bit divisor and returns 8-bit quotient. Half of the divisor is added to divident before the division so the result is rounded.</p>
+<dl class="section return"><dt>Returns</dt><dd>This function returns the 8-bit quotient. Returned value is 255 when overflow occurs. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__math_8c_source.html#l00138">138</a> of file <a class="el" href="d4d__math_8c_source.html">d4d_math.c</a>.</p>
+
+<p>References <a class="el" href="d4d__base_8h_source.html#l00503">D4D_UNUSED</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__math_8c_source.html#l00225">D4D_MulDivSU8()</a>, and <a class="el" href="d4d__math_8c_source.html#l00206">D4D_MulDivUU8()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__math_8c_a84562213c3bb119f9ed4afd0ce75cc52_icgraph.gif" border="0" usemap="#d4d__math_8c_a84562213c3bb119f9ed4afd0ce75cc52_icgraph" alt=""/></div>
+<map name="d4d__math_8c_a84562213c3bb119f9ed4afd0ce75cc52_icgraph" id="d4d__math_8c_a84562213c3bb119f9ed4afd0ce75cc52_icgraph">
+<area shape="rect" id="node2" href="group__doxd4d__math__func.html#ga0b5848c320410eed4c77c1ac1ee3c29f" title="Simple proportion signed calculation &#45; 8 bit. " alt="" coords="149,1044,267,1071"/><area shape="rect" id="node3" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="149,1095,267,1121"/><area shape="rect" id="node4" href="d4d__gauge_8c.html#a3c77163e803d3968ccebd64ab6bde0bb" title="D4D_GaugeGetAnglePoint" alt="" coords="315,633,491,660"/><area shape="rect" id="node8" href="d4d__progress__bar_8c.html#a6711f0441481b808c7acd34281925059" title="D4D_PrgrsBarComputeColorBar" alt="" coords="539,1095,746,1121"/><area shape="rect" id="node12" href="group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="333,1208,472,1235"/><area shape="rect" id="node29" href="group__doxd4d__scheme__func.html#ga77e2ec7e804c88e475f5621053773268" title="Compute change of color intesity. " alt="" coords="317,968,488,995"/><area shape="rect" id="node24" href="d4d__slider_8c.html#a4af9d723f82995fc669e26b109a7dbd2" title="D4D_SldrComputeColorBar" alt="" coords="553,1341,732,1368"/><area shape="rect" id="node5" href="d4d__gauge_8c.html#a19ae4e69b08d36c269553590ca0f6226" title="D4D_GaugValue2Point" alt="" coords="565,348,720,375"/><area shape="rect" id="node6" href="d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67" title="D4D_GaugOnDraw" alt="" coords="1069,107,1200,133"/><area shape="rect" id="node7" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="1303,5,1457,32"/><area shape="rect" id="node9" href="d4d__progress__bar_8h.html#afb8021b6acf9220de318031cabf258b0" title="D4D_PrgrsBarSetValue" alt="" coords="811,1044,970,1071"/><area shape="rect" id="node11" href="d4d__progress__bar_8c.html#af3247d54c70c618bfea073d943050acd" title="D4D_PrgrsBarOnMessage" alt="" coords="1293,1133,1467,1160"/><area shape="rect" id="node10" href="d4d__progress__bar_8h.html#ace415a5788e524096a081a0efc196647" title="D4D_PrgrsBarChangeValue" alt="" coords="1043,1069,1226,1096"/><area shape="rect" id="node13" href="group__doxd4d__basic__draw__func.html#ga9b51347a0983fe65dd4a5397bd9a9231" title="Function draw filled rectangle with changing color (cross color from start to end color) on the scree..." alt="" coords="554,1208,731,1235"/><area shape="rect" id="node17" href="group__doxd4d__basic__draw__func.html#gae46b00b491416a6ee86e3947eee7f110" title="Function draw filled rectangle with round corners with changing color (cross color from start to end ..." alt="" coords="797,1297,984,1324"/><area shape="rect" id="node14" href="group__doxd4d__basic__draw__func.html#gae88eda5cdf98e8fc1ea05030ac093f54" title="Function draw filled rectangle with changing color (cross color from start to end color) on the scree..." alt="" coords="810,1145,971,1172"/><area shape="rect" id="node15" href="group__doxd4d__basic__draw__func.html#gaf3995607458f5aacd6270d9ca70fd16c" title="Function draw filled rectangle with changing color (cross color from start to end color) on the scree..." alt="" coords="803,1196,978,1223"/><area shape="rect" id="node16" href="group__doxd4d__basic__draw__func.html#gaefab2b6969a4de25596a24b4ff2ca25f" title="Function draw filled rectangle with changing color (cross color from start to end color) on the scree..." alt="" coords="795,1247,986,1273"/><area shape="rect" id="node18" href="group__doxd4d__basic__draw__func.html#gae014fbcf319440a94d9a747dc4796ef4" title="Function draw filled rectangle with round corners with changing color (cross color from start to end ..." alt="" coords="1049,1120,1220,1147"/><area shape="rect" id="node21" href="group__doxd4d__basic__draw__func.html#ga9efbe1884f728339970fb2b048246ccf" title="Function draw filled rectangle with round corners with changing color (cross color from start to end ..." alt="" coords="1043,1297,1227,1324"/><area shape="rect" id="node22" href="group__doxd4d__basic__draw__func.html#ga99611f55516a7d2a2596e47a28b6ee8d" title="Function draw filled rectangle with round corners with changing color (cross color from start to end ..." alt="" coords="1035,1247,1235,1273"/><area shape="rect" id="node23" href="d4d__progress__bar_8c.html#a33da0e2c98a3ba0f6747aa681cd9f2af" title="D4D_PrgrsBarOnDraw" alt="" coords="1059,1019,1210,1045"/><area shape="rect" id="node19" href="d4d__slider_8c.html#a60e15d945bece050aec9d38321fd2a95" title="D4D_SldrOnDraw" alt="" coords="1319,956,1441,983"/><area shape="rect" id="node20" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1525,1373,1672,1400"/><area shape="rect" id="node25" href="group__doxd4d__slider__func.html#gac9be4fb2a0566d958e15be179c03c135" title="Function Sets the slider value. " alt="" coords="825,1399,956,1425"/><area shape="rect" id="node26" href="group__doxd4d__slider__func.html#ga852cfa431a7bf11d77a7e4bb8d2df7a2" title="Function change the slider value by signed increment. " alt="" coords="1057,1399,1212,1425"/><area shape="rect" id="node28" href="group__doxd4d__slider__func.html#ga9f4c93f3b9d1c554571fc6365887ceb2" title="Function set the new limits of slider object. " alt="" coords="1069,1449,1201,1476"/><area shape="rect" id="node27" href="d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="1313,1399,1447,1425"/><area shape="rect" id="node30" href="group__doxd4d__basic__draw__func.html#gab2a67b0452682941ea6930ad5df6a824" title="Function draw standard object bevel specified by parameters. " alt="" coords="600,613,685,640"/><area shape="rect" id="node42" href="d4d__group__box_8c.html#a54e514b02a2327f550d8ad9acae0e96c" title="D4D_GroupBoxOnDraw" alt="" coords="1055,968,1214,995"/><area shape="rect" id="node31" href="group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e" title="Function draw standard object frame based on the object settings and current state. " alt="" coords="831,613,951,640"/><area shape="rect" id="node60" href="d4d__screen_8c.html#a18d7e510aeb90ed092e9a0914d501943" title="D4D_DrawScreenNC" alt="" coords="819,208,962,235"/><area shape="rect" id="node32" href="d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="1075,765,1195,792"/><area shape="rect" id="node34" href="d4d__check__box_8c.html#ac94f137eecd1aa60daa53a5cd6b79161" title="D4D_CheckBoxOnDraw" alt="" coords="1055,816,1215,843"/><area shape="rect" id="node36" href="d4d__console_8c.html#a4aec40f52339c770d7c0bf4b30da952e" title="D4D_ConsoleOnDraw" alt="" coords="1061,867,1208,893"/><area shape="rect" id="node38" href="d4d__edit__box_8c.html#afda23f9d81aa217a8e7b4bc838a83847" title="D4D_EditBoxOnDraw" alt="" coords="1061,259,1208,285"/><area shape="rect" id="node40" href="d4d__graph_8c.html#a640ef0f76a594f52ac2a87009342fc6d" title="D4D_GraphOnDraw" alt="" coords="1067,309,1202,336"/><area shape="rect" id="node44" href="d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140" title="D4D_IconOnDraw" alt="" coords="1073,461,1197,488"/><area shape="rect" id="node46" href="d4d__label_8c.html#afb4f76e75f5dbb4ef5ca211efe55e7ec" title="D4D_LabelOnDraw" alt="" coords="1069,512,1200,539"/><area shape="rect" id="node48" href="d4d__list__box_8c.html#a9b6a4954e7a9e0fa6e1c198bfbf93f9f" title="D4D_ListBoxOnDraw" alt="" coords="1063,563,1207,589"/><area shape="rect" id="node50" href="d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="1069,613,1201,640"/><area shape="rect" id="node52" href="d4d__picture_8c.html#afc6c766a0f2dbf4feb79d3617940c251" title="D4D_PictOnDraw" alt="" coords="1073,664,1196,691"/><area shape="rect" id="node54" href="d4d__radio__button_8c.html#a19119bf78713fd35f4d40684631a3a2b" title="D4D_RadioButtonOnDraw" alt="" coords="1049,715,1220,741"/><area shape="rect" id="node56" href="d4d__scroll__bar_8c.html#ac4c442ecbebdefa83f0c9be779c8cdda" title="D4D_ScrlBrOnDraw" alt="" coords="1067,360,1203,387"/><area shape="rect" id="node58" href="d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773" title="D4D_TextBoxOnDraw" alt="" coords="1061,411,1209,437"/><area shape="rect" id="node33" href="d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="1308,765,1452,792"/><area shape="rect" id="node35" href="d4d__check__box_8c.html#a8b4e8a04f2da50934c48e0da7acbc641" title="D4D_CheckBoxOnMessage" alt="" coords="1288,816,1472,843"/><area shape="rect" id="node37" href="d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="1295,867,1465,893"/><area shape="rect" id="node39" href="d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1295,259,1465,285"/><area shape="rect" id="node41" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="1301,309,1459,336"/><area shape="rect" id="node43" href="d4d__group__box_8c.html#a5e02a7833523423f991ee1e142d7d725" title="D4D_GroupBoxOnMessage" alt="" coords="1289,1007,1471,1033"/><area shape="rect" id="node45" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="1306,461,1454,488"/><area shape="rect" id="node47" href="d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="1303,512,1457,539"/><area shape="rect" id="node49" href="d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="1296,563,1464,589"/><area shape="rect" id="node51" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1302,613,1458,640"/><area shape="rect" id="node53" href="d4d__picture_8c.html#a919ab5149061e609e029718b6e5a288f" title="D4D_PictOnMessage" alt="" coords="1307,664,1453,691"/><area shape="rect" id="node55" href="d4d__radio__button_8c.html#a241633d34878771833dc96ccc85ef95c" title="D4D_RadioButtonOnMessage" alt="" coords="1283,715,1477,741"/><area shape="rect" id="node57" href="d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1300,360,1460,387"/><area shape="rect" id="node59" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1294,411,1466,437"/><area shape="rect" id="node61" href="d4d__screen_8c.html#acd4a0ec9fe607db2f8e67757620e4523" title="D4D_ChangeScreen" alt="" coords="1065,157,1204,184"/><area shape="rect" id="node68" href="d4d__screen_8c.html#a4b86c8fea137d0a0601eee6d88325c81" title="D4D_RedrawScreen" alt="" coords="1529,196,1668,223"/><area shape="rect" id="node62" href="group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="1309,56,1451,83"/><area shape="rect" id="node64" href="group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="1311,107,1449,133"/><area shape="rect" id="node67" href="group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="1289,157,1471,184"/><area shape="rect" id="node63" href="group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1563,56,1634,83"/><area shape="rect" id="node65" href="d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1537,132,1661,159"/><area shape="rect" id="node66" href="group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1721,159,1797,185"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="abd94186a3db7efba72d331f794f96ff7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a> d4d_sinTbl[64]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__math_8c_source.html#l00049">49</a> of file <a class="el" href="d4d__math_8c_source.html">d4d_math.c</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__math_8c_source.html#l00502">D4D_Cos()</a>, and <a class="el" href="d4d__math_8c_source.html#l00472">D4D_Sin()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cde53fb8fb9dbb8ac34f83e30855a423.html">common_files</a></li><li class="navelem"><a class="el" href="d4d__math_8c.html">d4d_math.c</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:02 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

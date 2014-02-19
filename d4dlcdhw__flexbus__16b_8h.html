@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4dlcdhw_flexbus_16b.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4dlcdhw__flexbus__16b_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">d4dlcdhw_flexbus_16b.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;d4dlcdhw_flexbus_16b_cfg.h&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for d4dlcdhw_flexbus_16b.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4dlcdhw__flexbus__16b_8h__incl.gif" border="0" usemap="#d4dlcdhw__flexbus__16b_8h" alt=""/></div>
+<map name="d4dlcdhw__flexbus__16b_8h" id="d4dlcdhw__flexbus__16b_8h">
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1e573d4c5b004a71c86c15800b65708f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#a1e573d4c5b004a71c86c15800b65708f">SET</a>(x)</td></tr>
+<tr class="separator:a1e573d4c5b004a71c86c15800b65708f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6b11b1130e22ffd89b1bd605179715"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#aeb6b11b1130e22ffd89b1bd605179715">RESET</a>(x)</td></tr>
+<tr class="separator:aeb6b11b1130e22ffd89b1bd605179715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce5864678f6abfb944a7930e0fafe50"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#afce5864678f6abfb944a7930e0fafe50">OUTPUT</a>(x)</td></tr>
+<tr class="separator:afce5864678f6abfb944a7930e0fafe50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a278b9b979d0f973480f402e4d83447fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#a278b9b979d0f973480f402e4d83447fc">INPUT</a>(x)</td></tr>
+<tr class="separator:a278b9b979d0f973480f402e4d83447fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c7c1ea4c6a94cc6e789e6f442e5593d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#a8c7c1ea4c6a94cc6e789e6f442e5593d">D4DLCD_FLEX_BASE_ADDRESS</a></td></tr>
+<tr class="separator:a8c7c1ea4c6a94cc6e789e6f442e5593d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a976e0a8158df8a6b75ed0fbd8468f4e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#a976e0a8158df8a6b75ed0fbd8468f4e2">D4DLCD_FLEX_DC_ADDRESS</a></td></tr>
+<tr class="separator:a976e0a8158df8a6b75ed0fbd8468f4e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d167679f6dc32968ec0a74b98f96f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#a65d167679f6dc32968ec0a74b98f96f3">D4DLCD_FLEX_ADRESS_MASK</a></td></tr>
+<tr class="separator:a65d167679f6dc32968ec0a74b98f96f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31c39cf4b7c3938804a52defee751b24"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#a31c39cf4b7c3938804a52defee751b24">D4DLCD_FLEX_CS</a></td></tr>
+<tr class="separator:a31c39cf4b7c3938804a52defee751b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9cb87bbb68e6e673d9e5ff2281b4a62"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#ae9cb87bbb68e6e673d9e5ff2281b4a62">D4DLCD_FLEX_CSAR</a></td></tr>
+<tr class="separator:ae9cb87bbb68e6e673d9e5ff2281b4a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd01dd91b0834efb8309398d488414dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#acd01dd91b0834efb8309398d488414dc">D4DLCD_FLEX_CSMR</a></td></tr>
+<tr class="separator:acd01dd91b0834efb8309398d488414dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19fc227f17414e7ca28dbdc26a23c1fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#a19fc227f17414e7ca28dbdc26a23c1fe">D4DLCD_FLEX_CSCR</a></td></tr>
+<tr class="separator:a19fc227f17414e7ca28dbdc26a23c1fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b740ade444cbc3890e88ff072b18129"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#a2b740ade444cbc3890e88ff072b18129">D4DLCD_FLEX_CSMR_V_MASK</a></td></tr>
+<tr class="separator:a2b740ade444cbc3890e88ff072b18129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c253ab3c9e41be1b282bae35852d274"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#a8c253ab3c9e41be1b282bae35852d274">D4DLCD_FLEX_CSCR_MUX_MASK</a></td></tr>
+<tr class="separator:a8c253ab3c9e41be1b282bae35852d274"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac547a77306c63525b1a00c32dd3f74e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#ac547a77306c63525b1a00c32dd3f74e0">D4DLCD_FLEX_CSCR_AA_MASK</a></td></tr>
+<tr class="separator:ac547a77306c63525b1a00c32dd3f74e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b1e08c4ae5e95ac2d0cdcd9d4f7d11e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html#a2b1e08c4ae5e95ac2d0cdcd9d4f7d11e">D4DLCD_FLEX_CSCR_PS1_MASK</a></td></tr>
+<tr class="separator:a2b1e08c4ae5e95ac2d0cdcd9d4f7d11e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D driver - flexbus_16b hardware lcd driver function header file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.4.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Jun-28-2010 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a65d167679f6dc32968ec0a74b98f96f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCD_FLEX_ADRESS_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00086">86</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c7c1ea4c6a94cc6e789e6f442e5593d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCD_FLEX_BASE_ADDRESS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00078">78</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a31c39cf4b7c3938804a52defee751b24"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCD_FLEX_CS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00091">91</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae9cb87bbb68e6e673d9e5ff2281b4a62"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCD_FLEX_CSAR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00101">101</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a19fc227f17414e7ca28dbdc26a23c1fe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCD_FLEX_CSCR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00117">117</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac547a77306c63525b1a00c32dd3f74e0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCD_FLEX_CSCR_AA_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00133">133</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c253ab3c9e41be1b282bae35852d274"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCD_FLEX_CSCR_MUX_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00129">129</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b1e08c4ae5e95ac2d0cdcd9d4f7d11e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCD_FLEX_CSCR_PS1_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00137">137</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acd01dd91b0834efb8309398d488414dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCD_FLEX_CSMR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00109">109</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b740ade444cbc3890e88ff072b18129"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCD_FLEX_CSMR_V_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00125">125</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a976e0a8158df8a6b75ed0fbd8468f4e2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCD_FLEX_DC_ADDRESS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00082">82</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a278b9b979d0f973480f402e4d83447fc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INPUT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00069">69</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afce5864678f6abfb944a7930e0fafe50"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OUTPUT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00068">68</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeb6b11b1130e22ffd89b1bd605179715"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RESET</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00066">66</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1e573d4c5b004a71c86c15800b65708f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SET</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html#l00065">65</a> of file <a class="el" href="d4dlcdhw__flexbus__16b_8h_source.html">d4dlcdhw_flexbus_16b.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_e63864f3cf47839db9022321f26e31ad.html">LCD</a></li><li class="navelem"><a class="el" href="dir_23a5828fc9116e21f9b2ccfa5fee5622.html">lcd_hw_interface</a></li><li class="navelem"><a class="el" href="dir_38feaae319bd853caa9930c31e177bb7.html">flexbus_16b</a></li><li class="navelem"><a class="el" href="d4dlcdhw__flexbus__16b_8h.html">d4dlcdhw_flexbus_16b.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:03 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

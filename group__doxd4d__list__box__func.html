@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D LIST BOX API Functions Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__list__box__func.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D LIST BOX API Functions Specification<div class="ingroups"><a class="el" href="group__doxd4d__list__box.html">D4D List Box Widget</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D LIST BOX API Functions Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__list__box__func.gif" border="0" alt="" usemap="#group____doxd4d____list____box____func"/>
+<map name="group____doxd4d____list____box____func" id="group____doxd4d____list____box____func">
+<area shape="rect" id="node2" href="group__doxd4d__list__box.html" title="D4D List Box Widget" alt="" coords="5,12,149,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gafabebf1bfe5b1d4dea19acd07e62aeaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__list__box__func.html#gafabebf1bfe5b1d4dea19acd07e62aeaa">D4D_ListBoxEnsureVisible</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis)</td></tr>
+<tr class="memdesc:gafabebf1bfe5b1d4dea19acd07e62aeaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function ensure that the selected item in list will be scrolled to visible area.  <a href="#gafabebf1bfe5b1d4dea19acd07e62aeaa">More...</a><br/></td></tr>
+<tr class="separator:gafabebf1bfe5b1d4dea19acd07e62aeaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3690deaef195705cc4b006bfab0159f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__list__box__func.html#ga3690deaef195705cc4b006bfab0159f5">D4D_ListBoxGetIndex</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis)</td></tr>
+<tr class="memdesc:ga3690deaef195705cc4b006bfab0159f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function returns the current selected item index.  <a href="#ga3690deaef195705cc4b006bfab0159f5">More...</a><br/></td></tr>
+<tr class="separator:ga3690deaef195705cc4b006bfab0159f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac0ca84429c66cb1de4555407effc84ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__list__box__func.html#gac0ca84429c66cb1de4555407effc84ba">D4D_ListBoxSetIndex</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis, <a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> ix)</td></tr>
+<tr class="memdesc:gac0ca84429c66cb1de4555407effc84ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function select new item by index.  <a href="#gac0ca84429c66cb1de4555407effc84ba">More...</a><br/></td></tr>
+<tr class="separator:gac0ca84429c66cb1de4555407effc84ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6068cd81fb03508c3aae41f6bf4251d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__list__box__func.html#gab6068cd81fb03508c3aae41f6bf4251d">D4D_ListBoxGetItemCount</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:gab6068cd81fb03508c3aae41f6bf4251d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function gets the count of list box items.  <a href="#gab6068cd81fb03508c3aae41f6bf4251d">More...</a><br/></td></tr>
+<tr class="separator:gab6068cd81fb03508c3aae41f6bf4251d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga944c6bd2ee80068f531bef547d6600c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__list__box__func.html#ga944c6bd2ee80068f531bef547d6600c9">D4D_ListBoxFindUserDataItem</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, void *pUser)</td></tr>
+<tr class="memdesc:ga944c6bd2ee80068f531bef547d6600c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function finds the index of items with specified user data.  <a href="#ga944c6bd2ee80068f531bef547d6600c9">More...</a><br/></td></tr>
+<tr class="separator:ga944c6bd2ee80068f531bef547d6600c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15c5e91c20cf4f74e290b12d6c5f8a03"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__list__box__func.html#ga15c5e91c20cf4f74e290b12d6c5f8a03">D4D_ListBoxGetItemUserData</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:ga15c5e91c20cf4f74e290b12d6c5f8a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function gets the selected item user data.  <a href="#ga15c5e91c20cf4f74e290b12d6c5f8a03">More...</a><br/></td></tr>
+<tr class="separator:ga15c5e91c20cf4f74e290b12d6c5f8a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1c74b381309142b76f1f29ce4b2e0394"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__list__box__func.html#ga1c74b381309142b76f1f29ce4b2e0394">D4D_ListBoxGetItemText</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:ga1c74b381309142b76f1f29ce4b2e0394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function gets the selected item text.  <a href="#ga1c74b381309142b76f1f29ce4b2e0394">More...</a><br/></td></tr>
+<tr class="separator:ga1c74b381309142b76f1f29ce4b2e0394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3bfe951a39c5ae727c2e89bfcae6b838"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__list__box__func.html#ga3bfe951a39c5ae727c2e89bfcae6b838">D4D_ListBoxGetItemTextIx</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> ix)</td></tr>
+<tr class="memdesc:ga3bfe951a39c5ae727c2e89bfcae6b838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function gets the text of item choosed by item index.  <a href="#ga3bfe951a39c5ae727c2e89bfcae6b838">More...</a><br/></td></tr>
+<tr class="separator:ga3bfe951a39c5ae727c2e89bfcae6b838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19d160c64d98695bce0d42925c3f23f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2">D4D_ListBoxChangeItemList</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, const <a class="el" href="group__doxd4d__list__box__type.html#struct_d4_d___l_i_s_t___b_o_x___i_t_e_m">D4D_LIST_BOX_ITEM</a> *pItems)</td></tr>
+<tr class="memdesc:ga19d160c64d98695bce0d42925c3f23f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function change the items list using by list box.  <a href="#ga19d160c64d98695bce0d42925c3f23f2">More...</a><br/></td></tr>
+<tr class="separator:ga19d160c64d98695bce0d42925c3f23f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf46cf46f5a5ff3def7bb6777f31440b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__list__box__type.html#struct_d4_d___l_i_s_t___b_o_x___i_t_e_m">D4D_LIST_BOX_ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__list__box__func.html#gaf46cf46f5a5ff3def7bb6777f31440b4">D4D_ListBoxGetItemList</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:gaf46cf46f5a5ff3def7bb6777f31440b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function gets the current using item list.  <a href="#gaf46cf46f5a5ff3def7bb6777f31440b4">More...</a><br/></td></tr>
+<tr class="separator:gaf46cf46f5a5ff3def7bb6777f31440b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact usage for each API function. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga19d160c64d98695bce0d42925c3f23f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_ListBoxChangeItemList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__doxd4d__list__box__type.html#struct_d4_d___l_i_s_t___b_o_x___i_t_e_m">D4D_LIST_BOX_ITEM</a> *&#160;</td>
+          <td class="paramname"><em>pItems</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function change the items list using by list box. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the list box object </td></tr>
+    <tr><td class="paramname">pItems</td><td>- pointer to the new item list </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__list__box_8c_source.html#l00637">637</a> of file <a class="el" href="d4d__list__box_8c_source.html">d4d_list_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__list__box_8h_source.html#l00167">D4D_GET_LIST_BOX</a>, <a class="el" href="d4d__list__box_8c_source.html#l00438">D4D_ListBoxOnInit()</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__list__box_8h_source.html#l00155">D4D_LIST_BOX::pData</a>, and <a class="el" href="d4d__list__box_8h_source.html#l00147">D4D_LIST_BOX_DATA::pItems</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__list__box__func_ga19d160c64d98695bce0d42925c3f23f2_cgraph.gif" border="0" usemap="#group__doxd4d__list__box__func_ga19d160c64d98695bce0d42925c3f23f2_cgraph" alt=""/></div>
+<map name="group__doxd4d__list__box__func_ga19d160c64d98695bce0d42925c3f23f2_cgraph" id="group__doxd4d__list__box__func_ga19d160c64d98695bce0d42925c3f23f2_cgraph">
+<area shape="rect" id="node2" href="d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="243,436,375,463"/><area shape="rect" id="node3" href="d4d__list__box_8c.html#a3dafe35ca35da21c908d8b0baf92eec8" title="D4D_GetItemsCount" alt="" coords="664,56,805,83"/><area shape="rect" id="node4" href="d4d__list__box_8c.html#ac74d1b8a4827dd38f6248fed3805b3f3" title="D4D_GetPositionCount" alt="" coords="657,208,813,235"/><area shape="rect" id="node7" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="662,563,807,589"/><area shape="rect" id="node9" href="d4d__list__box_8c.html#a3351b92af656eec9307512168a199e8e" title="D4D_ListBoxValue2Coor" alt="" coords="424,157,589,184"/><area shape="rect" id="node19" href="group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="428,512,585,539"/><area shape="rect" id="node20" href="group__doxd4d__scroll__bar__func.html#gaefd74f2ae3a77f03f2970630b89b0ff5" title="The function sets the range of scroll bar scale. " alt="" coords="433,563,580,589"/><area shape="rect" id="node21" href="group__doxd4d__scroll__bar__func.html#gaae9edd2c13fcb67fe3d28e00d42af5a2" title="The function sets the step and page of scroll bar scale. " alt="" coords="438,613,575,640"/><area shape="rect" id="node22" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="445,411,569,437"/><area shape="rect" id="node5" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1093,107,1232,133"/><area shape="rect" id="node6" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1304,107,1405,133"/><area shape="rect" id="node8" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="1091,537,1235,564"/><area shape="rect" id="node10" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="638,107,831,133"/><area shape="rect" id="node17" href="group__doxd4d__object__func.html#gaaf05953a9b356907e827855274a15784" title="Function find out if the object is visible or not. " alt="" coords="1747,177,1850,204"/><area shape="rect" id="node11" href="d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="880,107,1043,133"/><area shape="rect" id="node12" href="group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1093,56,1232,83"/><area shape="rect" id="node13" href="group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1283,56,1427,83"/><area shape="rect" id="node14" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1493,5,1640,32"/><area shape="rect" id="node15" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1489,56,1644,83"/><area shape="rect" id="node16" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1515,107,1618,133"/><area shape="rect" id="node18" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="1965,323,2115,349"/><area shape="rect" id="node23" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="670,360,799,387"/><area shape="rect" id="node33" href="group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="657,461,812,488"/><area shape="rect" id="node34" href="group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="653,512,816,539"/><area shape="rect" id="node35" href="group__doxd4d__screen__func.html#ga5633d19ba95be7b25045ed76d08bd2a7" title="The function mark the screen and its abject as &quot;redraw pending&quot;. " alt="" coords="887,563,1035,589"/><area shape="rect" id="node24" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="906,360,1017,387"/><area shape="rect" id="node32" href="group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="886,461,1037,488"/><area shape="rect" id="node30" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="1107,321,1218,348"/><area shape="rect" id="node31" href="d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="1094,423,1231,449"/><area shape="rect" id="node25" href="d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="1104,372,1221,399"/><area shape="rect" id="node26" href="d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="1283,441,1427,468"/><area shape="rect" id="node27" href="d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1939,500,2141,527"/><area shape="rect" id="node28" href="d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="1475,434,1658,475"/><area shape="rect" id="node29" href="d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1707,500,1890,527"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gafabebf1bfe5b1d4dea19acd07e62aeaa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_ListBoxEnsureVisible </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function ensure that the selected item in list will be scrolled to visible area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the list box object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__list__box_8c_source.html#l00494">494</a> of file <a class="el" href="d4d__list__box_8c_source.html">d4d_list_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__list__box_8h_source.html#l00167">D4D_GET_LIST_BOX</a>, <a class="el" href="d4d__list__box_8c_source.html#l00093">D4D_GetItemsCount()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00103">D4D_GetPositionCount()</a>, <a class="el" href="d4d__list__box_8h_source.html#l00160">D4D_LIST_BOX_CHILD_SCROLL_BAR_IX</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00428">D4D_ScrlBrSetPosition()</a>, <a class="el" href="d4d__list__box_8h_source.html#l00145">D4D_LIST_BOX_DATA::ix</a>, <a class="el" href="d4d__list__box_8h_source.html#l00146">D4D_LIST_BOX_DATA::page_ix</a>, <a class="el" href="d4d__list__box_8h_source.html#l00155">D4D_LIST_BOX::pData</a>, and <a class="el" href="d4d__object_8h_source.html#l00177">D4D_OBJECT_S::pRelations</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__list__box_8c_source.html#l00280">D4D_ListBoxFocusNextItem()</a>, and <a class="el" href="d4d__list__box_8c_source.html#l00304">D4D_ListBoxFocusPreviousItem()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__list__box__func_gafabebf1bfe5b1d4dea19acd07e62aeaa_cgraph.gif" border="0" usemap="#group__doxd4d__list__box__func_gafabebf1bfe5b1d4dea19acd07e62aeaa_cgraph" alt=""/></div>
+<map name="group__doxd4d__list__box__func_gafabebf1bfe5b1d4dea19acd07e62aeaa_cgraph" id="group__doxd4d__list__box__func_gafabebf1bfe5b1d4dea19acd07e62aeaa_cgraph">
+<area shape="rect" id="node2" href="d4d__list__box_8c.html#a3dafe35ca35da21c908d8b0baf92eec8" title="D4D_GetItemsCount" alt="" coords="240,5,381,32"/><area shape="rect" id="node3" href="d4d__list__box_8c.html#ac74d1b8a4827dd38f6248fed3805b3f3" title="D4D_GetPositionCount" alt="" coords="233,56,389,83"/><area shape="rect" id="node6" href="group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="232,109,389,136"/><area shape="rect" id="node4" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="441,51,580,77"/><area shape="rect" id="node5" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="653,48,755,75"/><area shape="rect" id="node7" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="438,111,583,137"/><area shape="rect" id="node8" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="632,123,776,149"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__list__box__func_gafabebf1bfe5b1d4dea19acd07e62aeaa_icgraph.gif" border="0" usemap="#group__doxd4d__list__box__func_gafabebf1bfe5b1d4dea19acd07e62aeaa_icgraph" alt=""/></div>
+<map name="group__doxd4d__list__box__func_gafabebf1bfe5b1d4dea19acd07e62aeaa_icgraph" id="group__doxd4d__list__box__func_gafabebf1bfe5b1d4dea19acd07e62aeaa_icgraph">
+<area shape="rect" id="node2" href="d4d__list__box_8c.html#a539cc327ca2ffeeeb537d58dabcff913" title="D4D_ListBoxFocusNextItem" alt="" coords="243,5,429,32"/><area shape="rect" id="node5" href="d4d__list__box_8c.html#a8e64277eb0db5c64f9033128e0363ab1" title="D4D_ListBoxFocusPreviousItem" alt="" coords="232,56,440,83"/><area shape="rect" id="node3" href="d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="488,31,643,57"/><area shape="rect" id="node4" href="d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="691,31,859,57"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga944c6bd2ee80068f531bef547d6600c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> D4D_ListBoxFindUserDataItem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>pUser</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function finds the index of items with specified user data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the list box object </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data that is used to look for the item index (must match) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>index of item if it's found, if not, it returns -1. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__list__box_8c_source.html#l00574">574</a> of file <a class="el" href="d4d__list__box_8c_source.html">d4d_list_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__list__box_8h_source.html#l00167">D4D_GET_LIST_BOX</a>, <a class="el" href="d4d__list__box_8c_source.html#l00093">D4D_GetItemsCount()</a>, <a class="el" href="d4d__list__box_8h_source.html#l00155">D4D_LIST_BOX::pData</a>, <a class="el" href="d4d__list__box_8h_source.html#l00147">D4D_LIST_BOX_DATA::pItems</a>, and <a class="el" href="d4d__list__box_8h_source.html#l00134">D4D_LIST_BOX_ITEM::pUser</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__list__box__func_ga944c6bd2ee80068f531bef547d6600c9_cgraph.gif" border="0" usemap="#group__doxd4d__list__box__func_ga944c6bd2ee80068f531bef547d6600c9_cgraph" alt=""/></div>
+<map name="group__doxd4d__list__box__func_ga944c6bd2ee80068f531bef547d6600c9_cgraph" id="group__doxd4d__list__box__func_ga944c6bd2ee80068f531bef547d6600c9_cgraph">
+<area shape="rect" id="node2" href="d4d__list__box_8c.html#a3dafe35ca35da21c908d8b0baf92eec8" title="D4D_GetItemsCount" alt="" coords="256,5,397,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga3690deaef195705cc4b006bfab0159f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> D4D_ListBoxGetIndex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function returns the current selected item index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the list box object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>index on current selct item </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__list__box_8c_source.html#l00516">516</a> of file <a class="el" href="d4d__list__box_8c_source.html">d4d_list_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__list__box_8h_source.html#l00167">D4D_GET_LIST_BOX</a>, <a class="el" href="d4d__list__box_8h_source.html#l00145">D4D_LIST_BOX_DATA::ix</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, and <a class="el" href="d4d__list__box_8h_source.html#l00155">D4D_LIST_BOX::pData</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__combo__box_8c_source.html#l00131">D4D_ComboBoxListFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00308">D4D_ComboBoxOnMessage()</a>, and <a class="el" href="d4d__combo__box_8c_source.html#l00252">D4D_ComboBoxSetIndex()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__list__box__func_ga3690deaef195705cc4b006bfab0159f5_icgraph.gif" border="0" usemap="#group__doxd4d__list__box__func_ga3690deaef195705cc4b006bfab0159f5_icgraph" alt=""/></div>
+<map name="group__doxd4d__list__box__func_ga3690deaef195705cc4b006bfab0159f5_icgraph" id="group__doxd4d__list__box__func_ga3690deaef195705cc4b006bfab0159f5_icgraph">
+<area shape="rect" id="node2" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="206,5,405,32"/><area shape="rect" id="node3" href="d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972" title="D4D_ComboBoxOnMessage" alt="" coords="211,56,399,83"/><area shape="rect" id="node4" href="d4d__combo__box_8c.html#af64fc17743ef6ab3613e49ae5d5fb864" title="D4D_ComboBoxSetIndex" alt="" coords="221,107,390,133"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gab6068cd81fb03508c3aae41f6bf4251d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> D4D_ListBoxGetItemCount </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function gets the count of list box items. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the list box object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of list box items. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__list__box_8c_source.html#l00560">560</a> of file <a class="el" href="d4d__list__box_8c_source.html">d4d_list_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__list__box_8h_source.html#l00167">D4D_GET_LIST_BOX</a>, and <a class="el" href="d4d__list__box_8c_source.html#l00093">D4D_GetItemsCount()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__list__box__func_gab6068cd81fb03508c3aae41f6bf4251d_cgraph.gif" border="0" usemap="#group__doxd4d__list__box__func_gab6068cd81fb03508c3aae41f6bf4251d_cgraph" alt=""/></div>
+<map name="group__doxd4d__list__box__func_gab6068cd81fb03508c3aae41f6bf4251d_cgraph" id="group__doxd4d__list__box__func_gab6068cd81fb03508c3aae41f6bf4251d_cgraph">
+<area shape="rect" id="node2" href="d4d__list__box_8c.html#a3dafe35ca35da21c908d8b0baf92eec8" title="D4D_GetItemsCount" alt="" coords="232,5,373,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gaf46cf46f5a5ff3def7bb6777f31440b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__list__box__type.html#struct_d4_d___l_i_s_t___b_o_x___i_t_e_m">D4D_LIST_BOX_ITEM</a>* D4D_ListBoxGetItemList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function gets the current using item list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the list box object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to current using item list </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__list__box_8c_source.html#l00655">655</a> of file <a class="el" href="d4d__list__box_8c_source.html">d4d_list_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__list__box_8h_source.html#l00167">D4D_GET_LIST_BOX</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__list__box_8h_source.html#l00155">D4D_LIST_BOX::pData</a>, and <a class="el" href="d4d__list__box_8h_source.html#l00147">D4D_LIST_BOX_DATA::pItems</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga1c74b381309142b76f1f29ce4b2e0394"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* D4D_ListBoxGetItemText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function gets the selected item text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the list box object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to selected item text </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__list__box_8c_source.html#l00607">607</a> of file <a class="el" href="d4d__list__box_8c_source.html">d4d_list_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__list__box_8h_source.html#l00167">D4D_GET_LIST_BOX</a>, <a class="el" href="d4d__string_8c_source.html#l00108">D4D_GetInternalStringPointer()</a>, <a class="el" href="d4d__list__box_8h_source.html#l00145">D4D_LIST_BOX_DATA::ix</a>, <a class="el" href="d4d__list__box_8h_source.html#l00155">D4D_LIST_BOX::pData</a>, <a class="el" href="d4d__list__box_8h_source.html#l00147">D4D_LIST_BOX_DATA::pItems</a>, and <a class="el" href="d4d__list__box_8h_source.html#l00133">D4D_LIST_BOX_ITEM::pText</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__combo__box_8c_source.html#l00131">D4D_ComboBoxListFeedBack()</a>, and <a class="el" href="d4d__combo__box_8c_source.html#l00308">D4D_ComboBoxOnMessage()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__list__box__func_ga1c74b381309142b76f1f29ce4b2e0394_cgraph.gif" border="0" usemap="#group__doxd4d__list__box__func_ga1c74b381309142b76f1f29ce4b2e0394_cgraph" alt=""/></div>
+<map name="group__doxd4d__list__box__func_ga1c74b381309142b76f1f29ce4b2e0394_cgraph" id="group__doxd4d__list__box__func_ga1c74b381309142b76f1f29ce4b2e0394_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="224,5,416,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__list__box__func_ga1c74b381309142b76f1f29ce4b2e0394_icgraph.gif" border="0" usemap="#group__doxd4d__list__box__func_ga1c74b381309142b76f1f29ce4b2e0394_icgraph" alt=""/></div>
+<map name="group__doxd4d__list__box__func_ga1c74b381309142b76f1f29ce4b2e0394_icgraph" id="group__doxd4d__list__box__func_ga1c74b381309142b76f1f29ce4b2e0394_icgraph">
+<area shape="rect" id="node2" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="225,5,423,32"/><area shape="rect" id="node3" href="d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972" title="D4D_ComboBoxOnMessage" alt="" coords="230,56,418,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga3bfe951a39c5ae727c2e89bfcae6b838"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* D4D_ListBoxGetItemTextIx </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a>&#160;</td>
+          <td class="paramname"><em>ix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function gets the text of item choosed by item index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the list box object </td></tr>
+    <tr><td class="paramname">ix</td><td>- index to item array </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>pointer to item text </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>It returns none if the input index is out of list box range. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__list__box_8c_source.html#l00620">620</a> of file <a class="el" href="d4d__list__box_8c_source.html">d4d_list_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__list__box_8h_source.html#l00167">D4D_GET_LIST_BOX</a>, <a class="el" href="d4d__string_8c_source.html#l00108">D4D_GetInternalStringPointer()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00093">D4D_GetItemsCount()</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__list__box_8h_source.html#l00155">D4D_LIST_BOX::pData</a>, <a class="el" href="d4d__list__box_8h_source.html#l00147">D4D_LIST_BOX_DATA::pItems</a>, and <a class="el" href="d4d__list__box_8h_source.html#l00133">D4D_LIST_BOX_ITEM::pText</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__list__box__func_ga3bfe951a39c5ae727c2e89bfcae6b838_cgraph.gif" border="0" usemap="#group__doxd4d__list__box__func_ga3bfe951a39c5ae727c2e89bfcae6b838_cgraph" alt=""/></div>
+<map name="group__doxd4d__list__box__func_ga3bfe951a39c5ae727c2e89bfcae6b838_cgraph" id="group__doxd4d__list__box__func_ga3bfe951a39c5ae727c2e89bfcae6b838_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="232,5,424,32"/><area shape="rect" id="node3" href="d4d__list__box_8c.html#a3dafe35ca35da21c908d8b0baf92eec8" title="D4D_GetItemsCount" alt="" coords="257,56,399,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga15c5e91c20cf4f74e290b12d6c5f8a03"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* D4D_ListBoxGetItemUserData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function gets the selected item user data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the list box object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>user data of selected item. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__list__box_8c_source.html#l00595">595</a> of file <a class="el" href="d4d__list__box_8c_source.html">d4d_list_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__list__box_8h_source.html#l00167">D4D_GET_LIST_BOX</a>, <a class="el" href="d4d__list__box_8h_source.html#l00145">D4D_LIST_BOX_DATA::ix</a>, <a class="el" href="d4d__list__box_8h_source.html#l00155">D4D_LIST_BOX::pData</a>, <a class="el" href="d4d__list__box_8h_source.html#l00147">D4D_LIST_BOX_DATA::pItems</a>, and <a class="el" href="d4d__list__box_8h_source.html#l00134">D4D_LIST_BOX_ITEM::pUser</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gac0ca84429c66cb1de4555407effc84ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_ListBoxSetIndex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a>&#160;</td>
+          <td class="paramname"><em>ix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function select new item by index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the list box object </td></tr>
+    <tr><td class="paramname">ix</td><td>- index of item that should be selected </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__list__box_8c_source.html#l00533">533</a> of file <a class="el" href="d4d__list__box_8c_source.html">d4d_list_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__base_8h_source.html#l00433">D4D_EVENT_ONCHANGE</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__list__box_8h_source.html#l00167">D4D_GET_LIST_BOX</a>, <a class="el" href="d4d__list__box_8c_source.html#l00093">D4D_GetItemsCount()</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__list__box_8h_source.html#l00145">D4D_LIST_BOX_DATA::ix</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__list__box_8h_source.html#l00156">D4D_LIST_BOX::OnEvent</a>, and <a class="el" href="d4d__list__box_8h_source.html#l00155">D4D_LIST_BOX::pData</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__combo__box_8c_source.html#l00252">D4D_ComboBoxSetIndex()</a>, and <a class="el" href="d4d__combo__box_8c_source.html#l00288">D4D_ComboBoxStornoSelection()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__list__box__func_gac0ca84429c66cb1de4555407effc84ba_cgraph.gif" border="0" usemap="#group__doxd4d__list__box__func_gac0ca84429c66cb1de4555407effc84ba_cgraph" alt=""/></div>
+<map name="group__doxd4d__list__box__func_gac0ca84429c66cb1de4555407effc84ba_cgraph" id="group__doxd4d__list__box__func_gac0ca84429c66cb1de4555407effc84ba_cgraph">
+<area shape="rect" id="node2" href="d4d__list__box_8c.html#a3dafe35ca35da21c908d8b0baf92eec8" title="D4D_GetItemsCount" alt="" coords="205,5,347,32"/><area shape="rect" id="node3" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="203,56,349,83"/><area shape="rect" id="node4" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="397,56,541,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__list__box__func_gac0ca84429c66cb1de4555407effc84ba_icgraph.gif" border="0" usemap="#group__doxd4d__list__box__func_gac0ca84429c66cb1de4555407effc84ba_icgraph" alt=""/></div>
+<map name="group__doxd4d__list__box__func_gac0ca84429c66cb1de4555407effc84ba_icgraph" id="group__doxd4d__list__box__func_gac0ca84429c66cb1de4555407effc84ba_icgraph">
+<area shape="rect" id="node2" href="d4d__combo__box_8c.html#af64fc17743ef6ab3613e49ae5d5fb864" title="D4D_ComboBoxSetIndex" alt="" coords="223,5,393,32"/><area shape="rect" id="node3" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="203,56,413,83"/><area shape="rect" id="node4" href="d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2" title="D4D_ComboBoxButtonFeedBack" alt="" coords="478,31,693,57"/><area shape="rect" id="node5" href="d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00" title="D4D_ComboBoxListBoxMsgFeedBack" alt="" coords="462,81,709,108"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:06 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

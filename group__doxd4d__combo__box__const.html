@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D COMBO BOX API Constant Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__combo__box__const.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D COMBO BOX API Constant Specification<div class="ingroups"><a class="el" href="group__doxd4d__combo__box.html">D4D Combo Box Widget</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D COMBO BOX API Constant Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__combo__box__const.gif" border="0" alt="" usemap="#group____doxd4d____combo____box____const"/>
+<map name="group____doxd4d____combo____box____const" id="group____doxd4d____combo____box____const">
+<area shape="rect" id="node2" href="group__doxd4d__combo__box.html" title="D4D Combo Box Widget" alt="" coords="6,12,170,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gae79c697eacb0d8e876a361ee2f6c8950"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#gae79c697eacb0d8e876a361ee2f6c8950">D4D_COMBO_BOX_F_DEFAULT</a></td></tr>
+<tr class="memdesc:gae79c697eacb0d8e876a361ee2f6c8950"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box init flags. If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga3c63ae7007f099e9c9a51b0734dce346">D4D_OBJECT_F_FOCUSRECT</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga32f4ba0f54e5f53a7bd32a904e144aab">D4D_OBJECT_F_BEVEL_RAISED</a>) as a default.  <a href="#gae79c697eacb0d8e876a361ee2f6c8950">More...</a><br/></td></tr>
+<tr class="separator:gae79c697eacb0d8e876a361ee2f6c8950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ac7451a18e3864d9a7959590dfe037b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#ga8ac7451a18e3864d9a7959590dfe037b">D4D_COMBO_BOX_F_EDITBOX_DEFAULT</a></td></tr>
+<tr class="memdesc:ga8ac7451a18e3864d9a7959590dfe037b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box init flags for embedded edit box . If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab1e855d34d98e1fdae4facc31df4157e">D4D_OBJECT_F_FASTTOUCH</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae5c397dcc69b601dcf3a4f042c763760">D4D_OBJECT_F_BEVEL_DENTED</a>) as a default.  <a href="#ga8ac7451a18e3864d9a7959590dfe037b">More...</a><br/></td></tr>
+<tr class="separator:ga8ac7451a18e3864d9a7959590dfe037b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab85f835fbb803775888fdc04c7d5a9dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#gab85f835fbb803775888fdc04c7d5a9dc">D4D_COMBO_BOX_F_BTN_DEFAULT</a></td></tr>
+<tr class="memdesc:gab85f835fbb803775888fdc04c7d5a9dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box init flags for embedded button. If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab1e855d34d98e1fdae4facc31df4157e">D4D_OBJECT_F_FASTTOUCH</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga32f4ba0f54e5f53a7bd32a904e144aab">D4D_OBJECT_F_BEVEL_RAISED</a> | <a class="el" href="group__doxd4d__button__const__flags.html#gaf28fe32b89a83600b922c182dac09826">D4D_BTN_F_3D</a> | <a class="el" href="group__doxd4d__button__const__flags.html#ga4988608fb8466dc077dc9bafd2a2a19b">D4D_BTN_F_CONT_RECT</a>) as a default.  <a href="#gab85f835fbb803775888fdc04c7d5a9dc">More...</a><br/></td></tr>
+<tr class="separator:gab85f835fbb803775888fdc04c7d5a9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa1d38e0a5ecda39f0c583afc97f317c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#gaa1d38e0a5ecda39f0c583afc97f317c2">D4D_COMBO_BOX_F_LISTBOX_DEFAULT</a></td></tr>
+<tr class="memdesc:gaa1d38e0a5ecda39f0c583afc97f317c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box init flags for embedded list box . If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab1e855d34d98e1fdae4facc31df4157e">D4D_OBJECT_F_FASTTOUCH</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga3c63ae7007f099e9c9a51b0734dce346">D4D_OBJECT_F_FOCUSRECT</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga32f4ba0f54e5f53a7bd32a904e144aab">D4D_OBJECT_F_BEVEL_RAISED</a>) as a default.  <a href="#gaa1d38e0a5ecda39f0c583afc97f317c2">More...</a><br/></td></tr>
+<tr class="separator:gaa1d38e0a5ecda39f0c583afc97f317c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e5875f58ea54031331d7de47eb67afa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#ga4e5875f58ea54031331d7de47eb67afa">D4D_COMBO_BOX_ITEM_FNT_PRTY_DEFAULT</a></td></tr>
+<tr class="memdesc:ga4e5875f58ea54031331d7de47eb67afa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box init items font properties. If not defined, it sets to ( 0 ) as a default.  <a href="#ga4e5875f58ea54031331d7de47eb67afa">More...</a><br/></td></tr>
+<tr class="separator:ga4e5875f58ea54031331d7de47eb67afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga730a891d438d6dc670f1701944c57c43"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#ga730a891d438d6dc670f1701944c57c43">D4D_COMBO_BOX_STR_MAX_LEN</a></td></tr>
+<tr class="memdesc:ga730a891d438d6dc670f1701944c57c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box maximal length of item strings used by default declaration macros. If not defined, it sets to 20 as a default.  <a href="#ga730a891d438d6dc670f1701944c57c43">More...</a><br/></td></tr>
+<tr class="separator:ga730a891d438d6dc670f1701944c57c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact constants used by widget. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="gab85f835fbb803775888fdc04c7d5a9dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COMBO_BOX_F_BTN_DEFAULT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is combo box init flags for embedded button. If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab1e855d34d98e1fdae4facc31df4157e">D4D_OBJECT_F_FASTTOUCH</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga32f4ba0f54e5f53a7bd32a904e144aab">D4D_OBJECT_F_BEVEL_RAISED</a> | <a class="el" href="group__doxd4d__button__const__flags.html#gaf28fe32b89a83600b922c182dac09826">D4D_BTN_F_3D</a> | <a class="el" href="group__doxd4d__button__const__flags.html#ga4988608fb8466dc077dc9bafd2a2a19b">D4D_BTN_F_CONT_RECT</a>) as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00081">81</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gae79c697eacb0d8e876a361ee2f6c8950"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COMBO_BOX_F_DEFAULT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is combo box init flags. If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga3c63ae7007f099e9c9a51b0734dce346">D4D_OBJECT_F_FOCUSRECT</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga32f4ba0f54e5f53a7bd32a904e144aab">D4D_OBJECT_F_BEVEL_RAISED</a>) as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00069">69</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga8ac7451a18e3864d9a7959590dfe037b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COMBO_BOX_F_EDITBOX_DEFAULT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is combo box init flags for embedded edit box . If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab1e855d34d98e1fdae4facc31df4157e">D4D_OBJECT_F_FASTTOUCH</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae5c397dcc69b601dcf3a4f042c763760">D4D_OBJECT_F_BEVEL_DENTED</a>) as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00075">75</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaa1d38e0a5ecda39f0c583afc97f317c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COMBO_BOX_F_LISTBOX_DEFAULT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is combo box init flags for embedded list box . If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab1e855d34d98e1fdae4facc31df4157e">D4D_OBJECT_F_FASTTOUCH</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga3c63ae7007f099e9c9a51b0734dce346">D4D_OBJECT_F_FOCUSRECT</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga32f4ba0f54e5f53a7bd32a904e144aab">D4D_OBJECT_F_BEVEL_RAISED</a>) as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00087">87</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga4e5875f58ea54031331d7de47eb67afa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COMBO_BOX_ITEM_FNT_PRTY_DEFAULT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is combo box init items font properties. If not defined, it sets to ( 0 ) as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00093">93</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga730a891d438d6dc670f1701944c57c43"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COMBO_BOX_STR_MAX_LEN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is combo box maximal length of item strings used by default declaration macros. If not defined, it sets to 20 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00099">99</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:05 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

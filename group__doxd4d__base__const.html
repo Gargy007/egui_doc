@@ -1,0 +1,944 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D BASE API Constant Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__base__const.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#groups">Modules</a> &#124;
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D BASE API Constant Specification<div class="ingroups"><a class="el" href="group__doxd4d__base.html">D4D BASE functionality</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D BASE API Constant Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__base__const.gif" border="0" alt="" usemap="#group____doxd4d____base____const"/>
+<map name="group____doxd4d____base____const" id="group____doxd4d____base____const">
+<area shape="rect" id="node1" href="group__doxd4d__base.html" title="D4D BASE functionality" alt="" coords="5,12,165,39"/><area shape="rect" id="node2" href="group__doxd4d__base__const__alignmasks.html" title="D4D BASE Defines masks\l of aligment properties" alt="" coords="430,5,607,46"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group__doxd4d__base__const__alignmasks"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const__alignmasks.html">D4D BASE Defines masks of aligment properties</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gab57c7d04705a37ff13798e9aa77b1661"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gab57c7d04705a37ff13798e9aa77b1661">D4D_VERSION</a></td></tr>
+<tr class="memdesc:gab57c7d04705a37ff13798e9aa77b1661"><td class="mdescLeft">&#160;</td><td class="mdescRight">There is stored version number of eGUI in string format - DO NOT CHANGE To check release history - read the release_notes.txt file.  <a href="#gab57c7d04705a37ff13798e9aa77b1661">More...</a><br/></td></tr>
+<tr class="separator:gab57c7d04705a37ff13798e9aa77b1661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f5d661d1e8819bcb694bb390e4ec2a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga8f5d661d1e8819bcb694bb390e4ec2a1">D4D_MCU_TYPE</a></td></tr>
+<tr class="memdesc:ga8f5d661d1e8819bcb694bb390e4ec2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to select the running platform of eGUI code. If not defined, the Kinetis platform is used as a default.  <a href="#ga8f5d661d1e8819bcb694bb390e4ec2a1">More...</a><br/></td></tr>
+<tr class="separator:ga8f5d661d1e8819bcb694bb390e4ec2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4aa1c7a6b9f38ec8eb6c8560216a10df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga4aa1c7a6b9f38ec8eb6c8560216a10df">D4D_SCREEN_HISTORY</a></td></tr>
+<tr class="memdesc:ga4aa1c7a6b9f38ec8eb6c8560216a10df"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to set the screen buffer depth. If not defined, the 5 is used as a default.  <a href="#ga4aa1c7a6b9f38ec8eb6c8560216a10df">More...</a><br/></td></tr>
+<tr class="separator:ga4aa1c7a6b9f38ec8eb6c8560216a10df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7bced01b64f746e37f5703b1a1b76232"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga7bced01b64f746e37f5703b1a1b76232">D4D_ROUND_CORNER_ENABLE</a></td></tr>
+<tr class="memdesc:ga7bced01b64f746e37f5703b1a1b76232"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to enable the round corners feature. If not defined, the round corners are disabled as a default.  <a href="#ga7bced01b64f746e37f5703b1a1b76232">More...</a><br/></td></tr>
+<tr class="separator:ga7bced01b64f746e37f5703b1a1b76232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c7e91f685183d850f3c9b059badbb66"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga8c7e91f685183d850f3c9b059badbb66">D4D_FONT_TABLE_DISABLED</a></td></tr>
+<tr class="memdesc:ga8c7e91f685183d850f3c9b059badbb66"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to enable the drawing fonts feature. If not defined, the fonts are disabled as a default.  <a href="#ga8c7e91f685183d850f3c9b059badbb66">More...</a><br/></td></tr>
+<tr class="separator:ga8c7e91f685183d850f3c9b059badbb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4a9b5e9039cb4ac06b23374d9305f72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gad4a9b5e9039cb4ac06b23374d9305f72">D4D_SCREEN_SIZE_LONGER_SIDE</a></td></tr>
+<tr class="memdesc:gad4a9b5e9039cb4ac06b23374d9305f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to define the size of longer side of LCD. If not defined, the longer side is set to 320 as a default.  <a href="#gad4a9b5e9039cb4ac06b23374d9305f72">More...</a><br/></td></tr>
+<tr class="separator:gad4a9b5e9039cb4ac06b23374d9305f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa39c4b576b616d945d9c7b03776e318e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gaa39c4b576b616d945d9c7b03776e318e">D4D_SCREEN_SIZE_SHORTER_SIDE</a></td></tr>
+<tr class="memdesc:gaa39c4b576b616d945d9c7b03776e318e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to define the size of shorter side of LCD. If not defined, the shorter side is set to 240 as a default.  <a href="#gaa39c4b576b616d945d9c7b03776e318e">More...</a><br/></td></tr>
+<tr class="separator:gaa39c4b576b616d945d9c7b03776e318e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3ea1bebaef687bef5713fb65ab34537"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gac3ea1bebaef687bef5713fb65ab34537">D4D_MCU_BUS_CLOCK</a></td></tr>
+<tr class="memdesc:gac3ea1bebaef687bef5713fb65ab34537"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to define the bus clock of MCU that's eGUI runs. If not defined, the 24MHz as a default.  <a href="#gac3ea1bebaef687bef5713fb65ab34537">More...</a><br/></td></tr>
+<tr class="separator:gac3ea1bebaef687bef5713fb65ab34537"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf46fd81533cb3a91bf8b6b4f726844bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gaf46fd81533cb3a91bf8b6b4f726844bb">D4D_COLOR_SYSTEM_FORE</a></td></tr>
+<tr class="memdesc:gaf46fd81533cb3a91bf8b6b4f726844bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to define the system fore color (For example used in touch screen calibration). If not defined, the system fore color is sets D4D_COLOR_YELLOW as a default.  <a href="#gaf46fd81533cb3a91bf8b6b4f726844bb">More...</a><br/></td></tr>
+<tr class="separator:gaf46fd81533cb3a91bf8b6b4f726844bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga71898090538a96b81d1da34d66d6be50"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga71898090538a96b81d1da34d66d6be50">D4D_COLOR_SYSTEM_BCKG</a></td></tr>
+<tr class="memdesc:ga71898090538a96b81d1da34d66d6be50"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to define the system background color (For example used in touch screen calibration). If not defined, the system background color is sets D4D_COLOR_BLACK as a default.  <a href="#ga71898090538a96b81d1da34d66d6be50">More...</a><br/></td></tr>
+<tr class="separator:ga71898090538a96b81d1da34d66d6be50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad3e0684c6e961726cc2112bbcebc78bb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gad3e0684c6e961726cc2112bbcebc78bb">D4D_FONT_SYSTEM_DEFAULT</a></td></tr>
+<tr class="memdesc:gad3e0684c6e961726cc2112bbcebc78bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to define the system font index (For example used in touch screen calibration). If not defined, the system font index is sets 0 as a default.  <a href="#gad3e0684c6e961726cc2112bbcebc78bb">More...</a><br/></td></tr>
+<tr class="separator:gad3e0684c6e961726cc2112bbcebc78bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac59a9195ca556b228f4b5399d6ed6836"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gac59a9195ca556b228f4b5399d6ed6836">D4D_BMP_EXTSRC_SUPPORT_D4D</a></td></tr>
+<tr class="memdesc:gac59a9195ca556b228f4b5399d6ed6836"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to enable external D4D bitmap support. If not defined, the external D4D bitmap support is disabled as a default.  <a href="#gac59a9195ca556b228f4b5399d6ed6836">More...</a><br/></td></tr>
+<tr class="separator:gac59a9195ca556b228f4b5399d6ed6836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab4009d792fb9cde71816272c9de30403"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gab4009d792fb9cde71816272c9de30403">D4D_BMP_EXTSRC_SUPPORT_BMP</a></td></tr>
+<tr class="memdesc:gab4009d792fb9cde71816272c9de30403"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to enable external MicroSoft BMP bitmap support. If not defined, the external MicroSoft BMP bitmap support is disabled as a default.  <a href="#gab4009d792fb9cde71816272c9de30403">More...</a><br/></td></tr>
+<tr class="separator:gab4009d792fb9cde71816272c9de30403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaccec8f4d309dacc1c46d1635cf845738"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gaccec8f4d309dacc1c46d1635cf845738">D4D_EXTSRC_TEXT_ENABLE</a></td></tr>
+<tr class="memdesc:gaccec8f4d309dacc1c46d1635cf845738"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to enable external texts support. If not defined, the external texts support is disabled as a default.  <a href="#gaccec8f4d309dacc1c46d1635cf845738">More...</a><br/></td></tr>
+<tr class="separator:gaccec8f4d309dacc1c46d1635cf845738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadc6d60566d5006be8f055408afbbdfa3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gadc6d60566d5006be8f055408afbbdfa3">D4D_EXTSRC_FILE_ENABLE</a></td></tr>
+<tr class="memdesc:gadc6d60566d5006be8f055408afbbdfa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to enable external files support. If not defined, the external external file support is enabled based on external texts and bitmap support.  <a href="#gadc6d60566d5006be8f055408afbbdfa3">More...</a><br/></td></tr>
+<tr class="separator:gadc6d60566d5006be8f055408afbbdfa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c0562e7fd672132340e9672ebeec904"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga7c0562e7fd672132340e9672ebeec904">D4D_EXTSRC_BUFF_SIZE</a></td></tr>
+<tr class="memdesc:ga7c0562e7fd672132340e9672ebeec904"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify size of buffer that is using when external file support is enabled. If not defined, the external buffer size is set 64 as a default.  <a href="#ga7c0562e7fd672132340e9672ebeec904">More...</a><br/></td></tr>
+<tr class="separator:ga7c0562e7fd672132340e9672ebeec904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga25ff0c3bb8cebba8680801ca5f76f255"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga25ff0c3bb8cebba8680801ca5f76f255">D4D_LLD_FLUSH_ELEMENT</a></td></tr>
+<tr class="memdesc:ga25ff0c3bb8cebba8680801ca5f76f255"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to enable calling flush output with drawing each elementary graphic element. If not defined, the flushing after each elementary part is disabled as a default.  <a href="#ga25ff0c3bb8cebba8680801ca5f76f255">More...</a><br/></td></tr>
+<tr class="separator:ga25ff0c3bb8cebba8680801ca5f76f255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga123d6635520a7f8d9e352839a4191270"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga123d6635520a7f8d9e352839a4191270">D4D_DEBUG</a></td></tr>
+<tr class="memdesc:ga123d6635520a7f8d9e352839a4191270"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to enable some extra debug functionality. If not defined, the debug functionality is disabled as a default.  <a href="#ga123d6635520a7f8d9e352839a4191270">More...</a><br/></td></tr>
+<tr class="separator:ga123d6635520a7f8d9e352839a4191270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade181794aeb8b26d4438b4a7828370ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gade181794aeb8b26d4438b4a7828370ed">D4D_ENDIAN_BIG</a></td></tr>
+<tr class="memdesc:gade181794aeb8b26d4438b4a7828370ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant for Big Endianism.  <a href="#gade181794aeb8b26d4438b4a7828370ed">More...</a><br/></td></tr>
+<tr class="separator:gade181794aeb8b26d4438b4a7828370ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe89442f71146e83150ec20ea67fea68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gafe89442f71146e83150ec20ea67fea68">D4D_ENDIAN_LITTLE</a></td></tr>
+<tr class="memdesc:gafe89442f71146e83150ec20ea67fea68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant for Little Endianism.  <a href="#gafe89442f71146e83150ec20ea67fea68">More...</a><br/></td></tr>
+<tr class="separator:gafe89442f71146e83150ec20ea67fea68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9bf6181d58da816b4e87e04b037ed82d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga9bf6181d58da816b4e87e04b037ed82d">D4D_ENDIAN</a></td></tr>
+<tr class="memdesc:ga9bf6181d58da816b4e87e04b037ed82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify current Endianim of CPU architecture. If not defined, the macro is defined by used CPU type as a default.  <a href="#ga9bf6181d58da816b4e87e04b037ed82d">More...</a><br/></td></tr>
+<tr class="separator:ga9bf6181d58da816b4e87e04b037ed82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga38e0853b2b4c25de337d99d6e327e46e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga38e0853b2b4c25de337d99d6e327e46e">D4D_KEY_UP</a></td></tr>
+<tr class="memdesc:ga38e0853b2b4c25de337d99d6e327e46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key UP in mask mode (obsolete). If not defined, it sets to 0x01 as a default.  <a href="#ga38e0853b2b4c25de337d99d6e327e46e">More...</a><br/></td></tr>
+<tr class="separator:ga38e0853b2b4c25de337d99d6e327e46e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4850015734743b9cc103650f7e6b30d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga4850015734743b9cc103650f7e6b30d9">D4D_KEY_DOWN</a></td></tr>
+<tr class="memdesc:ga4850015734743b9cc103650f7e6b30d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key DOWN in mask mode (obsolete). If not defined, it sets to 0x02 as a default.  <a href="#ga4850015734743b9cc103650f7e6b30d9">More...</a><br/></td></tr>
+<tr class="separator:ga4850015734743b9cc103650f7e6b30d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe3a13976fdeecb9f3a394a17681cecd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gafe3a13976fdeecb9f3a394a17681cecd">D4D_KEY_LEFT</a></td></tr>
+<tr class="memdesc:gafe3a13976fdeecb9f3a394a17681cecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key LEFT in mask mode (obsolete). If not defined, it sets to 0x04 as a default.  <a href="#gafe3a13976fdeecb9f3a394a17681cecd">More...</a><br/></td></tr>
+<tr class="separator:gafe3a13976fdeecb9f3a394a17681cecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30730e9828133de8088131fb08c95ecb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga30730e9828133de8088131fb08c95ecb">D4D_KEY_RIGHT</a></td></tr>
+<tr class="memdesc:ga30730e9828133de8088131fb08c95ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key RIGHT in mask mode (obsolete). If not defined, it sets to 0x08 as a default.  <a href="#ga30730e9828133de8088131fb08c95ecb">More...</a><br/></td></tr>
+<tr class="separator:ga30730e9828133de8088131fb08c95ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57388c98d1aa9ac1fb1d22b2e3c4004f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga57388c98d1aa9ac1fb1d22b2e3c4004f">D4D_KEY_ENTER</a></td></tr>
+<tr class="memdesc:ga57388c98d1aa9ac1fb1d22b2e3c4004f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key ENTER in mask mode (obsolete). If not defined, it sets to 0x10 as a default.  <a href="#ga57388c98d1aa9ac1fb1d22b2e3c4004f">More...</a><br/></td></tr>
+<tr class="separator:ga57388c98d1aa9ac1fb1d22b2e3c4004f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga362733cfda763113a5831c6652d9d5af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga362733cfda763113a5831c6652d9d5af">D4D_KEY_ESC</a></td></tr>
+<tr class="memdesc:ga362733cfda763113a5831c6652d9d5af"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key ESC in mask mode (obsolete). If not defined, it sets to 0x20 as a default.  <a href="#ga362733cfda763113a5831c6652d9d5af">More...</a><br/></td></tr>
+<tr class="separator:ga362733cfda763113a5831c6652d9d5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b27b7162c7e3078b3cc6b7b7665bd56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga0b27b7162c7e3078b3cc6b7b7665bd56">D4D_KEY_SCANCODE_UP</a></td></tr>
+<tr class="memdesc:ga0b27b7162c7e3078b3cc6b7b7665bd56"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key Scan Code UP. If not defined, it sets to 0x51 as a default.  <a href="#ga0b27b7162c7e3078b3cc6b7b7665bd56">More...</a><br/></td></tr>
+<tr class="separator:ga0b27b7162c7e3078b3cc6b7b7665bd56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga40287b4332776c14744f34acee1acfa7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga40287b4332776c14744f34acee1acfa7">D4D_KEY_SCANCODE_DOWN</a></td></tr>
+<tr class="memdesc:ga40287b4332776c14744f34acee1acfa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key Scan Code DOWN. If not defined, it sets to 0x50 as a default.  <a href="#ga40287b4332776c14744f34acee1acfa7">More...</a><br/></td></tr>
+<tr class="separator:ga40287b4332776c14744f34acee1acfa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafed4d2c7b274d967f2350e8eda462632"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gafed4d2c7b274d967f2350e8eda462632">D4D_KEY_SCANCODE_LEFT</a></td></tr>
+<tr class="memdesc:gafed4d2c7b274d967f2350e8eda462632"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key Scan Code LEFT. If not defined, it sets to 0x4B as a default.  <a href="#gafed4d2c7b274d967f2350e8eda462632">More...</a><br/></td></tr>
+<tr class="separator:gafed4d2c7b274d967f2350e8eda462632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69e13b70267e241b4f8f2c46964c5a4c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga69e13b70267e241b4f8f2c46964c5a4c">D4D_KEY_SCANCODE_RIGHT</a></td></tr>
+<tr class="memdesc:ga69e13b70267e241b4f8f2c46964c5a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key Scan Code RIGHT. If not defined, it sets to 0x4D as a default.  <a href="#ga69e13b70267e241b4f8f2c46964c5a4c">More...</a><br/></td></tr>
+<tr class="separator:ga69e13b70267e241b4f8f2c46964c5a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8e3e5f6c85725b49962312486c6401c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga8e3e5f6c85725b49962312486c6401c9">D4D_KEY_SCANCODE_ENTER</a></td></tr>
+<tr class="memdesc:ga8e3e5f6c85725b49962312486c6401c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key Scan Code ENTER. If not defined, it sets to 0x1C as a default.  <a href="#ga8e3e5f6c85725b49962312486c6401c9">More...</a><br/></td></tr>
+<tr class="separator:ga8e3e5f6c85725b49962312486c6401c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78dcb338a7bc19a985592c751692b955"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga78dcb338a7bc19a985592c751692b955">D4D_KEY_SCANCODE_ESC</a></td></tr>
+<tr class="memdesc:ga78dcb338a7bc19a985592c751692b955"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify Key Scan Code ESC. If not defined, it sets to 0x01 as a default.  <a href="#ga78dcb338a7bc19a985592c751692b955">More...</a><br/></td></tr>
+<tr class="separator:ga78dcb338a7bc19a985592c751692b955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga686ec2a5d19084d3b72187742bed87a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga686ec2a5d19084d3b72187742bed87a9">D4D_KEY_SCANCODE_KEYMASK</a></td></tr>
+<tr class="memdesc:ga686ec2a5d19084d3b72187742bed87a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask of scan code for key index. Lower 7 bits of Byte.  <a href="#ga686ec2a5d19084d3b72187742bed87a9">More...</a><br/></td></tr>
+<tr class="separator:ga686ec2a5d19084d3b72187742bed87a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa600ff650c618f29d64be54b7f56bc4c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gaa600ff650c618f29d64be54b7f56bc4c">D4D_KEY_SCANCODE_RELEASEMASK</a></td></tr>
+<tr class="memdesc:gaa600ff650c618f29d64be54b7f56bc4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask of scan code for key release. MSB bit of Byte. If this bit is clear, the goes down, if sets the key is released.  <a href="#gaa600ff650c618f29d64be54b7f56bc4c">More...</a><br/></td></tr>
+<tr class="separator:gaa600ff650c618f29d64be54b7f56bc4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga239c6f06f011edee2468778c296f35b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga239c6f06f011edee2468778c296f35b4">D4D_KEY_FUNC_FOCUS_NEXT</a></td></tr>
+<tr class="memdesc:ga239c6f06f011edee2468778c296f35b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify standard system function to to set focus to next object. If not defined, it sets to D4D_KEY_SCANCODE_DOWN as a default.  <a href="#ga239c6f06f011edee2468778c296f35b4">More...</a><br/></td></tr>
+<tr class="separator:ga239c6f06f011edee2468778c296f35b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga534ede252e41b059377b648bb710c3cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga534ede252e41b059377b648bb710c3cd">D4D_KEY_FUNC_FOCUS_PREV</a></td></tr>
+<tr class="memdesc:ga534ede252e41b059377b648bb710c3cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify standard system function to to set focus to previous object. If not defined, it sets to D4D_KEY_SCANCODE_UP as a default.  <a href="#ga534ede252e41b059377b648bb710c3cd">More...</a><br/></td></tr>
+<tr class="separator:ga534ede252e41b059377b648bb710c3cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2402875ac7d62b2676c603847017c9a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#ga2402875ac7d62b2676c603847017c9a9">D4D_KEYS_BUFF_LENGTH</a></td></tr>
+<tr class="memdesc:ga2402875ac7d62b2676c603847017c9a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to specify leght of keybord events buffer. If not defined, it sets to 4 events as a default.  <a href="#ga2402875ac7d62b2676c603847017c9a9">More...</a><br/></td></tr>
+<tr class="separator:ga2402875ac7d62b2676c603847017c9a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4e860a1557f06dda5289473efcd8f61"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__base__const.html#gad4e860a1557f06dda5289473efcd8f61">D4DTCH_CALIB_CROSS_OFFSET</a></td></tr>
+<tr class="memdesc:gad4e860a1557f06dda5289473efcd8f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used in touch screen calibration to define offset of calibration points from edge of LCD. If not defined, it sets to 30 pixels as a default.  <a href="#gad4e860a1557f06dda5289473efcd8f61">More...</a><br/></td></tr>
+<tr class="separator:gad4e860a1557f06dda5289473efcd8f61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact constants used by module. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="gab4009d792fb9cde71816272c9de30403"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_BMP_EXTSRC_SUPPORT_BMP</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to enable external MicroSoft BMP bitmap support. If not defined, the external MicroSoft BMP bitmap support is disabled as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00145">145</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gac59a9195ca556b228f4b5399d6ed6836"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_BMP_EXTSRC_SUPPORT_D4D</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to enable external D4D bitmap support. If not defined, the external D4D bitmap support is disabled as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00139">139</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga71898090538a96b81d1da34d66d6be50"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_SYSTEM_BCKG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to define the system background color (For example used in touch screen calibration). If not defined, the system background color is sets D4D_COLOR_BLACK as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00127">127</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaf46fd81533cb3a91bf8b6b4f726844bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COLOR_SYSTEM_FORE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to define the system fore color (For example used in touch screen calibration). If not defined, the system fore color is sets D4D_COLOR_YELLOW as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00121">121</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga123d6635520a7f8d9e352839a4191270"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DEBUG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to enable some extra debug functionality. If not defined, the debug functionality is disabled as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00179">179</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga9bf6181d58da816b4e87e04b037ed82d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_ENDIAN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify current Endianim of CPU architecture. If not defined, the macro is defined by used CPU type as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00191">191</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__imgdec__d4dint_8c_source.html#l00310">D4D_ImgDecIntD4DGetHeight()</a>, and <a class="el" href="d4d__imgdec__d4dint_8c_source.html#l00284">D4D_ImgDecIntD4DGetWidth()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gade181794aeb8b26d4438b4a7828370ed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_ENDIAN_BIG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constant for Big Endianism. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00183">183</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__imgdec__d4dint_8c_source.html#l00310">D4D_ImgDecIntD4DGetHeight()</a>, and <a class="el" href="d4d__imgdec__d4dint_8c_source.html#l00284">D4D_ImgDecIntD4DGetWidth()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gafe89442f71146e83150ec20ea67fea68"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_ENDIAN_LITTLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constant for Little Endianism. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00185">185</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga7c0562e7fd672132340e9672ebeec904"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_EXTSRC_BUFF_SIZE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify size of buffer that is using when external file support is enabled. If not defined, the external buffer size is set 64 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00167">167</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__string_8c_source.html#l00403">D4D_GetTextBuffWidthTab()</a>, <a class="el" href="d4d__string_8c_source.html#l00492">D4D_GetTextMaxLength()</a>, <a class="el" href="d4d__string_8c_source.html#l00357">D4D_GetTextWidth()</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00067">D4D_ImgDecBmpDraw()</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00783">D4D_ImgDecBmpGetHeader()</a>, <a class="el" href="d4d__imgdec__d4d_8c_source.html#l00091">D4D_ImgDecExtD4DDraw()</a>, <a class="el" href="d4d__string_8c_source.html#l00635">D4D_LCD_PrintStr()</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00862">D4D_PrintScreenToBMP()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00248">D4D_TextBoxGetCharsToLine()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00178">D4D_TextBoxGetWordSpec()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gadc6d60566d5006be8f055408afbbdfa3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_EXTSRC_FILE_ENABLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to enable external files support. If not defined, the external external file support is enabled based on external texts and bitmap support. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00160">160</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaccec8f4d309dacc1c46d1635cf845738"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_EXTSRC_TEXT_ENABLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to enable external texts support. If not defined, the external texts support is disabled as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00151">151</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gad3e0684c6e961726cc2112bbcebc78bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FONT_SYSTEM_DEFAULT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to define the system font index (For example used in touch screen calibration). If not defined, the system font index is sets 0 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00133">133</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga8c7e91f685183d850f3c9b059badbb66"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_FONT_TABLE_DISABLED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to enable the drawing fonts feature. If not defined, the fonts are disabled as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00094">94</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga4850015734743b9cc103650f7e6b30d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_DOWN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key DOWN in mask mode (obsolete). If not defined, it sets to 0x02 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00254">254</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga57388c98d1aa9ac1fb1d22b2e3c4004f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_ENTER</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key ENTER in mask mode (obsolete). If not defined, it sets to 0x10 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00269">269</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga362733cfda763113a5831c6652d9d5af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_ESC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key ESC in mask mode (obsolete). If not defined, it sets to 0x20 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00274">274</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga239c6f06f011edee2468778c296f35b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_FUNC_FOCUS_NEXT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify standard system function to to set focus to next object. If not defined, it sets to D4D_KEY_SCANCODE_DOWN as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00316">316</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00567">D4D_HandleKeys()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga534ede252e41b059377b648bb710c3cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_FUNC_FOCUS_PREV</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify standard system function to to set focus to previous object. If not defined, it sets to D4D_KEY_SCANCODE_UP as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00322">322</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00567">D4D_HandleKeys()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gafe3a13976fdeecb9f3a394a17681cecd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_LEFT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key LEFT in mask mode (obsolete). If not defined, it sets to 0x04 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00259">259</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga30730e9828133de8088131fb08c95ecb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_RIGHT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key RIGHT in mask mode (obsolete). If not defined, it sets to 0x08 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00264">264</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga40287b4332776c14744f34acee1acfa7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_SCANCODE_DOWN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key Scan Code DOWN. If not defined, it sets to 0x50 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00285">285</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__edit__box_8c_source.html#l00208">D4D_EditBoxOnKeyUp()</a>, <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00340">D4D_ListBoxOnKeyUp()</a>, <a class="el" href="d4d__menu_8c_source.html#l00432">D4D_MenuOnKeyDown()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00330">D4D_ScrlBrOnKeyDown()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00390">D4D_SldrOnKeyUp()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga8e3e5f6c85725b49962312486c6401c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_SCANCODE_ENTER</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key Scan Code ENTER. If not defined, it sets to 0x1C as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00300">300</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__button_8c_source.html#l00274">D4D_BtnOnKeyDown()</a>, <a class="el" href="d4d__button_8c_source.html#l00292">D4D_BtnOnKeyUp()</a>, <a class="el" href="d4d__check__box_8c_source.html#l00197">D4D_CheckBoxOnKeyDown()</a>, <a class="el" href="d4d__check__box_8c_source.html#l00215">D4D_CheckBoxOnKeyUp()</a>, <a class="el" href="d4d__console_8c_source.html#l00774">D4D_ConsoleOnMessage()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00208">D4D_EditBoxOnKeyUp()</a>, <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00340">D4D_ListBoxOnKeyUp()</a>, <a class="el" href="d4d__menu_8c_source.html#l00455">D4D_MenuOnKeyUp()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00194">D4D_RadioButtonOnKeyDown()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00212">D4D_RadioButtonOnKeyUp()</a>, <a class="el" href="d4d__slider_8c_source.html#l00390">D4D_SldrOnKeyUp()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00647">D4D_TextBoxOnMessage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga78dcb338a7bc19a985592c751692b955"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_SCANCODE_ESC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key Scan Code ESC. If not defined, it sets to 0x01 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00305">305</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__console_8c_source.html#l00774">D4D_ConsoleOnMessage()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00208">D4D_EditBoxOnKeyUp()</a>, <a class="el" href="d4d__base_8c_source.html#l00567">D4D_HandleKeys()</a>, <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00340">D4D_ListBoxOnKeyUp()</a>, <a class="el" href="d4d__menu_8c_source.html#l00455">D4D_MenuOnKeyUp()</a>, <a class="el" href="d4d__slider_8c_source.html#l00390">D4D_SldrOnKeyUp()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00647">D4D_TextBoxOnMessage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga686ec2a5d19084d3b72187742bed87a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_SCANCODE_KEYMASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mask of scan code for key index. Lower 7 bits of Byte. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00309">309</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00567">D4D_HandleKeys()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gafed4d2c7b274d967f2350e8eda462632"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_SCANCODE_LEFT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key Scan Code LEFT. If not defined, it sets to 0x4B as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00290">290</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__edit__box_8c_source.html#l00208">D4D_EditBoxOnKeyUp()</a>, <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00330">D4D_ScrlBrOnKeyDown()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00390">D4D_SldrOnKeyUp()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaa600ff650c618f29d64be54b7f56bc4c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_SCANCODE_RELEASEMASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mask of scan code for key release. MSB bit of Byte. If this bit is clear, the goes down, if sets the key is released. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00311">311</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00567">D4D_HandleKeys()</a>, and <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga69e13b70267e241b4f8f2c46964c5a4c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_SCANCODE_RIGHT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key Scan Code RIGHT. If not defined, it sets to 0x4D as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00295">295</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__edit__box_8c_source.html#l00208">D4D_EditBoxOnKeyUp()</a>, <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00330">D4D_ScrlBrOnKeyDown()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00390">D4D_SldrOnKeyUp()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga0b27b7162c7e3078b3cc6b7b7665bd56"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_SCANCODE_UP</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key Scan Code UP. If not defined, it sets to 0x51 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00280">280</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__edit__box_8c_source.html#l00208">D4D_EditBoxOnKeyUp()</a>, <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00340">D4D_ListBoxOnKeyUp()</a>, <a class="el" href="d4d__menu_8c_source.html#l00432">D4D_MenuOnKeyDown()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00330">D4D_ScrlBrOnKeyDown()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00390">D4D_SldrOnKeyUp()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga38e0853b2b4c25de337d99d6e327e46e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEY_UP</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify Key UP in mask mode (obsolete). If not defined, it sets to 0x01 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00249">249</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00257">D4D_KeysChanged()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga2402875ac7d62b2676c603847017c9a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_KEYS_BUFF_LENGTH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to specify leght of keybord events buffer. If not defined, it sets to 4 events as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00328">328</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00567">D4D_HandleKeys()</a>, and <a class="el" href="d4d__base_8c_source.html#l00332">D4D_NewKeyEvent()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga25ff0c3bb8cebba8680801ca5f76f255"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_LLD_FLUSH_ELEMENT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to enable calling flush output with drawing each elementary graphic element. If not defined, the flushing after each elementary part is disabled as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00173">173</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gac3ea1bebaef687bef5713fb65ab34537"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MCU_BUS_CLOCK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to define the bus clock of MCU that's eGUI runs. If not defined, the 24MHz as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00115">115</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga8f5d661d1e8819bcb694bb390e4ec2a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_MCU_TYPE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to select the running platform of eGUI code. If not defined, the Kinetis platform is used as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00066">66</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga7bced01b64f746e37f5703b1a1b76232"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_ROUND_CORNER_ENABLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to enable the round corners feature. If not defined, the round corners are disabled as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00088">88</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__text__box_8c_source.html#l00095">D4D_TextBoxValue2Coor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga4aa1c7a6b9f38ec8eb6c8560216a10df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCREEN_HISTORY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to set the screen buffer depth. If not defined, the 5 is used as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00073">73</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00094">D4D_ActivateScreen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gad4a9b5e9039cb4ac06b23374d9305f72"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCREEN_SIZE_LONGER_SIDE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to define the size of longer side of LCD. If not defined, the longer side is set to 320 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00101">101</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__low_8c_source.html#l00167">D4D_DisplayHeight()</a>, <a class="el" href="d4d__low_8c_source.html#l00159">D4D_DisplayWidth()</a>, and <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00862">D4D_PrintScreenToBMP()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaa39c4b576b616d945d9c7b03776e318e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCREEN_SIZE_SHORTER_SIDE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used to define the size of shorter side of LCD. If not defined, the shorter side is set to 240 as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00108">108</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__low_8c_source.html#l00167">D4D_DisplayHeight()</a>, <a class="el" href="d4d__low_8c_source.html#l00159">D4D_DisplayWidth()</a>, and <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00862">D4D_PrintScreenToBMP()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gab57c7d04705a37ff13798e9aa77b1661"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_VERSION</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>There is stored version number of eGUI in string format - DO NOT CHANGE To check release history - read the release_notes.txt file. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00061">61</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gad4e860a1557f06dda5289473efcd8f61"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_CALIB_CROSS_OFFSET</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This macro is used in touch screen calibration to define offset of calibration points from edge of LCD. If not defined, it sets to 30 pixels as a default. </p>
+
+<p>Definition at line <a class="el" href="d4d__base_8h_source.html#l00340">340</a> of file <a class="el" href="d4d__base_8h_source.html">d4d_base.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:04 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

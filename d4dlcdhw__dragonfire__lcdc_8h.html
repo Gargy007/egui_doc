@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4dlcdhw_dragonfire_lcdc.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4dlcdhw__dragonfire__lcdc_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">d4dlcdhw_dragonfire_lcdc.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;d4dlcdhw_dragonfire_lcdc_cfg.h&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for d4dlcdhw_dragonfire_lcdc.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4dlcdhw__dragonfire__lcdc_8h__incl.gif" border="0" usemap="#d4dlcdhw__dragonfire__lcdc_8h" alt=""/></div>
+<map name="d4dlcdhw__dragonfire__lcdc_8h" id="d4dlcdhw__dragonfire__lcdc_8h">
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a30274ae01ac3d59644bf70ac48c1b0db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a30274ae01ac3d59644bf70ac48c1b0db">D4DLCDHWFB_START_ADDRESS</a></td></tr>
+<tr class="separator:a30274ae01ac3d59644bf70ac48c1b0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bd4c362288ba0519d5b2604286abb2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a6bd4c362288ba0519d5b2604286abb2a">D4DLCDHWFB_X_MAX</a></td></tr>
+<tr class="separator:a6bd4c362288ba0519d5b2604286abb2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9337cd35e88ce1510b585e0fac5b46f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a9337cd35e88ce1510b585e0fac5b46f0">D4DLCDHWFB_Y_MAX</a></td></tr>
+<tr class="separator:a9337cd35e88ce1510b585e0fac5b46f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7e3ecceccd7975149982233e28051d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#af7e3ecceccd7975149982233e28051d0">D4DLCDHWFB_Y_BPP_BYTE</a></td></tr>
+<tr class="separator:af7e3ecceccd7975149982233e28051d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc63b5f05be6fc55b37c0cf570c2079f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#abc63b5f05be6fc55b37c0cf570c2079f">D4DLCDHWFB_MIRROWED</a></td></tr>
+<tr class="separator:abc63b5f05be6fc55b37c0cf570c2079f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe7fb7494f07165b4c22834dddd3fbf7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#abe7fb7494f07165b4c22834dddd3fbf7">D4DLCDHWFB_PANEL_TYPE</a></td></tr>
+<tr class="separator:abe7fb7494f07165b4c22834dddd3fbf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca47fb33be8a065877e203a71164b53a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#aca47fb33be8a065877e203a71164b53a">D4DLCDHWFB_PANEL_CLKDIV</a></td></tr>
+<tr class="separator:aca47fb33be8a065877e203a71164b53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d68a73d8e9c70d1267693831f102386"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a6d68a73d8e9c70d1267693831f102386">MCF_LCDC_LCD_PCR_PANEL_TYPE</a>(x)</td></tr>
+<tr class="separator:a6d68a73d8e9c70d1267693831f102386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab40ba500c23bd5b04e61b3cf894fc7f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#ab40ba500c23bd5b04e61b3cf894fc7f0">VDDEN_ON</a></td></tr>
+<tr class="separator:ab40ba500c23bd5b04e61b3cf894fc7f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a2f16e62fbe25f4aba83e20c81edf768e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768e">ACD_DIV</a> { <br/>
+&#160;&#160;<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7c2ad0d855a5011a178c6f2c9ebebd85">ACD_DIV_0</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea1f5ba59b96a04d3fb2ef050ef72f88c4">ACD_DIV_1</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae1b4c3c1e9662d861670113dbf83b04b">ACD_DIV_2</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab526fd411657bd3ec2cd6ec6fef40054">ACD_DIV_3</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea72b43c8812ab780385b58fcca3b50cde">ACD_DIV_4</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea3b6fc9ff71975e1edb0c68d100b79c55">ACD_DIV_5</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea0cc9137f44eccc6dfc24839df49b827b">ACD_DIV_6</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7da7ab713d1a35465001ae0b51571cb9">ACD_DIV_7</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eabfc444afe4b3359dc065df2cac725d59">ACD_DIV_8</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab118f4f777099404f1012cf391b562b0">ACD_DIV_9</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae40f805598081f705030578bd1ccaa75">ACD_DIV_10</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea4f8dfac10749341f41eeeddd86009e92">ACD_DIV_11</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eaee8fbd702ed8b6dd3b00bacde5f4576c">ACD_DIV_12</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea97b3cc4a390395d197dcee029de1240d">ACD_DIV_13</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae90b949ded699c384ad43694c0764aaf">ACD_DIV_14</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea83e50b4fc7f498d7a51cd19b5fb983d1">ACD_DIV_15</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7c2ad0d855a5011a178c6f2c9ebebd85">ACD_DIV_0</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea1f5ba59b96a04d3fb2ef050ef72f88c4">ACD_DIV_1</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae1b4c3c1e9662d861670113dbf83b04b">ACD_DIV_2</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab526fd411657bd3ec2cd6ec6fef40054">ACD_DIV_3</a>, 
+<br/>
+&#160;&#160;<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea72b43c8812ab780385b58fcca3b50cde">ACD_DIV_4</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea3b6fc9ff71975e1edb0c68d100b79c55">ACD_DIV_5</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea0cc9137f44eccc6dfc24839df49b827b">ACD_DIV_6</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea7da7ab713d1a35465001ae0b51571cb9">ACD_DIV_7</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eabfc444afe4b3359dc065df2cac725d59">ACD_DIV_8</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eab118f4f777099404f1012cf391b562b0">ACD_DIV_9</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae40f805598081f705030578bd1ccaa75">ACD_DIV_10</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea4f8dfac10749341f41eeeddd86009e92">ACD_DIV_11</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eaee8fbd702ed8b6dd3b00bacde5f4576c">ACD_DIV_12</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea97b3cc4a390395d197dcee029de1240d">ACD_DIV_13</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768eae90b949ded699c384ad43694c0764aaf">ACD_DIV_14</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768ea83e50b4fc7f498d7a51cd19b5fb983d1">ACD_DIV_15</a>
+<br/>
+ }</td></tr>
+<tr class="separator:a2f16e62fbe25f4aba83e20c81edf768e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a813d8aa02a228842477a8cf6126981fa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981fa">Panel_Size</a> { <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faa330a834e4ef86b525b4d5e7deca5dfc8">SHARP_12SVGA</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faa1839015b61fe1f553b404366838be542">SHARP_35QVGA</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faa781acc55022dc7b1fc5f8c9d24bd374f">SHARP_57QVGA</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faac16753bfc31334ae3cac2e7f768775cc">SHARP_64VGA</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faa8db9f699fb6888658d56bafb8e8a7d4f">SHARP_104VGA</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981faa647d1e47febd5a37859be19a61152bd5">M52277EVB_PANEL</a>
+ }</td></tr>
+<tr class="separator:a813d8aa02a228842477a8cf6126981fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a035cd81aba2cadc1fdf0387cad947b14"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14">LCDC_PANEL_TYPE</a> { <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14ae56316e8b1d13b7d6ab8ca27c266f683">MONO_PANEL</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14acb67cadb16322450a6a3df8bd58a3833">CSTN_PANEL</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14adf375b7df22b1e0917a0270fbc44075d">PANEL_UNUSED</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14a297d842dedd87f8d6b95de55e1a1897e">TFT_PANEL</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14ae56316e8b1d13b7d6ab8ca27c266f683">MONO_PANEL</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14acb67cadb16322450a6a3df8bd58a3833">CSTN_PANEL</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14adf375b7df22b1e0917a0270fbc44075d">PANEL_UNUSED</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14a297d842dedd87f8d6b95de55e1a1897e">TFT_PANEL</a>
+ }</td></tr>
+<tr class="separator:a035cd81aba2cadc1fdf0387cad947b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b1bd72bd637241cc502cc27bd6eb070"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070">BPP_TYPE</a> { <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7">BPP1</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c">BPP2</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c">BPP4</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a">BPP8</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e">BPP12</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c">BPP16</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970">BPP18</a>, 
+<a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070afe4c21755babfece7188666f75c7386b">RESERVED</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7">BPP1</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c">BPP2</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c">BPP4</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a">BPP8</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e">BPP12</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c">BPP16</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970">BPP18</a>, 
+<a class="el" href="d4dlcdhw__k70__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070a4963c5d43c76a0097bcb52bb9f92fa8a">BPP24</a>
+ }</td></tr>
+<tr class="separator:a1b1bd72bd637241cc502cc27bd6eb070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D driver - dragonfire_lcdc hardware lcd driver function header file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.2.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Aug-30-2010 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="abc63b5f05be6fc55b37c0cf570c2079f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCDHWFB_MIRROWED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00078">78</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aca47fb33be8a065877e203a71164b53a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCDHWFB_PANEL_CLKDIV</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00086">86</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abe7fb7494f07165b4c22834dddd3fbf7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCDHWFB_PANEL_TYPE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00082">82</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a30274ae01ac3d59644bf70ac48c1b0db"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCDHWFB_START_ADDRESS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00061">61</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6bd4c362288ba0519d5b2604286abb2a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCDHWFB_X_MAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00065">65</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af7e3ecceccd7975149982233e28051d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCDHWFB_Y_BPP_BYTE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00073">73</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9337cd35e88ce1510b585e0fac5b46f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DLCDHWFB_Y_MAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00069">69</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d68a73d8e9c70d1267693831f102386"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MCF_LCDC_LCD_PCR_PANEL_TYPE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00097">97</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab40ba500c23bd5b04e61b3cf894fc7f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VDDEN_ON</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00110">110</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a2f16e62fbe25f4aba83e20c81edf768e">ACD_DIV</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea7c2ad0d855a5011a178c6f2c9ebebd85"></a>ACD_DIV_0</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea1f5ba59b96a04d3fb2ef050ef72f88c4"></a>ACD_DIV_1</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eae1b4c3c1e9662d861670113dbf83b04b"></a>ACD_DIV_2</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eab526fd411657bd3ec2cd6ec6fef40054"></a>ACD_DIV_3</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea72b43c8812ab780385b58fcca3b50cde"></a>ACD_DIV_4</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea3b6fc9ff71975e1edb0c68d100b79c55"></a>ACD_DIV_5</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea0cc9137f44eccc6dfc24839df49b827b"></a>ACD_DIV_6</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea7da7ab713d1a35465001ae0b51571cb9"></a>ACD_DIV_7</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eabfc444afe4b3359dc065df2cac725d59"></a>ACD_DIV_8</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eab118f4f777099404f1012cf391b562b0"></a>ACD_DIV_9</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eae40f805598081f705030578bd1ccaa75"></a>ACD_DIV_10</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea4f8dfac10749341f41eeeddd86009e92"></a>ACD_DIV_11</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eaee8fbd702ed8b6dd3b00bacde5f4576c"></a>ACD_DIV_12</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea97b3cc4a390395d197dcee029de1240d"></a>ACD_DIV_13</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eae90b949ded699c384ad43694c0764aaf"></a>ACD_DIV_14</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea83e50b4fc7f498d7a51cd19b5fb983d1"></a>ACD_DIV_15</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea7c2ad0d855a5011a178c6f2c9ebebd85"></a>ACD_DIV_0</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea1f5ba59b96a04d3fb2ef050ef72f88c4"></a>ACD_DIV_1</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eae1b4c3c1e9662d861670113dbf83b04b"></a>ACD_DIV_2</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eab526fd411657bd3ec2cd6ec6fef40054"></a>ACD_DIV_3</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea72b43c8812ab780385b58fcca3b50cde"></a>ACD_DIV_4</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea3b6fc9ff71975e1edb0c68d100b79c55"></a>ACD_DIV_5</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea0cc9137f44eccc6dfc24839df49b827b"></a>ACD_DIV_6</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea7da7ab713d1a35465001ae0b51571cb9"></a>ACD_DIV_7</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eabfc444afe4b3359dc065df2cac725d59"></a>ACD_DIV_8</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eab118f4f777099404f1012cf391b562b0"></a>ACD_DIV_9</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eae40f805598081f705030578bd1ccaa75"></a>ACD_DIV_10</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea4f8dfac10749341f41eeeddd86009e92"></a>ACD_DIV_11</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eaee8fbd702ed8b6dd3b00bacde5f4576c"></a>ACD_DIV_12</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea97b3cc4a390395d197dcee029de1240d"></a>ACD_DIV_13</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768eae90b949ded699c384ad43694c0764aaf"></a>ACD_DIV_14</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2f16e62fbe25f4aba83e20c81edf768ea83e50b4fc7f498d7a51cd19b5fb983d1"></a>ACD_DIV_15</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00114">114</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a1b1bd72bd637241cc502cc27bd6eb070">BPP_TYPE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7"></a>BPP1</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c"></a>BPP2</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c"></a>BPP4</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a"></a>BPP8</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e"></a>BPP12</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c"></a>BPP16</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970"></a>BPP18</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070afe4c21755babfece7188666f75c7386b"></a>RESERVED</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070a72e4214f92c5025412f7cc7c35783ed7"></a>BPP1</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070a43904e6a355b6a0159c0e8b82158a66c"></a>BPP2</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070af1e90c657902ec79ddad0e7c3e94096c"></a>BPP4</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070aa7c18c3ea819ffedfd230e0697eac30a"></a>BPP8</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070acafb8306c2f35307c07d8a1fa831862e"></a>BPP12</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070ae073591daab250ed29c7e9ba88856c7c"></a>BPP16</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070a449f1f6e54f327e2c8f10ab4e031c970"></a>BPP18</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a1b1bd72bd637241cc502cc27bd6eb070a4963c5d43c76a0097bcb52bb9f92fa8a"></a>BPP24</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00150">150</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a035cd81aba2cadc1fdf0387cad947b14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a035cd81aba2cadc1fdf0387cad947b14">LCDC_PANEL_TYPE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a035cd81aba2cadc1fdf0387cad947b14ae56316e8b1d13b7d6ab8ca27c266f683"></a>MONO_PANEL</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a035cd81aba2cadc1fdf0387cad947b14acb67cadb16322450a6a3df8bd58a3833"></a>CSTN_PANEL</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a035cd81aba2cadc1fdf0387cad947b14adf375b7df22b1e0917a0270fbc44075d"></a>PANEL_UNUSED</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a035cd81aba2cadc1fdf0387cad947b14a297d842dedd87f8d6b95de55e1a1897e"></a>TFT_PANEL</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a035cd81aba2cadc1fdf0387cad947b14ae56316e8b1d13b7d6ab8ca27c266f683"></a>MONO_PANEL</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a035cd81aba2cadc1fdf0387cad947b14acb67cadb16322450a6a3df8bd58a3833"></a>CSTN_PANEL</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a035cd81aba2cadc1fdf0387cad947b14adf375b7df22b1e0917a0270fbc44075d"></a>PANEL_UNUSED</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a035cd81aba2cadc1fdf0387cad947b14a297d842dedd87f8d6b95de55e1a1897e"></a>TFT_PANEL</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00143">143</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a813d8aa02a228842477a8cf6126981fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html#a813d8aa02a228842477a8cf6126981fa">Panel_Size</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a813d8aa02a228842477a8cf6126981faa330a834e4ef86b525b4d5e7deca5dfc8"></a>SHARP_12SVGA</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a813d8aa02a228842477a8cf6126981faa1839015b61fe1f553b404366838be542"></a>SHARP_35QVGA</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a813d8aa02a228842477a8cf6126981faa781acc55022dc7b1fc5f8c9d24bd374f"></a>SHARP_57QVGA</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a813d8aa02a228842477a8cf6126981faac16753bfc31334ae3cac2e7f768775cc"></a>SHARP_64VGA</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a813d8aa02a228842477a8cf6126981faa8db9f699fb6888658d56bafb8e8a7d4f"></a>SHARP_104VGA</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a813d8aa02a228842477a8cf6126981faa647d1e47febd5a37859be19a61152bd5"></a>M52277EVB_PANEL</em>&nbsp;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Definition at line <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html#l00133">133</a> of file <a class="el" href="d4dlcdhw__dragonfire__lcdc_8h_source.html">d4dlcdhw_dragonfire_lcdc.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_e63864f3cf47839db9022321f26e31ad.html">LCD</a></li><li class="navelem"><a class="el" href="dir_23a5828fc9116e21f9b2ccfa5fee5622.html">lcd_hw_interface</a></li><li class="navelem"><a class="el" href="dir_c0189aa58935f1cdd22e2ffdd13ac6a9.html">dragonfire_lcdc</a></li><li class="navelem"><a class="el" href="d4dlcdhw__dragonfire__lcdc_8h.html">d4dlcdhw_dragonfire_lcdc.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:03 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

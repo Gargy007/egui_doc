@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_extsrc.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__extsrc_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">d4d_extsrc.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="d4d__extsrc_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">* This program is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">* but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">* You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">* and the GNU Lesser General Public License along with this program.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">* If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">***************************************************************************/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#ifndef __D4D_EXTSRC_H</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __D4D_EXTSRC_H</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#if !defined(__MQX__) &amp;&amp; !defined(D4D_OS_MQX)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span> <span class="comment">// #include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">* D4D External Resources  constants</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#ifndef D4D_IMG_WORK_PATH_DEFAULT</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__const.html#ga480c48fe8095e8b71ab51e760e36e15b">   64</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_IMG_WORK_PATH_DEFAULT &quot;a:\\&quot;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#ifndef D4D_FNT_WORK_PATH_DEFAULT</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__const.html#ga00ec448ccc5896347c8f89baa47381b6">   72</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_FNT_WORK_PATH_DEFAULT &quot;a:\\&quot;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">* D4D External Resources types</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#ga46417258b10f7ba0c00dda839cd99cea">   91</a></span>&#160;<span class="keyword">typedef</span> <a class="code" href="group__doxd4d__types__type.html#gab25982b32f755b026c2d60635e8fcd54">D4D_FILEPTR</a> (*<a class="code" href="group__doxd4d__extsrc__type.html#ga46417258b10f7ba0c00dda839cd99cea">D4DFILE_FOPEN</a>)(<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* filename, <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* mode);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#gae8f7f4a85db120ebeea73a8f0b25fe48">   99</a></span>&#160;<span class="keyword">typedef</span> int (*<a class="code" href="group__doxd4d__extsrc__type.html#gae8f7f4a85db120ebeea73a8f0b25fe48">D4DFILE_FCLOSE</a>)(<a class="code" href="group__doxd4d__types__type.html#gab25982b32f755b026c2d60635e8fcd54">D4D_FILEPTR</a> p_file);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#gadc2af92f25ed15a477cb7f2cf85ecfba">  109</a></span>&#160;<span class="keyword">typedef</span> int (*<a class="code" href="group__doxd4d__extsrc__type.html#gadc2af92f25ed15a477cb7f2cf85ecfba">D4DFILE_READ</a>)(<a class="code" href="group__doxd4d__types__type.html#gab25982b32f755b026c2d60635e8fcd54">D4D_FILEPTR</a> p_file, <span class="keywordtype">void</span>* buffer, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#ga76f958f05e1979a86ab20d8a13e0fba2">  119</a></span>&#160;<span class="keyword">typedef</span> int (*<a class="code" href="group__doxd4d__extsrc__type.html#ga76f958f05e1979a86ab20d8a13e0fba2">D4DFILE_WRITE</a>)(<a class="code" href="group__doxd4d__types__type.html#gab25982b32f755b026c2d60635e8fcd54">D4D_FILEPTR</a> p_file, <span class="keyword">const</span> <span class="keywordtype">void</span>* buffer, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#ga845f3037d401e176cfef3d0d6e63b969">  129</a></span>&#160;<span class="keyword">typedef</span> int (*<a class="code" href="group__doxd4d__extsrc__type.html#ga845f3037d401e176cfef3d0d6e63b969">D4DFILE_FSEEK</a>)(<a class="code" href="group__doxd4d__types__type.html#gab25982b32f755b026c2d60635e8fcd54">D4D_FILEPTR</a> p_file, <span class="keywordtype">long</span> offset, <span class="keywordtype">int</span> origin);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#ga28e6e11c73095878594070b939f9eff5">  132</a></span>&#160;<span class="preprocessor">#define D4D_SEEK_SET    1</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#gad25e973bce6918112e4277eaf6962452">  134</a></span>&#160;<span class="preprocessor">#define D4D_SEEK_CUR    2</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#gac994436004f6c2f35fbf8d19f154e94e">  136</a></span>&#160;<span class="preprocessor">#define D4D_SEEK_END    3</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#ga3628900698d43100321529ac67be8dd1">  144</a></span>&#160;<span class="keyword">typedef</span> long (*<a class="code" href="group__doxd4d__extsrc__type.html#ga3628900698d43100321529ac67be8dd1">D4DFILE_FTELL</a>)(<a class="code" href="group__doxd4d__types__type.html#gab25982b32f755b026c2d60635e8fcd54">D4D_FILEPTR</a> p_file);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#ga438a41e967088864eec807904c0fcb62">  157</a></span>&#160;<span class="keyword">typedef</span> int (*<a class="code" href="group__doxd4d__extsrc__type.html#ga438a41e967088864eec807904c0fcb62">D4DLOCALE_TRANSLATE_STR</a>)(<span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* originTxt, <a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* newTxt, <span class="keywordtype">int</span> offset, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#ga24871855a59e364766a715ef5436b338">  167</a></span>&#160;<span class="keyword">typedef</span> int (*<a class="code" href="group__doxd4d__extsrc__type.html#ga24871855a59e364766a715ef5436b338">D4DLOCALE_GET_TRANSLATE_STR_LEN</a>)(<span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* originTxt);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html">  170</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="group__doxd4d__extsrc__type.html#struct_d4_d_f_i_l_e___f_u_n_c_t_i_o_n_s___s">D4DFILE_FUNCTIONS_S</a>           </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;{</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#a6f06a31699e479b97fb8634b4dd597d5">  172</a></span>&#160;  <a class="code" href="group__doxd4d__extsrc__type.html#ga46417258b10f7ba0c00dda839cd99cea">D4DFILE_FOPEN</a> <a class="code" href="group__doxd4d__extsrc__type.html#a6f06a31699e479b97fb8634b4dd597d5">D4DFILE_fopen</a>;          </div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#aa37c7e5745a688e68fc9effff1dc76fd">  173</a></span>&#160;  <a class="code" href="group__doxd4d__extsrc__type.html#gae8f7f4a85db120ebeea73a8f0b25fe48">D4DFILE_FCLOSE</a> <a class="code" href="group__doxd4d__extsrc__type.html#aa37c7e5745a688e68fc9effff1dc76fd">D4DFILE_fclose</a>;        </div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#a750bc54a0b3eb1462cf7cdf2d458f8e3">  174</a></span>&#160;  <a class="code" href="group__doxd4d__extsrc__type.html#gadc2af92f25ed15a477cb7f2cf85ecfba">D4DFILE_READ</a> <a class="code" href="group__doxd4d__extsrc__type.html#a750bc54a0b3eb1462cf7cdf2d458f8e3">D4DFILE_read</a>;            </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#aaa92897ce4256d0869d36adcf456e5a9">  175</a></span>&#160;  <a class="code" href="group__doxd4d__extsrc__type.html#ga76f958f05e1979a86ab20d8a13e0fba2">D4DFILE_WRITE</a> <a class="code" href="group__doxd4d__extsrc__type.html#aaa92897ce4256d0869d36adcf456e5a9">D4DFILE_write</a>;          </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#a47d584c038371a5069a9890b54877864">  176</a></span>&#160;  <a class="code" href="group__doxd4d__extsrc__type.html#ga845f3037d401e176cfef3d0d6e63b969">D4DFILE_FSEEK</a> <a class="code" href="group__doxd4d__extsrc__type.html#a47d584c038371a5069a9890b54877864">D4DFILE_fseek</a>;          </div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#a05c7548c0a08504feff18aa090a95ed6">  177</a></span>&#160;  <a class="code" href="group__doxd4d__extsrc__type.html#ga3628900698d43100321529ac67be8dd1">D4DFILE_FTELL</a> <a class="code" href="group__doxd4d__extsrc__type.html#a05c7548c0a08504feff18aa090a95ed6">D4DFILE_ftell</a>;          </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}<a class="code" href="group__doxd4d__extsrc__type.html#ga24b00695f10ffa1b65e4d0d22e475c9b">D4DFILE_FUNCTIONS</a>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html">  181</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="group__doxd4d__extsrc__type.html#struct_d4_d_l_o_c_a_l_e___f_u_n_c_t_i_o_n_s___s">D4DLOCALE_FUNCTIONS_S</a>           </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;{</div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#ab13d494407c6c07e2a9f5ae7fa519c1e">  183</a></span>&#160;  <a class="code" href="group__doxd4d__extsrc__type.html#ga438a41e967088864eec807904c0fcb62">D4DLOCALE_TRANSLATE_STR</a> <a class="code" href="group__doxd4d__extsrc__type.html#ab13d494407c6c07e2a9f5ae7fa519c1e">D4DLOCALE_TranslateStr</a>;                       </div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__type.html#a62fbd0e6a9834567bc02202ff6004980">  184</a></span>&#160;  <a class="code" href="group__doxd4d__extsrc__type.html#ga24871855a59e364766a715ef5436b338">D4DLOCALE_GET_TRANSLATE_STR_LEN</a> <a class="code" href="group__doxd4d__extsrc__type.html#a62fbd0e6a9834567bc02202ff6004980">D4DLOCALE_GetTranslateStrLength</a>;      </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}<a class="code" href="group__doxd4d__extsrc__type.html#ga55d47b09c74c5b39cade27ebbf2b39fc">D4DLOCALE_FUNCTIONS</a>;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">* Internal types</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">******************************************************************************/</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment">* D4D External resources macros</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#gad9ce728dffab151d9149b027d3c72b77">  206</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_LOCALE_FUNCTIONS(D4DLOCALE_TranslateStr, D4DLOCALE_GetTranslateStrLength) \</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor">  const D4DLOCALE_FUNCTIONS d4d_extsrcLocale = \</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">  { \</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor">    D4DLOCALE_TranslateStr, </span><span class="comment">/* Translate locale function pointer */</span><span class="preprocessor"> \</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">    D4DLOCALE_GetTranslateStrLength  </span><span class="comment">/* Translate locale get str Length function pointer */</span><span class="preprocessor"> \</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">  };</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#ga2fcbd403ac1c57c595f58ed8a3b65dc9">  223</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_FILE_FUNCTIONS(D4DFILE_fopen, D4DFILE_fclose, D4DFILE_read, D4DFILE_write, D4DFILE_fseek, D4DFILE_ftell) \</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="preprocessor">  const D4DFILE_FUNCTIONS d4d_extsrcFile = \</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="preprocessor">  { \</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="preprocessor">    D4DFILE_fopen, </span><span class="comment">/* D4D File - fopen */</span><span class="preprocessor"> \</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="preprocessor">    D4DFILE_fclose, </span><span class="comment">/* D4D File - fclose */</span><span class="preprocessor"> \</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">    D4DFILE_read, </span><span class="comment">/* D4D File - fread */</span><span class="preprocessor"> \</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="preprocessor">    D4DFILE_write, </span><span class="comment">/* D4D File - fwrite */</span><span class="preprocessor"> \</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="preprocessor">    D4DFILE_fseek, </span><span class="comment">/* D4D File - fseek */</span><span class="preprocessor"> \</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="preprocessor">    D4DFILE_ftell </span><span class="comment">/* D4D File - ftell */</span><span class="preprocessor"> \</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="preprocessor">  };  </span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="preprocessor">#if D4D_ENDIAN == D4D_ENDIAN_LITTLE</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#ga0dd6d96766fb0a8adac5bdd4602dd4ee">  238</a></span>&#160;<span class="preprocessor">  #define D4D_READ8L(x) (x)</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#gadc2c7e33b085e6af96b24c35bf0032f0">  240</a></span>&#160;<span class="preprocessor">  #define D4D_READ16L(x) (x)</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#ga7df60bef69e2994c9c4faab68ad2ec11">  242</a></span>&#160;<span class="preprocessor">  #define D4D_READ32L(x) (x)</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#gabb298996509dfe728c31a493275b9a24">  245</a></span>&#160;<span class="preprocessor">  #define D4D_READ8B(x) (x)                                </span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#ga79a11d205b7f2b8c805f73c91b6f6709">  247</a></span>&#160;<span class="preprocessor">  #define D4D_READ16B(x) D4D_SwapWord((x))                 </span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#ga622cad53d01017f58bd5043423ff2988">  249</a></span>&#160;<span class="preprocessor">  #define D4D_READ32B(x) D4D_SwapLong((x))</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#ga1418bdb3fc040413427706c01c1b68b6">  252</a></span>&#160;<span class="preprocessor">  #define D4D_WRITE8L(x) (x)</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#ga823dad3c23c07f713e516fb6fbe95a1f">  254</a></span>&#160;<span class="preprocessor">  #define D4D_WRITE16L(x) (x)</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#ga2f187e196e12deb54db4e35948ac8829">  256</a></span>&#160;<span class="preprocessor">  #define D4D_WRITE32L(x) (x)</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#ga93ce2a888a16071e91c669941f4f1b9b">  259</a></span>&#160;<span class="preprocessor">  #define D4D_WRITE8B(x) (x)</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#ga84cb3291d635d630c7736e31216f13e9">  261</a></span>&#160;<span class="preprocessor">  #define D4D_WRITE16B(x) D4D_SwapWord((x))</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__macro.html#gaa2f43c5d023c7bfa1511fec4cc34a9b9">  263</a></span>&#160;<span class="preprocessor">  #define D4D_WRITE32B(x) D4D_SwapLong((x))</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_READ8L(x) (x)</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_READ16L(x) D4D_SwapWord((x))</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_READ32L(x) D4D_SwapLong((x))</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="preprocessor">  #define D4D_READ8B(x) (x)</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_READ16B(x) (x)</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_READ32B(x) (x)</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="preprocessor">  #define D4D_WRITE8L(x) (x)</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_WRITE16L(x) D4D_SwapWord((x))</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_WRITE32L(x) D4D_SwapLong((x))</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="preprocessor">  #define D4D_WRITE8B(x) (x)</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_WRITE16B(x) (x)</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_WRITE32B(x) (x)</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment">* D4D External resources functions headers</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment">*</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__func.html#gaccdf93843dfabc5c72271cc7cfff27a9">  296</a></span>&#160;<span class="preprocessor">#define D4D_FileOpen    d4d_extsrcFile.D4DFILE_fopen</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__func.html#ga56779fcc133f82b75d563dd5b042db7e">  298</a></span>&#160;<span class="preprocessor">#define D4D_FileClose   d4d_extsrcFile.D4DFILE_fclose</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__func.html#gabc09f8b70d71ec501b6fa3340b1bb4fa">  300</a></span>&#160;<span class="preprocessor">#define D4D_FileRead    d4d_extsrcFile.D4DFILE_read</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__func.html#ga1ca9e5ef480b25ce8526383597acc2ed">  302</a></span>&#160;<span class="preprocessor">#define D4D_FileWrite   d4d_extsrcFile.D4DFILE_write</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__func.html#ga9e6ca8b72fa9e57840f71c18c0fd0276">  304</a></span>&#160;<span class="preprocessor">#define D4D_FileSeek    d4d_extsrcFile.D4DFILE_fseek</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__func.html#gaa5d4ea11acf62ef16853fedf28a9af2c">  306</a></span>&#160;<span class="preprocessor">#define D4D_FileTell    d4d_extsrcFile.D4DFILE_ftell </span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="preprocessor">#ifndef D4D_MemAlloc</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #if defined(__MQX__) || defined(D4D_OS_MQX)</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define D4D_MemAlloc(size)  _mem_alloc(size)</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #else</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__func.html#ga64473ce493bb8017c85223ebd6a98998">  313</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define D4D_MemAlloc(size)  malloc(size)   </span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="preprocessor">#ifndef D4D_MemFree  </span></div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #if defined(__MQX__) || defined(D4D_OS_MQX)</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define D4D_MemFree(pMem)   _mem_free(pMem)</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #else</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__func.html#gaff9d0a16b564bb7c0a755e62c3f13989">  322</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define D4D_MemFree(pMem)   free(pMem)</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor">#ifndef D4D_MemCopy  </span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #if defined(__MQX__) || defined(D4D_OS_MQX)</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define D4D_MemCopy(pDst, pSrc, size)   _mem_copy(pSrc, pDst, size)</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #else</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno"><a class="line" href="group__doxd4d__extsrc__func.html#gaeb52cf7b2f0ce783c1c7b0c89406e03a">  331</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define D4D_MemCopy(pDst, pSrc, size)   memcpy(pDst, pSrc, size)</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor"></span>       </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">* Global variables</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment">******************************************************************************/</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__extsrc__type.html#struct_d4_d_l_o_c_a_l_e___f_u_n_c_t_i_o_n_s___s">D4DLOCALE_FUNCTIONS</a> <a class="code" href="d4d__extsrc_8h.html#a927c6f32090768161b3dcf6ab02cfe53">d4d_extsrcLocale</a>;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__extsrc__type.html#struct_d4_d_f_i_l_e___f_u_n_c_t_i_o_n_s___s">D4DFILE_FUNCTIONS</a> <a class="code" href="d4d__extsrc_8h.html#a0c564aeaffd7344a9a1bd5e65c68ccd8">d4d_extsrcFile</a>;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment">* Global functions</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment">******************************************************************************/</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* <a class="code" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3">D4D_GetFileExtension</a>(<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* pFileName);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> <a class="code" href="d4d__extsrc_8h.html#aac0c45fa09286efc139a1010915c05c9">D4D_FileIsAbsolutePath</a>(<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* pFileName);</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="keywordtype">int</span> <a class="code" href="d4d__extsrc_8c.html#ad5f7a8e12821c9331687e1799cb6dbd6">D4D_StrLen</a>(<span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *s);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* <a class="code" href="d4d__extsrc_8c.html#a15ee464eccb4b4991292ebfb1d5b8849">D4D_StrCopy</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *ss);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a>* <a class="code" href="d4d__extsrc_8c.html#a0b0f0562ec0d131543f4dafe8f3a541a">D4D_StrCopyAscii2Unicode</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *ss);</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* <a class="code" href="d4d__extsrc_8c.html#addad4dcad042059b1ddb072d7926234b">D4D_StrCopyUnicode2Ascii</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a> *ss);</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* <a class="code" href="d4d__extsrc_8c.html#adbcd52b5591fa91e60d3fd32bf0608e4">D4D_StrCat</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *ss);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a>* <a class="code" href="d4d__extsrc_8c.html#ad843bd9b3fde92c0eade58978ccf3330">D4D_StrCatUnicode</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a> *ss);</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="keywordtype">int</span> <a class="code" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e">D4D_CompareStrings</a>(<span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* s1, <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* s2);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="keywordtype">int</span> <a class="code" href="d4d__extsrc_8c.html#a99a27dda7301e9e3b7ee570a30b62943">D4D_CompareStringsUnicode</a>(<span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a>* s1, <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a>* s2);</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="keywordtype">void</span> <a class="code" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879">D4D_ToUpper</a>(<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* s);</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> <a class="code" href="d4d__extsrc_8c.html#aeaaca52de0a81dee082225b3df2d5aac">D4D_SwapLong</a>(<a class="code" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> n);</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<a class="code" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> <a class="code" href="d4d__extsrc_8c.html#ada36ad9cf73ecca032df6fc1cbb84c30">D4D_SwapWord</a>(<a class="code" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> n);</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="preprocessor">#ifdef D4D_UNICODE</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_CompareStringsUniversal(s1, s2) D4D_CompareStringsUnicode(s1, s2)</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#a69b4bf8d0eb309ee0e9e91271c08a706">  364</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_CompareStringsUniversal(s1, s2) D4D_CompareStrings(s1, s2)</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __D4D_EXTSRC_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_ga24b00695f10ffa1b65e4d0d22e475c9b"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#ga24b00695f10ffa1b65e4d0d22e475c9b">D4DFILE_FUNCTIONS</a></div><div class="ttdeci">struct D4DFILE_FUNCTIONS_S D4DFILE_FUNCTIONS</div><div class="ttdoc">eGUI structure to store API for external files support </div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga694bba8ee4d726d2af74838c2b6960d3"><div class="ttname"><a href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a></div><div class="ttdeci">D4D_WCHAR D4D_TCHAR</div><div class="ttdoc">Type definition of eGUI character (it depends on UNICODE setting if this is D4D_CHAR or D4D_WCHAR)...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00281">d4d_types.h:281</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_ga24871855a59e364766a715ef5436b338"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#ga24871855a59e364766a715ef5436b338">D4DLOCALE_GET_TRANSLATE_STR_LEN</a></div><div class="ttdeci">int(* D4DLOCALE_GET_TRANSLATE_STR_LEN)(const D4D_TCHAR *originTxt)</div><div class="ttdoc">String translate string get lenght function for customized strings. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00167">d4d_extsrc.h:167</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_ad843bd9b3fde92c0eade58978ccf3330"><div class="ttname"><a href="d4d__extsrc_8c.html#ad843bd9b3fde92c0eade58978ccf3330">D4D_StrCatUnicode</a></div><div class="ttdeci">D4D_WCHAR * D4D_StrCatUnicode(register D4D_WCHAR *sd, register const D4D_WCHAR *ss)</div><div class="ttdoc">The function concatenate strings (terminated by zero) (UNICODE version) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00229">d4d_extsrc.c:229</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_a15ee464eccb4b4991292ebfb1d5b8849"><div class="ttname"><a href="d4d__extsrc_8c.html#a15ee464eccb4b4991292ebfb1d5b8849">D4D_StrCopy</a></div><div class="ttdeci">D4D_CHAR * D4D_StrCopy(register D4D_CHAR *sd, register const D4D_CHAR *ss)</div><div class="ttdoc">The function copy string one string to other one (terminated by zero) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00147">d4d_extsrc.c:147</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_ga46417258b10f7ba0c00dda839cd99cea"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#ga46417258b10f7ba0c00dda839cd99cea">D4DFILE_FOPEN</a></div><div class="ttdeci">D4D_FILEPTR(* D4DFILE_FOPEN)(D4D_CHAR *filename, D4D_CHAR *mode)</div><div class="ttdoc">File open eGUI function type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00091">d4d_extsrc.h:91</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_a62fbd0e6a9834567bc02202ff6004980"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#a62fbd0e6a9834567bc02202ff6004980">D4DLOCALE_FUNCTIONS_S::D4DLOCALE_GetTranslateStrLength</a></div><div class="ttdeci">D4DLOCALE_GET_TRANSLATE_STR_LEN D4DLOCALE_GetTranslateStrLength</div><div class="ttdoc">Pointer to Get Translate String Length Function. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00184">d4d_extsrc.h:184</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_a47d584c038371a5069a9890b54877864"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#a47d584c038371a5069a9890b54877864">D4DFILE_FUNCTIONS_S::D4DFILE_fseek</a></div><div class="ttdeci">D4DFILE_FSEEK D4DFILE_fseek</div><div class="ttdoc">Pointer to File Seek Function. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00176">d4d_extsrc.h:176</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_a750bc54a0b3eb1462cf7cdf2d458f8e3"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#a750bc54a0b3eb1462cf7cdf2d458f8e3">D4DFILE_FUNCTIONS_S::D4DFILE_read</a></div><div class="ttdeci">D4DFILE_READ D4DFILE_read</div><div class="ttdoc">Pointer to File Read Function. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00174">d4d_extsrc.h:174</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_struct_d4_d_f_i_l_e___f_u_n_c_t_i_o_n_s___s"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#struct_d4_d_f_i_l_e___f_u_n_c_t_i_o_n_s___s">D4DFILE_FUNCTIONS_S</a></div><div class="ttdoc">eGUI structure to store API for external files support </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00170">d4d_extsrc.h:170</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_ada36ad9cf73ecca032df6fc1cbb84c30"><div class="ttname"><a href="d4d__extsrc_8c.html#ada36ad9cf73ecca032df6fc1cbb84c30">D4D_SwapWord</a></div><div class="ttdeci">Word D4D_SwapWord(Word n)</div><div class="ttdoc">The function swap bytes in Word. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00345">d4d_extsrc.c:345</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_aeaaca52de0a81dee082225b3df2d5aac"><div class="ttname"><a href="d4d__extsrc_8c.html#aeaaca52de0a81dee082225b3df2d5aac">D4D_SwapLong</a></div><div class="ttdeci">LWord D4D_SwapLong(LWord n)</div><div class="ttdoc">The function swap bytes in Long. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00328">d4d_extsrc.c:328</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_a05c7548c0a08504feff18aa090a95ed6"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#a05c7548c0a08504feff18aa090a95ed6">D4DFILE_FUNCTIONS_S::D4DFILE_ftell</a></div><div class="ttdeci">D4DFILE_FTELL D4DFILE_ftell</div><div class="ttdoc">Pointer to File Tell Function. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00177">d4d_extsrc.h:177</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_gae8f7f4a85db120ebeea73a8f0b25fe48"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#gae8f7f4a85db120ebeea73a8f0b25fe48">D4DFILE_FCLOSE</a></div><div class="ttdeci">int(* D4DFILE_FCLOSE)(D4D_FILEPTR p_file)</div><div class="ttdoc">File close eGUI function type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00099">d4d_extsrc.h:99</a></div></div>
+<div class="ttc" id="d4d__extsrc_8h_html_a52cdd23a333071ed9cb9ce52d84451e3"><div class="ttname"><a href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3">D4D_GetFileExtension</a></div><div class="ttdeci">D4D_CHAR * D4D_GetFileExtension(D4D_CHAR *pFileName)</div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_a0b0f0562ec0d131543f4dafe8f3a541a"><div class="ttname"><a href="d4d__extsrc_8c.html#a0b0f0562ec0d131543f4dafe8f3a541a">D4D_StrCopyAscii2Unicode</a></div><div class="ttdeci">D4D_WCHAR * D4D_StrCopyAscii2Unicode(register D4D_WCHAR *sd, register const D4D_CHAR *ss)</div><div class="ttdoc">The function copy string one string (STANDARD 8 bit) to other one (UNICODE)(terminated by zero) ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00186">d4d_extsrc.c:186</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_a99a27dda7301e9e3b7ee570a30b62943"><div class="ttname"><a href="d4d__extsrc_8c.html#a99a27dda7301e9e3b7ee570a30b62943">D4D_CompareStringsUnicode</a></div><div class="ttdeci">int D4D_CompareStringsUnicode(const D4D_WCHAR *s1, const D4D_WCHAR *s2)</div><div class="ttdoc">The function copare two strings (terminated by zero) (UNICODE version) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00283">d4d_extsrc.c:283</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_aa37c7e5745a688e68fc9effff1dc76fd"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#aa37c7e5745a688e68fc9effff1dc76fd">D4DFILE_FUNCTIONS_S::D4DFILE_fclose</a></div><div class="ttdeci">D4DFILE_FCLOSE D4DFILE_fclose</div><div class="ttdoc">Pointer to File Close Function. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00173">d4d_extsrc.h:173</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_ga55d47b09c74c5b39cade27ebbf2b39fc"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#ga55d47b09c74c5b39cade27ebbf2b39fc">D4DLOCALE_FUNCTIONS</a></div><div class="ttdeci">struct D4DLOCALE_FUNCTIONS_S D4DLOCALE_FUNCTIONS</div><div class="ttdoc">eGUI structure to store API for external strings (translated) support </div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga80002baaefd77ebb71f317214d4e4bf3"><div class="ttname"><a href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a></div><div class="ttdeci">unsigned long LWord</div><div class="ttdoc">Type definition of LWord (unsigned 32-bit). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00167">d4d_types.h:167</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_struct_d4_d_l_o_c_a_l_e___f_u_n_c_t_i_o_n_s___s"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#struct_d4_d_l_o_c_a_l_e___f_u_n_c_t_i_o_n_s___s">D4DLOCALE_FUNCTIONS_S</a></div><div class="ttdoc">eGUI structure to store API for external strings (translated) support </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00181">d4d_extsrc.h:181</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_ga3628900698d43100321529ac67be8dd1"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#ga3628900698d43100321529ac67be8dd1">D4DFILE_FTELL</a></div><div class="ttdeci">long(* D4DFILE_FTELL)(D4D_FILEPTR p_file)</div><div class="ttdoc">File tell eGUI function type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00144">d4d_extsrc.h:144</a></div></div>
+<div class="ttc" id="d4d__extsrc_8h_html_a927c6f32090768161b3dcf6ab02cfe53"><div class="ttname"><a href="d4d__extsrc_8h.html#a927c6f32090768161b3dcf6ab02cfe53">d4d_extsrcLocale</a></div><div class="ttdeci">const D4DLOCALE_FUNCTIONS d4d_extsrcLocale</div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_gadc2af92f25ed15a477cb7f2cf85ecfba"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#gadc2af92f25ed15a477cb7f2cf85ecfba">D4DFILE_READ</a></div><div class="ttdeci">int(* D4DFILE_READ)(D4D_FILEPTR p_file, void *buffer, int size)</div><div class="ttdoc">File read eGUI function type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00109">d4d_extsrc.h:109</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_adbcd52b5591fa91e60d3fd32bf0608e4"><div class="ttname"><a href="d4d__extsrc_8c.html#adbcd52b5591fa91e60d3fd32bf0608e4">D4D_StrCat</a></div><div class="ttdeci">D4D_CHAR * D4D_StrCat(register D4D_CHAR *sd, register const D4D_CHAR *ss)</div><div class="ttdoc">The function concatenate strings (terminated by zero) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00204">d4d_extsrc.c:204</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_gac1ba1090dea100237b6cd152e27f97ad"><div class="ttname"><a href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a></div><div class="ttdeci">unsigned short D4D_WCHAR</div><div class="ttdoc">Type definition of eGUI wide char. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00273">d4d_types.h:273</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_ga76f958f05e1979a86ab20d8a13e0fba2"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#ga76f958f05e1979a86ab20d8a13e0fba2">D4DFILE_WRITE</a></div><div class="ttdeci">int(* D4DFILE_WRITE)(D4D_FILEPTR p_file, const void *buffer, int size)</div><div class="ttdoc">File write eGUI function type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00119">d4d_extsrc.h:119</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga282e8e76dcee1993c566755a8976c7dc"><div class="ttname"><a href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a></div><div class="ttdeci">LWord D4D_BOOL</div><div class="ttdoc">Type definition of eGUI boolean. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00204">d4d_types.h:204</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga0688b8b8111b5a85a7b75dd21371691f"><div class="ttname"><a href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a></div><div class="ttdeci">char D4D_CHAR</div><div class="ttdoc">Type definition of eGUI ASCII character. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00277">d4d_types.h:277</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_ac667a2f5348399a4b6d7ad1b1401e879"><div class="ttname"><a href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879">D4D_ToUpper</a></div><div class="ttdeci">void D4D_ToUpper(D4D_CHAR *s)</div><div class="ttdoc">The function convert all small alpha characters to upper in string(terminated by zero) ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00311">d4d_extsrc.c:311</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_ga845f3037d401e176cfef3d0d6e63b969"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#ga845f3037d401e176cfef3d0d6e63b969">D4DFILE_FSEEK</a></div><div class="ttdeci">int(* D4DFILE_FSEEK)(D4D_FILEPTR p_file, long offset, int origin)</div><div class="ttdoc">File seek eGUI function type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00129">d4d_extsrc.h:129</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_addad4dcad042059b1ddb072d7926234b"><div class="ttname"><a href="d4d__extsrc_8c.html#addad4dcad042059b1ddb072d7926234b">D4D_StrCopyUnicode2Ascii</a></div><div class="ttdeci">D4D_CHAR * D4D_StrCopyUnicode2Ascii(register D4D_CHAR *sd, register const D4D_WCHAR *ss)</div><div class="ttdoc">The function copy string one string (UNICODE) to other one (STANDARD 8 bit)(terminated by zero) ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00169">d4d_extsrc.c:169</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_af627f992df1931d95ae84b44258dc65e"><div class="ttname"><a href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e">D4D_CompareStrings</a></div><div class="ttdeci">int D4D_CompareStrings(const D4D_CHAR *s1, const D4D_CHAR *s2)</div><div class="ttdoc">The function copare two strings (terminated by zero) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00250">d4d_extsrc.c:250</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_ga438a41e967088864eec807904c0fcb62"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#ga438a41e967088864eec807904c0fcb62">D4DLOCALE_TRANSLATE_STR</a></div><div class="ttdeci">int(* D4DLOCALE_TRANSLATE_STR)(const D4D_TCHAR *originTxt, D4D_TCHAR *newTxt, int offset, int size)</div><div class="ttdoc">String translate function for customizing strings. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00157">d4d_extsrc.h:157</a></div></div>
+<div class="ttc" id="d4d__extsrc_8h_html_a0c564aeaffd7344a9a1bd5e65c68ccd8"><div class="ttname"><a href="d4d__extsrc_8h.html#a0c564aeaffd7344a9a1bd5e65c68ccd8">d4d_extsrcFile</a></div><div class="ttdeci">const D4DFILE_FUNCTIONS d4d_extsrcFile</div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_ab13d494407c6c07e2a9f5ae7fa519c1e"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#ab13d494407c6c07e2a9f5ae7fa519c1e">D4DLOCALE_FUNCTIONS_S::D4DLOCALE_TranslateStr</a></div><div class="ttdeci">D4DLOCALE_TRANSLATE_STR D4DLOCALE_TranslateStr</div><div class="ttdoc">Pointer to Translate String Function. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00183">d4d_extsrc.h:183</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_a6f06a31699e479b97fb8634b4dd597d5"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#a6f06a31699e479b97fb8634b4dd597d5">D4DFILE_FUNCTIONS_S::D4DFILE_fopen</a></div><div class="ttdeci">D4DFILE_FOPEN D4DFILE_fopen</div><div class="ttdoc">Pointer to File Open Function. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00172">d4d_extsrc.h:172</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_gafc195f1f7876b0c82fcc3cb86dec59f9"><div class="ttname"><a href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a></div><div class="ttdeci">unsigned short Word</div><div class="ttdoc">Type definition of Word (unsigned 16-bit). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00159">d4d_types.h:159</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_aaa92897ce4256d0869d36adcf456e5a9"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#aaa92897ce4256d0869d36adcf456e5a9">D4DFILE_FUNCTIONS_S::D4DFILE_write</a></div><div class="ttdeci">D4DFILE_WRITE D4DFILE_write</div><div class="ttdoc">Pointer to File Write Function. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00175">d4d_extsrc.h:175</a></div></div>
+<div class="ttc" id="d4d__extsrc_8h_html_aac0c45fa09286efc139a1010915c05c9"><div class="ttname"><a href="d4d__extsrc_8h.html#aac0c45fa09286efc139a1010915c05c9">D4D_FileIsAbsolutePath</a></div><div class="ttdeci">D4D_BOOL D4D_FileIsAbsolutePath(D4D_CHAR *pFileName)</div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_gab25982b32f755b026c2d60635e8fcd54"><div class="ttname"><a href="group__doxd4d__types__type.html#gab25982b32f755b026c2d60635e8fcd54">D4D_FILEPTR</a></div><div class="ttdeci">void * D4D_FILEPTR</div><div class="ttdoc">Type definition of eGUI file pointer. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00295">d4d_types.h:295</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_ad5f7a8e12821c9331687e1799cb6dbd6"><div class="ttname"><a href="d4d__extsrc_8c.html#ad5f7a8e12821c9331687e1799cb6dbd6">D4D_StrLen</a></div><div class="ttdeci">int D4D_StrLen(register const D4D_CHAR *s)</div><div class="ttdoc">The function returns length of string terminated by zero. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00121">d4d_extsrc.c:121</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cde53fb8fb9dbb8ac34f83e30855a423.html">common_files</a></li><li class="navelem"><a class="el" href="d4d__extsrc_8h.html">d4d_extsrc.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:00 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

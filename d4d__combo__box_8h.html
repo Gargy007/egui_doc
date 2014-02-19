@@ -1,0 +1,688 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_combo_box.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__combo__box_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_combo_box.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__combo__box_8h__dep__incl.gif" border="0" usemap="#d4d__combo__box_8hdep" alt=""/></div>
+<map name="d4d__combo__box_8hdep" id="d4d__combo__box_8hdep">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="5118,80,5172,107"/><area shape="rect" id="node3" href="d4d__base_8c.html" title="D4D driver core and base function c file. " alt="" coords="5,163,93,189"/><area shape="rect" id="node4" href="d4d__basic__draw_8c.html" title="D4D driver basic drawing functions c file. " alt="" coords="118,163,244,189"/><area shape="rect" id="node5" href="d4d__bmp_8c.html" title="D4D driver bmp decoder functions c file. " alt="" coords="269,163,355,189"/><area shape="rect" id="node6" href="d4d__extsrc_8c.html" title="D4D driver extscr functions c file. " alt="" coords="379,163,476,189"/><area shape="rect" id="node7" href="d4d__font_8c.html" title="D4D driver font c file. " alt="" coords="501,163,584,189"/><area shape="rect" id="node8" href="d4d__imgdec__bmp_8c.html" title="D4D driver external bmp files decoder functions c file. " alt="" coords="609,163,743,189"/><area shape="rect" id="node9" href="d4d__imgdec__d4d_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="768,163,899,189"/><area shape="rect" id="node10" href="d4d__imgdec__d4dint_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="923,163,1068,189"/><area shape="rect" id="node11" href="d4d__low_8c.html" title="D4D driver low level graphic function c file. " alt="" coords="1093,163,1173,189"/><area shape="rect" id="node12" href="d4d__math_8c.html" title="D4D driver math functions c file. " alt="" coords="1197,163,1288,189"/><area shape="rect" id="node13" href="d4d__mouse_8c.html" title="D4D driver core and base function c file. " alt="" coords="1313,163,1412,189"/><area shape="rect" id="node14" href="d4d__object_8c.html" title="D4D driver object function c file. " alt="" coords="1437,163,1533,189"/><area shape="rect" id="node15" href="d4d__scheme_8c.html" title="D4D driver color scheme c file. " alt="" coords="1557,163,1664,189"/><area shape="rect" id="node16" href="d4d__screen_8c.html" title="D4D driver screen functions c file. " alt="" coords="1689,163,1788,189"/><area shape="rect" id="node17" href="d4d__string_8c.html" title="D4D driver font c file. " alt="" coords="1813,163,1907,189"/><area shape="rect" id="node18" href="d4d__button_8c.html" title="D4D driver button object c file. " alt="" coords="1931,163,2028,189"/><area shape="rect" id="node19" href="d4d__check__box_8c.html" title="D4D driver check box object c file. " alt="" coords="2053,163,2176,189"/><area shape="rect" id="node20" href="d4d__combo__box_8c.html" title="D4D driver comboBox object c file. " alt="" coords="2201,163,2329,189"/><area shape="rect" id="node21" href="d4d__console_8c.html" title="D4D driver console object c file. " alt="" coords="2353,163,2460,189"/><area shape="rect" id="node22" href="d4d__edit__box_8c.html" title="D4D driver editBox object c file. " alt="" coords="2485,163,2595,189"/><area shape="rect" id="node23" href="d4d__gauge_8c.html" title="D4D driver gauge object c file. " alt="" coords="2620,163,2716,189"/><area shape="rect" id="node24" href="d4d__graph_8c.html" title="D4D driver graph object c file. " alt="" coords="2740,163,2833,189"/><area shape="rect" id="node25" href="d4d__group__box_8c.html" title="D4D driver groupBox object c file. " alt="" coords="2858,163,2979,189"/><area shape="rect" id="node26" href="d4d__icon_8c.html" title="D4D driver icon object c file. " alt="" coords="3004,163,3089,189"/><area shape="rect" id="node27" href="d4d__label_8c.html" title="D4D driver label object c file. " alt="" coords="3113,163,3201,189"/><area shape="rect" id="node28" href="d4d__list__box_8c.html" title="D4D driver listBox object c file. " alt="" coords="3225,163,3332,189"/><area shape="rect" id="node29" href="d4d__menu_8c.html" title="D4D driver menu object c file. " alt="" coords="3356,163,3449,189"/><area shape="rect" id="node30" href="d4d__picture_8c.html" title="D4D driver picture object c file. " alt="" coords="3474,163,3573,189"/><area shape="rect" id="node31" href="d4d__progress__bar_8c.html" title="D4D driver progress_bar object c file. " alt="" coords="3599,163,3735,189"/><area shape="rect" id="node32" href="d4d__radio__button_8c.html" title="D4D driver radio button object c file. " alt="" coords="3759,163,3891,189"/><area shape="rect" id="node33" href="d4d__scroll__bar_8c.html" title="D4D driver scroll_bar object c file. " alt="" coords="3916,163,4033,189"/><area shape="rect" id="node34" href="d4d__slider_8c.html" title="D4D driver slider object c file. " alt="" coords="4058,163,4149,189"/><area shape="rect" id="node35" href="d4d__text__box_8c.html" title="D4D driver textbox object c file. " alt="" coords="4174,163,4284,189"/><area shape="rect" id="node36" href="d4dlcd__frame__buffer_8c.html" title="D4D driver &#45; frame_buffer lcd driver source c file. " alt="" coords="4309,163,4456,189"/><area shape="rect" id="node37" href="d4dlcd___f_s_a506_8c.html" title="D4D driver &#45; fsa506 lcd driver source c file. " alt="" coords="4481,163,4607,189"/><area shape="rect" id="node38" href="d4dlcd__lgdp4531_8c.html" title="D4D driver &#45; lgdp4531 lcd driver source c file. " alt="" coords="4631,163,4761,189"/><area shape="rect" id="node39" href="d4dlcd___l_s020_8c.html" title="D4D driver &#45; ls020 lcd driver source c file. " alt="" coords="4785,163,4900,189"/><area shape="rect" id="node40" href="d4dlcd___s_s_d1289_8c.html" title="D4D driver &#45; ssd1289 lcd driver source c file. " alt="" coords="4924,163,5057,189"/><area shape="rect" id="node41" href="d4dlcd__ssd1926_8c.html" title="D4D driver &#45; ssd1926 lcd driver source c file. " alt="" coords="5082,163,5208,189"/><area shape="rect" id="node42" href="d4dlcd__template_8c.html" title="D4D driver &#45; template lcd driver source c file. " alt="" coords="5233,163,5361,189"/><area shape="rect" id="node43" href="d4dlcdhw__common_8c.html" title="D4D driver &#45; common general low level drivers c file. " alt="" coords="5385,163,5529,189"/><area shape="rect" id="node44" href="d4dlcdhw__dragonfire__lcdc_8c.html" title="D4D driver &#45; dragonfire_lcdc hardware lcd driver source c file. " alt="" coords="5553,155,5692,197"/><area shape="rect" id="node45" href="d4dlcdhw__flexbus__16b_8c.html" title="D4D driver &#45; flexbus_16b hardware lcd driver source c file. " alt="" coords="5716,163,5879,189"/><area shape="rect" id="node46" href="d4dlcdhw__flexbus__8b_8c.html" title="D4D driver &#45; flexbus_8b hardware lcd driver source c file. " alt="" coords="5903,163,6059,189"/><area shape="rect" id="node47" href="d4dlcdhw__gpio6800__8b_8c.html" title="D4D driver &#45; gpio6800_8b hardware lcd driver source c file. " alt="" coords="6083,163,6249,189"/><area shape="rect" id="node48" href="d4dlcdhw__gpio8080__16b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6274,163,6448,189"/><area shape="rect" id="node49" href="d4dlcdhw__gpio8080__8b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6473,163,6639,189"/><area shape="rect" id="node50" href="d4dlcdhw__gpio8080__byte__8b_8c.html" title="D4D driver &#45; gpio8080_byte_8b hardware lcd driver source c file. " alt="" coords="6663,163,6861,189"/><area shape="rect" id="node51" href="d4dlcdhw__k70__lcdc_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="6887,163,7033,189"/><area shape="rect" id="node52" href="d4dlcdhw__twrrgba_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7057,163,7193,189"/><area shape="rect" id="node53" href="d4dlcdhw__twrrgbb_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7217,163,7353,189"/><area shape="rect" id="node54" href="d4dlcdhw__kinetis__spi_8c.html" title="D4D driver &#45; kinetis_spi hardware lcd driver source c file. " alt="" coords="7378,163,7533,189"/><area shape="rect" id="node55" href="d4dlcdhw__mqx__fb_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7559,163,7695,189"/><area shape="rect" id="node56" href="d4dlcdhw__mqx__mpc5125__diu_8c.html" title="D4D driver &#45; mqx_mpc5125_diu hardware lcd driver source c file. " alt="" coords="7719,155,7887,197"/><area shape="rect" id="node57" href="d4dlcdhw__mqx__spi_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7911,163,8053,189"/><area shape="rect" id="node58" href="d4dlcdhw__px__dcu__fb_8c.html" title="D4D driver &#45; px_dcu_fb hardware lcd driver source c file. " alt="" coords="8078,163,8231,189"/><area shape="rect" id="node59" href="d4dlcdhw__s12__spi__16b_8c.html" title="D4D driver &#45; s12_spi_16b hardware lcd driver source c file. " alt="" coords="8255,163,8421,189"/><area shape="rect" id="node60" href="d4dlcdhw__spi__16b_8c.html" title="D4D driver &#45; spi_16b hardware lcd driver source c file. " alt="" coords="8447,163,8585,189"/><area shape="rect" id="node61" href="d4dlcdhw__spi__8b_8c.html" title="D4D driver &#45; spi_8b hardware lcd driver source c file. " alt="" coords="8610,163,8741,189"/><area shape="rect" id="node62" href="d4dlcdhw__swspi__16b_8c.html" title="D4D driver &#45; swspi_16b hardware lcd driver source c file. " alt="" coords="8767,163,8921,189"/><area shape="rect" id="node63" href="d4dlcdhw__spi__swc__8b_8c.html" title="D4D driver &#45; spi_swc_8b hardware lcd driver source c file. " alt="" coords="8945,163,9108,189"/><area shape="rect" id="node64" href="d4dlcdhw__template_8c.html" title="D4D driver &#45; template hardware lcd driver source c file. " alt="" coords="9132,163,9276,189"/><area shape="rect" id="node65" href="d4dlcdhw__template__fb_8c.html" title="D4D driver &#45; template_fb hardware lcd driver source c file. " alt="" coords="9301,163,9461,189"/><area shape="rect" id="node66" href="d4dtch__cr__touch_8c.html" title="D4D driver &#45; cr_touch touch screen driver source c file. " alt="" coords="9486,163,9615,189"/><area shape="rect" id="node67" href="hw__iic__cfg_8h.html" title="HardI2C configuration. " alt="" coords="9640,163,9733,189"/><area shape="rect" id="node69" href="mqx__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9758,163,9836,189"/><area shape="rect" id="node70" href="d4dtch__mcf52277__asp_8c.html" title="D4D driver &#45; mcf52277_asp touch screen driver source c file. " alt="" coords="9861,163,10024,189"/><area shape="rect" id="node71" href="d4dtch__resistive_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10049,163,10175,189"/><area shape="rect" id="node72" href="d4dtch__resistive__mqx_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10199,163,10357,189"/><area shape="rect" id="node73" href="d4dtch__template_8c.html" title="D4D driver &#45; template touch screen driver source c file. " alt="" coords="10382,163,10511,189"/><area shape="rect" id="node74" href="d4dtch___t_s_c2046_8c.html" title="D4D driver &#45; tsc2046 touch screen driver source c file. " alt="" coords="10535,163,10667,189"/><area shape="rect" id="node75" href="d4dtchhw__kinetis__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="10691,163,10852,189"/><area shape="rect" id="node76" href="d4dtchhw__mcf52259__adc_8c.html" title="D4D driver &#45; mcf52259_adc hardware touch screen driver source c file. " alt="" coords="10877,163,11056,189"/><area shape="rect" id="node77" href="d4dtchhw__px__adc_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11081,163,11217,189"/><area shape="rect" id="node78" href="d4dtchhw__s08__adc_8c.html" title="D4D driver &#45; s08_adc hardware touch screen driver source c file. " alt="" coords="11243,163,11387,189"/><area shape="rect" id="node79" href="d4dtchhw__s12__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="11411,163,11555,189"/><area shape="rect" id="node80" href="d4dtchhw__template_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11579,163,11724,189"/><area shape="rect" id="node68" href="hw__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9652,245,9721,272"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gae79c697eacb0d8e876a361ee2f6c8950"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#gae79c697eacb0d8e876a361ee2f6c8950">D4D_COMBO_BOX_F_DEFAULT</a></td></tr>
+<tr class="memdesc:gae79c697eacb0d8e876a361ee2f6c8950"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box init flags. If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga3c63ae7007f099e9c9a51b0734dce346">D4D_OBJECT_F_FOCUSRECT</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga32f4ba0f54e5f53a7bd32a904e144aab">D4D_OBJECT_F_BEVEL_RAISED</a>) as a default.  <a href="group__doxd4d__combo__box__const.html#gae79c697eacb0d8e876a361ee2f6c8950">More...</a><br/></td></tr>
+<tr class="separator:gae79c697eacb0d8e876a361ee2f6c8950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ac7451a18e3864d9a7959590dfe037b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#ga8ac7451a18e3864d9a7959590dfe037b">D4D_COMBO_BOX_F_EDITBOX_DEFAULT</a></td></tr>
+<tr class="memdesc:ga8ac7451a18e3864d9a7959590dfe037b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box init flags for embedded edit box . If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab1e855d34d98e1fdae4facc31df4157e">D4D_OBJECT_F_FASTTOUCH</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae5c397dcc69b601dcf3a4f042c763760">D4D_OBJECT_F_BEVEL_DENTED</a>) as a default.  <a href="group__doxd4d__combo__box__const.html#ga8ac7451a18e3864d9a7959590dfe037b">More...</a><br/></td></tr>
+<tr class="separator:ga8ac7451a18e3864d9a7959590dfe037b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab85f835fbb803775888fdc04c7d5a9dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#gab85f835fbb803775888fdc04c7d5a9dc">D4D_COMBO_BOX_F_BTN_DEFAULT</a></td></tr>
+<tr class="memdesc:gab85f835fbb803775888fdc04c7d5a9dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box init flags for embedded button. If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab1e855d34d98e1fdae4facc31df4157e">D4D_OBJECT_F_FASTTOUCH</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga32f4ba0f54e5f53a7bd32a904e144aab">D4D_OBJECT_F_BEVEL_RAISED</a> | <a class="el" href="group__doxd4d__button__const__flags.html#gaf28fe32b89a83600b922c182dac09826">D4D_BTN_F_3D</a> | <a class="el" href="group__doxd4d__button__const__flags.html#ga4988608fb8466dc077dc9bafd2a2a19b">D4D_BTN_F_CONT_RECT</a>) as a default.  <a href="group__doxd4d__combo__box__const.html#gab85f835fbb803775888fdc04c7d5a9dc">More...</a><br/></td></tr>
+<tr class="separator:gab85f835fbb803775888fdc04c7d5a9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa1d38e0a5ecda39f0c583afc97f317c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#gaa1d38e0a5ecda39f0c583afc97f317c2">D4D_COMBO_BOX_F_LISTBOX_DEFAULT</a></td></tr>
+<tr class="memdesc:gaa1d38e0a5ecda39f0c583afc97f317c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box init flags for embedded list box . If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gae1dc1700cc01d93d8ee5d3093cc13cee">D4D_OBJECT_F_TABSTOP</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab49f2981e9b1caf439fc45b6e89bbb0f">D4D_OBJECT_F_TOUCHENABLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#gab1e855d34d98e1fdae4facc31df4157e">D4D_OBJECT_F_FASTTOUCH</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga3c63ae7007f099e9c9a51b0734dce346">D4D_OBJECT_F_FOCUSRECT</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga50049ea33ce40018ddc681f04112c7e2">D4D_OBJECT_F_MOUSE_NORMAL</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga32f4ba0f54e5f53a7bd32a904e144aab">D4D_OBJECT_F_BEVEL_RAISED</a>) as a default.  <a href="group__doxd4d__combo__box__const.html#gaa1d38e0a5ecda39f0c583afc97f317c2">More...</a><br/></td></tr>
+<tr class="separator:gaa1d38e0a5ecda39f0c583afc97f317c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e5875f58ea54031331d7de47eb67afa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#ga4e5875f58ea54031331d7de47eb67afa">D4D_COMBO_BOX_ITEM_FNT_PRTY_DEFAULT</a></td></tr>
+<tr class="memdesc:ga4e5875f58ea54031331d7de47eb67afa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box init items font properties. If not defined, it sets to ( 0 ) as a default.  <a href="group__doxd4d__combo__box__const.html#ga4e5875f58ea54031331d7de47eb67afa">More...</a><br/></td></tr>
+<tr class="separator:ga4e5875f58ea54031331d7de47eb67afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga730a891d438d6dc670f1701944c57c43"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__const.html#ga730a891d438d6dc670f1701944c57c43">D4D_COMBO_BOX_STR_MAX_LEN</a></td></tr>
+<tr class="memdesc:ga730a891d438d6dc670f1701944c57c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is combo box maximal length of item strings used by default declaration macros. If not defined, it sets to 20 as a default.  <a href="group__doxd4d__combo__box__const.html#ga730a891d438d6dc670f1701944c57c43">More...</a><br/></td></tr>
+<tr class="separator:ga730a891d438d6dc670f1701944c57c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33984fe16ae86345b7b45d81b5c95a63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a33984fe16ae86345b7b45d81b5c95a63">D4D_COMBO_BOX_CHILD_EDIT_BOX_IX</a></td></tr>
+<tr class="separator:a33984fe16ae86345b7b45d81b5c95a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b355aa5fabf272db31669f25019d709"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a0b355aa5fabf272db31669f25019d709">D4D_COMBO_BOX_CHILD_BUTTON_IX</a></td></tr>
+<tr class="separator:a0b355aa5fabf272db31669f25019d709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac907022e691a6aa45411ab6123ff4dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#aac907022e691a6aa45411ab6123ff4dc">D4D_COMBO_BOX_CHILD_LIST_BOX_IX</a></td></tr>
+<tr class="separator:aac907022e691a6aa45411ab6123ff4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba7283cd216e6737b7bd5ed00601dee8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#aba7283cd216e6737b7bd5ed00601dee8">D4D_GET_COMBO_BOX</a>(pObj)</td></tr>
+<tr class="separator:aba7283cd216e6737b7bd5ed00601dee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c58511c994a97d3b17297fa8d3b179e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a6c58511c994a97d3b17297fa8d3b179e">D4D_GET_COMBO_BOX_DATA</a>(pObj)</td></tr>
+<tr class="separator:a6c58511c994a97d3b17297fa8d3b179e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41b5d1e1e32f957dca95a93aacea933a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a41b5d1e1e32f957dca95a93aacea933a">D4D_GET_COMBO_BOX_EDIT_BOX</a>(pObj)</td></tr>
+<tr class="separator:a41b5d1e1e32f957dca95a93aacea933a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c57dc95572e3a880e24f880f11ea993"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a7c57dc95572e3a880e24f880f11ea993">D4D_GET_COMBO_BOX_BUTTON</a>(pObj)</td></tr>
+<tr class="separator:a7c57dc95572e3a880e24f880f11ea993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45cd83e947d38dc2688765d2fbcd6b17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a45cd83e947d38dc2688765d2fbcd6b17">D4D_GET_COMBO_BOX_LIST_BOX</a>(pObj)</td></tr>
+<tr class="separator:a45cd83e947d38dc2688765d2fbcd6b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe117fd8df4bc40ac2012ec3d1c33fe3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__macro.html#gafe117fd8df4bc40ac2012ec3d1c33fe3">_D4D_DECLARE_COMBO_BOX_BEGIN</a>(type, name, x, y, cx, cy, cy_list, radius, pMargin, pParent, flags, pScheme, itemsFontId, maxStrLen, posCnt, comboBoxItemsOff, pUser, pOnEvent, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gafe117fd8df4bc40ac2012ec3d1c33fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Combo box object structure in memory including all substructures.  <a href="group__doxd4d__combo__box__macro.html#gafe117fd8df4bc40ac2012ec3d1c33fe3">More...</a><br/></td></tr>
+<tr class="separator:gafe117fd8df4bc40ac2012ec3d1c33fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad3e37b455f0d1fb9d1b727267b61f2f9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__macro.html#gad3e37b455f0d1fb9d1b727267b61f2f9">D4D_DECLARE_COMBO_BOX_ITEM</a></td></tr>
+<tr class="memdesc:gad3e37b455f0d1fb9d1b727267b61f2f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that is used to add item to combo box definition.  <a href="group__doxd4d__combo__box__macro.html#gad3e37b455f0d1fb9d1b727267b61f2f9">More...</a><br/></td></tr>
+<tr class="separator:gad3e37b455f0d1fb9d1b727267b61f2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0243d1267bd6561bea2fd0b55d4fc596"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__macro.html#ga0243d1267bd6561bea2fd0b55d4fc596">D4D_DECLARE_COMBO_BOX_END</a></td></tr>
+<tr class="memdesc:ga0243d1267bd6561bea2fd0b55d4fc596"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that is used to close the item list for combo box definition.  <a href="group__doxd4d__combo__box__macro.html#ga0243d1267bd6561bea2fd0b55d4fc596">More...</a><br/></td></tr>
+<tr class="separator:ga0243d1267bd6561bea2fd0b55d4fc596"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a76b12dd7a8a78ae2573768c98ac40b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__macro.html#ga2a76b12dd7a8a78ae2573768c98ac40b">D4D_DECLARE_COMBO_BOX_BEGIN</a>(name, x, y, cx, cy, cy_list, flags, pParent, pScheme, itemsFontId, maxStrLen, posCnt, comboBoxItemsOff, pUser, pOnEvent, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga2a76b12dd7a8a78ae2573768c98ac40b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Combo box object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="group__doxd4d__combo__box__macro.html#ga2a76b12dd7a8a78ae2573768c98ac40b">More...</a><br/></td></tr>
+<tr class="separator:ga2a76b12dd7a8a78ae2573768c98ac40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga849151bb3a04a860b9f41c523abf750e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__macro.html#ga849151bb3a04a860b9f41c523abf750e">D4D_DECLARE_STD_COMBO_BOX_BEGIN</a>(name, x, y, cx, cy, cy_list, pParent, itemsFontId, pOnEvent)</td></tr>
+<tr class="memdesc:ga849151bb3a04a860b9f41c523abf750e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Combo box object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values.  <a href="group__doxd4d__combo__box__macro.html#ga849151bb3a04a860b9f41c523abf750e">More...</a><br/></td></tr>
+<tr class="separator:ga849151bb3a04a860b9f41c523abf750e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaed717f9fbbeb15e419aa985afb8cf98a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__macro.html#gaed717f9fbbeb15e419aa985afb8cf98a">D4D_DECLARE_RCOMBO_BOX_BEGIN</a>(name, x, y, cx, cy, cy_list, radius, flags, pParent, pScheme, itemsFontId, maxStrLen, posCnt, comboBoxItemsOff, pUser, pOnEvent, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gaed717f9fbbeb15e419aa985afb8cf98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Combo box object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="group__doxd4d__combo__box__macro.html#gaed717f9fbbeb15e419aa985afb8cf98a">More...</a><br/></td></tr>
+<tr class="separator:gaed717f9fbbeb15e419aa985afb8cf98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe5cc08ebc9462b6db3cacd4f19d7a7a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__macro.html#gafe5cc08ebc9462b6db3cacd4f19d7a7a">D4D_DECLARE_STD_RCOMBO_BOX_BEGIN</a>(name, x, y, cx, cy, cy_list, radius, pParent, itemsFontId, pOnEvent)</td></tr>
+<tr class="memdesc:gafe5cc08ebc9462b6db3cacd4f19d7a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Combo box object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values.  <a href="group__doxd4d__combo__box__macro.html#gafe5cc08ebc9462b6db3cacd4f19d7a7a">More...</a><br/></td></tr>
+<tr class="separator:gafe5cc08ebc9462b6db3cacd4f19d7a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9d277f0b82beb9bce8de11e6af93eb5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__macro.html#gac9d277f0b82beb9bce8de11e6af93eb5">D4D_DECLARE_COMBO_BOX_BEGIN_INRAM</a>(name, x, y, cx, cy, cy_list, flags, pParent, pScheme, itemsFontId, maxStrLen, posCnt, comboBoxItemsOff, pUser, pOnEvent, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gac9d277f0b82beb9bce8de11e6af93eb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__combo__box__macro.html#ga2a76b12dd7a8a78ae2573768c98ac40b">D4D_DECLARE_COMBO_BOX_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="group__doxd4d__combo__box__macro.html#gac9d277f0b82beb9bce8de11e6af93eb5">More...</a><br/></td></tr>
+<tr class="separator:gac9d277f0b82beb9bce8de11e6af93eb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2f51477e2687ed4e0bd146d635b1e429"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__macro.html#ga2f51477e2687ed4e0bd146d635b1e429">D4D_DECLARE_STD_COMBO_BOX_BEGIN_INRAM</a>(name, x, y, cx, cy, cy_list, pParent, itemsFontId, pOnEvent)</td></tr>
+<tr class="memdesc:ga2f51477e2687ed4e0bd146d635b1e429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__combo__box__macro.html#ga849151bb3a04a860b9f41c523abf750e">D4D_DECLARE_STD_COMBO_BOX_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="group__doxd4d__combo__box__macro.html#ga2f51477e2687ed4e0bd146d635b1e429">More...</a><br/></td></tr>
+<tr class="separator:ga2f51477e2687ed4e0bd146d635b1e429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4002ad852b76d5c0ff7afe34c67f4db2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__macro.html#ga4002ad852b76d5c0ff7afe34c67f4db2">D4D_DECLARE_RCOMBO_BOX_BEGIN_INRAM</a>(name, x, y, cx, cy, cy_list, radius, flags, pParent, pScheme, itemsFontId, maxStrLen, posCnt, comboBoxItemsOff, pUser, pOnEvent, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga4002ad852b76d5c0ff7afe34c67f4db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__combo__box__macro.html#gaed717f9fbbeb15e419aa985afb8cf98a">D4D_DECLARE_RCOMBO_BOX_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="group__doxd4d__combo__box__macro.html#ga4002ad852b76d5c0ff7afe34c67f4db2">More...</a><br/></td></tr>
+<tr class="separator:ga4002ad852b76d5c0ff7afe34c67f4db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a696bd1ad363d0a53aa5cd46fc8f6bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__macro.html#ga3a696bd1ad363d0a53aa5cd46fc8f6bd">D4D_DECLARE_STD_RCOMBO_BOX_BEGIN_INRAM</a>(name, x, y, cx, cy, cy_list, radius, pParent, itemsFontId, pOnEvent)</td></tr>
+<tr class="memdesc:ga3a696bd1ad363d0a53aa5cd46fc8f6bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__combo__box__macro.html#gafe5cc08ebc9462b6db3cacd4f19d7a7a">D4D_DECLARE_STD_RCOMBO_BOX_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="group__doxd4d__combo__box__macro.html#ga3a696bd1ad363d0a53aa5cd46fc8f6bd">More...</a><br/></td></tr>
+<tr class="separator:ga3a696bd1ad363d0a53aa5cd46fc8f6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00b28e6fe45a2a009aabc9370af84b19"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__func.html#ga00b28e6fe45a2a009aabc9370af84b19">D4D_ComboBoxGetItemCount</a>(pThis)</td></tr>
+<tr class="memdesc:ga00b28e6fe45a2a009aabc9370af84b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function gets the count of combo box items.  <a href="group__doxd4d__combo__box__func.html#ga00b28e6fe45a2a009aabc9370af84b19">More...</a><br/></td></tr>
+<tr class="separator:ga00b28e6fe45a2a009aabc9370af84b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01160ced28fd3f6731494efd2763b44f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__func.html#ga01160ced28fd3f6731494efd2763b44f">D4D_ComboBoxFindUserDataItem</a>(pThis, pUser)</td></tr>
+<tr class="memdesc:ga01160ced28fd3f6731494efd2763b44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function finds the index of items with specified user data.  <a href="group__doxd4d__combo__box__func.html#ga01160ced28fd3f6731494efd2763b44f">More...</a><br/></td></tr>
+<tr class="separator:ga01160ced28fd3f6731494efd2763b44f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4592d3c6cddb3199d85ac7e498062617"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__func.html#ga4592d3c6cddb3199d85ac7e498062617">D4D_ComboBoxGetItemUserData</a>(pThis)</td></tr>
+<tr class="memdesc:ga4592d3c6cddb3199d85ac7e498062617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function gets the selected item user data.  <a href="group__doxd4d__combo__box__func.html#ga4592d3c6cddb3199d85ac7e498062617">More...</a><br/></td></tr>
+<tr class="separator:ga4592d3c6cddb3199d85ac7e498062617"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad06cabd94358e8ddd9cdc75749e62a1d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__func.html#gad06cabd94358e8ddd9cdc75749e62a1d">D4D_ComboBoxGetItemText</a>(pThis)</td></tr>
+<tr class="memdesc:gad06cabd94358e8ddd9cdc75749e62a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function gets the selected item text.  <a href="group__doxd4d__combo__box__func.html#gad06cabd94358e8ddd9cdc75749e62a1d">More...</a><br/></td></tr>
+<tr class="separator:gad06cabd94358e8ddd9cdc75749e62a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab838f5ccf3e5efb122904a29c6a718fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__func.html#gab838f5ccf3e5efb122904a29c6a718fb">D4D_ComboBoxGetItemTextIx</a>(pThis, ix)</td></tr>
+<tr class="memdesc:gab838f5ccf3e5efb122904a29c6a718fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function gets the text of item choosed by item index.  <a href="group__doxd4d__combo__box__func.html#gab838f5ccf3e5efb122904a29c6a718fb">More...</a><br/></td></tr>
+<tr class="separator:gab838f5ccf3e5efb122904a29c6a718fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab733fc7e4fd55e826adb8a76f42f21dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__func.html#gab733fc7e4fd55e826adb8a76f42f21dd">D4D_ComboBoxEnsureVisible</a>(pThis)</td></tr>
+<tr class="memdesc:gab733fc7e4fd55e826adb8a76f42f21dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function ensure that the selected item in list will be scrolled to visible area.  <a href="group__doxd4d__combo__box__func.html#gab733fc7e4fd55e826adb8a76f42f21dd">More...</a><br/></td></tr>
+<tr class="separator:gab733fc7e4fd55e826adb8a76f42f21dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96c73e4cdfed2387eaa2856c25df0dab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__func.html#ga96c73e4cdfed2387eaa2856c25df0dab">D4D_ComboBoxChangeItemList</a>(pThis, pItems)</td></tr>
+<tr class="memdesc:ga96c73e4cdfed2387eaa2856c25df0dab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function change the items list using by combo box.  <a href="group__doxd4d__combo__box__func.html#ga96c73e4cdfed2387eaa2856c25df0dab">More...</a><br/></td></tr>
+<tr class="separator:ga96c73e4cdfed2387eaa2856c25df0dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga004d29d558d70b2e02c5227f5b5fee54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__func.html#ga004d29d558d70b2e02c5227f5b5fee54">D4D_ComboBoxGetItemList</a>(pThis)</td></tr>
+<tr class="memdesc:ga004d29d558d70b2e02c5227f5b5fee54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function gets the current using item list.  <a href="group__doxd4d__combo__box__func.html#ga004d29d558d70b2e02c5227f5b5fee54">More...</a><br/></td></tr>
+<tr class="separator:ga004d29d558d70b2e02c5227f5b5fee54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga38ab5d25397814b0e71fd4c82d6bd4a6"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__combo__box__type.html#ga38ab5d25397814b0e71fd4c82d6bd4a6">D4D_CMBBX_ON_EVENT</a> )(<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis, <a class="el" href="group__doxd4d__base__type.html#ga7d373fc79dfcb995cf22222da447265b">D4D_EVENTID</a> eventId)</td></tr>
+<tr class="memdesc:ga38ab5d25397814b0e71fd4c82d6bd4a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type definition of combo box on event callback function.  <a href="group__doxd4d__combo__box__type.html#ga38ab5d25397814b0e71fd4c82d6bd4a6">More...</a><br/></td></tr>
+<tr class="separator:ga38ab5d25397814b0e71fd4c82d6bd4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcfe0815c49b57777d324fc5138d1179"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#afcfe0815c49b57777d324fc5138d1179">D4D_COMBO_BOX_INDEX</a></td></tr>
+<tr class="separator:afcfe0815c49b57777d324fc5138d1179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61601fa0e970c3402bc2a5eb03907d53"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__doxd4d__list__box__type.html#struct_d4_d___l_i_s_t___b_o_x___i_t_e_m">D4D_LIST_BOX_ITEM</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a61601fa0e970c3402bc2a5eb03907d53">D4D_COMBO_BOX_ITEM</a></td></tr>
+<tr class="separator:a61601fa0e970c3402bc2a5eb03907d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfadaf2a6cb69854a099f7755fa503f9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_d4_d___c_o_m_b_o___b_o_x___d_a_t_a___s.html">D4D_COMBO_BOX_DATA_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#adfadaf2a6cb69854a099f7755fa503f9">D4D_COMBO_BOX_DATA</a></td></tr>
+<tr class="separator:adfadaf2a6cb69854a099f7755fa503f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4851935bb1ec96d2b8e3ee33fe0c01d9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_d4_d___c_o_m_b_o___b_o_x___s.html">D4D_COMBO_BOX_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a4851935bb1ec96d2b8e3ee33fe0c01d9">D4D_COMBO_BOX</a></td></tr>
+<tr class="separator:a4851935bb1ec96d2b8e3ee33fe0c01d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a93c9b88959332d0919dfe1b3d58148c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4">D4D_ComboBoxListFeedBack</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis, <a class="el" href="group__doxd4d__base__type.html#ga7d373fc79dfcb995cf22222da447265b">D4D_EVENTID</a> eventId)</td></tr>
+<tr class="separator:a93c9b88959332d0919dfe1b3d58148c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0cb61070ade30b5f9dc169bbeae35fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#ac0cb61070ade30b5f9dc169bbeae35fa">D4D_ComboBoxEditFeedBack</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis, <a class="el" href="group__doxd4d__base__type.html#ga7d373fc79dfcb995cf22222da447265b">D4D_EVENTID</a> eventId)</td></tr>
+<tr class="separator:ac0cb61070ade30b5f9dc169bbeae35fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e2c2fa6149fde05d54536f2423467e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2">D4D_ComboBoxButtonFeedBack</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis)</td></tr>
+<tr class="separator:a0e2c2fa6149fde05d54536f2423467e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92bbff3547dcda53c2d8e1c10c125121"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a92bbff3547dcda53c2d8e1c10c125121">D4D_ComboBoxButtonMsgFeedBack</a> (<a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *pMsg)</td></tr>
+<tr class="separator:a92bbff3547dcda53c2d8e1c10c125121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c34d2a53873687dae3ba56dc3db5f00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00">D4D_ComboBoxListBoxMsgFeedBack</a> (<a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *pMsg)</td></tr>
+<tr class="separator:a4c34d2a53873687dae3ba56dc3db5f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad12f898e2d5b47f6d3f3e44fb2d08813"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#ad12f898e2d5b47f6d3f3e44fb2d08813">D4D_EXTERN_BMP</a> (bmp_arrow)</td></tr>
+<tr class="separator:ad12f898e2d5b47f6d3f3e44fb2d08813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a4b82d9066e4f86b84ff068edbaf74872"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#a4b82d9066e4f86b84ff068edbaf74872">d4d_comboBoxSysFunc</a></td></tr>
+<tr class="separator:a4b82d9066e4f86b84ff068edbaf74872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9c1aa884539be4306a9895d8ef9a0b8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__combo__box_8h.html#aa9c1aa884539be4306a9895d8ef9a0b8">comboBox_marginDefault</a></td></tr>
+<tr class="separator:aa9c1aa884539be4306a9895d8ef9a0b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D Driver comboBox object header file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.5.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Oct-14-2013 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a0b355aa5fabf272db31669f25019d709"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COMBO_BOX_CHILD_BUTTON_IX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00147">147</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a33984fe16ae86345b7b45d81b5c95a63"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COMBO_BOX_CHILD_EDIT_BOX_IX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00146">146</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aac907022e691a6aa45411ab6123ff4dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_COMBO_BOX_CHILD_LIST_BOX_IX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00148">148</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aba7283cd216e6737b7bd5ed00601dee8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_GET_COMBO_BOX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pObj</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00157">157</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__combo__box_8c_source.html#l00167">D4D_ComboBoxEditFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00236">D4D_ComboBoxGetIndex()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00131">D4D_ComboBoxListFeedBack()</a>, and <a class="el" href="d4d__combo__box_8c_source.html#l00252">D4D_ComboBoxSetIndex()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c57dc95572e3a880e24f880f11ea993"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_GET_COMBO_BOX_BUTTON</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pObj</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00161">161</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c58511c994a97d3b17297fa8d3b179e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_GET_COMBO_BOX_DATA</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pObj</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00158">158</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__combo__box_8c_source.html#l00131">D4D_ComboBoxListFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00308">D4D_ComboBoxOnMessage()</a>, and <a class="el" href="d4d__combo__box_8c_source.html#l00288">D4D_ComboBoxStornoSelection()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41b5d1e1e32f957dca95a93aacea933a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_GET_COMBO_BOX_EDIT_BOX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pObj</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00160">160</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__combo__box_8c_source.html#l00167">D4D_ComboBoxEditFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00131">D4D_ComboBoxListFeedBack()</a>, and <a class="el" href="d4d__combo__box_8c_source.html#l00308">D4D_ComboBoxOnMessage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a45cd83e947d38dc2688765d2fbcd6b17"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_GET_COMBO_BOX_LIST_BOX</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pObj</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00162">162</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__combo__box_8c_source.html#l00214">D4D_ComboBoxButtonFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00131">D4D_ComboBoxListFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00308">D4D_ComboBoxOnMessage()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00252">D4D_ComboBoxSetIndex()</a>, and <a class="el" href="d4d__combo__box_8c_source.html#l00288">D4D_ComboBoxStornoSelection()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a4851935bb1ec96d2b8e3ee33fe0c01d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_d4_d___c_o_m_b_o___b_o_x___s.html">D4D_COMBO_BOX_S</a> <a class="el" href="d4d__combo__box_8h.html#a4851935bb1ec96d2b8e3ee33fe0c01d9">D4D_COMBO_BOX</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="adfadaf2a6cb69854a099f7755fa503f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_d4_d___c_o_m_b_o___b_o_x___d_a_t_a___s.html">D4D_COMBO_BOX_DATA_S</a> <a class="el" href="d4d__combo__box_8h.html#adfadaf2a6cb69854a099f7755fa503f9">D4D_COMBO_BOX_DATA</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afcfe0815c49b57777d324fc5138d1179"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="group__doxd4d__list__box__type.html#ga501b8e87df056557dd9150c5c0827b67">D4D_LIST_BOX_INDEX</a> <a class="el" href="d4d__combo__box_8h.html#afcfe0815c49b57777d324fc5138d1179">D4D_COMBO_BOX_INDEX</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00130">130</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a61601fa0e970c3402bc2a5eb03907d53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="group__doxd4d__list__box__type.html#struct_d4_d___l_i_s_t___b_o_x___i_t_e_m">D4D_LIST_BOX_ITEM</a> <a class="el" href="d4d__combo__box_8h.html#a61601fa0e970c3402bc2a5eb03907d53">D4D_COMBO_BOX_ITEM</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8h_source.html#l00131">131</a> of file <a class="el" href="d4d__combo__box_8h_source.html">d4d_combo_box.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a0e2c2fa6149fde05d54536f2423467e2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_ComboBoxButtonFeedBack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8c_source.html#l00214">214</a> of file <a class="el" href="d4d__combo__box_8c_source.html">d4d_combo_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__object_8c_source.html#l00190">D4D_CaptureKeys()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00288">D4D_ComboBoxStornoSelection()</a>, <a class="el" href="d4d__combo__box_8h_source.html#l00162">D4D_GET_COMBO_BOX_LIST_BOX</a>, <a class="el" href="d4d__object_8c_source.html#l00498">D4D_GetParentObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00325">D4D_IsVisible()</a>, <a class="el" href="d4d__object_8c_source.html#l00092">D4D_ShowObject()</a>, and <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__combo__box_8h_a0e2c2fa6149fde05d54536f2423467e2_cgraph.gif" border="0" usemap="#d4d__combo__box_8h_a0e2c2fa6149fde05d54536f2423467e2_cgraph" alt=""/></div>
+<map name="d4d__combo__box_8h_a0e2c2fa6149fde05d54536f2423467e2_cgraph" id="d4d__combo__box_8h_a0e2c2fa6149fde05d54536f2423467e2_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="742,107,871,133"/><area shape="rect" id="node14" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="269,336,480,363"/><area shape="rect" id="node7" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="2010,232,2161,259"/><area shape="rect" id="node19" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="734,360,879,387"/><area shape="rect" id="node16" href="group__doxd4d__object__func.html#gaaf05953a9b356907e827855274a15784" title="Function find out if the object is visible or not. " alt="" coords="551,461,654,488"/><area shape="rect" id="node20" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="541,235,665,261"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="937,5,1087,32"/><area shape="rect" id="node4" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="1136,232,1280,259"/><area shape="rect" id="node5" href="d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="1139,32,1277,59"/><area shape="rect" id="node6" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="1153,157,1263,184"/><area shape="rect" id="node8" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="957,107,1067,133"/><area shape="rect" id="node9" href="d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="1149,83,1267,109"/><area shape="rect" id="node10" href="d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="1328,83,1472,109"/><area shape="rect" id="node11" href="d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1984,29,2187,56"/><area shape="rect" id="node12" href="d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1753,131,1935,157"/><area shape="rect" id="node13" href="d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="1521,65,1703,106"/><area shape="rect" id="node15" href="group__doxd4d__screen__func.html#ga5633d19ba95be7b25045ed76d08bd2a7" title="The function mark the screen and its abject as &quot;redraw pending&quot;. " alt="" coords="733,309,881,336"/><area shape="rect" id="node17" href="group__doxd4d__list__box__func.html#gac0ca84429c66cb1de4555407effc84ba" title="Function select new item by index. " alt="" coords="528,387,677,413"/><area shape="rect" id="node18" href="d4d__list__box_8c.html#a3dafe35ca35da21c908d8b0baf92eec8" title="D4D_GetItemsCount" alt="" coords="736,411,877,437"/><area shape="rect" id="node21" href="group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="725,208,888,235"/><area shape="rect" id="node22" href="group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="729,259,884,285"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a92bbff3547dcda53c2d8e1c10c125121"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> D4D_ComboBoxButtonMsgFeedBack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8c_source.html#l00196">196</a> of file <a class="el" href="d4d__combo__box_8c_source.html">d4d_combo_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__scheme_8h_source.html#l00438">D4D_COLOR_GET_B</a>, <a class="el" href="d4d__scheme_8h_source.html#l00437">D4D_COLOR_GET_G</a>, <a class="el" href="d4d__scheme_8h_source.html#l00436">D4D_COLOR_GET_R</a>, <a class="el" href="d4d__scheme_8h_source.html#l00301">D4D_COLOR_RGB565</a>, <a class="el" href="d4d__base_8h_source.html#l00371">D4D_MSG_DRAW</a>, <a class="el" href="d4d__base_8h_source.html#l00418">D4D_MSG_NOSKIP</a>, <a class="el" href="d4d__scheme_8c_source.html#l00185">D4D_ObjectGetBckgColor()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00161">D4D_ObjectGetForeColor()</a>, <a class="el" href="d4d__base_8h_source.html#l00408">D4D_MESSAGE_S::draw</a>, <a class="el" href="d4d__base_8h_source.html#l00404">D4D_MESSAGE_S::nMsgId</a>, <a class="el" href="d4d__base_8h_source.html#l00402">D4D_MESSAGE_S::pObject</a>, and <a class="el" href="group__doxd4d__base__type.html#a65e56fff8e0b0136541d1cf58a3a5be4">D4D_MESSAGE_S::prm</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__combo__box_8h_a92bbff3547dcda53c2d8e1c10c125121_cgraph.gif" border="0" usemap="#d4d__combo__box_8h_a92bbff3547dcda53c2d8e1c10c125121_cgraph" alt=""/></div>
+<map name="d4d__combo__box_8h_a92bbff3547dcda53c2d8e1c10c125121_cgraph" id="d4d__combo__box_8h_a92bbff3547dcda53c2d8e1c10c125121_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__scheme__func.html#gacd90e36cd0d99094155abb8b3f7fb74c" title="Function return object current background color. " alt="" coords="293,41,467,68"/><area shape="rect" id="node7" href="group__doxd4d__scheme__func.html#ga4f46b75cc9161aaf0ca1c447a76e045b" title="Function return object current fore color. " alt="" coords="295,92,465,119"/><area shape="rect" id="node3" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="515,104,677,131"/><area shape="rect" id="node6" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="541,29,651,56"/><area shape="rect" id="node4" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="733,41,883,68"/><area shape="rect" id="node5" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="726,104,890,131"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0cb61070ade30b5f9dc169bbeae35fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_ComboBoxEditFeedBack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__base__type.html#ga7d373fc79dfcb995cf22222da447265b">D4D_EVENTID</a>&#160;</td>
+          <td class="paramname"><em>eventId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8c_source.html#l00167">167</a> of file <a class="el" href="d4d__combo__box_8c_source.html">d4d_combo_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__combo__box_8h_source.html#l00410">D4D_ComboBoxGetItemCount</a>, <a class="el" href="d4d__combo__box_8h_source.html#l00444">D4D_ComboBoxGetItemTextIx</a>, <a class="el" href="d4d__extsrc_8h_source.html#l00364">D4D_CompareStringsUniversal</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00652">D4D_EditBoxGetText()</a>, <a class="el" href="d4d__base_8h_source.html#l00434">D4D_EVENT_ONCHANGEDONE</a>, <a class="el" href="d4d__combo__box_8h_source.html#l00157">D4D_GET_COMBO_BOX</a>, <a class="el" href="d4d__combo__box_8h_source.html#l00160">D4D_GET_COMBO_BOX_EDIT_BOX</a>, and <a class="el" href="d4d__object_8c_source.html#l00498">D4D_GetParentObject()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__combo__box_8h_ac0cb61070ade30b5f9dc169bbeae35fa_cgraph.gif" border="0" usemap="#d4d__combo__box_8h_ac0cb61070ade30b5f9dc169bbeae35fa_cgraph" alt=""/></div>
+<map name="d4d__combo__box_8h_ac0cb61070ade30b5f9dc169bbeae35fa_cgraph" id="d4d__combo__box_8h_ac0cb61070ade30b5f9dc169bbeae35fa_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__edit__box__func.html#ga6629cce6ae21d490e03116e5469562df" title="The function returns the pointer to the edit box text buffer. " alt="" coords="256,5,403,32"/><area shape="rect" id="node3" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="254,56,405,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4c34d2a53873687dae3ba56dc3db5f00"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> D4D_ComboBoxListBoxMsgFeedBack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8c_source.html#l00120">120</a> of file <a class="el" href="d4d__combo__box_8c_source.html">d4d_combo_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__combo__box_8c_source.html#l00288">D4D_ComboBoxStornoSelection()</a>, <a class="el" href="d4d__object_8c_source.html#l00498">D4D_GetParentObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00348">D4D_IsMineFocus()</a>, <a class="el" href="d4d__base_8h_source.html#l00374">D4D_MSG_KILLFOCUS</a>, <a class="el" href="d4d__base_8h_source.html#l00392">D4D_MSG_MOUSE_LEAVE</a>, <a class="el" href="d4d__base_8h_source.html#l00418">D4D_MSG_NOSKIP</a>, <a class="el" href="d4d__base_8h_source.html#l00404">D4D_MESSAGE_S::nMsgId</a>, and <a class="el" href="d4d__base_8h_source.html#l00402">D4D_MESSAGE_S::pObject</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__combo__box_8h_a4c34d2a53873687dae3ba56dc3db5f00_cgraph.gif" border="0" usemap="#d4d__combo__box_8h_a4c34d2a53873687dae3ba56dc3db5f00_cgraph" alt=""/></div>
+<map name="d4d__combo__box_8h_a4c34d2a53873687dae3ba56dc3db5f00_cgraph" id="d4d__combo__box_8h_a4c34d2a53873687dae3ba56dc3db5f00_cgraph">
+<area shape="rect" id="node2" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="301,196,512,223"/><area shape="rect" id="node6" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="2042,284,2193,311"/><area shape="rect" id="node23" href="group__doxd4d__object__func.html#ga8481f6711fbf76391f6bb36dd6e52b6b" title="Function find out if the object (including compounded objects) is focused. " alt="" coords="571,360,699,387"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#ga5633d19ba95be7b25045ed76d08bd2a7" title="The function mark the screen and its abject as &quot;redraw pending&quot;. " alt="" coords="765,107,913,133"/><area shape="rect" id="node5" href="group__doxd4d__object__func.html#gaaf05953a9b356907e827855274a15784" title="Function find out if the object is visible or not. " alt="" coords="1381,461,1483,488"/><area shape="rect" id="node7" href="group__doxd4d__list__box__func.html#gac0ca84429c66cb1de4555407effc84ba" title="Function select new item by index. " alt="" coords="560,56,709,83"/><area shape="rect" id="node10" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="573,196,697,223"/><area shape="rect" id="node4" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="1168,60,1312,87"/><area shape="rect" id="node8" href="d4d__list__box_8c.html#a3dafe35ca35da21c908d8b0baf92eec8" title="D4D_GetItemsCount" alt="" coords="768,5,909,32"/><area shape="rect" id="node9" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="766,56,911,83"/><area shape="rect" id="node11" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="774,208,903,235"/><area shape="rect" id="node21" href="group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="757,309,920,336"/><area shape="rect" id="node22" href="group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="761,157,916,184"/><area shape="rect" id="node12" href="group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="969,360,1119,387"/><area shape="rect" id="node13" href="d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="1171,177,1309,204"/><area shape="rect" id="node14" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="1185,259,1295,285"/><area shape="rect" id="node15" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="989,157,1099,184"/><area shape="rect" id="node16" href="d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="1181,124,1299,151"/><area shape="rect" id="node17" href="d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="1360,115,1504,141"/><area shape="rect" id="node18" href="d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="2016,56,2219,83"/><area shape="rect" id="node19" href="d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1785,56,1967,83"/><area shape="rect" id="node20" href="d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="1553,107,1735,149"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a93c9b88959332d0919dfe1b3d58148c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_ComboBoxListFeedBack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__base__type.html#ga7d373fc79dfcb995cf22222da447265b">D4D_EVENTID</a>&#160;</td>
+          <td class="paramname"><em>eventId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8c_source.html#l00131">131</a> of file <a class="el" href="d4d__combo__box_8c_source.html">d4d_combo_box.c</a>.</p>
+
+<p>References <a class="el" href="d4d__edit__box_8c_source.html#l00621">D4D_EditBoxClearAll()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00455">D4D_EditBoxPutString()</a>, <a class="el" href="d4d__base_8h_source.html#l00433">D4D_EVENT_ONCHANGE</a>, <a class="el" href="d4d__base_8h_source.html#l00431">D4D_EVENT_ONCLICK</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__combo__box_8h_source.html#l00157">D4D_GET_COMBO_BOX</a>, <a class="el" href="d4d__combo__box_8h_source.html#l00158">D4D_GET_COMBO_BOX_DATA</a>, <a class="el" href="d4d__combo__box_8h_source.html#l00160">D4D_GET_COMBO_BOX_EDIT_BOX</a>, <a class="el" href="d4d__combo__box_8h_source.html#l00162">D4D_GET_COMBO_BOX_LIST_BOX</a>, <a class="el" href="d4d__object_8c_source.html#l00498">D4D_GetParentObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00238">D4D_InvalidateScreen()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00516">D4D_ListBoxGetIndex()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00607">D4D_ListBoxGetItemText()</a>, <a class="el" href="d4d__object_8c_source.html#l00092">D4D_ShowObject()</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__object_8h_source.html#l00180">D4D_OBJECT_S::pData</a>, and <a class="el" href="d4d__object_8h_source.html#l00146">D4D_OBJECT_DATA_S::pScreen</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__combo__box_8h_a93c9b88959332d0919dfe1b3d58148c4_cgraph.gif" border="0" usemap="#d4d__combo__box_8h_a93c9b88959332d0919dfe1b3d58148c4_cgraph" alt=""/></div>
+<map name="d4d__combo__box_8h_a93c9b88959332d0919dfe1b3d58148c4_cgraph" id="d4d__combo__box_8h_a93c9b88959332d0919dfe1b3d58148c4_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__edit__box__func.html#ga0e24154d4fe5ee55a21cd2e7e01daa82" title="The function clear whole edit box data. " alt="" coords="691,296,837,323"/><area shape="rect" id="node5" href="group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254" title="The function puts string on cursor position and updates cursor. " alt="" coords="261,195,416,221"/><area shape="rect" id="node19" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="1826,676,1977,703"/><area shape="rect" id="node20" href="group__doxd4d__screen__func.html#ga5633d19ba95be7b25045ed76d08bd2a7" title="The function mark the screen and its abject as &quot;redraw pending&quot;. " alt="" coords="479,448,627,475"/><area shape="rect" id="node21" href="group__doxd4d__list__box__func.html#ga3690deaef195705cc4b006bfab0159f5" title="Function returns the current selected item index. " alt="" coords="263,853,414,880"/><area shape="rect" id="node22" href="group__doxd4d__list__box__func.html#ga1c74b381309142b76f1f29ce4b2e0394" title="Function gets the selected item text. " alt="" coords="254,68,423,95"/><area shape="rect" id="node23" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="277,397,401,424"/><area shape="rect" id="node3" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="1118,296,1263,323"/><area shape="rect" id="node4" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="1352,397,1496,424"/><area shape="rect" id="node6" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="1328,68,1520,95"/><area shape="rect" id="node7" href="group__doxd4d__edit__box__func.html#ga71575226e364b1edf67ca5348aa23bf4" title="The function puts one char on cursor position and updates cursor. " alt="" coords="480,144,627,171"/><area shape="rect" id="node17" href="group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="472,296,635,323"/><area shape="rect" id="node18" href="group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="689,448,839,475"/><area shape="rect" id="node8" href="d4d__edit__box_8c.html#a8ae69ab63cec13b3ebe92bf116210b69" title="D4D_EditBoxPutCharInt" alt="" coords="683,144,845,171"/><area shape="rect" id="node14" href="group__doxd4d__edit__box__func.html#gaccc64f7d124d35dd570e832a847c4464" title="The function chenge the cursor position to new one. " alt="" coords="894,195,1053,221"/><area shape="rect" id="node9" href="group__doxd4d__string__func.html#ga609e5f5ee7cea40f6d827def8e0cf1bd" title="The function find out the maximal text length that fits to maximal pixel width. " alt="" coords="1109,93,1273,120"/><area shape="rect" id="node10" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b" title="D4D_GetCharWidth" alt="" coords="1356,183,1492,209"/><area shape="rect" id="node11" href="d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1609,157,1711,184"/><area shape="rect" id="node12" href="d4d__font_8c.html#a43acdd475ef7db17e00a6999cde00578" title="D4D_LCD_GetCharPlace" alt="" coords="1577,208,1743,235"/><area shape="rect" id="node13" href="d4d__font_8c.html#a4dc0aafa5f109feee7a6fea4e98e5df2" title="D4D_GetCharIndex" alt="" coords="1835,208,1968,235"/><area shape="rect" id="node15" href="group__doxd4d__string__func.html#gada3f65b64c55a4229740bbd7e721f0f8" title="The function returns width of text in pixels, also with tab table. " alt="" coords="1102,144,1279,171"/><area shape="rect" id="node16" href="d4d__font_8c.html#a39d8e8e703e0f108970fff86f6179bd1" title="D4D_GetNextTab" alt="" coords="1363,132,1485,159"/><area shape="rect" id="node24" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="489,524,618,551"/><area shape="rect" id="node33" href="group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="476,397,631,424"/><area shape="rect" id="node25" href="d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="905,525,1042,552"/><area shape="rect" id="node26" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="918,701,1029,728"/><area shape="rect" id="node27" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="709,600,819,627"/><area shape="rect" id="node28" href="d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="915,627,1032,653"/><area shape="rect" id="node29" href="d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="1119,627,1263,653"/><area shape="rect" id="node30" href="d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1800,499,2003,525"/><area shape="rect" id="node31" href="d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1569,549,1751,576"/><area shape="rect" id="node32" href="d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="1333,534,1515,575"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad12f898e2d5b47f6d3f3e44fb2d08813"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">D4D_EXTERN_BMP </td>
+          <td>(</td>
+          <td class="paramtype">bmp_arrow&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="aa9c1aa884539be4306a9895d8ef9a0b8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a> comboBox_marginDefault</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8c_source.html#l00095">95</a> of file <a class="el" href="d4d__combo__box_8c_source.html">d4d_combo_box.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4b82d9066e4f86b84ff068edbaf74872"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a> d4d_comboBoxSysFunc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__combo__box_8c_source.html#l00087">87</a> of file <a class="el" href="d4d__combo__box_8c_source.html">d4d_combo_box.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__combo__box_8h.html">d4d_combo_box.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:01 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

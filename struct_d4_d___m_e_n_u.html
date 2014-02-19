@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D_MENU Struct Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('struct_d4_d___m_e_n_u.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Data Fields</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D_MENU Struct Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for D4D_MENU:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___m_e_n_u__coll__graph.gif" border="0" usemap="#_d4_d___m_e_n_u_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___m_e_n_u_coll__map" id="_d4_d___m_e_n_u_coll__map">
+<area shape="rect" id="node2" href="struct_d4_d___m_e_n_u___d_a_t_a.html" title="{D4D_MENU_DATA\n|+ ix\l+ page_ix\l|}" alt="" coords="384,675,517,767"/><area shape="rect" id="node3" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s" title="The object main structure type definition. " alt="" coords="847,653,971,789"/><area shape="rect" id="node10" href="group__doxd4d__screen__type.html#struct_d4_d___s_c_r_e_e_n___s" title="The screen structure type. The main screen structure that contains all needed data to run the eGUI sc..." alt="" coords="821,1040,944,1205"/><area shape="rect" id="node12" href="group__doxd4d__screen__type.html#struct_d4_d___s_c_r_e_e_n___d_a_t_a" title="The screen run time data type. It used to internal store the runtime data by eGUI. " alt="" coords="808,876,957,953"/><area shape="rect" id="node4" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e" title="Type definition of eGUI size structure. " alt="" coords="689,453,772,545"/><area shape="rect" id="node5" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s" title="The object system function needed for each object &#45; this is part of D4D_OBJECT main structure..." alt="" coords="797,445,1021,552"/><area shape="rect" id="node6" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s" title="The string type. This structure contains all properties about string in eGUI. " alt="" coords="235,200,352,336"/><area shape="rect" id="node22" href="struct_d4_d___m_e_n_u___i_t_e_m.html" title="{D4D_MENU_ITEM\n|+ pUser\l|}" alt="" coords="230,683,359,760"/><area shape="rect" id="node7" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r___p_r_o_p_e_r_t_i_e_s___s" title="The string properties type. This structure contains as Font as Text properties. " alt="" coords="201,21,385,113"/><area shape="rect" id="node8" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t" title="Type definition of eGUI point structure. " alt="" coords="573,453,664,545"/><area shape="rect" id="node9" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___d_a_t_a___s" title="The object changeble data structure &#45; this is part of D4D_OBJECT main structure. " alt="" coords="1010,1269,1171,1347"/><area shape="rect" id="node11" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p" title="D4D_BMP eGUI main image structure. " alt="" coords="253,453,336,545"/><area shape="rect" id="node13" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s" title="This is the main structure of the color scheme in the D4D. It contains all the necessary colors to ru..." alt="" coords="1175,409,1333,589"/><area shape="rect" id="node14" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j" title="This structure contains all object dependent colors of the color scheme in the D4D. It is divided into the small objects that describe structures containing individual colors. " alt="" coords="1047,229,1221,307"/><area shape="rect" id="node15" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r" title="This structure contains specific colors (non&#45;standard) for the slider object. " alt="" coords="1043,6,1225,127"/><area shape="rect" id="node16" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r" title="This structure contains specific colors (non&#45;standard) for the progress bar object. " alt="" coords="1251,13,1480,120"/><area shape="rect" id="node17" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h" title="This structure contains specific colors (non&#45;standard) for the graph object. " alt="" coords="1504,28,1699,105"/><area shape="rect" id="node18" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g" title="This structure contains specific colors (non&#45;standard) for the gauge object. " alt="" coords="605,21,792,113"/><area shape="rect" id="node19" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b" title="This structure contains specific colors (non&#45;standard) for the check box object. " alt="" coords="816,28,1019,105"/><area shape="rect" id="node20" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r" title="This is the structure of the color scheme for screens in the D4D. It contains all the necessary color..." alt="" coords="1247,193,1423,343"/><area shape="rect" id="node21" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n" title="Type definition of eGUI client area margin structure. " alt="" coords="1046,438,1151,559"/></map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:a33c242c4484090ab3f4e669319cfc519"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d4_d___m_e_n_u.html#a33c242c4484090ab3f4e669319cfc519">title_text</a></td></tr>
+<tr class="separator:a33c242c4484090ab3f4e669319cfc519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8889747a28724c51c05e7bf278ca126"><td class="memItemLeft" align="right" valign="top"><a class="el" href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d4_d___m_e_n_u.html#ad8889747a28724c51c05e7bf278ca126">indexFontId</a></td></tr>
+<tr class="separator:ad8889747a28724c51c05e7bf278ca126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63703152a03b51bc585d08162c0f6455"><td class="memItemLeft" align="right" valign="top"><a class="el" href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d4_d___m_e_n_u.html#a63703152a03b51bc585d08162c0f6455">itemsFontId</a></td></tr>
+<tr class="separator:a63703152a03b51bc585d08162c0f6455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98d4705c3d8b3c9646cdb791d4f056f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__menu__type.html#ga6e04bb72ad8552b3620fbfdeac9d0b06">D4D_MENU_INDEX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d4_d___m_e_n_u.html#a98d4705c3d8b3c9646cdb791d4f056f4">posCnt</a></td></tr>
+<tr class="separator:a98d4705c3d8b3c9646cdb791d4f056f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac8557a29a9136e4bd1f98d20dc552f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d4_d___m_e_n_u.html#aac8557a29a9136e4bd1f98d20dc552f9">textOff</a></td></tr>
+<tr class="separator:aac8557a29a9136e4bd1f98d20dc552f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50f81247d8f9b17b692715f19504d0c6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d4_d___m_e_n_u.html#a50f81247d8f9b17b692715f19504d0c6">pIcon</a></td></tr>
+<tr class="separator:a50f81247d8f9b17b692715f19504d0c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2149a0d2071da23c0a6015472ca48a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d4_d___m_e_n_u___d_a_t_a.html">D4D_MENU_DATA</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d4_d___m_e_n_u.html#aa2149a0d2071da23c0a6015472ca48a5">pData</a></td></tr>
+<tr class="separator:aa2149a0d2071da23c0a6015472ca48a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c4313461fe77d14a93e87f0c86674d6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_d4_d___m_e_n_u___i_t_e_m.html">D4D_MENU_ITEM</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d4_d___m_e_n_u.html#a2c4313461fe77d14a93e87f0c86674d6">pItems</a></td></tr>
+<tr class="separator:a2c4313461fe77d14a93e87f0c86674d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb98fb039bf25fb1d0d508b749ba05b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__menu__type.html#gaa5e11ec313882427117cb8634b0a381b">D4D_MENU_ON_CLICK</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_d4_d___m_e_n_u.html#aeb98fb039bf25fb1d0d508b749ba05b9">OnClicked</a></td></tr>
+<tr class="separator:aeb98fb039bf25fb1d0d508b749ba05b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00175">175</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="ad8889747a28724c51c05e7bf278ca126"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a> indexFontId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00178">178</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__menu_8c_source.html#l00111">D4D_GetTitleBarHeight()</a>, and <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a63703152a03b51bc585d08162c0f6455"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a> itemsFontId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00179">179</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>, and <a class="el" href="d4d__menu_8c_source.html#l00154">D4D_MenuValue2Coor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeb98fb039bf25fb1d0d508b749ba05b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__menu__type.html#gaa5e11ec313882427117cb8634b0a381b">D4D_MENU_ON_CLICK</a> OnClicked</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00185">185</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__menu_8c_source.html#l00455">D4D_MenuOnKeyUp()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa2149a0d2071da23c0a6015472ca48a5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_d4_d___m_e_n_u___d_a_t_a.html">D4D_MENU_DATA</a>* pData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00183">183</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__menu_8c_source.html#l00360">D4D_MenuFocusNextItem()</a>, <a class="el" href="d4d__menu_8c_source.html#l00394">D4D_MenuFocusPreviousItem()</a>, <a class="el" href="d4d__menu_8c_source.html#l00622">D4D_MenuGetIndex()</a>, <a class="el" href="d4d__menu_8c_source.html#l00710">D4D_MenuGetItemText()</a>, <a class="el" href="d4d__menu_8c_source.html#l00698">D4D_MenuGetItemUserData()</a>, <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>, <a class="el" href="d4d__menu_8c_source.html#l00455">D4D_MenuOnKeyUp()</a>, <a class="el" href="d4d__menu_8c_source.html#l00597">D4D_MenuScrollBarsFeedBack()</a>, <a class="el" href="d4d__menu_8c_source.html#l00640">D4D_MenuSetIndex()</a>, and <a class="el" href="d4d__menu_8c_source.html#l00154">D4D_MenuValue2Coor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a50f81247d8f9b17b692715f19504d0c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a>* pIcon</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00182">182</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__menu_8c_source.html#l00111">D4D_GetTitleBarHeight()</a>, and <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2c4313461fe77d14a93e87f0c86674d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct_d4_d___m_e_n_u___i_t_e_m.html">D4D_MENU_ITEM</a>* pItems</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00184">184</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__menu_8c_source.html#l00089">D4D_GetIconsMaxSize()</a>, <a class="el" href="d4d__menu_8c_source.html#l00141">D4D_GetItemsCount()</a>, <a class="el" href="d4d__menu_8c_source.html#l00677">D4D_MenuFindUserDataItem()</a>, <a class="el" href="d4d__menu_8c_source.html#l00710">D4D_MenuGetItemText()</a>, <a class="el" href="d4d__menu_8c_source.html#l00698">D4D_MenuGetItemUserData()</a>, and <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a98d4705c3d8b3c9646cdb791d4f056f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__menu__type.html#ga6e04bb72ad8552b3620fbfdeac9d0b06">D4D_MENU_INDEX</a> posCnt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00180">180</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__menu_8c_source.html#l00154">D4D_MenuValue2Coor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aac8557a29a9136e4bd1f98d20dc552f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> textOff</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00181">181</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__menu_8c_source.html#l00154">D4D_MenuValue2Coor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a33c242c4484090ab3f4e669319cfc519"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__string__type.html#gae6b4b00488bf1413d1ab1d063e19b36a">D4D_STRING</a> title_text</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__menu_8h_source.html#l00177">177</a> of file <a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__menu_8c_source.html#l00111">D4D_GetTitleBarHeight()</a>, and <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="d4d__menu_8h_source.html">d4d_menu.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="struct_d4_d___m_e_n_u.html">D4D_MENU</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:07 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

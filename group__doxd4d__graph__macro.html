@@ -1,0 +1,1361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D GRAPH API Macro&#39;s Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__graph__macro.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D GRAPH API Macro's Specification<div class="ingroups"><a class="el" href="group__doxd4d__graph.html">D4D Graph Widget</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D GRAPH API Macro's Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__graph__macro.gif" border="0" alt="" usemap="#group____doxd4d____graph____macro"/>
+<map name="group____doxd4d____graph____macro" id="group____doxd4d____graph____macro">
+<area shape="rect" id="node1" href="group__doxd4d__graph.html" title="D4D Graph Widget" alt="" coords="5,12,136,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga80adb026561d589956b860c37c92053c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__graph__macro.html#ga80adb026561d589956b860c37c92053c">_D4D_DECLARE_GRAPH_BEGIN</a>(type, name, text, x, y, cx, cy, radius, pMargin, pRelations, gx, gy, dataLen, flags, pScheme, fontId, lblFontId, pOnNeedLblTxt, pUser, pOnValch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga80adb026561d589956b860c37c92053c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Graph object structure in memory including all substructures.  <a href="#ga80adb026561d589956b860c37c92053c">More...</a><br/></td></tr>
+<tr class="separator:ga80adb026561d589956b860c37c92053c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d80da3adbded201738c48bcb3679760"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__graph__macro.html#ga0d80da3adbded201738c48bcb3679760">D4D_DECLARE_GRAPH_TRACE</a>(pData, clr, line, type)</td></tr>
+<tr class="memdesc:ga0d80da3adbded201738c48bcb3679760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that is used to add trace to graph definition.  <a href="#ga0d80da3adbded201738c48bcb3679760">More...</a><br/></td></tr>
+<tr class="separator:ga0d80da3adbded201738c48bcb3679760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7181e0fc0045b2d3c5bdac15eca8e8c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__graph__macro.html#ga7181e0fc0045b2d3c5bdac15eca8e8c7">D4D_DECLARE_GRAPH_END</a>()</td></tr>
+<tr class="memdesc:ga7181e0fc0045b2d3c5bdac15eca8e8c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that is used to end of graph definition.  <a href="#ga7181e0fc0045b2d3c5bdac15eca8e8c7">More...</a><br/></td></tr>
+<tr class="separator:ga7181e0fc0045b2d3c5bdac15eca8e8c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2fb1b4637e7ded5d22d19335d9ec430"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__graph__macro.html#gac2fb1b4637e7ded5d22d19335d9ec430">D4D_DECLARE_GRAPH_BEGIN</a>(name, text, x, y, cx, cy, gx, gy, dataLen, flags, pScheme, fontId, lblFontId, pOnNeedLblTxt, pUser, pOnValch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gac2fb1b4637e7ded5d22d19335d9ec430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Graph object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="#gac2fb1b4637e7ded5d22d19335d9ec430">More...</a><br/></td></tr>
+<tr class="separator:gac2fb1b4637e7ded5d22d19335d9ec430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga76675b1f174dc9801d75834486ce4210"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__graph__macro.html#ga76675b1f174dc9801d75834486ce4210">D4D_DECLARE_STD_GRAPH_BEGIN</a>(name, text, x, y, cx, cy, gx, gy, dataLen, fontId, lblFontId)</td></tr>
+<tr class="memdesc:ga76675b1f174dc9801d75834486ce4210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Graph object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values.  <a href="#ga76675b1f174dc9801d75834486ce4210">More...</a><br/></td></tr>
+<tr class="separator:ga76675b1f174dc9801d75834486ce4210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95df1eeb5f487e2b9a456013d73782c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__graph__macro.html#ga95df1eeb5f487e2b9a456013d73782c5">D4D_DECLARE_RGRAPH_BEGIN</a>(name, text, x, y, cx, cy, radius, gx, gy, dataLen, flags, pScheme, fontId, lblFontId, pOnNeedLblTxt, pUser, pOnValch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga95df1eeb5f487e2b9a456013d73782c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Graph object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="#ga95df1eeb5f487e2b9a456013d73782c5">More...</a><br/></td></tr>
+<tr class="separator:ga95df1eeb5f487e2b9a456013d73782c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade48da6109b37adeb866c5189c34d551"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__graph__macro.html#gade48da6109b37adeb866c5189c34d551">D4D_DECLARE_STD_RGRAPH_BEGIN</a>(name, text, x, y, cx, cy, radius, gx, gy, dataLen, fontId, lblFontId)</td></tr>
+<tr class="memdesc:gade48da6109b37adeb866c5189c34d551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Graph object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values.  <a href="#gade48da6109b37adeb866c5189c34d551">More...</a><br/></td></tr>
+<tr class="separator:gade48da6109b37adeb866c5189c34d551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a5409a33b6906441510ae7a9acdcd6d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__graph__macro.html#ga3a5409a33b6906441510ae7a9acdcd6d">D4D_DECLARE_GRAPH_BEGIN_INRAM</a>(name, text, x, y, cx, cy, gx, gy, dataLen, flags, pScheme, fontId, lblFontId, pOnNeedLblTxt, pUser, pOnValch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga3a5409a33b6906441510ae7a9acdcd6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__graph__macro.html#gac2fb1b4637e7ded5d22d19335d9ec430">D4D_DECLARE_GRAPH_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="#ga3a5409a33b6906441510ae7a9acdcd6d">More...</a><br/></td></tr>
+<tr class="separator:ga3a5409a33b6906441510ae7a9acdcd6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d293a08eb1b1979a80f1e919b282c08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__graph__macro.html#ga9d293a08eb1b1979a80f1e919b282c08">D4D_DECLARE_STD_GRAPH_BEGIN_INRAM</a>(name, text, x, y, cx, cy, gx, gy, dataLen, fontId, lblFontId)</td></tr>
+<tr class="memdesc:ga9d293a08eb1b1979a80f1e919b282c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__graph__macro.html#ga76675b1f174dc9801d75834486ce4210">D4D_DECLARE_STD_GRAPH_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="#ga9d293a08eb1b1979a80f1e919b282c08">More...</a><br/></td></tr>
+<tr class="separator:ga9d293a08eb1b1979a80f1e919b282c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga641cd109e7e5a3f271f58b7944bf379f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__graph__macro.html#ga641cd109e7e5a3f271f58b7944bf379f">D4D_DECLARE_RGRAPH_BEGIN_INRAM</a>(name, text, x, y, cx, cy, radius, gx, gy, dataLen, flags, pScheme, fontId, lblFontId, pOnNeedLblTxt, pUser, pOnValch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga641cd109e7e5a3f271f58b7944bf379f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__graph__macro.html#ga95df1eeb5f487e2b9a456013d73782c5">D4D_DECLARE_RGRAPH_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="#ga641cd109e7e5a3f271f58b7944bf379f">More...</a><br/></td></tr>
+<tr class="separator:ga641cd109e7e5a3f271f58b7944bf379f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac7814598a1ad02d236a0dc35310a7bf2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__graph__macro.html#gac7814598a1ad02d236a0dc35310a7bf2">D4D_DECLARE_STD_RGRAPH_BEGIN_INRAM</a>(name, text, x, y, cx, cy, radius, gx, gy, dataLen, fontId, lblFontId)</td></tr>
+<tr class="memdesc:gac7814598a1ad02d236a0dc35310a7bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__graph__macro.html#gade48da6109b37adeb866c5189c34d551">D4D_DECLARE_STD_RGRAPH_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="#gac7814598a1ad02d236a0dc35310a7bf2">More...</a><br/></td></tr>
+<tr class="separator:gac7814598a1ad02d236a0dc35310a7bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact usage for each API macro. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ga80adb026561d589956b860c37c92053c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _D4D_DECLARE_GRAPH_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pMargin, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pRelations, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dataLen, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lblFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnNeedLblTxt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnValch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Graph object structure in memory including all substructures. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>- type of object &lt;<a class="el" href="d4d__base_8h.html#a8cde856308c73fd6cb3773f847b805dd">D4D_CONST</a>; <a class="el" href="d4d__base_8h.html#aa73c7966a77e163e939bcc5884d1df30">D4D_NO_CONST</a>&gt; </td></tr>
+    <tr><td class="paramname">name</td><td>- name of graph object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of graph </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of graph in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of graph in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of graph in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of graph in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">pMargin</td><td>- pointer to margin structure (*<a class="el" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a>)(Could be NULL) </td></tr>
+    <tr><td class="paramname">pRelations</td><td>- pointer to object relation array (Could be NULL) </td></tr>
+    <tr><td class="paramname">gx</td><td>- count of grid lines in axis X </td></tr>
+    <tr><td class="paramname">gy</td><td>- count of grid lines in axis Y </td></tr>
+    <tr><td class="paramname">dataLen</td><td>- lenght of internal data buffer. This value extremly impact the memory consumption (memory = dataLen * cntOfTraces) </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__graph__const__flags.html">D4D GRAPH Defines masks of its specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw button </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">lblFontId</td><td>- Identification number of the used labels text font </td></tr>
+    <tr><td class="paramname">pOnNeedLblTxt</td><td>- Pointer to the calll back function that is called when text is needed to draw a label <a class="el" href="group__doxd4d__graph__type.html#ga6a9daf2afe512d8d61a019a4838fd0cd">D4D_GRAPH_ON_NEED_LABEL</a> </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of button </td></tr>
+    <tr><td class="paramname">pOnValch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__graph__type.html#gaf87970308188d7b222c2d77fb5a5aab1">D4D_GRAPH_ON_CHANGE</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___g_r_a_p_h.html">D4D_GRAPH</a> structure, including the object data sub structure. Is used to define all properties of graph. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00271">271</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gac2fb1b4637e7ded5d22d19335d9ec430"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_GRAPH_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dataLen, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lblFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnNeedLblTxt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnValch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Graph object structure in memory including all substructures with restricted count of parameters to simplify definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of graph object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of graph </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of graph in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of graph in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of graph in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of graph in Y axis (height) </td></tr>
+    <tr><td class="paramname">gx</td><td>- count of grid lines in axis X </td></tr>
+    <tr><td class="paramname">gy</td><td>- count of grid lines in axis Y </td></tr>
+    <tr><td class="paramname">dataLen</td><td>- lenght of internal data buffer. This value extremly impact the memory consumption (memory = dataLen * cntOfTraces) </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__graph__const__flags.html">D4D GRAPH Defines masks of its specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw button </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">lblFontId</td><td>- Identification number of the used labels text font </td></tr>
+    <tr><td class="paramname">pOnNeedLblTxt</td><td>- Pointer to the calll back function that is called when text is needed to draw a label <a class="el" href="group__doxd4d__graph__type.html#ga6a9daf2afe512d8d61a019a4838fd0cd">D4D_GRAPH_ON_NEED_LABEL</a> </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of button </td></tr>
+    <tr><td class="paramname">pOnValch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__graph__type.html#gaf87970308188d7b222c2d77fb5a5aab1">D4D_GRAPH_ON_CHANGE</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___g_r_a_p_h.html">D4D_GRAPH</a> structure, including the object data sub structure. Is used to define all properties of graph. Is used to define all properties of graph. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__graph__macro.html#ga80adb026561d589956b860c37c92053c">_D4D_DECLARE_GRAPH_BEGIN</a> instead of this one. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00353">353</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga3a5409a33b6906441510ae7a9acdcd6d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_GRAPH_BEGIN_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dataLen, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lblFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnNeedLblTxt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnValch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__graph__macro.html#gac2fb1b4637e7ded5d22d19335d9ec430">D4D_DECLARE_GRAPH_BEGIN</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00436">436</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga7181e0fc0045b2d3c5bdac15eca8e8c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_GRAPH_END</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that is used to end of graph definition. </p>
+<dl class="section note"><dt>Note</dt><dd>This macro is used as a last declaration macro in Graph definition Here is an example demonstrating how to used it. <div class="fragment"><div class="line">*       <a class="code" href="group__doxd4d__graph__type.html#ga99b37f2f42d894d00b60c34f9f9ed2b5">D4D_GRAPH_VALUE</a>  my_traceData1[200];</div>
+<div class="line">*       <a class="code" href="group__doxd4d__graph__type.html#ga99b37f2f42d894d00b60c34f9f9ed2b5">D4D_GRAPH_VALUE</a>  my_traceData2[200];      </div>
+<div class="line">*       <a class="code" href="group__doxd4d__graph__macro.html#ga76675b1f174dc9801d75834486ce4210">D4D_DECLARE_STD_GRAPH_BEGIN</a>(my_graph, <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Nice Graph&quot;</span>), 10, 10, 200, 150, 4, 3, 200, MY_FONT, MY_SMALL_FONT)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__graph__macro.html#ga0d80da3adbded201738c48bcb3679760">D4D_DECLARE_GRAPH_TRACE</a>(my_traceData1, D4D_WHITE, <a class="code" href="group__doxd4d__types__type.html#gga18ad463a26076500baed3a9310233e54a8a6e6606ddbcbf64a94546cd052978d8">D4D_LINE_THIN</a>, <a class="code" href="group__doxd4d__graph__const__trace_type.html#ga29c4e00e5ae52367606c80bf7055d1e4">D4D_GRAPH_TRACE_TYPE_LINE</a>)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__graph__macro.html#ga0d80da3adbded201738c48bcb3679760">D4D_DECLARE_GRAPH_TRACE</a>(my_traceData2, D4D_RED, <a class="code" href="group__doxd4d__types__type.html#gga18ad463a26076500baed3a9310233e54a084b4d75f87ec6c15e173106d252d371">D4D_LINE_THICK</a>, <a class="code" href="group__doxd4d__graph__const__trace_type.html#ga2cf5dc1bd4910d38119d9ba670789154">D4D_GRAPH_TRACE_TYPE_DOT</a>)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__graph__macro.html#ga7181e0fc0045b2d3c5bdac15eca8e8c7">D4D_DECLARE_GRAPH_END</a>()    </div>
+<div class="line">* </div>
+</div><!-- fragment --> </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00325">325</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga0d80da3adbded201738c48bcb3679760"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_GRAPH_TRACE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pData, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">clr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">line, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that is used to add trace to graph definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pData</td><td>- pointer to data buffer for this trace - it must have at least lenght "dataLen" from <a class="el" href="group__doxd4d__graph__macro.html#ga80adb026561d589956b860c37c92053c">_D4D_DECLARE_GRAPH_BEGIN</a> declaration </td></tr>
+    <tr><td class="paramname">clr</td><td>- color of trace - <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> </td></tr>
+    <tr><td class="paramname">line</td><td>- line type - <a class="el" href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a> </td></tr>
+    <tr><td class="paramname">type</td><td>- type of trace - <a class="el" href="group__doxd4d__graph__const__trace_type.html">D4D GRAPH Defines types of graph traces.</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro is used after the graph declaration to add new trace Here is an example demonstrating how to used it. <div class="fragment"><div class="line">*       <a class="code" href="group__doxd4d__graph__type.html#ga99b37f2f42d894d00b60c34f9f9ed2b5">D4D_GRAPH_VALUE</a>  my_traceData1[200];</div>
+<div class="line">*       <a class="code" href="group__doxd4d__graph__type.html#ga99b37f2f42d894d00b60c34f9f9ed2b5">D4D_GRAPH_VALUE</a>  my_traceData2[200];      </div>
+<div class="line">*       <a class="code" href="group__doxd4d__graph__macro.html#ga76675b1f174dc9801d75834486ce4210">D4D_DECLARE_STD_GRAPH_BEGIN</a>(my_graph, <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Nice Graph&quot;</span>), 10, 10, 200, 150, 4, 3, 200, MY_FONT, MY_SMALL_FONT)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__graph__macro.html#ga0d80da3adbded201738c48bcb3679760">D4D_DECLARE_GRAPH_TRACE</a>(my_traceData1, D4D_WHITE, <a class="code" href="group__doxd4d__types__type.html#gga18ad463a26076500baed3a9310233e54a8a6e6606ddbcbf64a94546cd052978d8">D4D_LINE_THIN</a>, <a class="code" href="group__doxd4d__graph__const__trace_type.html#ga29c4e00e5ae52367606c80bf7055d1e4">D4D_GRAPH_TRACE_TYPE_LINE</a>)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__graph__macro.html#ga0d80da3adbded201738c48bcb3679760">D4D_DECLARE_GRAPH_TRACE</a>(my_traceData2, D4D_RED, <a class="code" href="group__doxd4d__types__type.html#gga18ad463a26076500baed3a9310233e54a084b4d75f87ec6c15e173106d252d371">D4D_LINE_THICK</a>, <a class="code" href="group__doxd4d__graph__const__trace_type.html#ga2cf5dc1bd4910d38119d9ba670789154">D4D_GRAPH_TRACE_TYPE_DOT</a>)</div>
+<div class="line">*       <a class="code" href="group__doxd4d__graph__macro.html#ga7181e0fc0045b2d3c5bdac15eca8e8c7">D4D_DECLARE_GRAPH_END</a>()    </div>
+<div class="line">* </div>
+</div><!-- fragment --> </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00310">310</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga95df1eeb5f487e2b9a456013d73782c5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_RGRAPH_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dataLen, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lblFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnNeedLblTxt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnValch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the rounded Graph object structure in memory including all substructures with restricted count of parameters to simplify definition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of graph object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of graph </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of graph in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of graph in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of graph in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of graph in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">gx</td><td>- count of grid lines in axis X </td></tr>
+    <tr><td class="paramname">gy</td><td>- count of grid lines in axis Y </td></tr>
+    <tr><td class="paramname">dataLen</td><td>- lenght of internal data buffer. This value extremly impact the memory consumption (memory = dataLen * cntOfTraces) </td></tr>
+    <tr><td class="paramname">flags</td><td>- bitmask that specifies initial <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a> and <a class="el" href="group__doxd4d__graph__const__flags.html">D4D GRAPH Defines masks of its specific behaviour flags</a> </td></tr>
+    <tr><td class="paramname">pScheme</td><td>- pointer to color scheme. In case that this parameter is NULL, the default scheme color will be used for draw button </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">lblFontId</td><td>- Identification number of the used labels text font </td></tr>
+    <tr><td class="paramname">pOnNeedLblTxt</td><td>- Pointer to the calll back function that is called when text is needed to draw a label <a class="el" href="group__doxd4d__graph__type.html#ga6a9daf2afe512d8d61a019a4838fd0cd">D4D_GRAPH_ON_NEED_LABEL</a> </td></tr>
+    <tr><td class="paramname">pUser</td><td>- user data of button </td></tr>
+    <tr><td class="paramname">pOnValch</td><td>- Pointer to an on-change user callback function <a class="el" href="group__doxd4d__graph__type.html#gaf87970308188d7b222c2d77fb5a5aab1">D4D_GRAPH_ON_CHANGE</a> </td></tr>
+    <tr><td class="paramname">pOnUsrMsg</td><td>-Pointer to an on user message callback function <a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>. This callback is called before this message event is sent to the object itself. The message can be skipped by the <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaaf9a8d8e01b065e8ba3da0e81f72b704">D4D_MSG_SKIP</a> return value, in a normal case the return value must be <a class="el" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___g_r_a_p_h.html">D4D_GRAPH</a> structure, including the object data sub structure. Is used to define all properties of graph. Is used to define all properties of graph. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__graph__macro.html#ga80adb026561d589956b860c37c92053c">_D4D_DECLARE_GRAPH_BEGIN</a> instead of this one. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00405">405</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga641cd109e7e5a3f271f58b7944bf379f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_RGRAPH_BEGIN_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dataLen, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">flags, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScheme, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lblFontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnNeedLblTxt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pUser, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnValch, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pOnUsrMsg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__graph__macro.html#ga95df1eeb5f487e2b9a456013d73782c5">D4D_DECLARE_RGRAPH_BEGIN</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00450">450</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga76675b1f174dc9801d75834486ce4210"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_GRAPH_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dataLen, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lblFontId&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the Graph object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of graph object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of graph </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of graph in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of graph in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of graph in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of graph in Y axis (height) </td></tr>
+    <tr><td class="paramname">gx</td><td>- count of grid lines in axis X </td></tr>
+    <tr><td class="paramname">gy</td><td>- count of grid lines in axis Y </td></tr>
+    <tr><td class="paramname">dataLen</td><td>- lenght of internal data buffer. This value extremly impact the memory consumption (memory = dataLen * cntOfTraces) </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">lblFontId</td><td>- Identification number of the used labels text font</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___g_r_a_p_h.html">D4D_GRAPH</a> structure, including the object data sub structure. Is used to define all properties of graph. Is used to define all properties of graph. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__graph__macro.html#ga80adb026561d589956b860c37c92053c">_D4D_DECLARE_GRAPH_BEGIN</a> instead of this one. The main advantage is less parameters of this macro against the full version. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00375">375</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga9d293a08eb1b1979a80f1e919b282c08"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_GRAPH_BEGIN_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dataLen, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lblFontId&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__graph__macro.html#ga76675b1f174dc9801d75834486ce4210">D4D_DECLARE_STD_GRAPH_BEGIN</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00442">442</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gade48da6109b37adeb866c5189c34d551"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_RGRAPH_BEGIN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dataLen, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lblFontId&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro that create the rounded Graph object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>- name of graph object </td></tr>
+    <tr><td class="paramname">text</td><td>- title text of graph </td></tr>
+    <tr><td class="paramname">x</td><td>- coordination of graph in X axis </td></tr>
+    <tr><td class="paramname">y</td><td>- coordination of graph in Y axis </td></tr>
+    <tr><td class="paramname">cx</td><td>- size of graph in X axis (width) </td></tr>
+    <tr><td class="paramname">cy</td><td>- size of graph in Y axis (height) </td></tr>
+    <tr><td class="paramname">radius</td><td>- radius of corners </td></tr>
+    <tr><td class="paramname">gx</td><td>- count of grid lines in axis X </td></tr>
+    <tr><td class="paramname">gy</td><td>- count of grid lines in axis Y </td></tr>
+    <tr><td class="paramname">dataLen</td><td>- lenght of internal data buffer. This value extremly impact the memory consumption (memory = dataLen * cntOfTraces) </td></tr>
+    <tr><td class="paramname">fontId</td><td>- Identification number of the used title text font </td></tr>
+    <tr><td class="paramname">lblFontId</td><td>- Identification number of the used labels text font</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This macro create complete <a class="el" href="struct_d4_d___g_r_a_p_h.html">D4D_GRAPH</a> structure, including the object data sub structure. Is used to define all properties of graph. Is used to define all properties of graph. If there is missing parameter that is needed by user application used the full macro <a class="el" href="group__doxd4d__graph__macro.html#ga80adb026561d589956b860c37c92053c">_D4D_DECLARE_GRAPH_BEGIN</a> instead of this one. The main advantage is less parameters of this macro against the full version. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00428">428</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gac7814598a1ad02d236a0dc35310a7bf2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_RGRAPH_BEGIN_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">radius, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dataLen, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fontId, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">lblFontId&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Same as <a class="el" href="group__doxd4d__graph__macro.html#gade48da6109b37adeb866c5189c34d551">D4D_DECLARE_STD_RGRAPH_BEGIN</a>, but is created in RAM instead of the ROM memory. </p>
+
+<p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00456">456</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:06 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_icon.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__icon_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_icon.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__icon_8h__dep__incl.gif" border="0" usemap="#d4d__icon_8hdep" alt=""/></div>
+<map name="d4d__icon_8hdep" id="d4d__icon_8hdep">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="5118,80,5172,107"/><area shape="rect" id="node3" href="d4d__base_8c.html" title="D4D driver core and base function c file. " alt="" coords="5,163,93,189"/><area shape="rect" id="node4" href="d4d__basic__draw_8c.html" title="D4D driver basic drawing functions c file. " alt="" coords="118,163,244,189"/><area shape="rect" id="node5" href="d4d__bmp_8c.html" title="D4D driver bmp decoder functions c file. " alt="" coords="269,163,355,189"/><area shape="rect" id="node6" href="d4d__extsrc_8c.html" title="D4D driver extscr functions c file. " alt="" coords="379,163,476,189"/><area shape="rect" id="node7" href="d4d__font_8c.html" title="D4D driver font c file. " alt="" coords="501,163,584,189"/><area shape="rect" id="node8" href="d4d__imgdec__bmp_8c.html" title="D4D driver external bmp files decoder functions c file. " alt="" coords="609,163,743,189"/><area shape="rect" id="node9" href="d4d__imgdec__d4d_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="768,163,899,189"/><area shape="rect" id="node10" href="d4d__imgdec__d4dint_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="923,163,1068,189"/><area shape="rect" id="node11" href="d4d__low_8c.html" title="D4D driver low level graphic function c file. " alt="" coords="1093,163,1173,189"/><area shape="rect" id="node12" href="d4d__math_8c.html" title="D4D driver math functions c file. " alt="" coords="1197,163,1288,189"/><area shape="rect" id="node13" href="d4d__mouse_8c.html" title="D4D driver core and base function c file. " alt="" coords="1313,163,1412,189"/><area shape="rect" id="node14" href="d4d__object_8c.html" title="D4D driver object function c file. " alt="" coords="1437,163,1533,189"/><area shape="rect" id="node15" href="d4d__scheme_8c.html" title="D4D driver color scheme c file. " alt="" coords="1557,163,1664,189"/><area shape="rect" id="node16" href="d4d__screen_8c.html" title="D4D driver screen functions c file. " alt="" coords="1689,163,1788,189"/><area shape="rect" id="node17" href="d4d__string_8c.html" title="D4D driver font c file. " alt="" coords="1813,163,1907,189"/><area shape="rect" id="node18" href="d4d__button_8c.html" title="D4D driver button object c file. " alt="" coords="1931,163,2028,189"/><area shape="rect" id="node19" href="d4d__check__box_8c.html" title="D4D driver check box object c file. " alt="" coords="2053,163,2176,189"/><area shape="rect" id="node20" href="d4d__combo__box_8c.html" title="D4D driver comboBox object c file. " alt="" coords="2201,163,2329,189"/><area shape="rect" id="node21" href="d4d__console_8c.html" title="D4D driver console object c file. " alt="" coords="2353,163,2460,189"/><area shape="rect" id="node22" href="d4d__edit__box_8c.html" title="D4D driver editBox object c file. " alt="" coords="2485,163,2595,189"/><area shape="rect" id="node23" href="d4d__gauge_8c.html" title="D4D driver gauge object c file. " alt="" coords="2620,163,2716,189"/><area shape="rect" id="node24" href="d4d__graph_8c.html" title="D4D driver graph object c file. " alt="" coords="2740,163,2833,189"/><area shape="rect" id="node25" href="d4d__group__box_8c.html" title="D4D driver groupBox object c file. " alt="" coords="2858,163,2979,189"/><area shape="rect" id="node26" href="d4d__icon_8c.html" title="D4D driver icon object c file. " alt="" coords="3004,163,3089,189"/><area shape="rect" id="node27" href="d4d__label_8c.html" title="D4D driver label object c file. " alt="" coords="3113,163,3201,189"/><area shape="rect" id="node28" href="d4d__list__box_8c.html" title="D4D driver listBox object c file. " alt="" coords="3225,163,3332,189"/><area shape="rect" id="node29" href="d4d__menu_8c.html" title="D4D driver menu object c file. " alt="" coords="3356,163,3449,189"/><area shape="rect" id="node30" href="d4d__picture_8c.html" title="D4D driver picture object c file. " alt="" coords="3474,163,3573,189"/><area shape="rect" id="node31" href="d4d__progress__bar_8c.html" title="D4D driver progress_bar object c file. " alt="" coords="3599,163,3735,189"/><area shape="rect" id="node32" href="d4d__radio__button_8c.html" title="D4D driver radio button object c file. " alt="" coords="3759,163,3891,189"/><area shape="rect" id="node33" href="d4d__scroll__bar_8c.html" title="D4D driver scroll_bar object c file. " alt="" coords="3916,163,4033,189"/><area shape="rect" id="node34" href="d4d__slider_8c.html" title="D4D driver slider object c file. " alt="" coords="4058,163,4149,189"/><area shape="rect" id="node35" href="d4d__text__box_8c.html" title="D4D driver textbox object c file. " alt="" coords="4174,163,4284,189"/><area shape="rect" id="node36" href="d4dlcd__frame__buffer_8c.html" title="D4D driver &#45; frame_buffer lcd driver source c file. " alt="" coords="4309,163,4456,189"/><area shape="rect" id="node37" href="d4dlcd___f_s_a506_8c.html" title="D4D driver &#45; fsa506 lcd driver source c file. " alt="" coords="4481,163,4607,189"/><area shape="rect" id="node38" href="d4dlcd__lgdp4531_8c.html" title="D4D driver &#45; lgdp4531 lcd driver source c file. " alt="" coords="4631,163,4761,189"/><area shape="rect" id="node39" href="d4dlcd___l_s020_8c.html" title="D4D driver &#45; ls020 lcd driver source c file. " alt="" coords="4785,163,4900,189"/><area shape="rect" id="node40" href="d4dlcd___s_s_d1289_8c.html" title="D4D driver &#45; ssd1289 lcd driver source c file. " alt="" coords="4924,163,5057,189"/><area shape="rect" id="node41" href="d4dlcd__ssd1926_8c.html" title="D4D driver &#45; ssd1926 lcd driver source c file. " alt="" coords="5082,163,5208,189"/><area shape="rect" id="node42" href="d4dlcd__template_8c.html" title="D4D driver &#45; template lcd driver source c file. " alt="" coords="5233,163,5361,189"/><area shape="rect" id="node43" href="d4dlcdhw__common_8c.html" title="D4D driver &#45; common general low level drivers c file. " alt="" coords="5385,163,5529,189"/><area shape="rect" id="node44" href="d4dlcdhw__dragonfire__lcdc_8c.html" title="D4D driver &#45; dragonfire_lcdc hardware lcd driver source c file. " alt="" coords="5553,155,5692,197"/><area shape="rect" id="node45" href="d4dlcdhw__flexbus__16b_8c.html" title="D4D driver &#45; flexbus_16b hardware lcd driver source c file. " alt="" coords="5716,163,5879,189"/><area shape="rect" id="node46" href="d4dlcdhw__flexbus__8b_8c.html" title="D4D driver &#45; flexbus_8b hardware lcd driver source c file. " alt="" coords="5903,163,6059,189"/><area shape="rect" id="node47" href="d4dlcdhw__gpio6800__8b_8c.html" title="D4D driver &#45; gpio6800_8b hardware lcd driver source c file. " alt="" coords="6083,163,6249,189"/><area shape="rect" id="node48" href="d4dlcdhw__gpio8080__16b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6274,163,6448,189"/><area shape="rect" id="node49" href="d4dlcdhw__gpio8080__8b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6473,163,6639,189"/><area shape="rect" id="node50" href="d4dlcdhw__gpio8080__byte__8b_8c.html" title="D4D driver &#45; gpio8080_byte_8b hardware lcd driver source c file. " alt="" coords="6663,163,6861,189"/><area shape="rect" id="node51" href="d4dlcdhw__k70__lcdc_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="6887,163,7033,189"/><area shape="rect" id="node52" href="d4dlcdhw__twrrgba_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7057,163,7193,189"/><area shape="rect" id="node53" href="d4dlcdhw__twrrgbb_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7217,163,7353,189"/><area shape="rect" id="node54" href="d4dlcdhw__kinetis__spi_8c.html" title="D4D driver &#45; kinetis_spi hardware lcd driver source c file. " alt="" coords="7378,163,7533,189"/><area shape="rect" id="node55" href="d4dlcdhw__mqx__fb_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7559,163,7695,189"/><area shape="rect" id="node56" href="d4dlcdhw__mqx__mpc5125__diu_8c.html" title="D4D driver &#45; mqx_mpc5125_diu hardware lcd driver source c file. " alt="" coords="7719,155,7887,197"/><area shape="rect" id="node57" href="d4dlcdhw__mqx__spi_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7911,163,8053,189"/><area shape="rect" id="node58" href="d4dlcdhw__px__dcu__fb_8c.html" title="D4D driver &#45; px_dcu_fb hardware lcd driver source c file. " alt="" coords="8078,163,8231,189"/><area shape="rect" id="node59" href="d4dlcdhw__s12__spi__16b_8c.html" title="D4D driver &#45; s12_spi_16b hardware lcd driver source c file. " alt="" coords="8255,163,8421,189"/><area shape="rect" id="node60" href="d4dlcdhw__spi__16b_8c.html" title="D4D driver &#45; spi_16b hardware lcd driver source c file. " alt="" coords="8447,163,8585,189"/><area shape="rect" id="node61" href="d4dlcdhw__spi__8b_8c.html" title="D4D driver &#45; spi_8b hardware lcd driver source c file. " alt="" coords="8610,163,8741,189"/><area shape="rect" id="node62" href="d4dlcdhw__swspi__16b_8c.html" title="D4D driver &#45; swspi_16b hardware lcd driver source c file. " alt="" coords="8767,163,8921,189"/><area shape="rect" id="node63" href="d4dlcdhw__spi__swc__8b_8c.html" title="D4D driver &#45; spi_swc_8b hardware lcd driver source c file. " alt="" coords="8945,163,9108,189"/><area shape="rect" id="node64" href="d4dlcdhw__template_8c.html" title="D4D driver &#45; template hardware lcd driver source c file. " alt="" coords="9132,163,9276,189"/><area shape="rect" id="node65" href="d4dlcdhw__template__fb_8c.html" title="D4D driver &#45; template_fb hardware lcd driver source c file. " alt="" coords="9301,163,9461,189"/><area shape="rect" id="node66" href="d4dtch__cr__touch_8c.html" title="D4D driver &#45; cr_touch touch screen driver source c file. " alt="" coords="9486,163,9615,189"/><area shape="rect" id="node67" href="hw__iic__cfg_8h.html" title="HardI2C configuration. " alt="" coords="9640,163,9733,189"/><area shape="rect" id="node69" href="mqx__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9758,163,9836,189"/><area shape="rect" id="node70" href="d4dtch__mcf52277__asp_8c.html" title="D4D driver &#45; mcf52277_asp touch screen driver source c file. " alt="" coords="9861,163,10024,189"/><area shape="rect" id="node71" href="d4dtch__resistive_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10049,163,10175,189"/><area shape="rect" id="node72" href="d4dtch__resistive__mqx_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10199,163,10357,189"/><area shape="rect" id="node73" href="d4dtch__template_8c.html" title="D4D driver &#45; template touch screen driver source c file. " alt="" coords="10382,163,10511,189"/><area shape="rect" id="node74" href="d4dtch___t_s_c2046_8c.html" title="D4D driver &#45; tsc2046 touch screen driver source c file. " alt="" coords="10535,163,10667,189"/><area shape="rect" id="node75" href="d4dtchhw__kinetis__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="10691,163,10852,189"/><area shape="rect" id="node76" href="d4dtchhw__mcf52259__adc_8c.html" title="D4D driver &#45; mcf52259_adc hardware touch screen driver source c file. " alt="" coords="10877,163,11056,189"/><area shape="rect" id="node77" href="d4dtchhw__px__adc_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11081,163,11217,189"/><area shape="rect" id="node78" href="d4dtchhw__s08__adc_8c.html" title="D4D driver &#45; s08_adc hardware touch screen driver source c file. " alt="" coords="11243,163,11387,189"/><area shape="rect" id="node79" href="d4dtchhw__s12__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="11411,163,11555,189"/><area shape="rect" id="node80" href="d4dtchhw__template_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11579,163,11724,189"/><area shape="rect" id="node68" href="hw__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9652,245,9721,272"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga0439c2efbd46f0c5189c31a644ab1c5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__const.html#ga0439c2efbd46f0c5189c31a644ab1c5a">D4D_ICON_F_DEFAULT</a></td></tr>
+<tr class="memdesc:ga0439c2efbd46f0c5189c31a644ab1c5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is icon init flags. If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a>) as a default.  <a href="group__doxd4d__icon__const.html#ga0439c2efbd46f0c5189c31a644ab1c5a">More...</a><br/></td></tr>
+<tr class="separator:ga0439c2efbd46f0c5189c31a644ab1c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa53c8a2ea0214c37c344ac37669c68c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__const.html#gaa53c8a2ea0214c37c344ac37669c68c3">D4D_ICON_TXT_PRTY_DEFAULT</a></td></tr>
+<tr class="memdesc:gaa53c8a2ea0214c37c344ac37669c68c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is icon init text properties. If not defined, it sets to (<a class="el" href="group__doxd4d__base__const__alignmasks.html#ga48c85b4a97dd8dfb1edab7a36a137f47">D4D_ALIGN_H_CENTER_MASK</a> | <a class="el" href="group__doxd4d__base__const__alignmasks.html#gae3a0f990c3d5852c221f25bab2837016">D4D_ALIGN_V_CENTER_MASK</a>) as a default.  <a href="group__doxd4d__icon__const.html#gaa53c8a2ea0214c37c344ac37669c68c3">More...</a><br/></td></tr>
+<tr class="separator:gaa53c8a2ea0214c37c344ac37669c68c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95b401b8795e88357f208f54dfe2d2b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__const.html#ga95b401b8795e88357f208f54dfe2d2b4">D4D_ICON_FNT_PRTY_DEFAULT</a></td></tr>
+<tr class="memdesc:ga95b401b8795e88357f208f54dfe2d2b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is icon init font properties. If not defined, it sets to ( 0 ) as a default.  <a href="group__doxd4d__icon__const.html#ga95b401b8795e88357f208f54dfe2d2b4">More...</a><br/></td></tr>
+<tr class="separator:ga95b401b8795e88357f208f54dfe2d2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ac9a2d838a597293470ed2015bcb19c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__const.html#ga8ac9a2d838a597293470ed2015bcb19c">D4D_ICON_ENABLE_ANIMATION</a></td></tr>
+<tr class="memdesc:ga8ac9a2d838a597293470ed2015bcb19c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is icon enable code for icon animation support If not defined, it sets to D4D_TRUE as a default.  <a href="group__doxd4d__icon__const.html#ga8ac9a2d838a597293470ed2015bcb19c">More...</a><br/></td></tr>
+<tr class="separator:ga8ac9a2d838a597293470ed2015bcb19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f75e0c638fd6ec9e7dd657ca890fa51"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__const.html#ga0f75e0c638fd6ec9e7dd657ca890fa51">D4D_ICON_ANIMATION_TICK_COUNTER</a></td></tr>
+<tr class="memdesc:ga0f75e0c638fd6ec9e7dd657ca890fa51"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is icon animation time tick timeout (in ticks of eGUI time ticks - <a class="el" href="group__doxd4d__base__func.html#ga1afbf6cc87b1619c12b0fa88fad7d53a">D4D_TimeTickPut</a>), it can be changed in runtime. If not defined, it sets to ( 4 ) as a default.  <a href="group__doxd4d__icon__const.html#ga0f75e0c638fd6ec9e7dd657ca890fa51">More...</a><br/></td></tr>
+<tr class="separator:ga0f75e0c638fd6ec9e7dd657ca890fa51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30c2754b6a60ceca241d98dbefd0df78"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__icon_8h.html#a30c2754b6a60ceca241d98dbefd0df78">D4D_GET_ICON</a>(pObj)</td></tr>
+<tr class="separator:a30c2754b6a60ceca241d98dbefd0df78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ab1503d9780ad683d704f58ab09892d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__macro.html#ga6ab1503d9780ad683d704f58ab09892d">_D4D_DECLARE_ICON_BEGIN</a>(type, name, text, x, y, cx, cy, tx, ty, radius, pMargin, pRelations, flags, pScheme, fontId, pUser, pOnValch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga6ab1503d9780ad683d704f58ab09892d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Icon object structure in memory including all substructures.  <a href="group__doxd4d__icon__macro.html#ga6ab1503d9780ad683d704f58ab09892d">More...</a><br/></td></tr>
+<tr class="separator:ga6ab1503d9780ad683d704f58ab09892d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9908d311317c28af68de9de93595f003"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__macro.html#ga9908d311317c28af68de9de93595f003">D4D_DECLARE_ICON_BMP</a>(pBmp)</td></tr>
+<tr class="memdesc:ga9908d311317c28af68de9de93595f003"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that adds one bitmap to icon object list.  <a href="group__doxd4d__icon__macro.html#ga9908d311317c28af68de9de93595f003">More...</a><br/></td></tr>
+<tr class="separator:ga9908d311317c28af68de9de93595f003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabae11815155672f06e8d6ec2897d0c7f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__macro.html#gabae11815155672f06e8d6ec2897d0c7f">D4D_DECLARE_ICON_END</a>()</td></tr>
+<tr class="memdesc:gabae11815155672f06e8d6ec2897d0c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that ends the icon object declaration.  <a href="group__doxd4d__icon__macro.html#gabae11815155672f06e8d6ec2897d0c7f">More...</a><br/></td></tr>
+<tr class="separator:gabae11815155672f06e8d6ec2897d0c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ec31096c3576d8b744009c8d6b661e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__macro.html#ga1ec31096c3576d8b744009c8d6b661e3">D4D_DECLARE_ICON_BEGIN</a>(name, text, x, y, cx, cy, tx, ty, flags, pScheme, fontId, pUser, pOnValch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga1ec31096c3576d8b744009c8d6b661e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Icon object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="group__doxd4d__icon__macro.html#ga1ec31096c3576d8b744009c8d6b661e3">More...</a><br/></td></tr>
+<tr class="separator:ga1ec31096c3576d8b744009c8d6b661e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga631dfb37b6e7b29dc85fdf61285833a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__macro.html#ga631dfb37b6e7b29dc85fdf61285833a0">D4D_DECLARE_STD_ICON_BEGIN</a>(name, text, x, y, cx, cy, tx, ty, fontId, pOnValch)</td></tr>
+<tr class="memdesc:ga631dfb37b6e7b29dc85fdf61285833a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Icon object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values.  <a href="group__doxd4d__icon__macro.html#ga631dfb37b6e7b29dc85fdf61285833a0">More...</a><br/></td></tr>
+<tr class="separator:ga631dfb37b6e7b29dc85fdf61285833a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0fbb9788b2333f84101ec775ec5491f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__macro.html#ga0fbb9788b2333f84101ec775ec5491f6">D4D_DECLARE_RICON_BEGIN</a>(name, text, x, y, cx, cy, tx, ty, radius, flags, pScheme, fontId, pUser, pOnValch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga0fbb9788b2333f84101ec775ec5491f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Icon object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="group__doxd4d__icon__macro.html#ga0fbb9788b2333f84101ec775ec5491f6">More...</a><br/></td></tr>
+<tr class="separator:ga0fbb9788b2333f84101ec775ec5491f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga62201be830664da63a9002d8aa1b6149"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__macro.html#ga62201be830664da63a9002d8aa1b6149">D4D_DECLARE_STD_RICON_BEGIN</a>(name, text, x, y, cx, cy, tx, ty, radius, fontId, pOnValch)</td></tr>
+<tr class="memdesc:ga62201be830664da63a9002d8aa1b6149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the rounded Icon object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values.  <a href="group__doxd4d__icon__macro.html#ga62201be830664da63a9002d8aa1b6149">More...</a><br/></td></tr>
+<tr class="separator:ga62201be830664da63a9002d8aa1b6149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8530405e2a535e4c6d8632cf039063f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__macro.html#ga8530405e2a535e4c6d8632cf039063f2">D4D_DECLARE_ICON_BEGIN_INRAM</a>(name, text, x, y, cx, cy, tx, ty, flags, pScheme, fontId, pUser, pOnValch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga8530405e2a535e4c6d8632cf039063f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__icon__macro.html#ga1ec31096c3576d8b744009c8d6b661e3">D4D_DECLARE_ICON_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="group__doxd4d__icon__macro.html#ga8530405e2a535e4c6d8632cf039063f2">More...</a><br/></td></tr>
+<tr class="separator:ga8530405e2a535e4c6d8632cf039063f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade8731df867f27ca52e73c4cc7709f12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__macro.html#gade8731df867f27ca52e73c4cc7709f12">D4D_DECLARE_STD_ICON_BEGIN_INRAM</a>(name, text, x, y, cx, cy, tx, ty, fontId, onvalch)</td></tr>
+<tr class="memdesc:gade8731df867f27ca52e73c4cc7709f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__icon__macro.html#ga631dfb37b6e7b29dc85fdf61285833a0">D4D_DECLARE_STD_ICON_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="group__doxd4d__icon__macro.html#gade8731df867f27ca52e73c4cc7709f12">More...</a><br/></td></tr>
+<tr class="separator:gade8731df867f27ca52e73c4cc7709f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4e79a29e830a366569cb9ce560f3cbc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__macro.html#gae4e79a29e830a366569cb9ce560f3cbc">D4D_DECLARE_RICON_BEGIN_INRAM</a>(name, text, x, y, cx, cy, tx, ty, radius, flags, pScheme, fontId, pUser, pOnValch, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gae4e79a29e830a366569cb9ce560f3cbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__icon__macro.html#ga6ab1503d9780ad683d704f58ab09892d">_D4D_DECLARE_ICON_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="group__doxd4d__icon__macro.html#gae4e79a29e830a366569cb9ce560f3cbc">More...</a><br/></td></tr>
+<tr class="separator:gae4e79a29e830a366569cb9ce560f3cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaae884939be1e8ca8e7e48fde7a7bf5c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__macro.html#gaae884939be1e8ca8e7e48fde7a7bf5c7">D4D_DECLARE_STD_RICON_BEGIN_INRAM</a>(name, text, x, y, cx, cy, tx, ty, radius, fontId, onvalch)</td></tr>
+<tr class="memdesc:gaae884939be1e8ca8e7e48fde7a7bf5c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__icon__macro.html#ga0fbb9788b2333f84101ec775ec5491f6">D4D_DECLARE_RICON_BEGIN</a>, but is created in RAM instead of the ROM memory.  <a href="group__doxd4d__icon__macro.html#gaae884939be1e8ca8e7e48fde7a7bf5c7">More...</a><br/></td></tr>
+<tr class="separator:gaae884939be1e8ca8e7e48fde7a7bf5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97c09f4c7a163a860dd9343edf2ee23b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__icon_8h.html#a97c09f4c7a163a860dd9343edf2ee23b">D4D_DECLARE_STD_ICON1</a>(name, text, x, y, cx, cy, tx, ty, pBmp0, font, onvalch)</td></tr>
+<tr class="separator:a97c09f4c7a163a860dd9343edf2ee23b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7585f63466db4264763eede6c5aa741b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__icon_8h.html#a7585f63466db4264763eede6c5aa741b">D4D_DECLARE_STD_ICON2</a>(name, text, x, y, cx, cy, tx, ty, pBmp1, pBmp0, font, onvalch)</td></tr>
+<tr class="separator:a7585f63466db4264763eede6c5aa741b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa30702e18e57315a69e90ea9ff27a8d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__icon_8h.html#aa30702e18e57315a69e90ea9ff27a8d3">D4D_DECLARE_STD_ICON1_INRAM</a>(name, text, x, y, cx, cy, tx, ty, pBmp0, font, onvalch)</td></tr>
+<tr class="separator:aa30702e18e57315a69e90ea9ff27a8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0439224b66764d2bfe7b1961588f416f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__icon_8h.html#a0439224b66764d2bfe7b1961588f416f">D4D_DECLARE_STD_ICON2_INRAM</a>(name, text, x, y, cx, cy, tx, ty, pBmp1, pBmp0, font, onvalch)</td></tr>
+<tr class="separator:a0439224b66764d2bfe7b1961588f416f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d2e2e90a1460d431476a511db08e122"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__icon_8h.html#a1d2e2e90a1460d431476a511db08e122">D4D_IconSetText</a></td></tr>
+<tr class="separator:a1d2e2e90a1460d431476a511db08e122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:gaa6802cffc0c92a776e2ca2346d538655"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__type.html#gaa6802cffc0c92a776e2ca2346d538655">D4D_ICON_ON_CHANGE</a> )(<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis)</td></tr>
+<tr class="memdesc:gaa6802cffc0c92a776e2ca2346d538655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type definition of icon on change callback function.  <a href="group__doxd4d__icon__type.html#gaa6802cffc0c92a776e2ca2346d538655">More...</a><br/></td></tr>
+<tr class="separator:gaa6802cffc0c92a776e2ca2346d538655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8eed76eceae16e4e86005b604b5e3ad"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a></td></tr>
+<tr class="memdesc:gaa8eed76eceae16e4e86005b604b5e3ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is icon index variable, it used in API functions to choose the active icon in the list.  <a href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">More...</a><br/></td></tr>
+<tr class="separator:gaa8eed76eceae16e4e86005b604b5e3ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae6354901fc7b417c9a2b73dc8a536af"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__icon_8h.html#aae6354901fc7b417c9a2b73dc8a536af">D4D_ICON_BMPS</a></td></tr>
+<tr class="separator:aae6354901fc7b417c9a2b73dc8a536af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gac995ed6c5a43718a15c84bc7945831d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__func.html#gac995ed6c5a43718a15c84bc7945831d9">D4D_IconSetIndex</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a> index)</td></tr>
+<tr class="memdesc:gac995ed6c5a43718a15c84bc7945831d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function sets the new bitmap of icon by icon index.  <a href="group__doxd4d__icon__func.html#gac995ed6c5a43718a15c84bc7945831d9">More...</a><br/></td></tr>
+<tr class="separator:gac995ed6c5a43718a15c84bc7945831d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e63c380dbb0c6237f6282db00c8e08c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__func.html#ga7e63c380dbb0c6237f6282db00c8e08c">D4D_IconChangeIndex</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db">sByte</a> incr)</td></tr>
+<tr class="memdesc:ga7e63c380dbb0c6237f6282db00c8e08c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function sets the new bitmap of icon by icon index difference.  <a href="group__doxd4d__icon__func.html#ga7e63c380dbb0c6237f6282db00c8e08c">More...</a><br/></td></tr>
+<tr class="separator:ga7e63c380dbb0c6237f6282db00c8e08c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91c5123a72f9617c193a3408a5fd39db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__func.html#ga91c5123a72f9617c193a3408a5fd39db">D4D_IconGetIndex</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:ga91c5123a72f9617c193a3408a5fd39db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function returns current visible bitmap index.  <a href="group__doxd4d__icon__func.html#ga91c5123a72f9617c193a3408a5fd39db">More...</a><br/></td></tr>
+<tr class="separator:ga91c5123a72f9617c193a3408a5fd39db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab4fd525ec7b62f0019946965b96f06af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__func.html#gab4fd525ec7b62f0019946965b96f06af">D4D_IconAnimationStart</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:gab4fd525ec7b62f0019946965b96f06af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function starts the animation of icon.  <a href="group__doxd4d__icon__func.html#gab4fd525ec7b62f0019946965b96f06af">More...</a><br/></td></tr>
+<tr class="separator:gab4fd525ec7b62f0019946965b96f06af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95d72deffa099e2d17a482b2f0997080"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__func.html#ga95d72deffa099e2d17a482b2f0997080">D4D_IconAnimationStop</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:ga95d72deffa099e2d17a482b2f0997080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function stops the animation of icon.  <a href="group__doxd4d__icon__func.html#ga95d72deffa099e2d17a482b2f0997080">More...</a><br/></td></tr>
+<tr class="separator:ga95d72deffa099e2d17a482b2f0997080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78b220f62c90293dc7322f536b642ed7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__func.html#ga78b220f62c90293dc7322f536b642ed7">D4D_IconAnimationSetCounts</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> cnt)</td></tr>
+<tr class="memdesc:ga78b220f62c90293dc7322f536b642ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function sets the time tick tresholds for animation speed.  <a href="group__doxd4d__icon__func.html#ga78b220f62c90293dc7322f536b642ed7">More...</a><br/></td></tr>
+<tr class="separator:ga78b220f62c90293dc7322f536b642ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95c35a5b19281ec8b5461304adbae0d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__icon__type.html#gaa8eed76eceae16e4e86005b604b5e3ad">D4D_ICON_INDEX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__icon__func.html#ga95c35a5b19281ec8b5461304adbae0d3">D4D_IconGetBmpCount</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:ga95c35a5b19281ec8b5461304adbae0d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function returns the icon bitmap count.  <a href="group__doxd4d__icon__func.html#ga95c35a5b19281ec8b5461304adbae0d3">More...</a><br/></td></tr>
+<tr class="separator:ga95c35a5b19281ec8b5461304adbae0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:af58fc9c0e43d41472f4f9d3addf2474d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__icon_8h.html#af58fc9c0e43d41472f4f9d3addf2474d">d4d_iconSysFunc</a></td></tr>
+<tr class="separator:af58fc9c0e43d41472f4f9d3addf2474d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D Driver icon object header file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.46.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Jan-14-2014 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__icon_8h_source.html">d4d_icon.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a97c09f4c7a163a860dd9343edf2ee23b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_ICON1</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp0, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__icon_8h_source.html#l00402">402</a> of file <a class="el" href="d4d__icon_8h_source.html">d4d_icon.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa30702e18e57315a69e90ea9ff27a8d3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_ICON1_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp0, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__icon_8h_source.html#l00413">413</a> of file <a class="el" href="d4d__icon_8h_source.html">d4d_icon.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7585f63466db4264763eede6c5aa741b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_ICON2</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp0, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__icon_8h_source.html#l00407">407</a> of file <a class="el" href="d4d__icon_8h_source.html">d4d_icon.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0439224b66764d2bfe7b1961588f416f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_DECLARE_STD_ICON2_INRAM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">text, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">y, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cy, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tx, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ty, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pBmp0, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">font, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">onvalch&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__icon_8h_source.html#l00418">418</a> of file <a class="el" href="d4d__icon_8h_source.html">d4d_icon.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a30c2754b6a60ceca241d98dbefd0df78"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_GET_ICON</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pObj</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__icon_8h_source.html#l00149">149</a> of file <a class="el" href="d4d__icon_8h_source.html">d4d_icon.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__icon_8c_source.html#l00259">D4D_IconAnimationSetCounts()</a>, <a class="el" href="d4d__icon_8c_source.html#l00222">D4D_IconAnimationStart()</a>, <a class="el" href="d4d__icon_8c_source.html#l00242">D4D_IconAnimationStop()</a>, <a class="el" href="d4d__icon_8c_source.html#l00190">D4D_IconChangeIndex()</a>, <a class="el" href="d4d__icon_8c_source.html#l00137">D4D_IconGetBmpCount()</a>, <a class="el" href="d4d__icon_8c_source.html#l00207">D4D_IconGetIndex()</a>, <a class="el" href="d4d__icon_8c_source.html#l00345">D4D_IconGetTextBuffer()</a>, <a class="el" href="d4d__icon_8c_source.html#l00091">D4D_IconOnDraw()</a>, <a class="el" href="d4d__icon_8c_source.html#l00290">D4D_IconOnMessage()</a>, <a class="el" href="d4d__icon_8c_source.html#l00158">D4D_IconSetIndex()</a>, and <a class="el" href="d4d__icon_8c_source.html#l00073">D4D_IconValue2Coor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1d2e2e90a1460d431476a511db08e122"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_IconSetText</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__icon_8h_source.html#l00449">449</a> of file <a class="el" href="d4d__icon_8h_source.html">d4d_icon.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="aae6354901fc7b417c9a2b73dc8a536af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a> <a class="el" href="d4d__icon_8h.html#aae6354901fc7b417c9a2b73dc8a536af">D4D_ICON_BMPS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__icon_8h_source.html#l00119">119</a> of file <a class="el" href="d4d__icon_8h_source.html">d4d_icon.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="af58fc9c0e43d41472f4f9d3addf2474d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a> d4d_iconSysFunc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__icon_8c_source.html#l00054">54</a> of file <a class="el" href="d4d__icon_8c_source.html">d4d_icon.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__icon_8h.html">d4d_icon.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:02 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<map id="d4d_types.h" name="d4d_types.h">
+<area shape="rect" id="node2" href="$d4d__lldapi_8h.html" title="D4D driver &#45; resistive touch screen driver function header file. " alt="" coords="7520,80,7611,107"/>
+<area shape="rect" id="node61" href="$d4d_8h.html" title="D4D Driver main header file. " alt="" coords="5865,80,5919,107"/>
+<area shape="rect" id="node3" href="$d4d__base_8c.html" title="D4D driver core and base function c file. " alt="" coords="9573,163,9661,189"/>
+<area shape="rect" id="node4" href="$d4d__basic__draw_8c.html" title="D4D driver basic drawing functions c file. " alt="" coords="9686,163,9812,189"/>
+<area shape="rect" id="node5" href="$d4d__bmp_8c.html" title="D4D driver bmp decoder functions c file. " alt="" coords="9837,163,9923,189"/>
+<area shape="rect" id="node6" href="$d4d__extsrc_8c.html" title="D4D driver extscr functions c file. " alt="" coords="9947,163,10044,189"/>
+<area shape="rect" id="node7" href="$d4d__font_8c.html" title="D4D driver font c file. " alt="" coords="10069,163,10152,189"/>
+<area shape="rect" id="node8" href="$d4d__imgdec__bmp_8c.html" title="D4D driver external bmp files decoder functions c file. " alt="" coords="10177,163,10311,189"/>
+<area shape="rect" id="node9" href="$d4d__imgdec__d4d_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="10336,163,10467,189"/>
+<area shape="rect" id="node10" href="$d4d__imgdec__d4dint_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="10491,163,10636,189"/>
+<area shape="rect" id="node11" href="$d4d__low_8c.html" title="D4D driver low level graphic function c file. " alt="" coords="10661,163,10741,189"/>
+<area shape="rect" id="node12" href="$d4d__mouse_8c.html" title="D4D driver core and base function c file. " alt="" coords="10766,163,10865,189"/>
+<area shape="rect" id="node13" href="$d4d__screen_8c.html" title="D4D driver screen functions c file. " alt="" coords="10890,163,10989,189"/>
+<area shape="rect" id="node14" href="$d4d__string_8c.html" title="D4D driver font c file. " alt="" coords="11015,163,11108,189"/>
+<area shape="rect" id="node15" href="$d4dlcd__frame__buffer_8c.html" title="D4D driver &#45; frame_buffer lcd driver source c file. " alt="" coords="11133,163,11280,189"/>
+<area shape="rect" id="node16" href="$d4dlcd___f_s_a506_8c.html" title="D4D driver &#45; fsa506 lcd driver source c file. " alt="" coords="11305,163,11431,189"/>
+<area shape="rect" id="node17" href="$d4dlcd__lgdp4531_8c.html" title="D4D driver &#45; lgdp4531 lcd driver source c file. " alt="" coords="11455,163,11585,189"/>
+<area shape="rect" id="node18" href="$d4dlcd___l_s020_8c.html" title="D4D driver &#45; ls020 lcd driver source c file. " alt="" coords="11609,163,11724,189"/>
+<area shape="rect" id="node19" href="$d4dlcd___s_s_d1289_8c.html" title="D4D driver &#45; ssd1289 lcd driver source c file. " alt="" coords="2748,163,2881,189"/>
+<area shape="rect" id="node20" href="$d4dlcd__ssd1926_8c.html" title="D4D driver &#45; ssd1926 lcd driver source c file. " alt="" coords="2906,163,3032,189"/>
+<area shape="rect" id="node21" href="$d4dlcd__template_8c.html" title="D4D driver &#45; template lcd driver source c file. " alt="" coords="3057,163,3185,189"/>
+<area shape="rect" id="node22" href="$d4dlcdhw__common_8c.html" title="D4D driver &#45; common general low level drivers c file. " alt="" coords="3209,163,3353,189"/>
+<area shape="rect" id="node23" href="$d4dlcdhw__dragonfire__lcdc_8c.html" title="D4D driver &#45; dragonfire_lcdc hardware lcd driver source c file. " alt="" coords="3377,155,3516,197"/>
+<area shape="rect" id="node24" href="$d4dlcdhw__flexbus__16b_8c.html" title="D4D driver &#45; flexbus_16b hardware lcd driver source c file. " alt="" coords="3540,163,3703,189"/>
+<area shape="rect" id="node25" href="$d4dlcdhw__flexbus__8b_8c.html" title="D4D driver &#45; flexbus_8b hardware lcd driver source c file. " alt="" coords="3727,163,3883,189"/>
+<area shape="rect" id="node26" href="$d4dlcdhw__gpio6800__8b_8c.html" title="D4D driver &#45; gpio6800_8b hardware lcd driver source c file. " alt="" coords="3907,163,4073,189"/>
+<area shape="rect" id="node27" href="$d4dlcdhw__gpio8080__16b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="4098,163,4272,189"/>
+<area shape="rect" id="node28" href="$d4dlcdhw__gpio8080__8b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="4297,163,4463,189"/>
+<area shape="rect" id="node29" href="$d4dlcdhw__gpio8080__byte__8b_8c.html" title="D4D driver &#45; gpio8080_byte_8b hardware lcd driver source c file. " alt="" coords="4487,163,4685,189"/>
+<area shape="rect" id="node30" href="$d4dlcdhw__k70__lcdc_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="4711,163,4857,189"/>
+<area shape="rect" id="node31" href="$d4dlcdhw__twrrgba_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="4881,163,5017,189"/>
+<area shape="rect" id="node32" href="$d4dlcdhw__twrrgbb_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="5041,163,5177,189"/>
+<area shape="rect" id="node33" href="$d4dlcdhw__kinetis__spi_8c.html" title="D4D driver &#45; kinetis_spi hardware lcd driver source c file. " alt="" coords="5202,163,5357,189"/>
+<area shape="rect" id="node34" href="$d4dlcdhw__mqx__fb_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="5383,163,5519,189"/>
+<area shape="rect" id="node35" href="$d4dlcdhw__mqx__mpc5125__diu_8c.html" title="D4D driver &#45; mqx_mpc5125_diu hardware lcd driver source c file. " alt="" coords="5543,155,5711,197"/>
+<area shape="rect" id="node36" href="$d4dlcdhw__mqx__spi_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="5735,163,5877,189"/>
+<area shape="rect" id="node37" href="$d4dlcdhw__px__dcu__fb_8c.html" title="D4D driver &#45; px_dcu_fb hardware lcd driver source c file. " alt="" coords="5902,163,6055,189"/>
+<area shape="rect" id="node38" href="$d4dlcdhw__s12__spi__16b_8c.html" title="D4D driver &#45; s12_spi_16b hardware lcd driver source c file. " alt="" coords="6079,163,6245,189"/>
+<area shape="rect" id="node39" href="$d4dlcdhw__spi__16b_8c.html" title="D4D driver &#45; spi_16b hardware lcd driver source c file. " alt="" coords="6271,163,6409,189"/>
+<area shape="rect" id="node40" href="$d4dlcdhw__spi__8b_8c.html" title="D4D driver &#45; spi_8b hardware lcd driver source c file. " alt="" coords="6434,163,6565,189"/>
+<area shape="rect" id="node41" href="$d4dlcdhw__swspi__16b_8c.html" title="D4D driver &#45; swspi_16b hardware lcd driver source c file. " alt="" coords="6591,163,6745,189"/>
+<area shape="rect" id="node42" href="$d4dlcdhw__spi__swc__8b_8c.html" title="D4D driver &#45; spi_swc_8b hardware lcd driver source c file. " alt="" coords="6769,163,6932,189"/>
+<area shape="rect" id="node43" href="$d4dlcdhw__template_8c.html" title="D4D driver &#45; template hardware lcd driver source c file. " alt="" coords="6956,163,7100,189"/>
+<area shape="rect" id="node44" href="$d4dlcdhw__template__fb_8c.html" title="D4D driver &#45; template_fb hardware lcd driver source c file. " alt="" coords="7125,163,7285,189"/>
+<area shape="rect" id="node45" href="$d4dtch__cr__touch_8c.html" title="D4D driver &#45; cr_touch touch screen driver source c file. " alt="" coords="7310,163,7439,189"/>
+<area shape="rect" id="node46" href="$hw__iic__cfg_8h.html" title="HardI2C configuration. " alt="" coords="7464,163,7557,189"/>
+<area shape="rect" id="node48" href="$mqx__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="7582,163,7660,189"/>
+<area shape="rect" id="node49" href="$mqx__iic__cfg_8h.html" title="HardI2C configuration. " alt="" coords="11749,163,11851,189"/>
+<area shape="rect" id="node50" href="$d4dtch__mcf52277__asp_8c.html" title="D4D driver &#45; mcf52277_asp touch screen driver source c file. " alt="" coords="7685,163,7848,189"/>
+<area shape="rect" id="node51" href="$d4dtch__resistive_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="7873,163,7999,189"/>
+<area shape="rect" id="node52" href="$d4dtch__resistive__mqx_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="8023,163,8181,189"/>
+<area shape="rect" id="node53" href="$d4dtch__template_8c.html" title="D4D driver &#45; template touch screen driver source c file. " alt="" coords="8206,163,8335,189"/>
+<area shape="rect" id="node54" href="$d4dtch___t_s_c2046_8c.html" title="D4D driver &#45; tsc2046 touch screen driver source c file. " alt="" coords="8359,163,8491,189"/>
+<area shape="rect" id="node55" href="$d4dtchhw__kinetis__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="8515,163,8676,189"/>
+<area shape="rect" id="node56" href="$d4dtchhw__mcf52259__adc_8c.html" title="D4D driver &#45; mcf52259_adc hardware touch screen driver source c file. " alt="" coords="8701,163,8880,189"/>
+<area shape="rect" id="node57" href="$d4dtchhw__px__adc_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="8905,163,9041,189"/>
+<area shape="rect" id="node58" href="$d4dtchhw__s08__adc_8c.html" title="D4D driver &#45; s08_adc hardware touch screen driver source c file. " alt="" coords="9067,163,9211,189"/>
+<area shape="rect" id="node59" href="$d4dtchhw__s12__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="9235,163,9379,189"/>
+<area shape="rect" id="node60" href="$d4dtchhw__template_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="9403,163,9548,189"/>
+<area shape="rect" id="node47" href="$hw__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="7476,245,7545,272"/>
+<area shape="rect" id="node62" href="$d4d__math_8c.html" title="D4D driver math functions c file. " alt="" coords="2383,163,2473,189"/>
+<area shape="rect" id="node63" href="$d4d__object_8c.html" title="D4D driver object function c file. " alt="" coords="2497,163,2593,189"/>
+<area shape="rect" id="node64" href="$d4d__scheme_8c.html" title="D4D driver color scheme c file. " alt="" coords="2617,163,2724,189"/>
+<area shape="rect" id="node65" href="$d4d__button_8c.html" title="D4D driver button object c file. " alt="" coords="5,163,101,189"/>
+<area shape="rect" id="node66" href="$d4d__check__box_8c.html" title="D4D driver check box object c file. " alt="" coords="126,163,249,189"/>
+<area shape="rect" id="node67" href="$d4d__combo__box_8c.html" title="D4D driver comboBox object c file. " alt="" coords="275,163,403,189"/>
+<area shape="rect" id="node68" href="$d4d__console_8c.html" title="D4D driver console object c file. " alt="" coords="427,163,533,189"/>
+<area shape="rect" id="node69" href="$d4d__edit__box_8c.html" title="D4D driver editBox object c file. " alt="" coords="558,163,668,189"/>
+<area shape="rect" id="node70" href="$d4d__gauge_8c.html" title="D4D driver gauge object c file. " alt="" coords="693,163,789,189"/>
+<area shape="rect" id="node71" href="$d4d__graph_8c.html" title="D4D driver graph object c file. " alt="" coords="813,163,907,189"/>
+<area shape="rect" id="node72" href="$d4d__group__box_8c.html" title="D4D driver groupBox object c file. " alt="" coords="931,163,1052,189"/>
+<area shape="rect" id="node73" href="$d4d__icon_8c.html" title="D4D driver icon object c file. " alt="" coords="1077,163,1163,189"/>
+<area shape="rect" id="node74" href="$d4d__label_8c.html" title="D4D driver label object c file. " alt="" coords="1187,163,1275,189"/>
+<area shape="rect" id="node75" href="$d4d__list__box_8c.html" title="D4D driver listBox object c file. " alt="" coords="1299,163,1405,189"/>
+<area shape="rect" id="node76" href="$d4d__menu_8c.html" title="D4D driver menu object c file. " alt="" coords="1429,163,1523,189"/>
+<area shape="rect" id="node77" href="$d4d__picture_8c.html" title="D4D driver picture object c file. " alt="" coords="1547,163,1647,189"/>
+<area shape="rect" id="node78" href="$d4d__progress__bar_8c.html" title="D4D driver progress_bar object c file. " alt="" coords="1672,163,1808,189"/>
+<area shape="rect" id="node79" href="$d4d__radio__button_8c.html" title="D4D driver radio button object c file. " alt="" coords="1833,163,1964,189"/>
+<area shape="rect" id="node80" href="$d4d__scroll__bar_8c.html" title="D4D driver scroll_bar object c file. " alt="" coords="1989,163,2107,189"/>
+<area shape="rect" id="node81" href="$d4d__slider_8c.html" title="D4D driver slider object c file. " alt="" coords="2131,163,2223,189"/>
+<area shape="rect" id="node82" href="$d4d__text__box_8c.html" title="D4D driver textbox object c file. " alt="" coords="2247,163,2357,189"/>
+</map>

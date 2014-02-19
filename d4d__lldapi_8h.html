@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_lldapi.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__lldapi_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_lldapi.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;d4d_user_cfg.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="d4d__types_8h_source.html">common_files/d4d_types.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for d4d_lldapi.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__lldapi_8h__incl.gif" border="0" usemap="#d4d__lldapi_8h" alt=""/></div>
+<map name="d4d__lldapi_8h" id="d4d__lldapi_8h">
+<area shape="rect" id="node3" href="d4d__types_8h.html" title="D4D Driver global types header file. " alt="" coords="139,80,316,107"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__lldapi_8h__dep__incl.gif" border="0" usemap="#d4d__lldapi_8hdep" alt=""/></div>
+<map name="d4d__lldapi_8hdep" id="d4d__lldapi_8hdep">
+<area shape="rect" id="node2" href="d4d__base_8c.html" title="D4D driver core and base function c file. " alt="" coords="5,88,93,115"/><area shape="rect" id="node3" href="d4d__basic__draw_8c.html" title="D4D driver basic drawing functions c file. " alt="" coords="118,88,244,115"/><area shape="rect" id="node4" href="d4d__bmp_8c.html" title="D4D driver bmp decoder functions c file. " alt="" coords="269,88,355,115"/><area shape="rect" id="node5" href="d4d__extsrc_8c.html" title="D4D driver extscr functions c file. " alt="" coords="379,88,476,115"/><area shape="rect" id="node6" href="d4d__font_8c.html" title="D4D driver font c file. " alt="" coords="501,88,584,115"/><area shape="rect" id="node7" href="d4d__imgdec__bmp_8c.html" title="D4D driver external bmp files decoder functions c file. " alt="" coords="609,88,743,115"/><area shape="rect" id="node8" href="d4d__imgdec__d4d_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="768,88,899,115"/><area shape="rect" id="node9" href="d4d__imgdec__d4dint_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="923,88,1068,115"/><area shape="rect" id="node10" href="d4d__low_8c.html" title="D4D driver low level graphic function c file. " alt="" coords="1093,88,1173,115"/><area shape="rect" id="node11" href="d4d__mouse_8c.html" title="D4D driver core and base function c file. " alt="" coords="1198,88,1297,115"/><area shape="rect" id="node12" href="d4d__screen_8c.html" title="D4D driver screen functions c file. " alt="" coords="1322,88,1421,115"/><area shape="rect" id="node13" href="d4d__string_8c.html" title="D4D driver font c file. " alt="" coords="1447,88,1540,115"/><area shape="rect" id="node14" href="d4dlcd__frame__buffer_8c.html" title="D4D driver &#45; frame_buffer lcd driver source c file. " alt="" coords="1565,88,1712,115"/><area shape="rect" id="node15" href="d4dlcd___f_s_a506_8c.html" title="D4D driver &#45; fsa506 lcd driver source c file. " alt="" coords="1737,88,1863,115"/><area shape="rect" id="node16" href="d4dlcd__lgdp4531_8c.html" title="D4D driver &#45; lgdp4531 lcd driver source c file. " alt="" coords="1887,88,2017,115"/><area shape="rect" id="node17" href="d4dlcd___l_s020_8c.html" title="D4D driver &#45; ls020 lcd driver source c file. " alt="" coords="2041,88,2156,115"/><area shape="rect" id="node18" href="d4dlcd___s_s_d1289_8c.html" title="D4D driver &#45; ssd1289 lcd driver source c file. " alt="" coords="2180,88,2313,115"/><area shape="rect" id="node19" href="d4dlcd__ssd1926_8c.html" title="D4D driver &#45; ssd1926 lcd driver source c file. " alt="" coords="2338,88,2464,115"/><area shape="rect" id="node20" href="d4dlcd__template_8c.html" title="D4D driver &#45; template lcd driver source c file. " alt="" coords="2489,88,2617,115"/><area shape="rect" id="node21" href="d4dlcdhw__common_8c.html" title="D4D driver &#45; common general low level drivers c file. " alt="" coords="2641,88,2785,115"/><area shape="rect" id="node22" href="d4dlcdhw__dragonfire__lcdc_8c.html" title="D4D driver &#45; dragonfire_lcdc hardware lcd driver source c file. " alt="" coords="2809,81,2948,122"/><area shape="rect" id="node23" href="d4dlcdhw__flexbus__16b_8c.html" title="D4D driver &#45; flexbus_16b hardware lcd driver source c file. " alt="" coords="2972,88,3135,115"/><area shape="rect" id="node24" href="d4dlcdhw__flexbus__8b_8c.html" title="D4D driver &#45; flexbus_8b hardware lcd driver source c file. " alt="" coords="3159,88,3315,115"/><area shape="rect" id="node25" href="d4dlcdhw__gpio6800__8b_8c.html" title="D4D driver &#45; gpio6800_8b hardware lcd driver source c file. " alt="" coords="3339,88,3505,115"/><area shape="rect" id="node26" href="d4dlcdhw__gpio8080__16b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="3530,88,3704,115"/><area shape="rect" id="node27" href="d4dlcdhw__gpio8080__8b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="3729,88,3895,115"/><area shape="rect" id="node28" href="d4dlcdhw__gpio8080__byte__8b_8c.html" title="D4D driver &#45; gpio8080_byte_8b hardware lcd driver source c file. " alt="" coords="3919,88,4117,115"/><area shape="rect" id="node29" href="d4dlcdhw__k70__lcdc_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="4143,88,4289,115"/><area shape="rect" id="node30" href="d4dlcdhw__twrrgba_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="4313,88,4449,115"/><area shape="rect" id="node31" href="d4dlcdhw__twrrgbb_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="4473,88,4609,115"/><area shape="rect" id="node32" href="d4dlcdhw__kinetis__spi_8c.html" title="D4D driver &#45; kinetis_spi hardware lcd driver source c file. " alt="" coords="4634,88,4789,115"/><area shape="rect" id="node33" href="d4dlcdhw__mqx__fb_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="4815,88,4951,115"/><area shape="rect" id="node34" href="d4dlcdhw__mqx__mpc5125__diu_8c.html" title="D4D driver &#45; mqx_mpc5125_diu hardware lcd driver source c file. " alt="" coords="4975,81,5143,122"/><area shape="rect" id="node35" href="d4dlcdhw__mqx__spi_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="5167,88,5309,115"/><area shape="rect" id="node36" href="d4dlcdhw__px__dcu__fb_8c.html" title="D4D driver &#45; px_dcu_fb hardware lcd driver source c file. " alt="" coords="5334,88,5487,115"/><area shape="rect" id="node37" href="d4dlcdhw__s12__spi__16b_8c.html" title="D4D driver &#45; s12_spi_16b hardware lcd driver source c file. " alt="" coords="5511,88,5677,115"/><area shape="rect" id="node38" href="d4dlcdhw__spi__16b_8c.html" title="D4D driver &#45; spi_16b hardware lcd driver source c file. " alt="" coords="5703,88,5841,115"/><area shape="rect" id="node39" href="d4dlcdhw__spi__8b_8c.html" title="D4D driver &#45; spi_8b hardware lcd driver source c file. " alt="" coords="5866,88,5997,115"/><area shape="rect" id="node40" href="d4dlcdhw__swspi__16b_8c.html" title="D4D driver &#45; swspi_16b hardware lcd driver source c file. " alt="" coords="6023,88,6177,115"/><area shape="rect" id="node41" href="d4dlcdhw__spi__swc__8b_8c.html" title="D4D driver &#45; spi_swc_8b hardware lcd driver source c file. " alt="" coords="6201,88,6364,115"/><area shape="rect" id="node42" href="d4dlcdhw__template_8c.html" title="D4D driver &#45; template hardware lcd driver source c file. " alt="" coords="6388,88,6532,115"/><area shape="rect" id="node43" href="d4dlcdhw__template__fb_8c.html" title="D4D driver &#45; template_fb hardware lcd driver source c file. " alt="" coords="6557,88,6717,115"/><area shape="rect" id="node44" href="d4dtch__cr__touch_8c.html" title="D4D driver &#45; cr_touch touch screen driver source c file. " alt="" coords="6742,88,6871,115"/><area shape="rect" id="node45" href="hw__iic__cfg_8h.html" title="HardI2C configuration. " alt="" coords="6896,88,6989,115"/><area shape="rect" id="node47" href="mqx__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="7014,88,7092,115"/><area shape="rect" id="node48" href="mqx__iic__cfg_8h.html" title="HardI2C configuration. " alt="" coords="7117,88,7219,115"/><area shape="rect" id="node49" href="d4dtch__mcf52277__asp_8c.html" title="D4D driver &#45; mcf52277_asp touch screen driver source c file. " alt="" coords="7244,88,7407,115"/><area shape="rect" id="node50" href="d4dtch__resistive_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="7431,88,7557,115"/><area shape="rect" id="node51" href="d4dtch__resistive__mqx_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="7582,88,7740,115"/><area shape="rect" id="node52" href="d4dtch__template_8c.html" title="D4D driver &#45; template touch screen driver source c file. " alt="" coords="7765,88,7893,115"/><area shape="rect" id="node53" href="d4dtch___t_s_c2046_8c.html" title="D4D driver &#45; tsc2046 touch screen driver source c file. " alt="" coords="7918,88,8049,115"/><area shape="rect" id="node54" href="d4dtchhw__kinetis__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="8074,88,8235,115"/><area shape="rect" id="node55" href="d4dtchhw__mcf52259__adc_8c.html" title="D4D driver &#45; mcf52259_adc hardware touch screen driver source c file. " alt="" coords="8260,88,8439,115"/><area shape="rect" id="node56" href="d4dtchhw__px__adc_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="8463,88,8600,115"/><area shape="rect" id="node57" href="d4dtchhw__s08__adc_8c.html" title="D4D driver &#45; s08_adc hardware touch screen driver source c file. " alt="" coords="8625,88,8769,115"/><area shape="rect" id="node58" href="d4dtchhw__s12__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="8793,88,8937,115"/><area shape="rect" id="node59" href="d4dtchhw__template_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="8962,88,9107,115"/><area shape="rect" id="node46" href="hw__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="6908,171,6977,197"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:gad64755f8bedb27e173cf73a28da5aaa8"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="group__doxd4d__lldapi__types.html#struct_d4_d___t_o_u_c_h_s_c_r_e_e_n___l_i_m_i_t_s___s">D4D_TOUCHSCREEN_LIMITS_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#gad64755f8bedb27e173cf73a28da5aaa8">D4D_TOUCHSCREEN_LIMITS</a></td></tr>
+<tr class="memdesc:gad64755f8bedb27e173cf73a28da5aaa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level touch screen limitation structure.  <a href="group__doxd4d__lldapi__types.html#gad64755f8bedb27e173cf73a28da5aaa8">More...</a><br/></td></tr>
+<tr class="separator:gad64755f8bedb27e173cf73a28da5aaa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4924991a073e756fd15bcb8230777b06"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d___f_r_a_m_e_b_u_f_f___d_e_s_c___s">D4DLCD_FRAMEBUFF_DESC_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#ga4924991a073e756fd15bcb8230777b06">D4DLCD_FRAMEBUFF_DESC</a></td></tr>
+<tr class="memdesc:ga4924991a073e756fd15bcb8230777b06"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level frame buffer description structure.  <a href="group__doxd4d__lldapi__types.html#ga4924991a073e756fd15bcb8230777b06">More...</a><br/></td></tr>
+<tr class="separator:ga4924991a073e756fd15bcb8230777b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ea681e3e48d0493df8d358d236edec4"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d___f_u_n_c_t_i_o_n_s___s">D4DLCD_FUNCTIONS_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#ga6ea681e3e48d0493df8d358d236edec4">D4DLCD_FUNCTIONS</a></td></tr>
+<tr class="memdesc:ga6ea681e3e48d0493df8d358d236edec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level standard LCD interface API structure.  <a href="group__doxd4d__lldapi__types.html#ga6ea681e3e48d0493df8d358d236edec4">More...</a><br/></td></tr>
+<tr class="separator:ga6ea681e3e48d0493df8d358d236edec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ed453c5f88df68d341ecf17f2e8433c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d_h_w___f_u_n_c_t_i_o_n_s___s">D4DLCDHW_FUNCTIONS_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#ga8ed453c5f88df68d341ecf17f2e8433c">D4DLCDHW_FUNCTIONS</a></td></tr>
+<tr class="memdesc:ga8ed453c5f88df68d341ecf17f2e8433c"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level standard LCD Hardware interface API structure.  <a href="group__doxd4d__lldapi__types.html#ga8ed453c5f88df68d341ecf17f2e8433c">More...</a><br/></td></tr>
+<tr class="separator:ga8ed453c5f88df68d341ecf17f2e8433c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a8a045da0eae5708088446f4d8d8090"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d_h_w_f_b___f_u_n_c_t_i_o_n_s___s">D4DLCDHWFB_FUNCTIONS_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#ga6a8a045da0eae5708088446f4d8d8090">D4DLCDHWFB_FUNCTIONS</a></td></tr>
+<tr class="memdesc:ga6a8a045da0eae5708088446f4d8d8090"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level frame buffer LCD interface API structure.  <a href="group__doxd4d__lldapi__types.html#ga6a8a045da0eae5708088446f4d8d8090">More...</a><br/></td></tr>
+<tr class="separator:ga6a8a045da0eae5708088446f4d8d8090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3b459bf3cd7a9f753684ae66e0eae58"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="group__doxd4d__lldapi__types.html#struct_d4_d_t_c_h___f_u_n_c_t_i_o_n_s___s">D4DTCH_FUNCTIONS_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#gac3b459bf3cd7a9f753684ae66e0eae58">D4DTCH_FUNCTIONS</a></td></tr>
+<tr class="memdesc:gac3b459bf3cd7a9f753684ae66e0eae58"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level touch screen interface API structure.  <a href="group__doxd4d__lldapi__types.html#gac3b459bf3cd7a9f753684ae66e0eae58">More...</a><br/></td></tr>
+<tr class="separator:gac3b459bf3cd7a9f753684ae66e0eae58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5009f625eaec39f248c31b43d03ef839"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="group__doxd4d__lldapi__types.html#struct_d4_d_t_c_h_h_w___f_u_n_c_t_i_o_n_s___s">D4DTCHHW_FUNCTIONS_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#ga5009f625eaec39f248c31b43d03ef839">D4DTCHHW_FUNCTIONS</a></td></tr>
+<tr class="memdesc:ga5009f625eaec39f248c31b43d03ef839"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level touch screen hardware interface API structure.  <a href="group__doxd4d__lldapi__types.html#ga5009f625eaec39f248c31b43d03ef839">More...</a><br/></td></tr>
+<tr class="separator:ga5009f625eaec39f248c31b43d03ef839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8bb3ce4bfa9a33c7df1cbbf042cc5a0a"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="group__doxd4d__lldapi__types.html#struct_d4_d_m_o_u_s_e___f_u_n_c_t_i_o_n_s___s">D4DMOUSE_FUNCTIONS_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#ga8bb3ce4bfa9a33c7df1cbbf042cc5a0a">D4DMOUSE_FUNCTIONS</a></td></tr>
+<tr class="memdesc:ga8bb3ce4bfa9a33c7df1cbbf042cc5a0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level mouse pointer interface API structure.  <a href="group__doxd4d__lldapi__types.html#ga8bb3ce4bfa9a33c7df1cbbf042cc5a0a">More...</a><br/></td></tr>
+<tr class="separator:ga8bb3ce4bfa9a33c7df1cbbf042cc5a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga0851863a1af14ff22038e0e4955cd16b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#ga0851863a1af14ff22038e0e4955cd16b">D4DLCD_ORIENTATION</a> { <a class="el" href="group__doxd4d__lldapi__types.html#gga0851863a1af14ff22038e0e4955cd16ba99876b062ded0d7192d6f8576b9104b1">Portrait</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga0851863a1af14ff22038e0e4955cd16ba4cc1e9a23c019c5943b8a26478f36bb4">Portrait180</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga0851863a1af14ff22038e0e4955cd16bae7083172018622dcf04df9a5989b10f4">Landscape</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga0851863a1af14ff22038e0e4955cd16bab0fb4262af428da4f920c050888641c9">Landscape180</a>
+ }</td></tr>
+<tr class="memdesc:ga0851863a1af14ff22038e0e4955cd16b"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level screen orientation enumeration type.  <a href="group__doxd4d__lldapi__types.html#ga0851863a1af14ff22038e0e4955cd16b">More...</a><br/></td></tr>
+<tr class="separator:ga0851863a1af14ff22038e0e4955cd16b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga82b27d036b9f9372d3b2f47774968b2b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#ga82b27d036b9f9372d3b2f47774968b2b">D4DHW_PIN_STATE</a> { <a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2baa13c2f4694267676562497c7d610acc9">D4DHW_PIN_PULL_UP_ON</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2bae105e79d1daace49423c6e7a9d8b2ed3">D4DHW_PIN_PULL_UP_OFF</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba8b790c13692ee037eb5942e60deb4378">D4DHW_PIN_OUT</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba17e314b3b33c75050f2cd603ddfb308b">D4DHW_PIN_IN</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2babf80a3f0626cac79381265fc69e0740f">D4DHW_PIN_SET_0</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba32c91c52a496845c203b6e55378e9e1c">D4DHW_PIN_SET_1</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2baea01db7a226ffffc64d9bc6a0855f558">D4DHW_PIN_GET</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2bab03179a50e7de4f4e91a50534edce8c9">D4DHW_PIN_ADC_ON</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba738fd1e18c7608b73fdcc5b6b0be9014">D4DHW_PIN_ADC_OFF</a>
+ }</td></tr>
+<tr class="memdesc:ga82b27d036b9f9372d3b2f47774968b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level MCU pin state enumeration type.  <a href="group__doxd4d__lldapi__types.html#ga82b27d036b9f9372d3b2f47774968b2b">More...</a><br/></td></tr>
+<tr class="separator:ga82b27d036b9f9372d3b2f47774968b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga86e4724302ebf0e387cf46434374eaf3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#ga86e4724302ebf0e387cf46434374eaf3">D4DTCHHW_PINS</a> { <a class="el" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3a1cc1f9634d96f8851762eacd9c529cf8">D4DTCH_X_PLUS_PIN</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3ac21e6d5278363039e2a413c7c849d19c">D4DTCH_X_MINUS_PIN</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3ab872bfac861110c6cbaa6a6cb39e483b">D4DTCH_Y_PLUS_PIN</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3a1d88caa29a363e50dbbb8bddd7a89f8e">D4DTCH_Y_MINUS_PIN</a>
+ }</td></tr>
+<tr class="memdesc:ga86e4724302ebf0e387cf46434374eaf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level MCU types definition for analog resistive touch screen signals.  <a href="group__doxd4d__lldapi__types.html#ga86e4724302ebf0e387cf46434374eaf3">More...</a><br/></td></tr>
+<tr class="separator:ga86e4724302ebf0e387cf46434374eaf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00cd63ffbd57b574f4d2a6f26a0770ec"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#ga00cd63ffbd57b574f4d2a6f26a0770ec">D4DLCDHW_PINS</a> { <a class="el" href="group__doxd4d__lldapi__types.html#gga00cd63ffbd57b574f4d2a6f26a0770ecabe2d0e9c010b0cbff625f14266c1d526">D4DLCD_RESET_PIN</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga00cd63ffbd57b574f4d2a6f26a0770eca2fef9fcdf9d331556e03bf16e16a5d3f">D4DLCD_BACKLIGHT_PIN</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#gga00cd63ffbd57b574f4d2a6f26a0770ecad66bd1ec83bc5b40c6021e00ba56b188">D4DLCD_CS_PIN</a>
+ }</td></tr>
+<tr class="memdesc:ga00cd63ffbd57b574f4d2a6f26a0770ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level MCU types definition for general LCD screen control signals.  <a href="group__doxd4d__lldapi__types.html#ga00cd63ffbd57b574f4d2a6f26a0770ec">More...</a><br/></td></tr>
+<tr class="separator:ga00cd63ffbd57b574f4d2a6f26a0770ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac76a9d7086895254b321491b62360b4f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lldapi__types.html#gac76a9d7086895254b321491b62360b4f">D4DLCD_FLUSH_MODE</a> { <a class="el" href="group__doxd4d__lldapi__types.html#ggac76a9d7086895254b321491b62360b4faadeea65786a50f5c43b1522a73d2e514">D4DLCD_FLSH_ELEMENT</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#ggac76a9d7086895254b321491b62360b4fa8d5137435a468f187b1ef464aa6368aa">D4DLCD_FLSH_SCR_START</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#ggac76a9d7086895254b321491b62360b4fa88d0a84776d0d0ed594297c43f557587">D4DLCD_FLSH_SCR_END</a>, 
+<a class="el" href="group__doxd4d__lldapi__types.html#ggac76a9d7086895254b321491b62360b4fae7aef24cd5ced5497e5d95f07830f4a5">D4DLCD_FLSH_FORCE</a>
+ }</td></tr>
+<tr class="memdesc:gac76a9d7086895254b321491b62360b4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">D4D low level eGUI flush screen types enumeration.  <a href="group__doxd4d__lldapi__types.html#gac76a9d7086895254b321491b62360b4f">More...</a><br/></td></tr>
+<tr class="separator:gac76a9d7086895254b321491b62360b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a47dbc7d44ac8f57a28206c0a4b73ea4f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__doxd4d__lldapi__types.html#ga6ea681e3e48d0493df8d358d236edec4">D4DLCD_FUNCTIONS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__lldapi_8h.html#a47dbc7d44ac8f57a28206c0a4b73ea4f">D4D_LLD_LCD</a></td></tr>
+<tr class="separator:a47dbc7d44ac8f57a28206c0a4b73ea4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D driver - resistive touch screen driver function header file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.22.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Oct-2-2013 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__lldapi_8h_source.html">d4d_lldapi.h</a>.</p>
+</div><h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a47dbc7d44ac8f57a28206c0a4b73ea4f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__doxd4d__lldapi__types.html#ga6ea681e3e48d0493df8d358d236edec4">D4DLCD_FUNCTIONS</a> D4D_LLD_LCD</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00548">D4D_FlushOutput()</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00067">D4D_ImgDecBmpDraw()</a>, <a class="el" href="d4d__imgdec__d4d_8c_source.html#l00091">D4D_ImgDecExtD4DDraw()</a>, <a class="el" href="d4d__imgdec__d4dint_8c_source.html#l00101">D4D_ImgDecIntD4DDraw()</a>, <a class="el" href="d4d__low_8c_source.html#l00212">D4D_LCD_Box()</a>, <a class="el" href="d4d__low_8c_source.html#l00086">D4D_LCD_Init()</a>, <a class="el" href="d4d__font_8c_source.html#l00645">D4D_LCD_PrintChr()</a>, <a class="el" href="d4d__string_8c_source.html#l00635">D4D_LCD_PrintStr()</a>, <a class="el" href="d4d__low_8c_source.html#l00192">D4D_LCD_PutPixel()</a>, <a class="el" href="d4d__low_8c_source.html#l00152">D4D_LCD_SetOrientation()</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00054">D4D_PrintPixel()</a>, <a class="el" href="d4d__imgdec__bmp_8c_source.html#l00862">D4D_PrintScreenToBMP()</a>, and <a class="el" href="d4d__screen_8c_source.html#l01058">D4D_RedrawScreen()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cde53fb8fb9dbb8ac34f83e30855a423.html">common_files</a></li><li class="navelem"><a class="el" href="d4d__lldapi_8h.html">d4d_lldapi.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:02 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

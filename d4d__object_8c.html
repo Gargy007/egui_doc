@@ -1,0 +1,774 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_object.c File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__object_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_object.c File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="d4d_8h_source.html">d4d.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="d4d__private_8h_source.html">common_files/d4d_private.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for d4d_object.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c__incl.gif" border="0" usemap="#d4d__object_8c" alt=""/></div>
+<map name="d4d__object_8c" id="d4d__object_8c">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="2890,80,2944,107"/><area shape="rect" id="node38" href="d4d__private_8h.html" title="D4D Driver private header file. " alt="" coords="2969,80,3151,107"/><area shape="rect" id="node4" href="d4d__types_8h.html" title="D4D Driver global types header file. " alt="" coords="139,163,316,189"/><area shape="rect" id="node5" href="d4d__base_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="341,163,515,189"/><area shape="rect" id="node6" href="d4d__string_8h.html" title="D4D Driver strings header file. " alt="" coords="1171,163,1348,189"/><area shape="rect" id="node8" href="d4d__basic__draw_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="589,155,755,197"/><area shape="rect" id="node9" href="d4d__object_8h.html" title="D4D Driver object functions header file. " alt="" coords="779,163,959,189"/><area shape="rect" id="node10" href="d4d__low_8h.html" title="D4D driver low level graphic function header file. " alt="" coords="983,163,1147,189"/><area shape="rect" id="node11" href="d4d__bmp_8h.html" title="D4D driver bmp decoder header file. " alt="" coords="1579,163,1749,189"/><area shape="rect" id="node15" href="d4d__extsrc_8h.html" title="D4D Driver extscr helper functions header file. " alt="" coords="1373,163,1555,189"/><area shape="rect" id="node7" href="d4d__font_8h.html" title="D4D Driver fonts header file. " alt="" coords="822,253,988,280"/><area shape="rect" id="node16" href="d4d__math_8h.html" title="D4D Driver math helper functions header file. " alt="" coords="1774,163,1948,189"/><area shape="rect" id="node17" href="d4d__scheme_8h.html" title="D4D Driver color scheme header file. " alt="" coords="1973,163,2163,189"/><area shape="rect" id="node18" href="d4d__screen_8h.html" title="D4D driver screen header file. " alt="" coords="2188,163,2372,189"/><area shape="rect" id="node19" href="d4d__mouse_8h.html" title="D4D Driver mouse functions header file. " alt="" coords="2396,163,2580,189"/><area shape="rect" id="node20" href="d4d__picture_8h.html" title="D4D Driver picture object header file. " alt="" coords="2604,155,2743,197"/><area shape="rect" id="node21" href="d4d__button_8h.html" title="D4D Driver button object header file. " alt="" coords="2767,155,2905,197"/><area shape="rect" id="node22" href="d4d__check__box_8h.html" title="D4D Driver check box object header file. " alt="" coords="2929,155,3068,197"/><area shape="rect" id="node23" href="d4d__gauge_8h.html" title="D4D Driver gauge object header file. " alt="" coords="3092,155,3231,197"/><area shape="rect" id="node24" href="d4d__slider_8h.html" title="D4D Driver slider object header file. " alt="" coords="3255,155,3393,197"/><area shape="rect" id="node25" href="d4d__label_8h.html" title="D4D Driver label object header file. " alt="" coords="3417,155,3556,197"/><area shape="rect" id="node26" href="d4d__icon_8h.html" title="D4D Driver icon object header file. " alt="" coords="3580,155,3719,197"/><area shape="rect" id="node27" href="d4d__menu_8h.html" title="D4D Driver menu object header file. " alt="" coords="3743,155,3881,197"/><area shape="rect" id="node28" href="d4d__graph_8h.html" title="D4D Driver graph object header file. " alt="" coords="3905,155,4044,197"/><area shape="rect" id="node29" href="d4d__scroll__bar_8h.html" title="D4D Driver label object header file. " alt="" coords="4068,155,4207,197"/><area shape="rect" id="node30" href="d4d__console_8h.html" title="D4D Driver label object header file. " alt="" coords="4231,155,4369,197"/><area shape="rect" id="node31" href="d4d__text__box_8h.html" title="D4D Driver label object header file. " alt="" coords="4393,155,4532,197"/><area shape="rect" id="node32" href="d4d__progress__bar_8h.html" title="D4D Driver progress_bar object header file. " alt="" coords="4556,155,4695,197"/><area shape="rect" id="node33" href="d4d__radio__button_8h.html" title="D4D Driver radio button object header file. " alt="" coords="4719,155,4857,197"/><area shape="rect" id="node34" href="d4d__group__box_8h.html" title="D4D Driver groupBox object header file. " alt="" coords="4881,155,5020,197"/><area shape="rect" id="node35" href="d4d__list__box_8h.html" title="D4D Driver listBox object header file. " alt="" coords="5044,155,5183,197"/><area shape="rect" id="node36" href="d4d__edit__box_8h.html" title="D4D Driver editBox object header file. " alt="" coords="5207,155,5345,197"/><area shape="rect" id="node37" href="d4d__combo__box_8h.html" title="D4D Driver comboBox object header file. " alt="" coords="5369,155,5508,197"/><area shape="rect" id="node12" href="d4d__imgdec__d4dint_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="1776,246,1952,287"/><area shape="rect" id="node13" href="d4d__imgdec__d4d_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="1376,246,1552,287"/><area shape="rect" id="node14" href="d4d__imgdec__bmp_8h.html" title="D4D driver external bmp files decoder header file. " alt="" coords="1576,246,1752,287"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaefb01366bfbf9ac020c19584a2a3c3b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9">D4D_InvalidateObject</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObject, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> bComplete)</td></tr>
+<tr class="memdesc:gaefb01366bfbf9ac020c19584a2a3c3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function invalidate object to redraw on screen.  <a href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9">More...</a><br/></td></tr>
+<tr class="separator:gaefb01366bfbf9ac020c19584a2a3c3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7601e6ac9dbba8f79957285677ccb039"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039">D4D_ShowObject</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObject, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> bShow)</td></tr>
+<tr class="memdesc:ga7601e6ac9dbba8f79957285677ccb039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function control visibility of object on screen.  <a href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039">More...</a><br/></td></tr>
+<tr class="separator:ga7601e6ac9dbba8f79957285677ccb039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7ffa1011578a51f37e274f297ddb746"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#gae7ffa1011578a51f37e274f297ddb746">D4D_GetUserPointer</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis)</td></tr>
+<tr class="memdesc:gae7ffa1011578a51f37e274f297ddb746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function return the object user data.  <a href="group__doxd4d__object__func.html#gae7ffa1011578a51f37e274f297ddb746">More...</a><br/></td></tr>
+<tr class="separator:gae7ffa1011578a51f37e274f297ddb746"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad9dfde4f7171e32d2e9254e220fd050d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#gad9dfde4f7171e32d2e9254e220fd050d">D4D_EnableTouchScreen</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> bEnable, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> bFastTouch)</td></tr>
+<tr class="memdesc:gad9dfde4f7171e32d2e9254e220fd050d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function enables touchs screen capability and sets also mode of touch event.  <a href="group__doxd4d__object__func.html#gad9dfde4f7171e32d2e9254e220fd050d">More...</a><br/></td></tr>
+<tr class="separator:gad9dfde4f7171e32d2e9254e220fd050d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9f46d48550c211ae359d6469f1a1be3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#gaa9f46d48550c211ae359d6469f1a1be3">D4D_EnableTimeTicks</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> bEnable)</td></tr>
+<tr class="memdesc:gaa9f46d48550c211ae359d6469f1a1be3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function enable or diasble receiving timeticks for an OBJECT.  <a href="group__doxd4d__object__func.html#gaa9f46d48550c211ae359d6469f1a1be3">More...</a><br/></td></tr>
+<tr class="separator:gaa9f46d48550c211ae359d6469f1a1be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf785f10de38c2df9523cd3466035f93f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f">D4D_CaptureKeys</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj)</td></tr>
+<tr class="memdesc:gaf785f10de38c2df9523cd3466035f93f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function switch on capturing the keys to objects.  <a href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f">More...</a><br/></td></tr>
+<tr class="separator:gaf785f10de38c2df9523cd3466035f93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a2ea7aad5eebfd12294a985a6f27368"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#ga5a2ea7aad5eebfd12294a985a6f27368">D4D_GetCapturedObject</a> (void)</td></tr>
+<tr class="memdesc:ga5a2ea7aad5eebfd12294a985a6f27368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function returns the current keys capturing object pointer.  <a href="group__doxd4d__object__func.html#ga5a2ea7aad5eebfd12294a985a6f27368">More...</a><br/></td></tr>
+<tr class="separator:ga5a2ea7aad5eebfd12294a985a6f27368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga628c772a512984c1b3be9d979305d481"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#ga628c772a512984c1b3be9d979305d481">D4D_EnableTabStop</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> bEnable)</td></tr>
+<tr class="memdesc:ga628c772a512984c1b3be9d979305d481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function enables TabStop on the object.  <a href="group__doxd4d__object__func.html#ga628c772a512984c1b3be9d979305d481">More...</a><br/></td></tr>
+<tr class="separator:ga628c772a512984c1b3be9d979305d481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf997423fac6283a6835b4a5d4591b94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94">D4D_EnableObject</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pObj, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> bEnable)</td></tr>
+<tr class="memdesc:gabf997423fac6283a6835b4a5d4591b94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function enables object.  <a href="group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94">More...</a><br/></td></tr>
+<tr class="separator:gabf997423fac6283a6835b4a5d4591b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada4f81524444a3cabef73d4fa2988b15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15">D4D_IsEnabled</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="memdesc:gada4f81524444a3cabef73d4fa2988b15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function find out if the object is enabled or not.  <a href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15">More...</a><br/></td></tr>
+<tr class="separator:gada4f81524444a3cabef73d4fa2988b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf05953a9b356907e827855274a15784"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#gaaf05953a9b356907e827855274a15784">D4D_IsVisible</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="memdesc:gaaf05953a9b356907e827855274a15784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function find out if the object is visible or not.  <a href="group__doxd4d__object__func.html#gaaf05953a9b356907e827855274a15784">More...</a><br/></td></tr>
+<tr class="separator:gaaf05953a9b356907e827855274a15784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8481f6711fbf76391f6bb36dd6e52b6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#ga8481f6711fbf76391f6bb36dd6e52b6b">D4D_IsMineFocus</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="memdesc:ga8481f6711fbf76391f6bb36dd6e52b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function find out if the object (including compounded objects) is focused.  <a href="group__doxd4d__object__func.html#ga8481f6711fbf76391f6bb36dd6e52b6b">More...</a><br/></td></tr>
+<tr class="separator:ga8481f6711fbf76391f6bb36dd6e52b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec5a3027b8480837f358672b9cfd0756"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__func.html#gaec5a3027b8480837f358672b9cfd0756">D4D_GetClientScreenSize</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="memdesc:gaec5a3027b8480837f358672b9cfd0756"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function return the real client size of object.  <a href="group__doxd4d__object__func.html#gaec5a3027b8480837f358672b9cfd0756">More...</a><br/></td></tr>
+<tr class="separator:gaec5a3027b8480837f358672b9cfd0756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71af54d42c496cf96eb44fcb42c7928a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#a71af54d42c496cf96eb44fcb42c7928a">D4D_ObjOnMessage</a> (<a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *pMsg)</td></tr>
+<tr class="separator:a71af54d42c496cf96eb44fcb42c7928a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af78dec4288c2045f94b5a262c1e6b8ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#af78dec4288c2045f94b5a262c1e6b8ae">D4D_ObjectCheckCoordinates</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pThis, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> point)</td></tr>
+<tr class="separator:af78dec4288c2045f94b5a262c1e6b8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc6154791e522586085d0a4ca7581d26"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#acc6154791e522586085d0a4ca7581d26">D4D_HasObjectChildren</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="separator:acc6154791e522586085d0a4ca7581d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb1e10fa1768c3ab69bae8f35fbdde9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e">D4D_GetParentObject</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="separator:aeb1e10fa1768c3ab69bae8f35fbdde9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52bc37a5836b83fb088514a94ef63258"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258">D4D_FindNextObjectOnScreen</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="separator:a52bc37a5836b83fb088514a94ef63258"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f877d36a6c5dde73c340fc90bfd42d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d">D4D_FindNextParentSiblingObject</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="separator:a94f877d36a6c5dde73c340fc90bfd42d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6d2a59c98f9f37d65a3ca2f2ac53a1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a">D4D_FindNextSiblingObject</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="separator:ac6d2a59c98f9f37d65a3ca2f2ac53a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60c5cc0c04e845b028fd591039d72b4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f">D4D_FindNextObject</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> childrenAlso)</td></tr>
+<tr class="separator:a60c5cc0c04e845b028fd591039d72b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2151a3d96165b376874e77a132fd9a6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#a2151a3d96165b376874e77a132fd9a6a">D4D_FindPreviousObjectOnScreen</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="separator:a2151a3d96165b376874e77a132fd9a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cc492b17d8f4e707a4d251afc6f0425"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#a7cc492b17d8f4e707a4d251afc6f0425">D4D_FindPreviousParentSiblingObject</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="separator:a7cc492b17d8f4e707a4d251afc6f0425"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48d4fcea3c351039ccefdb2500c3543c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#a48d4fcea3c351039ccefdb2500c3543c">D4D_FindPreviousSiblingObject</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject)</td></tr>
+<tr class="separator:a48d4fcea3c351039ccefdb2500c3543c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70acecf3901cac21169bedc5088c9186"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#a70acecf3901cac21169bedc5088c9186">D4D_FindPreviousObject</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> childrenAlso)</td></tr>
+<tr class="separator:a70acecf3901cac21169bedc5088c9186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ea5194ba65b4124d374109fa782d237"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237">D4D_SetObjectFlags</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject, <a class="el" href="group__doxd4d__object__type.html#ga71858c5a620da03be379dbf32b5094c7">D4D_OBJECT_FLAGS</a> flagsMask, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> alsoChildren)</td></tr>
+<tr class="separator:a9ea5194ba65b4124d374109fa782d237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae69ba41c5b7c264ce9990bf1ad7019dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__object_8c.html#ae69ba41c5b7c264ce9990bf1ad7019dd">D4D_SetObjectScreenPointer</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject, <a class="el" href="group__doxd4d__screen__type.html#gae4ea9a70b33c3b4ef1a499bd2ccbe7db">D4D_SCREEN</a> *pScreen)</td></tr>
+<tr class="separator:ae69ba41c5b7c264ce9990bf1ad7019dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D driver object function c file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.14.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Jan-14-2014 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a60c5cc0c04e845b028fd591039d72b4f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a>* D4D_FindNextObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td>
+          <td class="paramname"><em>childrenAlso</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function returns the next object (looking for any object in object tree) </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00586">586</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__object_8c_source.html#l00514">D4D_FindNextObjectOnScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00538">D4D_FindNextParentSiblingObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00557">D4D_FindNextSiblingObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00498">D4D_GetParentObject()</a>, <a class="el" href="d4d__object_8h_source.html#l00103">D4D_OBJECT_USR_DATA_CHILD_IX</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, and <a class="el" href="d4d__object_8h_source.html#l00177">D4D_OBJECT_S::pRelations</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00676">D4D_FindObject()</a>, and <a class="el" href="d4d__screen_8c_source.html#l00286">D4D_FocusNextObject()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a60c5cc0c04e845b028fd591039d72b4f_cgraph.gif" border="0" usemap="#d4d__object_8c_a60c5cc0c04e845b028fd591039d72b4f_cgraph" alt=""/></div>
+<map name="d4d__object_8c_a60c5cc0c04e845b028fd591039d72b4f_cgraph" id="d4d__object_8c_a60c5cc0c04e845b028fd591039d72b4f_cgraph">
+<area shape="rect" id="node2" href="d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="661,27,864,53"/><area shape="rect" id="node3" href="d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="198,78,381,119"/><area shape="rect" id="node5" href="d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="430,27,613,53"/><area shape="rect" id="node4" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="687,128,838,155"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a60c5cc0c04e845b028fd591039d72b4f_icgraph.gif" border="0" usemap="#d4d__object_8c_a60c5cc0c04e845b028fd591039d72b4f_icgraph" alt=""/></div>
+<map name="d4d__object_8c_a60c5cc0c04e845b028fd591039d72b4f_icgraph" id="d4d__object_8c_a60c5cc0c04e845b028fd591039d72b4f_icgraph">
+<area shape="rect" id="node2" href="d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="216,520,333,547"/><area shape="rect" id="node35" href="group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="197,571,352,597"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="401,520,511,547"/><area shape="rect" id="node4" href="d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="1297,64,1468,91"/><area shape="rect" id="node5" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="563,520,717,547"/><area shape="rect" id="node6" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="561,571,719,597"/><area shape="rect" id="node7" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="566,621,714,648"/><area shape="rect" id="node8" href="d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="563,672,717,699"/><area shape="rect" id="node9" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="575,419,705,445"/><area shape="rect" id="node34" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="774,773,946,800"/><area shape="rect" id="node10" href="d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2" title="D4D_ComboBoxButtonFeedBack" alt="" coords="1275,317,1490,344"/><area shape="rect" id="node11" href="d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="782,520,938,547"/><area shape="rect" id="node12" href="d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1020,520,1191,547"/><area shape="rect" id="node13" href="d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1028,469,1183,496"/><area shape="rect" id="node15" href="d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="789,571,931,597"/><area shape="rect" id="node17" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="798,317,922,344"/><area shape="rect" id="node24" href="group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94" title="Function enables object. " alt="" coords="794,621,926,648"/><area shape="rect" id="node25" href="group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="789,672,931,699"/><area shape="rect" id="node27" href="group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="791,723,929,749"/><area shape="rect" id="node30" href="group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="769,115,951,141"/><area shape="rect" id="node31" href="d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="780,165,940,192"/><area shape="rect" id="node32" href="d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="793,216,927,243"/><area shape="rect" id="node33" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1032,115,1179,141"/><area shape="rect" id="node14" href="d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="1299,469,1467,496"/><area shape="rect" id="node16" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1027,571,1183,597"/><area shape="rect" id="node18" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1006,216,1205,243"/><area shape="rect" id="node19" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="1000,267,1211,293"/><area shape="rect" id="node21" href="d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="1048,165,1163,192"/><area shape="rect" id="node22" href="d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="1039,419,1171,445"/><area shape="rect" id="node20" href="d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00" title="D4D_ComboBoxListBoxMsgFeedBack" alt="" coords="1259,267,1506,293"/><area shape="rect" id="node23" href="group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="1289,419,1477,445"/><area shape="rect" id="node26" href="group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1070,672,1141,699"/><area shape="rect" id="node28" href="d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1043,723,1167,749"/><area shape="rect" id="node29" href="group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1345,723,1421,749"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a52bc37a5836b83fb088514a94ef63258"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a>* D4D_FindNextObjectOnScreen </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function returns the next object defined in screen (top level) </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00514">514</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__object_8h_source.html#l00180">D4D_OBJECT_S::pData</a>, <a class="el" href="d4d__screen_8h_source.html#l00165">D4D_SCREEN_S::pObjects</a>, and <a class="el" href="d4d__object_8h_source.html#l00146">D4D_OBJECT_DATA_S::pScreen</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__object_8c_source.html#l00586">D4D_FindNextObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00538">D4D_FindNextParentSiblingObject()</a>, and <a class="el" href="d4d__object_8c_source.html#l00557">D4D_FindNextSiblingObject()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a52bc37a5836b83fb088514a94ef63258_icgraph.gif" border="0" usemap="#d4d__object_8c_a52bc37a5836b83fb088514a94ef63258_icgraph" alt=""/></div>
+<map name="d4d__object_8c_a52bc37a5836b83fb088514a94ef63258_icgraph" id="d4d__object_8c_a52bc37a5836b83fb088514a94ef63258_icgraph">
+<area shape="rect" id="node2" href="d4d__private_8h.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="720,495,864,522"/><area shape="rect" id="node37" href="d4d__private_8h.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="489,488,671,529"/><area shape="rect" id="node38" href="d4d__private_8h.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="257,542,439,569"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="912,470,1067,497"/><area shape="rect" id="node4" href="d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="931,521,1048,547"/><area shape="rect" id="node5" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="1115,521,1226,547"/><area shape="rect" id="node6" href="d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="2012,65,2183,91"/><area shape="rect" id="node7" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="1277,521,1432,547"/><area shape="rect" id="node8" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="1275,571,1434,598"/><area shape="rect" id="node9" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="1281,622,1429,649"/><area shape="rect" id="node10" href="d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="1277,673,1432,699"/><area shape="rect" id="node11" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="1290,419,1419,446"/><area shape="rect" id="node36" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1489,774,1661,801"/><area shape="rect" id="node12" href="d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2" title="D4D_ComboBoxButtonFeedBack" alt="" coords="1990,318,2205,345"/><area shape="rect" id="node13" href="d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1497,521,1653,547"/><area shape="rect" id="node14" href="d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1735,521,1905,547"/><area shape="rect" id="node15" href="d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1743,470,1897,497"/><area shape="rect" id="node17" href="d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="1503,571,1646,598"/><area shape="rect" id="node19" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="1513,318,1637,345"/><area shape="rect" id="node26" href="group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94" title="Function enables object. " alt="" coords="1509,622,1641,649"/><area shape="rect" id="node27" href="group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="1504,673,1645,699"/><area shape="rect" id="node29" href="group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="1505,723,1644,750"/><area shape="rect" id="node32" href="group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="1483,115,1666,142"/><area shape="rect" id="node33" href="d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1495,166,1655,193"/><area shape="rect" id="node34" href="d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="1508,217,1641,243"/><area shape="rect" id="node35" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1747,115,1893,142"/><area shape="rect" id="node16" href="d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="2013,470,2181,497"/><area shape="rect" id="node18" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1742,571,1898,598"/><area shape="rect" id="node20" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1721,217,1919,243"/><area shape="rect" id="node21" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="1715,267,1925,294"/><area shape="rect" id="node23" href="d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="1763,166,1877,193"/><area shape="rect" id="node24" href="d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="1754,419,1886,446"/><area shape="rect" id="node22" href="d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00" title="D4D_ComboBoxListBoxMsgFeedBack" alt="" coords="1974,267,2221,294"/><area shape="rect" id="node25" href="group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="2003,419,2191,446"/><area shape="rect" id="node28" href="group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1785,673,1855,699"/><area shape="rect" id="node30" href="d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1758,723,1882,750"/><area shape="rect" id="node31" href="group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="2059,723,2135,750"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a94f877d36a6c5dde73c340fc90bfd42d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a>* D4D_FindNextParentSiblingObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function returns the next parent sibling object </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00538">538</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__object_8c_source.html#l00514">D4D_FindNextObjectOnScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00557">D4D_FindNextSiblingObject()</a>, and <a class="el" href="d4d__object_8c_source.html#l00498">D4D_GetParentObject()</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__object_8c_source.html#l00586">D4D_FindNextObject()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a94f877d36a6c5dde73c340fc90bfd42d_cgraph.gif" border="0" usemap="#d4d__object_8c_a94f877d36a6c5dde73c340fc90bfd42d_cgraph" alt=""/></div>
+<map name="d4d__object_8c_a94f877d36a6c5dde73c340fc90bfd42d_cgraph" id="d4d__object_8c_a94f877d36a6c5dde73c340fc90bfd42d_cgraph">
+<area shape="rect" id="node2" href="d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="469,5,672,32"/><area shape="rect" id="node3" href="d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="238,31,421,57"/><area shape="rect" id="node4" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="495,68,646,95"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a94f877d36a6c5dde73c340fc90bfd42d_icgraph.gif" border="0" usemap="#d4d__object_8c_a94f877d36a6c5dde73c340fc90bfd42d_icgraph" alt=""/></div>
+<map name="d4d__object_8c_a94f877d36a6c5dde73c340fc90bfd42d_icgraph" id="d4d__object_8c_a94f877d36a6c5dde73c340fc90bfd42d_icgraph">
+<area shape="rect" id="node2" href="d4d__private_8h.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="237,495,381,521"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="429,469,584,496"/><area shape="rect" id="node4" href="d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="448,520,565,547"/><area shape="rect" id="node5" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="633,520,743,547"/><area shape="rect" id="node6" href="d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="1529,64,1700,91"/><area shape="rect" id="node7" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="795,520,949,547"/><area shape="rect" id="node8" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="793,571,951,597"/><area shape="rect" id="node9" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="798,621,946,648"/><area shape="rect" id="node10" href="d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="795,672,949,699"/><area shape="rect" id="node11" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="807,419,937,445"/><area shape="rect" id="node36" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1006,773,1178,800"/><area shape="rect" id="node12" href="d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2" title="D4D_ComboBoxButtonFeedBack" alt="" coords="1507,317,1722,344"/><area shape="rect" id="node13" href="d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1014,520,1170,547"/><area shape="rect" id="node14" href="d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1252,520,1423,547"/><area shape="rect" id="node15" href="d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1260,469,1415,496"/><area shape="rect" id="node17" href="d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="1021,571,1163,597"/><area shape="rect" id="node19" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="1030,317,1154,344"/><area shape="rect" id="node26" href="group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94" title="Function enables object. " alt="" coords="1026,621,1158,648"/><area shape="rect" id="node27" href="group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="1021,672,1163,699"/><area shape="rect" id="node29" href="group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="1023,723,1161,749"/><area shape="rect" id="node32" href="group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="1001,115,1183,141"/><area shape="rect" id="node33" href="d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1012,165,1172,192"/><area shape="rect" id="node34" href="d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="1025,216,1159,243"/><area shape="rect" id="node35" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1264,115,1411,141"/><area shape="rect" id="node16" href="d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="1531,469,1699,496"/><area shape="rect" id="node18" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1259,571,1415,597"/><area shape="rect" id="node20" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1238,216,1437,243"/><area shape="rect" id="node21" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="1232,267,1443,293"/><area shape="rect" id="node23" href="d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="1280,165,1395,192"/><area shape="rect" id="node24" href="d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="1271,419,1403,445"/><area shape="rect" id="node22" href="d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00" title="D4D_ComboBoxListBoxMsgFeedBack" alt="" coords="1491,267,1738,293"/><area shape="rect" id="node25" href="group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="1521,419,1709,445"/><area shape="rect" id="node28" href="group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1302,672,1373,699"/><area shape="rect" id="node30" href="d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1275,723,1399,749"/><area shape="rect" id="node31" href="group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1577,723,1653,749"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac6d2a59c98f9f37d65a3ca2f2ac53a1a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a>* D4D_FindNextSiblingObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function returns the next sibling object </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00557">557</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__object_8c_source.html#l00514">D4D_FindNextObjectOnScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00498">D4D_GetParentObject()</a>, <a class="el" href="d4d__object_8h_source.html#l00103">D4D_OBJECT_USR_DATA_CHILD_IX</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, and <a class="el" href="d4d__object_8h_source.html#l00177">D4D_OBJECT_S::pRelations</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__object_8c_source.html#l00586">D4D_FindNextObject()</a>, and <a class="el" href="d4d__object_8c_source.html#l00538">D4D_FindNextParentSiblingObject()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_ac6d2a59c98f9f37d65a3ca2f2ac53a1a_cgraph.gif" border="0" usemap="#d4d__object_8c_ac6d2a59c98f9f37d65a3ca2f2ac53a1a_cgraph" alt=""/></div>
+<map name="d4d__object_8c_ac6d2a59c98f9f37d65a3ca2f2ac53a1a_cgraph" id="d4d__object_8c_ac6d2a59c98f9f37d65a3ca2f2ac53a1a_cgraph">
+<area shape="rect" id="node2" href="d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="237,5,440,32"/><area shape="rect" id="node3" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="263,56,414,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_ac6d2a59c98f9f37d65a3ca2f2ac53a1a_icgraph.gif" border="0" usemap="#d4d__object_8c_ac6d2a59c98f9f37d65a3ca2f2ac53a1a_icgraph" alt=""/></div>
+<map name="d4d__object_8c_ac6d2a59c98f9f37d65a3ca2f2ac53a1a_icgraph" id="d4d__object_8c_ac6d2a59c98f9f37d65a3ca2f2ac53a1a_icgraph">
+<area shape="rect" id="node2" href="d4d__private_8h.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="469,495,613,522"/><area shape="rect" id="node37" href="d4d__private_8h.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="238,517,421,559"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="661,470,816,497"/><area shape="rect" id="node4" href="d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="680,521,797,547"/><area shape="rect" id="node5" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="865,521,975,547"/><area shape="rect" id="node6" href="d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="1761,65,1932,91"/><area shape="rect" id="node7" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="1027,521,1181,547"/><area shape="rect" id="node8" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="1025,571,1183,598"/><area shape="rect" id="node9" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="1030,622,1178,649"/><area shape="rect" id="node10" href="d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="1027,673,1181,699"/><area shape="rect" id="node11" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="1039,419,1169,446"/><area shape="rect" id="node36" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1238,774,1410,801"/><area shape="rect" id="node12" href="d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2" title="D4D_ComboBoxButtonFeedBack" alt="" coords="1739,318,1954,345"/><area shape="rect" id="node13" href="d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1246,521,1402,547"/><area shape="rect" id="node14" href="d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1484,521,1655,547"/><area shape="rect" id="node15" href="d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1492,470,1647,497"/><area shape="rect" id="node17" href="d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="1253,571,1395,598"/><area shape="rect" id="node19" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="1262,318,1386,345"/><area shape="rect" id="node26" href="group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94" title="Function enables object. " alt="" coords="1258,622,1390,649"/><area shape="rect" id="node27" href="group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="1253,673,1395,699"/><area shape="rect" id="node29" href="group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="1255,723,1393,750"/><area shape="rect" id="node32" href="group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="1233,115,1415,142"/><area shape="rect" id="node33" href="d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1244,166,1404,193"/><area shape="rect" id="node34" href="d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="1257,217,1391,243"/><area shape="rect" id="node35" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1496,115,1643,142"/><area shape="rect" id="node16" href="d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="1763,470,1931,497"/><area shape="rect" id="node18" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1491,571,1647,598"/><area shape="rect" id="node20" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1470,217,1669,243"/><area shape="rect" id="node21" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="1464,267,1675,294"/><area shape="rect" id="node23" href="d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="1512,166,1627,193"/><area shape="rect" id="node24" href="d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="1503,419,1635,446"/><area shape="rect" id="node22" href="d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00" title="D4D_ComboBoxListBoxMsgFeedBack" alt="" coords="1723,267,1970,294"/><area shape="rect" id="node25" href="group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="1753,419,1941,446"/><area shape="rect" id="node28" href="group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1534,673,1605,699"/><area shape="rect" id="node30" href="d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1507,723,1631,750"/><area shape="rect" id="node31" href="group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1809,723,1885,750"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a70acecf3901cac21169bedc5088c9186"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a>* D4D_FindPreviousObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td>
+          <td class="paramname"><em>childrenAlso</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function returns the next object (looking for any object in object tree) </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00695">695</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__object_8c_source.html#l00621">D4D_FindPreviousObjectOnScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00665">D4D_FindPreviousSiblingObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00498">D4D_GetParentObject()</a>, <a class="el" href="d4d__object_8h_source.html#l00103">D4D_OBJECT_USR_DATA_CHILD_IX</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, and <a class="el" href="d4d__object_8h_source.html#l00177">D4D_OBJECT_S::pRelations</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00356">D4D_FocusPrevObject()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a70acecf3901cac21169bedc5088c9186_cgraph.gif" border="0" usemap="#d4d__object_8c_a70acecf3901cac21169bedc5088c9186_cgraph" alt=""/></div>
+<map name="d4d__object_8c_a70acecf3901cac21169bedc5088c9186_cgraph" id="d4d__object_8c_a70acecf3901cac21169bedc5088c9186_cgraph">
+<area shape="rect" id="node2" href="d4d__object_8c.html#a2151a3d96165b376874e77a132fd9a6a" title="D4D_FindPreviousObjectOn\lScreen" alt="" coords="475,5,658,46"/><area shape="rect" id="node4" href="d4d__object_8c.html#a48d4fcea3c351039ccefdb2500c3543c" title="D4D_FindPreviousSiblingObject" alt="" coords="221,52,427,79"/><area shape="rect" id="node5" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="491,81,642,108"/><area shape="rect" id="node3" href="d4d__private_8h.html#abfb293d6958a1adb6b3a3ad26c86efbd" title="The function returns the pointer to last object in the screen. " alt="" coords="707,12,845,39"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a70acecf3901cac21169bedc5088c9186_icgraph.gif" border="0" usemap="#d4d__object_8c_a70acecf3901cac21169bedc5088c9186_icgraph" alt=""/></div>
+<map name="d4d__object_8c_a70acecf3901cac21169bedc5088c9186_icgraph" id="d4d__object_8c_a70acecf3901cac21169bedc5088c9186_icgraph">
+<area shape="rect" id="node2" href="group__doxd4d__screen__func.html#ga47b87849baa7d228b0ba6ff2b5c473e6" title="The function change focus to the previous object in the given screen. " alt="" coords="222,5,375,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2151a3d96165b376874e77a132fd9a6a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a>* D4D_FindPreviousObjectOnScreen </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function returns the previous object defined in screen (top level) </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00621">621</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__screen_8c_source.html#l00656">D4D_GetLastObject()</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, <a class="el" href="d4d__object_8h_source.html#l00180">D4D_OBJECT_S::pData</a>, <a class="el" href="d4d__screen_8h_source.html#l00165">D4D_SCREEN_S::pObjects</a>, and <a class="el" href="d4d__object_8h_source.html#l00146">D4D_OBJECT_DATA_S::pScreen</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__object_8c_source.html#l00695">D4D_FindPreviousObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00646">D4D_FindPreviousParentSiblingObject()</a>, and <a class="el" href="d4d__object_8c_source.html#l00665">D4D_FindPreviousSiblingObject()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a2151a3d96165b376874e77a132fd9a6a_cgraph.gif" border="0" usemap="#d4d__object_8c_a2151a3d96165b376874e77a132fd9a6a_cgraph" alt=""/></div>
+<map name="d4d__object_8c_a2151a3d96165b376874e77a132fd9a6a_cgraph" id="d4d__object_8c_a2151a3d96165b376874e77a132fd9a6a_cgraph">
+<area shape="rect" id="node2" href="d4d__private_8h.html#abfb293d6958a1adb6b3a3ad26c86efbd" title="The function returns the pointer to last object in the screen. " alt="" coords="237,12,376,39"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a2151a3d96165b376874e77a132fd9a6a_icgraph.gif" border="0" usemap="#d4d__object_8c_a2151a3d96165b376874e77a132fd9a6a_icgraph" alt=""/></div>
+<map name="d4d__object_8c_a2151a3d96165b376874e77a132fd9a6a_icgraph" id="d4d__object_8c_a2151a3d96165b376874e77a132fd9a6a_icgraph">
+<area shape="rect" id="node2" href="d4d__private_8h.html#a70acecf3901cac21169bedc5088c9186" title="D4D_FindPreviousObject" alt="" coords="510,5,677,32"/><area shape="rect" id="node4" href="d4d__private_8h.html#a7cc492b17d8f4e707a4d251afc6f0425" title="D4D_FindPreviousParentSibling\lObject" alt="" coords="491,67,696,109"/><area shape="rect" id="node5" href="d4d__private_8h.html#a48d4fcea3c351039ccefdb2500c3543c" title="D4D_FindPreviousSiblingObject" alt="" coords="237,45,443,72"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#ga47b87849baa7d228b0ba6ff2b5c473e6" title="The function change focus to the previous object in the given screen. " alt="" coords="745,5,898,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7cc492b17d8f4e707a4d251afc6f0425"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a>* D4D_FindPreviousParentSiblingObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function returns the previous parent sibling object </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00646">646</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__object_8c_source.html#l00621">D4D_FindPreviousObjectOnScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00665">D4D_FindPreviousSiblingObject()</a>, and <a class="el" href="d4d__object_8c_source.html#l00498">D4D_GetParentObject()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a7cc492b17d8f4e707a4d251afc6f0425_cgraph.gif" border="0" usemap="#d4d__object_8c_a7cc492b17d8f4e707a4d251afc6f0425_cgraph" alt=""/></div>
+<map name="d4d__object_8c_a7cc492b17d8f4e707a4d251afc6f0425_cgraph" id="d4d__object_8c_a7cc492b17d8f4e707a4d251afc6f0425_cgraph">
+<area shape="rect" id="node2" href="d4d__object_8c.html#a2151a3d96165b376874e77a132fd9a6a" title="D4D_FindPreviousObjectOn\lScreen" alt="" coords="513,5,695,46"/><area shape="rect" id="node4" href="d4d__object_8c.html#a48d4fcea3c351039ccefdb2500c3543c" title="D4D_FindPreviousSiblingObject" alt="" coords="259,52,464,79"/><area shape="rect" id="node5" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="529,81,679,108"/><area shape="rect" id="node3" href="d4d__private_8h.html#abfb293d6958a1adb6b3a3ad26c86efbd" title="The function returns the pointer to last object in the screen. " alt="" coords="744,12,883,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a48d4fcea3c351039ccefdb2500c3543c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a>* D4D_FindPreviousSiblingObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function returns the next sibling object </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00665">665</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__object_8c_source.html#l00621">D4D_FindPreviousObjectOnScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00498">D4D_GetParentObject()</a>, <a class="el" href="d4d__object_8h_source.html#l00103">D4D_OBJECT_USR_DATA_CHILD_IX</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, and <a class="el" href="d4d__object_8h_source.html#l00177">D4D_OBJECT_S::pRelations</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__object_8c_source.html#l00695">D4D_FindPreviousObject()</a>, and <a class="el" href="d4d__object_8c_source.html#l00646">D4D_FindPreviousParentSiblingObject()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a48d4fcea3c351039ccefdb2500c3543c_cgraph.gif" border="0" usemap="#d4d__object_8c_a48d4fcea3c351039ccefdb2500c3543c_cgraph" alt=""/></div>
+<map name="d4d__object_8c_a48d4fcea3c351039ccefdb2500c3543c_cgraph" id="d4d__object_8c_a48d4fcea3c351039ccefdb2500c3543c_cgraph">
+<area shape="rect" id="node2" href="d4d__object_8c.html#a2151a3d96165b376874e77a132fd9a6a" title="D4D_FindPreviousObjectOn\lScreen" alt="" coords="259,5,442,46"/><area shape="rect" id="node4" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="275,71,426,97"/><area shape="rect" id="node3" href="d4d__private_8h.html#abfb293d6958a1adb6b3a3ad26c86efbd" title="The function returns the pointer to last object in the screen. " alt="" coords="491,12,629,39"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a48d4fcea3c351039ccefdb2500c3543c_icgraph.gif" border="0" usemap="#d4d__object_8c_a48d4fcea3c351039ccefdb2500c3543c_icgraph" alt=""/></div>
+<map name="d4d__object_8c_a48d4fcea3c351039ccefdb2500c3543c_icgraph" id="d4d__object_8c_a48d4fcea3c351039ccefdb2500c3543c_icgraph">
+<area shape="rect" id="node2" href="d4d__private_8h.html#a70acecf3901cac21169bedc5088c9186" title="D4D_FindPreviousObject" alt="" coords="278,5,445,32"/><area shape="rect" id="node4" href="d4d__private_8h.html#a7cc492b17d8f4e707a4d251afc6f0425" title="D4D_FindPreviousParentSibling\lObject" alt="" coords="259,57,464,98"/><area shape="rect" id="node3" href="group__doxd4d__screen__func.html#ga47b87849baa7d228b0ba6ff2b5c473e6" title="The function change focus to the previous object in the given screen. " alt="" coords="513,5,666,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aeb1e10fa1768c3ab69bae8f35fbdde9e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a>* D4D_GetParentObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function returns the parent object </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00498">498</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__object_8h_source.html#l00101">D4D_OBJECT_USR_DATA_PARENT_IX</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, and <a class="el" href="d4d__object_8h_source.html#l00177">D4D_OBJECT_S::pRelations</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__console_8c_source.html#l00394">D4D_CnslScrollBarsFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00214">D4D_ComboBoxButtonFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00167">D4D_ComboBoxEditFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00120">D4D_ComboBoxListBoxMsgFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00131">D4D_ComboBoxListFeedBack()</a>, <a class="el" href="d4d__object_8c_source.html#l00586">D4D_FindNextObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00538">D4D_FindNextParentSiblingObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00557">D4D_FindNextSiblingObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00695">D4D_FindPreviousObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00646">D4D_FindPreviousParentSiblingObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00665">D4D_FindPreviousSiblingObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00356">D4D_FocusPrevObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00303">D4D_IsEnabled()</a>, <a class="el" href="d4d__object_8c_source.html#l00348">D4D_IsMineFocus()</a>, <a class="el" href="d4d__object_8c_source.html#l00325">D4D_IsVisible()</a>, <a class="el" href="d4d__menu_8c_source.html#l00597">D4D_MenuScrollBarsFeedBack()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00109">D4D_ObjectGetScheme()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00334">D4D_RadioButtonChangeValue()</a>, <a class="el" href="d4d__object_8c_source.html#l00092">D4D_ShowObject()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00557">D4D_TextBoxScrollBarsFeedBack()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_aeb1e10fa1768c3ab69bae8f35fbdde9e_icgraph.gif" border="0" usemap="#d4d__object_8c_aeb1e10fa1768c3ab69bae8f35fbdde9e_icgraph" alt=""/></div>
+<map name="d4d__object_8c_aeb1e10fa1768c3ab69bae8f35fbdde9e_icgraph" id="d4d__object_8c_aeb1e10fa1768c3ab69bae8f35fbdde9e_icgraph">
+<area shape="rect" id="node2" href="d4d__console_8h.html#a54fc91ea7b10a75e3131ff6b0f156e29" title="D4D_CnslScrollBarsFeedBack" alt="" coords="217,1925,415,1952"/><area shape="rect" id="node3" href="d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2" title="D4D_ComboBoxButtonFeedBack" alt="" coords="2230,2651,2445,2677"/><area shape="rect" id="node4" href="d4d__combo__box_8h.html#ac0cb61070ade30b5f9dc169bbeae35fa" title="D4D_ComboBoxEditFeedBack" alt="" coords="216,2853,416,2880"/><area shape="rect" id="node5" href="d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00" title="D4D_ComboBoxListBoxMsgFeedBack" alt="" coords="2214,2803,2461,2829"/><area shape="rect" id="node6" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1961,2245,2159,2272"/><area shape="rect" id="node7" href="d4d__private_8h.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="747,1976,891,2003"/><area shape="rect" id="node39" href="d4d__private_8h.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="486,2027,669,2069"/><area shape="rect" id="node40" href="d4d__private_8h.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="225,2093,407,2120"/><area shape="rect" id="node41" href="d4d__private_8h.html#a70acecf3901cac21169bedc5088c9186" title="D4D_FindPreviousObject" alt="" coords="494,2955,661,2981"/><area shape="rect" id="node43" href="d4d__private_8h.html#a7cc492b17d8f4e707a4d251afc6f0425" title="D4D_FindPreviousParentSibling\lObject" alt="" coords="475,3027,680,3069"/><area shape="rect" id="node44" href="d4d__private_8h.html#a48d4fcea3c351039ccefdb2500c3543c" title="D4D_FindPreviousSiblingObject" alt="" coords="213,3005,419,3032"/><area shape="rect" id="node42" href="group__doxd4d__screen__func.html#ga47b87849baa7d228b0ba6ff2b5c473e6" title="The function change focus to the previous object in the given screen. " alt="" coords="742,2929,895,2956"/><area shape="rect" id="node45" href="group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="983,1283,1094,1309"/><area shape="rect" id="node76" href="group__doxd4d__object__func.html#ga8481f6711fbf76391f6bb36dd6e52b6b" title="Function find out if the object (including compounded objects) is focused. " alt="" coords="755,2771,883,2797"/><area shape="rect" id="node77" href="group__doxd4d__object__func.html#gaaf05953a9b356907e827855274a15784" title="Function find out if the object is visible or not. " alt="" coords="987,2651,1090,2677"/><area shape="rect" id="node79" href="d4d__menu_8h.html#a8c0b8c56f06604875dad23c510810106" title="D4D_MenuScrollBarsFeedBack" alt="" coords="213,3107,419,3133"/><area shape="rect" id="node80" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="958,1840,1119,1867"/><area shape="rect" id="node88" href="d4d__radio__button_8c.html#a21316491574b3d3c7419309524da08ff" title="D4D_RadioButtonChangeValue" alt="" coords="215,2600,417,2627"/><area shape="rect" id="node23" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="1747,2195,1871,2221"/><area shape="rect" id="node91" href="d4d__text__box_8h.html#ac22412813d39c4a80111acb4b83a85da" title="D4D_TextBoxScrollBarsFeedBack" alt="" coords="205,3157,427,3184"/><area shape="rect" id="node8" href="group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="961,1208,1116,1235"/><area shape="rect" id="node9" href="d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="980,891,1097,917"/><area shape="rect" id="node10" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="1217,624,1327,651"/><area shape="rect" id="node11" href="d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="2252,833,2423,860"/><area shape="rect" id="node12" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="1732,827,1887,853"/><area shape="rect" id="node13" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="2258,745,2417,772"/><area shape="rect" id="node14" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="1735,928,1883,955"/><area shape="rect" id="node15" href="d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="1732,1029,1887,1056"/><area shape="rect" id="node16" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="1479,523,1609,549"/><area shape="rect" id="node38" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1723,776,1895,803"/><area shape="rect" id="node17" href="d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1731,421,1887,448"/><area shape="rect" id="node18" href="d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1975,472,2145,499"/><area shape="rect" id="node19" href="d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1983,523,2137,549"/><area shape="rect" id="node21" href="d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="1738,675,1881,701"/><area shape="rect" id="node28" href="group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94" title="Function enables object. " alt="" coords="1743,269,1875,296"/><area shape="rect" id="node29" href="group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="1739,219,1880,245"/><area shape="rect" id="node31" href="group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="1740,117,1879,144"/><area shape="rect" id="node34" href="group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="1718,320,1901,347"/><area shape="rect" id="node35" href="d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1729,979,1889,1005"/><area shape="rect" id="node36" href="d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="1993,2093,2127,2120"/><area shape="rect" id="node37" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="2264,2119,2411,2145"/><area shape="rect" id="node20" href="d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="2253,1485,2421,1512"/><area shape="rect" id="node22" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1982,877,2138,904"/><area shape="rect" id="node24" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="1955,2651,2165,2677"/><area shape="rect" id="node25" href="d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="2003,1752,2117,1779"/><area shape="rect" id="node26" href="d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="1994,2296,2126,2323"/><area shape="rect" id="node27" href="group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="2243,2296,2431,2323"/><area shape="rect" id="node30" href="group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="2025,219,2095,245"/><area shape="rect" id="node32" href="d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1998,16,2122,43"/><area shape="rect" id="node33" href="group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="2299,16,2375,43"/><area shape="rect" id="node46" href="d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="1484,1840,1604,1867"/><area shape="rect" id="node48" href="d4d__check__box_8c.html#ac94f137eecd1aa60daa53a5cd6b79161" title="D4D_CheckBoxOnDraw" alt="" coords="1464,1637,1624,1664"/><area shape="rect" id="node50" href="d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67" title="D4D_GaugOnDraw" alt="" coords="1479,1181,1609,1208"/><area shape="rect" id="node51" href="d4d__graph_8c.html#afc1fe5446b67d4fe5692aaa2f144f30a" title="D4D_GraphDrawEmptyGraph" alt="" coords="1714,1232,1905,1259"/><area shape="rect" id="node52" href="d4d__graph_8c.html#a640ef0f76a594f52ac2a87009342fc6d" title="D4D_GraphOnDraw" alt="" coords="1993,1207,2127,1233"/><area shape="rect" id="node53" href="d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140" title="D4D_IconOnDraw" alt="" coords="1482,1536,1606,1563"/><area shape="rect" id="node54" href="d4d__list__box_8c.html#a9b6a4954e7a9e0fa6e1c198bfbf93f9f" title="D4D_ListBoxOnDraw" alt="" coords="1472,1485,1616,1512"/><area shape="rect" id="node55" href="d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="1478,877,1610,904"/><area shape="rect" id="node56" href="d4d__picture_8c.html#afc6c766a0f2dbf4feb79d3617940c251" title="D4D_PictOnDraw" alt="" coords="1483,1333,1605,1360"/><area shape="rect" id="node58" href="d4d__progress__bar_8c.html#a33da0e2c98a3ba0f6747aa681cd9f2af" title="D4D_PrgrsBarOnDraw" alt="" coords="1469,1435,1619,1461"/><area shape="rect" id="node60" href="d4d__radio__button_8c.html#a19119bf78713fd35f4d40684631a3a2b" title="D4D_RadioButtonOnDraw" alt="" coords="1459,1891,1629,1917"/><area shape="rect" id="node62" href="group__doxd4d__scheme__func.html#ga4f46b75cc9161aaf0ca1c447a76e045b" title="Function return object current fore color. " alt="" coords="1187,1587,1357,1613"/><area shape="rect" id="node70" href="group__doxd4d__scheme__func.html#gacd90e36cd0d99094155abb8b3f7fb74c" title="Function return object current background color. " alt="" coords="1185,1688,1359,1715"/><area shape="rect" id="node71" href="group__doxd4d__scheme__func.html#ga03a58709f9089c68e320eba55899917e" title="Function return object current fill fore color. " alt="" coords="1179,1029,1365,1056"/><area shape="rect" id="node75" href="group__doxd4d__scheme__func.html#gaad25fd67fd667b9517bfb75f36f0b426" title="Function return object current fill background color. " alt="" coords="1177,1232,1367,1259"/><area shape="rect" id="node69" href="d4d__slider_8c.html#a60e15d945bece050aec9d38321fd2a95" title="D4D_SldrOnDraw" alt="" coords="1483,1941,1605,1968"/><area shape="rect" id="node47" href="d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="1737,1840,1881,1867"/><area shape="rect" id="node49" href="d4d__check__box_8c.html#a8b4e8a04f2da50934c48e0da7acbc641" title="D4D_CheckBoxOnMessage" alt="" coords="1717,1637,1901,1664"/><area shape="rect" id="node57" href="d4d__picture_8c.html#a919ab5149061e609e029718b6e5a288f" title="D4D_PictOnMessage" alt="" coords="1736,1384,1883,1411"/><area shape="rect" id="node59" href="d4d__progress__bar_8c.html#af3247d54c70c618bfea073d943050acd" title="D4D_PrgrsBarOnMessage" alt="" coords="1722,2245,1897,2272"/><area shape="rect" id="node61" href="d4d__radio__button_8c.html#a241633d34878771833dc96ccc85ef95c" title="D4D_RadioButtonOnMessage" alt="" coords="1712,2296,1907,2323"/><area shape="rect" id="node63" href="d4d__combo__box_8h.html#a92bbff3547dcda53c2d8e1c10c125121" title="D4D_ComboBoxButtonMsgFeedBack" alt="" coords="1424,1789,1664,1816"/><area shape="rect" id="node64" href="d4d__edit__box_8c.html#afda23f9d81aa217a8e7b4bc838a83847" title="D4D_EditBoxOnDraw" alt="" coords="1471,2043,1617,2069"/><area shape="rect" id="node65" href="d4d__group__box_8c.html#a54e514b02a2327f550d8ad9acae0e96c" title="D4D_GroupBoxOnDraw" alt="" coords="1465,1384,1623,1411"/><area shape="rect" id="node67" href="d4d__label_8c.html#afb4f76e75f5dbb4ef5ca211efe55e7ec" title="D4D_LabelOnDraw" alt="" coords="1479,1739,1609,1765"/><area shape="rect" id="node68" href="d4d__scroll__bar_8c.html#ac4c442ecbebdefa83f0c9be779c8cdda" title="D4D_ScrlBrOnDraw" alt="" coords="1476,1688,1612,1715"/><area shape="rect" id="node66" href="d4d__group__box_8c.html#a5e02a7833523423f991ee1e142d7d725" title="D4D_GroupBoxOnMessage" alt="" coords="1718,1435,1901,1461"/><area shape="rect" id="node72" href="d4d__console_8c.html#a4aec40f52339c770d7c0bf4b30da952e" title="D4D_ConsoleOnDraw" alt="" coords="1471,1131,1617,1157"/><area shape="rect" id="node73" href="d4d__graph_8c.html#a76aee1d400aae8592779ef15158c9339" title="D4D_GraphPrintLabel" alt="" coords="1471,1029,1617,1056"/><area shape="rect" id="node74" href="d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773" title="D4D_TextBoxOnDraw" alt="" coords="1470,928,1618,955"/><area shape="rect" id="node78" href="d4d__list__box_8c.html#a3351b92af656eec9307512168a199e8e" title="D4D_ListBoxValue2Coor" alt="" coords="1189,2600,1355,2627"/><area shape="rect" id="node81" href="d4d__progress__bar_8c.html#a6711f0441481b808c7acd34281925059" title="D4D_PrgrsBarComputeColorBar" alt="" coords="1169,2296,1375,2323"/><area shape="rect" id="node84" href="d4d__slider_8c.html#a4af9d723f82995fc669e26b109a7dbd2" title="D4D_SldrComputeColorBar" alt="" coords="1183,2448,1361,2475"/><area shape="rect" id="node82" href="d4d__progress__bar_8h.html#afb8021b6acf9220de318031cabf258b0" title="D4D_PrgrsBarSetValue" alt="" coords="1465,2397,1623,2424"/><area shape="rect" id="node83" href="d4d__progress__bar_8h.html#ace415a5788e524096a081a0efc196647" title="D4D_PrgrsBarChangeValue" alt="" coords="1718,2347,1901,2373"/><area shape="rect" id="node85" href="group__doxd4d__slider__func.html#gac9be4fb2a0566d958e15be179c03c135" title="Function Sets the slider value. " alt="" coords="1479,2448,1609,2475"/><area shape="rect" id="node86" href="group__doxd4d__slider__func.html#ga852cfa431a7bf11d77a7e4bb8d2df7a2" title="Function change the slider value by signed increment. " alt="" coords="1732,2397,1887,2424"/><area shape="rect" id="node87" href="group__doxd4d__slider__func.html#ga9f4c93f3b9d1c554571fc6365887ceb2" title="Function set the new limits of slider object. " alt="" coords="1743,2448,1875,2475"/><area shape="rect" id="node89" href="d4d__radio__button_8c.html#a722f18989a4019b988c16368f9587bc8" title="D4D_RadioButtonOnKeyUp" alt="" coords="728,2397,909,2424"/><area shape="rect" id="node90" href="group__doxd4d__radio__button__func.html#ga364b68be6371a0ed1b7e30282f1cc7d1" title="Function Sets the the radio button value. " alt="" coords="488,2600,667,2627"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acc6154791e522586085d0a4ca7581d26"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> D4D_HasObjectChildren </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function returns TRUE if the object has children </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00479">479</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__object_8h_source.html#l00103">D4D_OBJECT_USR_DATA_CHILD_IX</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__types_8h_source.html#l00184">NULL</a>, and <a class="el" href="d4d__object_8h_source.html#l00177">D4D_OBJECT_S::pRelations</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af78dec4288c2045f94b5a262c1e6b8ae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> D4D_ObjectCheckCoordinates </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a>&#160;</td>
+          <td class="paramname"><em>point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00459">459</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00232">D4D_SIZE::cx</a>, <a class="el" href="d4d__types_8h_source.html#l00233">D4D_SIZE::cy</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__base_8h_source.html#l00503">D4D_UNUSED</a>, <a class="el" href="d4d__object_8h_source.html#l00169">D4D_OBJECT_S::position</a>, <a class="el" href="d4d__object_8h_source.html#l00170">D4D_OBJECT_S::size</a>, <a class="el" href="d4d__types_8h_source.html#l00225">D4D_POINT::x</a>, and <a class="el" href="d4d__types_8h_source.html#l00226">D4D_POINT::y</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a71af54d42c496cf96eb44fcb42c7928a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_ObjOnMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__base__type.html#ga716b55349b3e15bed060d93cfe240e91">D4D_MESSAGE</a> *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>defualt message handler for all OBJECTS </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00443">443</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__base_8h_source.html#l00370">D4D_MSG_ONINIT</a>, <a class="el" href="d4d__object_8h_source.html#l00113">D4D_OBJECT_F_NOTINIT</a>, <a class="el" href="d4d__object_8h_source.html#l00145">D4D_OBJECT_DATA_S::flags</a>, <a class="el" href="d4d__base_8h_source.html#l00404">D4D_MESSAGE_S::nMsgId</a>, <a class="el" href="d4d__object_8h_source.html#l00180">D4D_OBJECT_S::pData</a>, and <a class="el" href="d4d__base_8h_source.html#l00402">D4D_MESSAGE_S::pObject</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__button_8c_source.html#l00399">D4D_BtnOnMessage()</a>, <a class="el" href="d4d__check__box_8c_source.html#l00352">D4D_CheckBoxOnMessage()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00308">D4D_ComboBoxOnMessage()</a>, <a class="el" href="d4d__console_8c_source.html#l00774">D4D_ConsoleOnMessage()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00681">D4D_EditBoxOnMessage()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00374">D4D_GaugOnMessage()</a>, <a class="el" href="d4d__graph_8c_source.html#l00800">D4D_GraphOnMessage()</a>, <a class="el" href="d4d__group__box_8c_source.html#l00185">D4D_GroupBoxOnMessage()</a>, <a class="el" href="d4d__icon_8c_source.html#l00290">D4D_IconOnMessage()</a>, <a class="el" href="d4d__label_8c_source.html#l00122">D4D_LabelOnMessage()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00685">D4D_ListBoxOnMessage()</a>, <a class="el" href="d4d__menu_8c_source.html#l00737">D4D_MenuOnMessage()</a>, <a class="el" href="d4d__picture_8c_source.html#l00104">D4D_PictOnMessage()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00296">D4D_PrgrsBarOnMessage()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00385">D4D_RadioButtonOnMessage()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00506">D4D_ScrlBrOnMessage()</a>, <a class="el" href="d4d__slider_8c_source.html#l00630">D4D_SldrOnMessage()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00647">D4D_TextBoxOnMessage()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a71af54d42c496cf96eb44fcb42c7928a_icgraph.gif" border="0" usemap="#d4d__object_8c_a71af54d42c496cf96eb44fcb42c7928a_icgraph" alt=""/></div>
+<map name="d4d__object_8c_a71af54d42c496cf96eb44fcb42c7928a_icgraph" id="d4d__object_8c_a71af54d42c496cf96eb44fcb42c7928a_icgraph">
+<area shape="rect" id="node2" href="d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="223,5,367,32"/><area shape="rect" id="node3" href="d4d__check__box_8c.html#a8b4e8a04f2da50934c48e0da7acbc641" title="D4D_CheckBoxOnMessage" alt="" coords="203,56,387,83"/><area shape="rect" id="node4" href="d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972" title="D4D_ComboBoxOnMessage" alt="" coords="201,107,389,133"/><area shape="rect" id="node5" href="d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="209,157,380,184"/><area shape="rect" id="node6" href="d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="209,208,380,235"/><area shape="rect" id="node7" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="217,259,372,285"/><area shape="rect" id="node8" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="215,309,374,336"/><area shape="rect" id="node9" href="d4d__group__box_8c.html#a5e02a7833523423f991ee1e142d7d725" title="D4D_GroupBoxOnMessage" alt="" coords="203,360,386,387"/><area shape="rect" id="node10" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="221,411,369,437"/><area shape="rect" id="node11" href="d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="217,461,372,488"/><area shape="rect" id="node12" href="d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="211,512,379,539"/><area shape="rect" id="node13" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="217,563,373,589"/><area shape="rect" id="node14" href="d4d__picture_8c.html#a919ab5149061e609e029718b6e5a288f" title="D4D_PictOnMessage" alt="" coords="221,613,368,640"/><area shape="rect" id="node15" href="d4d__progress__bar_8c.html#af3247d54c70c618bfea073d943050acd" title="D4D_PrgrsBarOnMessage" alt="" coords="207,664,382,691"/><area shape="rect" id="node16" href="d4d__radio__button_8c.html#a241633d34878771833dc96ccc85ef95c" title="D4D_RadioButtonOnMessage" alt="" coords="197,715,392,741"/><area shape="rect" id="node17" href="d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="215,765,375,792"/><area shape="rect" id="node18" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="221,816,368,843"/><area shape="rect" id="node19" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="209,867,381,893"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ea5194ba65b4124d374109fa782d237"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_SetObjectFlags </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga71858c5a620da03be379dbf32b5094c7">D4D_OBJECT_FLAGS</a>&#160;</td>
+          <td class="paramname"><em>flagsMask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>&#160;</td>
+          <td class="paramname"><em>alsoChildren</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function sets the flags of object and all it's childs </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00748">748</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__object_8h_source.html#l00110">D4D_OBJECT_F_REDRAW</a>, <a class="el" href="d4d__object_8h_source.html#l00111">D4D_OBJECT_F_REDRAWC</a>, <a class="el" href="d4d__object_8h_source.html#l00112">D4D_OBJECT_F_REDRAWSTATE</a>, <a class="el" href="d4d__object_8h_source.html#l00103">D4D_OBJECT_USR_DATA_CHILD_IX</a>, <a class="el" href="d4d__screen_8h_source.html#l00130">D4D_SCR_FINT_CHECKOBJECTS</a>, <a class="el" href="d4d__object_8c_source.html#l00748">D4D_SetObjectFlags()</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__object_8h_source.html#l00145">D4D_OBJECT_DATA_S::flags</a>, <a class="el" href="d4d__object_8h_source.html#l00180">D4D_OBJECT_S::pData</a>, <a class="el" href="d4d__object_8h_source.html#l00177">D4D_OBJECT_S::pRelations</a>, and <a class="el" href="d4d__object_8h_source.html#l00146">D4D_OBJECT_DATA_S::pScreen</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__object_8c_source.html#l00190">D4D_CaptureKeys()</a>, <a class="el" href="d4d__screen_8c_source.html#l00702">D4D_ChangeScreen()</a>, <a class="el" href="d4d__screen_8c_source.html#l00286">D4D_FocusNextObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00356">D4D_FocusPrevObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00430">D4D_FocusSet()</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00238">D4D_InvalidateScreen()</a>, and <a class="el" href="d4d__object_8c_source.html#l00748">D4D_SetObjectFlags()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a9ea5194ba65b4124d374109fa782d237_cgraph.gif" border="0" usemap="#d4d__object_8c_a9ea5194ba65b4124d374109fa782d237_cgraph" alt=""/></div>
+<map name="d4d__object_8c_a9ea5194ba65b4124d374109fa782d237_cgraph" id="d4d__object_8c_a9ea5194ba65b4124d374109fa782d237_cgraph">
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_a9ea5194ba65b4124d374109fa782d237_icgraph.gif" border="0" usemap="#d4d__object_8c_a9ea5194ba65b4124d374109fa782d237_icgraph" alt=""/></div>
+<map name="d4d__object_8c_a9ea5194ba65b4124d374109fa782d237_icgraph" id="d4d__object_8c_a9ea5194ba65b4124d374109fa782d237_icgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="638,768,767,795"/><area shape="rect" id="node29" href="d4d__screen_8c.html#acd4a0ec9fe607db2f8e67757620e4523" title="D4D_ChangeScreen" alt="" coords="633,718,772,744"/><area shape="rect" id="node30" href="group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="389,888,544,915"/><area shape="rect" id="node31" href="group__doxd4d__screen__func.html#ga47b87849baa7d228b0ba6ff2b5c473e6" title="The function change focus to the previous object in the given screen. " alt="" coords="390,2035,543,2062"/><area shape="rect" id="node32" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="411,616,522,643"/><area shape="rect" id="node37" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="394,1984,539,2011"/><area shape="rect" id="node112" href="group__doxd4d__screen__func.html#ga5633d19ba95be7b25045ed76d08bd2a7" title="The function mark the screen and its abject as &quot;redraw pending&quot;. " alt="" coords="393,211,541,238"/><area shape="rect" id="node116" href="d4d__private_8h.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="197,843,341,870"/><area shape="rect" id="node3" href="d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2" title="D4D_ComboBoxButtonFeedBack" alt="" coords="1387,186,1602,212"/><area shape="rect" id="node4" href="d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="1409,1376,1580,1403"/><area shape="rect" id="node5" href="d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1417,1148,1573,1175"/><area shape="rect" id="node6" href="d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1681,1478,1852,1504"/><area shape="rect" id="node7" href="d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1417,2896,1572,2923"/><area shape="rect" id="node9" href="d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="891,2491,1034,2518"/><area shape="rect" id="node11" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="901,160,1025,187"/><area shape="rect" id="node18" href="group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94" title="Function enables object. " alt="" coords="897,1174,1029,1200"/><area shape="rect" id="node19" href="group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="892,718,1033,744"/><area shape="rect" id="node21" href="group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="893,312,1032,339"/><area shape="rect" id="node24" href="group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="871,768,1054,795"/><area shape="rect" id="node25" href="d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1415,2060,1575,2087"/><area shape="rect" id="node26" href="d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="1151,515,1284,542"/><area shape="rect" id="node27" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1421,515,1568,542"/><area shape="rect" id="node28" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1409,1680,1581,1707"/><area shape="rect" id="node8" href="d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="1683,2922,1851,2948"/><area shape="rect" id="node10" href="d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1417,2719,1573,2746"/><area shape="rect" id="node12" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1667,186,1866,212"/><area shape="rect" id="node13" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="1112,59,1323,86"/><area shape="rect" id="node15" href="d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="1160,1655,1275,1682"/><area shape="rect" id="node16" href="d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="1151,2238,1283,2264"/><area shape="rect" id="node14" href="d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00" title="D4D_ComboBoxListBoxMsgFeedBack" alt="" coords="1371,59,1618,86"/><area shape="rect" id="node17" href="group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="1401,2136,1589,2163"/><area shape="rect" id="node20" href="group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1182,718,1253,744"/><area shape="rect" id="node22" href="d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1155,363,1279,390"/><area shape="rect" id="node23" href="group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1457,312,1533,339"/><area shape="rect" id="node33" href="d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="625,312,780,339"/><area shape="rect" id="node34" href="d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="623,363,782,390"/><area shape="rect" id="node35" href="d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="1143,1376,1291,1403"/><area shape="rect" id="node36" href="d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="625,414,780,440"/><area shape="rect" id="node38" href="group__doxd4d__base__func.html#ga1f354260fe4b7bc17a182604a18cf73e" title="Function sets object text font properties. " alt="" coords="623,1427,782,1454"/><area shape="rect" id="node39" href="group__doxd4d__base__func.html#ga7464e4e77bf9d9a4fe7a92783684daa9" title="Function sets object text properties. " alt="" coords="623,1478,782,1504"/><area shape="rect" id="node40" href="d4d__button_8c.html#a905de24a4fc29e32180d57f84a1a85e0" title="D4D_BtnOnKeyDown" alt="" coords="629,1782,776,1808"/><area shape="rect" id="node42" href="d4d__button_8c.html#a1dcbcd934690962f494833a66c1aab1c" title="D4D_BtnOnKeyUp" alt="" coords="637,1630,768,1656"/><area shape="rect" id="node43" href="d4d__button_8c.html#a715ce41a514f22f4a66b7cd50b3c02b1" title="D4D_BtnKillFocus" alt="" coords="639,1680,767,1707"/><area shape="rect" id="node41" href="d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="891,1680,1035,1707"/><area shape="rect" id="node44" href="d4d__check__box_8c.html#a9b104f3f7686dc980ba783e6841f1deb" title="D4D_CheckBoxOnKeyDown" alt="" coords="609,1934,796,1960"/><area shape="rect" id="node46" href="d4d__check__box_8c.html#a663e89a5e4d7c95391390421e90e9ade" title="D4D_CheckBoxOnKeyUp" alt="" coords="617,1984,788,2011"/><area shape="rect" id="node47" href="group__doxd4d__check__box__func.html#gacd955c920799f2829624161f2de799c8" title="Function Sets the the check box value. " alt="" coords="619,1832,786,1859"/><area shape="rect" id="node48" href="d4d__console_8c.html#a45906f5bcde7404fe92f44e577b0ae82" title="D4D_ConsoleTimeTick" alt="" coords="1141,1427,1294,1454"/><area shape="rect" id="node49" href="d4d__console_8h.html#a54fc91ea7b10a75e3131ff6b0f156e29" title="D4D_CnslScrollBarsFeedBack" alt="" coords="603,2947,802,2974"/><area shape="rect" id="node50" href="group__doxd4d__console__func.html#ga826950533ef85db079652105cec49441" title="The function puts one char on cursor position and updates cursor. " alt="" coords="1703,2314,1830,2340"/><area shape="rect" id="node52" href="group__doxd4d__console__func.html#ga65b164b0169a9baf208c9d1fb78b0fd7" title="The function clear whole console data. " alt="" coords="640,2998,765,3024"/><area shape="rect" id="node53" href="d4d__edit__box_8c.html#ac04e4a23673e89c0b33068da720a8af0" title="D4D_EditBoxOnInit" alt="" coords="895,1528,1030,1555"/><area shape="rect" id="node54" href="d4d__edit__box_8c.html#a4300b551b54f3898cc045605a460a4e1" title="D4D_EditBoxTimeTick" alt="" coords="1419,1478,1571,1504"/><area shape="rect" id="node55" href="group__doxd4d__edit__box__func.html#ga71575226e364b1edf67ca5348aa23bf4" title="The function puts one char on cursor position and updates cursor. " alt="" coords="1144,1072,1291,1099"/><area shape="rect" id="node58" href="group__doxd4d__edit__box__func.html#gaccc64f7d124d35dd570e832a847c4464" title="The function chenge the cursor position to new one. " alt="" coords="623,870,782,896"/><area shape="rect" id="node60" href="group__doxd4d__edit__box__func.html#ga0e24154d4fe5ee55a21cd2e7e01daa82" title="The function clear whole edit box data. " alt="" coords="1422,262,1567,288"/><area shape="rect" id="node61" href="group__doxd4d__gauge__func.html#ga7b40a0f89fd53f8d0d36ff4da9def3f2" title="The function sets the new value of gauge. " alt="" coords="633,3200,772,3227"/><area shape="rect" id="node62" href="group__doxd4d__gauge__func.html#gacb98ec4a3b9e3d796a81a6eac1c880f9" title="The function sets the new limits values of gauge. " alt="" coords="633,3251,773,3278"/><area shape="rect" id="node63" href="group__doxd4d__gauge__func.html#gae47240f89eeeaf652ca0afc74893ff62" title="The function set the trend/direction of gauge. " alt="" coords="642,3302,763,3328"/><area shape="rect" id="node64" href="group__doxd4d__graph__func.html#ga9d842645cdc1fda7c0be2c69a0b60337" title="The function add new data to one trace. " alt="" coords="617,3352,788,3379"/><area shape="rect" id="node65" href="group__doxd4d__graph__func.html#ga4b181ab273df2aa87a28d4d2b5e09c1f" title="The function add new data to all traces. " alt="" coords="613,3403,792,3430"/><area shape="rect" id="node66" href="group__doxd4d__graph__func.html#gaf5ffa6d4077179ffc477394cd342e05d" title="The function clears all internal data of graph object. " alt="" coords="635,3454,770,3480"/><area shape="rect" id="node67" href="group__doxd4d__graph__func.html#gab57fe23340875527877a19882b184637" title="Function sets the new scale of axis X of the graph. " alt="" coords="628,1022,777,1048"/><area shape="rect" id="node68" href="group__doxd4d__graph__func.html#gad1401380b35c210d3b8ff1dcab5dde42" title="Function sets the new scale of the axis X of the graph. " alt="" coords="617,1072,788,1099"/><area shape="rect" id="node69" href="group__doxd4d__icon__func.html#gac995ed6c5a43718a15c84bc7945831d9" title="Function sets the new bitmap of icon by icon index. " alt="" coords="638,1376,767,1403"/><area shape="rect" id="node71" href="d4d__list__box_8c.html#a539cc327ca2ffeeeb537d58dabcff913" title="D4D_ListBoxFocusNextItem" alt="" coords="1124,2947,1311,2974"/><area shape="rect" id="node72" href="d4d__list__box_8c.html#a8e64277eb0db5c64f9033128e0363ab1" title="D4D_ListBoxFocusPreviousItem" alt="" coords="1113,2998,1321,3024"/><area shape="rect" id="node73" href="d4d__list__box_8h.html#a548129f714b7e0d1009be9a19ad2c7e4" title="D4D_ListBoxScrollBarsFeedBack" alt="" coords="594,1123,811,1150"/><area shape="rect" id="node74" href="group__doxd4d__list__box__func.html#gac0ca84429c66cb1de4555407effc84ba" title="Function select new item by index. " alt="" coords="628,667,777,694"/><area shape="rect" id="node76" href="d4d__menu_8c.html#aeb5fe2dbdd4ec9f922f5d894750b604c" title="D4D_MenuOnKeyDown" alt="" coords="1138,2820,1297,2847"/><area shape="rect" id="node77" href="d4d__menu_8c.html#a6ab43fd4338bde2868eb82cad52f2a89" title="D4D_MenuOnInit" alt="" coords="1157,2668,1277,2695"/><area shape="rect" id="node78" href="d4d__menu_8h.html#a8c0b8c56f06604875dad23c510810106" title="D4D_MenuScrollBarsFeedBack" alt="" coords="600,1326,805,1352"/><area shape="rect" id="node79" href="d4d__progress__bar_8h.html#afb8021b6acf9220de318031cabf258b0" title="D4D_PrgrsBarSetValue" alt="" coords="623,2035,782,2062"/><area shape="rect" id="node81" href="d4d__progress__bar_8h.html#a114de34c7dab38ce7e94eab48c306137" title="D4D_PrgrsBarSetBarColor" alt="" coords="615,2390,790,2416"/><area shape="rect" id="node82" href="d4d__radio__button_8c.html#acf5b75f1310c1435785f61e8e5e2b082" title="D4D_RadioButtonOnKeyDown" alt="" coords="1119,3352,1316,3379"/><area shape="rect" id="node84" href="d4d__radio__button_8c.html#a722f18989a4019b988c16368f9587bc8" title="D4D_RadioButtonOnKeyUp" alt="" coords="1127,3150,1308,3176"/><area shape="rect" id="node85" href="group__doxd4d__radio__button__func.html#ga364b68be6371a0ed1b7e30282f1cc7d1" title="Function Sets the the radio button value. " alt="" coords="613,3099,792,3126"/><area shape="rect" id="node87" href="group__doxd4d__scroll__bar__func.html#gaefd74f2ae3a77f03f2970630b89b0ff5" title="The function sets the range of scroll bar scale. " alt="" coords="629,2288,776,2315"/><area shape="rect" id="node93" href="group__doxd4d__scroll__bar__func.html#gaae9edd2c13fcb67fe3d28e00d42af5a2" title="The function sets the step and page of scroll bar scale. " alt="" coords="634,2238,771,2264"/><area shape="rect" id="node94" href="group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="624,2542,781,2568"/><area shape="rect" id="node106" href="group__doxd4d__slider__func.html#gac9be4fb2a0566d958e15be179c03c135" title="Function Sets the slider value. " alt="" coords="637,1579,768,1606"/><area shape="rect" id="node109" href="group__doxd4d__slider__func.html#ga4fa4310cf82a6b3e4ba2afe882271c27" title="Function Sets the slider bar color. " alt="" coords="629,2668,776,2695"/><area shape="rect" id="node110" href="group__doxd4d__string__func.html#gaab7d26923d7016f858a77cb93eee3355" title="The function change the text in main object text buffer. " alt="" coords="653,2719,752,2746"/><area shape="rect" id="node90" href="d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374" title="D4D_TextBoxOnInit" alt="" coords="1149,1883,1285,1910"/><area shape="rect" id="node111" href="d4d__text__box_8h.html#ac22412813d39c4a80111acb4b83a85da" title="D4D_TextBoxScrollBarsFeedBack" alt="" coords="592,2770,813,2796"/><area shape="rect" id="node45" href="d4d__check__box_8c.html#a8b4e8a04f2da50934c48e0da7acbc641" title="D4D_CheckBoxOnMessage" alt="" coords="871,1731,1055,1758"/><area shape="rect" id="node51" href="group__doxd4d__console__func.html#gaa0fa842e0211a956e39193c0600cef5c" title="The function puts string on cursor position and updates cursor. " alt="" coords="1915,2314,2050,2340"/><area shape="rect" id="node56" href="group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254" title="The function puts string on cursor position and updates cursor. " alt="" coords="1417,363,1572,390"/><area shape="rect" id="node57" href="d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972" title="D4D_ComboBoxOnMessage" alt="" coords="1673,312,1861,339"/><area shape="rect" id="node59" href="d4d__edit__box_8c.html#a8ae69ab63cec13b3ebe92bf116210b69" title="D4D_EditBoxPutCharInt" alt="" coords="882,1072,1043,1099"/><area shape="rect" id="node70" href="group__doxd4d__icon__func.html#ga7e63c380dbb0c6237f6282db00c8e08c" title="Function sets the new bitmap of icon by icon index difference. " alt="" coords="886,1376,1039,1403"/><area shape="rect" id="node75" href="d4d__combo__box_8c.html#af64fc17743ef6ab3613e49ae5d5fb864" title="D4D_ComboBoxSetIndex" alt="" coords="878,667,1047,694"/><area shape="rect" id="node80" href="d4d__progress__bar_8h.html#ace415a5788e524096a081a0efc196647" title="D4D_PrgrsBarChangeValue" alt="" coords="871,1782,1054,1808"/><area shape="rect" id="node83" href="d4d__radio__button_8c.html#a241633d34878771833dc96ccc85ef95c" title="D4D_RadioButtonOnMessage" alt="" coords="1397,3251,1592,3278"/><area shape="rect" id="node86" href="d4d__radio__button_8c.html#a21316491574b3d3c7419309524da08ff" title="D4D_RadioButtonChangeValue" alt="" coords="861,3099,1064,3126"/><area shape="rect" id="node88" href="d4d__menu_8c.html#a30a111e7b85c1666f66f4c43cc29a6aa" title="D4D_MenuScrollBarSetup" alt="" coords="876,2542,1049,2568"/><area shape="rect" id="node89" href="d4d__text__box_8c.html#ac3bfefe93d27aba170ef56fea53e0fcc" title="D4D_TextBoxScrollBarSetup" alt="" coords="868,2086,1057,2112"/><area shape="rect" id="node91" href="group__doxd4d__text__box__func.html#gaac5a5ecdeb225c15c8d4d0386b99f273" title="The function reinitialize whole object. " alt="" coords="1414,1883,1575,1910"/><area shape="rect" id="node92" href="group__doxd4d__text__box__func.html#ga39b0345e200085c6c1a6c3b3d6797195" title="The function change the text of the text box. " alt="" coords="1409,1934,1580,1960"/><area shape="rect" id="node95" href="d4d__console_8c.html#aed9184953b7b6029a5d06c8dcf9313c9" title="D4D_CnslUpdateScrollbars" alt="" coords="873,2390,1052,2416"/><area shape="rect" id="node99" href="group__doxd4d__console__func.html#ga8043f01a19533df48ae3892fcd8238f6" title="The function move the scroll bars on to new position if it&#39;s applicable. " alt="" coords="863,2592,1063,2619"/><area shape="rect" id="node100" href="group__doxd4d__list__box__func.html#gafabebf1bfe5b1d4dea19acd07e62aeaa" title="Function ensure that the selected item in list will be scrolled to visible area. " alt="" coords="873,2998,1052,3024"/><area shape="rect" id="node101" href="d4d__menu_8c.html#ab0cb7791d811e8fb4ea8d09b3df6b054" title="D4D_MenuFocusNextItem" alt="" coords="875,2795,1050,2822"/><area shape="rect" id="node102" href="d4d__menu_8c.html#a664a18b254e48df788c0a4e3f5361dd8" title="D4D_MenuFocusPreviousItem" alt="" coords="865,2744,1061,2771"/><area shape="rect" id="node103" href="group__doxd4d__menu__func.html#ga5c028f0a7ce99c422632615842cd8012" title="Function select new item by index. " alt="" coords="894,2643,1031,2670"/><area shape="rect" id="node104" href="group__doxd4d__scroll__bar__func.html#ga410dc4d48f9e8e49ef69f7c0273e5647" title="The function change the scroll bar position. " alt="" coords="872,2136,1053,2163"/><area shape="rect" id="node96" href="group__doxd4d__console__func.html#gaab75a500a23b24cd9f4c461d98e44487" title="The function update automatically the scroll bars to ensure visible position of cursor. " alt="" coords="1137,2390,1297,2416"/><area shape="rect" id="node97" href="d4d__console_8c.html#ad4ecb03f16735d20cc49ffbb756d7a37" title="D4D_CnslNewLine" alt="" coords="1153,2288,1282,2315"/><area shape="rect" id="node98" href="d4d__console_8c.html#a4228dfd77d8dbf3a3f12c532561228eb" title="D4D_CnslPutCharInt" alt="" coords="1424,2187,1565,2214"/><area shape="rect" id="node105" href="d4d__scroll__bar_8c.html#a3f79305aacf5805aadcda4b043e77c0a" title="D4D_ScrlBrOnKeyDown" alt="" coords="1136,2086,1299,2112"/><area shape="rect" id="node107" href="group__doxd4d__slider__func.html#ga852cfa431a7bf11d77a7e4bb8d2df7a2" title="Function change the slider value by signed increment. " alt="" coords="885,566,1040,592"/><area shape="rect" id="node108" href="group__doxd4d__slider__func.html#ga9f4c93f3b9d1c554571fc6365887ceb2" title="Function set the new limits of slider object. " alt="" coords="897,1630,1029,1656"/><area shape="rect" id="node113" href="group__doxd4d__base__func.html#ga4d92a2c12ae1f50e480a9b9d8242e374" title="Set screen orientation function. " alt="" coords="634,110,771,136"/><area shape="rect" id="node114" href="group__doxd4d__screen__func.html#ga5ef0f680c75f33fdd160b250482e3710" title="The function sets the screen font properties. " alt="" coords="603,160,803,187"/><area shape="rect" id="node115" href="group__doxd4d__screen__func.html#ga7f9ffd0e4c8b157ca205848de818c399" title="The function sets the screen text properties. " alt="" coords="603,262,802,288"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae69ba41c5b7c264ce9990bf1ad7019dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_SetObjectScreenPointer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td>
+          <td class="paramname"><em>pObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__screen__type.html#gae4ea9a70b33c3b4ef1a499bd2ccbe7db">D4D_SCREEN</a> *&#160;</td>
+          <td class="paramname"><em>pScreen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function sets the screen pointer on object and its children </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8c_source.html#l00775">775</a> of file <a class="el" href="d4d__object_8c_source.html">d4d_object.c</a>.</p>
+
+<p>References <a class="el" href="d4d__object_8h_source.html#l00103">D4D_OBJECT_USR_DATA_CHILD_IX</a>, <a class="el" href="d4d__object_8c_source.html#l00775">D4D_SetObjectScreenPointer()</a>, <a class="el" href="d4d__object_8h_source.html#l00180">D4D_OBJECT_S::pData</a>, <a class="el" href="d4d__object_8h_source.html#l00177">D4D_OBJECT_S::pRelations</a>, and <a class="el" href="d4d__object_8h_source.html#l00146">D4D_OBJECT_DATA_S::pScreen</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00184">D4D_InitScreen()</a>, and <a class="el" href="d4d__object_8c_source.html#l00775">D4D_SetObjectScreenPointer()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_ae69ba41c5b7c264ce9990bf1ad7019dd_cgraph.gif" border="0" usemap="#d4d__object_8c_ae69ba41c5b7c264ce9990bf1ad7019dd_cgraph" alt=""/></div>
+<map name="d4d__object_8c_ae69ba41c5b7c264ce9990bf1ad7019dd_cgraph" id="d4d__object_8c_ae69ba41c5b7c264ce9990bf1ad7019dd_cgraph">
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__object_8c_ae69ba41c5b7c264ce9990bf1ad7019dd_icgraph.gif" border="0" usemap="#d4d__object_8c_ae69ba41c5b7c264ce9990bf1ad7019dd_icgraph" alt=""/></div>
+<map name="d4d__object_8c_ae69ba41c5b7c264ce9990bf1ad7019dd_icgraph" id="d4d__object_8c_ae69ba41c5b7c264ce9990bf1ad7019dd_icgraph">
+<area shape="rect" id="node2" href="group__doxd4d__screen__func.html#ga4023155a9b150a2be8807bec80d2e515" title="The function inits the screen and its objects for first time case. " alt="" coords="491,56,603,83"/><area shape="rect" id="node10" href="d4d__private_8h.html#ae69ba41c5b7c264ce9990bf1ad7019dd" title="D4D_SetObjectScreenPointer" alt="" coords="248,93,443,120"/><area shape="rect" id="node3" href="d4d__screen_8c.html#acd4a0ec9fe607db2f8e67757620e4523" title="D4D_ChangeScreen" alt="" coords="651,56,789,83"/><area shape="rect" id="node4" href="group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="859,5,1000,32"/><area shape="rect" id="node6" href="group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="860,56,999,83"/><area shape="rect" id="node9" href="group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="838,107,1021,133"/><area shape="rect" id="node5" href="group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1097,5,1167,32"/><area shape="rect" id="node7" href="d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1070,56,1194,83"/><area shape="rect" id="node8" href="group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1243,56,1319,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cde53fb8fb9dbb8ac34f83e30855a423.html">common_files</a></li><li class="navelem"><a class="el" href="d4d__object_8c.html">d4d_object.c</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:02 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

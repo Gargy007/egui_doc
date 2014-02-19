@@ -1,0 +1,796 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D OBJECT API Types Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHPwYJKoZIhvcNAQcEoIIHMDCCBywCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBrmHwgvLvhKGRzO8cZm9/UKJnlK99PO3Gl8smq83Xvwt62dZhOCIpUKixyRqN/ts2T453UjaEG3nz7Znnq0E9rKewbxzlUVOlK3q/TnzLftQP5W/Tea5o4zD7WgYtJGCd/mIMAgduMzJIBuUwIXL1J1z1K+Nts0wdEB8LA1mYrXjELMAkGBSsOAwIaBQAwgbwGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQInsjgdsr0RheAgZgLDmmYfa8B5+WUlbM4WQjaxmRW+lJ0n/iFmFCKyJBjqmHHI1bjnUkFewvUN04A99gXkJYAIGN99xBnPRhVs9fdsR0yf6WWXkYiH1h8MHCDC7pN3fo6vL56HQIIXzLMpRADm+Mc20c/ypX4gDPgZe0qeEZoUjyHCGBV75kFoEKnb+tR+YzvCAFrtOO4LNg7/Pq3Mk7pdLtv+6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTE0MDIxODEyMzcwNFowIwYJKoZIhvcNAQkEMRYEFMMRDuBMEXFtbvZRLfC0SXoON6IUMA0GCSqGSIb3DQEBAQUABIGAjQdFzx+web4Nw3s5tzYmhmF/sGb92H5Ri6mI0bez4xXcgw/b+ZhB8jxt124Tkar7U6lKxlOxhmRuuIoTLc1ZmkqvqP6wUheNwmQu6JTUKiUMM4IbO24SzOpPrH/yJksmdyrd0I5xuZM/A0Vz2QJ9g9Gf68kf7YlBoJWadZ4RM30=-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__object__type.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D OBJECT API Types Specification<div class="ingroups"><a class="el" href="group__doxd4d__object.html">D4D OBJECT Handler</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D OBJECT API Types Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__object__type.gif" border="0" alt="" usemap="#group____doxd4d____object____type"/>
+<map name="group____doxd4d____object____type" id="group____doxd4d____object____type">
+<area shape="rect" id="node1" href="group__doxd4d__object.html" title="D4D OBJECT Handler" alt="" coords="5,12,155,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION_S</a></td></tr>
+<tr class="memdesc:struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object system function needed for each object - this is part of D4D_OBJECT main structure.  <a href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">More...</a><br/></td></tr>
+<tr class="separator:struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_d4_d___o_b_j_e_c_t___d_a_t_a___s"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___d_a_t_a___s">D4D_OBJECT_DATA_S</a></td></tr>
+<tr class="memdesc:struct_d4_d___o_b_j_e_c_t___d_a_t_a___s"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object changeble data structure - this is part of D4D_OBJECT main structure.  <a href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___d_a_t_a___s">More...</a><br/></td></tr>
+<tr class="separator:struct_d4_d___o_b_j_e_c_t___d_a_t_a___s"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_d4_d___o_b_j_e_c_t___s"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_S</a></td></tr>
+<tr class="memdesc:struct_d4_d___o_b_j_e_c_t___s"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object main structure type definition.  <a href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">More...</a><br/></td></tr>
+<tr class="separator:struct_d4_d___o_b_j_e_c_t___s"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga71858c5a620da03be379dbf32b5094c7"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ga71858c5a620da03be379dbf32b5094c7">D4D_OBJECT_FLAGS</a></td></tr>
+<tr class="memdesc:ga71858c5a620da03be379dbf32b5094c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object flags type. The masks are described here <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a>.  <a href="#ga71858c5a620da03be379dbf32b5094c7">More...</a><br/></td></tr>
+<tr class="separator:ga71858c5a620da03be379dbf32b5094c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga793005a6e9bdabb5d7a96322a6d89585"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ga793005a6e9bdabb5d7a96322a6d89585">D4D_OBJECT_INITFLAGS</a></td></tr>
+<tr class="memdesc:ga793005a6e9bdabb5d7a96322a6d89585"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object init flags type. The masks are described here <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a>.  <a href="#ga793005a6e9bdabb5d7a96322a6d89585">More...</a><br/></td></tr>
+<tr class="separator:ga793005a6e9bdabb5d7a96322a6d89585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga360db674713a4fc170085622d5094200"><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a></td></tr>
+<tr class="memdesc:ga360db674713a4fc170085622d5094200"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object system function needed for each object - this is part of D4D_OBJECT main structure.  <a href="#ga360db674713a4fc170085622d5094200">More...</a><br/></td></tr>
+<tr class="separator:ga360db674713a4fc170085622d5094200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga33b3eb1f0f35c12249202a11c7ef29e0"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___d_a_t_a___s">D4D_OBJECT_DATA_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ga33b3eb1f0f35c12249202a11c7ef29e0">D4D_OBJECT_DATA</a></td></tr>
+<tr class="memdesc:ga33b3eb1f0f35c12249202a11c7ef29e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object changeble data structure - this is part of D4D_OBJECT main structure.  <a href="#ga33b3eb1f0f35c12249202a11c7ef29e0">More...</a><br/></td></tr>
+<tr class="separator:ga33b3eb1f0f35c12249202a11c7ef29e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga684447c5144ff1248563a67dac8552f9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___d_a_t_a___s">D4D_OBJECT_DATA_S</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ga684447c5144ff1248563a67dac8552f9">D4D_OBJECT_DATA_PTR</a></td></tr>
+<tr class="separator:ga684447c5144ff1248563a67dac8552f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga192856452e50a2b1c9323b0d3fc0a935"><td class="memItemLeft" align="right" valign="top">typedef void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ga192856452e50a2b1c9323b0d3fc0a935">D4D_OBJECT_USR_DATA</a></td></tr>
+<tr class="memdesc:ga192856452e50a2b1c9323b0d3fc0a935"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object user data type definition.  <a href="#ga192856452e50a2b1c9323b0d3fc0a935">More...</a><br/></td></tr>
+<tr class="separator:ga192856452e50a2b1c9323b0d3fc0a935"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8dfb28d998766e9f276cd6bcba484fd"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_S</a> <br class="typebreak"/>
+*const *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#gae8dfb28d998766e9f276cd6bcba484fd">D4D_OBJECT_RELATIONS</a></td></tr>
+<tr class="memdesc:gae8dfb28d998766e9f276cd6bcba484fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object relations type definition. In fact this is array of object pointer , where on position 0 is parent object(if exists) and on other positions are children.  <a href="#gae8dfb28d998766e9f276cd6bcba484fd">More...</a><br/></td></tr>
+<tr class="separator:gae8dfb28d998766e9f276cd6bcba484fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab07ede2703fda04a94a0e32e939ccc69"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a> )(struct <a class="el" href="group__doxd4d__base__type.html#struct_d4_d___m_e_s_s_a_g_e___s">D4D_MESSAGE_S</a> *pMsg)</td></tr>
+<tr class="memdesc:gab07ede2703fda04a94a0e32e939ccc69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type definition of object on User message handler function.  <a href="#gab07ede2703fda04a94a0e32e939ccc69">More...</a><br/></td></tr>
+<tr class="separator:gab07ede2703fda04a94a0e32e939ccc69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72385e33761c87e2eab0b48d1d7676da"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a></td></tr>
+<tr class="memdesc:ga72385e33761c87e2eab0b48d1d7676da"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object main structure type definition.  <a href="#ga72385e33761c87e2eab0b48d1d7676da">More...</a><br/></td></tr>
+<tr class="separator:ga72385e33761c87e2eab0b48d1d7676da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3c44a4935a4a44262e260eb1189f4dd"><td class="memItemLeft" align="right" valign="top">typedef const <a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a></td></tr>
+<tr class="memdesc:gab3c44a4935a4a44262e260eb1189f4dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type definition of object pointer to ROM.  <a href="#gab3c44a4935a4a44262e260eb1189f4dd">More...</a><br/></td></tr>
+<tr class="separator:gab3c44a4935a4a44262e260eb1189f4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact type for each typedef definition. </p>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s" id="struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct D4D_OBJECT_SYS_FUNCTION_S</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Collaboration diagram for D4D_OBJECT_SYS_FUNCTION_S:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s__coll__graph.gif" border="0" usemap="#_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s_coll__map" id="_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s_coll__map">
+<area shape="rect" id="node2" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s" title="The string type. This structure contains all properties about string in eGUI. " alt="" coords="59,163,176,299"/><area shape="rect" id="node3" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r___p_r_o_p_e_r_t_i_e_s___s" title="The string properties type. This structure contains as Font as Text properties. " alt="" coords="25,6,209,98"/></map>
+</div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a5fc20c52922706928c85ce60a69825df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#a5fc20c52922706928c85ce60a69825df">strName</a></td></tr>
+<tr class="memdesc:a5fc20c52922706928c85ce60a69825df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object type (widget) name, it also could be used as a identifier of object type.  <a href="#a5fc20c52922706928c85ce60a69825df">More...</a><br/></td></tr>
+<tr class="separator:a5fc20c52922706928c85ce60a69825df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab02d6d31f702b3166e19186562ca98ee"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ab02d6d31f702b3166e19186562ca98ee">OnSysMessage</a> )(struct <a class="el" href="group__doxd4d__base__type.html#struct_d4_d___m_e_s_s_a_g_e___s">D4D_MESSAGE_S</a> *pMsg)</td></tr>
+<tr class="memdesc:ab02d6d31f702b3166e19186562ca98ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object system message receiver function pointer.  <a href="#ab02d6d31f702b3166e19186562ca98ee">More...</a><br/></td></tr>
+<tr class="separator:ab02d6d31f702b3166e19186562ca98ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9e287019462ad551e64e4f466b7f978"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#af9e287019462ad551e64e4f466b7f978">CheckCoordinates</a> )(struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_S</a> *pObj, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> point)</td></tr>
+<tr class="memdesc:af9e287019462ad551e64e4f466b7f978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object check coordinates function pointer (return true or false if the input point fits into the object, is used just for non standard objects)  <a href="#af9e287019462ad551e64e4f466b7f978">More...</a><br/></td></tr>
+<tr class="separator:af9e287019462ad551e64e4f466b7f978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab402de63473fcfd3b99bee3f22962d01"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s">D4D_STRING_S</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ab402de63473fcfd3b99bee3f22962d01">GetTextBuffer</a> )(struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_S</a> *pObj)</td></tr>
+<tr class="memdesc:ab402de63473fcfd3b99bee3f22962d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object get text buffer function pointer (the function returns the pointer of the object text buffer, if exists)  <a href="#ab402de63473fcfd3b99bee3f22962d01">More...</a><br/></td></tr>
+<tr class="separator:ab402de63473fcfd3b99bee3f22962d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="af9e287019462ad551e64e4f466b7f978"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a>(* CheckCoordinates)(struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_S</a> *pObj, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> point)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Object check coordinates function pointer (return true or false if the input point fits into the object, is used just for non standard objects) </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00138">138</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab402de63473fcfd3b99bee3f22962d01"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s">D4D_STRING_S</a>*(* GetTextBuffer)(struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_S</a> *pObj)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Object get text buffer function pointer (the function returns the pointer of the object text buffer, if exists) </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00139">139</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00470">D4D_SetFontProperties()</a>, <a class="el" href="d4d__string_8c_source.html#l00573">D4D_SetText()</a>, and <a class="el" href="d4d__base_8c_source.html#l00496">D4D_SetTextProperties()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab02d6d31f702b3166e19186562ca98ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* OnSysMessage)(struct <a class="el" href="group__doxd4d__base__type.html#struct_d4_d___m_e_s_s_a_g_e___s">D4D_MESSAGE_S</a> *pMsg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Object system message receiver function pointer. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00137">137</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00650">D4D_SendMessage()</a>, and <a class="el" href="d4d__base_8c_source.html#l00683">D4D_SendMessageMask()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5fc20c52922706928c85ce60a69825df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* strName</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Object type (widget) name, it also could be used as a identifier of object type. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00136">136</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__radio__button_8c_source.html#l00334">D4D_RadioButtonChangeValue()</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="struct_d4_d___o_b_j_e_c_t___d_a_t_a___s" id="struct_d4_d___o_b_j_e_c_t___d_a_t_a___s"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct D4D_OBJECT_DATA_S</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Collaboration diagram for D4D_OBJECT_DATA_S:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___o_b_j_e_c_t___d_a_t_a___s__coll__graph.gif" border="0" usemap="#_d4_d___o_b_j_e_c_t___d_a_t_a___s_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___o_b_j_e_c_t___d_a_t_a___s_coll__map" id="_d4_d___o_b_j_e_c_t___d_a_t_a___s_coll__map">
+<area shape="rect" id="node4" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s" title="The object main structure type definition. " alt="" coords="495,653,619,789"/><area shape="rect" id="node2" href="group__doxd4d__screen__type.html#struct_d4_d___s_c_r_e_e_n___s" title="The screen structure type. The main screen structure that contains all needed data to run the eGUI sc..." alt="" coords="395,1011,519,1176"/><area shape="rect" id="node3" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e" title="Type definition of eGUI size structure. " alt="" coords="229,453,312,545"/><area shape="rect" id="node19" href="group__doxd4d__screen__type.html#struct_d4_d___s_c_r_e_e_n___d_a_t_a" title="The screen run time data type. It used to internal store the runtime data by eGUI. " alt="" coords="613,861,763,939"/><area shape="rect" id="node5" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s" title="The object system function needed for each object &#45; this is part of D4D_OBJECT main structure..." alt="" coords="582,445,807,552"/><area shape="rect" id="node6" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s" title="The string type. This structure contains all properties about string in eGUI. " alt="" coords="153,200,271,336"/><area shape="rect" id="node7" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r___p_r_o_p_e_r_t_i_e_s___s" title="The string properties type. This structure contains as Font as Text properties. " alt="" coords="119,21,304,113"/><area shape="rect" id="node8" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t" title="Type definition of eGUI point structure. " alt="" coords="466,453,557,545"/><area shape="rect" id="node9" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s" title="This is the main structure of the color scheme in the D4D. It contains all the necessary colors to ru..." alt="" coords="831,409,989,589"/><area shape="rect" id="node10" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j" title="This structure contains all object dependent colors of the color scheme in the D4D. It is divided into the small objects that describe structures containing individual colors. " alt="" coords="979,229,1153,307"/><area shape="rect" id="node11" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r" title="This structure contains specific colors (non&#45;standard) for the slider object. " alt="" coords="1193,6,1375,127"/><area shape="rect" id="node12" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r" title="This structure contains specific colors (non&#45;standard) for the progress bar object. " alt="" coords="1400,13,1629,120"/><area shape="rect" id="node13" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h" title="This structure contains specific colors (non&#45;standard) for the graph object. " alt="" coords="536,28,731,105"/><area shape="rect" id="node14" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g" title="This structure contains specific colors (non&#45;standard) for the gauge object. " alt="" coords="755,21,941,113"/><area shape="rect" id="node15" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b" title="This structure contains specific colors (non&#45;standard) for the check box object. " alt="" coords="965,28,1168,105"/><area shape="rect" id="node16" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r" title="This is the structure of the color scheme for screens in the D4D. It contains all the necessary color..." alt="" coords="779,193,955,343"/><area shape="rect" id="node17" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n" title="Type definition of eGUI client area margin structure. " alt="" coords="337,438,441,559"/><area shape="rect" id="node18" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p" title="D4D_BMP eGUI main image structure. " alt="" coords="787,854,869,946"/></map>
+</div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:a2d9b543b57a3d54b958787d383e34ba5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga71858c5a620da03be379dbf32b5094c7">D4D_OBJECT_FLAGS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#a2d9b543b57a3d54b958787d383e34ba5">flags</a></td></tr>
+<tr class="memdesc:a2d9b543b57a3d54b958787d383e34ba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">runtime object flags  <a href="#a2d9b543b57a3d54b958787d383e34ba5">More...</a><br/></td></tr>
+<tr class="separator:a2d9b543b57a3d54b958787d383e34ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a091fdaa012d36f085ba2c6465b195718"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="group__doxd4d__screen__type.html#struct_d4_d___s_c_r_e_e_n___s">D4D_SCREEN_S</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#a091fdaa012d36f085ba2c6465b195718">pScreen</a></td></tr>
+<tr class="memdesc:a091fdaa012d36f085ba2c6465b195718"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to object screen owner - it is placed in RAM bacause one object could be used in multiply screens  <a href="#a091fdaa012d36f085ba2c6465b195718">More...</a><br/></td></tr>
+<tr class="separator:a091fdaa012d36f085ba2c6465b195718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="a2d9b543b57a3d54b958787d383e34ba5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga71858c5a620da03be379dbf32b5094c7">D4D_OBJECT_FLAGS</a> flags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>runtime object flags </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00145">145</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__button_8c_source.html#l00161">D4D_BtnOnDraw()</a>, <a class="el" href="d4d__object_8c_source.html#l00190">D4D_CaptureKeys()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00308">D4D_ComboBoxOnMessage()</a>, <a class="el" href="d4d__base_8c_source.html#l01016">D4D_ComputeGeometry()</a>, <a class="el" href="d4d__console_8c_source.html#l00774">D4D_ConsoleOnMessage()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01654">D4D_DrawFrame()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00681">D4D_EditBoxOnMessage()</a>, <a class="el" href="d4d__object_8c_source.html#l00273">D4D_EnableObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00255">D4D_EnableTabStop()</a>, <a class="el" href="d4d__object_8c_source.html#l00172">D4D_EnableTimeTicks()</a>, <a class="el" href="d4d__object_8c_source.html#l00151">D4D_EnableTouchScreen()</a>, <a class="el" href="d4d__screen_8c_source.html#l00286">D4D_FocusNextObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00356">D4D_FocusPrevObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00430">D4D_FocusSet()</a>, <a class="el" href="d4d__graph_8c_source.html#l00800">D4D_GraphOnMessage()</a>, <a class="el" href="d4d__base_8c_source.html#l00567">D4D_HandleKeys()</a>, <a class="el" href="d4d__icon_8c_source.html#l00290">D4D_IconOnMessage()</a>, <a class="el" href="d4d__object_8c_source.html#l00303">D4D_IsEnabled()</a>, <a class="el" href="d4d__object_8c_source.html#l00325">D4D_IsVisible()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00685">D4D_ListBoxOnMessage()</a>, <a class="el" href="d4d__menu_8c_source.html#l00737">D4D_MenuOnMessage()</a>, <a class="el" href="d4d__menu_8c_source.html#l00548">D4D_MenuScrollBarSetup()</a>, <a class="el" href="d4d__object_8c_source.html#l00443">D4D_ObjOnMessage()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00296">D4D_PrgrsBarOnMessage()</a>, <a class="el" href="d4d__screen_8c_source.html#l00995">D4D_RedrawScreenObject()</a>, <a class="el" href="d4d__base_8c_source.html#l00683">D4D_SendMessageMask()</a>, <a class="el" href="d4d__object_8c_source.html#l00748">D4D_SetObjectFlags()</a>, <a class="el" href="d4d__object_8c_source.html#l00092">D4D_ShowObject()</a>, <a class="el" href="d4d__slider_8c_source.html#l00630">D4D_SldrOnMessage()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00647">D4D_TextBoxOnMessage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a091fdaa012d36f085ba2c6465b195718"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="group__doxd4d__screen__type.html#struct_d4_d___s_c_r_e_e_n___s">D4D_SCREEN_S</a>* pScreen</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>pointer to object screen owner - it is placed in RAM bacause one object could be used in multiply screens </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00146">146</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__combo__box_8c_source.html#l00131">D4D_ComboBoxListFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00288">D4D_ComboBoxStornoSelection()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01654">D4D_DrawFrame()</a>, <a class="el" href="d4d__object_8c_source.html#l00273">D4D_EnableObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00514">D4D_FindNextObjectOnScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00621">D4D_FindPreviousObjectOnScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00382">D4D_GetClientScreenSize()</a>, <a class="el" href="d4d__screen_8c_source.html#l00536">D4D_GetClientToScreenPoint()</a>, <a class="el" href="d4d__screen_8c_source.html#l00586">D4D_GetScreenToClientPoint()</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00348">D4D_IsMineFocus()</a>, <a class="el" href="d4d__menu_8c_source.html#l00586">D4D_MenuOnInit()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00109">D4D_ObjectGetScheme()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00334">D4D_RadioButtonChangeValue()</a>, <a class="el" href="d4d__screen_8c_source.html#l00995">D4D_RedrawScreenObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00748">D4D_SetObjectFlags()</a>, <a class="el" href="d4d__object_8c_source.html#l00775">D4D_SetObjectScreenPointer()</a>, and <a class="el" href="d4d__object_8c_source.html#l00092">D4D_ShowObject()</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<a name="struct_d4_d___o_b_j_e_c_t___s" id="struct_d4_d___o_b_j_e_c_t___s"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct D4D_OBJECT_S</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Collaboration diagram for D4D_OBJECT_S:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_d4_d___o_b_j_e_c_t___s__coll__graph.gif" border="0" usemap="#_d4_d___o_b_j_e_c_t___s_coll__map" alt="Collaboration graph"/></div>
+<map name="_d4_d___o_b_j_e_c_t___s_coll__map" id="_d4_d___o_b_j_e_c_t___s_coll__map">
+<area shape="rect" id="node8" href="group__doxd4d__screen__type.html#struct_d4_d___s_c_r_e_e_n___s" title="The screen structure type. The main screen structure that contains all needed data to run the eGUI sc..." alt="" coords="983,1011,1107,1176"/><area shape="rect" id="node10" href="group__doxd4d__screen__type.html#struct_d4_d___s_c_r_e_e_n___d_a_t_a" title="The screen run time data type. It used to internal store the runtime data by eGUI. " alt="" coords="971,861,1120,939"/><area shape="rect" id="node2" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e" title="Type definition of eGUI size structure. " alt="" coords="1263,453,1345,545"/><area shape="rect" id="node3" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s" title="The object system function needed for each object &#45; this is part of D4D_OBJECT main structure..." alt="" coords="1013,445,1237,552"/><area shape="rect" id="node4" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s" title="The string type. This structure contains all properties about string in eGUI. " alt="" coords="1240,200,1357,336"/><area shape="rect" id="node5" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r___p_r_o_p_e_r_t_i_e_s___s" title="The string properties type. This structure contains as Font as Text properties. " alt="" coords="1206,21,1391,113"/><area shape="rect" id="node6" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t" title="Type definition of eGUI point structure. " alt="" coords="767,453,859,545"/><area shape="rect" id="node7" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___d_a_t_a___s" title="The object changeble data structure &#45; this is part of D4D_OBJECT main structure. " alt="" coords="1209,1240,1369,1317"/><area shape="rect" id="node9" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p" title="D4D_BMP eGUI main image structure. " alt="" coords="813,854,896,946"/><area shape="rect" id="node11" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s" title="This is the main structure of the color scheme in the D4D. It contains all the necessary colors to ru..." alt="" coords="585,409,743,589"/><area shape="rect" id="node12" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___o_b_j" title="This structure contains all object dependent colors of the color scheme in the D4D. It is divided into the small objects that describe structures containing individual colors. " alt="" coords="447,229,621,307"/><area shape="rect" id="node13" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_l_d_r" title="This structure contains specific colors (non&#45;standard) for the slider object. " alt="" coords="443,6,625,127"/><area shape="rect" id="node14" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___p_r_g_r_s___b_a_r" title="This structure contains specific colors (non&#45;standard) for the progress bar object. " alt="" coords="651,13,880,120"/><area shape="rect" id="node15" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_r_a_p_h" title="This structure contains specific colors (non&#45;standard) for the graph object. " alt="" coords="904,28,1099,105"/><area shape="rect" id="node16" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___g_a_u_g" title="This structure contains specific colors (non&#45;standard) for the gauge object. " alt="" coords="5,21,192,113"/><area shape="rect" id="node17" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___c_h_e_c_k_b" title="This structure contains specific colors (non&#45;standard) for the check box object. " alt="" coords="216,28,419,105"/><area shape="rect" id="node18" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s_c_r" title="This is the structure of the color scheme for screens in the D4D. It contains all the necessary color..." alt="" coords="647,193,823,343"/><area shape="rect" id="node19" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n" title="Type definition of eGUI client area margin structure. " alt="" coords="883,438,988,559"/></map>
+</div>
+<table class="memberdecls">
+<tr><td colspan="2"><h3>Data Fields</h3></td></tr>
+<tr class="memitem:ad5270f999a216f38b6caacb734acb98a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ad5270f999a216f38b6caacb734acb98a">position</a></td></tr>
+<tr class="memdesc:ad5270f999a216f38b6caacb734acb98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position on the screen/object.  <a href="#ad5270f999a216f38b6caacb734acb98a">More...</a><br/></td></tr>
+<tr class="separator:ad5270f999a216f38b6caacb734acb98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab99580f14459a5ea1eac3cd665b4dc55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ab99580f14459a5ea1eac3cd665b4dc55">size</a></td></tr>
+<tr class="memdesc:ab99580f14459a5ea1eac3cd665b4dc55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the object.  <a href="#ab99580f14459a5ea1eac3cd665b4dc55">More...</a><br/></td></tr>
+<tr class="separator:ab99580f14459a5ea1eac3cd665b4dc55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f1e7bfcc708c8473ff73d2134fd5ddd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#a7f1e7bfcc708c8473ff73d2134fd5ddd">radius</a></td></tr>
+<tr class="memdesc:a7f1e7bfcc708c8473ff73d2134fd5ddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object corners radius.  <a href="#a7f1e7bfcc708c8473ff73d2134fd5ddd">More...</a><br/></td></tr>
+<tr class="separator:a7f1e7bfcc708c8473ff73d2134fd5ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ceaca0a202ef9f4afe3d73c24094a46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#a7ceaca0a202ef9f4afe3d73c24094a46">pMargin</a></td></tr>
+<tr class="memdesc:a7ceaca0a202ef9f4afe3d73c24094a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object inner margin.  <a href="#a7ceaca0a202ef9f4afe3d73c24094a46">More...</a><br/></td></tr>
+<tr class="separator:a7ceaca0a202ef9f4afe3d73c24094a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8492ce935fd75eeb7673413acf95fcd"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#af8492ce935fd75eeb7673413acf95fcd">pParam</a></td></tr>
+<tr class="memdesc:af8492ce935fd75eeb7673413acf95fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The object depends parameters.  <a href="#af8492ce935fd75eeb7673413acf95fcd">More...</a><br/></td></tr>
+<tr class="separator:af8492ce935fd75eeb7673413acf95fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77a7d09f6f63a405986f60cb71a49256"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#a77a7d09f6f63a405986f60cb71a49256">pObjFunc</a></td></tr>
+<tr class="memdesc:a77a7d09f6f63a405986f60cb71a49256"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pointer on object system functions.  <a href="#a77a7d09f6f63a405986f60cb71a49256">More...</a><br/></td></tr>
+<tr class="separator:a77a7d09f6f63a405986f60cb71a49256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aaa302420e74db4598a8b2570b73f35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#a6aaa302420e74db4598a8b2570b73f35">OnUsrMessage</a></td></tr>
+<tr class="memdesc:a6aaa302420e74db4598a8b2570b73f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pointer on user message.  <a href="#a6aaa302420e74db4598a8b2570b73f35">More...</a><br/></td></tr>
+<tr class="separator:a6aaa302420e74db4598a8b2570b73f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1cca6fd36b9d7fe1b0f7bee9d891fed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga192856452e50a2b1c9323b0d3fc0a935">D4D_OBJECT_USR_DATA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ac1cca6fd36b9d7fe1b0f7bee9d891fed">userData</a></td></tr>
+<tr class="memdesc:ac1cca6fd36b9d7fe1b0f7bee9d891fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pointer on user data container (user pointer and optionaly parent/children).  <a href="#ac1cca6fd36b9d7fe1b0f7bee9d891fed">More...</a><br/></td></tr>
+<tr class="separator:ac1cca6fd36b9d7fe1b0f7bee9d891fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac68f6a8b0c1029ae63b6d6fddbdd2416"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#gae8dfb28d998766e9f276cd6bcba484fd">D4D_OBJECT_RELATIONS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#ac68f6a8b0c1029ae63b6d6fddbdd2416">pRelations</a></td></tr>
+<tr class="memdesc:ac68f6a8b0c1029ae63b6d6fddbdd2416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relationship between the objects.  <a href="#ac68f6a8b0c1029ae63b6d6fddbdd2416">More...</a><br/></td></tr>
+<tr class="separator:ac68f6a8b0c1029ae63b6d6fddbdd2416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08b2eff9bb78f04335015d7c5dffb784"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga793005a6e9bdabb5d7a96322a6d89585">D4D_OBJECT_INITFLAGS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#a08b2eff9bb78f04335015d7c5dffb784">initFlags</a></td></tr>
+<tr class="memdesc:a08b2eff9bb78f04335015d7c5dffb784"><td class="mdescLeft">&#160;</td><td class="mdescRight">The initializations object flags.  <a href="#a08b2eff9bb78f04335015d7c5dffb784">More...</a><br/></td></tr>
+<tr class="separator:a08b2eff9bb78f04335015d7c5dffb784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c1542477d0b5d5b0d2f37f31b0e31dc"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s">D4D_CLR_SCHEME_S</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#a9c1542477d0b5d5b0d2f37f31b0e31dc">clrScheme</a></td></tr>
+<tr class="memdesc:a9c1542477d0b5d5b0d2f37f31b0e31dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer on used color scheme.  <a href="#a9c1542477d0b5d5b0d2f37f31b0e31dc">More...</a><br/></td></tr>
+<tr class="separator:a9c1542477d0b5d5b0d2f37f31b0e31dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f6651f30678cbad72e9ee50bc8256ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__object__type.html#ga684447c5144ff1248563a67dac8552f9">D4D_OBJECT_DATA_PTR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__object__type.html#a8f6651f30678cbad72e9ee50bc8256ad">pData</a></td></tr>
+<tr class="memdesc:a8f6651f30678cbad72e9ee50bc8256ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer on runtime object data.  <a href="#a8f6651f30678cbad72e9ee50bc8256ad">More...</a><br/></td></tr>
+<tr class="separator:a8f6651f30678cbad72e9ee50bc8256ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h4 class="groupheader">Field Documentation</h4>
+<a class="anchor" id="a9c1542477d0b5d5b0d2f37f31b0e31dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="group__doxd4d__scheme__type.html#struct_d4_d___c_l_r___s_c_h_e_m_e___s">D4D_CLR_SCHEME_S</a>* clrScheme</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer on used color scheme. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00179">179</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__scheme_8c_source.html#l00109">D4D_ObjectGetScheme()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a08b2eff9bb78f04335015d7c5dffb784"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga793005a6e9bdabb5d7a96322a6d89585">D4D_OBJECT_INITFLAGS</a> initFlags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The initializations object flags. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00178">178</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__button_8c_source.html#l00161">D4D_BtnOnDraw()</a>, <a class="el" href="d4d__button_8c_source.html#l00074">D4D_BtnValue2Coor()</a>, <a class="el" href="d4d__check__box_8c_source.html#l00122">D4D_CheckBoxOnDraw()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>, <a class="el" href="d4d__menu_8c_source.html#l00111">D4D_GetTitleBarHeight()</a>, <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>, <a class="el" href="d4d__graph_8c_source.html#l00800">D4D_GraphOnMessage()</a>, <a class="el" href="d4d__graph_8c_source.html#l00089">D4D_GraphValue2Coor()</a>, <a class="el" href="d4d__group__box_8c_source.html#l00075">D4D_GroupBoxOnDraw()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00438">D4D_ListBoxOnInit()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00133">D4D_ListBoxValue2Coor()</a>, <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>, <a class="el" href="d4d__menu_8c_source.html#l00548">D4D_MenuScrollBarSetup()</a>, <a class="el" href="d4d__menu_8c_source.html#l00154">D4D_MenuValue2Coor()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00137">D4D_PrgrsBarOnDraw()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00296">D4D_PrgrsBarOnMessage()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00235">D4D_PrgrsBarSetBarColor()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00199">D4D_PrgrsBarSetValue()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00130">D4D_RadioButtonOnDraw()</a>, <a class="el" href="d4d__slider_8c_source.html#l00292">D4D_SldrOnDraw()</a>, <a class="el" href="d4d__slider_8c_source.html#l00630">D4D_SldrOnMessage()</a>, <a class="el" href="d4d__slider_8c_source.html#l00536">D4D_SldrSetBarColor()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00492">D4D_SldrSetValue()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6aaa302420e74db4598a8b2570b73f35"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69">D4D_ON_USR_MSG</a> OnUsrMessage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The pointer on user message. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00175">175</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00650">D4D_SendMessage()</a>, and <a class="el" href="d4d__base_8c_source.html#l00683">D4D_SendMessageMask()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f6651f30678cbad72e9ee50bc8256ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga684447c5144ff1248563a67dac8552f9">D4D_OBJECT_DATA_PTR</a> pData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer on runtime object data. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00180">180</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__button_8c_source.html#l00161">D4D_BtnOnDraw()</a>, <a class="el" href="d4d__object_8c_source.html#l00190">D4D_CaptureKeys()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00131">D4D_ComboBoxListFeedBack()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00308">D4D_ComboBoxOnMessage()</a>, <a class="el" href="d4d__combo__box_8c_source.html#l00288">D4D_ComboBoxStornoSelection()</a>, <a class="el" href="d4d__base_8c_source.html#l01016">D4D_ComputeGeometry()</a>, <a class="el" href="d4d__console_8c_source.html#l00774">D4D_ConsoleOnMessage()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01654">D4D_DrawFrame()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00681">D4D_EditBoxOnMessage()</a>, <a class="el" href="d4d__object_8c_source.html#l00273">D4D_EnableObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00255">D4D_EnableTabStop()</a>, <a class="el" href="d4d__object_8c_source.html#l00172">D4D_EnableTimeTicks()</a>, <a class="el" href="d4d__object_8c_source.html#l00151">D4D_EnableTouchScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00514">D4D_FindNextObjectOnScreen()</a>, <a class="el" href="d4d__object_8c_source.html#l00621">D4D_FindPreviousObjectOnScreen()</a>, <a class="el" href="d4d__screen_8c_source.html#l00286">D4D_FocusNextObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00356">D4D_FocusPrevObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00430">D4D_FocusSet()</a>, <a class="el" href="d4d__object_8c_source.html#l00382">D4D_GetClientScreenSize()</a>, <a class="el" href="d4d__screen_8c_source.html#l00536">D4D_GetClientToScreenPoint()</a>, <a class="el" href="d4d__screen_8c_source.html#l00586">D4D_GetScreenToClientPoint()</a>, <a class="el" href="d4d__graph_8c_source.html#l00800">D4D_GraphOnMessage()</a>, <a class="el" href="d4d__base_8c_source.html#l00567">D4D_HandleKeys()</a>, <a class="el" href="d4d__icon_8c_source.html#l00290">D4D_IconOnMessage()</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00303">D4D_IsEnabled()</a>, <a class="el" href="d4d__object_8c_source.html#l00348">D4D_IsMineFocus()</a>, <a class="el" href="d4d__object_8c_source.html#l00325">D4D_IsVisible()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00685">D4D_ListBoxOnMessage()</a>, <a class="el" href="d4d__menu_8c_source.html#l00586">D4D_MenuOnInit()</a>, <a class="el" href="d4d__menu_8c_source.html#l00737">D4D_MenuOnMessage()</a>, <a class="el" href="d4d__menu_8c_source.html#l00548">D4D_MenuScrollBarSetup()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00109">D4D_ObjectGetScheme()</a>, <a class="el" href="d4d__object_8c_source.html#l00443">D4D_ObjOnMessage()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00296">D4D_PrgrsBarOnMessage()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00334">D4D_RadioButtonChangeValue()</a>, <a class="el" href="d4d__screen_8c_source.html#l00995">D4D_RedrawScreenObject()</a>, <a class="el" href="d4d__base_8c_source.html#l00683">D4D_SendMessageMask()</a>, <a class="el" href="d4d__object_8c_source.html#l00748">D4D_SetObjectFlags()</a>, <a class="el" href="d4d__object_8c_source.html#l00775">D4D_SetObjectScreenPointer()</a>, <a class="el" href="d4d__object_8c_source.html#l00092">D4D_ShowObject()</a>, <a class="el" href="d4d__slider_8c_source.html#l00630">D4D_SldrOnMessage()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00647">D4D_TextBoxOnMessage()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7ceaca0a202ef9f4afe3d73c24094a46"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a>* pMargin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Object inner margin. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00172">172</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l01016">D4D_ComputeGeometry()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00267">D4D_EditBoxOnInit()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00393">D4D_EditBoxPutChar()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00346">D4D_EditBoxPutCharInt()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00490">D4D_EditBoxSetCursor()</a>, <a class="el" href="d4d__object_8c_source.html#l00382">D4D_GetClientScreenSize()</a>, <a class="el" href="d4d__screen_8c_source.html#l00536">D4D_GetClientToScreenPoint()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00103">D4D_GetPositionCount()</a>, <a class="el" href="d4d__screen_8c_source.html#l00586">D4D_GetScreenToClientPoint()</a>, <a class="el" href="d4d__group__box_8c_source.html#l00075">D4D_GroupBoxOnDraw()</a>, and <a class="el" href="d4d__list__box_8c_source.html#l00133">D4D_ListBoxValue2Coor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a77a7d09f6f63a405986f60cb71a49256"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a>* pObjFunc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The pointer on object system functions. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00174">174</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__base_8c_source.html#l00650">D4D_SendMessage()</a>, <a class="el" href="d4d__base_8c_source.html#l00683">D4D_SendMessageMask()</a>, <a class="el" href="d4d__base_8c_source.html#l00470">D4D_SetFontProperties()</a>, <a class="el" href="d4d__string_8c_source.html#l00573">D4D_SetText()</a>, and <a class="el" href="d4d__base_8c_source.html#l00496">D4D_SetTextProperties()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad5270f999a216f38b6caacb734acb98a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> position</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Position on the screen/object. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00169">169</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__button_8c_source.html#l00074">D4D_BtnValue2Coor()</a>, <a class="el" href="d4d__check__box_8c_source.html#l00074">D4D_CheckBoxValue2Coor()</a>, <a class="el" href="d4d__console_8c_source.html#l00082">D4D_CnslValue2Coor()</a>, <a class="el" href="d4d__base_8c_source.html#l01016">D4D_ComputeGeometry()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01654">D4D_DrawFrame()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00082">D4D_EditBoxValue2Coor()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00116">D4D_GaugValue2Point()</a>, <a class="el" href="d4d__screen_8c_source.html#l00536">D4D_GetClientToScreenPoint()</a>, <a class="el" href="d4d__screen_8c_source.html#l00586">D4D_GetScreenToClientPoint()</a>, <a class="el" href="d4d__graph_8c_source.html#l00089">D4D_GraphValue2Coor()</a>, <a class="el" href="d4d__group__box_8c_source.html#l00075">D4D_GroupBoxOnDraw()</a>, <a class="el" href="d4d__icon_8c_source.html#l00073">D4D_IconValue2Coor()</a>, <a class="el" href="d4d__label_8c_source.html#l00071">D4D_LblValue2Coor()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00133">D4D_ListBoxValue2Coor()</a>, <a class="el" href="d4d__menu_8c_source.html#l00548">D4D_MenuScrollBarSetup()</a>, <a class="el" href="d4d__menu_8c_source.html#l00154">D4D_MenuValue2Coor()</a>, <a class="el" href="d4d__object_8c_source.html#l00459">D4D_ObjectCheckCoordinates()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00086">D4D_PrgrsBarValue2Coor()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00076">D4D_RadioButtonValue2Coor()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00083">D4D_ScrlBrValue2Coor()</a>, <a class="el" href="d4d__slider_8c_source.html#l00087">D4D_SldrValue2Coor()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00095">D4D_TextBoxValue2Coor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af8492ce935fd75eeb7673413acf95fcd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* pParam</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object depends parameters. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00173">173</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac68f6a8b0c1029ae63b6d6fddbdd2416"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#gae8dfb28d998766e9f276cd6bcba484fd">D4D_OBJECT_RELATIONS</a> pRelations</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Relationship between the objects. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00177">177</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__object_8c_source.html#l00586">D4D_FindNextObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00557">D4D_FindNextSiblingObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00695">D4D_FindPreviousObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00665">D4D_FindPreviousSiblingObject()</a>, <a class="el" href="d4d__object_8c_source.html#l00382">D4D_GetClientScreenSize()</a>, <a class="el" href="d4d__screen_8c_source.html#l00536">D4D_GetClientToScreenPoint()</a>, <a class="el" href="d4d__object_8c_source.html#l00498">D4D_GetParentObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00586">D4D_GetScreenToClientPoint()</a>, <a class="el" href="d4d__object_8c_source.html#l00479">D4D_HasObjectChildren()</a>, <a class="el" href="d4d__object_8c_source.html#l00303">D4D_IsEnabled()</a>, <a class="el" href="d4d__object_8c_source.html#l00348">D4D_IsMineFocus()</a>, <a class="el" href="d4d__object_8c_source.html#l00325">D4D_IsVisible()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00494">D4D_ListBoxEnsureVisible()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00438">D4D_ListBoxOnInit()</a>, <a class="el" href="d4d__scheme_8c_source.html#l00109">D4D_ObjectGetScheme()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00334">D4D_RadioButtonChangeValue()</a>, <a class="el" href="d4d__screen_8c_source.html#l00995">D4D_RedrawScreenObject()</a>, <a class="el" href="d4d__base_8c_source.html#l00738">D4D_SendMessageBack()</a>, <a class="el" href="d4d__base_8c_source.html#l00683">D4D_SendMessageMask()</a>, <a class="el" href="d4d__object_8c_source.html#l00748">D4D_SetObjectFlags()</a>, <a class="el" href="d4d__object_8c_source.html#l00775">D4D_SetObjectScreenPointer()</a>, and <a class="el" href="d4d__object_8c_source.html#l00092">D4D_ShowObject()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7f1e7bfcc708c8473ff73d2134fd5ddd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> radius</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Object corners radius. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00171">171</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__button_8c_source.html#l00161">D4D_BtnOnDraw()</a>, <a class="el" href="d4d__button_8c_source.html#l00074">D4D_BtnValue2Coor()</a>, <a class="el" href="d4d__check__box_8c_source.html#l00122">D4D_CheckBoxOnDraw()</a>, <a class="el" href="d4d__check__box_8c_source.html#l00074">D4D_CheckBoxValue2Coor()</a>, <a class="el" href="d4d__console_8c_source.html#l00082">D4D_CnslValue2Coor()</a>, <a class="el" href="d4d__console_8c_source.html#l00145">D4D_ConsoleOnDraw()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01654">D4D_DrawFrame()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00094">D4D_EditBoxOnDraw()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>, <a class="el" href="d4d__menu_8c_source.html#l00111">D4D_GetTitleBarHeight()</a>, <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>, <a class="el" href="d4d__graph_8c_source.html#l00089">D4D_GraphValue2Coor()</a>, <a class="el" href="d4d__group__box_8c_source.html#l00075">D4D_GroupBoxOnDraw()</a>, <a class="el" href="d4d__icon_8c_source.html#l00091">D4D_IconOnDraw()</a>, <a class="el" href="d4d__label_8c_source.html#l00085">D4D_LabelOnDraw()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00180">D4D_ListBoxOnDraw()</a>, <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>, <a class="el" href="d4d__menu_8c_source.html#l00548">D4D_MenuScrollBarSetup()</a>, <a class="el" href="d4d__picture_8c_source.html#l00067">D4D_PictOnDraw()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00137">D4D_PrgrsBarOnDraw()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00086">D4D_PrgrsBarValue2Coor()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00130">D4D_RadioButtonOnDraw()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00076">D4D_RadioButtonValue2Coor()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00162">D4D_ScrlBrOnDraw()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00083">D4D_ScrlBrValue2Coor()</a>, <a class="el" href="d4d__slider_8c_source.html#l00292">D4D_SldrOnDraw()</a>, <a class="el" href="d4d__slider_8c_source.html#l00087">D4D_SldrValue2Coor()</a>, <a class="el" href="d4d__text__box_8c_source.html#l00461">D4D_TextBoxOnDraw()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00095">D4D_TextBoxValue2Coor()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab99580f14459a5ea1eac3cd665b4dc55"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a> size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Size of the object. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00170">170</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__button_8c_source.html#l00161">D4D_BtnOnDraw()</a>, <a class="el" href="d4d__button_8c_source.html#l00074">D4D_BtnValue2Coor()</a>, <a class="el" href="d4d__check__box_8c_source.html#l00122">D4D_CheckBoxOnDraw()</a>, <a class="el" href="d4d__base_8c_source.html#l01016">D4D_ComputeGeometry()</a>, <a class="el" href="d4d__console_8c_source.html#l00145">D4D_ConsoleOnDraw()</a>, <a class="el" href="d4d__basic__draw_8c_source.html#l01654">D4D_DrawFrame()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00094">D4D_EditBoxOnDraw()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00267">D4D_EditBoxOnInit()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00393">D4D_EditBoxPutChar()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00346">D4D_EditBoxPutCharInt()</a>, <a class="el" href="d4d__edit__box_8c_source.html#l00490">D4D_EditBoxSetCursor()</a>, <a class="el" href="d4d__gauge_8c_source.html#l00145">D4D_GaugOnDraw()</a>, <a class="el" href="d4d__object_8c_source.html#l00382">D4D_GetClientScreenSize()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00103">D4D_GetPositionCount()</a>, <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>, <a class="el" href="d4d__group__box_8c_source.html#l00075">D4D_GroupBoxOnDraw()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00180">D4D_ListBoxOnDraw()</a>, <a class="el" href="d4d__list__box_8c_source.html#l00133">D4D_ListBoxValue2Coor()</a>, <a class="el" href="d4d__menu_8c_source.html#l00205">D4D_MenuOnDraw()</a>, <a class="el" href="d4d__menu_8c_source.html#l00548">D4D_MenuScrollBarSetup()</a>, <a class="el" href="d4d__menu_8c_source.html#l00154">D4D_MenuValue2Coor()</a>, <a class="el" href="d4d__object_8c_source.html#l00459">D4D_ObjectCheckCoordinates()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00137">D4D_PrgrsBarOnDraw()</a>, <a class="el" href="d4d__radio__button_8c_source.html#l00130">D4D_RadioButtonOnDraw()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00162">D4D_ScrlBrOnDraw()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00330">D4D_ScrlBrOnKeyDown()</a>, <a class="el" href="d4d__scroll__bar_8c_source.html#l00083">D4D_ScrlBrValue2Coor()</a>, <a class="el" href="d4d__slider_8c_source.html#l00292">D4D_SldrOnDraw()</a>, <a class="el" href="d4d__slider_8c_source.html#l00087">D4D_SldrValue2Coor()</a>, and <a class="el" href="d4d__text__box_8c_source.html#l00461">D4D_TextBoxOnDraw()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac1cca6fd36b9d7fe1b0f7bee9d891fed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__object__type.html#ga192856452e50a2b1c9323b0d3fc0a935">D4D_OBJECT_USR_DATA</a> userData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The pointer on user data container (user pointer and optionaly parent/children). </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00176">176</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__object_8c_source.html#l00131">D4D_GetUserPointer()</a>, and <a class="el" href="d4d__list__box_8c_source.html#l00472">D4D_ListBoxScrollBarsFeedBack()</a>.</p>
+
+</div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="ga72385e33761c87e2eab0b48d1d7676da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_S</a>  <a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object main structure type definition. </p>
+<dl class="section note"><dt>Note</dt><dd>This is main object (widget) data structure typically placed in ROM. It contains all common properties of objects </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga33b3eb1f0f35c12249202a11c7ef29e0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___d_a_t_a___s">D4D_OBJECT_DATA_S</a> <a class="el" href="group__doxd4d__object__type.html#ga33b3eb1f0f35c12249202a11c7ef29e0">D4D_OBJECT_DATA</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object changeble data structure - this is part of D4D_OBJECT main structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga684447c5144ff1248563a67dac8552f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___d_a_t_a___s">D4D_OBJECT_DATA_S</a> * <a class="el" href="group__doxd4d__object__type.html#ga684447c5144ff1248563a67dac8552f9">D4D_OBJECT_DATA_PTR</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ga71858c5a620da03be379dbf32b5094c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> <a class="el" href="group__doxd4d__object__type.html#ga71858c5a620da03be379dbf32b5094c7">D4D_OBJECT_FLAGS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object flags type. The masks are described here <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a>. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00128">128</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga793005a6e9bdabb5d7a96322a6d89585"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> <a class="el" href="group__doxd4d__object__type.html#ga793005a6e9bdabb5d7a96322a6d89585">D4D_OBJECT_INITFLAGS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object init flags type. The masks are described here <a class="el" href="group__doxd4d__object__const__flags.html">D4D OBJECT Defines masks of object behaviour flags</a>. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00131">131</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gab3c44a4935a4a44262e260eb1189f4dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef const <a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a>* <a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The type definition of object pointer to ROM. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00184">184</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gae8dfb28d998766e9f276cd6bcba484fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_S</a>* const* <a class="el" href="group__doxd4d__object__type.html#gae8dfb28d998766e9f276cd6bcba484fd">D4D_OBJECT_RELATIONS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object relations type definition. In fact this is array of object pointer , where on position 0 is parent object(if exists) and on other positions are children. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00153">153</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga360db674713a4fc170085622d5094200"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION_S</a> <a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object system function needed for each object - this is part of D4D_OBJECT main structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga192856452e50a2b1c9323b0d3fc0a935"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void* <a class="el" href="group__doxd4d__object__type.html#ga192856452e50a2b1c9323b0d3fc0a935">D4D_OBJECT_USR_DATA</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The object user data type definition. </p>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00150">150</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gab07ede2703fda04a94a0e32e939ccc69"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>(* D4D_ON_USR_MSG)(struct <a class="el" href="group__doxd4d__base__type.html#struct_d4_d___m_e_s_s_a_g_e___s">D4D_MESSAGE_S</a> *pMsg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Type definition of object on User message handler function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pMsg</td><td>- pointer to message structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This is button call back function used to notify user application about On Click button event. </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__object_8h_source.html#l00162">162</a> of file <a class="el" href="d4d__object_8h_source.html">d4d_object.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:05 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

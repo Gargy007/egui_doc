@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D SLIDER API Functions Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__slider__func.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D SLIDER API Functions Specification<div class="ingroups"><a class="el" href="group__doxd4d__slider.html">D4D Slider Widget</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D SLIDER API Functions Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__slider__func.gif" border="0" alt="" usemap="#group____doxd4d____slider____func"/>
+<map name="group____doxd4d____slider____func" id="group____doxd4d____slider____func">
+<area shape="rect" id="node1" href="group__doxd4d__slider.html" title="D4D Slider Widget" alt="" coords="6,12,135,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gac9be4fb2a0566d958e15be179c03c135"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__func.html#gac9be4fb2a0566d958e15be179c03c135">D4D_SldrSetValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__slider__type.html#ga69cdfa357fa5eea9143d11db41b33304">D4D_SLIDER_VALUE</a> value)</td></tr>
+<tr class="memdesc:gac9be4fb2a0566d958e15be179c03c135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function Sets the slider value.  <a href="#gac9be4fb2a0566d958e15be179c03c135">More...</a><br/></td></tr>
+<tr class="separator:gac9be4fb2a0566d958e15be179c03c135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad43bc5cc3336b9033c94b80597dbea4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__slider__type.html#ga69cdfa357fa5eea9143d11db41b33304">D4D_SLIDER_VALUE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__func.html#gad43bc5cc3336b9033c94b80597dbea4d">D4D_SldrGetValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:gad43bc5cc3336b9033c94b80597dbea4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function Gets the slider value.  <a href="#gad43bc5cc3336b9033c94b80597dbea4d">More...</a><br/></td></tr>
+<tr class="separator:gad43bc5cc3336b9033c94b80597dbea4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4fa4310cf82a6b3e4ba2afe882271c27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__func.html#ga4fa4310cf82a6b3e4ba2afe882271c27">D4D_SldrSetBarColor</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="memdesc:ga4fa4310cf82a6b3e4ba2afe882271c27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function Sets the slider bar color.  <a href="#ga4fa4310cf82a6b3e4ba2afe882271c27">More...</a><br/></td></tr>
+<tr class="separator:ga4fa4310cf82a6b3e4ba2afe882271c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7396b383af989157bc40d156b2dad4b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__func.html#ga7396b383af989157bc40d156b2dad4b0">D4D_SldrGetBarColor</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="separator:ga7396b383af989157bc40d156b2dad4b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga852cfa431a7bf11d77a7e4bb8d2df7a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__func.html#ga852cfa431a7bf11d77a7e4bb8d2df7a2">D4D_SldrChangeValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__slider__type.html#ga69cdfa357fa5eea9143d11db41b33304">D4D_SLIDER_VALUE</a> incr)</td></tr>
+<tr class="memdesc:ga852cfa431a7bf11d77a7e4bb8d2df7a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function change the slider value by signed increment.  <a href="#ga852cfa431a7bf11d77a7e4bb8d2df7a2">More...</a><br/></td></tr>
+<tr class="separator:ga852cfa431a7bf11d77a7e4bb8d2df7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f4c93f3b9d1c554571fc6365887ceb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__func.html#ga9f4c93f3b9d1c554571fc6365887ceb2">D4D_SldrSetLimits</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, const <a class="el" href="group__doxd4d__slider__type.html#struct_d4_d___s_l_i_d_e_r___l_i_m_i_t_s">D4D_SLIDER_LIMITS</a> *pLimits)</td></tr>
+<tr class="memdesc:ga9f4c93f3b9d1c554571fc6365887ceb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function set the new limits of slider object.  <a href="#ga9f4c93f3b9d1c554571fc6365887ceb2">More...</a><br/></td></tr>
+<tr class="separator:ga9f4c93f3b9d1c554571fc6365887ceb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae474d89484018b79adb9660b4f7f93c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__slider__func.html#gae474d89484018b79adb9660b4f7f93c1">D4D_SldrGetLimits</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__slider__type.html#struct_d4_d___s_l_i_d_e_r___l_i_m_i_t_s">D4D_SLIDER_LIMITS</a> *pLimits)</td></tr>
+<tr class="memdesc:gae474d89484018b79adb9660b4f7f93c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function get the current limits of slider object.  <a href="#gae474d89484018b79adb9660b4f7f93c1">More...</a><br/></td></tr>
+<tr class="separator:gae474d89484018b79adb9660b4f7f93c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact usage for each API function. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga852cfa431a7bf11d77a7e4bb8d2df7a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_SldrChangeValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__slider__type.html#ga69cdfa357fa5eea9143d11db41b33304">D4D_SLIDER_VALUE</a>&#160;</td>
+          <td class="paramname"><em>incr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function change the slider value by signed increment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the slider object </td></tr>
+    <tr><td class="paramname">incr</td><td>- signed increment value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8c_source.html#l00567">567</a> of file <a class="el" href="d4d__slider_8c_source.html">d4d_slider.c</a>.</p>
+
+<p>References <a class="el" href="d4d__slider_8h_source.html#l00200">D4D_GET_SLIDER</a>, <a class="el" href="d4d__math_8c_source.html#l00448">D4D_LimitS8()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00492">D4D_SldrSetValue()</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__slider_8c_source.html#l00390">D4D_SldrOnKeyUp()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00630">D4D_SldrOnMessage()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__slider__func_ga852cfa431a7bf11d77a7e4bb8d2df7a2_cgraph.gif" border="0" usemap="#group__doxd4d__slider__func_ga852cfa431a7bf11d77a7e4bb8d2df7a2_cgraph" alt=""/></div>
+<map name="group__doxd4d__slider__func_ga852cfa431a7bf11d77a7e4bb8d2df7a2_cgraph" id="group__doxd4d__slider__func_ga852cfa431a7bf11d77a7e4bb8d2df7a2_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__math__func.html#ga0f9b5feb47a6a564947f81d4c97bb131" title="Calculation of limitation value (signed) &#45; 8 bit. " alt="" coords="427,43,525,69"/><area shape="rect" id="node3" href="group__doxd4d__slider__func.html#gac9be4fb2a0566d958e15be179c03c135" title="Function Sets the slider value. " alt="" coords="208,93,339,120"/><area shape="rect" id="node4" href="d4d__slider_8c.html#a4af9d723f82995fc669e26b109a7dbd2" title="D4D_SldrComputeColorBar" alt="" coords="387,93,565,120"/><area shape="rect" id="node11" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="403,156,549,183"/><area shape="rect" id="node5" href="group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="625,5,764,32"/><area shape="rect" id="node6" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="848,37,965,64"/><area shape="rect" id="node8" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="614,131,775,157"/><area shape="rect" id="node7" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1038,37,1133,64"/><area shape="rect" id="node9" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="831,100,982,127"/><area shape="rect" id="node10" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="825,151,989,177"/><area shape="rect" id="node12" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="623,205,767,232"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__slider__func_ga852cfa431a7bf11d77a7e4bb8d2df7a2_icgraph.gif" border="0" usemap="#group__doxd4d__slider__func_ga852cfa431a7bf11d77a7e4bb8d2df7a2_icgraph" alt=""/></div>
+<map name="group__doxd4d__slider__func_ga852cfa431a7bf11d77a7e4bb8d2df7a2_icgraph" id="group__doxd4d__slider__func_ga852cfa431a7bf11d77a7e4bb8d2df7a2_icgraph">
+<area shape="rect" id="node2" href="d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="208,5,341,32"/><area shape="rect" id="node3" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="389,31,536,57"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga7396b383af989157bc40d156b2dad4b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> D4D_SldrGetBarColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__slider_8c_source.html#l00553">553</a> of file <a class="el" href="d4d__slider_8c_source.html">d4d_slider.c</a>.</p>
+
+<p>References <a class="el" href="d4d__slider_8h_source.html#l00178">D4D_SLIDER_DATA::colorBar</a>, <a class="el" href="d4d__slider_8h_source.html#l00200">D4D_GET_SLIDER</a>, and <a class="el" href="d4d__slider_8h_source.html#l00191">D4D_SLIDER::pData</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gae474d89484018b79adb9660b4f7f93c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_SldrGetLimits </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__slider__type.html#struct_d4_d___s_l_i_d_e_r___l_i_m_i_t_s">D4D_SLIDER_LIMITS</a> *&#160;</td>
+          <td class="paramname"><em>pLimits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function get the current limits of slider object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the slider object </td></tr>
+    <tr><td class="paramname">pLimits</td><td>- pointer to limits structure where will be copied current values what slider is using </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8c_source.html#l00604">604</a> of file <a class="el" href="d4d__slider_8c_source.html">d4d_slider.c</a>.</p>
+
+<p>References <a class="el" href="d4d__slider_8h_source.html#l00200">D4D_GET_SLIDER</a>, <a class="el" href="d4d__slider_8h_source.html#l00177">D4D_SLIDER_DATA::limits</a>, and <a class="el" href="d4d__slider_8h_source.html#l00191">D4D_SLIDER::pData</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gad43bc5cc3336b9033c94b80597dbea4d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__slider__type.html#ga69cdfa357fa5eea9143d11db41b33304">D4D_SLIDER_VALUE</a> D4D_SldrGetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function Gets the slider value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the slider object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>value of slider. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8c_source.html#l00523">523</a> of file <a class="el" href="d4d__slider_8c_source.html">d4d_slider.c</a>.</p>
+
+<p>References <a class="el" href="d4d__slider_8h_source.html#l00200">D4D_GET_SLIDER</a>, <a class="el" href="d4d__slider_8h_source.html#l00191">D4D_SLIDER::pData</a>, and <a class="el" href="d4d__slider_8h_source.html#l00176">D4D_SLIDER_DATA::value</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga4fa4310cf82a6b3e4ba2afe882271c27"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_SldrSetBarColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function Sets the slider bar color. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the slider object </td></tr>
+    <tr><td class="paramname">color</td><td>- new slider bar color </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8c_source.html#l00536">536</a> of file <a class="el" href="d4d__slider_8c_source.html">d4d_slider.c</a>.</p>
+
+<p>References <a class="el" href="d4d__slider_8h_source.html#l00178">D4D_SLIDER_DATA::colorBar</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__slider_8h_source.html#l00200">D4D_GET_SLIDER</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__slider_8h_source.html#l00069">D4D_SLDR_F_BAR_AUTOCOLOR</a>, <a class="el" href="d4d__slider_8h_source.html#l00071">D4D_SLDR_F_BAR_SCALECOLOR</a>, <a class="el" href="d4d__object_8h_source.html#l00178">D4D_OBJECT_S::initFlags</a>, and <a class="el" href="d4d__slider_8h_source.html#l00191">D4D_SLIDER::pData</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__slider__func_ga4fa4310cf82a6b3e4ba2afe882271c27_cgraph.gif" border="0" usemap="#group__doxd4d__slider__func_ga4fa4310cf82a6b3e4ba2afe882271c27_cgraph" alt=""/></div>
+<map name="group__doxd4d__slider__func_ga4fa4310cf82a6b3e4ba2afe882271c27_cgraph" id="group__doxd4d__slider__func_ga4fa4310cf82a6b3e4ba2afe882271c27_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="201,29,346,56"/><area shape="rect" id="node3" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="395,29,539,56"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga9f4c93f3b9d1c554571fc6365887ceb2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_SldrSetLimits </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__doxd4d__slider__type.html#struct_d4_d___s_l_i_d_e_r___l_i_m_i_t_s">D4D_SLIDER_LIMITS</a> *&#160;</td>
+          <td class="paramname"><em>pLimits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function set the new limits of slider object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the slider object </td></tr>
+    <tr><td class="paramname">pLimits</td><td>- pointer to new limits structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8c_source.html#l00584">584</a> of file <a class="el" href="d4d__slider_8c_source.html">d4d_slider.c</a>.</p>
+
+<p>References <a class="el" href="d4d__slider_8h_source.html#l00200">D4D_GET_SLIDER</a>, <a class="el" href="d4d__slider_8c_source.html#l00492">D4D_SldrSetValue()</a>, <a class="el" href="d4d__slider_8h_source.html#l00177">D4D_SLIDER_DATA::limits</a>, <a class="el" href="d4d__slider_8h_source.html#l00191">D4D_SLIDER::pData</a>, <a class="el" href="d4d__slider_8h_source.html#l00176">D4D_SLIDER_DATA::value</a>, <a class="el" href="d4d__slider_8h_source.html#l00154">D4D_SLIDER_LIMITS::valueMax</a>, <a class="el" href="d4d__slider_8h_source.html#l00153">D4D_SLIDER_LIMITS::valueMin</a>, and <a class="el" href="d4d__slider_8h_source.html#l00156">D4D_SLIDER_LIMITS::valueOrg</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__slider__func_ga9f4c93f3b9d1c554571fc6365887ceb2_cgraph.gif" border="0" usemap="#group__doxd4d__slider__func_ga9f4c93f3b9d1c554571fc6365887ceb2_cgraph" alt=""/></div>
+<map name="group__doxd4d__slider__func_ga9f4c93f3b9d1c554571fc6365887ceb2_cgraph" id="group__doxd4d__slider__func_ga9f4c93f3b9d1c554571fc6365887ceb2_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__slider__func.html#gac9be4fb2a0566d958e15be179c03c135" title="Function Sets the slider value. " alt="" coords="187,93,317,120"/><area shape="rect" id="node3" href="group__doxd4d__math__func.html#ga0f9b5feb47a6a564947f81d4c97bb131" title="Calculation of limitation value (signed) &#45; 8 bit. " alt="" coords="405,43,504,69"/><area shape="rect" id="node4" href="d4d__slider_8c.html#a4af9d723f82995fc669e26b109a7dbd2" title="D4D_SldrComputeColorBar" alt="" coords="365,93,544,120"/><area shape="rect" id="node11" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="382,156,527,183"/><area shape="rect" id="node5" href="group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="604,5,743,32"/><area shape="rect" id="node6" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="827,37,944,64"/><area shape="rect" id="node8" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="593,131,754,157"/><area shape="rect" id="node7" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1017,37,1111,64"/><area shape="rect" id="node9" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="810,100,961,127"/><area shape="rect" id="node10" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="803,151,967,177"/><area shape="rect" id="node12" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="601,205,745,232"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gac9be4fb2a0566d958e15be179c03c135"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_SldrSetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__slider__type.html#ga69cdfa357fa5eea9143d11db41b33304">D4D_SLIDER_VALUE</a>&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function Sets the slider value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to the slider object </td></tr>
+    <tr><td class="paramname">value</td><td>- new value of slider </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The values must fit in to slider linits, if not is limit to valid range </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__slider_8c_source.html#l00492">492</a> of file <a class="el" href="d4d__slider_8c_source.html">d4d_slider.c</a>.</p>
+
+<p>References <a class="el" href="d4d__slider_8h_source.html#l00178">D4D_SLIDER_DATA::colorBar</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__slider_8h_source.html#l00200">D4D_GET_SLIDER</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__math_8c_source.html#l00448">D4D_LimitS8()</a>, <a class="el" href="d4d__slider_8h_source.html#l00069">D4D_SLDR_F_BAR_AUTOCOLOR</a>, <a class="el" href="d4d__slider_8h_source.html#l00071">D4D_SLDR_F_BAR_SCALECOLOR</a>, <a class="el" href="d4d__slider_8c_source.html#l00462">D4D_SldrComputeColorBar()</a>, <a class="el" href="d4d__object_8h_source.html#l00178">D4D_OBJECT_S::initFlags</a>, <a class="el" href="d4d__slider_8h_source.html#l00177">D4D_SLIDER_DATA::limits</a>, <a class="el" href="d4d__slider_8h_source.html#l00190">D4D_SLIDER::OnValueChanged</a>, <a class="el" href="d4d__slider_8h_source.html#l00191">D4D_SLIDER::pData</a>, <a class="el" href="d4d__slider_8h_source.html#l00176">D4D_SLIDER_DATA::value</a>, <a class="el" href="d4d__slider_8h_source.html#l00154">D4D_SLIDER_LIMITS::valueMax</a>, and <a class="el" href="d4d__slider_8h_source.html#l00153">D4D_SLIDER_LIMITS::valueMin</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__slider_8c_source.html#l00567">D4D_SldrChangeValue()</a>, and <a class="el" href="d4d__slider_8c_source.html#l00584">D4D_SldrSetLimits()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__slider__func_gac9be4fb2a0566d958e15be179c03c135_cgraph.gif" border="0" usemap="#group__doxd4d__slider__func_gac9be4fb2a0566d958e15be179c03c135_cgraph" alt=""/></div>
+<map name="group__doxd4d__slider__func_gac9be4fb2a0566d958e15be179c03c135_cgraph" id="group__doxd4d__slider__func_gac9be4fb2a0566d958e15be179c03c135_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="201,29,346,56"/><area shape="rect" id="node4" href="group__doxd4d__math__func.html#ga0f9b5feb47a6a564947f81d4c97bb131" title="Calculation of limitation value (signed) &#45; 8 bit. " alt="" coords="224,80,323,107"/><area shape="rect" id="node5" href="d4d__slider_8c.html#a4af9d723f82995fc669e26b109a7dbd2" title="D4D_SldrComputeColorBar" alt="" coords="184,131,363,157"/><area shape="rect" id="node3" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="420,29,564,56"/><area shape="rect" id="node6" href="group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="423,80,561,107"/><area shape="rect" id="node7" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="645,99,763,125"/><area shape="rect" id="node9" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="411,205,573,232"/><area shape="rect" id="node8" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="835,99,930,125"/><area shape="rect" id="node10" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="629,168,779,195"/><area shape="rect" id="node11" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="622,219,786,245"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__slider__func_gac9be4fb2a0566d958e15be179c03c135_icgraph.gif" border="0" usemap="#group__doxd4d__slider__func_gac9be4fb2a0566d958e15be179c03c135_icgraph" alt=""/></div>
+<map name="group__doxd4d__slider__func_gac9be4fb2a0566d958e15be179c03c135_icgraph" id="group__doxd4d__slider__func_gac9be4fb2a0566d958e15be179c03c135_icgraph">
+<area shape="rect" id="node2" href="group__doxd4d__slider__func.html#ga852cfa431a7bf11d77a7e4bb8d2df7a2" title="Function change the slider value by signed increment. " alt="" coords="184,31,339,57"/><area shape="rect" id="node5" href="group__doxd4d__slider__func.html#ga9f4c93f3b9d1c554571fc6365887ceb2" title="Function set the new limits of slider object. " alt="" coords="195,81,327,108"/><area shape="rect" id="node3" href="d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="387,5,520,32"/><area shape="rect" id="node4" href="d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="568,31,715,57"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:06 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

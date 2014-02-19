@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_screen.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__screen_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_screen.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__screen_8h__dep__incl.gif" border="0" usemap="#d4d__screen_8hdep" alt=""/></div>
+<map name="d4d__screen_8hdep" id="d4d__screen_8hdep">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="5118,80,5172,107"/><area shape="rect" id="node3" href="d4d__base_8c.html" title="D4D driver core and base function c file. " alt="" coords="5,163,93,189"/><area shape="rect" id="node4" href="d4d__basic__draw_8c.html" title="D4D driver basic drawing functions c file. " alt="" coords="118,163,244,189"/><area shape="rect" id="node5" href="d4d__bmp_8c.html" title="D4D driver bmp decoder functions c file. " alt="" coords="269,163,355,189"/><area shape="rect" id="node6" href="d4d__extsrc_8c.html" title="D4D driver extscr functions c file. " alt="" coords="379,163,476,189"/><area shape="rect" id="node7" href="d4d__font_8c.html" title="D4D driver font c file. " alt="" coords="501,163,584,189"/><area shape="rect" id="node8" href="d4d__imgdec__bmp_8c.html" title="D4D driver external bmp files decoder functions c file. " alt="" coords="609,163,743,189"/><area shape="rect" id="node9" href="d4d__imgdec__d4d_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="768,163,899,189"/><area shape="rect" id="node10" href="d4d__imgdec__d4dint_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="923,163,1068,189"/><area shape="rect" id="node11" href="d4d__low_8c.html" title="D4D driver low level graphic function c file. " alt="" coords="1093,163,1173,189"/><area shape="rect" id="node12" href="d4d__math_8c.html" title="D4D driver math functions c file. " alt="" coords="1197,163,1288,189"/><area shape="rect" id="node13" href="d4d__mouse_8c.html" title="D4D driver core and base function c file. " alt="" coords="1313,163,1412,189"/><area shape="rect" id="node14" href="d4d__object_8c.html" title="D4D driver object function c file. " alt="" coords="1437,163,1533,189"/><area shape="rect" id="node15" href="d4d__scheme_8c.html" title="D4D driver color scheme c file. " alt="" coords="1557,163,1664,189"/><area shape="rect" id="node16" href="d4d__screen_8c.html" title="D4D driver screen functions c file. " alt="" coords="1689,163,1788,189"/><area shape="rect" id="node17" href="d4d__string_8c.html" title="D4D driver font c file. " alt="" coords="1813,163,1907,189"/><area shape="rect" id="node18" href="d4d__button_8c.html" title="D4D driver button object c file. " alt="" coords="1931,163,2028,189"/><area shape="rect" id="node19" href="d4d__check__box_8c.html" title="D4D driver check box object c file. " alt="" coords="2053,163,2176,189"/><area shape="rect" id="node20" href="d4d__combo__box_8c.html" title="D4D driver comboBox object c file. " alt="" coords="2201,163,2329,189"/><area shape="rect" id="node21" href="d4d__console_8c.html" title="D4D driver console object c file. " alt="" coords="2353,163,2460,189"/><area shape="rect" id="node22" href="d4d__edit__box_8c.html" title="D4D driver editBox object c file. " alt="" coords="2485,163,2595,189"/><area shape="rect" id="node23" href="d4d__gauge_8c.html" title="D4D driver gauge object c file. " alt="" coords="2620,163,2716,189"/><area shape="rect" id="node24" href="d4d__graph_8c.html" title="D4D driver graph object c file. " alt="" coords="2740,163,2833,189"/><area shape="rect" id="node25" href="d4d__group__box_8c.html" title="D4D driver groupBox object c file. " alt="" coords="2858,163,2979,189"/><area shape="rect" id="node26" href="d4d__icon_8c.html" title="D4D driver icon object c file. " alt="" coords="3004,163,3089,189"/><area shape="rect" id="node27" href="d4d__label_8c.html" title="D4D driver label object c file. " alt="" coords="3113,163,3201,189"/><area shape="rect" id="node28" href="d4d__list__box_8c.html" title="D4D driver listBox object c file. " alt="" coords="3225,163,3332,189"/><area shape="rect" id="node29" href="d4d__menu_8c.html" title="D4D driver menu object c file. " alt="" coords="3356,163,3449,189"/><area shape="rect" id="node30" href="d4d__picture_8c.html" title="D4D driver picture object c file. " alt="" coords="3474,163,3573,189"/><area shape="rect" id="node31" href="d4d__progress__bar_8c.html" title="D4D driver progress_bar object c file. " alt="" coords="3599,163,3735,189"/><area shape="rect" id="node32" href="d4d__radio__button_8c.html" title="D4D driver radio button object c file. " alt="" coords="3759,163,3891,189"/><area shape="rect" id="node33" href="d4d__scroll__bar_8c.html" title="D4D driver scroll_bar object c file. " alt="" coords="3916,163,4033,189"/><area shape="rect" id="node34" href="d4d__slider_8c.html" title="D4D driver slider object c file. " alt="" coords="4058,163,4149,189"/><area shape="rect" id="node35" href="d4d__text__box_8c.html" title="D4D driver textbox object c file. " alt="" coords="4174,163,4284,189"/><area shape="rect" id="node36" href="d4dlcd__frame__buffer_8c.html" title="D4D driver &#45; frame_buffer lcd driver source c file. " alt="" coords="4309,163,4456,189"/><area shape="rect" id="node37" href="d4dlcd___f_s_a506_8c.html" title="D4D driver &#45; fsa506 lcd driver source c file. " alt="" coords="4481,163,4607,189"/><area shape="rect" id="node38" href="d4dlcd__lgdp4531_8c.html" title="D4D driver &#45; lgdp4531 lcd driver source c file. " alt="" coords="4631,163,4761,189"/><area shape="rect" id="node39" href="d4dlcd___l_s020_8c.html" title="D4D driver &#45; ls020 lcd driver source c file. " alt="" coords="4785,163,4900,189"/><area shape="rect" id="node40" href="d4dlcd___s_s_d1289_8c.html" title="D4D driver &#45; ssd1289 lcd driver source c file. " alt="" coords="4924,163,5057,189"/><area shape="rect" id="node41" href="d4dlcd__ssd1926_8c.html" title="D4D driver &#45; ssd1926 lcd driver source c file. " alt="" coords="5082,163,5208,189"/><area shape="rect" id="node42" href="d4dlcd__template_8c.html" title="D4D driver &#45; template lcd driver source c file. " alt="" coords="5233,163,5361,189"/><area shape="rect" id="node43" href="d4dlcdhw__common_8c.html" title="D4D driver &#45; common general low level drivers c file. " alt="" coords="5385,163,5529,189"/><area shape="rect" id="node44" href="d4dlcdhw__dragonfire__lcdc_8c.html" title="D4D driver &#45; dragonfire_lcdc hardware lcd driver source c file. " alt="" coords="5553,155,5692,197"/><area shape="rect" id="node45" href="d4dlcdhw__flexbus__16b_8c.html" title="D4D driver &#45; flexbus_16b hardware lcd driver source c file. " alt="" coords="5716,163,5879,189"/><area shape="rect" id="node46" href="d4dlcdhw__flexbus__8b_8c.html" title="D4D driver &#45; flexbus_8b hardware lcd driver source c file. " alt="" coords="5903,163,6059,189"/><area shape="rect" id="node47" href="d4dlcdhw__gpio6800__8b_8c.html" title="D4D driver &#45; gpio6800_8b hardware lcd driver source c file. " alt="" coords="6083,163,6249,189"/><area shape="rect" id="node48" href="d4dlcdhw__gpio8080__16b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6274,163,6448,189"/><area shape="rect" id="node49" href="d4dlcdhw__gpio8080__8b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6473,163,6639,189"/><area shape="rect" id="node50" href="d4dlcdhw__gpio8080__byte__8b_8c.html" title="D4D driver &#45; gpio8080_byte_8b hardware lcd driver source c file. " alt="" coords="6663,163,6861,189"/><area shape="rect" id="node51" href="d4dlcdhw__k70__lcdc_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="6887,163,7033,189"/><area shape="rect" id="node52" href="d4dlcdhw__twrrgba_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7057,163,7193,189"/><area shape="rect" id="node53" href="d4dlcdhw__twrrgbb_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7217,163,7353,189"/><area shape="rect" id="node54" href="d4dlcdhw__kinetis__spi_8c.html" title="D4D driver &#45; kinetis_spi hardware lcd driver source c file. " alt="" coords="7378,163,7533,189"/><area shape="rect" id="node55" href="d4dlcdhw__mqx__fb_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7559,163,7695,189"/><area shape="rect" id="node56" href="d4dlcdhw__mqx__mpc5125__diu_8c.html" title="D4D driver &#45; mqx_mpc5125_diu hardware lcd driver source c file. " alt="" coords="7719,155,7887,197"/><area shape="rect" id="node57" href="d4dlcdhw__mqx__spi_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7911,163,8053,189"/><area shape="rect" id="node58" href="d4dlcdhw__px__dcu__fb_8c.html" title="D4D driver &#45; px_dcu_fb hardware lcd driver source c file. " alt="" coords="8078,163,8231,189"/><area shape="rect" id="node59" href="d4dlcdhw__s12__spi__16b_8c.html" title="D4D driver &#45; s12_spi_16b hardware lcd driver source c file. " alt="" coords="8255,163,8421,189"/><area shape="rect" id="node60" href="d4dlcdhw__spi__16b_8c.html" title="D4D driver &#45; spi_16b hardware lcd driver source c file. " alt="" coords="8447,163,8585,189"/><area shape="rect" id="node61" href="d4dlcdhw__spi__8b_8c.html" title="D4D driver &#45; spi_8b hardware lcd driver source c file. " alt="" coords="8610,163,8741,189"/><area shape="rect" id="node62" href="d4dlcdhw__swspi__16b_8c.html" title="D4D driver &#45; swspi_16b hardware lcd driver source c file. " alt="" coords="8767,163,8921,189"/><area shape="rect" id="node63" href="d4dlcdhw__spi__swc__8b_8c.html" title="D4D driver &#45; spi_swc_8b hardware lcd driver source c file. " alt="" coords="8945,163,9108,189"/><area shape="rect" id="node64" href="d4dlcdhw__template_8c.html" title="D4D driver &#45; template hardware lcd driver source c file. " alt="" coords="9132,163,9276,189"/><area shape="rect" id="node65" href="d4dlcdhw__template__fb_8c.html" title="D4D driver &#45; template_fb hardware lcd driver source c file. " alt="" coords="9301,163,9461,189"/><area shape="rect" id="node66" href="d4dtch__cr__touch_8c.html" title="D4D driver &#45; cr_touch touch screen driver source c file. " alt="" coords="9486,163,9615,189"/><area shape="rect" id="node67" href="hw__iic__cfg_8h.html" title="HardI2C configuration. " alt="" coords="9640,163,9733,189"/><area shape="rect" id="node69" href="mqx__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9758,163,9836,189"/><area shape="rect" id="node70" href="d4dtch__mcf52277__asp_8c.html" title="D4D driver &#45; mcf52277_asp touch screen driver source c file. " alt="" coords="9861,163,10024,189"/><area shape="rect" id="node71" href="d4dtch__resistive_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10049,163,10175,189"/><area shape="rect" id="node72" href="d4dtch__resistive__mqx_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10199,163,10357,189"/><area shape="rect" id="node73" href="d4dtch__template_8c.html" title="D4D driver &#45; template touch screen driver source c file. " alt="" coords="10382,163,10511,189"/><area shape="rect" id="node74" href="d4dtch___t_s_c2046_8c.html" title="D4D driver &#45; tsc2046 touch screen driver source c file. " alt="" coords="10535,163,10667,189"/><area shape="rect" id="node75" href="d4dtchhw__kinetis__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="10691,163,10852,189"/><area shape="rect" id="node76" href="d4dtchhw__mcf52259__adc_8c.html" title="D4D driver &#45; mcf52259_adc hardware touch screen driver source c file. " alt="" coords="10877,163,11056,189"/><area shape="rect" id="node77" href="d4dtchhw__px__adc_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11081,163,11217,189"/><area shape="rect" id="node78" href="d4dtchhw__s08__adc_8c.html" title="D4D driver &#45; s08_adc hardware touch screen driver source c file. " alt="" coords="11243,163,11387,189"/><area shape="rect" id="node79" href="d4dtchhw__s12__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="11411,163,11555,189"/><area shape="rect" id="node80" href="d4dtchhw__template_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11579,163,11724,189"/><area shape="rect" id="node68" href="hw__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9652,245,9721,272"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga8aa27fbde9774fb37e31a836b08bbd4e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const.html#ga8aa27fbde9774fb37e31a836b08bbd4e">D4D_SCR_TITLE_OFF_X</a></td></tr>
+<tr class="memdesc:ga8aa27fbde9774fb37e31a836b08bbd4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is screen title offset definition in axis X. If not defined, it sets to 3 pixels as a default.  <a href="group__doxd4d__screen__const.html#ga8aa27fbde9774fb37e31a836b08bbd4e">More...</a><br/></td></tr>
+<tr class="separator:ga8aa27fbde9774fb37e31a836b08bbd4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6525008701332a0b36a2c7e3086a83c4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const.html#ga6525008701332a0b36a2c7e3086a83c4">D4D_SCR_TITLE_OFF_Y</a></td></tr>
+<tr class="memdesc:ga6525008701332a0b36a2c7e3086a83c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is screen title offset definition in axis Y. If not defined, it sets to 1 pixels as a default.  <a href="group__doxd4d__screen__const.html#ga6525008701332a0b36a2c7e3086a83c4">More...</a><br/></td></tr>
+<tr class="separator:ga6525008701332a0b36a2c7e3086a83c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74b667f305c67b2a3086d784e85a8eaa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const.html#ga74b667f305c67b2a3086d784e85a8eaa">D4D_SCR_HEADER_SIZE_MIN_SIZE</a></td></tr>
+<tr class="memdesc:ga74b667f305c67b2a3086d784e85a8eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is screen header minimal size definition in axis Y. If not defined, it sets to 13 pixels as a default.  <a href="group__doxd4d__screen__const.html#ga74b667f305c67b2a3086d784e85a8eaa">More...</a><br/></td></tr>
+<tr class="separator:ga74b667f305c67b2a3086d784e85a8eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3cd0529cbef50c86d3a3e4b5facdffb3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const.html#ga3cd0529cbef50c86d3a3e4b5facdffb3">D4D_SCR_TITLE_EXITBTN_MIN_SIZE</a></td></tr>
+<tr class="memdesc:ga3cd0529cbef50c86d3a3e4b5facdffb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is screen exit button minimal size definition. If not defined, it sets to 6 pixels as a default.  <a href="group__doxd4d__screen__const.html#ga3cd0529cbef50c86d3a3e4b5facdffb3">More...</a><br/></td></tr>
+<tr class="separator:ga3cd0529cbef50c86d3a3e4b5facdffb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb560b0ae05ad437a5d67b41e7264ac9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const.html#gacb560b0ae05ad437a5d67b41e7264ac9">D4D_SCR_EXITBTN_CROSS_SIZE</a></td></tr>
+<tr class="memdesc:gacb560b0ae05ad437a5d67b41e7264ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is screen exit button cross minimal size definition. If not defined, it sets to 2 pixels as a default.  <a href="group__doxd4d__screen__const.html#gacb560b0ae05ad437a5d67b41e7264ac9">More...</a><br/></td></tr>
+<tr class="separator:gacb560b0ae05ad437a5d67b41e7264ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ea33022db7a75dfaa0e52010fc90faa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const.html#ga0ea33022db7a75dfaa0e52010fc90faa">D4D_SCR_TITLE_EXITBTN_OFFSET</a></td></tr>
+<tr class="memdesc:ga0ea33022db7a75dfaa0e52010fc90faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is screen exit button offset definition. If not defined, it sets to 3 pixels as a default.  <a href="group__doxd4d__screen__const.html#ga0ea33022db7a75dfaa0e52010fc90faa">More...</a><br/></td></tr>
+<tr class="separator:ga0ea33022db7a75dfaa0e52010fc90faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4282853e7fb6dca0fe78b7c3bb47a4ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const__flags.html#ga4282853e7fb6dca0fe78b7c3bb47a4ef">D4D_SCR_F_OUTLINE</a></td></tr>
+<tr class="memdesc:ga4282853e7fb6dca0fe78b7c3bb47a4ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen has out line.  <a href="group__doxd4d__screen__const__flags.html#ga4282853e7fb6dca0fe78b7c3bb47a4ef">More...</a><br/></td></tr>
+<tr class="separator:ga4282853e7fb6dca0fe78b7c3bb47a4ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad2b8341c48d4be0b9d3120deccaf12b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const__flags.html#gad2b8341c48d4be0b9d3120deccaf12b8">D4D_SCR_F_BEVEL</a></td></tr>
+<tr class="memdesc:gad2b8341c48d4be0b9d3120deccaf12b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen has bevel.  <a href="group__doxd4d__screen__const__flags.html#gad2b8341c48d4be0b9d3120deccaf12b8">More...</a><br/></td></tr>
+<tr class="separator:gad2b8341c48d4be0b9d3120deccaf12b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1629586c07fbb0876f6fd7b570ecc227"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const__flags.html#ga1629586c07fbb0876f6fd7b570ecc227">D4D_SCR_F_TITLEBAR</a></td></tr>
+<tr class="memdesc:ga1629586c07fbb0876f6fd7b570ecc227"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen has title bar.  <a href="group__doxd4d__screen__const__flags.html#ga1629586c07fbb0876f6fd7b570ecc227">More...</a><br/></td></tr>
+<tr class="separator:ga1629586c07fbb0876f6fd7b570ecc227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga597caea713c87a35a36e9f7ee5a72e83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const__flags.html#ga597caea713c87a35a36e9f7ee5a72e83">D4D_SCR_F_EXIT</a></td></tr>
+<tr class="memdesc:ga597caea713c87a35a36e9f7ee5a72e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen has exit button in title bar.  <a href="group__doxd4d__screen__const__flags.html#ga597caea713c87a35a36e9f7ee5a72e83">More...</a><br/></td></tr>
+<tr class="separator:ga597caea713c87a35a36e9f7ee5a72e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9963b8296a7141a865811ea1a578b56b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const__flags.html#ga9963b8296a7141a865811ea1a578b56b">D4D_SCR_F_BCKG</a></td></tr>
+<tr class="memdesc:ga9963b8296a7141a865811ea1a578b56b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen has filled background (desktop)  <a href="group__doxd4d__screen__const__flags.html#ga9963b8296a7141a865811ea1a578b56b">More...</a><br/></td></tr>
+<tr class="separator:ga9963b8296a7141a865811ea1a578b56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe2b99c6b2160927c04eb4fbcfc00c3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const__flags.html#gabe2b99c6b2160927c04eb4fbcfc00c3f">D4D_SCR_F_TOUCHENABLE</a></td></tr>
+<tr class="memdesc:gabe2b99c6b2160927c04eb4fbcfc00c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen is touchable by touch screen.  <a href="group__doxd4d__screen__const__flags.html#gabe2b99c6b2160927c04eb4fbcfc00c3f">More...</a><br/></td></tr>
+<tr class="separator:gabe2b99c6b2160927c04eb4fbcfc00c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga51f8be375d033810e10032197e909709"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const__flags.html#ga51f8be375d033810e10032197e909709">D4D_SCR_F_MOUSE_NORMAL</a></td></tr>
+<tr class="memdesc:ga51f8be375d033810e10032197e909709"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen has normal mouse cursor.  <a href="group__doxd4d__screen__const__flags.html#ga51f8be375d033810e10032197e909709">More...</a><br/></td></tr>
+<tr class="separator:ga51f8be375d033810e10032197e909709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaec94c408e8416ad650f1825b4c60c09"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const__flags.html#gaaec94c408e8416ad650f1825b4c60c09">D4D_SCR_F_MOUSE_BUSY</a></td></tr>
+<tr class="memdesc:gaaec94c408e8416ad650f1825b4c60c09"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen has busy mouse cursor.  <a href="group__doxd4d__screen__const__flags.html#gaaec94c408e8416ad650f1825b4c60c09">More...</a><br/></td></tr>
+<tr class="separator:gaaec94c408e8416ad650f1825b4c60c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11e88ea1e8d445d2b72fca0a22efbc9d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const__flags.html#ga11e88ea1e8d445d2b72fca0a22efbc9d">D4D_SCR_F_MOUSE_UNAVAILABLE</a></td></tr>
+<tr class="memdesc:ga11e88ea1e8d445d2b72fca0a22efbc9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen has unavailable mouse cursor.  <a href="group__doxd4d__screen__const__flags.html#ga11e88ea1e8d445d2b72fca0a22efbc9d">More...</a><br/></td></tr>
+<tr class="separator:ga11e88ea1e8d445d2b72fca0a22efbc9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab267d91bf36f4820d63eefe46b34c670"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__const.html#gab267d91bf36f4820d63eefe46b34c670">D4D_SCR_F_DEFAULT</a></td></tr>
+<tr class="memdesc:gab267d91bf36f4820d63eefe46b34c670"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is screen default behaviour definition. If not defined, it sets to (D4D_SCR_FINT_MOUSE_NORMAL) as a default.  <a href="group__doxd4d__screen__const.html#gab267d91bf36f4820d63eefe46b34c670">More...</a><br/></td></tr>
+<tr class="separator:gab267d91bf36f4820d63eefe46b34c670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a5573daa6331e7af3721cdbd5f033c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__screen_8h.html#a8a5573daa6331e7af3721cdbd5f033c3">D4D_SCR_FINT_INITDONE</a></td></tr>
+<tr class="separator:a8a5573daa6331e7af3721cdbd5f033c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a741fb70a200de2795a7e4611b6185376"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__screen_8h.html#a741fb70a200de2795a7e4611b6185376">D4D_SCR_FINT_TOUCHENABLE</a></td></tr>
+<tr class="separator:a741fb70a200de2795a7e4611b6185376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8de0cfec35b8381f124c2a720e1ddcb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__screen_8h.html#af8de0cfec35b8381f124c2a720e1ddcb">D4D_SCR_FINT_REDRAWC</a></td></tr>
+<tr class="separator:af8de0cfec35b8381f124c2a720e1ddcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a125181a03a56cd4db1596b9566698c72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__screen_8h.html#a125181a03a56cd4db1596b9566698c72">D4D_SCR_FINT_CHECKOBJECTS</a></td></tr>
+<tr class="separator:a125181a03a56cd4db1596b9566698c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a570f24fe50447b178f0ec80e673855b6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__screen_8h.html#a570f24fe50447b178f0ec80e673855b6">D4D_SCR_FINT_MOUSE_MASK</a></td></tr>
+<tr class="separator:a570f24fe50447b178f0ec80e673855b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0093c17d38651567f614f5d0731ec52c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__screen_8h.html#a0093c17d38651567f614f5d0731ec52c">D4D_SCR_FINT_MOUSE_SHIFT</a></td></tr>
+<tr class="separator:a0093c17d38651567f614f5d0731ec52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a831e73f615a9ffe3d0d1a9042198c9b6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__screen_8h.html#a831e73f615a9ffe3d0d1a9042198c9b6">D4D_SCR_FINT_MOUSE_NORMAL</a></td></tr>
+<tr class="separator:a831e73f615a9ffe3d0d1a9042198c9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a618d1f771f70f3e19e4782a2cbd83ace"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__screen_8h.html#a618d1f771f70f3e19e4782a2cbd83ace">D4D_SCR_FINT_MOUSE_BUSY</a></td></tr>
+<tr class="separator:a618d1f771f70f3e19e4782a2cbd83ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5dda0e9fd7ca60f563b242f5c2061e5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__screen_8h.html#aa5dda0e9fd7ca60f563b242f5c2061e5">D4D_SCR_FINT_MOUSE_UNAVAILABLE</a></td></tr>
+<tr class="separator:aa5dda0e9fd7ca60f563b242f5c2061e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9eb677962a32b833e598222377baf47a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__macro.html#ga9eb677962a32b833e598222377baf47a">_D4D_DECLARE_SCREEN_BEGIN</a>(type, name, funcPrefix, x,y, cx, cy, radius, text, fontId, icon, initFlags, pScheme)</td></tr>
+<tr class="memdesc:ga9eb677962a32b833e598222377baf47a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the screen structure in memory including all substructures.  <a href="group__doxd4d__screen__macro.html#ga9eb677962a32b833e598222377baf47a">More...</a><br/></td></tr>
+<tr class="separator:ga9eb677962a32b833e598222377baf47a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac8fc6ce2fbefb1375e5c93c3e704d19c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__macro.html#gac8fc6ce2fbefb1375e5c93c3e704d19c">D4D_DECLARE_SCREEN_BEGIN</a>(name, funcPrefix, x,y, cx, cy, text, fontId, icon, initFlags, pScheme)</td></tr>
+<tr class="memdesc:gac8fc6ce2fbefb1375e5c93c3e704d19c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the screen structure in ROM memory including all substructures.  <a href="group__doxd4d__screen__macro.html#gac8fc6ce2fbefb1375e5c93c3e704d19c">More...</a><br/></td></tr>
+<tr class="separator:gac8fc6ce2fbefb1375e5c93c3e704d19c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae28da9afbb8f5734123f41a300d547cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__macro.html#gae28da9afbb8f5734123f41a300d547cc">D4D_DECLARE_STD_SCREEN_BEGIN</a>(name, funcPrefix)</td></tr>
+<tr class="memdesc:gae28da9afbb8f5734123f41a300d547cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the screen structure in ROM memory with standard settings.  <a href="group__doxd4d__screen__macro.html#gae28da9afbb8f5734123f41a300d547cc">More...</a><br/></td></tr>
+<tr class="separator:gae28da9afbb8f5734123f41a300d547cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf9dc22de319015ff651b20f75c87dcaf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__macro.html#gaf9dc22de319015ff651b20f75c87dcaf">D4D_DECLARE_STD_PORTRAIT_SCREEN_BEGIN</a>(name, funcPrefix)</td></tr>
+<tr class="memdesc:gaf9dc22de319015ff651b20f75c87dcaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the screen structure in ROM memory with standard settings in portrait orientation.  <a href="group__doxd4d__screen__macro.html#gaf9dc22de319015ff651b20f75c87dcaf">More...</a><br/></td></tr>
+<tr class="separator:gaf9dc22de319015ff651b20f75c87dcaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga137cbd30808ebad2b5e44b21d415648f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__macro.html#ga137cbd30808ebad2b5e44b21d415648f">D4D_DECLARE_RSCREEN_BEGIN</a>(name, funcPrefix, x,y, cx, cy, radius, text, fontId, icon, initFlags, pScheme)</td></tr>
+<tr class="memdesc:ga137cbd30808ebad2b5e44b21d415648f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the screen structure in ROM memory including all substructures with round corners.  <a href="group__doxd4d__screen__macro.html#ga137cbd30808ebad2b5e44b21d415648f">More...</a><br/></td></tr>
+<tr class="separator:ga137cbd30808ebad2b5e44b21d415648f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0e7661797ffffe830cd525d1289e907b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__macro.html#ga0e7661797ffffe830cd525d1289e907b">D4D_DECLARE_SCREEN_OBJECT</a>(name)</td></tr>
+<tr class="memdesc:ga0e7661797ffffe830cd525d1289e907b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that is used to add object to screen definition.  <a href="group__doxd4d__screen__macro.html#ga0e7661797ffffe830cd525d1289e907b">More...</a><br/></td></tr>
+<tr class="separator:ga0e7661797ffffe830cd525d1289e907b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaef6585850ab043b8f8d43c4414bbbb53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__macro.html#gaef6585850ab043b8f8d43c4414bbbb53">D4D_DECLARE_SCREEN_END</a>()</td></tr>
+<tr class="memdesc:gaef6585850ab043b8f8d43c4414bbbb53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that is used to make end of object array in screen definition.  <a href="group__doxd4d__screen__macro.html#gaef6585850ab043b8f8d43c4414bbbb53">More...</a><br/></td></tr>
+<tr class="separator:gaef6585850ab043b8f8d43c4414bbbb53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab794da8c0c82bc6d8a84d6582dea0789"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__macro.html#gab794da8c0c82bc6d8a84d6582dea0789">D4D_EXTERN_SCREEN</a>(name)</td></tr>
+<tr class="memdesc:gab794da8c0c82bc6d8a84d6582dea0789"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that externs the D4D_SCREEN struxture.  <a href="group__doxd4d__screen__macro.html#gab794da8c0c82bc6d8a84d6582dea0789">More...</a><br/></td></tr>
+<tr class="separator:gab794da8c0c82bc6d8a84d6582dea0789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eda4964799cbeb3a9abe6345306eed1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__screen_8h.html#a8eda4964799cbeb3a9abe6345306eed1">D4D_EnableScrTouchScreen</a>(pScr, bEnable)</td></tr>
+<tr class="separator:a8eda4964799cbeb3a9abe6345306eed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:gac8a1b5d147d9937c64020821365904d5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__type.html#gac8a1b5d147d9937c64020821365904d5">D4D_SCREEN_FLAGS</a></td></tr>
+<tr class="memdesc:gac8a1b5d147d9937c64020821365904d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen flags type. The masks are described here <a class="el" href="group__doxd4d__screen__const__flags.html">D4D SCREEN Defines masks of screen behaviour flags</a>.  <a href="group__doxd4d__screen__type.html#gac8a1b5d147d9937c64020821365904d5">More...</a><br/></td></tr>
+<tr class="separator:gac8a1b5d147d9937c64020821365904d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4ea9a70b33c3b4ef1a499bd2ccbe7db"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="group__doxd4d__screen__type.html#struct_d4_d___s_c_r_e_e_n___s">D4D_SCREEN_S</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__type.html#gae4ea9a70b33c3b4ef1a499bd2ccbe7db">D4D_SCREEN</a></td></tr>
+<tr class="memdesc:gae4ea9a70b33c3b4ef1a499bd2ccbe7db"><td class="mdescLeft">&#160;</td><td class="mdescRight">The screen structure type. The main screen structure that contains all needed data to run the eGUI screen.  <a href="group__doxd4d__screen__type.html#gae4ea9a70b33c3b4ef1a499bd2ccbe7db">More...</a><br/></td></tr>
+<tr class="separator:gae4ea9a70b33c3b4ef1a499bd2ccbe7db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga60bd18ea3f1e4d87c1eda36c0f4c01f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__screen__type.html#gae4ea9a70b33c3b4ef1a499bd2ccbe7db">D4D_SCREEN</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9">D4D_GetActiveScreen</a> (void)</td></tr>
+<tr class="memdesc:ga60bd18ea3f1e4d87c1eda36c0f4c01f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pointer to current active screen.  <a href="group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9">More...</a><br/></td></tr>
+<tr class="separator:ga60bd18ea3f1e4d87c1eda36c0f4c01f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeda5819fd96fbac4e876e8970eed466a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a">D4D_ActivateScreen</a> (<a class="el" href="group__doxd4d__screen__type.html#gae4ea9a70b33c3b4ef1a499bd2ccbe7db">D4D_SCREEN</a> *pNewScreen, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> bReplaceCurrent)</td></tr>
+<tr class="memdesc:gaeda5819fd96fbac4e876e8970eed466a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function activate the new screen.  <a href="group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a">More...</a><br/></td></tr>
+<tr class="separator:gaeda5819fd96fbac4e876e8970eed466a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga13273202869b1b47b9baa489476554b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7">D4D_EscapeScreen</a> (void)</td></tr>
+<tr class="memdesc:ga13273202869b1b47b9baa489476554b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function return to previous screen recorded in the history.  <a href="group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7">More...</a><br/></td></tr>
+<tr class="separator:ga13273202869b1b47b9baa489476554b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga76e52f1c98ee6760dab292fea2f3d8d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9">D4D_EscapeToBaseScreen</a> (void)</td></tr>
+<tr class="memdesc:ga76e52f1c98ee6760dab292fea2f3d8d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function return to base screen recorded in the history.  <a href="group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9">More...</a><br/></td></tr>
+<tr class="separator:ga76e52f1c98ee6760dab292fea2f3d8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4023155a9b150a2be8807bec80d2e515"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__func.html#ga4023155a9b150a2be8807bec80d2e515">D4D_InitScreen</a> (<a class="el" href="group__doxd4d__screen__type.html#gae4ea9a70b33c3b4ef1a499bd2ccbe7db">D4D_SCREEN</a> *pScreen)</td></tr>
+<tr class="memdesc:ga4023155a9b150a2be8807bec80d2e515"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function inits the screen and its objects for first time case.  <a href="group__doxd4d__screen__func.html#ga4023155a9b150a2be8807bec80d2e515">More...</a><br/></td></tr>
+<tr class="separator:ga4023155a9b150a2be8807bec80d2e515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5633d19ba95be7b25045ed76d08bd2a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__func.html#ga5633d19ba95be7b25045ed76d08bd2a7">D4D_InvalidateScreen</a> (<a class="el" href="group__doxd4d__screen__type.html#gae4ea9a70b33c3b4ef1a499bd2ccbe7db">D4D_SCREEN</a> *pScreen, <a class="el" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> bComplete)</td></tr>
+<tr class="memdesc:ga5633d19ba95be7b25045ed76d08bd2a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function mark the screen and its abject as "redraw pending".  <a href="group__doxd4d__screen__func.html#ga5633d19ba95be7b25045ed76d08bd2a7">More...</a><br/></td></tr>
+<tr class="separator:ga5633d19ba95be7b25045ed76d08bd2a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f9ffd0e4c8b157ca205848de818c399"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__func.html#ga7f9ffd0e4c8b157ca205848de818c399">D4D_SetScreenTextProperties</a> (<a class="el" href="group__doxd4d__screen__type.html#gae4ea9a70b33c3b4ef1a499bd2ccbe7db">D4D_SCREEN</a> *pScreen, <a class="el" href="group__doxd4d__string__type.html#ga3b88b5a44c5ef2f787e1ce84d8c48216">D4D_TEXT_PROPERTIES</a> property)</td></tr>
+<tr class="memdesc:ga7f9ffd0e4c8b157ca205848de818c399"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function sets the screen text properties.  <a href="group__doxd4d__screen__func.html#ga7f9ffd0e4c8b157ca205848de818c399">More...</a><br/></td></tr>
+<tr class="separator:ga7f9ffd0e4c8b157ca205848de818c399"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5ef0f680c75f33fdd160b250482e3710"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__func.html#ga5ef0f680c75f33fdd160b250482e3710">D4D_SetScreenFontProperties</a> (<a class="el" href="group__doxd4d__screen__type.html#gae4ea9a70b33c3b4ef1a499bd2ccbe7db">D4D_SCREEN</a> *pScreen, <a class="el" href="group__doxd4d__font__type.html#ga480f0e689618233780976d746498bda7">D4D_FONT_PROPERTIES</a> property)</td></tr>
+<tr class="memdesc:ga5ef0f680c75f33fdd160b250482e3710"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function sets the screen font properties.  <a href="group__doxd4d__screen__func.html#ga5ef0f680c75f33fdd160b250482e3710">More...</a><br/></td></tr>
+<tr class="separator:ga5ef0f680c75f33fdd160b250482e3710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1eb7eb33d47b83e63379713256eace5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f">D4D_GetClientToScreenPoint</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *nClientPoint)</td></tr>
+<tr class="memdesc:ga1eb7eb33d47b83e63379713256eace5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function convert client point on the screen to the global screen point.  <a href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f">More...</a><br/></td></tr>
+<tr class="separator:ga1eb7eb33d47b83e63379713256eace5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4f92cca7a0fe6298b6cfc80b2c5d23c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__screen__func.html#gae4f92cca7a0fe6298b6cfc80b2c5d23c">D4D_GetScreenToClientPoint</a> (<a class="el" href="group__doxd4d__object__type.html#ga72385e33761c87e2eab0b48d1d7676da">D4D_OBJECT</a> *pObject, <a class="el" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> *nScreenPoint)</td></tr>
+<tr class="memdesc:gae4f92cca7a0fe6298b6cfc80b2c5d23c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function convert global screen point on the screen to the client point.  <a href="group__doxd4d__screen__func.html#gae4f92cca7a0fe6298b6cfc80b2c5d23c">More...</a><br/></td></tr>
+<tr class="separator:gae4f92cca7a0fe6298b6cfc80b2c5d23c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D driver screen header file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.38.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Jan-14-2014 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__screen_8h_source.html">d4d_screen.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a8eda4964799cbeb3a9abe6345306eed1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_EnableScrTouchScreen</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pScr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bEnable&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Main driver API Functions </p>
+
+<p>Definition at line <a class="el" href="d4d__screen_8h_source.html#l00358">358</a> of file <a class="el" href="d4d__screen_8h_source.html">d4d_screen.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a125181a03a56cd4db1596b9566698c72"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCR_FINT_CHECKOBJECTS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__screen_8h_source.html#l00130">130</a> of file <a class="el" href="d4d__screen_8h_source.html">d4d_screen.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__screen_8c_source.html#l00238">D4D_InvalidateScreen()</a>, <a class="el" href="d4d__screen_8c_source.html#l01058">D4D_RedrawScreen()</a>, and <a class="el" href="d4d__object_8c_source.html#l00748">D4D_SetObjectFlags()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8a5573daa6331e7af3721cdbd5f033c3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCR_FINT_INITDONE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__screen_8h_source.html#l00127">127</a> of file <a class="el" href="d4d__screen_8h_source.html">d4d_screen.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00184">D4D_InitScreen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a618d1f771f70f3e19e4782a2cbd83ace"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCR_FINT_MOUSE_BUSY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__screen_8h_source.html#l00136">136</a> of file <a class="el" href="d4d__screen_8h_source.html">d4d_screen.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a570f24fe50447b178f0ec80e673855b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCR_FINT_MOUSE_MASK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__screen_8h_source.html#l00132">132</a> of file <a class="el" href="d4d__screen_8h_source.html">d4d_screen.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a831e73f615a9ffe3d0d1a9042198c9b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCR_FINT_MOUSE_NORMAL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__screen_8h_source.html#l00135">135</a> of file <a class="el" href="d4d__screen_8h_source.html">d4d_screen.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0093c17d38651567f614f5d0731ec52c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCR_FINT_MOUSE_SHIFT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__screen_8h_source.html#l00133">133</a> of file <a class="el" href="d4d__screen_8h_source.html">d4d_screen.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5dda0e9fd7ca60f563b242f5c2061e5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCR_FINT_MOUSE_UNAVAILABLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__screen_8h_source.html#l00137">137</a> of file <a class="el" href="d4d__screen_8h_source.html">d4d_screen.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af8de0cfec35b8381f124c2a720e1ddcb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCR_FINT_REDRAWC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__screen_8h_source.html#l00129">129</a> of file <a class="el" href="d4d__screen_8h_source.html">d4d_screen.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00238">D4D_InvalidateScreen()</a>, and <a class="el" href="d4d__screen_8c_source.html#l01058">D4D_RedrawScreen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a741fb70a200de2795a7e4611b6185376"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_SCR_FINT_TOUCHENABLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__screen_8h_source.html#l00128">128</a> of file <a class="el" href="d4d__screen_8h_source.html">d4d_screen.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__screen_8c_source.html#l00184">D4D_InitScreen()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cde53fb8fb9dbb8ac34f83e30855a423.html">common_files</a></li><li class="navelem"><a class="el" href="d4d__screen_8h.html">d4d_screen.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:03 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

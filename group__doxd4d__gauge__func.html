@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: D4D GAUGE API Functions Specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__doxd4d__gauge__func.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">D4D GAUGE API Functions Specification<div class="ingroups"><a class="el" href="group__doxd4d__gauge.html">D4D Gauge Widget</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for D4D GAUGE API Functions Specification:</div>
+<div class="dyncontent">
+<center><table><tr><td><img src="group__doxd4d__gauge__func.gif" border="0" alt="" usemap="#group____doxd4d____gauge____func"/>
+<map name="group____doxd4d____gauge____func" id="group____doxd4d____gauge____func">
+<area shape="rect" id="node1" href="group__doxd4d__gauge.html" title="D4D Gauge Widget" alt="" coords="6,12,141,39"/></map>
+</td></tr></table></center>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga7b40a0f89fd53f8d0d36ff4da9def3f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#ga7b40a0f89fd53f8d0d36ff4da9def3f2">D4D_GaugSetValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a> value)</td></tr>
+<tr class="memdesc:ga7b40a0f89fd53f8d0d36ff4da9def3f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function sets the new value of gauge.  <a href="#ga7b40a0f89fd53f8d0d36ff4da9def3f2">More...</a><br/></td></tr>
+<tr class="separator:ga7b40a0f89fd53f8d0d36ff4da9def3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46eb288ce539fb7b27abd51455739738"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#ga46eb288ce539fb7b27abd51455739738">D4D_GaugGetValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:ga46eb288ce539fb7b27abd51455739738"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function gets the current value of gauge.  <a href="#ga46eb288ce539fb7b27abd51455739738">More...</a><br/></td></tr>
+<tr class="separator:ga46eb288ce539fb7b27abd51455739738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacb98ec4a3b9e3d796a81a6eac1c880f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#gacb98ec4a3b9e3d796a81a6eac1c880f9">D4D_GaugSetLimits</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, const <a class="el" href="group__doxd4d__gauge__type.html#struct_d4_d___g_a_u_g_e___l_i_m_i_t_s">D4D_GAUGE_LIMITS</a> *pLimits)</td></tr>
+<tr class="memdesc:gacb98ec4a3b9e3d796a81a6eac1c880f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function sets the new limits values of gauge.  <a href="#gacb98ec4a3b9e3d796a81a6eac1c880f9">More...</a><br/></td></tr>
+<tr class="separator:gacb98ec4a3b9e3d796a81a6eac1c880f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44be50a833bd8ee7d8d68ced0b00936c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#ga44be50a833bd8ee7d8d68ced0b00936c">D4D_GaugGetLimits</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__gauge__type.html#struct_d4_d___g_a_u_g_e___l_i_m_i_t_s">D4D_GAUGE_LIMITS</a> *pLimits)</td></tr>
+<tr class="memdesc:ga44be50a833bd8ee7d8d68ced0b00936c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function gets the values of gauge limit structure.  <a href="#ga44be50a833bd8ee7d8d68ced0b00936c">More...</a><br/></td></tr>
+<tr class="separator:ga44be50a833bd8ee7d8d68ced0b00936c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae47240f89eeeaf652ca0afc74893ff62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#gae47240f89eeeaf652ca0afc74893ff62">D4D_GaugSetDir</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__types__type.html#ga9a27fd136eb003c46603ebf54f068414">D4D_TREND</a> trend)</td></tr>
+<tr class="memdesc:gae47240f89eeeaf652ca0afc74893ff62"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function set the trend/direction of gauge.  <a href="#gae47240f89eeeaf652ca0afc74893ff62">More...</a><br/></td></tr>
+<tr class="separator:gae47240f89eeeaf652ca0afc74893ff62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4dfc8a5b58bb2a2f145c7ddbbf4d20f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#ga9a27fd136eb003c46603ebf54f068414">D4D_TREND</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__gauge__func.html#ga4dfc8a5b58bb2a2f145c7ddbbf4d20f1">D4D_GaugGetDir</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="memdesc:ga4dfc8a5b58bb2a2f145c7ddbbf4d20f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function gets the trend/direction of gauge object.  <a href="#ga4dfc8a5b58bb2a2f145c7ddbbf4d20f1">More...</a><br/></td></tr>
+<tr class="separator:ga4dfc8a5b58bb2a2f145c7ddbbf4d20f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>This section specifies the exact usage for each API function. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga4dfc8a5b58bb2a2f145c7ddbbf4d20f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#ga9a27fd136eb003c46603ebf54f068414">D4D_TREND</a> D4D_GaugGetDir </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function gets the trend/direction of gauge object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to gauge object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>current trend/direction of gauge object </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00348">348</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>References <a class="el" href="d4d__gauge_8h_source.html#l00181">D4D_GET_GAUGE</a>, <a class="el" href="d4d__gauge_8h_source.html#l00172">D4D_GAUGE::pData</a>, and <a class="el" href="d4d__gauge_8h_source.html#l00156">D4D_GAUGE_DATA::trend</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga44be50a833bd8ee7d8d68ced0b00936c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_GaugGetLimits </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__gauge__type.html#struct_d4_d___g_a_u_g_e___l_i_m_i_t_s">D4D_GAUGE_LIMITS</a> *&#160;</td>
+          <td class="paramname"><em>pLimits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function gets the values of gauge limit structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to gauge object </td></tr>
+    <tr><td class="paramname">pLimits</td><td>- the pointer to limit structure where will be stored the data of current using limit structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00312">312</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>References <a class="el" href="d4d__gauge_8h_source.html#l00181">D4D_GET_GAUGE</a>, <a class="el" href="d4d__gauge_8h_source.html#l00157">D4D_GAUGE_DATA::limits</a>, and <a class="el" href="d4d__gauge_8h_source.html#l00172">D4D_GAUGE::pData</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga46eb288ce539fb7b27abd51455739738"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a> D4D_GaugGetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function gets the current value of gauge. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to gauge object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>currnet value of gauge object </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00260">260</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>References <a class="el" href="d4d__gauge_8h_source.html#l00181">D4D_GET_GAUGE</a>, <a class="el" href="d4d__gauge_8h_source.html#l00172">D4D_GAUGE::pData</a>, and <a class="el" href="d4d__gauge_8h_source.html#l00154">D4D_GAUGE_DATA::value</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gae47240f89eeeaf652ca0afc74893ff62"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_GaugSetDir </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#ga9a27fd136eb003c46603ebf54f068414">D4D_TREND</a>&#160;</td>
+          <td class="paramname"><em>trend</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function set the trend/direction of gauge. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to gauge object </td></tr>
+    <tr><td class="paramname">trend</td><td>- the new trend of gauge </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00325">325</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>References <a class="el" href="d4d__gauge_8h_source.html#l00181">D4D_GET_GAUGE</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__gauge_8h_source.html#l00170">D4D_GAUGE::OnValueChanged</a>, <a class="el" href="d4d__gauge_8h_source.html#l00172">D4D_GAUGE::pData</a>, <a class="el" href="d4d__gauge_8h_source.html#l00156">D4D_GAUGE_DATA::trend</a>, <a class="el" href="d4d__gauge_8h_source.html#l00154">D4D_GAUGE_DATA::value</a>, and <a class="el" href="d4d__gauge_8h_source.html#l00155">D4D_GAUGE_DATA::valueLast</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__gauge__func_gae47240f89eeeaf652ca0afc74893ff62_cgraph.gif" border="0" usemap="#group__doxd4d__gauge__func_gae47240f89eeeaf652ca0afc74893ff62_cgraph" alt=""/></div>
+<map name="group__doxd4d__gauge__func_gae47240f89eeeaf652ca0afc74893ff62_cgraph" id="group__doxd4d__gauge__func_gae47240f89eeeaf652ca0afc74893ff62_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="177,29,322,56"/><area shape="rect" id="node3" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="371,29,515,56"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="gacb98ec4a3b9e3d796a81a6eac1c880f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_GaugSetLimits </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="group__doxd4d__gauge__type.html#struct_d4_d___g_a_u_g_e___l_i_m_i_t_s">D4D_GAUGE_LIMITS</a> *&#160;</td>
+          <td class="paramname"><em>pLimits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function sets the new limits values of gauge. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to gauge object </td></tr>
+    <tr><td class="paramname">pLimits</td><td>- pointer to defined gauge limits structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>In limit structure is defined as range of input values as visible range of pointer angle </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00274">274</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00316">D4D_ANTI_CLOCK_WISE</a>, <a class="el" href="d4d__gauge_8h_source.html#l00181">D4D_GET_GAUGE</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__math_8c_source.html#l00448">D4D_LimitS8()</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__gauge_8h_source.html#l00157">D4D_GAUGE_DATA::limits</a>, <a class="el" href="d4d__gauge_8h_source.html#l00170">D4D_GAUGE::OnValueChanged</a>, <a class="el" href="d4d__gauge_8h_source.html#l00172">D4D_GAUGE::pData</a>, <a class="el" href="d4d__gauge_8h_source.html#l00156">D4D_GAUGE_DATA::trend</a>, <a class="el" href="d4d__gauge_8h_source.html#l00154">D4D_GAUGE_DATA::value</a>, <a class="el" href="d4d__gauge_8h_source.html#l00139">D4D_GAUGE_LIMITS::valueMax</a>, and <a class="el" href="d4d__gauge_8h_source.html#l00138">D4D_GAUGE_LIMITS::valueMin</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__gauge__func_gacb98ec4a3b9e3d796a81a6eac1c880f9_cgraph.gif" border="0" usemap="#group__doxd4d__gauge__func_gacb98ec4a3b9e3d796a81a6eac1c880f9_cgraph" alt=""/></div>
+<map name="group__doxd4d__gauge__func_gacb98ec4a3b9e3d796a81a6eac1c880f9_cgraph" id="group__doxd4d__gauge__func_gacb98ec4a3b9e3d796a81a6eac1c880f9_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="195,29,341,56"/><area shape="rect" id="node4" href="group__doxd4d__math__func.html#ga0f9b5feb47a6a564947f81d4c97bb131" title="Calculation of limitation value (signed) &#45; 8 bit. " alt="" coords="219,80,317,107"/><area shape="rect" id="node3" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="389,29,533,56"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ga7b40a0f89fd53f8d0d36ff4da9def3f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_GaugSetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a>&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The function sets the new value of gauge. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pThis</td><td>- pointer to gauge object </td></tr>
+    <tr><td class="paramname">value</td><td>- input value, MUST fit into the range sets by <a class="el" href="group__doxd4d__gauge__func.html#gacb98ec4a3b9e3d796a81a6eac1c880f9">D4D_GaugSetLimits</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>none </dd></dl>
+
+<p>Definition at line <a class="el" href="d4d__gauge_8c_source.html#l00234">234</a> of file <a class="el" href="d4d__gauge_8c_source.html">d4d_gauge.c</a>.</p>
+
+<p>References <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__gauge_8h_source.html#l00181">D4D_GET_GAUGE</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__math_8c_source.html#l00448">D4D_LimitS8()</a>, <a class="el" href="d4d__gauge_8h_source.html#l00157">D4D_GAUGE_DATA::limits</a>, <a class="el" href="d4d__gauge_8h_source.html#l00170">D4D_GAUGE::OnValueChanged</a>, <a class="el" href="d4d__gauge_8h_source.html#l00172">D4D_GAUGE::pData</a>, <a class="el" href="d4d__gauge_8h_source.html#l00154">D4D_GAUGE_DATA::value</a>, <a class="el" href="d4d__gauge_8h_source.html#l00139">D4D_GAUGE_LIMITS::valueMax</a>, and <a class="el" href="d4d__gauge_8h_source.html#l00138">D4D_GAUGE_LIMITS::valueMin</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__doxd4d__gauge__func_ga7b40a0f89fd53f8d0d36ff4da9def3f2_cgraph.gif" border="0" usemap="#group__doxd4d__gauge__func_ga7b40a0f89fd53f8d0d36ff4da9def3f2_cgraph" alt=""/></div>
+<map name="group__doxd4d__gauge__func_ga7b40a0f89fd53f8d0d36ff4da9def3f2_cgraph" id="group__doxd4d__gauge__func_ga7b40a0f89fd53f8d0d36ff4da9def3f2_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="193,29,338,56"/><area shape="rect" id="node4" href="group__doxd4d__math__func.html#ga0f9b5feb47a6a564947f81d4c97bb131" title="Calculation of limitation value (signed) &#45; 8 bit. " alt="" coords="216,80,315,107"/><area shape="rect" id="node3" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="387,29,531,56"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:06 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

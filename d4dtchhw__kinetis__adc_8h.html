@@ -1,0 +1,923 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4dtchhw_kinetis_adc.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4dtchhw__kinetis__adc_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">d4dtchhw_kinetis_adc.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;d4dtchhw_kinetis_adc_cfg.h&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for d4dtchhw_kinetis_adc.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4dtchhw__kinetis__adc_8h__incl.gif" border="0" usemap="#d4dtchhw__kinetis__adc_8h" alt=""/></div>
+<map name="d4dtchhw__kinetis__adc_8h" id="d4dtchhw__kinetis__adc_8h">
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1e573d4c5b004a71c86c15800b65708f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a1e573d4c5b004a71c86c15800b65708f">SET</a>(x)</td></tr>
+<tr class="separator:a1e573d4c5b004a71c86c15800b65708f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb6b11b1130e22ffd89b1bd605179715"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#aeb6b11b1130e22ffd89b1bd605179715">RESET</a>(x)</td></tr>
+<tr class="separator:aeb6b11b1130e22ffd89b1bd605179715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce5864678f6abfb944a7930e0fafe50"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#afce5864678f6abfb944a7930e0fafe50">OUTPUT</a>(x)</td></tr>
+<tr class="separator:afce5864678f6abfb944a7930e0fafe50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a278b9b979d0f973480f402e4d83447fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a278b9b979d0f973480f402e4d83447fc">INPUT</a>(x)</td></tr>
+<tr class="separator:a278b9b979d0f973480f402e4d83447fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd5bb4245fdc810b83089d1f25984e08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#acd5bb4245fdc810b83089d1f25984e08">D4DTCH_X_PLUS_PCR_VAL</a></td></tr>
+<tr class="separator:acd5bb4245fdc810b83089d1f25984e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fbe696fde7159cc676b73a02f159141"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a2fbe696fde7159cc676b73a02f159141">D4DTCH_X_MINUS_PCR_VAL</a></td></tr>
+<tr class="separator:a2fbe696fde7159cc676b73a02f159141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49102690de75cd86cffc229b6fb99af3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a49102690de75cd86cffc229b6fb99af3">D4DTCH_Y_PLUS_PCR_VAL</a></td></tr>
+<tr class="separator:a49102690de75cd86cffc229b6fb99af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab495b56ec92d32cfd110cfe883202973"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#ab495b56ec92d32cfd110cfe883202973">D4DTCH_Y_MINUS_PCR_VAL</a></td></tr>
+<tr class="separator:ab495b56ec92d32cfd110cfe883202973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a452d6ae4b8a5f63ff53fa85dbee18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a13a452d6ae4b8a5f63ff53fa85dbee18">D4DTCH_INIT_TCH_PADS</a></td></tr>
+<tr class="separator:a13a452d6ae4b8a5f63ff53fa85dbee18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb4262529ea1c6111b2ea5ace84f1153"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#adb4262529ea1c6111b2ea5ace84f1153">D4DTCH_X_PLUS_ADCH_PIN_ENABLE</a></td></tr>
+<tr class="separator:adb4262529ea1c6111b2ea5ace84f1153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac06ba2ef599c65dd79484bc12c0b28d4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#ac06ba2ef599c65dd79484bc12c0b28d4">D4DTCH_X_PLUS_ADCH_PIN_DISABLE</a></td></tr>
+<tr class="separator:ac06ba2ef599c65dd79484bc12c0b28d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb4f3fab838f086122d9e3fe8d12f79a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#afb4f3fab838f086122d9e3fe8d12f79a">D4DTCH_Y_PLUS_ADCH_PIN_ENABLE</a></td></tr>
+<tr class="separator:afb4f3fab838f086122d9e3fe8d12f79a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af23935ee58167735b7b6a64aacedfbcf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#af23935ee58167735b7b6a64aacedfbcf">D4DTCH_Y_PLUS_ADCH_PIN_DISABLE</a></td></tr>
+<tr class="separator:af23935ee58167735b7b6a64aacedfbcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22b79f913503e50ea1e1dce3e8f20cfe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a22b79f913503e50ea1e1dce3e8f20cfe">D4DTCH_ADC_SC1A</a></td></tr>
+<tr class="separator:a22b79f913503e50ea1e1dce3e8f20cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ccd3a6b17c7b4c72dec71a98fb1de4e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a7ccd3a6b17c7b4c72dec71a98fb1de4e">D4DTCH_ADC_SC1B</a></td></tr>
+<tr class="separator:a7ccd3a6b17c7b4c72dec71a98fb1de4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add9d7816b72cd8af372b79ec3dd6b7ef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#add9d7816b72cd8af372b79ec3dd6b7ef">D4DTCH_ADC_CFG1</a></td></tr>
+<tr class="separator:add9d7816b72cd8af372b79ec3dd6b7ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81915dbd3dec9aabae9f7e239fc14d83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a81915dbd3dec9aabae9f7e239fc14d83">D4DTCH_ADC_CFG2</a></td></tr>
+<tr class="separator:a81915dbd3dec9aabae9f7e239fc14d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e182b370deb44fbcbfd0bdc9b70c4a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a6e182b370deb44fbcbfd0bdc9b70c4a1">D4DTCH_ADC_RA</a></td></tr>
+<tr class="separator:a6e182b370deb44fbcbfd0bdc9b70c4a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2e3c7f25e364fbdddda3d00c309de42"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#af2e3c7f25e364fbdddda3d00c309de42">D4DTCH_ADC_RB</a></td></tr>
+<tr class="separator:af2e3c7f25e364fbdddda3d00c309de42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a511836dea93ce032cf6f330a3c23cdfb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a511836dea93ce032cf6f330a3c23cdfb">D4DTCH_ADC_CV1</a></td></tr>
+<tr class="separator:a511836dea93ce032cf6f330a3c23cdfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab58c713de613c833a37ee9b2b0603418"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#ab58c713de613c833a37ee9b2b0603418">D4DTCH_ADC_CV2</a></td></tr>
+<tr class="separator:ab58c713de613c833a37ee9b2b0603418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8110de130a61deccd3ec7f870955a925"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a8110de130a61deccd3ec7f870955a925">D4DTCH_ADC_SC2</a></td></tr>
+<tr class="separator:a8110de130a61deccd3ec7f870955a925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eca2823c87c1123b0c8e5ce1f5fcd58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a1eca2823c87c1123b0c8e5ce1f5fcd58">D4DTCH_ADC_SC3</a></td></tr>
+<tr class="separator:a1eca2823c87c1123b0c8e5ce1f5fcd58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a819743b33c7996e90f4b4b4a40ba88a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a819743b33c7996e90f4b4b4a40ba88a4">D4DTCH_ADC_OFS</a></td></tr>
+<tr class="separator:a819743b33c7996e90f4b4b4a40ba88a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810f2a87317492a2ad5975d64e738fcf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a810f2a87317492a2ad5975d64e738fcf">D4DTCH_ADC_PG</a></td></tr>
+<tr class="separator:a810f2a87317492a2ad5975d64e738fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4846d1cb5f05a79d83dbfd889259745"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#ac4846d1cb5f05a79d83dbfd889259745">D4DTCH_ADC_MG</a></td></tr>
+<tr class="separator:ac4846d1cb5f05a79d83dbfd889259745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8deed089527cedf3239c36875f7eaa85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a8deed089527cedf3239c36875f7eaa85">D4DTCH_ADC_CLPD</a></td></tr>
+<tr class="separator:a8deed089527cedf3239c36875f7eaa85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5adb1644f44bcece4ebf38478150f29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#ad5adb1644f44bcece4ebf38478150f29">D4DTCH_ADC_CLPS</a></td></tr>
+<tr class="separator:ad5adb1644f44bcece4ebf38478150f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2519022451bae4410f08e39476b2dce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#ad2519022451bae4410f08e39476b2dce">D4DTCH_ADC_CLP4</a></td></tr>
+<tr class="separator:ad2519022451bae4410f08e39476b2dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a604dfb715a79f05a191ce6db4c68ca06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a604dfb715a79f05a191ce6db4c68ca06">D4DTCH_ADC_CLP3</a></td></tr>
+<tr class="separator:a604dfb715a79f05a191ce6db4c68ca06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa69f13012e2998342d19ba962193bcad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#aa69f13012e2998342d19ba962193bcad">D4DTCH_ADC_CLP2</a></td></tr>
+<tr class="separator:aa69f13012e2998342d19ba962193bcad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae745e05513f83da52a94a40c9c35cf5d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#ae745e05513f83da52a94a40c9c35cf5d">D4DTCH_ADC_CLP1</a></td></tr>
+<tr class="separator:ae745e05513f83da52a94a40c9c35cf5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ba57b71c0031b8209e825c5b51d56d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a06ba57b71c0031b8209e825c5b51d56d">D4DTCH_ADC_CLP0</a></td></tr>
+<tr class="separator:a06ba57b71c0031b8209e825c5b51d56d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e9b7dc09e36be98fad9c35cf8804566"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a2e9b7dc09e36be98fad9c35cf8804566">D4DTCH_ADC_PGA</a></td></tr>
+<tr class="separator:a2e9b7dc09e36be98fad9c35cf8804566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab804fe93152d4ade720ab6f2e25c099c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#ab804fe93152d4ade720ab6f2e25c099c">D4DTCH_ADC_CLMD</a></td></tr>
+<tr class="separator:ab804fe93152d4ade720ab6f2e25c099c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dd14db2e22928f3aded1a798b234e45"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a5dd14db2e22928f3aded1a798b234e45">D4DTCH_ADC_CLMS</a></td></tr>
+<tr class="separator:a5dd14db2e22928f3aded1a798b234e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a292c8d132c5c1e56bb53f7c08de6a3cb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a292c8d132c5c1e56bb53f7c08de6a3cb">D4DTCH_ADC_CLM4</a></td></tr>
+<tr class="separator:a292c8d132c5c1e56bb53f7c08de6a3cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a434d27b149e8a4a49dd8696503c9e602"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a434d27b149e8a4a49dd8696503c9e602">D4DTCH_ADC_CLM3</a></td></tr>
+<tr class="separator:a434d27b149e8a4a49dd8696503c9e602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e46c8746b795e8ea369113b47014ce1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a2e46c8746b795e8ea369113b47014ce1">D4DTCH_ADC_CLM2</a></td></tr>
+<tr class="separator:a2e46c8746b795e8ea369113b47014ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64fb09945af1f198b0bfada9e615c115"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a64fb09945af1f198b0bfada9e615c115">D4DTCH_ADC_CLM1</a></td></tr>
+<tr class="separator:a64fb09945af1f198b0bfada9e615c115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11cd0d235a2fd94c0e3ece878b38f8d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a11cd0d235a2fd94c0e3ece878b38f8d8">D4DTCH_ADC_CLM0</a></td></tr>
+<tr class="separator:a11cd0d235a2fd94c0e3ece878b38f8d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af77b9540089748dea8355602f75a53c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#af77b9540089748dea8355602f75a53c9">D4DTCH_FULL_SCALE</a></td></tr>
+<tr class="separator:af77b9540089748dea8355602f75a53c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65bdc25f91c6d998f0e6ce063b70c491"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a65bdc25f91c6d998f0e6ce063b70c491">D4DTCH_X_TOUCH_MIN</a></td></tr>
+<tr class="separator:a65bdc25f91c6d998f0e6ce063b70c491"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65cba10cca1ccf16ec60dbbfe4f2008d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a65cba10cca1ccf16ec60dbbfe4f2008d">D4DTCH_Y_TOUCH_MIN</a></td></tr>
+<tr class="separator:a65cba10cca1ccf16ec60dbbfe4f2008d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f2819073ed9d8ecd058f651567005bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a9f2819073ed9d8ecd058f651567005bf">D4DTCH_X_TOUCH_OFFMAX</a></td></tr>
+<tr class="separator:a9f2819073ed9d8ecd058f651567005bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51023298d836e1e618dcb0841126980f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a51023298d836e1e618dcb0841126980f">D4DTCH_Y_TOUCH_OFFMAX</a></td></tr>
+<tr class="separator:a51023298d836e1e618dcb0841126980f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a106dbdb7fc2a6c5f21b6dd1cbf9dedd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4dtchhw__kinetis__adc_8h.html#a106dbdb7fc2a6c5f21b6dd1cbf9dedd7">D4DTCH_SAMPLE_MARGIN</a></td></tr>
+<tr class="separator:a106dbdb7fc2a6c5f21b6dd1cbf9dedd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D driver - low level driver of ADC and gpio for resistive touch screen header file. </p>
+<dl class="section author"><dt>Author</dt><dd>b01800</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.3.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Oct-15-2012 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="add9d7816b72cd8af372b79ec3dd6b7ef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CFG1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00264">264</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a81915dbd3dec9aabae9f7e239fc14d83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CFG2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00265">265</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a11cd0d235a2fd94c0e3ece878b38f8d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLM0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00289">289</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a64fb09945af1f198b0bfada9e615c115"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLM1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00288">288</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e46c8746b795e8ea369113b47014ce1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLM2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00287">287</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a434d27b149e8a4a49dd8696503c9e602"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLM3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00286">286</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a292c8d132c5c1e56bb53f7c08de6a3cb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLM4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00285">285</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab804fe93152d4ade720ab6f2e25c099c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLMD</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00283">283</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5dd14db2e22928f3aded1a798b234e45"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLMS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00284">284</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a06ba57b71c0031b8209e825c5b51d56d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLP0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00281">281</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae745e05513f83da52a94a40c9c35cf5d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLP1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00280">280</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa69f13012e2998342d19ba962193bcad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLP2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00279">279</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a604dfb715a79f05a191ce6db4c68ca06"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLP3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00278">278</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad2519022451bae4410f08e39476b2dce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLP4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00277">277</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8deed089527cedf3239c36875f7eaa85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLPD</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00275">275</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad5adb1644f44bcece4ebf38478150f29"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CLPS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00276">276</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a511836dea93ce032cf6f330a3c23cdfb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CV1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00268">268</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab58c713de613c833a37ee9b2b0603418"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_CV2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00269">269</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac4846d1cb5f05a79d83dbfd889259745"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_MG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00274">274</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a819743b33c7996e90f4b4b4a40ba88a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_OFS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00272">272</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a810f2a87317492a2ad5975d64e738fcf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_PG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00273">273</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e9b7dc09e36be98fad9c35cf8804566"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_PGA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00282">282</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e182b370deb44fbcbfd0bdc9b70c4a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_RA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00266">266</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af2e3c7f25e364fbdddda3d00c309de42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_RB</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00267">267</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22b79f913503e50ea1e1dce3e8f20cfe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_SC1A</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00262">262</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7ccd3a6b17c7b4c72dec71a98fb1de4e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_SC1B</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00263">263</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8110de130a61deccd3ec7f870955a925"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_SC2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00270">270</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1eca2823c87c1123b0c8e5ce1f5fcd58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_ADC_SC3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00271">271</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af77b9540089748dea8355602f75a53c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_FULL_SCALE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00330">330</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a13a452d6ae4b8a5f63ff53fa85dbee18"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_INIT_TCH_PADS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00095">95</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a106dbdb7fc2a6c5f21b6dd1cbf9dedd7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_SAMPLE_MARGIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00350">350</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2fbe696fde7159cc676b73a02f159141"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_X_MINUS_PCR_VAL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00082">82</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac06ba2ef599c65dd79484bc12c0b28d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_X_PLUS_ADCH_PIN_DISABLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00244">244</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb4262529ea1c6111b2ea5ace84f1153"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_X_PLUS_ADCH_PIN_ENABLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00240">240</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acd5bb4245fdc810b83089d1f25984e08"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_X_PLUS_PCR_VAL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00078">78</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65bdc25f91c6d998f0e6ce063b70c491"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_X_TOUCH_MIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00334">334</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f2819073ed9d8ecd058f651567005bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_X_TOUCH_OFFMAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00342">342</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab495b56ec92d32cfd110cfe883202973"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_Y_MINUS_PCR_VAL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00090">90</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af23935ee58167735b7b6a64aacedfbcf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_Y_PLUS_ADCH_PIN_DISABLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00252">252</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb4f3fab838f086122d9e3fe8d12f79a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_Y_PLUS_ADCH_PIN_ENABLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00248">248</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a49102690de75cd86cffc229b6fb99af3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_Y_PLUS_PCR_VAL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00086">86</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65cba10cca1ccf16ec60dbbfe4f2008d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_Y_TOUCH_MIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00338">338</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51023298d836e1e618dcb0841126980f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4DTCH_Y_TOUCH_OFFMAX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00346">346</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a278b9b979d0f973480f402e4d83447fc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INPUT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00074">74</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afce5864678f6abfb944a7930e0fafe50"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OUTPUT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00073">73</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeb6b11b1130e22ffd89b1bd605179715"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RESET</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00071">71</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1e573d4c5b004a71c86c15800b65708f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SET</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html#l00070">70</a> of file <a class="el" href="d4dtchhw__kinetis__adc_8h_source.html">d4dtchhw_kinetis_adc.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_ed2bb5cc41b5c3fd4e21ecf2d834403c.html">touch_screen</a></li><li class="navelem"><a class="el" href="dir_9d04043bc9c512096b5fd892867c1b9c.html">touch_screen_hw_interface</a></li><li class="navelem"><a class="el" href="dir_57dd61b81bdf46e58ce0b11ef2880e45.html">kinetis_adc_12b</a></li><li class="navelem"><a class="el" href="d4dtchhw__kinetis__adc_8h.html">d4dtchhw_kinetis_adc.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:04 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

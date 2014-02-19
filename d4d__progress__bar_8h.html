@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Freescale&#39;s eGUI: d4d_progress_bar.h File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Freescale&#39;s eGUI
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+    <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+    		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4d__progress__bar_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">d4d_progress_bar.h File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8h__dep__incl.gif" border="0" usemap="#d4d__progress__bar_8hdep" alt=""/></div>
+<map name="d4d__progress__bar_8hdep" id="d4d__progress__bar_8hdep">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="5118,80,5172,107"/><area shape="rect" id="node3" href="d4d__base_8c.html" title="D4D driver core and base function c file. " alt="" coords="5,163,93,189"/><area shape="rect" id="node4" href="d4d__basic__draw_8c.html" title="D4D driver basic drawing functions c file. " alt="" coords="118,163,244,189"/><area shape="rect" id="node5" href="d4d__bmp_8c.html" title="D4D driver bmp decoder functions c file. " alt="" coords="269,163,355,189"/><area shape="rect" id="node6" href="d4d__extsrc_8c.html" title="D4D driver extscr functions c file. " alt="" coords="379,163,476,189"/><area shape="rect" id="node7" href="d4d__font_8c.html" title="D4D driver font c file. " alt="" coords="501,163,584,189"/><area shape="rect" id="node8" href="d4d__imgdec__bmp_8c.html" title="D4D driver external bmp files decoder functions c file. " alt="" coords="609,163,743,189"/><area shape="rect" id="node9" href="d4d__imgdec__d4d_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="768,163,899,189"/><area shape="rect" id="node10" href="d4d__imgdec__d4dint_8c.html" title="D4D driver external pictures d4d decoder functions c file. " alt="" coords="923,163,1068,189"/><area shape="rect" id="node11" href="d4d__low_8c.html" title="D4D driver low level graphic function c file. " alt="" coords="1093,163,1173,189"/><area shape="rect" id="node12" href="d4d__math_8c.html" title="D4D driver math functions c file. " alt="" coords="1197,163,1288,189"/><area shape="rect" id="node13" href="d4d__mouse_8c.html" title="D4D driver core and base function c file. " alt="" coords="1313,163,1412,189"/><area shape="rect" id="node14" href="d4d__object_8c.html" title="D4D driver object function c file. " alt="" coords="1437,163,1533,189"/><area shape="rect" id="node15" href="d4d__scheme_8c.html" title="D4D driver color scheme c file. " alt="" coords="1557,163,1664,189"/><area shape="rect" id="node16" href="d4d__screen_8c.html" title="D4D driver screen functions c file. " alt="" coords="1689,163,1788,189"/><area shape="rect" id="node17" href="d4d__string_8c.html" title="D4D driver font c file. " alt="" coords="1813,163,1907,189"/><area shape="rect" id="node18" href="d4d__button_8c.html" title="D4D driver button object c file. " alt="" coords="1931,163,2028,189"/><area shape="rect" id="node19" href="d4d__check__box_8c.html" title="D4D driver check box object c file. " alt="" coords="2053,163,2176,189"/><area shape="rect" id="node20" href="d4d__combo__box_8c.html" title="D4D driver comboBox object c file. " alt="" coords="2201,163,2329,189"/><area shape="rect" id="node21" href="d4d__console_8c.html" title="D4D driver console object c file. " alt="" coords="2353,163,2460,189"/><area shape="rect" id="node22" href="d4d__edit__box_8c.html" title="D4D driver editBox object c file. " alt="" coords="2485,163,2595,189"/><area shape="rect" id="node23" href="d4d__gauge_8c.html" title="D4D driver gauge object c file. " alt="" coords="2620,163,2716,189"/><area shape="rect" id="node24" href="d4d__graph_8c.html" title="D4D driver graph object c file. " alt="" coords="2740,163,2833,189"/><area shape="rect" id="node25" href="d4d__group__box_8c.html" title="D4D driver groupBox object c file. " alt="" coords="2858,163,2979,189"/><area shape="rect" id="node26" href="d4d__icon_8c.html" title="D4D driver icon object c file. " alt="" coords="3004,163,3089,189"/><area shape="rect" id="node27" href="d4d__label_8c.html" title="D4D driver label object c file. " alt="" coords="3113,163,3201,189"/><area shape="rect" id="node28" href="d4d__list__box_8c.html" title="D4D driver listBox object c file. " alt="" coords="3225,163,3332,189"/><area shape="rect" id="node29" href="d4d__menu_8c.html" title="D4D driver menu object c file. " alt="" coords="3356,163,3449,189"/><area shape="rect" id="node30" href="d4d__picture_8c.html" title="D4D driver picture object c file. " alt="" coords="3474,163,3573,189"/><area shape="rect" id="node31" href="d4d__progress__bar_8c.html" title="D4D driver progress_bar object c file. " alt="" coords="3599,163,3735,189"/><area shape="rect" id="node32" href="d4d__radio__button_8c.html" title="D4D driver radio button object c file. " alt="" coords="3759,163,3891,189"/><area shape="rect" id="node33" href="d4d__scroll__bar_8c.html" title="D4D driver scroll_bar object c file. " alt="" coords="3916,163,4033,189"/><area shape="rect" id="node34" href="d4d__slider_8c.html" title="D4D driver slider object c file. " alt="" coords="4058,163,4149,189"/><area shape="rect" id="node35" href="d4d__text__box_8c.html" title="D4D driver textbox object c file. " alt="" coords="4174,163,4284,189"/><area shape="rect" id="node36" href="d4dlcd__frame__buffer_8c.html" title="D4D driver &#45; frame_buffer lcd driver source c file. " alt="" coords="4309,163,4456,189"/><area shape="rect" id="node37" href="d4dlcd___f_s_a506_8c.html" title="D4D driver &#45; fsa506 lcd driver source c file. " alt="" coords="4481,163,4607,189"/><area shape="rect" id="node38" href="d4dlcd__lgdp4531_8c.html" title="D4D driver &#45; lgdp4531 lcd driver source c file. " alt="" coords="4631,163,4761,189"/><area shape="rect" id="node39" href="d4dlcd___l_s020_8c.html" title="D4D driver &#45; ls020 lcd driver source c file. " alt="" coords="4785,163,4900,189"/><area shape="rect" id="node40" href="d4dlcd___s_s_d1289_8c.html" title="D4D driver &#45; ssd1289 lcd driver source c file. " alt="" coords="4924,163,5057,189"/><area shape="rect" id="node41" href="d4dlcd__ssd1926_8c.html" title="D4D driver &#45; ssd1926 lcd driver source c file. " alt="" coords="5082,163,5208,189"/><area shape="rect" id="node42" href="d4dlcd__template_8c.html" title="D4D driver &#45; template lcd driver source c file. " alt="" coords="5233,163,5361,189"/><area shape="rect" id="node43" href="d4dlcdhw__common_8c.html" title="D4D driver &#45; common general low level drivers c file. " alt="" coords="5385,163,5529,189"/><area shape="rect" id="node44" href="d4dlcdhw__dragonfire__lcdc_8c.html" title="D4D driver &#45; dragonfire_lcdc hardware lcd driver source c file. " alt="" coords="5553,155,5692,197"/><area shape="rect" id="node45" href="d4dlcdhw__flexbus__16b_8c.html" title="D4D driver &#45; flexbus_16b hardware lcd driver source c file. " alt="" coords="5716,163,5879,189"/><area shape="rect" id="node46" href="d4dlcdhw__flexbus__8b_8c.html" title="D4D driver &#45; flexbus_8b hardware lcd driver source c file. " alt="" coords="5903,163,6059,189"/><area shape="rect" id="node47" href="d4dlcdhw__gpio6800__8b_8c.html" title="D4D driver &#45; gpio6800_8b hardware lcd driver source c file. " alt="" coords="6083,163,6249,189"/><area shape="rect" id="node48" href="d4dlcdhw__gpio8080__16b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6274,163,6448,189"/><area shape="rect" id="node49" href="d4dlcdhw__gpio8080__8b_8c.html" title="D4D driver &#45; gpio8080_8b hardware lcd driver source c file. " alt="" coords="6473,163,6639,189"/><area shape="rect" id="node50" href="d4dlcdhw__gpio8080__byte__8b_8c.html" title="D4D driver &#45; gpio8080_byte_8b hardware lcd driver source c file. " alt="" coords="6663,163,6861,189"/><area shape="rect" id="node51" href="d4dlcdhw__k70__lcdc_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="6887,163,7033,189"/><area shape="rect" id="node52" href="d4dlcdhw__twrrgba_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7057,163,7193,189"/><area shape="rect" id="node53" href="d4dlcdhw__twrrgbb_8c.html" title="D4D driver &#45; k70_lcdc hardware lcd driver source c file. " alt="" coords="7217,163,7353,189"/><area shape="rect" id="node54" href="d4dlcdhw__kinetis__spi_8c.html" title="D4D driver &#45; kinetis_spi hardware lcd driver source c file. " alt="" coords="7378,163,7533,189"/><area shape="rect" id="node55" href="d4dlcdhw__mqx__fb_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7559,163,7695,189"/><area shape="rect" id="node56" href="d4dlcdhw__mqx__mpc5125__diu_8c.html" title="D4D driver &#45; mqx_mpc5125_diu hardware lcd driver source c file. " alt="" coords="7719,155,7887,197"/><area shape="rect" id="node57" href="d4dlcdhw__mqx__spi_8c.html" title="D4D driver &#45; Mqx hardware lcd driver source c file. " alt="" coords="7911,163,8053,189"/><area shape="rect" id="node58" href="d4dlcdhw__px__dcu__fb_8c.html" title="D4D driver &#45; px_dcu_fb hardware lcd driver source c file. " alt="" coords="8078,163,8231,189"/><area shape="rect" id="node59" href="d4dlcdhw__s12__spi__16b_8c.html" title="D4D driver &#45; s12_spi_16b hardware lcd driver source c file. " alt="" coords="8255,163,8421,189"/><area shape="rect" id="node60" href="d4dlcdhw__spi__16b_8c.html" title="D4D driver &#45; spi_16b hardware lcd driver source c file. " alt="" coords="8447,163,8585,189"/><area shape="rect" id="node61" href="d4dlcdhw__spi__8b_8c.html" title="D4D driver &#45; spi_8b hardware lcd driver source c file. " alt="" coords="8610,163,8741,189"/><area shape="rect" id="node62" href="d4dlcdhw__swspi__16b_8c.html" title="D4D driver &#45; swspi_16b hardware lcd driver source c file. " alt="" coords="8767,163,8921,189"/><area shape="rect" id="node63" href="d4dlcdhw__spi__swc__8b_8c.html" title="D4D driver &#45; spi_swc_8b hardware lcd driver source c file. " alt="" coords="8945,163,9108,189"/><area shape="rect" id="node64" href="d4dlcdhw__template_8c.html" title="D4D driver &#45; template hardware lcd driver source c file. " alt="" coords="9132,163,9276,189"/><area shape="rect" id="node65" href="d4dlcdhw__template__fb_8c.html" title="D4D driver &#45; template_fb hardware lcd driver source c file. " alt="" coords="9301,163,9461,189"/><area shape="rect" id="node66" href="d4dtch__cr__touch_8c.html" title="D4D driver &#45; cr_touch touch screen driver source c file. " alt="" coords="9486,163,9615,189"/><area shape="rect" id="node67" href="hw__iic__cfg_8h.html" title="HardI2C configuration. " alt="" coords="9640,163,9733,189"/><area shape="rect" id="node69" href="mqx__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9758,163,9836,189"/><area shape="rect" id="node70" href="d4dtch__mcf52277__asp_8c.html" title="D4D driver &#45; mcf52277_asp touch screen driver source c file. " alt="" coords="9861,163,10024,189"/><area shape="rect" id="node71" href="d4dtch__resistive_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10049,163,10175,189"/><area shape="rect" id="node72" href="d4dtch__resistive__mqx_8c.html" title="D4D driver &#45; resistive touch screen driver source c file. " alt="" coords="10199,163,10357,189"/><area shape="rect" id="node73" href="d4dtch__template_8c.html" title="D4D driver &#45; template touch screen driver source c file. " alt="" coords="10382,163,10511,189"/><area shape="rect" id="node74" href="d4dtch___t_s_c2046_8c.html" title="D4D driver &#45; tsc2046 touch screen driver source c file. " alt="" coords="10535,163,10667,189"/><area shape="rect" id="node75" href="d4dtchhw__kinetis__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="10691,163,10852,189"/><area shape="rect" id="node76" href="d4dtchhw__mcf52259__adc_8c.html" title="D4D driver &#45; mcf52259_adc hardware touch screen driver source c file. " alt="" coords="10877,163,11056,189"/><area shape="rect" id="node77" href="d4dtchhw__px__adc_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11081,163,11217,189"/><area shape="rect" id="node78" href="d4dtchhw__s08__adc_8c.html" title="D4D driver &#45; s08_adc hardware touch screen driver source c file. " alt="" coords="11243,163,11387,189"/><area shape="rect" id="node79" href="d4dtchhw__s12__adc_8c.html" title="D4D driver &#45; low level driver of ADC and gpio for resistive touch screen source file. " alt="" coords="11411,163,11555,189"/><area shape="rect" id="node80" href="d4dtchhw__template_8c.html" title="D4D driver &#45; template hardware touch screen driver source c file. " alt="" coords="11579,163,11724,189"/><area shape="rect" id="node68" href="hw__iic_8c.html" title="Hard I2C routines, SINGLE MASTER ONLY! " alt="" coords="9652,245,9721,272"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gaa23d3765fbeda2886267086d324f6ccd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__const__flags.html#gaa23d3765fbeda2886267086d324f6ccd">D4D_PRGRS_BAR_F_BAR_AUTOCOLOR</a></td></tr>
+<tr class="memdesc:gaa23d3765fbeda2886267086d324f6ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This flag specifies the behavior of the progress bar. If it is set, the color of a progress bar depends on the current value and it is computed from a color scheme object dependent parameters fore color and barEnd from the progress bar declaration macro. In another situation, a color specified by the bar parameter from the color scheme object dependent parameters are used.  <a href="group__doxd4d__progress__bar__const__flags.html#gaa23d3765fbeda2886267086d324f6ccd">More...</a><br/></td></tr>
+<tr class="separator:gaa23d3765fbeda2886267086d324f6ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3553576369b0d1fcdfffa790796ee425"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__const__flags.html#ga3553576369b0d1fcdfffa790796ee425">D4D_PRGRS_BAR_F_TEXT_AUTOCOLOR</a></td></tr>
+<tr class="memdesc:ga3553576369b0d1fcdfffa790796ee425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable text autocolor based on current value (inverted color to bar color)  <a href="group__doxd4d__progress__bar__const__flags.html#ga3553576369b0d1fcdfffa790796ee425">More...</a><br/></td></tr>
+<tr class="separator:ga3553576369b0d1fcdfffa790796ee425"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga20e3ead39ae2689d43e2013e44027eab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__const__flags.html#ga20e3ead39ae2689d43e2013e44027eab">D4D_PRGRS_BAR_F_BAR_SCALECOLOR</a></td></tr>
+<tr class="memdesc:ga20e3ead39ae2689d43e2013e44027eab"><td class="mdescLeft">&#160;</td><td class="mdescRight">This option enable little bit different type of drawing bar, the color is gradually changed from fore color to end bar color.  <a href="group__doxd4d__progress__bar__const__flags.html#ga20e3ead39ae2689d43e2013e44027eab">More...</a><br/></td></tr>
+<tr class="separator:ga20e3ead39ae2689d43e2013e44027eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43ff33cede108a14cda1b1db2ce42449"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__const__flags.html#ga43ff33cede108a14cda1b1db2ce42449">D4D_PRGRS_BAR_F_AUTOCOLOR</a></td></tr>
+<tr class="memdesc:ga43ff33cede108a14cda1b1db2ce42449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Help macro to simplify the auto color declaration.  <a href="group__doxd4d__progress__bar__const__flags.html#ga43ff33cede108a14cda1b1db2ce42449">More...</a><br/></td></tr>
+<tr class="separator:ga43ff33cede108a14cda1b1db2ce42449"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7cf28af6fe08dc94858b5aefed46f3fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__const.html#ga7cf28af6fe08dc94858b5aefed46f3fa">D4D_PRGRS_BAR_F_DEFAULT</a></td></tr>
+<tr class="memdesc:ga7cf28af6fe08dc94858b5aefed46f3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is progress bar init flags. If not defined, it sets to (<a class="el" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a> | <a class="el" href="group__doxd4d__object__const__flags.html#ga1dd2f502e64ec2c807987c022acbac13">D4D_OBJECT_F_ENABLED</a> | <a class="el" href="group__doxd4d__progress__bar__const__flags.html#gaa23d3765fbeda2886267086d324f6ccd">D4D_PRGRS_BAR_F_BAR_AUTOCOLOR</a> | <a class="el" href="group__doxd4d__progress__bar__const__flags.html#ga20e3ead39ae2689d43e2013e44027eab">D4D_PRGRS_BAR_F_BAR_SCALECOLOR</a>) as a default.  <a href="group__doxd4d__progress__bar__const.html#ga7cf28af6fe08dc94858b5aefed46f3fa">More...</a><br/></td></tr>
+<tr class="separator:ga7cf28af6fe08dc94858b5aefed46f3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1e0ede0f46c0f87037dd3787434f2c41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__const.html#ga1e0ede0f46c0f87037dd3787434f2c41">D4D_PRGRS_BAR_BAR_OFF</a></td></tr>
+<tr class="memdesc:ga1e0ede0f46c0f87037dd3787434f2c41"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is offset value of active work area of progress bar. If not defined, it sets to 5 pixels as a default.  <a href="group__doxd4d__progress__bar__const.html#ga1e0ede0f46c0f87037dd3787434f2c41">More...</a><br/></td></tr>
+<tr class="separator:ga1e0ede0f46c0f87037dd3787434f2c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7c166f308e9a0e732c698ecf9cb0ad1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__const.html#gaa7c166f308e9a0e732c698ecf9cb0ad1">D4D_COLOR_PRGRS_BAR_BAR_FORE</a></td></tr>
+<tr class="memdesc:gaa7c166f308e9a0e732c698ecf9cb0ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is progress bar fore color definition. If not defined, it sets to <a class="el" href="group__doxd4d__scheme__const__colors.html#ga8293766310924a766219bbeb78884df7">D4D_COLOR_DARK_GREEN</a> as a default.  <a href="group__doxd4d__progress__bar__const.html#gaa7c166f308e9a0e732c698ecf9cb0ad1">More...</a><br/></td></tr>
+<tr class="separator:gaa7c166f308e9a0e732c698ecf9cb0ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5e486425f49312a68955af191d628a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__const.html#gac5e486425f49312a68955af191d628a8">D4D_COLOR_PRGRS_BAR_BAR_END</a></td></tr>
+<tr class="memdesc:gac5e486425f49312a68955af191d628a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is progress bar end color definition. If not defined, it sets to <a class="el" href="group__doxd4d__scheme__const__colors.html#gac5b29a1a02faeab747a96aa8093c5e11">D4D_COLOR_YELLOW</a> as a default.  <a href="group__doxd4d__progress__bar__const.html#gac5e486425f49312a68955af191d628a8">More...</a><br/></td></tr>
+<tr class="separator:gac5e486425f49312a68955af191d628a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46a7c8c74f864d998adcc0b237804aea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__const.html#ga46a7c8c74f864d998adcc0b237804aea">D4D_COLOR_PRGRS_BAR_BAR_BCKG</a></td></tr>
+<tr class="memdesc:ga46a7c8c74f864d998adcc0b237804aea"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is progress bar background color definition. If not defined, it sets to <a class="el" href="group__doxd4d__scheme__const__colors.html#ga794afd960c778d996ef374eb6c3c3d12">D4D_COLOR_BRIGHT_GREY</a> as a default.  <a href="group__doxd4d__progress__bar__const.html#ga46a7c8c74f864d998adcc0b237804aea">More...</a><br/></td></tr>
+<tr class="separator:ga46a7c8c74f864d998adcc0b237804aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb4e0ada4dac12eed87be8ead42b302b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__const.html#gafb4e0ada4dac12eed87be8ead42b302b">D4D_COLOR_PRGRS_BAR_MAX_VAL</a></td></tr>
+<tr class="memdesc:gafb4e0ada4dac12eed87be8ead42b302b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is progress bar maximal value definition. If not defined, it sets to 100 (to reflect standard percentual view) as a default.  <a href="group__doxd4d__progress__bar__const.html#gafb4e0ada4dac12eed87be8ead42b302b">More...</a><br/></td></tr>
+<tr class="separator:gafb4e0ada4dac12eed87be8ead42b302b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9938b84d88829c1f41a69103aa00ac28"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8h.html#a9938b84d88829c1f41a69103aa00ac28">D4D_GET_PROGRESS_BAR</a>(pObj)</td></tr>
+<tr class="separator:a9938b84d88829c1f41a69103aa00ac28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f400765a3e7ed9e15bac7261f8deb67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__macro.html#ga7f400765a3e7ed9e15bac7261f8deb67">_D4D_DECLARE_PROGRESS_BAR</a>(type, name, x, y, cx, cy, radius, pMargin, pRelations, flags, pScheme, pUser, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga7f400765a3e7ed9e15bac7261f8deb67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Progress bar object structure in memory including all substructures.  <a href="group__doxd4d__progress__bar__macro.html#ga7f400765a3e7ed9e15bac7261f8deb67">More...</a><br/></td></tr>
+<tr class="separator:ga7f400765a3e7ed9e15bac7261f8deb67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe53f5b245f6a1c8f0852f26dabaddf6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__macro.html#gafe53f5b245f6a1c8f0852f26dabaddf6">D4D_DECLARE_PROGRESS_BAR</a>(name, x, y, cx, cy, radius, flags, pScheme, pUser, pOnUsrMsg)</td></tr>
+<tr class="memdesc:gafe53f5b245f6a1c8f0852f26dabaddf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Progress bar object structure in memory including all substructures with restricted count of parameters to simplify definition.  <a href="group__doxd4d__progress__bar__macro.html#gafe53f5b245f6a1c8f0852f26dabaddf6">More...</a><br/></td></tr>
+<tr class="separator:gafe53f5b245f6a1c8f0852f26dabaddf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac4f020ad4e9b222c4a38f3bdce4ef970"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__macro.html#gac4f020ad4e9b222c4a38f3bdce4ef970">D4D_DECLARE_STD_PROGRESS_BAR</a>(name, x, y, cx, cy, radius)</td></tr>
+<tr class="memdesc:gac4f020ad4e9b222c4a38f3bdce4ef970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro that create the Progress bar object structure in memory including all substructures with restricted count of parameters to simplify definition The missing parameters are replaced by default values.  <a href="group__doxd4d__progress__bar__macro.html#gac4f020ad4e9b222c4a38f3bdce4ef970">More...</a><br/></td></tr>
+<tr class="separator:gac4f020ad4e9b222c4a38f3bdce4ef970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5b8f78bba26e9d374ad7668a6452c17e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__macro.html#ga5b8f78bba26e9d374ad7668a6452c17e">D4D_DECLARE_PROGRESS_BAR_INRAM</a>(name, x, y, cx, cy, radius, flags, pScheme, pUser, pOnUsrMsg)</td></tr>
+<tr class="memdesc:ga5b8f78bba26e9d374ad7668a6452c17e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__progress__bar__macro.html#gafe53f5b245f6a1c8f0852f26dabaddf6">D4D_DECLARE_PROGRESS_BAR</a>, but is created in RAM instead of the ROM memory.  <a href="group__doxd4d__progress__bar__macro.html#ga5b8f78bba26e9d374ad7668a6452c17e">More...</a><br/></td></tr>
+<tr class="separator:ga5b8f78bba26e9d374ad7668a6452c17e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26cb1f2ce310d30a1131c25cdd0eb80e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__macro.html#ga26cb1f2ce310d30a1131c25cdd0eb80e">D4D_DECLARE_STD_PROGRESS_BAR_INRAM</a>(name, x, y, cx, cy, radius)</td></tr>
+<tr class="memdesc:ga26cb1f2ce310d30a1131c25cdd0eb80e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="group__doxd4d__progress__bar__macro.html#gac4f020ad4e9b222c4a38f3bdce4ef970">D4D_DECLARE_STD_PROGRESS_BAR</a>, but is created in RAM instead of the ROM memory.  <a href="group__doxd4d__progress__bar__macro.html#ga26cb1f2ce310d30a1131c25cdd0eb80e">More...</a><br/></td></tr>
+<tr class="separator:ga26cb1f2ce310d30a1131c25cdd0eb80e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga8f4c57b7e1b7b9ab9db58beb6affd381"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a></td></tr>
+<tr class="memdesc:ga8f4c57b7e1b7b9ab9db58beb6affd381"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type definition of progress bar value type - this is standard type used for progress bar data input.  <a href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">More...</a><br/></td></tr>
+<tr class="separator:ga8f4c57b7e1b7b9ab9db58beb6affd381"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:afb8021b6acf9220de318031cabf258b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8h.html#afb8021b6acf9220de318031cabf258b0">D4D_PrgrsBarSetValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a> value)</td></tr>
+<tr class="separator:afb8021b6acf9220de318031cabf258b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf810f963d1c7e27b3468a307770af9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8h.html#abf810f963d1c7e27b3468a307770af9f">D4D_PrgrsBarGetValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="separator:abf810f963d1c7e27b3468a307770af9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace415a5788e524096a081a0efc196647"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8h.html#ace415a5788e524096a081a0efc196647">D4D_PrgrsBarChangeValue</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a> incr)</td></tr>
+<tr class="separator:ace415a5788e524096a081a0efc196647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114de34c7dab38ce7e94eab48c306137"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8h.html#a114de34c7dab38ce7e94eab48c306137">D4D_PrgrsBarSetBarColor</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis, <a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color)</td></tr>
+<tr class="separator:a114de34c7dab38ce7e94eab48c306137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ff21bb19ab6b711e1183897b6adc85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8h.html#a34ff21bb19ab6b711e1183897b6adc85">D4D_PrgrsBarGetBarColor</a> (<a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a> pThis)</td></tr>
+<tr class="separator:a34ff21bb19ab6b711e1183897b6adc85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a35f31a463e24a5d6971702cba0c22d6e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="d4d__progress__bar_8h.html#a35f31a463e24a5d6971702cba0c22d6e">d4d_progress_barSysFunc</a></td></tr>
+<tr class="separator:a35f31a463e24a5d6971702cba0c22d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>D4D Driver progress_bar object header file. </p>
+<dl class="section author"><dt>Author</dt><dd>Petr Gargulak</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.6.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Jan-14-2014 </dd></dl>
+
+<p>Definition in file <a class="el" href="d4d__progress__bar_8h_source.html">d4d_progress_bar.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a9938b84d88829c1f41a69103aa00ac28"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define D4D_GET_PROGRESS_BAR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pObj</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8h_source.html#l00152">152</a> of file <a class="el" href="d4d__progress__bar_8h_source.html">d4d_progress_bar.h</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__progress__bar_8c_source.html#l00265">D4D_PrgrsBarChangeValue()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00252">D4D_PrgrsBarGetBarColor()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00223">D4D_PrgrsBarGetValue()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00137">D4D_PrgrsBarOnDraw()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00296">D4D_PrgrsBarOnMessage()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00235">D4D_PrgrsBarSetBarColor()</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00199">D4D_PrgrsBarSetValue()</a>, and <a class="el" href="d4d__progress__bar_8c_source.html#l00086">D4D_PrgrsBarValue2Coor()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ace415a5788e524096a081a0efc196647"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_PrgrsBarChangeValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a>&#160;</td>
+          <td class="paramname"><em>incr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00265">265</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8h_source.html#l00108">D4D_COLOR_PRGRS_BAR_MAX_VAL</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, and <a class="el" href="d4d__progress__bar_8c_source.html#l00199">D4D_PrgrsBarSetValue()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8h_ace415a5788e524096a081a0efc196647_cgraph.gif" border="0" usemap="#d4d__progress__bar_8h_ace415a5788e524096a081a0efc196647_cgraph" alt=""/></div>
+<map name="d4d__progress__bar_8h_ace415a5788e524096a081a0efc196647_cgraph" id="d4d__progress__bar_8h_ace415a5788e524096a081a0efc196647_cgraph">
+<area shape="rect" id="node2" href="d4d__progress__bar_8c.html#afb8021b6acf9220de318031cabf258b0" title="D4D_PrgrsBarSetValue" alt="" coords="238,81,397,108"/><area shape="rect" id="node3" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="477,43,622,69"/><area shape="rect" id="node5" href="d4d__progress__bar_8c.html#a6711f0441481b808c7acd34281925059" title="D4D_PrgrsBarComputeColorBar" alt="" coords="446,119,653,145"/><area shape="rect" id="node4" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="711,29,855,56"/><area shape="rect" id="node6" href="group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="713,80,852,107"/><area shape="rect" id="node7" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="936,99,1053,125"/><area shape="rect" id="node9" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="702,205,863,232"/><area shape="rect" id="node8" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1126,99,1221,125"/><area shape="rect" id="node10" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="919,168,1070,195"/><area shape="rect" id="node11" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="913,219,1077,245"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a34ff21bb19ab6b711e1183897b6adc85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> D4D_PrgrsBarGetBarColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00252">252</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8h_source.html#l00136">D4D_PROGRESS_BAR_DATA::colorBar</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, and <a class="el" href="d4d__progress__bar_8h_source.html#l00143">D4D_PROGRESS_BAR::pData</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf810f963d1c7e27b3468a307770af9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a> D4D_PrgrsBarGetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00223">223</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00143">D4D_PROGRESS_BAR::pData</a>, and <a class="el" href="d4d__progress__bar_8h_source.html#l00134">D4D_PROGRESS_BAR_DATA::value</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a114de34c7dab38ce7e94eab48c306137"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_PrgrsBarSetBarColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00235">235</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8h_source.html#l00136">D4D_PROGRESS_BAR_DATA::colorBar</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00068">D4D_PRGRS_BAR_F_BAR_AUTOCOLOR</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00070">D4D_PRGRS_BAR_F_BAR_SCALECOLOR</a>, <a class="el" href="d4d__object_8h_source.html#l00178">D4D_OBJECT_S::initFlags</a>, and <a class="el" href="d4d__progress__bar_8h_source.html#l00143">D4D_PROGRESS_BAR::pData</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8h_a114de34c7dab38ce7e94eab48c306137_cgraph.gif" border="0" usemap="#d4d__progress__bar_8h_a114de34c7dab38ce7e94eab48c306137_cgraph" alt=""/></div>
+<map name="d4d__progress__bar_8h_a114de34c7dab38ce7e94eab48c306137_cgraph" id="d4d__progress__bar_8h_a114de34c7dab38ce7e94eab48c306137_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="230,29,375,56"/><area shape="rect" id="node3" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="424,29,568,56"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afb8021b6acf9220de318031cabf258b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void D4D_PrgrsBarSetValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd">D4D_OBJECT_PTR</a>&#160;</td>
+          <td class="paramname"><em>pThis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__doxd4d__progress__bar__type.html#ga8f4c57b7e1b7b9ab9db58beb6affd381">D4D_PROGRESS_BAR_VALUE</a>&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00199">199</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+<p>References <a class="el" href="d4d__progress__bar_8h_source.html#l00136">D4D_PROGRESS_BAR_DATA::colorBar</a>, <a class="el" href="d4d__types_8h_source.html#l00104">D4D_FALSE</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00152">D4D_GET_PROGRESS_BAR</a>, <a class="el" href="d4d__object_8c_source.html#l00071">D4D_InvalidateObject()</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00068">D4D_PRGRS_BAR_F_BAR_AUTOCOLOR</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00070">D4D_PRGRS_BAR_F_BAR_SCALECOLOR</a>, <a class="el" href="d4d__progress__bar_8c_source.html#l00185">D4D_PrgrsBarComputeColorBar()</a>, <a class="el" href="d4d__types_8h_source.html#l00106">D4D_TRUE</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00135">D4D_PROGRESS_BAR_DATA::drawActiveOnly</a>, <a class="el" href="d4d__object_8h_source.html#l00178">D4D_OBJECT_S::initFlags</a>, <a class="el" href="d4d__progress__bar_8h_source.html#l00143">D4D_PROGRESS_BAR::pData</a>, and <a class="el" href="d4d__progress__bar_8h_source.html#l00134">D4D_PROGRESS_BAR_DATA::value</a>.</p>
+
+<p>Referenced by <a class="el" href="d4d__progress__bar_8c_source.html#l00265">D4D_PrgrsBarChangeValue()</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8h_afb8021b6acf9220de318031cabf258b0_cgraph.gif" border="0" usemap="#d4d__progress__bar_8h_afb8021b6acf9220de318031cabf258b0_cgraph" alt=""/></div>
+<map name="d4d__progress__bar_8h_afb8021b6acf9220de318031cabf258b0_cgraph" id="d4d__progress__bar_8h_afb8021b6acf9220de318031cabf258b0_cgraph">
+<area shape="rect" id="node2" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="245,43,390,69"/><area shape="rect" id="node4" href="d4d__progress__bar_8c.html#a6711f0441481b808c7acd34281925059" title="D4D_PrgrsBarComputeColorBar" alt="" coords="214,119,421,145"/><area shape="rect" id="node3" href="d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="479,29,623,56"/><area shape="rect" id="node5" href="group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="481,80,620,107"/><area shape="rect" id="node6" href="group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="704,99,821,125"/><area shape="rect" id="node8" href="group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="470,205,631,232"/><area shape="rect" id="node7" href="d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="894,99,989,125"/><area shape="rect" id="node9" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="687,168,838,195"/><area shape="rect" id="node10" href="d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="681,219,845,245"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4d__progress__bar_8h_afb8021b6acf9220de318031cabf258b0_icgraph.gif" border="0" usemap="#d4d__progress__bar_8h_afb8021b6acf9220de318031cabf258b0_icgraph" alt=""/></div>
+<map name="d4d__progress__bar_8h_afb8021b6acf9220de318031cabf258b0_icgraph" id="d4d__progress__bar_8h_afb8021b6acf9220de318031cabf258b0_icgraph">
+<area shape="rect" id="node2" href="d4d__progress__bar_8h.html#ace415a5788e524096a081a0efc196647" title="D4D_PrgrsBarChangeValue" alt="" coords="214,5,397,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a35f31a463e24a5d6971702cba0c22d6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200">D4D_OBJECT_SYS_FUNCTION</a> d4d_progress_barSysFunc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="d4d__progress__bar_8c_source.html#l00052">52</a> of file <a class="el" href="d4d__progress__bar_8c_source.html">d4d_progress_bar.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__progress__bar_8h.html">d4d_progress_bar.h</a></li>
+    <li class="footer">Generated on Wed Feb 19 2014 10:01:03 for Freescale&#39;s eGUI by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>
