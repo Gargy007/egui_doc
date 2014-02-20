@@ -22,6 +22,7 @@ var searchData=
   ['complete',['complete',['../union_d4_d___l_o_n_g___s.html#ad95cf36a12a3043c1d48da1d8c6eec1a',1,'D4D_LONG_S']]],
   ['compress',['compress',['../struct_d4_d___d4_d_b_m_p___d_e_c_o_d_e___s.html#a84e6c8c1f744e2fc2df7eb76641b2ca5',1,'D4D_D4DBMP_DECODE_S']]],
   ['compresstype',['compressType',['../struct_d4_d___b_i_t_m_a_p_i_n_f_o_h_e_a_d_e_r.html#a034ffb1b217d9ab5fc38e3851d5975c3',1,'D4D_BITMAPINFOHEADER']]],
+  ['converter_2edox',['Converter.dox',['../_converter_8dox.html',1,'']]],
   ['counter',['COUNTER',['../d4d__imgdec__bmp_8c.html#a7194053a42881b1b4bc8546b4c8713e9',1,'d4d_imgdec_bmp.c']]],
   ['cpu_5fdelay100us',['Cpu_Delay100US',['../d4dlcdhw__common_8c.html#a57cfa4512a55d768757bb7440137ded1',1,'d4dlcdhw_common.c']]],
   ['crtch_5ffifo_5fpress',['CRTCH_FIFO_PRESS',['../d4dtch__cr__touch_8h.html#ae4399489c623b3dc92d34ee9afabb309',1,'d4dtch_cr_touch.h']]],
@@ -48,5 +49,6 @@ var searchData=
   ['cursubpxl',['curSubPxl',['../struct_d4_d___d4_d_b_m_p___d_e_c_o_d_e___s.html#aedc1dec67124605b8799f0075e123ec8',1,'D4D_D4DBMP_DECODE_S']]],
   ['cx',['cx',['../group__doxd4d__types__type.html#abbd0548ae6e15a76f53891ddab7bc6bd',1,'D4D_SIZE']]],
   ['cy',['cy',['../group__doxd4d__types__type.html#ac3caf46346bdb18d16381f44808262d4',1,'D4D_SIZE']]],
+  ['converter_20utility',['Converter utility',['../egui_converter.html',1,'']]],
   ['create_20new_20low_20level_20driver',['Create new low level driver',['../egui_new_lld.html',1,'']]]
 ];

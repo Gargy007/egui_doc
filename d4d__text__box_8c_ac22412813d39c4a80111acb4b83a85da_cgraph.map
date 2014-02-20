@@ -1,27 +1,27 @@
 <map id="D4D_TextBoxScrollBarsFeedBack" name="D4D_TextBoxScrollBarsFeedBack">
-<area shape="rect" id="node2" href="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="303,5,454,32"/>
-<area shape="rect" id="node3" href="$group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="306,56,451,83"/>
-<area shape="rect" id="node5" href="$d4d__text__box_8c.html#a2511e5b05b4779181755aa356fc1da55" title="D4D_TextBoxFindLineStartChar" alt="" coords="275,107,482,133"/>
-<area shape="rect" id="node4" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="544,56,688,83"/>
-<area shape="rect" id="node6" href="$d4d__text__box_8c.html#ac29d1b3bd98c3d79e6ca08a8f86c026d" title="D4D_TextBoxGetMaxLineChars" alt="" coords="979,120,1186,147"/>
-<area shape="rect" id="node16" href="$d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb" title="D4D_TextBoxValue2Coor" alt="" coords="531,208,701,235"/>
-<area shape="rect" id="node7" href="$d4d__text__box_8c.html#a6e96ae30228ab801488d4a664634522b" title="D4D_TextBoxGetCharsToLine" alt="" coords="1235,145,1429,172"/>
-<area shape="rect" id="node13" href="$d4d__text__box_8c.html#adcacc5c76b66f54e82287a2254ad58a3" title="D4D_TextBoxGetWordSpec" alt="" coords="1240,95,1424,121"/>
-<area shape="rect" id="node8" href="$d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b" title="D4D_GetCharWidth" alt="" coords="1729,153,1865,180"/>
-<area shape="rect" id="node12" href="$group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="1481,107,1673,133"/>
-<area shape="rect" id="node9" href="$d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1951,203,2052,229"/>
-<area shape="rect" id="node10" href="$d4d__font_8c.html#a43acdd475ef7db17e00a6999cde00578" title="D4D_LCD_GetCharPlace" alt="" coords="1918,152,2085,179"/>
-<area shape="rect" id="node11" href="$d4d__font_8c.html#a4dc0aafa5f109feee7a6fea4e98e5df2" title="D4D_GetCharIndex" alt="" coords="2133,152,2267,179"/>
-<area shape="rect" id="node14" href="$d4d__text__box_8c.html#a213815404328027af186f37a0284e8e8" title="D4D_TextBoxGetWordSpecInt" alt="" coords="1478,56,1677,83"/>
-<area shape="rect" id="node15" href="$d4d__font_8c.html#a39d8e8e703e0f108970fff86f6179bd1" title="D4D_GetNextTab" alt="" coords="1736,56,1859,83"/>
-<area shape="rect" id="node17" href="$group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="986,284,1179,311"/>
-<area shape="rect" id="node25" href="$d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="759,309,921,336"/>
-<area shape="rect" id="node24" href="$d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1508,208,1647,235"/>
-<area shape="rect" id="node26" href="$d4d__text__box_8c.html#aea39df6a545ad9a845f8a393c2baa84e" title="D4D_TextBoxGetLineCount" alt="" coords="749,157,931,184"/>
-<area shape="rect" id="node18" href="$d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="1251,284,1413,311"/>
-<area shape="rect" id="node19" href="$group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1508,296,1647,323"/>
-<area shape="rect" id="node20" href="$group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1725,303,1869,329"/>
-<area shape="rect" id="node21" href="$d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1924,355,2079,381"/>
-<area shape="rect" id="node22" href="$d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1950,253,2053,280"/>
-<area shape="rect" id="node23" href="$d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1928,304,2075,331"/>
+<area shape="rect" id="node2" href="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="303,108,454,135"/>
+<area shape="rect" id="node3" href="$d4d__text__box_8c.html#a2511e5b05b4779181755aa356fc1da55" title="D4D_TextBoxFindLineStartChar" alt="" coords="275,159,482,185"/>
+<area shape="rect" id="node25" href="$group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="306,221,451,248"/>
+<area shape="rect" id="node4" href="$d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb" title="D4D_TextBoxValue2Coor" alt="" coords="531,159,701,185"/>
+<area shape="rect" id="node16" href="$d4d__text__box_8c.html#ac29d1b3bd98c3d79e6ca08a8f86c026d" title="D4D_TextBoxGetMaxLineChars" alt="" coords="979,71,1186,97"/>
+<area shape="rect" id="node5" href="$group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="986,209,1179,236"/>
+<area shape="rect" id="node14" href="$d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="759,260,921,287"/>
+<area shape="rect" id="node7" href="$d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1508,159,1647,185"/>
+<area shape="rect" id="node15" href="$d4d__text__box_8c.html#aea39df6a545ad9a845f8a393c2baa84e" title="D4D_TextBoxGetLineCount" alt="" coords="749,108,931,135"/>
+<area shape="rect" id="node6" href="$d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="1251,209,1413,236"/>
+<area shape="rect" id="node9" href="$group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1508,209,1647,236"/>
+<area shape="rect" id="node8" href="$d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1951,109,2052,136"/>
+<area shape="rect" id="node10" href="$group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1725,209,1869,236"/>
+<area shape="rect" id="node11" href="$d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1924,261,2079,288"/>
+<area shape="rect" id="node12" href="$d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1950,160,2053,187"/>
+<area shape="rect" id="node13" href="$d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1928,211,2075,237"/>
+<area shape="rect" id="node17" href="$d4d__text__box_8c.html#adcacc5c76b66f54e82287a2254ad58a3" title="D4D_TextBoxGetWordSpec" alt="" coords="1240,45,1424,72"/>
+<area shape="rect" id="node24" href="$d4d__text__box_8c.html#a6e96ae30228ab801488d4a664634522b" title="D4D_TextBoxGetCharsToLine" alt="" coords="1235,96,1429,123"/>
+<area shape="rect" id="node18" href="$group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="1481,56,1673,83"/>
+<area shape="rect" id="node19" href="$d4d__text__box_8c.html#a213815404328027af186f37a0284e8e8" title="D4D_TextBoxGetWordSpecInt" alt="" coords="1478,5,1677,32"/>
+<area shape="rect" id="node20" href="$d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b" title="D4D_GetCharWidth" alt="" coords="1729,104,1865,131"/>
+<area shape="rect" id="node23" href="$d4d__font_8c.html#a39d8e8e703e0f108970fff86f6179bd1" title="D4D_GetNextTab" alt="" coords="1736,5,1859,32"/>
+<area shape="rect" id="node21" href="$d4d__font_8c.html#a43acdd475ef7db17e00a6999cde00578" title="D4D_LCD_GetCharPlace" alt="" coords="1918,59,2085,85"/>
+<area shape="rect" id="node22" href="$d4d__font_8c.html#a4dc0aafa5f109feee7a6fea4e98e5df2" title="D4D_GetCharIndex" alt="" coords="2133,59,2267,85"/>
+<area shape="rect" id="node26" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="544,233,688,260"/>
 </map>

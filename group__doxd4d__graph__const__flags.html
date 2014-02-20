@@ -34,13 +34,15 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="http://www.freescale.com/egui" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td id="projectlogo"><a href="https://github.com/Gargy007/eGUI" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Freescale&#39;s eGUI
    &#160;<span id="projectnumber">Release 3.0</span>
    </div>
    <div id="projectbrief">Reference Manual</div>
-    <td id="donatebutton" style="padding-right"> 
+   <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
+   <!--
+       <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
     		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <input type="hidden" name="cmd" value="_s-xclick">
@@ -51,6 +53,7 @@
         </form>
   	   </div>
     </td>
+    -->
   </td>
  </tr>
  </tbody>
@@ -176,8 +179,6 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00089">89</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
 
-<p>Referenced by <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="gab42ac60521cae5eb65f673bc4f5e71af"></a>
@@ -193,8 +194,6 @@ Macros</h2></td></tr>
 <p>The graph runs in normal mode, this means that a graph adds new data to the screen. When it fills up the whole graph area, the object clears all the shown points and draws a new graph on a screen from new data. </p>
 
 <p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00090">90</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
-
-<p>Referenced by <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>.</p>
 
 </div>
 </div>
@@ -212,8 +211,6 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00091">91</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
 
-<p>Referenced by <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ga9a7e52e315f644b9ede17aa15a998180"></a>
@@ -229,8 +226,6 @@ Macros</h2></td></tr>
 <p>Enables a label for axis X on the bottom side of the graph. </p>
 
 <p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00094">94</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
-
-<p>Referenced by <a class="el" href="d4d__graph_8c_source.html#l00089">D4D_GraphValue2Coor()</a>.</p>
 
 </div>
 </div>
@@ -264,8 +259,6 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00095">95</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
 
-<p>Referenced by <a class="el" href="d4d__graph_8c_source.html#l00089">D4D_GraphValue2Coor()</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="gaedc8d2ffd6b7d6d75d78d32f48afbf2c"></a>
@@ -281,8 +274,6 @@ Macros</h2></td></tr>
 <p>Enables the label for axis Y on the left side of the graph. </p>
 
 <p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00098">98</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
-
-<p>Referenced by <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>, <a class="el" href="d4d__graph_8c_source.html#l00800">D4D_GraphOnMessage()</a>, and <a class="el" href="d4d__graph_8c_source.html#l00089">D4D_GraphValue2Coor()</a>.</p>
 
 </div>
 </div>
@@ -316,8 +307,6 @@ Macros</h2></td></tr>
 
 <p>Definition at line <a class="el" href="d4d__graph_8h_source.html#l00099">99</a> of file <a class="el" href="d4d__graph_8h_source.html">d4d_graph.h</a>.</p>
 
-<p>Referenced by <a class="el" href="d4d__graph_8c_source.html#l00312">D4D_GraphOnDraw()</a>, <a class="el" href="d4d__graph_8c_source.html#l00800">D4D_GraphOnMessage()</a>, and <a class="el" href="d4d__graph_8c_source.html#l00089">D4D_GraphValue2Coor()</a>.</p>
-
 </div>
 </div>
 </div><!-- contents -->
@@ -325,7 +314,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Feb 19 2014 10:01:04 for Freescale&#39;s eGUI by
+    <li class="footer">Generated on Thu Feb 20 2014 11:09:12 for Freescale&#39;s eGUI by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

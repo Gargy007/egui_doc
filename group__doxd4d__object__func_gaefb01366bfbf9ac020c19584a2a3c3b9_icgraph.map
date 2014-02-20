@@ -1,97 +1,97 @@
 <map id="D4D_InvalidateObject" name="D4D_InvalidateObject">
-<area shape="rect" id="node2" href="$d4d__button_8c.html#a715ce41a514f22f4a66b7cd50b3c02b1" title="D4D_BtnKillFocus" alt="" coords="247,58,375,84"/>
-<area shape="rect" id="node4" href="$d4d__button_8c.html#a905de24a4fc29e32180d57f84a1a85e0" title="D4D_BtnOnKeyDown" alt="" coords="237,108,384,135"/>
-<area shape="rect" id="node5" href="$d4d__button_8c.html#a1dcbcd934690962f494833a66c1aab1c" title="D4D_BtnOnKeyUp" alt="" coords="245,159,376,186"/>
-<area shape="rect" id="node3" href="$d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="503,83,647,110"/>
-<area shape="rect" id="node6" href="$d4d__check__box_8c.html#a9b104f3f7686dc980ba783e6841f1deb" title="D4D_CheckBoxOnKeyDown" alt="" coords="217,260,404,287"/>
-<area shape="rect" id="node8" href="$d4d__check__box_8c.html#a663e89a5e4d7c95391390421e90e9ade" title="D4D_CheckBoxOnKeyUp" alt="" coords="225,210,396,236"/>
-<area shape="rect" id="node9" href="$group__doxd4d__check__box__func.html#gacd955c920799f2829624161f2de799c8" title="Function Sets the the check box value. " alt="" coords="227,311,394,338"/>
-<area shape="rect" id="node10" href="$group__doxd4d__console__func.html#ga65b164b0169a9baf208c9d1fb78b0fd7" title="The function clear whole console data. " alt="" coords="248,362,373,388"/>
-<area shape="rect" id="node11" href="$group__doxd4d__console__func.html#ga826950533ef85db079652105cec49441" title="The function puts one char on cursor position and updates cursor. " alt="" coords="1303,2232,1430,2259"/>
-<area shape="rect" id="node13" href="$d4d__console_8h.html#a54fc91ea7b10a75e3131ff6b0f156e29" title="D4D_CnslScrollBarsFeedBack" alt="" coords="211,463,410,490"/>
-<area shape="rect" id="node14" href="$d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2" title="D4D_ComboBoxButtonFeedBack" alt="" coords="745,1527,959,1554"/>
-<area shape="rect" id="node15" href="$d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="767,1732,937,1759"/>
-<area shape="rect" id="node16" href="$d4d__console_8c.html#a45906f5bcde7404fe92f44e577b0ae82" title="D4D_ConsoleTimeTick" alt="" coords="498,1679,651,1706"/>
-<area shape="rect" id="node17" href="$group__doxd4d__edit__box__func.html#ga0e24154d4fe5ee55a21cd2e7e01daa82" title="The function clear whole edit box data. " alt="" coords="1049,767,1194,794"/>
-<area shape="rect" id="node20" href="$d4d__edit__box_8c.html#ac04e4a23673e89c0b33068da720a8af0" title="D4D_EditBoxOnInit" alt="" coords="507,412,642,439"/>
-<area shape="rect" id="node21" href="$d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1281,438,1452,464"/>
-<area shape="rect" id="node22" href="$group__doxd4d__edit__box__func.html#ga71575226e364b1edf67ca5348aa23bf4" title="The function puts one char on cursor position and updates cursor. " alt="" coords="779,564,925,591"/>
-<area shape="rect" id="node25" href="$group__doxd4d__edit__box__func.html#gaccc64f7d124d35dd570e832a847c4464" title="The function chenge the cursor position to new one. " alt="" coords="231,564,390,591"/>
-<area shape="rect" id="node27" href="$d4d__edit__box_8c.html#a4300b551b54f3898cc045605a460a4e1" title="D4D_EditBoxTimeTick" alt="" coords="1045,362,1197,388"/>
-<area shape="rect" id="node28" href="$group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94" title="Function enables object. " alt="" coords="245,970,377,996"/>
-<area shape="rect" id="node29" href="$group__doxd4d__gauge__func.html#gae47240f89eeeaf652ca0afc74893ff62" title="The function set the trend/direction of gauge. " alt="" coords="250,1020,371,1047"/>
-<area shape="rect" id="node30" href="$group__doxd4d__gauge__func.html#gacb98ec4a3b9e3d796a81a6eac1c880f9" title="The function sets the new limits values of gauge. " alt="" coords="241,1071,381,1098"/>
-<area shape="rect" id="node31" href="$group__doxd4d__gauge__func.html#ga7b40a0f89fd53f8d0d36ff4da9def3f2" title="The function sets the new value of gauge. " alt="" coords="241,1122,380,1148"/>
-<area shape="rect" id="node32" href="$group__doxd4d__graph__func.html#ga9d842645cdc1fda7c0be2c69a0b60337" title="The function add new data to one trace. " alt="" coords="225,1172,396,1199"/>
-<area shape="rect" id="node33" href="$group__doxd4d__graph__func.html#ga4b181ab273df2aa87a28d4d2b5e09c1f" title="The function add new data to all traces. " alt="" coords="221,1223,400,1250"/>
-<area shape="rect" id="node34" href="$group__doxd4d__graph__func.html#gaf5ffa6d4077179ffc477394cd342e05d" title="The function clears all internal data of graph object. " alt="" coords="243,1274,378,1300"/>
-<area shape="rect" id="node35" href="$group__doxd4d__graph__func.html#gad1401380b35c210d3b8ff1dcab5dde42" title="Function sets the new scale of the axis X of the graph. " alt="" coords="225,1324,396,1351"/>
-<area shape="rect" id="node36" href="$group__doxd4d__graph__func.html#gab57fe23340875527877a19882b184637" title="Function sets the new scale of axis X of the graph. " alt="" coords="236,1375,385,1402"/>
-<area shape="rect" id="node37" href="$group__doxd4d__icon__func.html#gac995ed6c5a43718a15c84bc7945831d9" title="Function sets the new bitmap of icon by icon index. " alt="" coords="246,767,375,794"/>
-<area shape="rect" id="node40" href="$d4d__list__box_8c.html#a539cc327ca2ffeeeb537d58dabcff913" title="D4D_ListBoxFocusNextItem" alt="" coords="759,1891,945,1918"/>
-<area shape="rect" id="node43" href="$d4d__list__box_8c.html#a8e64277eb0db5c64f9033128e0363ab1" title="D4D_ListBoxFocusPreviousItem" alt="" coords="748,1942,956,1968"/>
-<area shape="rect" id="node44" href="$d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="509,1831,641,1858"/>
-<area shape="rect" id="node46" href="$d4d__list__box_8h.html#a548129f714b7e0d1009be9a19ad2c7e4" title="D4D_ListBoxScrollBarsFeedBack" alt="" coords="202,1628,419,1655"/>
-<area shape="rect" id="node47" href="$group__doxd4d__list__box__func.html#gac0ca84429c66cb1de4555407effc84ba" title="Function select new item by index. " alt="" coords="236,1476,385,1503"/>
-<area shape="rect" id="node51" href="$d4d__menu_8c.html#a6ab43fd4338bde2868eb82cad52f2a89" title="D4D_MenuOnInit" alt="" coords="792,2490,912,2516"/>
-<area shape="rect" id="node53" href="$d4d__menu_8c.html#aeb5fe2dbdd4ec9f922f5d894750b604c" title="D4D_MenuOnKeyDown" alt="" coords="773,2642,931,2668"/>
-<area shape="rect" id="node54" href="$d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="781,2692,923,2719"/>
-<area shape="rect" id="node55" href="$d4d__menu_8h.html#a8c0b8c56f06604875dad23c510810106" title="D4D_MenuScrollBarsFeedBack" alt="" coords="208,1882,413,1908"/>
-<area shape="rect" id="node56" href="$d4d__progress__bar_8h.html#a114de34c7dab38ce7e94eab48c306137" title="D4D_PrgrsBarSetBarColor" alt="" coords="223,1932,398,1959"/>
-<area shape="rect" id="node57" href="$d4d__progress__bar_8h.html#afb8021b6acf9220de318031cabf258b0" title="D4D_PrgrsBarSetValue" alt="" coords="231,1426,390,1452"/>
-<area shape="rect" id="node59" href="$d4d__radio__button_8c.html#acf5b75f1310c1435785f61e8e5e2b082" title="D4D_RadioButtonOnKeyDown" alt="" coords="753,919,951,946"/>
-<area shape="rect" id="node61" href="$d4d__radio__button_8c.html#a722f18989a4019b988c16368f9587bc8" title="D4D_RadioButtonOnKeyUp" alt="" coords="761,868,943,895"/>
-<area shape="rect" id="node62" href="$group__doxd4d__radio__button__func.html#ga364b68be6371a0ed1b7e30282f1cc7d1" title="Function Sets the the radio button value. " alt="" coords="221,818,400,844"/>
-<area shape="rect" id="node64" href="$d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1041,2363,1201,2390"/>
-<area shape="rect" id="node65" href="$group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="232,2287,389,2314"/>
-<area shape="rect" id="node83" href="$group__doxd4d__scroll__bar__func.html#gaefd74f2ae3a77f03f2970630b89b0ff5" title="The function sets the range of scroll bar scale. " alt="" coords="237,2034,384,2060"/>
-<area shape="rect" id="node85" href="$group__doxd4d__scroll__bar__func.html#gaae9edd2c13fcb67fe3d28e00d42af5a2" title="The function sets the step and page of scroll bar scale. " alt="" coords="242,1831,379,1858"/>
-<area shape="rect" id="node86" href="$group__doxd4d__base__func.html#ga1f354260fe4b7bc17a182604a18cf73e" title="Function sets object text font properties. " alt="" coords="231,2414,390,2440"/>
-<area shape="rect" id="node87" href="$group__doxd4d__string__func.html#gaab7d26923d7016f858a77cb93eee3355" title="The function change the text in main object text buffer. " alt="" coords="261,2464,360,2491"/>
-<area shape="rect" id="node88" href="$group__doxd4d__base__func.html#ga7464e4e77bf9d9a4fe7a92783684daa9" title="Function sets object text properties. " alt="" coords="231,2515,390,2542"/>
-<area shape="rect" id="node89" href="$group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="249,1578,373,1604"/>
-<area shape="rect" id="node90" href="$group__doxd4d__slider__func.html#ga4fa4310cf82a6b3e4ba2afe882271c27" title="Function Sets the slider bar color. " alt="" coords="237,2642,384,2668"/>
-<area shape="rect" id="node91" href="$group__doxd4d__slider__func.html#gac9be4fb2a0566d958e15be179c03c135" title="Function Sets the slider value. " alt="" coords="245,2743,376,2770"/>
-<area shape="rect" id="node80" href="$d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374" title="D4D_TextBoxOnInit" alt="" coords="784,2059,920,2086"/>
-<area shape="rect" id="node96" href="$d4d__text__box_8h.html#ac22412813d39c4a80111acb4b83a85da" title="D4D_TextBoxScrollBarsFeedBack" alt="" coords="200,2794,421,2820"/>
-<area shape="rect" id="node7" href="$d4d__check__box_8c.html#a8b4e8a04f2da50934c48e0da7acbc641" title="D4D_CheckBoxOnMessage" alt="" coords="483,235,667,262"/>
-<area shape="rect" id="node12" href="$group__doxd4d__console__func.html#gaa0fa842e0211a956e39193c0600cef5c" title="The function puts string on cursor position and updates cursor. " alt="" coords="1515,2232,1650,2259"/>
-<area shape="rect" id="node18" href="$d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1267,767,1466,794"/>
-<area shape="rect" id="node19" href="$d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972" title="D4D_ComboBoxOnMessage" alt="" coords="1273,716,1461,743"/>
-<area shape="rect" id="node23" href="$d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1043,463,1199,490"/>
-<area shape="rect" id="node24" href="$group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254" title="The function puts string on cursor position and updates cursor. " alt="" coords="1044,716,1199,743"/>
-<area shape="rect" id="node26" href="$d4d__edit__box_8c.html#a8ae69ab63cec13b3ebe92bf116210b69" title="D4D_EditBoxPutCharInt" alt="" coords="494,564,655,591"/>
-<area shape="rect" id="node38" href="$group__doxd4d__icon__func.html#ga7e63c380dbb0c6237f6282db00c8e08c" title="Function sets the new bitmap of icon by icon index difference. " alt="" coords="498,767,651,794"/>
-<area shape="rect" id="node39" href="$d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="778,767,926,794"/>
-<area shape="rect" id="node41" href="$d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1044,1891,1199,1918"/>
-<area shape="rect" id="node42" href="$d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="1283,1866,1451,1892"/>
-<area shape="rect" id="node45" href="$group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="758,1840,946,1867"/>
-<area shape="rect" id="node48" href="$d4d__combo__box_8c.html#af64fc17743ef6ab3613e49ae5d5fb864" title="D4D_ComboBoxSetIndex" alt="" coords="490,1426,659,1452"/>
-<area shape="rect" id="node49" href="$d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="469,1476,680,1503"/>
-<area shape="rect" id="node50" href="$d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00" title="D4D_ComboBoxListBoxMsgFeedBack" alt="" coords="729,1476,975,1503"/>
-<area shape="rect" id="node52" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1043,2591,1199,2618"/>
-<area shape="rect" id="node58" href="$d4d__progress__bar_8h.html#ace415a5788e524096a081a0efc196647" title="D4D_PrgrsBarChangeValue" alt="" coords="483,1375,666,1402"/>
-<area shape="rect" id="node60" href="$d4d__radio__button_8c.html#a241633d34878771833dc96ccc85ef95c" title="D4D_RadioButtonOnMessage" alt="" coords="1024,894,1219,920"/>
-<area shape="rect" id="node63" href="$d4d__radio__button_8c.html#a21316491574b3d3c7419309524da08ff" title="D4D_RadioButtonChangeValue" alt="" coords="473,818,676,844"/>
-<area shape="rect" id="node66" href="$d4d__console_8c.html#aed9184953b7b6029a5d06c8dcf9313c9" title="D4D_CnslUpdateScrollbars" alt="" coords="485,2186,664,2212"/>
-<area shape="rect" id="node70" href="$group__doxd4d__console__func.html#ga8043f01a19533df48ae3892fcd8238f6" title="The function move the scroll bars on to new position if it&#39;s applicable. " alt="" coords="475,2439,675,2466"/>
-<area shape="rect" id="node71" href="$group__doxd4d__list__box__func.html#gafabebf1bfe5b1d4dea19acd07e62aeaa" title="Function ensure that the selected item in list will be scrolled to visible area. " alt="" coords="485,1932,664,1959"/>
-<area shape="rect" id="node72" href="$d4d__menu_8c.html#ab0cb7791d811e8fb4ea8d09b3df6b054" title="D4D_MenuFocusNextItem" alt="" coords="487,2540,662,2567"/>
-<area shape="rect" id="node73" href="$d4d__menu_8c.html#a664a18b254e48df788c0a4e3f5361dd8" title="D4D_MenuFocusPreviousItem" alt="" coords="477,2591,673,2618"/>
-<area shape="rect" id="node74" href="$d4d__menu_8c.html#a30a111e7b85c1666f66f4c43cc29a6aa" title="D4D_MenuScrollBarSetup" alt="" coords="488,2338,661,2364"/>
-<area shape="rect" id="node75" href="$group__doxd4d__menu__func.html#ga5c028f0a7ce99c422632615842cd8012" title="Function select new item by index. " alt="" coords="506,2388,643,2415"/>
-<area shape="rect" id="node76" href="$group__doxd4d__scroll__bar__func.html#ga410dc4d48f9e8e49ef69f7c0273e5647" title="The function change the scroll bar position. " alt="" coords="484,2287,665,2314"/>
-<area shape="rect" id="node79" href="$d4d__text__box_8c.html#ac3bfefe93d27aba170ef56fea53e0fcc" title="D4D_TextBoxScrollBarSetup" alt="" coords="480,2034,669,2060"/>
-<area shape="rect" id="node67" href="$group__doxd4d__console__func.html#gaab75a500a23b24cd9f4c461d98e44487" title="The function update automatically the scroll bars to ensure visible position of cursor. " alt="" coords="772,2160,932,2187"/>
-<area shape="rect" id="node68" href="$d4d__console_8c.html#ad4ecb03f16735d20cc49ffbb756d7a37" title="D4D_CnslNewLine" alt="" coords="787,2262,917,2288"/>
-<area shape="rect" id="node69" href="$d4d__console_8c.html#a4228dfd77d8dbf3a3f12c532561228eb" title="D4D_CnslPutCharInt" alt="" coords="1051,2308,1192,2335"/>
-<area shape="rect" id="node77" href="$d4d__scroll__bar_8c.html#a3f79305aacf5805aadcda4b043e77c0a" title="D4D_ScrlBrOnKeyDown" alt="" coords="771,2363,933,2390"/>
-<area shape="rect" id="node78" href="$d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1035,2156,1207,2183"/>
-<area shape="rect" id="node81" href="$group__doxd4d__text__box__func.html#ga39b0345e200085c6c1a6c3b3d6797195" title="The function change the text of the text box. " alt="" coords="1036,2106,1207,2132"/>
-<area shape="rect" id="node82" href="$group__doxd4d__text__box__func.html#gaac5a5ecdeb225c15c8d4d0386b99f273" title="The function reinitialize whole object. " alt="" coords="1041,2055,1202,2082"/>
-<area shape="rect" id="node84" href="$d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="517,1780,632,1807"/>
-<area shape="rect" id="node92" href="$group__doxd4d__slider__func.html#ga852cfa431a7bf11d77a7e4bb8d2df7a2" title="Function change the slider value by signed increment. " alt="" coords="497,2794,652,2820"/>
-<area shape="rect" id="node95" href="$group__doxd4d__slider__func.html#ga9f4c93f3b9d1c554571fc6365887ceb2" title="Function set the new limits of slider object. " alt="" coords="509,2743,641,2770"/>
-<area shape="rect" id="node93" href="$d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="785,2768,919,2795"/>
-<area shape="rect" id="node94" href="$d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1048,2794,1195,2820"/>
+<area shape="rect" id="node2" href="$group__doxd4d__base__func.html#ga1f354260fe4b7bc17a182604a18cf73e" title="Function sets object text font properties. " alt="" coords="231,5,390,32"/>
+<area shape="rect" id="node3" href="$group__doxd4d__base__func.html#ga7464e4e77bf9d9a4fe7a92783684daa9" title="Function sets object text properties. " alt="" coords="231,56,390,83"/>
+<area shape="rect" id="node4" href="$d4d__button_8c.html#a905de24a4fc29e32180d57f84a1a85e0" title="D4D_BtnOnKeyDown" alt="" coords="237,107,384,133"/>
+<area shape="rect" id="node6" href="$d4d__button_8c.html#a1dcbcd934690962f494833a66c1aab1c" title="D4D_BtnOnKeyUp" alt="" coords="245,157,376,184"/>
+<area shape="rect" id="node7" href="$d4d__button_8c.html#a715ce41a514f22f4a66b7cd50b3c02b1" title="D4D_BtnKillFocus" alt="" coords="247,208,375,235"/>
+<area shape="rect" id="node5" href="$d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="503,183,647,209"/>
+<area shape="rect" id="node8" href="$d4d__check__box_8c.html#a9b104f3f7686dc980ba783e6841f1deb" title="D4D_CheckBoxOnKeyDown" alt="" coords="217,360,404,387"/>
+<area shape="rect" id="node10" href="$d4d__check__box_8c.html#a663e89a5e4d7c95391390421e90e9ade" title="D4D_CheckBoxOnKeyUp" alt="" coords="225,309,396,336"/>
+<area shape="rect" id="node11" href="$group__doxd4d__check__box__func.html#gacd955c920799f2829624161f2de799c8" title="Function Sets the the check box value. " alt="" coords="227,411,394,437"/>
+<area shape="rect" id="node12" href="$d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2" title="D4D_ComboBoxButtonFeedBack" alt="" coords="745,461,959,488"/>
+<area shape="rect" id="node13" href="$d4d__console_8c.html#a45906f5bcde7404fe92f44e577b0ae82" title="D4D_ConsoleTimeTick" alt="" coords="498,1069,651,1096"/>
+<area shape="rect" id="node15" href="$d4d__console_8h.html#a54fc91ea7b10a75e3131ff6b0f156e29" title="D4D_CnslScrollBarsFeedBack" alt="" coords="211,1728,410,1755"/>
+<area shape="rect" id="node16" href="$group__doxd4d__console__func.html#ga826950533ef85db079652105cec49441" title="The function puts one char on cursor position and updates cursor. " alt="" coords="1303,1956,1430,1983"/>
+<area shape="rect" id="node18" href="$group__doxd4d__console__func.html#ga65b164b0169a9baf208c9d1fb78b0fd7" title="The function clear whole console data. " alt="" coords="248,1779,373,1805"/>
+<area shape="rect" id="node14" href="$d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="767,1095,937,1121"/>
+<area shape="rect" id="node19" href="$d4d__edit__box_8c.html#ac04e4a23673e89c0b33068da720a8af0" title="D4D_EditBoxOnInit" alt="" coords="507,917,642,944"/>
+<area shape="rect" id="node21" href="$d4d__edit__box_8c.html#a4300b551b54f3898cc045605a460a4e1" title="D4D_EditBoxTimeTick" alt="" coords="1045,968,1197,995"/>
+<area shape="rect" id="node22" href="$group__doxd4d__edit__box__func.html#ga71575226e364b1edf67ca5348aa23bf4" title="The function puts one char on cursor position and updates cursor. " alt="" coords="779,715,925,741"/>
+<area shape="rect" id="node27" href="$group__doxd4d__edit__box__func.html#gaccc64f7d124d35dd570e832a847c4464" title="The function chenge the cursor position to new one. " alt="" coords="231,816,390,843"/>
+<area shape="rect" id="node29" href="$group__doxd4d__edit__box__func.html#ga0e24154d4fe5ee55a21cd2e7e01daa82" title="The function clear whole edit box data. " alt="" coords="1049,613,1194,640"/>
+<area shape="rect" id="node20" href="$d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1281,892,1452,919"/>
+<area shape="rect" id="node30" href="$group__doxd4d__gauge__func.html#ga7b40a0f89fd53f8d0d36ff4da9def3f2" title="The function sets the new value of gauge. " alt="" coords="241,1829,380,1856"/>
+<area shape="rect" id="node31" href="$group__doxd4d__gauge__func.html#gacb98ec4a3b9e3d796a81a6eac1c880f9" title="The function sets the new limits values of gauge. " alt="" coords="241,1880,381,1907"/>
+<area shape="rect" id="node32" href="$group__doxd4d__gauge__func.html#gae47240f89eeeaf652ca0afc74893ff62" title="The function set the trend/direction of gauge. " alt="" coords="250,1931,371,1957"/>
+<area shape="rect" id="node33" href="$group__doxd4d__graph__func.html#ga9d842645cdc1fda7c0be2c69a0b60337" title="The function add new data to one trace. " alt="" coords="225,1981,396,2008"/>
+<area shape="rect" id="node34" href="$group__doxd4d__graph__func.html#ga4b181ab273df2aa87a28d4d2b5e09c1f" title="The function add new data to all traces. " alt="" coords="221,2032,400,2059"/>
+<area shape="rect" id="node35" href="$group__doxd4d__graph__func.html#gaf5ffa6d4077179ffc477394cd342e05d" title="The function clears all internal data of graph object. " alt="" coords="243,2083,378,2109"/>
+<area shape="rect" id="node36" href="$group__doxd4d__graph__func.html#gab57fe23340875527877a19882b184637" title="Function sets the new scale of axis X of the graph. " alt="" coords="236,2133,385,2160"/>
+<area shape="rect" id="node37" href="$group__doxd4d__graph__func.html#gad1401380b35c210d3b8ff1dcab5dde42" title="Function sets the new scale of the axis X of the graph. " alt="" coords="225,2184,396,2211"/>
+<area shape="rect" id="node38" href="$group__doxd4d__icon__func.html#gac995ed6c5a43718a15c84bc7945831d9" title="Function sets the new bitmap of icon by icon index. " alt="" coords="246,2235,375,2261"/>
+<area shape="rect" id="node41" href="$d4d__list__box_8c.html#a539cc327ca2ffeeeb537d58dabcff913" title="D4D_ListBoxFocusNextItem" alt="" coords="759,1373,945,1400"/>
+<area shape="rect" id="node44" href="$d4d__list__box_8c.html#a8e64277eb0db5c64f9033128e0363ab1" title="D4D_ListBoxFocusPreviousItem" alt="" coords="748,1323,956,1349"/>
+<area shape="rect" id="node45" href="$d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="509,1221,641,1248"/>
+<area shape="rect" id="node47" href="$d4d__list__box_8h.html#a548129f714b7e0d1009be9a19ad2c7e4" title="D4D_ListBoxScrollBarsFeedBack" alt="" coords="202,2285,419,2312"/>
+<area shape="rect" id="node48" href="$group__doxd4d__list__box__func.html#gac0ca84429c66cb1de4555407effc84ba" title="Function select new item by index. " alt="" coords="236,461,385,488"/>
+<area shape="rect" id="node52" href="$d4d__menu_8c.html#aeb5fe2dbdd4ec9f922f5d894750b604c" title="D4D_MenuOnKeyDown" alt="" coords="773,1779,931,1805"/>
+<area shape="rect" id="node54" href="$d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="781,1829,923,1856"/>
+<area shape="rect" id="node55" href="$d4d__menu_8c.html#a6ab43fd4338bde2868eb82cad52f2a89" title="D4D_MenuOnInit" alt="" coords="792,1627,912,1653"/>
+<area shape="rect" id="node56" href="$d4d__menu_8h.html#a8c0b8c56f06604875dad23c510810106" title="D4D_MenuScrollBarsFeedBack" alt="" coords="208,2336,413,2363"/>
+<area shape="rect" id="node57" href="$group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="249,563,373,589"/>
+<area shape="rect" id="node59" href="$group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94" title="Function enables object. " alt="" coords="245,2387,377,2413"/>
+<area shape="rect" id="node60" href="$d4d__progress__bar_8h.html#afb8021b6acf9220de318031cabf258b0" title="D4D_PrgrsBarSetValue" alt="" coords="231,2437,390,2464"/>
+<area shape="rect" id="node62" href="$d4d__progress__bar_8h.html#a114de34c7dab38ce7e94eab48c306137" title="D4D_PrgrsBarSetBarColor" alt="" coords="223,2488,398,2515"/>
+<area shape="rect" id="node63" href="$d4d__radio__button_8c.html#acf5b75f1310c1435785f61e8e5e2b082" title="D4D_RadioButtonOnKeyDown" alt="" coords="753,2640,951,2667"/>
+<area shape="rect" id="node65" href="$d4d__radio__button_8c.html#a722f18989a4019b988c16368f9587bc8" title="D4D_RadioButtonOnKeyUp" alt="" coords="761,2589,943,2616"/>
+<area shape="rect" id="node66" href="$group__doxd4d__radio__button__func.html#ga364b68be6371a0ed1b7e30282f1cc7d1" title="Function Sets the the radio button value. " alt="" coords="221,2539,400,2565"/>
+<area shape="rect" id="node68" href="$group__doxd4d__scroll__bar__func.html#gaefd74f2ae3a77f03f2970630b89b0ff5" title="The function sets the range of scroll bar scale. " alt="" coords="237,1221,384,1248"/>
+<area shape="rect" id="node75" href="$group__doxd4d__scroll__bar__func.html#gaae9edd2c13fcb67fe3d28e00d42af5a2" title="The function sets the step and page of scroll bar scale. " alt="" coords="242,1272,379,1299"/>
+<area shape="rect" id="node76" href="$group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="232,1475,389,1501"/>
+<area shape="rect" id="node88" href="$d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1041,1525,1201,1552"/>
+<area shape="rect" id="node89" href="$group__doxd4d__slider__func.html#gac9be4fb2a0566d958e15be179c03c135" title="Function Sets the slider value. " alt="" coords="245,2691,376,2717"/>
+<area shape="rect" id="node94" href="$group__doxd4d__slider__func.html#ga4fa4310cf82a6b3e4ba2afe882271c27" title="Function Sets the slider bar color. " alt="" coords="237,2741,384,2768"/>
+<area shape="rect" id="node95" href="$group__doxd4d__string__func.html#gaab7d26923d7016f858a77cb93eee3355" title="The function change the text in main object text buffer. " alt="" coords="261,2792,360,2819"/>
+<area shape="rect" id="node71" href="$d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374" title="D4D_TextBoxOnInit" alt="" coords="784,1171,920,1197"/>
+<area shape="rect" id="node96" href="$d4d__text__box_8h.html#ac22412813d39c4a80111acb4b83a85da" title="D4D_TextBoxScrollBarsFeedBack" alt="" coords="200,2843,421,2869"/>
+<area shape="rect" id="node9" href="$d4d__check__box_8c.html#a8b4e8a04f2da50934c48e0da7acbc641" title="D4D_CheckBoxOnMessage" alt="" coords="483,309,667,336"/>
+<area shape="rect" id="node17" href="$group__doxd4d__console__func.html#gaa0fa842e0211a956e39193c0600cef5c" title="The function puts string on cursor position and updates cursor. " alt="" coords="1515,1956,1650,1983"/>
+<area shape="rect" id="node23" href="$d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1043,816,1199,843"/>
+<area shape="rect" id="node24" href="$group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254" title="The function puts string on cursor position and updates cursor. " alt="" coords="1044,664,1199,691"/>
+<area shape="rect" id="node25" href="$d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1267,613,1466,640"/>
+<area shape="rect" id="node26" href="$d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972" title="D4D_ComboBoxOnMessage" alt="" coords="1273,664,1461,691"/>
+<area shape="rect" id="node28" href="$d4d__edit__box_8c.html#a8ae69ab63cec13b3ebe92bf116210b69" title="D4D_EditBoxPutCharInt" alt="" coords="494,715,655,741"/>
+<area shape="rect" id="node39" href="$group__doxd4d__icon__func.html#ga7e63c380dbb0c6237f6282db00c8e08c" title="Function sets the new bitmap of icon by icon index difference. " alt="" coords="498,2235,651,2261"/>
+<area shape="rect" id="node40" href="$d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="778,2235,926,2261"/>
+<area shape="rect" id="node42" href="$d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1044,1373,1199,1400"/>
+<area shape="rect" id="node43" href="$d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="1283,1348,1451,1375"/>
+<area shape="rect" id="node46" href="$group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="758,1221,946,1248"/>
+<area shape="rect" id="node49" href="$d4d__combo__box_8c.html#af64fc17743ef6ab3613e49ae5d5fb864" title="D4D_ComboBoxSetIndex" alt="" coords="490,360,659,387"/>
+<area shape="rect" id="node50" href="$d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="469,411,680,437"/>
+<area shape="rect" id="node51" href="$d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00" title="D4D_ComboBoxListBoxMsgFeedBack" alt="" coords="729,411,975,437"/>
+<area shape="rect" id="node53" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1043,1728,1199,1755"/>
+<area shape="rect" id="node58" href="$d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="517,1171,632,1197"/>
+<area shape="rect" id="node61" href="$d4d__progress__bar_8h.html#ace415a5788e524096a081a0efc196647" title="D4D_PrgrsBarChangeValue" alt="" coords="483,2437,666,2464"/>
+<area shape="rect" id="node64" href="$d4d__radio__button_8c.html#a241633d34878771833dc96ccc85ef95c" title="D4D_RadioButtonOnMessage" alt="" coords="1024,2615,1219,2641"/>
+<area shape="rect" id="node67" href="$d4d__radio__button_8c.html#a21316491574b3d3c7419309524da08ff" title="D4D_RadioButtonChangeValue" alt="" coords="473,2539,676,2565"/>
+<area shape="rect" id="node69" href="$d4d__menu_8c.html#a30a111e7b85c1666f66f4c43cc29a6aa" title="D4D_MenuScrollBarSetup" alt="" coords="488,1576,661,1603"/>
+<area shape="rect" id="node70" href="$d4d__text__box_8c.html#ac3bfefe93d27aba170ef56fea53e0fcc" title="D4D_TextBoxScrollBarSetup" alt="" coords="480,1272,669,1299"/>
+<area shape="rect" id="node72" href="$group__doxd4d__text__box__func.html#gaac5a5ecdeb225c15c8d4d0386b99f273" title="The function reinitialize whole object. " alt="" coords="1041,1145,1202,1172"/>
+<area shape="rect" id="node73" href="$group__doxd4d__text__box__func.html#ga39b0345e200085c6c1a6c3b3d6797195" title="The function change the text of the text box. " alt="" coords="1036,1196,1207,1223"/>
+<area shape="rect" id="node74" href="$d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1035,1424,1207,1451"/>
+<area shape="rect" id="node77" href="$d4d__console_8c.html#aed9184953b7b6029a5d06c8dcf9313c9" title="D4D_CnslUpdateScrollbars" alt="" coords="485,1981,664,2008"/>
+<area shape="rect" id="node81" href="$group__doxd4d__console__func.html#ga8043f01a19533df48ae3892fcd8238f6" title="The function move the scroll bars on to new position if it&#39;s applicable. " alt="" coords="475,1779,675,1805"/>
+<area shape="rect" id="node82" href="$group__doxd4d__list__box__func.html#gafabebf1bfe5b1d4dea19acd07e62aeaa" title="Function ensure that the selected item in list will be scrolled to visible area. " alt="" coords="485,1424,664,1451"/>
+<area shape="rect" id="node83" href="$d4d__menu_8c.html#ab0cb7791d811e8fb4ea8d09b3df6b054" title="D4D_MenuFocusNextItem" alt="" coords="487,1829,662,1856"/>
+<area shape="rect" id="node84" href="$d4d__menu_8c.html#a664a18b254e48df788c0a4e3f5361dd8" title="D4D_MenuFocusPreviousItem" alt="" coords="477,1677,673,1704"/>
+<area shape="rect" id="node85" href="$group__doxd4d__menu__func.html#ga5c028f0a7ce99c422632615842cd8012" title="Function select new item by index. " alt="" coords="506,1728,643,1755"/>
+<area shape="rect" id="node86" href="$group__doxd4d__scroll__bar__func.html#ga410dc4d48f9e8e49ef69f7c0273e5647" title="The function change the scroll bar position. " alt="" coords="484,1525,665,1552"/>
+<area shape="rect" id="node78" href="$d4d__console_8c.html#ad4ecb03f16735d20cc49ffbb756d7a37" title="D4D_CnslNewLine" alt="" coords="787,1931,917,1957"/>
+<area shape="rect" id="node80" href="$group__doxd4d__console__func.html#gaab75a500a23b24cd9f4c461d98e44487" title="The function update automatically the scroll bars to ensure visible position of cursor. " alt="" coords="772,1880,932,1907"/>
+<area shape="rect" id="node79" href="$d4d__console_8c.html#a4228dfd77d8dbf3a3f12c532561228eb" title="D4D_CnslPutCharInt" alt="" coords="1051,1880,1192,1907"/>
+<area shape="rect" id="node87" href="$d4d__scroll__bar_8c.html#a3f79305aacf5805aadcda4b043e77c0a" title="D4D_ScrlBrOnKeyDown" alt="" coords="771,1576,933,1603"/>
+<area shape="rect" id="node90" href="$group__doxd4d__slider__func.html#ga852cfa431a7bf11d77a7e4bb8d2df7a2" title="Function change the slider value by signed increment. " alt="" coords="497,2741,652,2768"/>
+<area shape="rect" id="node93" href="$group__doxd4d__slider__func.html#ga9f4c93f3b9d1c554571fc6365887ceb2" title="Function set the new limits of slider object. " alt="" coords="509,2691,641,2717"/>
+<area shape="rect" id="node91" href="$d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="785,2767,919,2793"/>
+<area shape="rect" id="node92" href="$d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1048,2741,1195,2768"/>
 </map>

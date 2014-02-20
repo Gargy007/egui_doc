@@ -7,6 +7,7 @@ var NAVTREE =
     [ "Release Notes", "release_notes.html", null ],
     [ "Description", "egui_description.html", null ],
     [ "Create new low level driver", "egui_new_lld.html", null ],
+    [ "Converter utility", "egui_converter.html", null ],
     [ "Reference", "modules.html", "modules" ],
     [ "Data Structure Index", "classes.html", null ]
   ] ]
@@ -15,11 +16,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "classes.html",
-"group__doxd4d__button__macro.html#ga10a824565de4b3c99b886f595b2eb422",
-"group__doxd4d__graph__const.html#gabaa96b6cf02d842b6ee6a2d694d51d8a",
-"group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d___f_u_n_c_t_i_o_n_s___s",
-"group__doxd4d__scheme__const.html#gaafd983574aa7c0df55f8c994b97586ea",
-"group__doxd4d__slider__const.html#ga7f815f1dbe211ddd6e8f604e380e1c63"
+"group__doxd4d__button__macro.html",
+"group__doxd4d__graph__const.html#gaaff7ee5698081f6ae7284ee03ea34a37",
+"group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d___f_r_a_m_e_b_u_f_f___d_e_s_c___s",
+"group__doxd4d__scheme__const.html#gaa7be7a55ed130f33cfa828220b14bd93",
+"group__doxd4d__slider__const.html#ga6ae45690d377411ef0739c6ac7c3b385"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

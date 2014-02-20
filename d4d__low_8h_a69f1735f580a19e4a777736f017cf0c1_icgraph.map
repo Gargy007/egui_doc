@@ -1,10 +1,10 @@
 <map id="D4D_LCD_RBox" name="D4D_LCD_RBox">
 <area shape="rect" id="node2" href="$group__doxd4d__basic__draw__func.html#ga8e67d983050dc41e2984a44af9f989c5" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="393,385,500,412"/>
-<area shape="rect" id="node42" href="$group__doxd4d__basic__draw__func.html#ga3c9e01b18d97d43e7532b102ee562959" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="182,867,303,893"/>
-<area shape="rect" id="node43" href="$group__doxd4d__basic__draw__func.html#gaf5f8150298d6b829fcd373c1a21006ed" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="174,917,311,944"/>
-<area shape="rect" id="node44" href="$group__doxd4d__basic__draw__func.html#ga625034711623c6e6321a0291805edb5b" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="181,816,304,843"/>
-<area shape="rect" id="node47" href="$group__doxd4d__basic__draw__func.html#gaa9693dc51fb4b0cb16f28fa3dacb5bb9" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="185,968,301,995"/>
-<area shape="rect" id="node49" href="$group__doxd4d__basic__draw__func.html#gac00e96f797a9640ec342c688b2117f57" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="191,765,294,792"/>
+<area shape="rect" id="node42" href="$group__doxd4d__basic__draw__func.html#ga625034711623c6e6321a0291805edb5b" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="181,816,304,843"/>
+<area shape="rect" id="node45" href="$group__doxd4d__basic__draw__func.html#ga3c9e01b18d97d43e7532b102ee562959" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="182,867,303,893"/>
+<area shape="rect" id="node46" href="$group__doxd4d__basic__draw__func.html#gaf5f8150298d6b829fcd373c1a21006ed" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="174,917,311,944"/>
+<area shape="rect" id="node47" href="$group__doxd4d__basic__draw__func.html#gac00e96f797a9640ec342c688b2117f57" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="191,765,294,792"/>
+<area shape="rect" id="node52" href="$group__doxd4d__basic__draw__func.html#gaa9693dc51fb4b0cb16f28fa3dacb5bb9" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="185,968,301,995"/>
 <area shape="rect" id="node3" href="$group__doxd4d__basic__draw__func.html#ga0fc64a9353c4d9319f75a0554d45bc3c" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="584,512,749,539"/>
 <area shape="rect" id="node7" href="$d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="837,613,957,640"/>
 <area shape="rect" id="node9" href="$d4d__check__box_8c.html#ac94f137eecd1aa60daa53a5cd6b79161" title="D4D_CheckBoxOnDraw" alt="" coords="587,816,747,843"/>
@@ -44,11 +44,11 @@
 <area shape="rect" id="node37" href="$d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="817,309,977,336"/>
 <area shape="rect" id="node39" href="$d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="824,360,971,387"/>
 <area shape="rect" id="node41" href="$d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="811,411,983,437"/>
-<area shape="rect" id="node45" href="$d4d__progress__bar_8c.html#a33da0e2c98a3ba0f6747aa681cd9f2af" title="D4D_PrgrsBarOnDraw" alt="" coords="591,892,742,919"/>
-<area shape="rect" id="node46" href="$d4d__progress__bar_8c.html#af3247d54c70c618bfea073d943050acd" title="D4D_PrgrsBarOnMessage" alt="" coords="810,917,985,944"/>
-<area shape="rect" id="node48" href="$group__doxd4d__basic__draw__func.html#gab2cfa719cf1ab06fa3dfaa973652f5fb" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="397,968,497,995"/>
-<area shape="rect" id="node50" href="$group__doxd4d__basic__draw__func.html#ga950feb5845ca062bf98e5aef1aa13b56" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="403,791,490,817"/>
-<area shape="rect" id="node51" href="$d4d__imgdec__bmp_8h.html#a6d402543bb8a9cebfacd00674fa235b0" title="D4D_ImgDecBmpDraw" alt="" coords="369,841,524,868"/>
-<area shape="rect" id="node52" href="$d4d__imgdec__d4d_8h.html#a86a2f81eb5c75da85d3665b4eab9952c" title="D4D_ImgDecExtD4DDraw" alt="" coords="361,689,533,716"/>
-<area shape="rect" id="node53" href="$d4d__imgdec__d4dint_8h.html#abd2b2ea00aa9812f46930d4ab1eca21c" title="D4D_ImgDecIntD4DDraw" alt="" coords="363,740,530,767"/>
+<area shape="rect" id="node43" href="$d4d__progress__bar_8c.html#a33da0e2c98a3ba0f6747aa681cd9f2af" title="D4D_PrgrsBarOnDraw" alt="" coords="591,892,742,919"/>
+<area shape="rect" id="node44" href="$d4d__progress__bar_8c.html#af3247d54c70c618bfea073d943050acd" title="D4D_PrgrsBarOnMessage" alt="" coords="810,917,985,944"/>
+<area shape="rect" id="node48" href="$group__doxd4d__basic__draw__func.html#ga950feb5845ca062bf98e5aef1aa13b56" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="403,791,490,817"/>
+<area shape="rect" id="node49" href="$d4d__imgdec__bmp_8h.html#a6d402543bb8a9cebfacd00674fa235b0" title="D4D_ImgDecBmpDraw" alt="" coords="369,841,524,868"/>
+<area shape="rect" id="node50" href="$d4d__imgdec__d4d_8h.html#a86a2f81eb5c75da85d3665b4eab9952c" title="D4D_ImgDecExtD4DDraw" alt="" coords="361,689,533,716"/>
+<area shape="rect" id="node51" href="$d4d__imgdec__d4dint_8h.html#abd2b2ea00aa9812f46930d4ab1eca21c" title="D4D_ImgDecIntD4DDraw" alt="" coords="363,740,530,767"/>
+<area shape="rect" id="node53" href="$group__doxd4d__basic__draw__func.html#gab2cfa719cf1ab06fa3dfaa973652f5fb" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="397,968,497,995"/>
 </map>

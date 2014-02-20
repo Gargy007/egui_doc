@@ -1,16 +1,16 @@
 <map id="D4D_MenuOnKeyUp" name="D4D_MenuOnKeyUp">
-<area shape="rect" id="node2" href="$group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="215,132,345,159"/>
-<area shape="rect" id="node14" href="$group__doxd4d__object__func.html#ga5a2ea7aad5eebfd12294a985a6f27368" title="Function returns the current keys capturing object pointer. " alt="" coords="197,183,363,209"/>
-<area shape="rect" id="node15" href="$group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="414,5,559,32"/>
-<area shape="rect" id="node3" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="411,208,562,235"/>
-<area shape="rect" id="node4" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="611,56,755,83"/>
-<area shape="rect" id="node5" href="$d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="614,107,751,133"/>
-<area shape="rect" id="node6" href="$group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="627,259,738,285"/>
-<area shape="rect" id="node8" href="$group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="431,157,542,184"/>
-<area shape="rect" id="node7" href="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="1485,204,1635,231"/>
-<area shape="rect" id="node9" href="$d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="624,157,741,184"/>
-<area shape="rect" id="node10" href="$d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="803,136,947,163"/>
-<area shape="rect" id="node11" href="$d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1459,77,1661,104"/>
-<area shape="rect" id="node12" href="$d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1227,77,1410,104"/>
-<area shape="rect" id="node13" href="$d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="995,129,1178,170"/>
+<area shape="rect" id="node2" href="$group__doxd4d__object__func.html#ga5a2ea7aad5eebfd12294a985a6f27368" title="Function returns the current keys capturing object pointer. " alt="" coords="197,5,363,32"/>
+<area shape="rect" id="node3" href="$group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="215,157,345,184"/>
+<area shape="rect" id="node15" href="$group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="414,31,559,57"/>
+<area shape="rect" id="node4" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="411,233,562,260"/>
+<area shape="rect" id="node5" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="611,81,755,108"/>
+<area shape="rect" id="node6" href="$d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="614,132,751,159"/>
+<area shape="rect" id="node7" href="$group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="627,284,738,311"/>
+<area shape="rect" id="node9" href="$group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="431,183,542,209"/>
+<area shape="rect" id="node8" href="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="1485,229,1635,256"/>
+<area shape="rect" id="node10" href="$d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="624,183,741,209"/>
+<area shape="rect" id="node11" href="$d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="803,161,947,188"/>
+<area shape="rect" id="node12" href="$d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1459,103,1661,129"/>
+<area shape="rect" id="node13" href="$d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1227,103,1410,129"/>
+<area shape="rect" id="node14" href="$d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="995,154,1178,195"/>
 </map>
