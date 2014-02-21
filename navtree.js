@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Freescale's eGUI", "index.html", [
+  [ "eGUI alias D4D", "index.html", [
     [ "Introduction", "index.html", null ],
     [ "Directory Structure", "structure.html", null ],
     [ "License", "license.html", null ],
