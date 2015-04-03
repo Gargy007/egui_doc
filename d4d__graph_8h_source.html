@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('d4d__graph_8h_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="d4d__graph_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -162,20 +160,20 @@ $(document).ready(function(){initNavTree('d4d__graph_8h_source.html','');});
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">* D4D GRAPH setting  constants</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#ifndef D4D_GRAPH_BORDER_OFF  </span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#ifndef D4D_GRAPH_BORDER_OFF</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="group__doxd4d__graph__const.html#gabaa96b6cf02d842b6ee6a2d694d51d8a">   61</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_GRAPH_BORDER_OFF        5</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#ifndef D4D_GRAPH_VALUE_OFF  </span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#ifndef D4D_GRAPH_VALUE_OFF</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="group__doxd4d__graph__const.html#ga430633f2c7efdce91ed6ad6a9e6a3d93">   67</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_GRAPH_VALUE_OFF        2</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#ifndef D4D_COLOR_GRAPH_GRID  </span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#ifndef D4D_COLOR_GRAPH_GRID</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="group__doxd4d__graph__const.html#gaf4300680d760f0bb71a84c81ad8598e0">   73</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_COLOR_GRAPH_GRID        D4D_COLOR_LIGHT_GREY</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">//********************* Graph flags for its specific flags *****************</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"></span>  <span class="comment">//@note    For axis, only one setting can be used, it is not allowed to mix two flags for one axis.   </span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"></span>  <span class="comment">//@note    For axis, only one setting can be used, it is not allowed to mix two flags for one axis.</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="group__doxd4d__graph__const__flags.html#ga4f9d31885b3c7f4cd5b961cbef73664c">   89</a></span>&#160;<span class="preprocessor">  #define D4D_GRAPH_F_MODE_MASK       (0x03 &lt;&lt; D4D_OBJECT_F_OBJECT_SHIFT)       </span></div>
 <div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="group__doxd4d__graph__const__flags.html#gab42ac60521cae5eb65f673bc4f5e71af">   90</a></span>&#160;<span class="preprocessor">  #define D4D_GRAPH_F_MODE_NORMAL     (0x00 &lt;&lt; D4D_OBJECT_F_OBJECT_SHIFT)       </span></div>
@@ -247,10 +245,10 @@ $(document).ready(function(){initNavTree('d4d__graph_8h_source.html','');});
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;{</div>
 <div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#aae06e9751b32edb754cc348b11888874">  199</a></span>&#160;    <a class="code" href="group__doxd4d__graph__type.html#gaf1b7872407414089c7f7e276dccf3635">D4D_GRAPH_SAMPLE_IX</a> <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#aae06e9751b32edb754cc348b11888874">xPosCnt</a>;      <span class="comment">// position counter on X axis</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a81679a7bcf36ff62f95a157a1c0c0b3a">  200</a></span>&#160;    <a class="code" href="d4d__graph_8h.html#a4426c37b64febfe1375dc2c928b5cdb7">D4D_GRAPH_DATA_LEN</a> <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a81679a7bcf36ff62f95a157a1c0c0b3a">lastShowPos</a>;   <span class="comment">// position in input data buffer of shown data</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#af83747c5c177a4f1673ed5c2b353caea">  201</a></span>&#160;    <a class="code" href="d4d__graph_8h.html#a4426c37b64febfe1375dc2c928b5cdb7">D4D_GRAPH_DATA_LEN</a> <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#af83747c5c177a4f1673ed5c2b353caea">lastDataPos</a>;   <span class="comment">// position in input data buffer of last added data </span></div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#af83747c5c177a4f1673ed5c2b353caea">  201</a></span>&#160;    <a class="code" href="d4d__graph_8h.html#a4426c37b64febfe1375dc2c928b5cdb7">D4D_GRAPH_DATA_LEN</a> <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#af83747c5c177a4f1673ed5c2b353caea">lastDataPos</a>;   <span class="comment">// position in input data buffer of last added data</span></div>
 <div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a8c0d8ff57bd7b2c7da20e478c0e470f5">  202</a></span>&#160;    <a class="code" href="d4d__graph_8h.html#a4426c37b64febfe1375dc2c928b5cdb7">D4D_GRAPH_DATA_LEN</a> <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a8c0d8ff57bd7b2c7da20e478c0e470f5">initData</a>;</div>
-<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#aac7986f71a318e592657997d77794fb5">  203</a></span>&#160;    <a class="code" href="d4d__graph_8h.html#a4426c37b64febfe1375dc2c928b5cdb7">D4D_GRAPH_DATA_LEN</a> <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#aac7986f71a318e592657997d77794fb5">dataShowX</a>; <span class="comment">// count of showed data on axis X </span></div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a96503137a99a4e3a667d333663786ded">  204</a></span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a96503137a99a4e3a667d333663786ded">lblSizeY</a>;       </div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#aac7986f71a318e592657997d77794fb5">  203</a></span>&#160;    <a class="code" href="d4d__graph_8h.html#a4426c37b64febfe1375dc2c928b5cdb7">D4D_GRAPH_DATA_LEN</a> <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#aac7986f71a318e592657997d77794fb5">dataShowX</a>; <span class="comment">// count of showed data on axis X</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a96503137a99a4e3a667d333663786ded">  204</a></span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a96503137a99a4e3a667d333663786ded">lblSizeY</a>;</div>
 <div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a74452d75d1531fb095fe3b3425388110">  205</a></span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a74452d75d1531fb095fe3b3425388110">columnDrawed</a>;</div>
 <div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a30f60b867e890dfa18447ff0eca57bee">  206</a></span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a30f60b867e890dfa18447ff0eca57bee">drigDrawedX</a>;</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;} <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html">D4D_GRAPH_DATA</a>;</div>
@@ -258,25 +256,25 @@ $(document).ready(function(){initNavTree('d4d__graph_8h_source.html','');});
 <div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___g_r_i_d.html">  209</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;{</div>
 <div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___g_r_i_d.html#af12631d8def538c37fbe3d1866fb4578">  211</a></span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> <a class="code" href="struct_d4_d___g_r_a_p_h___g_r_i_d.html#af12631d8def538c37fbe3d1866fb4578">x_cnt</a>;</div>
-<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___g_r_i_d.html#a1ecba9a159641f7b4c6326aa4ea9dd6d">  212</a></span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> <a class="code" href="struct_d4_d___g_r_a_p_h___g_r_i_d.html#a1ecba9a159641f7b4c6326aa4ea9dd6d">y_cnt</a>;    </div>
+<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h___g_r_i_d.html#a1ecba9a159641f7b4c6326aa4ea9dd6d">  212</a></span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> <a class="code" href="struct_d4_d___g_r_a_p_h___g_r_i_d.html#a1ecba9a159641f7b4c6326aa4ea9dd6d">y_cnt</a>;</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}<a class="code" href="struct_d4_d___g_r_a_p_h___g_r_i_d.html">D4D_GRAPH_GRID</a>;</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">// GRAPH configuration (in ROM by default)</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
 <div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h.html">  217</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;{</div>
 <div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h.html#a0282e8131234174f2a773cdb658f0252">  219</a></span>&#160;    <a class="code" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s">D4D_STRING</a>                  <a class="code" href="struct_d4_d___g_r_a_p_h.html#a0282e8131234174f2a773cdb658f0252">textBuff</a>;       <span class="comment">// GRAPH main text</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h.html#ab2fdc7036db6c234901e37441cebe0c6">  220</a></span>&#160;    <a class="code" href="struct_d4_d___g_r_a_p_h___g_r_i_d.html">D4D_GRAPH_GRID</a>              <a class="code" href="struct_d4_d___g_r_a_p_h.html#ab2fdc7036db6c234901e37441cebe0c6">grid</a>;        <span class="comment">// graph grid information   </span></div>
+<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h.html#ab2fdc7036db6c234901e37441cebe0c6">  220</a></span>&#160;    <a class="code" href="struct_d4_d___g_r_a_p_h___g_r_i_d.html">D4D_GRAPH_GRID</a>              <a class="code" href="struct_d4_d___g_r_a_p_h.html#ab2fdc7036db6c234901e37441cebe0c6">grid</a>;        <span class="comment">// graph grid information</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h.html#a146d95f38f1dcc7e840bf1240b2ba954">  221</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="struct_d4_d___g_r_a_p_h___t_r_a_c_e.html">D4D_GRAPH_TRACE</a>*      <a class="code" href="struct_d4_d___g_r_a_p_h.html#a146d95f38f1dcc7e840bf1240b2ba954">traces</a>;</div>
 <div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h.html#a6da9cf1b729ef997abac11272b91ef7c">  222</a></span>&#160;    <a class="code" href="d4d__graph_8h.html#a4426c37b64febfe1375dc2c928b5cdb7">D4D_GRAPH_DATA_LEN</a>          <a class="code" href="struct_d4_d___g_r_a_p_h.html#a6da9cf1b729ef997abac11272b91ef7c">dataLenght</a>;</div>
 <div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h.html#abdebb9757aa12d69b0fd8c2549fc4ab0">  223</a></span>&#160;    <a class="code" href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a>                    <a class="code" href="struct_d4_d___g_r_a_p_h.html#abdebb9757aa12d69b0fd8c2549fc4ab0">labelFont</a>;</div>
 <div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h.html#af40d4f529483542df97d9c7d6b87f373">  224</a></span>&#160;    <a class="code" href="group__doxd4d__graph__type.html#ga6a9daf2afe512d8d61a019a4838fd0cd">D4D_GRAPH_ON_NEED_LABEL</a>     <a class="code" href="struct_d4_d___g_r_a_p_h.html#af40d4f529483542df97d9c7d6b87f373">OnNeedLabelText</a>;</div>
 <div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h.html#ab741ae38bfea5c18bb861b4de2f02604">  225</a></span>&#160;    <a class="code" href="group__doxd4d__graph__type.html#gaf87970308188d7b222c2d77fb5a5aab1">D4D_GRAPH_ON_CHANGE</a>         <a class="code" href="struct_d4_d___g_r_a_p_h.html#ab741ae38bfea5c18bb861b4de2f02604">OnValueChanged</a>;</div>
-<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h.html#adb3f2bc9d9b9f98b03ce7a6f8a6ec80e">  226</a></span>&#160;    <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html">D4D_GRAPH_DATA</a>*             <a class="code" href="struct_d4_d___g_r_a_p_h.html#adb3f2bc9d9b9f98b03ce7a6f8a6ec80e">pData</a>;    </div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="struct_d4_d___g_r_a_p_h.html#adb3f2bc9d9b9f98b03ce7a6f8a6ec80e">  226</a></span>&#160;    <a class="code" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html">D4D_GRAPH_DATA</a>*             <a class="code" href="struct_d4_d___g_r_a_p_h.html#adb3f2bc9d9b9f98b03ce7a6f8a6ec80e">pData</a>;</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;} <a class="code" href="struct_d4_d___g_r_a_p_h.html">D4D_GRAPH</a>;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">/******************************************************************************</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">* Macros </span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">* Macros</span></div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment">// getting the GRAPH structure from general OBJECT</span></div>
@@ -307,7 +305,7 @@ $(document).ready(function(){initNavTree('d4d__graph_8h_source.html','');});
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="preprocessor">    \</span></div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="preprocessor">    type D4D_GRAPH_TRACE name##_traces[] = \</span></div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="preprocessor">    {</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="group__doxd4d__graph__macro.html#ga0d80da3adbded201738c48bcb3679760">  310</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_GRAPH_TRACE(pData, clr, line, type) { pData, clr , line, type},</span></div>
@@ -380,12 +378,12 @@ $(document).ready(function(){initNavTree('d4d__graph_8h_source.html','');});
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;</div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;                                     </div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __D4D_GRAPH_H */</span><span class="preprocessor">        </span></div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __D4D_GRAPH_H */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;</div>
-<div class="ttc" id="group__doxd4d__types__type_html_ga18ad463a26076500baed3a9310233e54"><div class="ttname"><a href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a></div><div class="ttdeci">D4D_LINETYPE</div><div class="ttdoc">Type definition of eGUI line type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00288">d4d_types.h:288</a></div></div>
-<div class="ttc" id="group__doxd4d__types__type_html_ga694bba8ee4d726d2af74838c2b6960d3"><div class="ttname"><a href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a></div><div class="ttdeci">D4D_WCHAR D4D_TCHAR</div><div class="ttdoc">Type definition of eGUI character (it depends on UNICODE setting if this is D4D_CHAR or D4D_WCHAR)...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00281">d4d_types.h:281</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga18ad463a26076500baed3a9310233e54"><div class="ttname"><a href="group__doxd4d__types__type.html#ga18ad463a26076500baed3a9310233e54">D4D_LINETYPE</a></div><div class="ttdeci">D4D_LINETYPE</div><div class="ttdoc">Type definition of eGUI line type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00291">d4d_types.h:291</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga694bba8ee4d726d2af74838c2b6960d3"><div class="ttname"><a href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a></div><div class="ttdeci">D4D_WCHAR D4D_TCHAR</div><div class="ttdoc">Type definition of eGUI character (it depends on UNICODE setting if this is D4D_CHAR or D4D_WCHAR)...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00284">d4d_types.h:284</a></div></div>
 <div class="ttc" id="d4d__font_8h_html_a5ff2e19a723325abcaa1ad727f60802e"><div class="ttname"><a href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a></div><div class="ttdeci">Byte D4D_FONT</div><div class="ttdef"><b>Definition:</b> <a href="d4d__font_8h_source.html#l00171">d4d_font.h:171</a></div></div>
 <div class="ttc" id="struct_d4_d___g_r_a_p_h___d_a_t_a_html_a96503137a99a4e3a667d333663786ded"><div class="ttname"><a href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a96503137a99a4e3a667d333663786ded">D4D_GRAPH_DATA::lblSizeY</a></div><div class="ttdeci">D4D_COOR lblSizeY</div><div class="ttdef"><b>Definition:</b> <a href="d4d__graph_8h_source.html#l00204">d4d_graph.h:204</a></div></div>
 <div class="ttc" id="struct_d4_d___g_r_a_p_h___d_a_t_a_html"><div class="ttname"><a href="struct_d4_d___g_r_a_p_h___d_a_t_a.html">D4D_GRAPH_DATA</a></div><div class="ttdef"><b>Definition:</b> <a href="d4d__graph_8h_source.html#l00197">d4d_graph.h:197</a></div></div>
@@ -442,7 +440,7 @@ $(document).ready(function(){initNavTree('d4d__graph_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__graph_8h.html">d4d_graph.h</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:25 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:25 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

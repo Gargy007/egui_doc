@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('d4dtchhw__s12__adc_8c_source.html','')
 </div><!--header-->
 <div class="contents">
 <a href="d4dtchhw__s12__adc_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -165,7 +163,7 @@ $(document).ready(function(){initNavTree('d4dtchhw__s12__adc_8c_source.html','')
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">  #include &quot;<a class="code" href="d4dtchhw__s12__adc_8h.html">low_level_drivers\touch_screen\touch_screen_hw_interface\s12_adc_12b\d4dtchhw_s12_adc.h</a>&quot;</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="comment">/******************************************************************************</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">  * Macros </span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">  * Macros</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">  ******************************************************************************/</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">/**************************************************************/</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> D4DTCHHW_Init_s12_adc(<span class="keywordtype">void</span>);</div>
@@ -183,14 +181,14 @@ $(document).ready(function(){initNavTree('d4dtchhw__s12__adc_8c_source.html','')
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    D4DTCHHW_PinCtl_s12_adc,</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    D4DTCHHW_DeInit_s12_adc</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  };</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">const</span> <a class="code" href="group__doxd4d__lldapi__types.html#struct_d4_d___t_o_u_c_h_s_c_r_e_e_n___l_i_m_i_t_s___s">D4D_TOUCHSCREEN_LIMITS</a> d4dtchhw_s12_adc_12b_limits = </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">const</span> <a class="code" href="group__doxd4d__lldapi__types.html#struct_d4_d___t_o_u_c_h_s_c_r_e_e_n___l_i_m_i_t_s___s">D4D_TOUCHSCREEN_LIMITS</a> d4dtchhw_s12_adc_12b_limits =</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  {</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="d4dtch__cr__touch_8h.html#af77b9540089748dea8355602f75a53c9">D4DTCH_FULL_SCALE</a>,</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="d4dtch__cr__touch_8h.html#a65bdc25f91c6d998f0e6ce063b70c491">D4DTCH_X_TOUCH_MIN</a>,</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="d4dtch__cr__touch_8h.html#a65cba10cca1ccf16ec60dbbfe4f2008d">D4DTCH_Y_TOUCH_MIN</a>, </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="d4dtch__cr__touch_8h.html#a65cba10cca1ccf16ec60dbbfe4f2008d">D4DTCH_Y_TOUCH_MIN</a>,</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <a class="code" href="d4dtch__cr__touch_8h.html#a9f2819073ed9d8ecd058f651567005bf">D4DTCH_X_TOUCH_OFFMAX</a>,</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="d4dtch__cr__touch_8h.html#a51023298d836e1e618dcb0841126980f">D4DTCH_Y_TOUCH_OFFMAX</a>     </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="d4dtch__cr__touch_8h.html#a51023298d836e1e618dcb0841126980f">D4DTCH_Y_TOUCH_OFFMAX</a></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  };</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="comment">/**************************************************************/</span></div>
@@ -200,73 +198,73 @@ $(document).ready(function(){initNavTree('d4dtchhw__s12__adc_8c_source.html','')
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    D4DTCH_INIT_X_MINUS;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    D4DTCH_INIT_Y_PLUS;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    D4DTCH_INIT_Y_MINUS;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  } </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="comment">// FUNCTION:    D4DTCHHW_DeInit_s12_adc</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="comment">// DESCRIPTION: The function is used for deinitialization of this hw low level driver </span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="comment">//              </span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="comment">// DESCRIPTION: The function is used for deinitialization of this hw low level driver</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="comment">// PARAMETERS:  none</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="comment">//              </span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="comment">// RETURNS:     result: 1 - Success</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">//                      0 - Failed</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------  </span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> D4DTCHHW_DeInit_s12_adc(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">return</span> 0;  </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  }                  </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="comment">/**************************************************************/</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> D4DTCHHW_ReadTouchAxis_s12_adc(<a class="code" href="group__doxd4d__lldapi__types.html#ga86e4724302ebf0e387cf46434374eaf3">D4DTCHHW_PINS</a> pinId)</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  {</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;     <span class="keywordtype">short</span> cnt = 1;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> advalue=0;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <span class="comment">//unsigned short adres0,adres1,adres2,adres3;// Adresults</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;             </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="comment">// clock divide = max. 8.3MHz @50MHz BUS</span></div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      <span class="keywordflow">if</span>(<a class="code" href="d4dtchhw__s12__adc_8h.html#acc3b57cfa601b5abb0c5a8684bdae0cb">D4DTCH_ATDSTAT0_SCF</a>) <span class="comment">// b01800</span></div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;           </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      <a class="code" href="d4dtchhw__s12__adc_8h.html#a3fa5de8a877f22fcaaaf222c4c2e6759">D4DTCH_ATDCTL1</a> = 0x40;<span class="comment">// 12bit  </span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      <a class="code" href="d4dtchhw__s12__adc_8h.html#a3fa5de8a877f22fcaaaf222c4c2e6759">D4DTCH_ATDCTL1</a> = 0x40;<span class="comment">// 12bit</span></div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      <span class="comment">//D4DTCH_ATDCTL2 = 0x40;// Fast flag clear (AFFC=1)</span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <a class="code" href="d4dtchhw__s12__adc_8h.html#a39db9ad9714ed11d9472c7d0e5fe8c52">D4DTCH_ATDCTL3</a> = 0xA3;<span class="comment">// 4conv.(S4C=1),right justified (DJM=1), Freeze in debug</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <a class="code" href="d4dtchhw__s12__adc_8h.html#abe159f584dbe52d8a9a9f6245de5d97e">D4DTCH_ATDCTL4</a> = 0x02;<span class="comment">// Fatd = Fbus/6</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordflow">if</span>(pinId == <a class="code" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3a1cc1f9634d96f8851762eacd9c529cf8">D4DTCH_X_PLUS_PIN</a>)</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <a class="code" href="d4dtchhw__s12__adc_8h.html#a7c4d14066e4de52e578871242fc90a45">D4DTCH_ATDCTL5</a> = D4DTCH_X_PLUS_ADCH;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(pinId == <a class="code" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3ab872bfac861110c6cbaa6a6cb39e483b">D4DTCH_Y_PLUS_PIN</a>)</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <a class="code" href="d4dtchhw__s12__adc_8h.html#a7c4d14066e4de52e578871242fc90a45">D4DTCH_ATDCTL5</a> = D4DTCH_Y_PLUS_ADCH;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">return</span> 0;   </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      <span class="comment">//D4DTCH_ATDCTL5 = AdcChannel &amp; 0x0F;// Set channel and run single sequence</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;              </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="comment">// Wait for ADC conversion to complete </span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="comment">// Wait for ADC conversion to complete</span></div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      <span class="keywordflow">while</span> ((!<a class="code" href="d4dtchhw__s12__adc_8h.html#acc3b57cfa601b5abb0c5a8684bdae0cb">D4DTCH_ATDSTAT0_SCF</a>) &amp;&amp; (++cnt)) <span class="comment">// loop w timeout</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;      {</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;          ;  </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;      }     </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;      </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;          ;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;      }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      <span class="comment">// if the measurement ends by timeout return 0 in other case result of ADC conversion</span></div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      <span class="keywordflow">if</span>(cnt)</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        {  <span class="comment">//Average of four results</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;           advalue = (<span class="keywordtype">unsigned</span> short)((<a class="code" href="d4dtchhw__s12__adc_8h.html#a3c8f8a2637d50a4da9e17a9035eba17b">D4DTCH_ATDDR0</a>+<a class="code" href="d4dtchhw__s12__adc_8h.html#a01c4e81a320278c38b5243bac14952fd">D4DTCH_ATDDR1</a>+<a class="code" href="d4dtchhw__s12__adc_8h.html#adccac184f79d627671fda23e39af2001">D4DTCH_ATDDR2</a>+<a class="code" href="d4dtchhw__s12__adc_8h.html#a78e1ee5bc5ce614e95ac17a927bc9a41">D4DTCH_ATDDR3</a>)/4);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;           <a class="code" href="d4dtchhw__s12__adc_8h.html#a8b492da6b73abf81badc722ed7ab335d">D4DTCH_ATDSTAT0</a> = 0x80; <span class="comment">// clear Flag manually </span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;           <a class="code" href="d4dtchhw__s12__adc_8h.html#a8b492da6b73abf81badc722ed7ab335d">D4DTCH_ATDSTAT0</a> = 0x80; <span class="comment">// clear Flag manually</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;           <span class="keywordflow">return</span>(advalue);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        }</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">return</span> 0;   </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  }</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="keyword">static</span> <a class="code" href="group__doxd4d__lldapi__types.html#struct_d4_d___t_o_u_c_h_s_c_r_e_e_n___l_i_m_i_t_s___s">D4D_TOUCHSCREEN_LIMITS</a>* D4DTCHHW_GetRawLimits_s12_adc(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  {</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">return</span> (<a class="code" href="group__doxd4d__lldapi__types.html#struct_d4_d___t_o_u_c_h_s_c_r_e_e_n___l_i_m_i_t_s___s">D4D_TOUCHSCREEN_LIMITS</a>*)&amp;d4dtchhw_s12_adc_12b_limits;</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  }</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> D4DTCHHW_PinCtl_s12_adc(<a class="code" href="group__doxd4d__lldapi__types.html#ga86e4724302ebf0e387cf46434374eaf3">D4DTCHHW_PINS</a> pinId, <a class="code" href="group__doxd4d__lldapi__types.html#ga82b27d036b9f9372d3b2f47774968b2b">D4DHW_PIN_STATE</a> setState)</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  {</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">switch</span>(pinId)</div>
@@ -291,7 +289,7 @@ $(document).ready(function(){initNavTree('d4dtchhw__s12__adc_8c_source.html','')
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba738fd1e18c7608b73fdcc5b6b0be9014">D4DHW_PIN_ADC_OFF</a>:</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <a class="code" href="d4dtchhw__kinetis__adc_8h.html#ac06ba2ef599c65dd79484bc12c0b28d4">D4DTCH_X_PLUS_ADCH_PIN_DISABLE</a>;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="keywordflow">break</span>;   </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        }</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3ac21e6d5278363039e2a413c7c849d19c">D4DTCH_X_MINUS_PIN</a>:</div>
@@ -308,7 +306,7 @@ $(document).ready(function(){initNavTree('d4dtchhw__s12__adc_8c_source.html','')
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2babf80a3f0626cac79381265fc69e0740f">D4DHW_PIN_SET_0</a>:</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            D4DTCH_RESET_X_MINUS;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            <span class="keywordflow">break</span>;         </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        }</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3ab872bfac861110c6cbaa6a6cb39e483b">D4DTCH_Y_PLUS_PIN</a>:</div>
@@ -331,7 +329,7 @@ $(document).ready(function(){initNavTree('d4dtchhw__s12__adc_8c_source.html','')
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba738fd1e18c7608b73fdcc5b6b0be9014">D4DHW_PIN_ADC_OFF</a>:</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            <a class="code" href="d4dtchhw__kinetis__adc_8h.html#af23935ee58167735b7b6a64aacedfbcf">D4DTCH_Y_PLUS_ADCH_PIN_DISABLE</a>;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            <span class="keywordflow">break</span>;   </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        }</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga86e4724302ebf0e387cf46434374eaf3a1d88caa29a363e50dbbb8bddd7a89f8e">D4DTCH_Y_MINUS_PIN</a>:</div>
@@ -348,14 +346,14 @@ $(document).ready(function(){initNavTree('d4dtchhw__s12__adc_8c_source.html','')
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2babf80a3f0626cac79381265fc69e0740f">D4DHW_PIN_SET_0</a>:</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            D4DTCH_RESET_Y_MINUS;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="keywordflow">break</span>;         </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        }</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        </div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    }</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  }</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="group__doxd4d__lldapi__types_html_gga82b27d036b9f9372d3b2f47774968b2bab03179a50e7de4f4e91a50534edce8c9"><div class="ttname"><a href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2bab03179a50e7de4f4e91a50534edce8c9">D4DHW_PIN_ADC_ON</a></div><div class="ttdoc">Switch on the pin for read by ADC. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__lldapi_8h_source.html#l00082">d4d_lldapi.h:82</a></div></div>
 <div class="ttc" id="d4dtchhw__kinetis__adc_8h_html_af23935ee58167735b7b6a64aacedfbcf"><div class="ttname"><a href="d4dtchhw__kinetis__adc_8h.html#af23935ee58167735b7b6a64aacedfbcf">D4DTCH_Y_PLUS_ADCH_PIN_DISABLE</a></div><div class="ttdeci">#define D4DTCH_Y_PLUS_ADCH_PIN_DISABLE</div><div class="ttdef"><b>Definition:</b> <a href="d4dtchhw__kinetis__adc_8h_source.html#l00252">d4dtchhw_kinetis_adc.h:252</a></div></div>
@@ -402,7 +400,7 @@ $(document).ready(function(){initNavTree('d4dtchhw__s12__adc_8c_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_ed2bb5cc41b5c3fd4e21ecf2d834403c.html">touch_screen</a></li><li class="navelem"><a class="el" href="dir_9d04043bc9c512096b5fd892867c1b9c.html">touch_screen_hw_interface</a></li><li class="navelem"><a class="el" href="dir_3dbc4a8904c2dd535087540a234fa535.html">s12_adc_12b</a></li><li class="navelem"><a class="el" href="d4dtchhw__s12__adc_8c.html">d4dtchhw_s12_adc.c</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:26 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:26 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

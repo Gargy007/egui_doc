@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('d4d__string_8h_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="d4d__string_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -172,15 +170,15 @@ $(document).ready(function(){initNavTree('d4d__string_8h_source.html','');});
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">* Private constants - obsolete</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">// just for backward compatibility</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a4440b11bd7104aed804c83e58599fab0">   72</a></span>&#160;<span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_H_MASK                D4D_ALIGN_H_MASK        </span></div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#afcc66730e69b0ca826a2c8e46301f725">   73</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_H_LEFT_MASK           D4D_ALIGN_H_LEFT_MASK   </span></div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a9b231e1bb6508d855f37ffdbb9d0ff43">   74</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_H_RIGHT_MASK          D4D_ALIGN_H_RIGHT_MASK  </span></div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a1eb7805e3efdd64d6cfa9d9f146e2943">   75</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_H_CENTER_MASK         D4D_ALIGN_H_CENTER_MASK </span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a4440b11bd7104aed804c83e58599fab0">   72</a></span>&#160;<span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_H_MASK                D4D_ALIGN_H_MASK</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#afcc66730e69b0ca826a2c8e46301f725">   73</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_H_LEFT_MASK           D4D_ALIGN_H_LEFT_MASK</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a9b231e1bb6508d855f37ffdbb9d0ff43">   74</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_H_RIGHT_MASK          D4D_ALIGN_H_RIGHT_MASK</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a1eb7805e3efdd64d6cfa9d9f146e2943">   75</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_H_CENTER_MASK         D4D_ALIGN_H_CENTER_MASK</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a419dee8cd03c1713dad2fcc630bcf5b2">   77</a></span>&#160;<span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_V_MASK                D4D_ALIGN_V_MASK        </span></div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a69e97c12481da60227b0251006a5a5db">   78</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_V_TOP_MASK            D4D_ALIGN_V_TOP_MASK    </span></div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a843e527121fff4ece763b173211903d1">   79</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_V_BOTTOM_MASK         D4D_ALIGN_V_BOTTOM_MASK </span></div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a1b8ef3465f643407dbbdd791f7e0cf55">   80</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_V_CENTER_MASK         D4D_ALIGN_V_CENTER_MASK </span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a419dee8cd03c1713dad2fcc630bcf5b2">   77</a></span>&#160;<span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_V_MASK                D4D_ALIGN_V_MASK</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a69e97c12481da60227b0251006a5a5db">   78</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_V_TOP_MASK            D4D_ALIGN_V_TOP_MASK</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a843e527121fff4ece763b173211903d1">   79</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_V_BOTTOM_MASK         D4D_ALIGN_V_BOTTOM_MASK</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="d4d__string_8h.html#a1b8ef3465f643407dbbdd791f7e0cf55">   80</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_TXT_PRTY_ALIGN_V_CENTER_MASK         D4D_ALIGN_V_CENTER_MASK</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">* D4D STRING setting  types</span></div>
@@ -194,7 +192,7 @@ $(document).ready(function(){initNavTree('d4d__string_8h_source.html','');});
 <div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="group__doxd4d__string__type.html#aa9724448a3f838ed46404187df07c03e">   96</a></span>&#160;  <a class="code" href="group__doxd4d__string__type.html#ga3b88b5a44c5ef2f787e1ce84d8c48216">D4D_TEXT_PROPERTIES</a> <a class="code" href="group__doxd4d__string__type.html#aa9724448a3f838ed46404187df07c03e">text_properties</a>;  </div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}<a class="code" href="group__doxd4d__string__type.html#gaed0b54964dab5395ff91237aeeccdff8">D4D_STR_PROPERTIES</a>;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="group__doxd4d__string__type.html">  100</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s">D4D_STRING_S</a> </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="group__doxd4d__string__type.html">  100</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s">D4D_STRING_S</a></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
 <div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="group__doxd4d__string__type.html#ae845f84572ab1ac6e74ca3eb433bd6ac">  102</a></span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> *<a class="code" href="group__doxd4d__string__type.html#ae845f84572ab1ac6e74ca3eb433bd6ac">pText</a>;                     </div>
 <div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="group__doxd4d__string__type.html#a840543f63202f1958d3d451e0ee46fa3">  103</a></span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> <a class="code" href="group__doxd4d__string__type.html#a840543f63202f1958d3d451e0ee46fa3">buffSize</a>;                   </div>
@@ -230,7 +228,7 @@ $(document).ready(function(){initNavTree('d4d__string_8h_source.html','');});
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">  {stringId, (D4D_TCHAR**)string_table, (sizeof(string_table) / sizeof(D4D_TCHAR*))}, // string info will be replaced by string descriptor</span></div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="group__doxd4d__string__macro.html#ga41a0b2752a2d96dafc0ab65645d679f0">  184</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STRING_TABLE_END {0, NULL} };</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="group__doxd4d__string__macro.html#ga41a0b2752a2d96dafc0ab65645d679f0">  184</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STRING_TABLE_END {0, NULL, 0} };</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="group__doxd4d__string__macro.html#ga537d816d4d3bc6a0b3b4463c4aaa04c0">  198</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_TAB_TABLE_BEGIN(name)  const D4D_COOR name[] = {</span></div>
@@ -244,7 +242,7 @@ $(document).ready(function(){initNavTree('d4d__string_8h_source.html','');});
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="preprocessor">#ifdef D4D_UNICODE</span></div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor"></span>  <span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="preprocessor">  #define D4D_DEFSTR(str) L##str</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else  </span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="preprocessor"></span>  <span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">  246</a></span>&#160;<span class="preprocessor">  #define D4D_DEFSTR(str) str</span></div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
@@ -277,7 +275,7 @@ $(document).ready(function(){initNavTree('d4d__string_8h_source.html','');});
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
 <div class="ttc" id="group__doxd4d__string__type_html_a840543f63202f1958d3d451e0ee46fa3"><div class="ttname"><a href="group__doxd4d__string__type.html#a840543f63202f1958d3d451e0ee46fa3">D4D_STRING_S::buffSize</a></div><div class="ttdeci">D4D_INDEX buffSize</div><div class="ttdoc">size of text buffer array </div><div class="ttdef"><b>Definition:</b> <a href="d4d__string_8h_source.html#l00103">d4d_string.h:103</a></div></div>
-<div class="ttc" id="group__doxd4d__types__type_html_ga694bba8ee4d726d2af74838c2b6960d3"><div class="ttname"><a href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a></div><div class="ttdeci">D4D_WCHAR D4D_TCHAR</div><div class="ttdoc">Type definition of eGUI character (it depends on UNICODE setting if this is D4D_CHAR or D4D_WCHAR)...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00281">d4d_types.h:281</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga694bba8ee4d726d2af74838c2b6960d3"><div class="ttname"><a href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a></div><div class="ttdeci">D4D_WCHAR D4D_TCHAR</div><div class="ttdoc">Type definition of eGUI character (it depends on UNICODE setting if this is D4D_CHAR or D4D_WCHAR)...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00284">d4d_types.h:284</a></div></div>
 <div class="ttc" id="d4d__font_8h_html_a5ff2e19a723325abcaa1ad727f60802e"><div class="ttname"><a href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a></div><div class="ttdeci">Byte D4D_FONT</div><div class="ttdef"><b>Definition:</b> <a href="d4d__font_8h_source.html#l00171">d4d_font.h:171</a></div></div>
 <div class="ttc" id="group__doxd4d__string__type_html_aa9724448a3f838ed46404187df07c03e"><div class="ttname"><a href="group__doxd4d__string__type.html#aa9724448a3f838ed46404187df07c03e">D4D_STR_PROPERTIES_S::text_properties</a></div><div class="ttdeci">D4D_TEXT_PROPERTIES text_properties</div><div class="ttdoc">Text properties structure. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__string_8h_source.html#l00096">d4d_string.h:96</a></div></div>
 <div class="ttc" id="group__doxd4d__string__type_html_a995ea64fdf3dfb9ec8fc47954cd55f9d"><div class="ttname"><a href="group__doxd4d__string__type.html#a995ea64fdf3dfb9ec8fc47954cd55f9d">D4D_STRING_S::printLen</a></div><div class="ttdeci">D4D_INDEX printLen</div><div class="ttdoc">Length of string that should be used (printed). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__string_8h_source.html#l00106">d4d_string.h:106</a></div></div>
@@ -312,7 +310,7 @@ $(document).ready(function(){initNavTree('d4d__string_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cde53fb8fb9dbb8ac34f83e30855a423.html">common_files</a></li><li class="navelem"><a class="el" href="d4d__string_8h.html">d4d_string.h</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:25 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:26 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

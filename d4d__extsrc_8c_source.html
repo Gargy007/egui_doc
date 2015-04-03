@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('d4d__extsrc_8c_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="d4d__extsrc_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -175,23 +173,23 @@ $(document).ready(function(){initNavTree('d4d__extsrc_8c_source.html','');});
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* <a class="code" href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3">D4D_GetFileExtension</a>(<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* pFileName)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordflow">if</span>(pFileName == <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  i = <a class="code" href="d4d__extsrc_8c.html#ad5f7a8e12821c9331687e1799cb6dbd6">D4D_StrLen</a>(pFileName);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordflow">if</span>(i == 0)</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  i--; <span class="comment">// decrement index to point on last char</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordflow">while</span>((pFileName[i] &gt;= <span class="charliteral">&#39; &#39;</span>) &amp;&amp; (pFileName[i] != <span class="charliteral">&#39;.&#39;</span>))</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  {</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    i--;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  };</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keywordflow">if</span>(pFileName[i] == <span class="charliteral">&#39;.&#39;</span>)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> &amp;pFileName[i+1];</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordflow">else</span></div>
@@ -201,221 +199,229 @@ $(document).ready(function(){initNavTree('d4d__extsrc_8c_source.html','');});
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> <a class="code" href="d4d__extsrc_8h.html#aac0c45fa09286efc139a1010915c05c9">D4D_FileIsAbsolutePath</a>(<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* pFileName)</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordflow">if</span>(pFileName[1] == <span class="charliteral">&#39;:&#39;</span>)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;  </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#ad5f7a8e12821c9331687e1799cb6dbd6">  121</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="d4d__extsrc_8c.html#ad5f7a8e12821c9331687e1799cb6dbd6">D4D_StrLen</a>(<span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *s)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#ifndef D4D_STD_STRING_H_INCLUDE</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor"></span>  <span class="keyword">register</span> <span class="keywordtype">int</span> n;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keywordflow">if</span>(!s)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  n = 0;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordflow">while</span> (*s++)</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;          n++;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keywordflow">return</span>(n);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor"></span>  <span class="comment">// Standard system implementation</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keywordflow">return</span> strlen(s);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor"></span>}</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#a15ee464eccb4b4991292ebfb1d5b8849">  147</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* <a class="code" href="d4d__extsrc_8c.html#a15ee464eccb4b4991292ebfb1d5b8849">D4D_StrCopy</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *ss)</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor">#ifndef D4D_STD_STRING_H_INCLUDE  </span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor"></span>  <span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *s = sd;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <span class="keywordflow">while</span> (*sd++ = *ss++)</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    ;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor"></span>  <span class="comment">// Standard system implementation</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keywordflow">return</span> strcpy(sd, ss);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> i;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordflow">if</span>(!pFileName || !pFileName[0])</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">for</span>(i=1; i&lt;=<a class="code" href="group__doxd4d__extsrc__const.html#gad483858df712625f2756f58df7be59f3">D4D_DRIVE_MAX_STRLEN</a>; ++i) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">if</span>(pFileName[i] == <span class="charliteral">&#39;:&#39;</span>)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#ad5f7a8e12821c9331687e1799cb6dbd6">  128</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="d4d__extsrc_8c.html#ad5f7a8e12821c9331687e1799cb6dbd6">D4D_StrLen</a>(<span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *s)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#ifndef D4D_STD_STRING_H_INCLUDE</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor"></span>  <span class="keyword">register</span> <span class="keywordtype">int</span> n;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keywordflow">if</span>(!s)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  n = 0;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="keywordflow">while</span> (*s++)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;          n++;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keywordflow">return</span>(n);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor"></span>  <span class="comment">// Standard system implementation</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keywordflow">return</span> strlen(s);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#a15ee464eccb4b4991292ebfb1d5b8849">  154</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* <a class="code" href="d4d__extsrc_8c.html#a15ee464eccb4b4991292ebfb1d5b8849">D4D_StrCopy</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *ss)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;{</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#ifndef D4D_STD_STRING_H_INCLUDE</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor"></span>  <span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *s = sd;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="keywordflow">while</span> (*sd++ = *ss++)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    ;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#addad4dcad042059b1ddb072d7926234b">  169</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* <a class="code" href="d4d__extsrc_8c.html#addad4dcad042059b1ddb072d7926234b">D4D_StrCopyUnicode2Ascii</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a> *ss)</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;{</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *s = sd;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keywordflow">while</span> (*sd++ = (<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>)*ss++)</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    ;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;}</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#a0b0f0562ec0d131543f4dafe8f3a541a">  186</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a>* <a class="code" href="d4d__extsrc_8c.html#a0b0f0562ec0d131543f4dafe8f3a541a">D4D_StrCopyAscii2Unicode</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *ss)</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;{</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a> *s = sd;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  <span class="keywordflow">while</span> (*sd++ = (<a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a>)*ss++)</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    ;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;}</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#adbcd52b5591fa91e60d3fd32bf0608e4">  204</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* <a class="code" href="d4d__extsrc_8c.html#adbcd52b5591fa91e60d3fd32bf0608e4">D4D_StrCat</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *ss)</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;{</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#ifndef D4D_STD_STRING_H_INCLUDE  </span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor"></span>  <span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *s = sd;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordflow">while</span> (*sd)</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    sd++;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  </div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="keywordflow">while</span> ((*sd++ = *ss++))</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    ;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor"></span>  <span class="comment">// Standard system implementation</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="keywordflow">return</span> strcat(sd, ss);</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor"></span>  <span class="comment">// Standard system implementation</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keywordflow">return</span> strcpy(sd, ss);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#addad4dcad042059b1ddb072d7926234b">  176</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* <a class="code" href="d4d__extsrc_8c.html#addad4dcad042059b1ddb072d7926234b">D4D_StrCopyUnicode2Ascii</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a> *ss)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;{</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  <span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *s = sd;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <span class="keywordflow">while</span> (*sd++ = (<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>)*ss++)</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    ;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;}</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#a0b0f0562ec0d131543f4dafe8f3a541a">  193</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a>* <a class="code" href="d4d__extsrc_8c.html#a0b0f0562ec0d131543f4dafe8f3a541a">D4D_StrCopyAscii2Unicode</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *ss)</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;{</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a> *s = sd;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="keywordflow">while</span> (*sd++ = (<a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a>)*ss++)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    ;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;}</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#adbcd52b5591fa91e60d3fd32bf0608e4">  211</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* <a class="code" href="d4d__extsrc_8c.html#adbcd52b5591fa91e60d3fd32bf0608e4">D4D_StrCat</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *ss)</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;{</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor">#ifndef D4D_STD_STRING_H_INCLUDE</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor"></span>  <span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> *s = sd;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <span class="keywordflow">while</span> (*sd)</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    sd++;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="keywordflow">while</span> ((*sd++ = *ss++))</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    ;</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#ad843bd9b3fde92c0eade58978ccf3330">  229</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a>* <a class="code" href="d4d__extsrc_8c.html#ad843bd9b3fde92c0eade58978ccf3330">D4D_StrCatUnicode</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a> *ss)</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;{</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  <span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a> *s = sd;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="keywordflow">while</span> (*sd)</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    sd++;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  </div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  <span class="keywordflow">while</span> (*sd++ = *ss++)</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    ;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keywordflow">return</span> s;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;}</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#af627f992df1931d95ae84b44258dc65e">  250</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e">D4D_CompareStrings</a>(<span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* s1, <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* s2)</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;{</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="preprocessor">#ifndef D4D_STD_STRING_H_INCLUDE  </span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="preprocessor"></span>  <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> val2 = *s2++;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">while</span>(val2)</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    {</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keywordflow">if</span> (*s1++ != val2)</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        {</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="keywordflow">if</span> (s1[-1] &lt; val2)</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        }</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        val2 = *s2++;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    }</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordflow">if</span> (*s1)        <span class="comment">// if we get to here, then s2 terminated</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      <span class="keywordflow">return</span> 1;   <span class="comment">// s1 is still going</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">return</span> 0;       <span class="comment">// they both terminated  </span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="preprocessor"></span>  <span class="comment">// Standard system implementation</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keywordflow">return</span> strcmp(s1, s2);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="preprocessor">#endif    </span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="preprocessor"></span>  <span class="comment">// Standard system implementation</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  <span class="keywordflow">return</span> strcat(sd, ss);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#ad843bd9b3fde92c0eade58978ccf3330">  236</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a>* <a class="code" href="d4d__extsrc_8c.html#ad843bd9b3fde92c0eade58978ccf3330">D4D_StrCatUnicode</a>(<span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a> *sd, <span class="keyword">register</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a> *ss)</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;{</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <span class="keyword">register</span> <a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a> *s = sd;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keywordflow">while</span> (*sd)</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    sd++;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keywordflow">while</span> (*sd++ = *ss++)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    ;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;}</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00257"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#af627f992df1931d95ae84b44258dc65e">  257</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e">D4D_CompareStrings</a>(<span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* s1, <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* s2)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;{</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="preprocessor">#ifndef D4D_STD_STRING_H_INCLUDE</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="preprocessor"></span>  <a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a> val2 = *s2++;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">while</span>(val2)</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    {</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">if</span> (*s1++ != val2)</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        {</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            <span class="keywordflow">if</span> (s1[-1] &lt; val2)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        val2 = *s2++;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordflow">if</span> (*s1)        <span class="comment">// if we get to here, then s2 terminated</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      <span class="keywordflow">return</span> 1;   <span class="comment">// s1 is still going</span></div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#a99a27dda7301e9e3b7ee570a30b62943">  283</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="d4d__extsrc_8c.html#a99a27dda7301e9e3b7ee570a30b62943">D4D_CompareStringsUnicode</a>(<span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a>* s1, <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a>* s2)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;{</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a> val2 = *s2++;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  </div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  <span class="keywordflow">while</span>(val2)</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  {</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keywordflow">if</span> (*s1++ != val2)</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      {</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;          <span class="keywordflow">if</span> (s1[-1] &lt; val2)</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;              <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;          </div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;          <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      }</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      val2 = *s2++;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  }</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  <span class="keywordflow">if</span> (*s1)        <span class="comment">// if we get to here, then s2 terminated</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordflow">return</span> 1;   <span class="comment">// s1 is still going</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  </div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  <span class="keywordflow">return</span> 0;       <span class="comment">// they both terminated      </span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;}</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#ac667a2f5348399a4b6d7ad1b1401e879">  311</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879">D4D_ToUpper</a>(<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* s)</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;{</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <span class="keywordflow">while</span>(s &amp;&amp; *s)</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  {</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">if</span>((*s &gt;= <span class="charliteral">&#39;a&#39;</span>) &amp;&amp; (*s &lt;= <span class="charliteral">&#39;z&#39;</span>))</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      *s -= <span class="charliteral">&#39;a&#39;</span> - <span class="charliteral">&#39;A&#39;</span>;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    </div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    s++;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  }</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;}</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#aeaaca52de0a81dee082225b3df2d5aac">  328</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> <a class="code" href="d4d__extsrc_8c.html#aeaaca52de0a81dee082225b3df2d5aac">D4D_SwapLong</a>(<a class="code" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> n)</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;{</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> temp[4];</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  temp[3] = *((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n);</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  temp[2] = ((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n)[1];</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  temp[1] = ((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n)[2];</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  temp[0] = ((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n)[3];</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  <span class="keywordflow">return</span> (*(<a class="code" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> *)temp);</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;}</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">return</span> 0;       <span class="comment">// they both terminated</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="preprocessor"></span>  <span class="comment">// Standard system implementation</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keywordflow">return</span> strcmp(s1, s2);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="preprocessor"></span>}</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#a99a27dda7301e9e3b7ee570a30b62943">  290</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="d4d__extsrc_8c.html#a99a27dda7301e9e3b7ee570a30b62943">D4D_CompareStringsUnicode</a>(<span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a>* s1, <span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a>* s2)</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;{</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a> val2 = *s2++;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <span class="keywordflow">while</span>(val2)</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  {</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      <span class="keywordflow">if</span> (*s1++ != val2)</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      {</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;          <span class="keywordflow">if</span> (s1[-1] &lt; val2)</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;              <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;          <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      }</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      val2 = *s2++;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="keywordflow">if</span> (*s1)        <span class="comment">// if we get to here, then s2 terminated</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordflow">return</span> 1;   <span class="comment">// s1 is still going</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  <span class="keywordflow">return</span> 0;       <span class="comment">// they both terminated</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;}</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00318"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#ac667a2f5348399a4b6d7ad1b1401e879">  318</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879">D4D_ToUpper</a>(<a class="code" href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a>* s)</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;{</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <span class="keywordflow">while</span>(s &amp;&amp; *s)</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  {</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">if</span>((*s &gt;= <span class="charliteral">&#39;a&#39;</span>) &amp;&amp; (*s &lt;= <span class="charliteral">&#39;z&#39;</span>))</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      *s -= <span class="charliteral">&#39;a&#39;</span> - <span class="charliteral">&#39;A&#39;</span>;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    s++;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  }</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;}</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#aeaaca52de0a81dee082225b3df2d5aac">  335</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> <a class="code" href="d4d__extsrc_8c.html#aeaaca52de0a81dee082225b3df2d5aac">D4D_SwapLong</a>(<a class="code" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> n)</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;{</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> temp[4];</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
-<div class="line"><a name="l00345"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#ada36ad9cf73ecca032df6fc1cbb84c30">  345</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> <a class="code" href="d4d__extsrc_8c.html#ada36ad9cf73ecca032df6fc1cbb84c30">D4D_SwapWord</a>(<a class="code" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> n)</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;{</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> temp[2];</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  temp[1] = *((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n);</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  temp[0] = ((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n)[1];</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  <span class="keywordflow">return</span> (*(<a class="code" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> *)temp);</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;}</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
-<div class="ttc" id="d4d__extsrc_8c_html_ad843bd9b3fde92c0eade58978ccf3330"><div class="ttname"><a href="d4d__extsrc_8c.html#ad843bd9b3fde92c0eade58978ccf3330">D4D_StrCatUnicode</a></div><div class="ttdeci">D4D_WCHAR * D4D_StrCatUnicode(register D4D_WCHAR *sd, register const D4D_WCHAR *ss)</div><div class="ttdoc">The function concatenate strings (terminated by zero) (UNICODE version) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00229">d4d_extsrc.c:229</a></div></div>
-<div class="ttc" id="d4d__extsrc_8c_html_a15ee464eccb4b4991292ebfb1d5b8849"><div class="ttname"><a href="d4d__extsrc_8c.html#a15ee464eccb4b4991292ebfb1d5b8849">D4D_StrCopy</a></div><div class="ttdeci">D4D_CHAR * D4D_StrCopy(register D4D_CHAR *sd, register const D4D_CHAR *ss)</div><div class="ttdoc">The function copy string one string to other one (terminated by zero) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00147">d4d_extsrc.c:147</a></div></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  temp[3] = *((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  temp[2] = ((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n)[1];</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  temp[1] = ((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n)[2];</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  temp[0] = ((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n)[3];</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  <span class="keywordflow">return</span> (*(<a class="code" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> *)temp);</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;}</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
+<div class="line"><a name="l00352"></a><span class="lineno"><a class="line" href="d4d__extsrc_8h.html#ada36ad9cf73ecca032df6fc1cbb84c30">  352</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> <a class="code" href="d4d__extsrc_8c.html#ada36ad9cf73ecca032df6fc1cbb84c30">D4D_SwapWord</a>(<a class="code" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> n)</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;{</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> temp[2];</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  temp[1] = *((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n);</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;  temp[0] = ((<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *)&amp;n)[1];</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;  <span class="keywordflow">return</span> (*(<a class="code" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a> *)temp);</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;}</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
+<div class="ttc" id="d4d__extsrc_8c_html_ad843bd9b3fde92c0eade58978ccf3330"><div class="ttname"><a href="d4d__extsrc_8c.html#ad843bd9b3fde92c0eade58978ccf3330">D4D_StrCatUnicode</a></div><div class="ttdeci">D4D_WCHAR * D4D_StrCatUnicode(register D4D_WCHAR *sd, register const D4D_WCHAR *ss)</div><div class="ttdoc">The function concatenate strings (terminated by zero) (UNICODE version) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00236">d4d_extsrc.c:236</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_a15ee464eccb4b4991292ebfb1d5b8849"><div class="ttname"><a href="d4d__extsrc_8c.html#a15ee464eccb4b4991292ebfb1d5b8849">D4D_StrCopy</a></div><div class="ttdeci">D4D_CHAR * D4D_StrCopy(register D4D_CHAR *sd, register const D4D_CHAR *ss)</div><div class="ttdoc">The function copy string one string to other one (terminated by zero) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00154">d4d_extsrc.c:154</a></div></div>
 <div class="ttc" id="group__doxd4d__types__const_html_gab3ce154a4d50cbbf5dc2bc8a995279d4"><div class="ttname"><a href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a></div><div class="ttdeci">#define D4D_FALSE</div><div class="ttdoc">This is definition of boolean operation value in eGUI - FALSE. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00104">d4d_types.h:104</a></div></div>
-<div class="ttc" id="d4d__extsrc_8c_html_ada36ad9cf73ecca032df6fc1cbb84c30"><div class="ttname"><a href="d4d__extsrc_8c.html#ada36ad9cf73ecca032df6fc1cbb84c30">D4D_SwapWord</a></div><div class="ttdeci">Word D4D_SwapWord(Word n)</div><div class="ttdoc">The function swap bytes in Word. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00345">d4d_extsrc.c:345</a></div></div>
-<div class="ttc" id="d4d__extsrc_8c_html_aeaaca52de0a81dee082225b3df2d5aac"><div class="ttname"><a href="d4d__extsrc_8c.html#aeaaca52de0a81dee082225b3df2d5aac">D4D_SwapLong</a></div><div class="ttdeci">LWord D4D_SwapLong(LWord n)</div><div class="ttdoc">The function swap bytes in Long. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00328">d4d_extsrc.c:328</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_ada36ad9cf73ecca032df6fc1cbb84c30"><div class="ttname"><a href="d4d__extsrc_8c.html#ada36ad9cf73ecca032df6fc1cbb84c30">D4D_SwapWord</a></div><div class="ttdeci">Word D4D_SwapWord(Word n)</div><div class="ttdoc">The function swap bytes in Word. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00352">d4d_extsrc.c:352</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_aeaaca52de0a81dee082225b3df2d5aac"><div class="ttname"><a href="d4d__extsrc_8c.html#aeaaca52de0a81dee082225b3df2d5aac">D4D_SwapLong</a></div><div class="ttdeci">LWord D4D_SwapLong(LWord n)</div><div class="ttdoc">The function swap bytes in Long. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00335">d4d_extsrc.c:335</a></div></div>
 <div class="ttc" id="group__doxd4d__types__const_html_gaef0c14acbf3da8063aa4117fc7e1bab5"><div class="ttname"><a href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a></div><div class="ttdeci">#define D4D_TRUE</div><div class="ttdoc">This is definition of boolean operation value in eGUI - TRUE. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00106">d4d_types.h:106</a></div></div>
 <div class="ttc" id="d4d_8h_html"><div class="ttname"><a href="d4d_8h.html">d4d.h</a></div><div class="ttdoc">D4D Driver main header file. </div></div>
 <div class="ttc" id="d4d__extsrc_8h_html_a52cdd23a333071ed9cb9ce52d84451e3"><div class="ttname"><a href="d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3">D4D_GetFileExtension</a></div><div class="ttdeci">D4D_CHAR * D4D_GetFileExtension(D4D_CHAR *pFileName)</div></div>
-<div class="ttc" id="d4d__extsrc_8c_html_a0b0f0562ec0d131543f4dafe8f3a541a"><div class="ttname"><a href="d4d__extsrc_8c.html#a0b0f0562ec0d131543f4dafe8f3a541a">D4D_StrCopyAscii2Unicode</a></div><div class="ttdeci">D4D_WCHAR * D4D_StrCopyAscii2Unicode(register D4D_WCHAR *sd, register const D4D_CHAR *ss)</div><div class="ttdoc">The function copy string one string (STANDARD 8 bit) to other one (UNICODE)(terminated by zero) ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00186">d4d_extsrc.c:186</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_a0b0f0562ec0d131543f4dafe8f3a541a"><div class="ttname"><a href="d4d__extsrc_8c.html#a0b0f0562ec0d131543f4dafe8f3a541a">D4D_StrCopyAscii2Unicode</a></div><div class="ttdeci">D4D_WCHAR * D4D_StrCopyAscii2Unicode(register D4D_WCHAR *sd, register const D4D_CHAR *ss)</div><div class="ttdoc">The function copy string one string (STANDARD 8 bit) to other one (UNICODE)(terminated by zero) ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00193">d4d_extsrc.c:193</a></div></div>
 <div class="ttc" id="d4d__private_8h_html"><div class="ttname"><a href="d4d__private_8h.html">d4d_private.h</a></div><div class="ttdoc">D4D Driver private header file. </div></div>
-<div class="ttc" id="d4d__extsrc_8c_html_a99a27dda7301e9e3b7ee570a30b62943"><div class="ttname"><a href="d4d__extsrc_8c.html#a99a27dda7301e9e3b7ee570a30b62943">D4D_CompareStringsUnicode</a></div><div class="ttdeci">int D4D_CompareStringsUnicode(const D4D_WCHAR *s1, const D4D_WCHAR *s2)</div><div class="ttdoc">The function copare two strings (terminated by zero) (UNICODE version) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00283">d4d_extsrc.c:283</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_a99a27dda7301e9e3b7ee570a30b62943"><div class="ttname"><a href="d4d__extsrc_8c.html#a99a27dda7301e9e3b7ee570a30b62943">D4D_CompareStringsUnicode</a></div><div class="ttdeci">int D4D_CompareStringsUnicode(const D4D_WCHAR *s1, const D4D_WCHAR *s2)</div><div class="ttdoc">The function copare two strings (terminated by zero) (UNICODE version) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00290">d4d_extsrc.c:290</a></div></div>
 <div class="ttc" id="group__doxd4d__types__type_html_gae3a497195d617519e5353ea7b417940f"><div class="ttname"><a href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a></div><div class="ttdeci">unsigned char Byte</div><div class="ttdoc">Type definition of Byte (unsigned 8-bit). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00151">d4d_types.h:151</a></div></div>
 <div class="ttc" id="group__doxd4d__base__const_html_ga7c0562e7fd672132340e9672ebeec904"><div class="ttname"><a href="group__doxd4d__base__const.html#ga7c0562e7fd672132340e9672ebeec904">D4D_EXTSRC_BUFF_SIZE</a></div><div class="ttdeci">#define D4D_EXTSRC_BUFF_SIZE</div><div class="ttdoc">This macro is used to specify size of buffer that is using when external file support is enabled...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00167">d4d_base.h:167</a></div></div>
 <div class="ttc" id="group__doxd4d__types__type_html_ga070d2ce7b6bb7e5c05602aa8c308d0c4"><div class="ttname"><a href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></div><div class="ttdeci">#define NULL</div><div class="ttdoc">Type definition of null pointer. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00184">d4d_types.h:184</a></div></div>
 <div class="ttc" id="group__doxd4d__types__type_html_ga80002baaefd77ebb71f317214d4e4bf3"><div class="ttname"><a href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a></div><div class="ttdeci">unsigned long LWord</div><div class="ttdoc">Type definition of LWord (unsigned 32-bit). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00167">d4d_types.h:167</a></div></div>
-<div class="ttc" id="d4d__extsrc_8c_html_adbcd52b5591fa91e60d3fd32bf0608e4"><div class="ttname"><a href="d4d__extsrc_8c.html#adbcd52b5591fa91e60d3fd32bf0608e4">D4D_StrCat</a></div><div class="ttdeci">D4D_CHAR * D4D_StrCat(register D4D_CHAR *sd, register const D4D_CHAR *ss)</div><div class="ttdoc">The function concatenate strings (terminated by zero) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00204">d4d_extsrc.c:204</a></div></div>
-<div class="ttc" id="group__doxd4d__types__type_html_gac1ba1090dea100237b6cd152e27f97ad"><div class="ttname"><a href="group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad">D4D_WCHAR</a></div><div class="ttdeci">unsigned short D4D_WCHAR</div><div class="ttdoc">Type definition of eGUI wide char. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00273">d4d_types.h:273</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_adbcd52b5591fa91e60d3fd32bf0608e4"><div class="ttname"><a href="d4d__extsrc_8c.html#adbcd52b5591fa91e60d3fd32bf0608e4">D4D_StrCat</a></div><div class="ttdeci">D4D_CHAR * D4D_StrCat(register D4D_CHAR *sd, register const D4D_CHAR *ss)</div><div class="ttdoc">The function concatenate strings (terminated by zero) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00211">d4d_extsrc.c:211</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga2b0346c9d340cfea5f05e4ce3782cefc"><div class="ttname"><a href="group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc">D4D_WCHAR</a></div><div class="ttdeci">D4D_WCHAR_TYPE D4D_WCHAR</div><div class="ttdoc">Type definition of eGUI wide char. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00277">d4d_types.h:277</a></div></div>
 <div class="ttc" id="group__doxd4d__types__type_html_ga282e8e76dcee1993c566755a8976c7dc"><div class="ttname"><a href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a></div><div class="ttdeci">LWord D4D_BOOL</div><div class="ttdoc">Type definition of eGUI boolean. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00204">d4d_types.h:204</a></div></div>
-<div class="ttc" id="group__doxd4d__types__type_html_ga0688b8b8111b5a85a7b75dd21371691f"><div class="ttname"><a href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a></div><div class="ttdeci">char D4D_CHAR</div><div class="ttdoc">Type definition of eGUI ASCII character. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00277">d4d_types.h:277</a></div></div>
-<div class="ttc" id="d4d__extsrc_8c_html_ac667a2f5348399a4b6d7ad1b1401e879"><div class="ttname"><a href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879">D4D_ToUpper</a></div><div class="ttdeci">void D4D_ToUpper(D4D_CHAR *s)</div><div class="ttdoc">The function convert all small alpha characters to upper in string(terminated by zero) ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00311">d4d_extsrc.c:311</a></div></div>
-<div class="ttc" id="d4d__extsrc_8c_html_addad4dcad042059b1ddb072d7926234b"><div class="ttname"><a href="d4d__extsrc_8c.html#addad4dcad042059b1ddb072d7926234b">D4D_StrCopyUnicode2Ascii</a></div><div class="ttdeci">D4D_CHAR * D4D_StrCopyUnicode2Ascii(register D4D_CHAR *sd, register const D4D_WCHAR *ss)</div><div class="ttdoc">The function copy string one string (UNICODE) to other one (STANDARD 8 bit)(terminated by zero) ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00169">d4d_extsrc.c:169</a></div></div>
-<div class="ttc" id="d4d__extsrc_8c_html_af627f992df1931d95ae84b44258dc65e"><div class="ttname"><a href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e">D4D_CompareStrings</a></div><div class="ttdeci">int D4D_CompareStrings(const D4D_CHAR *s1, const D4D_CHAR *s2)</div><div class="ttdoc">The function copare two strings (terminated by zero) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00250">d4d_extsrc.c:250</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga0688b8b8111b5a85a7b75dd21371691f"><div class="ttname"><a href="group__doxd4d__types__type.html#ga0688b8b8111b5a85a7b75dd21371691f">D4D_CHAR</a></div><div class="ttdeci">char D4D_CHAR</div><div class="ttdoc">Type definition of eGUI ASCII character. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00280">d4d_types.h:280</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_ac667a2f5348399a4b6d7ad1b1401e879"><div class="ttname"><a href="d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879">D4D_ToUpper</a></div><div class="ttdeci">void D4D_ToUpper(D4D_CHAR *s)</div><div class="ttdoc">The function convert all small alpha characters to upper in string(terminated by zero) ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00318">d4d_extsrc.c:318</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_addad4dcad042059b1ddb072d7926234b"><div class="ttname"><a href="d4d__extsrc_8c.html#addad4dcad042059b1ddb072d7926234b">D4D_StrCopyUnicode2Ascii</a></div><div class="ttdeci">D4D_CHAR * D4D_StrCopyUnicode2Ascii(register D4D_CHAR *sd, register const D4D_WCHAR *ss)</div><div class="ttdoc">The function copy string one string (UNICODE) to other one (STANDARD 8 bit)(terminated by zero) ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00176">d4d_extsrc.c:176</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_af627f992df1931d95ae84b44258dc65e"><div class="ttname"><a href="d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e">D4D_CompareStrings</a></div><div class="ttdeci">int D4D_CompareStrings(const D4D_CHAR *s1, const D4D_CHAR *s2)</div><div class="ttdoc">The function copare two strings (terminated by zero) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00257">d4d_extsrc.c:257</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__const_html_gad483858df712625f2756f58df7be59f3"><div class="ttname"><a href="group__doxd4d__extsrc__const.html#gad483858df712625f2756f58df7be59f3">D4D_DRIVE_MAX_STRLEN</a></div><div class="ttdeci">#define D4D_DRIVE_MAX_STRLEN</div><div class="ttdoc">D4D_DRIVE_MAX_STRLEN constant default declaration (8) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00079">d4d_extsrc.h:79</a></div></div>
 <div class="ttc" id="d4d__private_8h_html_a5a32ed6bc8134e4ed9fb2905adf12101"><div class="ttname"><a href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a></div><div class="ttdeci">Byte d4d_extsrcBuffer[D4D_EXTSRC_BUFF_SIZE]</div></div>
 <div class="ttc" id="d4d__lldapi_8h_html"><div class="ttname"><a href="d4d__lldapi_8h.html">d4d_lldapi.h</a></div><div class="ttdoc">D4D driver - resistive touch screen driver function header file. </div></div>
 <div class="ttc" id="group__doxd4d__types__type_html_gafc195f1f7876b0c82fcc3cb86dec59f9"><div class="ttname"><a href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a></div><div class="ttdeci">unsigned short Word</div><div class="ttdoc">Type definition of Word (unsigned 16-bit). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00159">d4d_types.h:159</a></div></div>
 <div class="ttc" id="d4d__extsrc_8h_html_aac0c45fa09286efc139a1010915c05c9"><div class="ttname"><a href="d4d__extsrc_8h.html#aac0c45fa09286efc139a1010915c05c9">D4D_FileIsAbsolutePath</a></div><div class="ttdeci">D4D_BOOL D4D_FileIsAbsolutePath(D4D_CHAR *pFileName)</div></div>
-<div class="ttc" id="d4d__extsrc_8c_html_ad5f7a8e12821c9331687e1799cb6dbd6"><div class="ttname"><a href="d4d__extsrc_8c.html#ad5f7a8e12821c9331687e1799cb6dbd6">D4D_StrLen</a></div><div class="ttdeci">int D4D_StrLen(register const D4D_CHAR *s)</div><div class="ttdoc">The function returns length of string terminated by zero. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00121">d4d_extsrc.c:121</a></div></div>
+<div class="ttc" id="d4d__extsrc_8c_html_ad5f7a8e12821c9331687e1799cb6dbd6"><div class="ttname"><a href="d4d__extsrc_8c.html#ad5f7a8e12821c9331687e1799cb6dbd6">D4D_StrLen</a></div><div class="ttdeci">int D4D_StrLen(register const D4D_CHAR *s)</div><div class="ttdoc">The function returns length of string terminated by zero. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8c_source.html#l00128">d4d_extsrc.c:128</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cde53fb8fb9dbb8ac34f83e30855a423.html">common_files</a></li><li class="navelem"><a class="el" href="d4d__extsrc_8c.html">d4d_extsrc.c</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:25 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:25 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

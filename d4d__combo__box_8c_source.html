@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 </div><!--header-->
 <div class="contents">
 <a href="d4d__combo__box_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -183,18 +181,18 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> <a class="code" href="d4d__combo__box_8c.html#ac3760a4c95e2683432ef18d24c070546">arrow</a>[] = {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">/* Bitmap dimension (W x H) */</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;0x00, 0x0C, 0x00, 0x06, </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;0x00, 0x0C, 0x00, 0x06,</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">/* Color mode */</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;0x80, 0x07, </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;0x80, 0x07,</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/* Data */</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;0x00, 0x00, 0x0B, 0x01, 0x01, 0x08, 0x00, 0x00, 0x01, 0x01, 0x01, 0x06, 0x00, 0x00, 0x03, 0x01, </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;0x01, 0x04, 0x00, 0x00, 0x05, 0x01, 0x01, 0x02, 0x00, 0x00, 0x07, 0x01, 0x01, 0x00, 0x00, 0x00, </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;0x00, 0x00, 0x0B, 0x01, 0x01, 0x08, 0x00, 0x00, 0x01, 0x01, 0x01, 0x06, 0x00, 0x00, 0x03, 0x01,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;0x01, 0x04, 0x00, 0x00, 0x05, 0x01, 0x01, 0x02, 0x00, 0x00, 0x07, 0x01, 0x01, 0x00, 0x00, 0x00,</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;0x03</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="d4d__combo__box_8h.html#a4b82d9066e4f86b84ff068edbaf74872">   87</a></span>&#160;<span class="keyword">const</span> <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION</a> <a class="code" href="d4d__combo__box_8c.html#a4b82d9066e4f86b84ff068edbaf74872">d4d_comboBoxSysFunc</a> = </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="d4d__combo__box_8h.html#a4b82d9066e4f86b84ff068edbaf74872">   87</a></span>&#160;<span class="keyword">const</span> <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION</a> <a class="code" href="d4d__combo__box_8c.html#a4b82d9066e4f86b84ff068edbaf74872">d4d_comboBoxSysFunc</a> =</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;Combo Box&quot;</span>),</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <a class="code" href="d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972">D4D_ComboBoxOnMessage</a>,</div>
@@ -202,22 +200,22 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  NULL</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="d4d__combo__box_8h.html#aa9c1aa884539be4306a9895d8ef9a0b8">   95</a></span>&#160;<span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a> <a class="code" href="d4d__combo__box_8c.html#aa9c1aa884539be4306a9895d8ef9a0b8">comboBox_marginDefault</a> = </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="d4d__combo__box_8h.html#aa9c1aa884539be4306a9895d8ef9a0b8">   95</a></span>&#160;<span class="keyword">const</span> <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___m_a_r_g_i_n">D4D_MARGIN</a> <a class="code" href="d4d__combo__box_8c.html#aa9c1aa884539be4306a9895d8ef9a0b8">comboBox_marginDefault</a> =</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="group__doxd4d__basic__draw__const.html#gade0df5f3edbcc99ca14213067a611f3a">D4D_BEVEL_WIDTH</a>, </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="group__doxd4d__basic__draw__const.html#gade0df5f3edbcc99ca14213067a611f3a">D4D_BEVEL_WIDTH</a>,</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="group__doxd4d__basic__draw__const.html#gade0df5f3edbcc99ca14213067a611f3a">D4D_BEVEL_WIDTH</a>,</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <a class="code" href="group__doxd4d__basic__draw__const.html#gade0df5f3edbcc99ca14213067a611f3a">D4D_BEVEL_WIDTH</a>,</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  D4D_BEVEL_WIDTH</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">// temporary structure for comboBox temporary value calculation</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> position;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a>  size;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> <a class="code" href="group__doxd4d__screen__type.html#ad5270f999a216f38b6caacb734acb98a">position</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a>  <a class="code" href="group__doxd4d__screen__type.html#ab99580f14459a5ea1eac3cd665b4dc55">size</a>;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> contentPos;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a>  contentSize;    </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> textOff;    </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a>  contentSize;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> textOff;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;} D4D_COMBO_BOX_TMP_VAL;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="d4d__combo__box_8c.html#a29c9428934bd225223acc290d395e75f">  113</a></span>&#160;<span class="preprocessor">#define _calc (*((D4D_COMBO_BOX_TMP_VAL*)d4d_scratchPad))</span></div>
@@ -231,30 +229,30 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;{</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a> *pParent = <a class="code" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e">D4D_GetParentObject</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keywordflow">if</span>((((pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#aaad42c03604f1bbff065480aac72b03c">nMsgId</a> == <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa6f99053f14d81f3be871577a0b39a03d">D4D_MSG_KILLFOCUS</a>) || (pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#aaad42c03604f1bbff065480aac72b03c">nMsgId</a> == <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa0cf59f41f48162978f5e1ca1cdced437">D4D_MSG_MOUSE_LEAVE</a>)) &amp;&amp; !<a class="code" href="group__doxd4d__object__func.html#ga8481f6711fbf76391f6bb36dd6e52b6b">D4D_IsMineFocus</a>(pParent)))</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  {    </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef">D4D_ComboBoxStornoSelection</a>(pParent);    </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef">D4D_ComboBoxStornoSelection</a>(pParent);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a>;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
 <div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4">  131</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="d4d__combo__box_8c.html#a93c9b88959332d0919dfe1b3d58148c4">D4D_ComboBoxListFeedBack</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis, <a class="code" href="group__doxd4d__base__type.html#ga7d373fc79dfcb995cf22222da447265b">D4D_EVENTID</a> eventId)</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pParent = <a class="code" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e">D4D_GetParentObject</a>(pThis);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keywordflow">if</span>(eventId == <a class="code" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba171621b56b5e24933f4a0275acc9279a">D4D_EVENT_ONCLICK</a>)</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  {</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pListBoxObject = <a class="code" href="d4d__combo__box_8h.html#a45cd83e947d38dc2688765d2fbcd6b17">D4D_GET_COMBO_BOX_LIST_BOX</a>(pParent);</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pEditBoxObject = <a class="code" href="d4d__combo__box_8h.html#a41b5d1e1e32f957dca95a93aacea933a">D4D_GET_COMBO_BOX_EDIT_BOX</a>(pParent);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <a class="code" href="d4d__combo__box_8h.html#a6c58511c994a97d3b17297fa8d3b179e">D4D_GET_COMBO_BOX_DATA</a>(pParent)-&gt;real_ix = <a class="code" href="group__doxd4d__list__box__func.html#ga3690deaef195705cc4b006bfab0159f5">D4D_ListBoxGetIndex</a>(pListBoxObject);</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="d4d__combo__box_8h.html#aba7283cd216e6737b7bd5ed00601dee8">D4D_GET_COMBO_BOX</a>(pParent)-&gt;OnEvent)</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <a class="code" href="d4d__combo__box_8h.html#aba7283cd216e6737b7bd5ed00601dee8">D4D_GET_COMBO_BOX</a>(pParent)-&gt;OnEvent(pParent, <a class="code" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba171621b56b5e24933f4a0275acc9279a">D4D_EVENT_ONCLICK</a>); </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <a class="code" href="d4d__combo__box_8h.html#aba7283cd216e6737b7bd5ed00601dee8">D4D_GET_COMBO_BOX</a>(pParent)-&gt;OnEvent(pParent, <a class="code" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba171621b56b5e24933f4a0275acc9279a">D4D_EVENT_ONCLICK</a>);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <a class="code" href="group__doxd4d__edit__box__func.html#ga0e24154d4fe5ee55a21cd2e7e01daa82">D4D_EditBoxClearAll</a>(pEditBoxObject);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <a class="code" href="group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254">D4D_EditBoxPutString</a>(pEditBoxObject, <a class="code" href="group__doxd4d__list__box__func.html#ga1c74b381309142b76f1f29ce4b2e0394">D4D_ListBoxGetItemText</a>(pListBoxObject));</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <a class="code" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039">D4D_ShowObject</a>(pListBoxObject, <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <a class="code" href="group__doxd4d__screen__func.html#ga5633d19ba95be7b25045ed76d08bd2a7">D4D_InvalidateScreen</a>(pParent-&gt;<a class="code" href="group__doxd4d__object__type.html#a8f6651f30678cbad72e9ee50bc8256ad">pData</a>-&gt;<a class="code" href="group__doxd4d__object__type.html#a091fdaa012d36f085ba2c6465b195718">pScreen</a>, <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>);</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  }</div>
@@ -262,7 +260,7 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <span class="keywordflow">if</span>(eventId == <a class="code" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba536aa3bc7a936a40a711419c99091bc6">D4D_EVENT_ONCHANGE</a>)</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  {</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="comment">//D4D_InvalidateObject(pParent, D4D_FALSE);</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="d4d__combo__box_8h.html#aba7283cd216e6737b7bd5ed00601dee8">D4D_GET_COMBO_BOX</a>(pParent)-&gt;OnEvent)</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      <a class="code" href="d4d__combo__box_8h.html#aba7283cd216e6737b7bd5ed00601dee8">D4D_GET_COMBO_BOX</a>(pParent)-&gt;OnEvent(pParent, <a class="code" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba536aa3bc7a936a40a711419c99091bc6">D4D_EVENT_ONCHANGE</a>);</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  }</div>
@@ -277,9 +275,9 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="d4d__combo__box_8h.html#ac0cb61070ade30b5f9dc169bbeae35fa">  167</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="d4d__combo__box_8c.html#ac0cb61070ade30b5f9dc169bbeae35fa">D4D_ComboBoxEditFeedBack</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis, <a class="code" href="group__doxd4d__base__type.html#ga7d373fc79dfcb995cf22222da447265b">D4D_EVENTID</a> eventId)</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;{</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pParent = <a class="code" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e">D4D_GetParentObject</a>(pThis);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <a class="code" href="d4d__combo__box_8h.html#aba7283cd216e6737b7bd5ed00601dee8">D4D_GET_COMBO_BOX</a>(pParent)-&gt;pData-&gt;real_ix = -1;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keywordflow">if</span>(eventId == <a class="code" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba564c301339004b208045c8d7a6162ad9">D4D_EVENT_ONCHANGEDONE</a>)</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  {</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <a class="code" href="d4d__combo__box_8h.html#afcfe0815c49b57777d324fc5138d1179">D4D_COMBO_BOX_INDEX</a> i = <a class="code" href="group__doxd4d__combo__box__func.html#ga00b28e6fe45a2a009aabc9370af84b19">D4D_ComboBoxGetItemCount</a>(pParent);</div>
@@ -306,16 +304,16 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="d4d__combo__box_8h.html#a92bbff3547dcda53c2d8e1c10c125121">  196</a></span>&#160;<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> <a class="code" href="d4d__combo__box_8c.html#a92bbff3547dcda53c2d8e1c10c125121">D4D_ComboBoxButtonMsgFeedBack</a>(<a class="code" href="group__doxd4d__base__type.html#struct_d4_d___m_e_s_s_a_g_e___s">D4D_MESSAGE</a>* pMsg)</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;{</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <span class="keywordflow">if</span>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#aaad42c03604f1bbff065480aac72b03c">nMsgId</a> == <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aada78bc4fb19bad4ada34a532547ab68d">D4D_MSG_DRAW</a> &amp;&amp; bmp_arrow.pParam)</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  {    </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  {</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> color = <a class="code" href="group__doxd4d__scheme__func.html#gacd90e36cd0d99094155abb8b3f7fb74c">D4D_ObjectGetBckgColor</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>, pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a65e56fff8e0b0136541d1cf58a3a5be4">prm</a>.<a class="code" href="group__doxd4d__base__type.html#a47e2d41ba1f83dd4d861f430548850df">draw</a>);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    ((<a class="code" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a>*)(bmp_arrow.pParam))[0] = <a class="code" href="group__doxd4d__scheme__macro__565.html#ga9aeb863de852ef04a7aa917dae482e83">D4D_COLOR_RGB565</a>(<a class="code" href="d4d__scheme_8h.html#a33ac06de53856ae00bccfb9a44da2a54">D4D_COLOR_GET_R</a>(color), <a class="code" href="d4d__scheme_8h.html#a1cd2d96210fe4daf330aaede3c88fc7b">D4D_COLOR_GET_G</a>(color), <a class="code" href="d4d__scheme_8h.html#a0ccd6846fd29e3beb22dce1f5cfaf7e0">D4D_COLOR_GET_B</a>(color));</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    color = <a class="code" href="group__doxd4d__scheme__func.html#ga4f46b75cc9161aaf0ca1c447a76e045b">D4D_ObjectGetForeColor</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>, pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a65e56fff8e0b0136541d1cf58a3a5be4">prm</a>.<a class="code" href="group__doxd4d__base__type.html#a47e2d41ba1f83dd4d861f430548850df">draw</a>);</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    ((<a class="code" href="group__doxd4d__types__type.html#gafc195f1f7876b0c82fcc3cb86dec59f9">Word</a>*)(bmp_arrow.pParam))[1] = <a class="code" href="group__doxd4d__scheme__macro__565.html#ga9aeb863de852ef04a7aa917dae482e83">D4D_COLOR_RGB565</a>(<a class="code" href="d4d__scheme_8h.html#a33ac06de53856ae00bccfb9a44da2a54">D4D_COLOR_GET_R</a>(color), <a class="code" href="d4d__scheme_8h.html#a1cd2d96210fe4daf330aaede3c88fc7b">D4D_COLOR_GET_G</a>(color), <a class="code" href="d4d__scheme_8h.html#a0ccd6846fd29e3beb22dce1f5cfaf7e0">D4D_COLOR_GET_B</a>(color));</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  }</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__base__type.html#ggad565a61504022fe8e5c10010024e03bcaa9d4d64e0e8ee90e758a22e24da14015">D4D_MSG_NOSKIP</a>;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;}</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
@@ -325,7 +323,7 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;{</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pParent = <a class="code" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e">D4D_GetParentObject</a>(pThis);</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pListBoxObject = <a class="code" href="d4d__combo__box_8h.html#a45cd83e947d38dc2688765d2fbcd6b17">D4D_GET_COMBO_BOX_LIST_BOX</a>(pParent);</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="group__doxd4d__object__func.html#gaaf05953a9b356907e827855274a15784">D4D_IsVisible</a>(pListBoxObject))</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  {</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <a class="code" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef">D4D_ComboBoxStornoSelection</a>(pParent);</div>
@@ -334,41 +332,41 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <a class="code" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039">D4D_ShowObject</a>(pListBoxObject, <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>);</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <a class="code" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f">D4D_CaptureKeys</a>(pListBoxObject);</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <a class="code" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9">D4D_InvalidateObject</a>(pParent, <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>);</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  }  </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  }</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;}</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">/*******************************************************</span></div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">*</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment">* The COMBO_BOX Get index function </span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment">* The COMBO_BOX Get index function</span></div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">*******************************************************/</span></div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
 <div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="d4d__combo__box_8c.html#ae9d77fa26d5c932c1f0e62c31453d6f1">  236</a></span>&#160;<a class="code" href="d4d__combo__box_8h.html#afcfe0815c49b57777d324fc5138d1179">D4D_COMBO_BOX_INDEX</a> <a class="code" href="d4d__combo__box_8c.html#ae9d77fa26d5c932c1f0e62c31453d6f1">D4D_ComboBoxGetIndex</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis)</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;{</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <a class="code" href="struct_d4_d___c_o_m_b_o___b_o_x___s.html">D4D_COMBO_BOX</a>* pComboBox = <a class="code" href="d4d__combo__box_8h.html#aba7283cd216e6737b7bd5ed00601dee8">D4D_GET_COMBO_BOX</a>(pThis);</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keywordflow">if</span>(pThis == <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keywordflow">return</span> pComboBox-&gt;<a class="code" href="struct_d4_d___c_o_m_b_o___b_o_x___s.html#ad283c22aa5c61a1ceb3b04deab6f4dee">pData</a>-&gt;<a class="code" href="struct_d4_d___c_o_m_b_o___b_o_x___d_a_t_a___s.html#ac2b23352719f1b4994a6d36259448004">real_ix</a>;</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;}</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment">/*******************************************************</span></div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment">*</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment">* The COMBO_BOX Set index function </span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment">* The COMBO_BOX Set index function</span></div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">*******************************************************/</span></div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
 <div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="d4d__combo__box_8c.html#af64fc17743ef6ab3613e49ae5d5fb864">  252</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="d4d__combo__box_8c.html#af64fc17743ef6ab3613e49ae5d5fb864">D4D_ComboBoxSetIndex</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis, <a class="code" href="d4d__combo__box_8h.html#afcfe0815c49b57777d324fc5138d1179">D4D_COMBO_BOX_INDEX</a> ix)</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;{</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <a class="code" href="struct_d4_d___c_o_m_b_o___b_o_x___s.html">D4D_COMBO_BOX</a>* pComboBox = <a class="code" href="d4d__combo__box_8h.html#aba7283cd216e6737b7bd5ed00601dee8">D4D_GET_COMBO_BOX</a>(pThis);</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  <span class="keywordflow">if</span>(pThis == <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  <span class="keywordflow">if</span>(pComboBox-&gt;<a class="code" href="struct_d4_d___c_o_m_b_o___b_o_x___s.html#ad283c22aa5c61a1ceb3b04deab6f4dee">pData</a>-&gt;<a class="code" href="struct_d4_d___c_o_m_b_o___b_o_x___d_a_t_a___s.html#ac2b23352719f1b4994a6d36259448004">real_ix</a> == ix)</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="keywordflow">if</span>(ix != -1)</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  {</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <a class="code" href="group__doxd4d__list__box__func.html#gac0ca84429c66cb1de4555407effc84ba">D4D_ListBoxSetIndex</a>( <a class="code" href="d4d__combo__box_8h.html#a45cd83e947d38dc2688765d2fbcd6b17">D4D_GET_COMBO_BOX_LIST_BOX</a>(pThis), ix);</div>
@@ -376,12 +374,12 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  }<span class="keywordflow">else</span></div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  {</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    pComboBox-&gt;<a class="code" href="struct_d4_d___c_o_m_b_o___b_o_x___s.html#ad283c22aa5c61a1ceb3b04deab6f4dee">pData</a>-&gt;<a class="code" href="struct_d4_d___c_o_m_b_o___b_o_x___d_a_t_a___s.html#ac2b23352719f1b4994a6d36259448004">real_ix</a> = -1;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">if</span>(pComboBox-&gt;<a class="code" href="struct_d4_d___c_o_m_b_o___b_o_x___s.html#a7818d5f755a1ead07292d41d97871384">OnEvent</a>)</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      pComboBox-&gt;<a class="code" href="struct_d4_d___c_o_m_b_o___b_o_x___s.html#a7818d5f755a1ead07292d41d97871384">OnEvent</a>(pThis, <a class="code" href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba536aa3bc7a936a40a711419c99091bc6">D4D_EVENT_ONCHANGE</a>);</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  }</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  </div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;}</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
@@ -389,34 +387,34 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="line"><a name="l00288"></a><span class="lineno"><a class="line" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef">  288</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef">D4D_ComboBoxStornoSelection</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a> * pThis)</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;{</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pListBoxObject = <a class="code" href="d4d__combo__box_8h.html#a45cd83e947d38dc2688765d2fbcd6b17">D4D_GET_COMBO_BOX_LIST_BOX</a>(pThis);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="group__doxd4d__object__func.html#gaaf05953a9b356907e827855274a15784">D4D_IsVisible</a>(pListBoxObject))</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  {  </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  {</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <a class="code" href="group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039">D4D_ShowObject</a>(pListBoxObject, <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>);</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <a class="code" href="group__doxd4d__screen__func.html#ga5633d19ba95be7b25045ed76d08bd2a7">D4D_InvalidateScreen</a>(pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#a8f6651f30678cbad72e9ee50bc8256ad">pData</a>-&gt;<a class="code" href="group__doxd4d__object__type.html#a091fdaa012d36f085ba2c6465b195718">pScreen</a>, <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>);      <span class="comment">//TODO</span></div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  }</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <a class="code" href="group__doxd4d__list__box__func.html#gac0ca84429c66cb1de4555407effc84ba">D4D_ListBoxSetIndex</a>(pListBoxObject, <a class="code" href="d4d__combo__box_8h.html#a6c58511c994a97d3b17297fa8d3b179e">D4D_GET_COMBO_BOX_DATA</a>(pThis)-&gt;real_ix);</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;}</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">/*******************************************************</span></div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">*</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">* The COMBO_BOX message handler </span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">* The COMBO_BOX message handler</span></div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment">*******************************************************/</span></div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
 <div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972">  308</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972">D4D_ComboBoxOnMessage</a>(<a class="code" href="group__doxd4d__base__type.html#struct_d4_d___m_e_s_s_a_g_e___s">D4D_MESSAGE</a>* pMsg)</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;{</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="keywordflow">switch</span>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#aaad42c03604f1bbff065480aac72b03c">nMsgId</a>)</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  {   </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  {</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa81583830e066532a8613816949c845ee">D4D_MSG_ONINIT</a>:</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      {</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pListBoxObject = <a class="code" href="d4d__combo__box_8h.html#a45cd83e947d38dc2688765d2fbcd6b17">D4D_GET_COMBO_BOX_LIST_BOX</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>);</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pEditBoxObject = <a class="code" href="d4d__combo__box_8h.html#a41b5d1e1e32f957dca95a93aacea933a">D4D_GET_COMBO_BOX_EDIT_BOX</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>);</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        </div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>-&gt;<a class="code" href="group__doxd4d__object__type.html#a8f6651f30678cbad72e9ee50bc8256ad">pData</a>-&gt;<a class="code" href="group__doxd4d__object__type.html#a2d9b543b57a3d54b958787d383e34ba5">flags</a> &amp;= ~<a class="code" href="d4d__object_8h.html#aca1d2a0aa474af1630897c78765054a6">D4D_OBJECT_F_NOTINIT</a>;      </div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>-&gt;<a class="code" href="group__doxd4d__object__type.html#a8f6651f30678cbad72e9ee50bc8256ad">pData</a>-&gt;<a class="code" href="group__doxd4d__object__type.html#a2d9b543b57a3d54b958787d383e34ba5">flags</a> &amp;= ~<a class="code" href="d4d__object_8h.html#aca1d2a0aa474af1630897c78765054a6">D4D_OBJECT_F_NOTINIT</a>;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        <a class="code" href="d4d__combo__box_8h.html#a6c58511c994a97d3b17297fa8d3b179e">D4D_GET_COMBO_BOX_DATA</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>)-&gt;real_ix = <a class="code" href="group__doxd4d__list__box__func.html#ga3690deaef195705cc4b006bfab0159f5">D4D_ListBoxGetIndex</a>(pListBoxObject);</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <a class="code" href="group__doxd4d__edit__box__func.html#ga0e24154d4fe5ee55a21cd2e7e01daa82">D4D_EditBoxClearAll</a>(pEditBoxObject);</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <a class="code" href="group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254">D4D_EditBoxPutString</a>(pEditBoxObject, <a class="code" href="group__doxd4d__list__box__func.html#ga1c74b381309142b76f1f29ce4b2e0394">D4D_ListBoxGetItemText</a>(pListBoxObject));</div>
@@ -452,7 +450,7 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="ttc" id="group__doxd4d__base__type_html_gga7d373fc79dfcb995cf22222da447265ba564c301339004b208045c8d7a6162ad9"><div class="ttname"><a href="group__doxd4d__base__type.html#gga7d373fc79dfcb995cf22222da447265ba564c301339004b208045c8d7a6162ad9">D4D_EVENT_ONCHANGEDONE</a></div><div class="ttdoc">On Change done (complete change is finished. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00434">d4d_base.h:434</a></div></div>
 <div class="ttc" id="d4d__combo__box_8h_html_afcfe0815c49b57777d324fc5138d1179"><div class="ttname"><a href="d4d__combo__box_8h.html#afcfe0815c49b57777d324fc5138d1179">D4D_COMBO_BOX_INDEX</a></div><div class="ttdeci">D4D_LIST_BOX_INDEX D4D_COMBO_BOX_INDEX</div><div class="ttdef"><b>Definition:</b> <a href="d4d__combo__box_8h_source.html#l00130">d4d_combo_box.h:130</a></div></div>
 <div class="ttc" id="group__doxd4d__types__const_html_gaef0c14acbf3da8063aa4117fc7e1bab5"><div class="ttname"><a href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a></div><div class="ttdeci">#define D4D_TRUE</div><div class="ttdoc">This is definition of boolean operation value in eGUI - TRUE. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00106">d4d_types.h:106</a></div></div>
-<div class="ttc" id="d4d__extsrc_8h_html_a69b4bf8d0eb309ee0e9e91271c08a706"><div class="ttname"><a href="d4d__extsrc_8h.html#a69b4bf8d0eb309ee0e9e91271c08a706">D4D_CompareStringsUniversal</a></div><div class="ttdeci">#define D4D_CompareStringsUniversal(s1, s2)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00364">d4d_extsrc.h:364</a></div></div>
+<div class="ttc" id="d4d__extsrc_8h_html_a69b4bf8d0eb309ee0e9e91271c08a706"><div class="ttname"><a href="d4d__extsrc_8h.html#a69b4bf8d0eb309ee0e9e91271c08a706">D4D_CompareStringsUniversal</a></div><div class="ttdeci">#define D4D_CompareStringsUniversal(s1, s2)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00371">d4d_extsrc.h:371</a></div></div>
 <div class="ttc" id="group__doxd4d__base__type_html_a0de852dcc4a916bb415eeec3410df1d7"><div class="ttname"><a href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">D4D_MESSAGE_S::pObject</a></div><div class="ttdeci">struct D4D_OBJECT_S * pObject</div><div class="ttdoc">Pointer to object who is receiver of this message. If the receiver is just screen this field must be ...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00402">d4d_base.h:402</a></div></div>
 <div class="ttc" id="struct_d4_d___c_o_m_b_o___b_o_x___s_html_ad283c22aa5c61a1ceb3b04deab6f4dee"><div class="ttname"><a href="struct_d4_d___c_o_m_b_o___b_o_x___s.html#ad283c22aa5c61a1ceb3b04deab6f4dee">D4D_COMBO_BOX_S::pData</a></div><div class="ttdeci">D4D_COMBO_BOX_DATA * pData</div><div class="ttdef"><b>Definition:</b> <a href="d4d__combo__box_8h_source.html#l00141">d4d_combo_box.h:141</a></div></div>
 <div class="ttc" id="d4d_8h_html"><div class="ttname"><a href="d4d_8h.html">d4d.h</a></div><div class="ttdoc">D4D Driver main header file. </div></div>
@@ -476,6 +474,7 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="ttc" id="group__doxd4d__edit__box__func_html_ga0e24154d4fe5ee55a21cd2e7e01daa82"><div class="ttname"><a href="group__doxd4d__edit__box__func.html#ga0e24154d4fe5ee55a21cd2e7e01daa82">D4D_EditBoxClearAll</a></div><div class="ttdeci">void D4D_EditBoxClearAll(D4D_OBJECT_PTR pObj)</div><div class="ttdoc">The function clear whole edit box data. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__edit__box_8c_source.html#l00621">d4d_edit_box.c:621</a></div></div>
 <div class="ttc" id="struct_d4_d___c_o_m_b_o___b_o_x___d_a_t_a___s_html_ac2b23352719f1b4994a6d36259448004"><div class="ttname"><a href="struct_d4_d___c_o_m_b_o___b_o_x___d_a_t_a___s.html#ac2b23352719f1b4994a6d36259448004">D4D_COMBO_BOX_DATA_S::real_ix</a></div><div class="ttdeci">D4D_LIST_BOX_INDEX real_ix</div><div class="ttdef"><b>Definition:</b> <a href="d4d__combo__box_8h_source.html#l00135">d4d_combo_box.h:135</a></div></div>
 <div class="ttc" id="d4d__object_8h_html_aca1d2a0aa474af1630897c78765054a6"><div class="ttname"><a href="d4d__object_8h.html#aca1d2a0aa474af1630897c78765054a6">D4D_OBJECT_F_NOTINIT</a></div><div class="ttdeci">#define D4D_OBJECT_F_NOTINIT</div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00113">d4d_object.h:113</a></div></div>
+<div class="ttc" id="group__doxd4d__screen__type_html_ab99580f14459a5ea1eac3cd665b4dc55"><div class="ttname"><a href="group__doxd4d__screen__type.html#ab99580f14459a5ea1eac3cd665b4dc55">D4D_SCREEN_S::size</a></div><div class="ttdeci">D4D_SIZE size</div><div class="ttdoc">Screen size (standard screen has full size of physical screen) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__screen_8h_source.html#l00176">d4d_screen.h:176</a></div></div>
 <div class="ttc" id="group__doxd4d__base__type_html_aaad42c03604f1bbff065480aac72b03c"><div class="ttname"><a href="group__doxd4d__base__type.html#aaad42c03604f1bbff065480aac72b03c">D4D_MESSAGE_S::nMsgId</a></div><div class="ttdeci">D4D_MSGID nMsgId</div><div class="ttdoc">Type of message. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00404">d4d_base.h:404</a></div></div>
 <div class="ttc" id="group__doxd4d__edit__box__func_html_ga6629cce6ae21d490e03116e5469562df"><div class="ttname"><a href="group__doxd4d__edit__box__func.html#ga6629cce6ae21d490e03116e5469562df">D4D_EditBoxGetText</a></div><div class="ttdeci">D4D_TCHAR * D4D_EditBoxGetText(D4D_OBJECT_PTR pObj)</div><div class="ttdoc">The function returns the pointer to the edit box text buffer. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__edit__box_8c_source.html#l00652">d4d_edit_box.c:652</a></div></div>
 <div class="ttc" id="d4d__combo__box_8h_html_a41b5d1e1e32f957dca95a93aacea933a"><div class="ttname"><a href="d4d__combo__box_8h.html#a41b5d1e1e32f957dca95a93aacea933a">D4D_GET_COMBO_BOX_EDIT_BOX</a></div><div class="ttdeci">#define D4D_GET_COMBO_BOX_EDIT_BOX(pObj)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__combo__box_8h_source.html#l00160">d4d_combo_box.h:160</a></div></div>
@@ -489,6 +488,7 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div class="ttc" id="group__doxd4d__list__box__func_html_ga1c74b381309142b76f1f29ce4b2e0394"><div class="ttname"><a href="group__doxd4d__list__box__func.html#ga1c74b381309142b76f1f29ce4b2e0394">D4D_ListBoxGetItemText</a></div><div class="ttdeci">D4D_TCHAR * D4D_ListBoxGetItemText(D4D_OBJECT_PTR pThis)</div><div class="ttdoc">Function gets the selected item text. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__list__box_8c_source.html#l00607">d4d_list_box.c:607</a></div></div>
 <div class="ttc" id="d4d__combo__box_8c_html_a757e1dbed75cbf12f7c8222a383c6269"><div class="ttname"><a href="d4d__combo__box_8c.html#a757e1dbed75cbf12f7c8222a383c6269">D4D_DECLARE_BMP</a></div><div class="ttdeci">D4D_DECLARE_BMP(bmp_arrow, arrow, palette_arrow)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__combo__box_8c_source.html#l00064">d4d_combo_box.c:64</a></div></div>
 <div class="ttc" id="group__doxd4d__object__type_html_struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s"><div class="ttname"><a href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION_S</a></div><div class="ttdoc">The object system function needed for each object - this is part of D4D_OBJECT main structure...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8h_source.html#l00134">d4d_object.h:134</a></div></div>
+<div class="ttc" id="group__doxd4d__screen__type_html_ad5270f999a216f38b6caacb734acb98a"><div class="ttname"><a href="group__doxd4d__screen__type.html#ad5270f999a216f38b6caacb734acb98a">D4D_SCREEN_S::position</a></div><div class="ttdeci">D4D_POINT position</div><div class="ttdoc">Screen coordination on physical screen (standard screen has {0,0}) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__screen_8h_source.html#l00175">d4d_screen.h:175</a></div></div>
 <div class="ttc" id="d4d__combo__box_8c_html_af64fc17743ef6ab3613e49ae5d5fb864"><div class="ttname"><a href="d4d__combo__box_8c.html#af64fc17743ef6ab3613e49ae5d5fb864">D4D_ComboBoxSetIndex</a></div><div class="ttdeci">void D4D_ComboBoxSetIndex(D4D_OBJECT *pThis, D4D_COMBO_BOX_INDEX ix)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__combo__box_8c_source.html#l00252">d4d_combo_box.c:252</a></div></div>
 <div class="ttc" id="group__doxd4d__types__type_html_struct_d4_d___s_i_z_e"><div class="ttname"><a href="group__doxd4d__types__type.html#struct_d4_d___s_i_z_e">D4D_SIZE</a></div><div class="ttdoc">Type definition of eGUI size structure. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00230">d4d_types.h:230</a></div></div>
 <div class="ttc" id="d4d__scheme_8h_html_a1cd2d96210fe4daf330aaede3c88fc7b"><div class="ttname"><a href="d4d__scheme_8h.html#a1cd2d96210fe4daf330aaede3c88fc7b">D4D_COLOR_GET_G</a></div><div class="ttdeci">#define D4D_COLOR_GET_G(color)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__scheme_8h_source.html#l00437">d4d_scheme.h:437</a></div></div>
@@ -515,7 +515,7 @@ $(document).ready(function(){initNavTree('d4d__combo__box_8c_source.html','');})
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__combo__box_8c.html">d4d_combo_box.c</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:25 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:25 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

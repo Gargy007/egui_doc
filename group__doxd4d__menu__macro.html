@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -365,7 +363,7 @@ Macros</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>This macro is used after the menu items declaration to close the list of items Here is an example demonstrating how to used it. <div class="fragment"><div class="line">*       D4D_DECLARE_STD_RMENU_AUTOSIZE_BEGIN(my_menu, <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Menu&quot;</span>), MU_BIG_FONT, 10, 10, 100, 120, 6, MY_SMALL_FONT, MY_FONT, &amp;my_icon, NULL)</div>
 <div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item1&quot;</span>), &amp;myIcon1, 0)</div>
 <div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item2&quot;</span>), &amp;myIcon2, 1)</div>
-<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga671d1dd016c1933ffa8bd28fc80f17e1">_D4D_DECLARE_MENU_END</a>()  </div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga671d1dd016c1933ffa8bd28fc80f17e1">_D4D_DECLARE_MENU_END</a>()</div>
 <div class="line">* </div>
 </div><!-- fragment --> </dd></dl>
 
@@ -654,7 +652,7 @@ Macros</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>This macro is used after the menu items declaration to close the list of items Here is an example demonstrating how to used it. This is obsolete macro, the parameter is not needed. It can be used <a class="el" href="group__doxd4d__menu__macro.html#ga671d1dd016c1933ffa8bd28fc80f17e1">_D4D_DECLARE_MENU_END()</a> instead of. <div class="fragment"><div class="line">*       D4D_DECLARE_STD_RMENU_AUTOSIZE_BEGIN(my_menu, <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Menu&quot;</span>), MU_BIG_FONT, 10, 10, 100, 120, 6, MY_SMALL_FONT, MY_FONT, &amp;my_icon, NULL)</div>
 <div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item1&quot;</span>), &amp;myIcon1, 0)</div>
 <div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item2&quot;</span>), &amp;myIcon2, 1)</div>
-<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga671d1dd016c1933ffa8bd28fc80f17e1">_D4D_DECLARE_MENU_END</a>()  </div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga671d1dd016c1933ffa8bd28fc80f17e1">_D4D_DECLARE_MENU_END</a>()</div>
 <div class="line">* </div>
 </div><!-- fragment --> </dd></dl>
 
@@ -697,7 +695,7 @@ Macros</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>This macro is used after the menu declaration to add new item Here is an example demonstrating how to used it. <div class="fragment"><div class="line">*       D4D_DECLARE_STD_RMENU_AUTOSIZE_BEGIN(my_menu, <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Menu&quot;</span>), MU_BIG_FONT, 10, 10, 100, 120, 6, MY_SMALL_FONT, MY_FONT, &amp;my_icon, NULL)</div>
 <div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item1&quot;</span>), &amp;myIcon1)</div>
 <div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item2&quot;</span>), &amp;myIcon2)</div>
-<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>(my_menu)    </div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>(my_menu)</div>
 <div class="line">* </div>
 </div><!-- fragment --> </dd></dl>
 
@@ -747,7 +745,7 @@ Macros</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>This macro is used after the menu declaration to add new item with user data Here is an example demonstrating how to used it. <div class="fragment"><div class="line">*       D4D_DECLARE_STD_RMENU_AUTOSIZE_BEGIN(my_menu, <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Menu&quot;</span>), MU_BIG_FONT, 10, 10, 100, 120, 6, MY_SMALL_FONT, MY_FONT, &amp;my_icon, NULL)</div>
 <div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item1&quot;</span>), &amp;myIcon1, 0)</div>
 <div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga6a1bf29ea48d04c5617c7671627a211d">D4D_DECLARE_MENU_ITEM</a>(<a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;My Item2&quot;</span>), &amp;myIcon2, 1)</div>
-<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>(my_menu)    </div>
+<div class="line">*       <a class="code" href="group__doxd4d__menu__macro.html#ga241427a269502cd82e3dfaa5b318ab0f">D4D_DECLARE_MENU_END</a>(my_menu)</div>
 <div class="line">* </div>
 </div><!-- fragment --> </dd></dl>
 
@@ -1419,7 +1417,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:31 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:33 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

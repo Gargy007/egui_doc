@@ -1,0 +1,35 @@
+digraph "D4D_InitScreen"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="D4D_InitScreen",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="D4D_SetObjectScreenPointer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__object_8c.html#ae69ba41c5b7c264ce9990bf1ad7019dd"];
+  Node2 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="D4D_SendMessageMask",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__base_8c.html#ab590cc57b04b9e3733acbf137f929bba"];
+  Node3 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="D4D_FocusNextObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa",tooltip="The function change focus to the next object in the given screen. "];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="D4D_FindNextObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="D4D_FindNextObjectOnScreen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258"];
+  Node5 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="D4D_FindNextSiblingObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a"];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="D4D_GetParentObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e"];
+  Node7 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="D4D_FindNextParentSibling\lObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d"];
+  Node9 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="D4D_SetObjectFlags",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237"];
+  Node10 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="D4D_SendMessage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47"];
+}

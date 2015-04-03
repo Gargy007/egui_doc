@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="d4d__text__box_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -157,7 +155,7 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="d4d__private_8h.html">common_files/d4d_private.h</a>&quot;</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* pWord;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a> fnt;</div>
@@ -184,7 +182,7 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374">D4D_TextBoxOnInit</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pObject);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="d4d__text__box_8h.html#a9ab0d4f1c9a341cb659c225308e2ea7c">   77</a></span>&#160;<span class="keyword">const</span> <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION</a> <a class="code" href="d4d__text__box_8c.html#a9ab0d4f1c9a341cb659c225308e2ea7c">d4d_textboxSysFunc</a> = </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="d4d__text__box_8h.html#a9ab0d4f1c9a341cb659c225308e2ea7c">   77</a></span>&#160;<span class="keyword">const</span> <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s">D4D_OBJECT_SYS_FUNCTION</a> <a class="code" href="d4d__text__box_8c.html#a9ab0d4f1c9a341cb659c225308e2ea7c">d4d_textboxSysFunc</a> =</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="group__doxd4d__string__macro.html#ga04fbb7ead0c10eb6adb39da7272e36a3">D4D_DEFSTR</a>(<span class="stringliteral">&quot;Text Box&quot;</span>),</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <a class="code" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02">D4D_TextBoxOnMessage</a>,</div>
@@ -192,7 +190,7 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  NULL</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> position;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___g_e_o_m_e_t_r_y">D4D_GEOMETRY</a> contentGeom;</div>
@@ -201,30 +199,30 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;} D4D_TXTBX_TMP_VAL;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
 <div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">   93</a></span>&#160;<span class="preprocessor">#define _calc (*((D4D_TXTBX_TMP_VAL*)d4d_scratchPad))</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb">   95</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb">D4D_TextBoxValue2Coor</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis)</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html">D4D_TEXTBOX</a>* pTextBox = <a class="code" href="d4d__text__box_8h.html#a18607c6be33a64c33064069dc5af27c0">D4D_GET_TEXTBOX</a>(pThis);  </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html">D4D_TEXTBOX</a>* pTextBox = <a class="code" href="d4d__text__box_8h.html#a18607c6be33a64c33064069dc5af27c0">D4D_GET_TEXTBOX</a>(pThis);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> tmpIx;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.position = <a class="code" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f">D4D_GetClientToScreenPoint</a>(pThis, &amp;pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#ad5270f999a216f38b6caacb734acb98a">position</a>);  </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.position = <a class="code" href="group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f">D4D_GetClientToScreenPoint</a>(pThis, &amp;pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#ad5270f999a216f38b6caacb734acb98a">position</a>);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <a class="code" href="d4d__base_8c.html#accc5380c29749c30aab246b10c532681">D4D_ComputeGeometry</a>(&amp;(<a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.contentGeom), pThis);</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom = <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.contentGeom;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#if D4D_ROUND_CORNER_ENABLE == D4D_TRUE</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor"></span>  <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.pnt.y += (<a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>)(pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#a7f1e7bfcc708c8473ff73d2134fd5ddd">radius</a> / 2);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.pnt.x += (<a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>)(pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#a7f1e7bfcc708c8473ff73d2134fd5ddd">radius</a> / 2);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="d4d__text__box_8h.html#af881897618ed3b71b76de929675231b0">D4D_GET_TEXTBOX_SCROLL_BAR_HOR</a>(pThis)-&gt;pData-&gt;flags &amp; <a class="code" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a>)</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.sz.cx -= <a class="code" href="group__doxd4d__text__box__const.html#ga4edb13bf266c9aecaa506b52a57c23d6">D4D_TXTBX_SCRLBR_WIDTH</a>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;#<span class="keywordflow">if</span> <a class="code" href="group__doxd4d__base__const.html#ga7bced01b64f746e37f5703b1a1b76232">D4D_ROUND_CORNER_ENABLE</a> == <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>   </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;#<span class="keywordflow">if</span> <a class="code" href="group__doxd4d__base__const.html#ga7bced01b64f746e37f5703b1a1b76232">D4D_ROUND_CORNER_ENABLE</a> == <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.sz.cx -= pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#a7f1e7bfcc708c8473ff73d2134fd5ddd">radius</a>;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.sz.cy -= pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#a7f1e7bfcc708c8473ff73d2134fd5ddd">radius</a>;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;#endif</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="comment">// Compute the lines count in object</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.lineCount = (<a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>) (<a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.sz.cy / <a class="code" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83">D4D_GetFontHeight</a>(pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a4d239c450ee18478fcd5e2de73853c24">textFontId</a>));</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
@@ -238,49 +236,49 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="d4d__text__box_8c.html#a213815404328027af186f37a0284e8e8">  128</a></span>&#160;<span class="keyword">static</span> <a class="code" href="group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc">D4D_BOOL</a> <a class="code" href="d4d__text__box_8c.html#a213815404328027af186f37a0284e8e8">D4D_TextBoxGetWordSpecInt</a>(<a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a> ch, D4D_TXTBX_WORD_DESC* wordDesc)</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> tab;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="comment">// normal char or any special char</span></div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keywordflow">if</span>(ch &lt;= <span class="charliteral">&#39; &#39;</span>)</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="comment">// special char</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">if</span>(wordDesc-&gt;charCnt) <span class="comment">// if any chars are decoded (Word loaded) finish the function</span></div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">switch</span>(ch)</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    {</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      <span class="keywordflow">case</span> <span class="charliteral">&#39; &#39;</span>: <span class="comment">// space</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        wordDesc-&gt;pixLen = <a class="code" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b">D4D_GetCharWidth</a>(wordDesc-&gt;fnt, <span class="charliteral">&#39; &#39;</span>);  </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        wordDesc-&gt;pixLen = <a class="code" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b">D4D_GetCharWidth</a>(wordDesc-&gt;fnt, <span class="charliteral">&#39; &#39;</span>);</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keywordflow">case</span> <span class="charliteral">&#39;\n&#39;</span>: <span class="comment">// new line</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        wordDesc-&gt;newLine = <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      <span class="keywordflow">case</span> <span class="charliteral">&#39;\t&#39;</span>: <span class="comment">// Tab</span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        tab = <a class="code" href="d4d__font_8c.html#a39d8e8e703e0f108970fff86f6179bd1">D4D_GetNextTab</a>(wordDesc-&gt;pTab, wordDesc-&gt;cur_pos);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">if</span>(tab)                    </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">if</span>(tab)</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;          wordDesc-&gt;pixLen = (<a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>)(tab - wordDesc-&gt;cur_pos);</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;          wordDesc-&gt;pixLen = <a class="code" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b">D4D_GetCharWidth</a>(wordDesc-&gt;fnt, <span class="charliteral">&#39;\t&#39;</span>);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="comment">// unsupported char        </span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="comment">// unsupported char</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    wordDesc-&gt;charCnt++; <span class="comment">// increament the one processed char</span></div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  }<span class="keywordflow">else</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  {</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="comment">// normal char</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    wordDesc-&gt;pixLen += <a class="code" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b">D4D_GetCharWidth</a>(wordDesc-&gt;fnt, ch);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  }</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
@@ -292,66 +290,66 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  wordDesc-&gt;newLine = <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  wordDesc-&gt;pixLen = 0;</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  wordDesc-&gt;charCnt = 0;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="keywordflow">if</span>(pTmpWord == <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  pTextInt = <a class="code" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd">D4D_GetInternalStringPointer</a>(pTmpWord);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#if D4D_EXTSRC_TEXT_ENABLE != D4D_FALSE  </span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#if D4D_EXTSRC_TEXT_ENABLE != D4D_FALSE</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="keywordflow">if</span>(pTextInt == <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  {</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> charCnt = 0;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> charOff = wordDesc-&gt;offset;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> charCntTmp; </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> charCntTmp;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    (<a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a>)<a class="code" href="d4d__extsrc_8h.html#a927c6f32090768161b3dcf6ab02cfe53">d4d_extsrcLocale</a>.<a class="code" href="group__doxd4d__extsrc__type.html#ab13d494407c6c07e2a9f5ae7fa519c1e">D4DLOCALE_TranslateStr</a>(pTmpWord, (<a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>*)<a class="code" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>, wordDesc-&gt;offset, 1);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordflow">if</span>(!((<a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>*)<a class="code" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>)[0])</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">do</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    { </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    {</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      charOff += charCnt;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      charCnt = (<a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a>)<a class="code" href="d4d__extsrc_8h.html#a927c6f32090768161b3dcf6ab02cfe53">d4d_extsrcLocale</a>.<a class="code" href="group__doxd4d__extsrc__type.html#ab13d494407c6c07e2a9f5ae7fa519c1e">D4DLOCALE_TranslateStr</a>(pTmpWord, (<a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>*)<a class="code" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>, charOff, <a class="code" href="group__doxd4d__base__const.html#ga7c0562e7fd672132340e9672ebeec904">D4D_EXTSRC_BUFF_SIZE</a>);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;      </div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      <span class="keywordflow">for</span>(charCntTmp = 0; charCntTmp &lt; charCnt; charCntTmp++)</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;      {</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="d4d__text__box_8c.html#a213815404328027af186f37a0284e8e8">D4D_TextBoxGetWordSpecInt</a>(((<a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>*)<a class="code" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>)[charCntTmp], wordDesc))</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        {</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;          </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;          wordDesc-&gt;charCnt++; <span class="comment">// increament the one processed char</span></div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        }<span class="keywordflow">else</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;          <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;      }</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }<span class="keywordflow">while</span>(charCnt == <a class="code" href="group__doxd4d__base__const.html#ga7c0562e7fd672132340e9672ebeec904">D4D_EXTSRC_BUFF_SIZE</a>);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  } </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  }</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor">  #endif</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  {</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    pTextInt += wordDesc-&gt;offset;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">if</span>(! *pTextInt)</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;  </div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    </div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordflow">while</span>(*pTextInt) <span class="comment">// check if the tested strings isn&#39;t on end </span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    {    </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordflow">while</span>(*pTextInt) <span class="comment">// check if the tested strings isn&#39;t on end</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    {</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      <span class="keywordflow">if</span>(<a class="code" href="d4d__text__box_8c.html#a213815404328027af186f37a0284e8e8">D4D_TextBoxGetWordSpecInt</a>(*pTextInt, wordDesc))</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      {</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        wordDesc-&gt;charCnt++; <span class="comment">// increament the one processed char</span></div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        pTextInt++; <span class="comment">// increment WORD pointer to next char</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      }<span class="keywordflow">else</span></div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    }</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  } </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;}</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
@@ -359,84 +357,84 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;{</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* pTmpWord = wordDesc-&gt;pWord;</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> len, tmp_len;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  </div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  len = wordDesc-&gt;pixLen;</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  wordDesc-&gt;pixLen = 0;</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  wordDesc-&gt;newLine = <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  wordDesc-&gt;charCnt = 0;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="keywordflow">if</span>(pTmpWord == <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  </div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  pTmpWord = <a class="code" href="group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd">D4D_GetInternalStringPointer</a>(pTmpWord);</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="preprocessor">  #if D4D_EXTSRC_TEXT_ENABLE != D4D_FALSE  </span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="preprocessor">  #if D4D_EXTSRC_TEXT_ENABLE != D4D_FALSE</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="keywordflow">if</span>(pTmpWord == <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  {</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> charCnt = 0;</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> charOff = wordDesc-&gt;offset;</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> charCntTmp; </div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> charCntTmp;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keywordflow">do</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    { </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    {</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      charOff += charCnt;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      charCnt = (<a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a>)<a class="code" href="d4d__extsrc_8h.html#a927c6f32090768161b3dcf6ab02cfe53">d4d_extsrcLocale</a>.<a class="code" href="group__doxd4d__extsrc__type.html#ab13d494407c6c07e2a9f5ae7fa519c1e">D4DLOCALE_TranslateStr</a>(pTmpWord, (<a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>*)<a class="code" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>, charOff, <a class="code" href="group__doxd4d__base__const.html#ga7c0562e7fd672132340e9672ebeec904">D4D_EXTSRC_BUFF_SIZE</a>);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      </div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      <span class="keywordflow">for</span>(charCntTmp = 0; charCntTmp &lt; charCnt; charCntTmp++)      </div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      <span class="keywordflow">for</span>(charCntTmp = 0; charCntTmp &lt; charCnt; charCntTmp++)</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      {</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        tmp_len = <a class="code" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b">D4D_GetCharWidth</a>(wordDesc-&gt;fnt, ((<a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>*)<a class="code" href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a>)[charCntTmp]);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;          <span class="comment">// normal char</span></div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">if</span>((wordDesc-&gt;pixLen + tmp_len) &gt; len)</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;          <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        wordDesc-&gt;pixLen += tmp_len;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        wordDesc-&gt;charCnt++; <span class="comment">// increament the one processed char        </span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        wordDesc-&gt;charCnt++; <span class="comment">// increament the one processed char</span></div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      }</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }<span class="keywordflow">while</span>(charCnt == <a class="code" href="group__doxd4d__base__const.html#ga7c0562e7fd672132340e9672ebeec904">D4D_EXTSRC_BUFF_SIZE</a>);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  } </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  }</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="preprocessor">  #endif</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  {</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    pTmpWord += wordDesc-&gt;offset;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    </div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordflow">while</span>(*pTmpWord) <span class="comment">// check if the tested strings isn&#39;t on end </span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    {    </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordflow">while</span>(*pTmpWord) <span class="comment">// check if the tested strings isn&#39;t on end</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    {</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      tmp_len = <a class="code" href="d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b">D4D_GetCharWidth</a>(wordDesc-&gt;fnt, *pTmpWord);</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="comment">// normal char</span></div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      <span class="keywordflow">if</span>((wordDesc-&gt;pixLen + tmp_len) &gt; len)</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      wordDesc-&gt;pixLen += tmp_len;</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      wordDesc-&gt;charCnt++; <span class="comment">// increament the one processed char</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      pTmpWord++; <span class="comment">// increment WORD pointer to next char</span></div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    }</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  }</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  </div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;  </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;}</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
 <div class="line"><a name="l00318"></a><span class="lineno"><a class="line" href="d4d__text__box_8c.html#ac29d1b3bd98c3d79e6ca08a8f86c026d">  318</a></span>&#160;<span class="keyword">static</span> <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> <a class="code" href="d4d__text__box_8c.html#ac29d1b3bd98c3d79e6ca08a8f86c026d">D4D_TextBoxGetMaxLineChars</a>(<a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* pText, <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> offset, <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a>* pTab, <a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> len, <a class="code" href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a> fnt)</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;{</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  D4D_TXTBX_WORD_DESC tmp_wordDesc;  </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  D4D_TXTBX_WORD_DESC tmp_wordDesc;</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a> tmp_len = 0;</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> res_charCnt = 0;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  tmp_wordDesc.fnt = fnt;</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  tmp_wordDesc.pWord = pText;</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  tmp_wordDesc.pTab = pTab;</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  tmp_wordDesc.cur_pos = 0;</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  tmp_wordDesc.offset = offset;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  <span class="keywordflow">while</span>(!<a class="code" href="d4d__text__box_8c.html#adcacc5c76b66f54e82287a2254ad58a3">D4D_TextBoxGetWordSpec</a>(&amp;tmp_wordDesc))</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  {</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">if</span>((tmp_len + tmp_wordDesc.pixLen) &gt; len)</div>
@@ -449,19 +447,19 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      }<span class="keywordflow">else</span></div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keywordflow">return</span> res_charCnt;</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    }</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    tmp_len += tmp_wordDesc.pixLen;</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    res_charCnt += tmp_wordDesc.charCnt;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    </div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keywordflow">if</span>(tmp_wordDesc.newLine)</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keywordflow">return</span> res_charCnt;  </div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keywordflow">return</span> res_charCnt;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="comment">//tmp_wordDesc.pWord = &amp;pText[res_charCnt];</span></div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    tmp_wordDesc.offset += tmp_wordDesc.charCnt;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    tmp_wordDesc.cur_pos = tmp_len;    </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    tmp_wordDesc.cur_pos = tmp_len;</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  }</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  </div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  <span class="keywordflow">return</span> (<a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a>)(tmp_wordDesc.charCnt + res_charCnt);</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;}</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
@@ -476,24 +474,24 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a> tmp_strTab;</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a>* pTab = <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;  <span class="comment">// Try to check if the Text Box needs scroll Bar</span></div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  </div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;  <span class="keywordflow">if</span>(pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a2fa9d282838a6b0336f8ea4424b627b4">pTabTable</a>)</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  {</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    tmp_strTab.<a class="code" href="group__doxd4d__types__type.html#a2fa9d282838a6b0336f8ea4424b627b4">pTabTable</a> = pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a2fa9d282838a6b0336f8ea4424b627b4">pTabTable</a>;</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    tmp_strTab.<a class="code" href="group__doxd4d__types__type.html#ad9d874b925ce757d8f939ee1ee9a155a">tabOffset</a> = (<a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>)(<a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.contentGeom.pnt.x - <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.position.x);</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    pTab = &amp;tmp_strTab;  </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    pTab = &amp;tmp_strTab;</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;  }</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;  </div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;  <span class="keywordflow">do</span></div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;  {    </div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;  {</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    lineCharCnt = <a class="code" href="d4d__text__box_8c.html#ac29d1b3bd98c3d79e6ca08a8f86c026d">D4D_TextBoxGetMaxLineChars</a>(pText, textIx, pTab, <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.sz.cx, pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a4d239c450ee18478fcd5e2de73853c24">textFontId</a>);</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    textIx += lineCharCnt;</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    </div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordflow">if</span>(lineCharCnt)</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      lineCnt++;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;  }<span class="keywordflow">while</span>(lineCharCnt);</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;  </div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  <span class="keywordflow">return</span> lineCnt;</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;}</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;</div>
@@ -508,30 +506,30 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> lineCnt = 0;</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a> tmp_strTab;</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a>* pTab = <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;  </div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;  <a class="code" href="d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb">D4D_TextBoxValue2Coor</a>(pThis);</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  </div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;  <span class="keywordflow">if</span>(pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a2fa9d282838a6b0336f8ea4424b627b4">pTabTable</a>)</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;  {</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    tmp_strTab.<a class="code" href="group__doxd4d__types__type.html#a2fa9d282838a6b0336f8ea4424b627b4">pTabTable</a> = pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a2fa9d282838a6b0336f8ea4424b627b4">pTabTable</a>;</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    tmp_strTab.<a class="code" href="group__doxd4d__types__type.html#ad9d874b925ce757d8f939ee1ee9a155a">tabOffset</a> = (<a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>)(<a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.pnt.x - <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.position.x);</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    pTab = &amp;tmp_strTab;  </div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    pTab = &amp;tmp_strTab;</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;  }</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;  </div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;  <span class="keywordflow">do</span></div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;  {    </div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;  {</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keywordflow">if</span>(line == lineCnt)</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;      <span class="keywordflow">return</span> textIx;</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    </div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    lineCharCnt = <a class="code" href="d4d__text__box_8c.html#ac29d1b3bd98c3d79e6ca08a8f86c026d">D4D_TextBoxGetMaxLineChars</a>(pText, textIx, pTab, <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.sz.cx, pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a4d239c450ee18478fcd5e2de73853c24">textFontId</a>); </div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    </div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    lineCharCnt = <a class="code" href="d4d__text__box_8c.html#ac29d1b3bd98c3d79e6ca08a8f86c026d">D4D_TextBoxGetMaxLineChars</a>(pText, textIx, pTab, <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.sz.cx, pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a4d239c450ee18478fcd5e2de73853c24">textFontId</a>);</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;</div>
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    textIx += lineCharCnt;</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    </div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="keywordflow">if</span>(lineCharCnt)</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;      lineCnt++;</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    </div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;  }<span class="keywordflow">while</span>(lineCharCnt);</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;  </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;}</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;</div>
@@ -541,18 +539,18 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;{</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;  <span class="comment">// Try to check if the Text Box needs scroll Bar</span></div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;  </div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;  <span class="comment">// Switch off possible scroll bar in refresh case</span></div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;  <a class="code" href="d4d__text__box_8h.html#af881897618ed3b71b76de929675231b0">D4D_GET_TEXTBOX_SCROLL_BAR_HOR</a>(pObject)-&gt;pData-&gt;flags  &amp;= ~<a class="code" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a>;</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    </div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  <a class="code" href="d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb">D4D_TextBoxValue2Coor</a>(pObject);</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  </div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="d4d__text__box_8c.html#aea39df6a545ad9a845f8a393c2baa84e">D4D_TextBoxGetLineCount</a>(pObject) &gt; <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.lineCount)</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;  {</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <a class="code" href="d4d__text__box_8h.html#af881897618ed3b71b76de929675231b0">D4D_GET_TEXTBOX_SCROLL_BAR_HOR</a>(pObject)-&gt;pData-&gt;flags |= <a class="code" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a>;</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    </div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <a class="code" href="d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb">D4D_TextBoxValue2Coor</a>(pObject);</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;      </div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;</div>
 <div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <a class="code" href="group__doxd4d__scroll__bar__func.html#gaefd74f2ae3a77f03f2970630b89b0ff5">D4D_ScrlBrSetRange</a>(<a class="code" href="d4d__text__box_8h.html#af881897618ed3b71b76de929675231b0">D4D_GET_TEXTBOX_SCROLL_BAR_HOR</a>(pObject), 0, <a class="code" href="d4d__text__box_8c.html#aea39df6a545ad9a845f8a393c2baa84e">D4D_TextBoxGetLineCount</a>(pObject));</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    <a class="code" href="group__doxd4d__scroll__bar__func.html#gaae9edd2c13fcb67fe3d28e00d42af5a2">D4D_ScrlBrSetStep</a>(<a class="code" href="d4d__text__box_8h.html#af881897618ed3b71b76de929675231b0">D4D_GET_TEXTBOX_SCROLL_BAR_HOR</a>(pObject), <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.lineCount, <a class="code" href="group__doxd4d__text__box__const.html#gaad67845ca877fb23ecb19f13927ff8af">D4D_TXTBX_SCRLBR_STEP</a>);</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <a class="code" href="group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f">D4D_ScrlBrSetPosition</a>(<a class="code" href="d4d__text__box_8h.html#af881897618ed3b71b76de929675231b0">D4D_GET_TEXTBOX_SCROLL_BAR_HOR</a>(pObject), 0);</div>
@@ -582,62 +580,62 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;  <a class="code" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r___p_r_o_p_e_r_t_i_e_s___s">D4D_STR_PROPERTIES</a> tmp_strPrties;</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a> tmp_strTab;</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___t_a_b">D4D_TAB</a>* pTab = <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;  </div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;  <a class="code" href="d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb">D4D_TextBoxValue2Coor</a>(pThis);</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;      </div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  clrT = <a class="code" href="group__doxd4d__scheme__func.html#ga03a58709f9089c68e320eba55899917e">D4D_ObjectGetForeFillColor</a>(pThis);</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;  clrB = <a class="code" href="group__doxd4d__scheme__func.html#gaad25fd67fd667b9517bfb75f36f0b426">D4D_ObjectGetBckgFillColor</a>(pThis);  </div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160; </div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;  clrB = <a class="code" href="group__doxd4d__scheme__func.html#gaad25fd67fd667b9517bfb75f36f0b426">D4D_ObjectGetBckgFillColor</a>(pThis);</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;  <span class="comment">// draw the rectangle around the text</span></div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;  <span class="keywordflow">if</span>(draw &amp; <a class="code" href="group__doxd4d__base__type.html#gac321808c8891a07430be706ad33e85cd">D4D_OBJECT_DRAWFLAGS_COMPLETE</a>)  </div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;  <span class="keywordflow">if</span>(draw &amp; <a class="code" href="group__doxd4d__base__type.html#gac321808c8891a07430be706ad33e85cd">D4D_OBJECT_DRAWFLAGS_COMPLETE</a>)</div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;  {</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    </div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    <a class="code" href="group__doxd4d__basic__draw__func.html#ga8e67d983050dc41e2984a44af9f989c5">D4D_FillRRect</a>(&amp;<a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.position, &amp;pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#ab99580f14459a5ea1eac3cd665b4dc55">size</a>, clrB, pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#a7f1e7bfcc708c8473ff73d2134fd5ddd">radius</a>);    </div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    <a class="code" href="group__doxd4d__basic__draw__func.html#ga8e67d983050dc41e2984a44af9f989c5">D4D_FillRRect</a>(&amp;<a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.position, &amp;pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#ab99580f14459a5ea1eac3cd665b4dc55">size</a>, clrB, pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#a7f1e7bfcc708c8473ff73d2134fd5ddd">radius</a>);</div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    pData-&gt;<a class="code" href="struct_d4_d___t_x_t_b_x___d_a_t_a___s.html#a12c9298f352f9d4fabaa2b2a8f350c2b">redrawText</a> = <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>;</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    </div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;</div>
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;  }</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;  </div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;  <span class="comment">// Draw the frame</span></div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;  <span class="keywordflow">if</span>(draw &amp; (D4D_OBJECT_DRAWFLAGS_COMPLETE | <a class="code" href="group__doxd4d__base__type.html#ga543912fe2405b703133f00f97ec5707e">D4D_OBJECT_DRAWFLAGS_STATE</a>))</div>
 <div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <a class="code" href="group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e">D4D_DrawFrame</a>(pThis, clrT, clrB);</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;  </div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;  </div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;  <span class="keywordflow">if</span>(pData-&gt;<a class="code" href="struct_d4_d___t_x_t_b_x___d_a_t_a___s.html#a12c9298f352f9d4fabaa2b2a8f350c2b">redrawText</a>)</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;  {</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga47cd271715c20f3f9a0c2c01aac3411a">D4D_INDEX</a> tmp_index = pData-&gt;<a class="code" href="struct_d4_d___t_x_t_b_x___d_a_t_a___s.html#acbf5c5da7f04098df0fac22090009d3d">firstShowedCharIx</a>;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    </div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    pData-&gt;<a class="code" href="struct_d4_d___t_x_t_b_x___d_a_t_a___s.html#a12c9298f352f9d4fabaa2b2a8f350c2b">redrawText</a> = <a class="code" href="group__doxd4d__types__const.html#gab3ce154a4d50cbbf5dc2bc8a995279d4">D4D_FALSE</a>;</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  </div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    tmp_txtbuff.<a class="code" href="group__doxd4d__string__type.html#aa1721f7716b057280b5dff1eaba1ff47">fontId</a> = pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a4d239c450ee18478fcd5e2de73853c24">textFontId</a>;</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    tmp_txtbuff.<a class="code" href="group__doxd4d__string__type.html#a8b93b45cc9d53c91d620d44dea00a75a">str_properties</a> = &amp;tmp_strPrties;</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    </div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    tmp_strPrties.<a class="code" href="group__doxd4d__string__type.html#ac4e0ffcc4198e3f28984f3aab7778e81">font_properties</a> = 0;</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    tmp_strPrties.<a class="code" href="group__doxd4d__string__type.html#aa9724448a3f838ed46404187df07c03e">text_properties</a> = 0;</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    </div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="comment">// Draw all lines of textbox</span></div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    tmp_point = <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.pnt;</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    tmp_size.<a class="code" href="group__doxd4d__types__type.html#abbd0548ae6e15a76f53891ddab7bc6bd">cx</a> = <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.sz.cx;</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    tmp_size.<a class="code" href="group__doxd4d__types__type.html#ac3caf46346bdb18d16381f44808262d4">cy</a> = <a class="code" href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83">D4D_GetFontHeight</a>(pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a4d239c450ee18478fcd5e2de73853c24">textFontId</a>);</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    </div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    tmp_txtbuff.<a class="code" href="group__doxd4d__string__type.html#ae845f84572ab1ac6e74ca3eb433bd6ac">pText</a> = pData-&gt;<a class="code" href="struct_d4_d___t_x_t_b_x___d_a_t_a___s.html#a4ecc4b7e043d69b29a3a58f560d3478e">pTxtArr</a>;  </div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    tmp_txtbuff.<a class="code" href="group__doxd4d__string__type.html#ae845f84572ab1ac6e74ca3eb433bd6ac">pText</a> = pData-&gt;<a class="code" href="struct_d4_d___t_x_t_b_x___d_a_t_a___s.html#a4ecc4b7e043d69b29a3a58f560d3478e">pTxtArr</a>;</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    tmp_txtbuff.<a class="code" href="group__doxd4d__string__type.html#a840543f63202f1958d3d451e0ee46fa3">buffSize</a> = 0;</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    </div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordflow">if</span>(pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a2fa9d282838a6b0336f8ea4424b627b4">pTabTable</a>)</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    {</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;      tmp_strTab.<a class="code" href="group__doxd4d__types__type.html#a2fa9d282838a6b0336f8ea4424b627b4">pTabTable</a> = pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#a2fa9d282838a6b0336f8ea4424b627b4">pTabTable</a>;</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;      tmp_strTab.<a class="code" href="group__doxd4d__types__type.html#ad9d874b925ce757d8f939ee1ee9a155a">tabOffset</a> = (<a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>)(<a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.txtGeom.pnt.x - <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.position.x);</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;      pTab = &amp;tmp_strTab;  </div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;      pTab = &amp;tmp_strTab;</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    }</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        </div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="keywordflow">for</span>(line_cnt = 0; line_cnt &lt; <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.lineCount; line_cnt++) </div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="keywordflow">for</span>(line_cnt = 0; line_cnt &lt; <a class="code" href="d4d__text__box_8c.html#a29c9428934bd225223acc290d395e75f">_calc</a>.lineCount; line_cnt++)</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    {</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;      tmp_txtbuff.<a class="code" href="group__doxd4d__string__type.html#a995ea64fdf3dfb9ec8fc47954cd55f9d">printLen</a> = <a class="code" href="d4d__text__box_8c.html#ac29d1b3bd98c3d79e6ca08a8f86c026d">D4D_TextBoxGetMaxLineChars</a>(tmp_txtbuff.<a class="code" href="group__doxd4d__string__type.html#ae845f84572ab1ac6e74ca3eb433bd6ac">pText</a>, tmp_index, pTab, tmp_size.<a class="code" href="group__doxd4d__types__type.html#abbd0548ae6e15a76f53891ddab7bc6bd">cx</a>, tmp_txtbuff.<a class="code" href="group__doxd4d__string__type.html#aa1721f7716b057280b5dff1eaba1ff47">fontId</a>);</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;      tmp_txtbuff.<a class="code" href="group__doxd4d__string__type.html#adb5183e7a57f3c1c8ae2054ac883f799">printOff</a> = tmp_index;</div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;      tmp_index +=  tmp_txtbuff.<a class="code" href="group__doxd4d__string__type.html#a995ea64fdf3dfb9ec8fc47954cd55f9d">printLen</a>;</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;      </div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;      <a class="code" href="group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111">D4D_DrawTextRectTab</a>(&amp;tmp_point, &amp;tmp_size, &amp;tmp_txtbuff, pTab, clrT, clrB); </div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;      </div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;      tmp_point.<a class="code" href="group__doxd4d__types__type.html#a559d923ef369983d0809c3cc39a3df5a">y</a> += tmp_size.<a class="code" href="group__doxd4d__types__type.html#ac3caf46346bdb18d16381f44808262d4">cy</a>; </div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;      <a class="code" href="group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111">D4D_DrawTextRectTab</a>(&amp;tmp_point, &amp;tmp_size, &amp;tmp_txtbuff, pTab, clrT, clrB);</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;      tmp_point.<a class="code" href="group__doxd4d__types__type.html#a559d923ef369983d0809c3cc39a3df5a">y</a> += tmp_size.<a class="code" href="group__doxd4d__types__type.html#ac3caf46346bdb18d16381f44808262d4">cy</a>;</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    }</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;  }</div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;}</div>
@@ -647,11 +645,11 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;  <a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html">D4D_TEXTBOX</a>* pTextBox = <a class="code" href="d4d__text__box_8h.html#a18607c6be33a64c33064069dc5af27c0">D4D_GET_TEXTBOX</a>(pObject);</div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;  pTextBox-&gt;<a class="code" href="struct_d4_d___t_e_x_t_b_o_x.html#aa67654f22ff24cf63c4d2f94428ba1aa">pData</a>-&gt;<a class="code" href="struct_d4_d___t_x_t_b_x___d_a_t_a___s.html#acbf5c5da7f04098df0fac22090009d3d">firstShowedCharIx</a> = 0;</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                                             </div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;</div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;  (void)<a class="code" href="d4d__text__box_8c.html#ac3bfefe93d27aba170ef56fea53e0fcc">D4D_TextBoxScrollBarSetup</a>(pObject);</div>
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;  <span class="comment">// set flag to redraw screen</span></div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;  <a class="code" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9">D4D_InvalidateObject</a>(pObject, <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>);  </div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;  <a class="code" href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9">D4D_InvalidateObject</a>(pObject, <a class="code" href="group__doxd4d__types__const.html#gaef0c14acbf3da8063aa4117fc7e1bab5">D4D_TRUE</a>);</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;}</div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;</div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="comment">/**************************************************************/</span></div>
@@ -660,7 +658,7 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;  <a class="code" href="struct_d4_d___t_x_t_b_x___d_a_t_a___s.html">D4D_TXTBX_DATA</a>* pData = <a class="code" href="d4d__text__box_8h.html#a99251b239bb38ba764117d3defca643b">D4D_GET_TEXTBOX_DATA</a>(<a class="code" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e">D4D_GetParentObject</a>(pThis));</div>
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;</div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;  <a class="code" href="group__doxd4d__base__macro.html#gabc101da90c6cc47c3e73b24c82ba494a">D4D_UNUSED</a>(old_position);</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;  </div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;</div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;  <span class="comment">// compute the start char of current screen</span></div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;  pData-&gt;<a class="code" href="struct_d4_d___t_x_t_b_x___d_a_t_a___s.html#acbf5c5da7f04098df0fac22090009d3d">firstShowedCharIx</a> = <a class="code" href="d4d__text__box_8c.html#a2511e5b05b4779181755aa356fc1da55">D4D_TextBoxFindLineStartChar</a>(<a class="code" href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e">D4D_GetParentObject</a>(pThis), new_position);</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;</div>
@@ -678,28 +676,28 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;{</div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;  <span class="keywordflow">if</span>(pObject == <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;  </div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;  <a class="code" href="d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374">D4D_TextBoxOnInit</a>(pObject);    </div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;  <a class="code" href="d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374">D4D_TextBoxOnInit</a>(pObject);</div>
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;}</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00608"></a><span class="lineno"><a class="line" href="group__doxd4d__text__box__func.html#ga39b0345e200085c6c1a6c3b3d6797195">  608</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__doxd4d__text__box__func.html#ga39b0345e200085c6c1a6c3b3d6797195">D4D_TextBoxChangeText</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pObject, <a class="code" href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a>* pText)</div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;{</div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;  <a class="code" href="struct_d4_d___t_x_t_b_x___d_a_t_a___s.html">D4D_TXTBX_DATA</a>* pData = <a class="code" href="d4d__text__box_8h.html#a99251b239bb38ba764117d3defca643b">D4D_GET_TEXTBOX_DATA</a>(pObject);</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;  </div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;  <span class="comment">// check the intput pointers</span></div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;  <span class="keywordflow">if</span>(pObject == <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;  </div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;</div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;  <span class="keywordflow">if</span>(pText == <a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>)</div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;  </div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;</div>
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;  <span class="comment">// change the text pointer</span></div>
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;  pData-&gt;<a class="code" href="struct_d4_d___t_x_t_b_x___d_a_t_a___s.html#a4ecc4b7e043d69b29a3a58f560d3478e">pTxtArr</a> = pText;</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;  </div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;</div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;  <span class="comment">// refresh whole object</span></div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;  <a class="code" href="d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374">D4D_TextBoxOnInit</a>(pObject);</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;      </div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;</div>
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;}</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="comment">*       End of public functions                                               */</span></div>
@@ -708,39 +706,39 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="comment">/**************************************************************/</span></div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="comment">/*******************************************************</span></div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="comment">*</span></div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">* The TEXTBOX message handler </span></div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">* The TEXTBOX message handler</span></div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;<span class="comment">*******************************************************/</span></div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;</div>
 <div class="line"><a name="l00647"></a><span class="lineno"><a class="line" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02">  647</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02">D4D_TextBoxOnMessage</a>(<a class="code" href="group__doxd4d__base__type.html#struct_d4_d___m_e_s_s_a_g_e___s">D4D_MESSAGE</a>* pMsg)</div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;{</div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;  <a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT</a>* pThis = pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a0de852dcc4a916bb415eeec3410df1d7">pObject</a>;</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;  </div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;</div>
 <div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keywordflow">switch</span>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#aaad42c03604f1bbff065480aac72b03c">nMsgId</a>)</div>
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;  {</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aada78bc4fb19bad4ada34a532547ab68d">D4D_MSG_DRAW</a>:      </div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;      <a class="code" href="d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773">D4D_TextBoxOnDraw</a>(pMsg);      </div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aada78bc4fb19bad4ada34a532547ab68d">D4D_MSG_DRAW</a>:</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;      <a class="code" href="d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773">D4D_TextBoxOnDraw</a>(pMsg);</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;      <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    </div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa81583830e066532a8613816949c845ee">D4D_MSG_ONINIT</a>: </div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa81583830e066532a8613816949c845ee">D4D_MSG_ONINIT</a>:</div>
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;      pThis-&gt;<a class="code" href="group__doxd4d__object__type.html#a8f6651f30678cbad72e9ee50bc8256ad">pData</a>-&gt;<a class="code" href="group__doxd4d__object__type.html#a2d9b543b57a3d54b958787d383e34ba5">flags</a> &amp;= ~<a class="code" href="d4d__object_8h.html#aca1d2a0aa474af1630897c78765054a6">D4D_OBJECT_F_NOTINIT</a>;</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;           </div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;</div>
 <div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;      <a class="code" href="d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374">D4D_TextBoxOnInit</a>(pThis);</div>
 <div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;      <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="preprocessor">#ifdef D4D_LLD_TCH     </span></div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa0dc9200ede00936d39ee379a6418030f">D4D_MSG_TOUCHED</a>:                              </div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;      <a class="code" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d">D4D_FocusSet</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a091fdaa012d36f085ba2c6465b195718">pScreen</a>, pThis);       </div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="preprocessor">#ifdef D4D_LLD_TCH</span></div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa0dc9200ede00936d39ee379a6418030f">D4D_MSG_TOUCHED</a>:</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;      <a class="code" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d">D4D_FocusSet</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a091fdaa012d36f085ba2c6465b195718">pScreen</a>, pThis);</div>
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;      <a class="code" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f">D4D_CaptureKeys</a>(pThis);</div>
 <div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;      <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="preprocessor"></span>      </div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="preprocessor">#ifdef D4D_LLD_MOUSE</span></div>
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa40cd69980eac29ec965c5b514caa87dc">D4D_MSG_MOUSE_BTN_LEFT_UP</a>:</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;      <a class="code" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d">D4D_FocusSet</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a091fdaa012d36f085ba2c6465b195718">pScreen</a>, pThis);       </div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      <a class="code" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f">D4D_CaptureKeys</a>(pThis);         </div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;      <a class="code" href="group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d">D4D_FocusSet</a>(pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a091fdaa012d36f085ba2c6465b195718">pScreen</a>, pThis);</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      <a class="code" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f">D4D_CaptureKeys</a>(pThis);</div>
 <div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;      <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;      </div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;</div>
 <div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aadf38b7fbb2cc4bb22f05dc32594e803c">D4D_MSG_MOUSE_BTN_WHEEL_UP</a>:</div>
 <div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;      <span class="keywordflow">if</span>(<a class="code" href="d4d__text__box_8h.html#af881897618ed3b71b76de929675231b0">D4D_GET_TEXTBOX_SCROLL_BAR_HOR</a>(pThis)-&gt;pData-&gt;flags &amp; <a class="code" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a>)</div>
 <div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        <a class="code" href="group__doxd4d__scroll__bar__func.html#ga410dc4d48f9e8e49ef69f7c0273e5647">D4D_ScrlBrChangePosition</a>(<a class="code" href="d4d__text__box_8h.html#af881897618ed3b71b76de929675231b0">D4D_GET_TEXTBOX_SCROLL_BAR_HOR</a>(pThis), -1);</div>
@@ -748,22 +746,22 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aac4892d0f08cbebdbb884c3bc328deb5d">D4D_MSG_MOUSE_BTN_WHEEL_DOWN</a>:</div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;      <span class="keywordflow">if</span>(<a class="code" href="d4d__text__box_8h.html#af881897618ed3b71b76de929675231b0">D4D_GET_TEXTBOX_SCROLL_BAR_HOR</a>(pThis)-&gt;pData-&gt;flags &amp; <a class="code" href="group__doxd4d__object__const__flags.html#gabae0b2d08e50cb73c54612f034875ec6">D4D_OBJECT_F_VISIBLE</a>)</div>
 <div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        <a class="code" href="group__doxd4d__scroll__bar__func.html#ga410dc4d48f9e8e49ef69f7c0273e5647">D4D_ScrlBrChangePosition</a>(<a class="code" href="d4d__text__box_8h.html#af881897618ed3b71b76de929675231b0">D4D_GET_TEXTBOX_SCROLL_BAR_HOR</a>(pThis), 1);</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;      <span class="keywordflow">break</span>;  </div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="preprocessor">#endif   </span></div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;      <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aad8273646b083aa49c33ccda4dbed08c8">D4D_MSG_KEYUP</a>:</div>
 <div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;      {</div>
 <div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;        <a class="code" href="group__doxd4d__types__type.html#gae08ae30b1270f8ebb05673c0af714f0e">D4D_KEY_SCANCODE</a> tmp_key = pMsg-&gt;<a class="code" href="group__doxd4d__base__type.html#a65e56fff8e0b0136541d1cf58a3a5be4">prm</a>.<a class="code" href="group__doxd4d__base__type.html#a51b1d92c3317a3df21775774ec3c801c">key</a>;</div>
 <div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;        <span class="comment">// capture the keyboard if enter is pressed</span></div>
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        <span class="keywordflow">if</span>(tmp_key == <a class="code" href="group__doxd4d__base__const.html#ga8e3e5f6c85725b49962312486c6401c9">D4D_KEY_SCANCODE_ENTER</a>)</div>
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;          <a class="code" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f">D4D_CaptureKeys</a>(pThis);</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;        </div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;</div>
 <div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;        <span class="comment">// exit capture</span></div>
 <div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;        <span class="keywordflow">if</span>(tmp_key == <a class="code" href="group__doxd4d__base__const.html#ga78dcb338a7bc19a985592c751692b955">D4D_KEY_SCANCODE_ESC</a>)</div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;          <a class="code" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f">D4D_CaptureKeys</a>(<a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
 <div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;      }</div>
 <div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;      <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    </div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;</div>
 <div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa6f99053f14d81f3be871577a0b39a03d">D4D_MSG_KILLFOCUS</a>:</div>
 <div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;      <a class="code" href="group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f">D4D_CaptureKeys</a>(<a class="code" href="group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>);</div>
 <div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aaab14ca387f004226d7165a07f9ba2a41">D4D_MSG_SETFOCUS</a>:</div>
@@ -771,15 +769,15 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__base__type.html#ggad12ff85fd58969142331c6b806cefc6aa40e904d13dd263387692a80a450cdac3">D4D_MSG_KILLCAPTURE</a>:</div>
 <div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;      <span class="comment">//D4D_InvalidateObject(pThis, D4D_FALSE);</span></div>
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;      <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    </div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    </div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;</div>
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    <span class="keywordflow">default</span>:</div>
 <div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;      <span class="comment">// call the default behavior of all objects</span></div>
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;      <a class="code" href="d4d__object_8c.html#a71af54d42c496cf96eb44fcb42c7928a">D4D_ObjOnMessage</a>(pMsg);</div>
 <div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;  }</div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;}</div>
 <div class="ttc" id="group__doxd4d__string__type_html_a840543f63202f1958d3d451e0ee46fa3"><div class="ttname"><a href="group__doxd4d__string__type.html#a840543f63202f1958d3d451e0ee46fa3">D4D_STRING_S::buffSize</a></div><div class="ttdeci">D4D_INDEX buffSize</div><div class="ttdoc">size of text buffer array </div><div class="ttdef"><b>Definition:</b> <a href="d4d__string_8h_source.html#l00103">d4d_string.h:103</a></div></div>
-<div class="ttc" id="group__doxd4d__types__type_html_ga694bba8ee4d726d2af74838c2b6960d3"><div class="ttname"><a href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a></div><div class="ttdeci">D4D_WCHAR D4D_TCHAR</div><div class="ttdoc">Type definition of eGUI character (it depends on UNICODE setting if this is D4D_CHAR or D4D_WCHAR)...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00281">d4d_types.h:281</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga694bba8ee4d726d2af74838c2b6960d3"><div class="ttname"><a href="group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3">D4D_TCHAR</a></div><div class="ttdeci">D4D_WCHAR D4D_TCHAR</div><div class="ttdoc">Type definition of eGUI character (it depends on UNICODE setting if this is D4D_CHAR or D4D_WCHAR)...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00284">d4d_types.h:284</a></div></div>
 <div class="ttc" id="d4d__font_8h_html_a5ff2e19a723325abcaa1ad727f60802e"><div class="ttname"><a href="d4d__font_8h.html#a5ff2e19a723325abcaa1ad727f60802e">D4D_FONT</a></div><div class="ttdeci">Byte D4D_FONT</div><div class="ttdef"><b>Definition:</b> <a href="d4d__font_8h_source.html#l00171">d4d_font.h:171</a></div></div>
 <div class="ttc" id="d4d__object_8c_html_aeb1e10fa1768c3ab69bae8f35fbdde9e"><div class="ttname"><a href="d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e">D4D_GetParentObject</a></div><div class="ttdeci">D4D_OBJECT * D4D_GetParentObject(D4D_OBJECT *pObject)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8c_source.html#l00498">d4d_object.c:498</a></div></div>
 <div class="ttc" id="group__doxd4d__base__const_html_ga78dcb338a7bc19a985592c751692b955"><div class="ttname"><a href="group__doxd4d__base__const.html#ga78dcb338a7bc19a985592c751692b955">D4D_KEY_SCANCODE_ESC</a></div><div class="ttdeci">#define D4D_KEY_SCANCODE_ESC</div><div class="ttdoc">This macro is used to specify Key Scan Code ESC. If not defined, it sets to 0x01 as a default...</div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00305">d4d_base.h:305</a></div></div>
@@ -886,10 +884,10 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div class="ttc" id="d4d__private_8h_html_a5a32ed6bc8134e4ed9fb2905adf12101"><div class="ttname"><a href="d4d__private_8h.html#a5a32ed6bc8134e4ed9fb2905adf12101">d4d_extsrcBuffer</a></div><div class="ttdeci">Byte d4d_extsrcBuffer[D4D_EXTSRC_BUFF_SIZE]</div></div>
 <div class="ttc" id="group__doxd4d__object__func_html_gaefb01366bfbf9ac020c19584a2a3c3b9"><div class="ttname"><a href="group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9">D4D_InvalidateObject</a></div><div class="ttdeci">void D4D_InvalidateObject(D4D_OBJECT_PTR pObject, D4D_BOOL bComplete)</div><div class="ttdoc">Function invalidate object to redraw on screen. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__object_8c_source.html#l00071">d4d_object.c:71</a></div></div>
 <div class="ttc" id="d4d__font_8c_html_a39d8e8e703e0f108970fff86f6179bd1"><div class="ttname"><a href="d4d__font_8c.html#a39d8e8e703e0f108970fff86f6179bd1">D4D_GetNextTab</a></div><div class="ttdeci">D4D_COOR D4D_GetNextTab(D4D_TAB *pTab, D4D_COOR pos)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__font_8c_source.html#l00618">d4d_font.c:618</a></div></div>
-<div class="ttc" id="group__doxd4d__types__type_html_gae08ae30b1270f8ebb05673c0af714f0e"><div class="ttname"><a href="group__doxd4d__types__type.html#gae08ae30b1270f8ebb05673c0af714f0e">D4D_KEY_SCANCODE</a></div><div class="ttdeci">Byte D4D_KEY_SCANCODE</div><div class="ttdoc">Type definition of eGUI keys scan code. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00301">d4d_types.h:301</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_gae08ae30b1270f8ebb05673c0af714f0e"><div class="ttname"><a href="group__doxd4d__types__type.html#gae08ae30b1270f8ebb05673c0af714f0e">D4D_KEY_SCANCODE</a></div><div class="ttdeci">Byte D4D_KEY_SCANCODE</div><div class="ttdoc">Type definition of eGUI keys scan code. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00304">d4d_types.h:304</a></div></div>
 <div class="ttc" id="group__doxd4d__base__type_html_ga484e26d234a753cbb498c29fa9da90f0"><div class="ttname"><a href="group__doxd4d__base__type.html#ga484e26d234a753cbb498c29fa9da90f0">D4D_OBJECT_DRAWFLAGS</a></div><div class="ttdeci">Byte D4D_OBJECT_DRAWFLAGS</div><div class="ttdoc">Drawing object flags type, handled to object in D4D_MSG_DRAW events. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00359">d4d_base.h:359</a></div></div>
 <div class="ttc" id="group__doxd4d__types__type_html_gaa5900ad2e15cbb6e0cb577ca31bfb891"><div class="ttname"><a href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a></div><div class="ttdeci">LWord D4D_COLOR</div><div class="ttdoc">Type definition of eGUI color variables. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00262">d4d_types.h:262</a></div></div>
-<div class="ttc" id="group__doxd4d__extsrc__type_html_ab13d494407c6c07e2a9f5ae7fa519c1e"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#ab13d494407c6c07e2a9f5ae7fa519c1e">D4DLOCALE_FUNCTIONS_S::D4DLOCALE_TranslateStr</a></div><div class="ttdeci">D4DLOCALE_TRANSLATE_STR D4DLOCALE_TranslateStr</div><div class="ttdoc">Pointer to Translate String Function. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00183">d4d_extsrc.h:183</a></div></div>
+<div class="ttc" id="group__doxd4d__extsrc__type_html_ab13d494407c6c07e2a9f5ae7fa519c1e"><div class="ttname"><a href="group__doxd4d__extsrc__type.html#ab13d494407c6c07e2a9f5ae7fa519c1e">D4DLOCALE_FUNCTIONS_S::D4DLOCALE_TranslateStr</a></div><div class="ttdeci">D4DLOCALE_TRANSLATE_STR D4DLOCALE_TranslateStr</div><div class="ttdoc">Pointer to Translate String Function. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__extsrc_8h_source.html#l00190">d4d_extsrc.h:190</a></div></div>
 <div class="ttc" id="group__doxd4d__base__type_html_a091fdaa012d36f085ba2c6465b195718"><div class="ttname"><a href="group__doxd4d__base__type.html#a091fdaa012d36f085ba2c6465b195718">D4D_MESSAGE_S::pScreen</a></div><div class="ttdeci">struct D4D_SCREEN_S * pScreen</div><div class="ttdoc">Pointer to screen who is receiver of this message. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__base_8h_source.html#l00403">d4d_base.h:403</a></div></div>
 <div class="ttc" id="group__doxd4d__string__type_html_ac4e0ffcc4198e3f28984f3aab7778e81"><div class="ttname"><a href="group__doxd4d__string__type.html#ac4e0ffcc4198e3f28984f3aab7778e81">D4D_STR_PROPERTIES_S::font_properties</a></div><div class="ttdeci">D4D_FONT_PROPERTIES font_properties</div><div class="ttdoc">Font properties structure. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__string_8h_source.html#l00095">d4d_string.h:95</a></div></div>
 <div class="ttc" id="d4d__font_8c_html_aae629b70981b64e916bda3d9229f7e83"><div class="ttname"><a href="d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83">D4D_GetFontHeight</a></div><div class="ttdeci">D4D_FONT_SIZE D4D_GetFontHeight(D4D_FONT ix)</div><div class="ttdef"><b>Definition:</b> <a href="d4d__font_8c_source.html#l00381">d4d_font.c:381</a></div></div>
@@ -904,7 +902,7 @@ $(document).ready(function(){initNavTree('d4d__text__box_8c_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__text__box_8c.html">d4d_text_box.c</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:25 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:26 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

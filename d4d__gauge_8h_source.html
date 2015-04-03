@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('d4d__gauge_8h_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="d4d__gauge_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -164,7 +162,7 @@ $(document).ready(function(){initNavTree('d4d__gauge_8h_source.html','');});
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#ifndef D4D_GAUGE_HUB_RADIUS</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="group__doxd4d__gauge__const.html#gab6da35c731567adfd26f7e6932f997f8">   61</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_GAUGE_HUB_RADIUS 3</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#ifndef D4D_COLOR_GAUG_HUB</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="group__doxd4d__gauge__const.html#gaf0011afbd3d936e3d0557fe27496123c">   67</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_COLOR_GAUG_HUB        D4D_COLOR_DARK_RED</span></div>
@@ -190,7 +188,7 @@ $(document).ready(function(){initNavTree('d4d__gauge_8h_source.html','');});
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#ifndef D4D_GAUGE_FNT_PRTY_DEFAULT</span></div>
 <div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="group__doxd4d__gauge__const.html#gaa390869a85fa4b597fd6046e50ad11f2">  108</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define D4D_GAUGE_FNT_PRTY_DEFAULT  ( 0 )</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">* D4D GAUGE setting  public types</span></div>
@@ -223,7 +221,7 @@ $(document).ready(function(){initNavTree('d4d__gauge_8h_source.html','');});
 <div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a602145c492b0ee18832fb074312ba9e0">  154</a></span>&#160;    <a class="code" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a> <a class="code" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a602145c492b0ee18832fb074312ba9e0">value</a>;      <span class="comment">// current value</span></div>
 <div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a42f2d2312796a47ed62506760afd424e">  155</a></span>&#160;    <a class="code" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a> <a class="code" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a42f2d2312796a47ed62506760afd424e">valueLast</a>;  <span class="comment">// last pointer value drawn</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a375dd158abcd97d4d9d8039d4a27f0b4">  156</a></span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga9a27fd136eb003c46603ebf54f068414">D4D_TREND</a> <a class="code" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a375dd158abcd97d4d9d8039d4a27f0b4">trend</a>;            <span class="comment">// trend of pointer move (D4D_CLOCK_WISE or D4D_ANTI_CLOCK_WISE)</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a0e3c515e9c9eeaf1f83f5968a68ac374">  157</a></span>&#160;    <a class="code" href="group__doxd4d__gauge__type.html#struct_d4_d___g_a_u_g_e___l_i_m_i_t_s">D4D_GAUGE_LIMITS</a> <a class="code" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a0e3c515e9c9eeaf1f83f5968a68ac374">limits</a>;    <span class="comment">// gauge runtime configuration    </span></div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a0e3c515e9c9eeaf1f83f5968a68ac374">  157</a></span>&#160;    <a class="code" href="group__doxd4d__gauge__type.html#struct_d4_d___g_a_u_g_e___l_i_m_i_t_s">D4D_GAUGE_LIMITS</a> <a class="code" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a0e3c515e9c9eeaf1f83f5968a68ac374">limits</a>;    <span class="comment">// gauge runtime configuration</span></div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;} <a class="code" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html">D4D_GAUGE_DATA</a>;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment">// gauge configuration (in ROM by default)</span></div>
@@ -235,15 +233,15 @@ $(document).ready(function(){initNavTree('d4d__gauge_8h_source.html','');});
 <div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="struct_d4_d___g_a_u_g_e.html#a1d6999c83b7907860276c8d3a700c577">  166</a></span>&#160;    <a class="code" href="group__doxd4d__types__type.html#struct_d4_d___p_o_i_n_t">D4D_POINT</a> <a class="code" href="struct_d4_d___g_a_u_g_e.html#a1d6999c83b7907860276c8d3a700c577">hubOff</a>;           <span class="comment">// hub coordinates as offset from scrPos</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="struct_d4_d___g_a_u_g_e.html#a04aeee5bd13ecc4b698c9b7c279f7f97">  167</a></span>&#160;    <a class="code" href="group__doxd4d__types__type.html#ga5e8ce195e5479b7da008fb20874154b8">D4D_COOR</a>  <a class="code" href="struct_d4_d___g_a_u_g_e.html#a04aeee5bd13ecc4b698c9b7c279f7f97">pointerLen</a>;       <span class="comment">// lentgth of the pointer line</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="struct_d4_d___g_a_u_g_e.html#a925435954386e74665d84f681f235d4c">  168</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a>*  <a class="code" href="struct_d4_d___g_a_u_g_e.html#a925435954386e74665d84f681f235d4c">pBmpBkgd</a>;   <span class="comment">// gauge background bitmap</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
 <div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="struct_d4_d___g_a_u_g_e.html#a9c0c52abe7b09abc07497d5ff0c512f7">  170</a></span>&#160;    <a class="code" href="group__doxd4d__gauge__type.html#ga773dd39adcb1d9c405732295d59aabd1">D4D_GAUGE_ON_CHANGE</a> <a class="code" href="struct_d4_d___g_a_u_g_e.html#a9c0c52abe7b09abc07497d5ff0c512f7">OnValueChanged</a>;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
 <div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="struct_d4_d___g_a_u_g_e.html#a16705b6712b6e937f168440d5654b522">  172</a></span>&#160;    <a class="code" href="struct_d4_d___g_a_u_g_e___d_a_t_a.html">D4D_GAUGE_DATA</a>* <a class="code" href="struct_d4_d___g_a_u_g_e.html#a16705b6712b6e937f168440d5654b522">pData</a>;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;} <a class="code" href="struct_d4_d___g_a_u_g_e.html">D4D_GAUGE</a>;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">/******************************************************************************</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">* Macros </span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">* Macros</span></div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">// getting the GAUGE structure from general OBJECT</span></div>
@@ -297,7 +295,7 @@ $(document).ready(function(){initNavTree('d4d__gauge_8h_source.html','');});
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00358"></a><span class="lineno"><a class="line" href="group__doxd4d__gauge__macro.html#ga329d16f970759e690873fbcea7b5601f">  358</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STD_GAUGE_INRAM(name, text, x, y, cx, cy, tx, ty, kx, ky, plen, pBmp, fontId, onvalch) \</span></div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="preprocessor">    D4D_DECLARE_GAUGE_INRAM(name, text, x, y, cx, cy, tx, ty, kx, ky, plen, (D4D_GAUGE_F_DEFAULT), pBmp, NULL, fontId, NULL, onvalch, NULL)</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">// Rounded gauge definition</span></div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00365"></a><span class="lineno"><a class="line" href="group__doxd4d__gauge__macro.html#gadb78211906f73c22bebef5301299a5eb">  365</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_RGAUGE_INRAM(name, text, x, y, cx, cy, radius, tx, ty, kx, ky, plen, flags, pBmp, pScheme, fontId, pUser, onvalch, pOnUsrMsg) \</span></div>
@@ -305,7 +303,7 @@ $(document).ready(function(){initNavTree('d4d__gauge_8h_source.html','');});
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00371"></a><span class="lineno"><a class="line" href="group__doxd4d__gauge__macro.html#ga6bb10b54e03e634464c9bb3aa19a5a50">  371</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STD_RGAUGE_INRAM(name, text, x, y, cx, cy, radius, tx, ty, kx, ky, plen, pBmp, fontId, onvalch) \</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="preprocessor">    D4D_DECLARE_RGAUGE_INRAM(name, text, x, y, cx, cy, radius, tx, ty, kx, ky, plen, (D4D_GAUGE_F_DEFAULT), pBmp, NULL, fontId, NULL, onvalch, NULL)    </span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="preprocessor">    D4D_DECLARE_RGAUGE_INRAM(name, text, x, y, cx, cy, radius, tx, ty, kx, ky, plen, (D4D_GAUGE_F_DEFAULT), pBmp, NULL, fontId, NULL, onvalch, NULL)</span></div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="comment">* Global variables</span></div>
@@ -324,7 +322,7 @@ $(document).ready(function(){initNavTree('d4d__gauge_8h_source.html','');});
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__doxd4d__gauge__func.html#ga7b40a0f89fd53f8d0d36ff4da9def3f2">D4D_GaugSetValue</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis, <a class="code" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a> value);</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<a class="code" href="group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f">D4D_GAUGE_VALUE</a> <a class="code" href="group__doxd4d__gauge__func.html#ga46eb288ce539fb7b27abd51455739738">D4D_GaugGetValue</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  </div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__doxd4d__gauge__func.html#gacb98ec4a3b9e3d796a81a6eac1c880f9">D4D_GaugSetLimits</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis, <span class="keyword">const</span> <a class="code" href="group__doxd4d__gauge__type.html#struct_d4_d___g_a_u_g_e___l_i_m_i_t_s">D4D_GAUGE_LIMITS</a>* pLimits);</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__doxd4d__gauge__func.html#ga44be50a833bd8ee7d8d68ced0b00936c">D4D_GaugGetLimits</a>(<a class="code" href="group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s">D4D_OBJECT_PTR</a> pThis, <a class="code" href="group__doxd4d__gauge__type.html#struct_d4_d___g_a_u_g_e___l_i_m_i_t_s">D4D_GAUGE_LIMITS</a>* pLimits);</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;</div>
@@ -355,7 +353,7 @@ $(document).ready(function(){initNavTree('d4d__gauge_8h_source.html','');});
 <div class="ttc" id="struct_d4_d___g_a_u_g_e___d_a_t_a_html_a42f2d2312796a47ed62506760afd424e"><div class="ttname"><a href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a42f2d2312796a47ed62506760afd424e">D4D_GAUGE_DATA::valueLast</a></div><div class="ttdeci">D4D_GAUGE_VALUE valueLast</div><div class="ttdef"><b>Definition:</b> <a href="d4d__gauge_8h_source.html#l00155">d4d_gauge.h:155</a></div></div>
 <div class="ttc" id="struct_d4_d___g_a_u_g_e___d_a_t_a_html_a602145c492b0ee18832fb074312ba9e0"><div class="ttname"><a href="struct_d4_d___g_a_u_g_e___d_a_t_a.html#a602145c492b0ee18832fb074312ba9e0">D4D_GAUGE_DATA::value</a></div><div class="ttdeci">D4D_GAUGE_VALUE value</div><div class="ttdef"><b>Definition:</b> <a href="d4d__gauge_8h_source.html#l00154">d4d_gauge.h:154</a></div></div>
 <div class="ttc" id="group__doxd4d__gauge__type_html_a0cab5f5379d903fe779721fe1cef0306"><div class="ttname"><a href="group__doxd4d__gauge__type.html#a0cab5f5379d903fe779721fe1cef0306">D4D_GAUGE_LIMITS::angleMin</a></div><div class="ttdeci">D4D_GAUGE_ANGLE angleMin</div><div class="ttdoc">line angle from 0x00 to 0xFF </div><div class="ttdef"><b>Definition:</b> <a href="d4d__gauge_8h_source.html#l00140">d4d_gauge.h:140</a></div></div>
-<div class="ttc" id="group__doxd4d__types__type_html_ga9a27fd136eb003c46603ebf54f068414"><div class="ttname"><a href="group__doxd4d__types__type.html#ga9a27fd136eb003c46603ebf54f068414">D4D_TREND</a></div><div class="ttdeci">D4D_TREND</div><div class="ttdoc">Type definition of eGUI trend type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00313">d4d_types.h:313</a></div></div>
+<div class="ttc" id="group__doxd4d__types__type_html_ga9a27fd136eb003c46603ebf54f068414"><div class="ttname"><a href="group__doxd4d__types__type.html#ga9a27fd136eb003c46603ebf54f068414">D4D_TREND</a></div><div class="ttdeci">D4D_TREND</div><div class="ttdoc">Type definition of eGUI trend type. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00316">d4d_types.h:316</a></div></div>
 <div class="ttc" id="group__doxd4d__gauge__func_html_ga46eb288ce539fb7b27abd51455739738"><div class="ttname"><a href="group__doxd4d__gauge__func.html#ga46eb288ce539fb7b27abd51455739738">D4D_GaugGetValue</a></div><div class="ttdeci">D4D_GAUGE_VALUE D4D_GaugGetValue(D4D_OBJECT_PTR pThis)</div><div class="ttdoc">The function gets the current value of gauge. </div><div class="ttdef"><b>Definition:</b> <a href="d4d__gauge_8c_source.html#l00260">d4d_gauge.c:260</a></div></div>
 <div class="ttc" id="group__doxd4d__gauge__type_html_a1f6a95c398c3400b76d08827dfc41669"><div class="ttname"><a href="group__doxd4d__gauge__type.html#a1f6a95c398c3400b76d08827dfc41669">D4D_GAUGE_LIMITS::valueMin</a></div><div class="ttdeci">D4D_GAUGE_VALUE valueMin</div><div class="ttdoc">minimal value (corresponds to angleMin) </div><div class="ttdef"><b>Definition:</b> <a href="d4d__gauge_8h_source.html#l00138">d4d_gauge.h:138</a></div></div>
 <div class="ttc" id="d4d__gauge_8c_html_ac1d01d031ea33edfbcfc945bddc7aa23"><div class="ttname"><a href="d4d__gauge_8c.html#ac1d01d031ea33edfbcfc945bddc7aa23">d4d_gaugeSysFunc</a></div><div class="ttdeci">const D4D_OBJECT_SYS_FUNCTION d4d_gaugeSysFunc</div><div class="ttdef"><b>Definition:</b> <a href="d4d__gauge_8c_source.html#l00055">d4d_gauge.c:55</a></div></div>
@@ -386,7 +384,7 @@ $(document).ready(function(){initNavTree('d4d__gauge_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__gauge_8h.html">d4d_gauge.h</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:25 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:25 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

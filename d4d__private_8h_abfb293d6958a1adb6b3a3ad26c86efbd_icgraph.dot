@@ -1,0 +1,23 @@
+digraph "D4D_GetLastObject"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="D4D_GetLastObject",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="D4D_FindPreviousObjectOn\lScreen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__private_8h.html#a2151a3d96165b376874e77a132fd9a6a"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="D4D_FindPreviousParentSibling\lObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__private_8h.html#a7cc492b17d8f4e707a4d251afc6f0425"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="D4D_FindPreviousSiblingObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__private_8h.html#a48d4fcea3c351039ccefdb2500c3543c"];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="D4D_FindPreviousObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__private_8h.html#a70acecf3901cac21169bedc5088c9186"];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="D4D_FocusPrevObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__doxd4d__screen__func.html#ga47b87849baa7d228b0ba6ff2b5c473e6",tooltip="The function change focus to the previous object in the given screen. "];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="D4D_HandleKeys",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4d__private_8h.html#a643048e622921c9622b02ce17854ef99"];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="D4D_Poll",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b",tooltip="Main eGUI function. Must be periodically called in main loop/task loop. "];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

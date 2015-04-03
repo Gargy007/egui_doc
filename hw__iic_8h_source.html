@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('hw__iic_8h_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="hw__iic_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -155,17 +153,17 @@ $(document).ready(function(){initNavTree('hw__iic_8h_source.html','');});
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">***************************************************************************/</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#ifndef _HW_D4D_I2C_H</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _HW_D4D_I2C_H</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span>     </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">* Constants</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="hw__iic_8h.html#a1af827c2945492d179047734f558dc87">   50</a></span>&#160;<span class="preprocessor">#define D4D_I2C_OK 0</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="hw__iic_8h.html#ac2b17b273f51587aed33cbf4cadc7eff">   51</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_I2C_FALSE  1                                         </span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="hw__iic_8h.html#ac2b17b273f51587aed33cbf4cadc7eff">   51</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_I2C_FALSE  1</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="hw__iic_8h.html#ad7de0b7d04a0b747d390ed15aa73c24f">   52</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_I2C_ACK  D4D_I2C_OK</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="hw__iic_8h.html#acb1f3d212ab1d418feb7cadbf8c6dc23">   53</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_I2C_NACK 2                       </span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="hw__iic_8h.html#acb1f3d212ab1d418feb7cadbf8c6dc23">   53</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_I2C_NACK 2</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="hw__iic_8h.html#a303c1ab2f684712de8b243fce714ee1e">   56</a></span>&#160;<span class="preprocessor">#define D4D_I2C_MCU_TYPE_S08 1</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="hw__iic_8h.html#acb3a6eb2fd46bb10d5a89e49b9c8ecd2">   57</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_I2C_MCU_TYPE_CV 2</span></div>
@@ -173,7 +171,7 @@ $(document).ready(function(){initNavTree('hw__iic_8h_source.html','');});
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">/******************************************************************************</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">* Macros </span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">* Macros</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
@@ -251,7 +249,7 @@ $(document).ready(function(){initNavTree('hw__iic_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_ed2bb5cc41b5c3fd4e21ecf2d834403c.html">touch_screen</a></li><li class="navelem"><a class="el" href="dir_a7f84c726997ab4dd84843acdc3a84ef.html">touch_screen_drivers</a></li><li class="navelem"><a class="el" href="dir_4cd2c86a9391e73fb391e5869dc4a73a.html">cr_touch</a></li><li class="navelem"><a class="el" href="dir_599113a03e9ff33ed9ec93dac8e5ba91.html">iic</a></li><li class="navelem"><a class="el" href="hw__iic_8h.html">hw_iic.h</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:26 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:26 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

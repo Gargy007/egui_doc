@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('mqx__iic_8h_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="mqx__iic_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -155,30 +153,30 @@ $(document).ready(function(){initNavTree('mqx__iic_8h_source.html','');});
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">***************************************************************************/</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#ifndef _MQX_I2C_H</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _MQX_I2C_H</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span>     </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// copilation enable preprocessor condition</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// the string d4dtch_k70_lcdc_ID must be replaced by define created one line up</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#if (D4D_MK_STR(D4D_LLD_TCH_HW_CRTOUCH) == d4dtchhw_crtouch_iicMqx_ID)</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">  * Constants</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">  ******************************************************************************/</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#ifndef I2C_OK</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="mqx__iic_8h.html#a57d0c95ccd7c129288743e9674a9e96d">   53</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define I2C_OK 0</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="mqx__iic_8h.html#a8538c01b879bf575254f3438c723cdcc">   55</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define I2C_FALSE  1                                         </span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="mqx__iic_8h.html#a8538c01b879bf575254f3438c723cdcc">   55</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define I2C_FALSE  1</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="mqx__iic_8h.html#ad4e158b4c0d408e5d99a514c0db0d77b">   56</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define I2C_ACK  I2C_OK</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="mqx__iic_8h.html#af94e27af2eaa1aba2befc1fafe97ab44">   57</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define I2C_NACK 2                       </span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span>    </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="mqx__iic_8h.html#af94e27af2eaa1aba2befc1fafe97ab44">   57</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define I2C_NACK 2</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">/******************************************************************************</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">  * Macros </span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">  * Macros</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">  ******************************************************************************/</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">  #ifndef MQX_I2C_DEV</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="mqx__iic_8h.html#a93153e63f32eb82a5c43f2f2054d3794">   65</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define MQX_I2C_DEV &quot;i2c0:&quot;</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #endif</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">  * Types</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">  ******************************************************************************/</span></div>
@@ -191,11 +189,11 @@ $(document).ready(function(){initNavTree('mqx__iic_8h_source.html','');});
 <div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="union_i2_c___w_o_r_d___b_y_t_e.html#a54d45c7b778f7167af58041ac10485fa">   77</a></span>&#160;      <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> <a class="code" href="union_i2_c___w_o_r_d___b_y_t_e.html#a54d45c7b778f7167af58041ac10485fa">l</a>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }b;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  }<a class="code" href="union_i2_c___w_o_r_d___b_y_t_e.html">I2C_WORD_BYTE</a>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">  * Global functions</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">  ******************************************************************************/</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment">// Init Denit functions</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> <a class="code" href="mqx__iic_8h.html#aaea540f65d67d145fc4b438c4b448bb4">MqxIIC_Init</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> <a class="code" href="mqx__iic_8h.html#ae377a7ae666ce2870c5e353f682cb35c">MqxIIC_DeInit</a>(<span class="keywordtype">void</span>);</div>
@@ -215,14 +213,14 @@ $(document).ready(function(){initNavTree('mqx__iic_8h_source.html','');});
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="comment">// Multi Byte read Write functions - 16 bit device address mode</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> <a class="code" href="mqx__iic_8h.html#a15884395b15a765380f936202a9486b0">MqxIIC_MultiReadBytes16</a>(<a class="code" href="union_i2_c___w_o_r_d___b_y_t_e.html">I2C_WORD_BYTE</a> regAdr, <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *pData, <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> cnt);</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> <a class="code" href="mqx__iic_8h.html#a64da592f5a947a2511e6b466cb5f9bd4">MqxIIC_MultiWriteBytes16</a>(<a class="code" href="union_i2_c___w_o_r_d___b_y_t_e.html">I2C_WORD_BYTE</a> regAdr, <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> *pData, <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> cnt);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="comment">//Help functions</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> <a class="code" href="mqx__iic_8h.html#a4ff3f83deda6b2b5751a06bbf46ef2a5">MqxIIC_LookForDevice</a>(<a class="code" href="group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f">Byte</a> adr);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <a class="code" href="group__doxd4d__types__type.html#ga292b151822cbfa176ac5f8256991c058">sLWord</a> <a class="code" href="mqx__iic_8h.html#a7ab6e72b63c4d70eca8916140d2720cd">MqxIIC_SetBaudRate</a>(<a class="code" href="group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3">LWord</a> baudRate);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">  #endif</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="group__doxd4d__types__type_html_ga292b151822cbfa176ac5f8256991c058"><div class="ttname"><a href="group__doxd4d__types__type.html#ga292b151822cbfa176ac5f8256991c058">sLWord</a></div><div class="ttdeci">signed long sLWord</div><div class="ttdoc">Type definition of sLWord (signed 32-bit). </div><div class="ttdef"><b>Definition:</b> <a href="d4d__types_8h_source.html#l00171">d4d_types.h:171</a></div></div>
 <div class="ttc" id="mqx__iic_8h_html_a98245f249b3f221b8c749b674283d46d"><div class="ttname"><a href="mqx__iic_8h.html#a98245f249b3f221b8c749b674283d46d">MqxIIC_ReadByte16</a></div><div class="ttdeci">Byte MqxIIC_ReadByte16(I2C_WORD_BYTE regAdr, Byte *pData)</div></div>
 <div class="ttc" id="mqx__iic_8h_html_ab212a50c08e37f231b2c9b2f046804cb"><div class="ttname"><a href="mqx__iic_8h.html#ab212a50c08e37f231b2c9b2f046804cb">MqxIIC_WriteByte16</a></div><div class="ttdeci">Byte MqxIIC_WriteByte16(I2C_WORD_BYTE regAdr, Byte data)</div></div>
@@ -252,7 +250,7 @@ $(document).ready(function(){initNavTree('mqx__iic_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_ed2bb5cc41b5c3fd4e21ecf2d834403c.html">touch_screen</a></li><li class="navelem"><a class="el" href="dir_a7f84c726997ab4dd84843acdc3a84ef.html">touch_screen_drivers</a></li><li class="navelem"><a class="el" href="dir_4cd2c86a9391e73fb391e5869dc4a73a.html">cr_touch</a></li><li class="navelem"><a class="el" href="dir_b953d48e68cc8bed39639c38d48efbca.html">iic_mqx</a></li><li class="navelem"><a class="el" href="mqx__iic_8h.html">mqx_iic.h</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:26 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:26 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('d4d__radio__button_8h_source.html','')
 </div><!--header-->
 <div class="contents">
 <a href="d4d__radio__button_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -219,18 +217,18 @@ $(document).ready(function(){initNavTree('d4d__radio__button_8h_source.html','')
 <div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="d4d__radio__button_8h.html#ad458c005050ce5741689c29a7bb725e6">  155</a></span>&#160;<span class="preprocessor">#define D4D_RADIOBUTTON_STATUS_PRESSED_MASK    (0x01)</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="d4d__radio__button_8h.html#a313724b96c8704f488ab7fcfd5e49f2f">  156</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define D4D_RADIOBUTTON_STATUS_CHECKED_MASK    (0x02)</span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html">  158</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span></div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html">  158</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;{</div>
 <div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a0282e8131234174f2a773cdb658f0252">  160</a></span>&#160;    <a class="code" href="group__doxd4d__string__type.html#struct_d4_d___s_t_r_i_n_g___s">D4D_STRING</a> <a class="code" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a0282e8131234174f2a773cdb658f0252">textBuff</a>;    <span class="comment">// button text</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a18a0930aef94f446b1bb7f017d50f46a">  161</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a>*  <a class="code" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a18a0930aef94f446b1bb7f017d50f46a">pBmpChecked</a>;    <span class="comment">// Checked state bitmap</span></div>
 <div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a2ba9bfcb5f3b34924c737283a963a5b1">  162</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="group__doxd4d__bmp__type.html#struct_d4_d___b_m_p">D4D_BMP</a>*  <a class="code" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a2ba9bfcb5f3b34924c737283a963a5b1">pBmpUnChecked</a>;    <span class="comment">// Checked state bitmap</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a8314e582c18830600b5e768901842806">  163</a></span>&#160;    <a class="code" href="d4d__radio__button_8h.html#a2f0f4d37bfff4d9f1a9f9908ed08d87a">D4D_RADIOBUTTON_STATUS</a>*  <a class="code" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a8314e582c18830600b5e768901842806">pStatus</a>;    </div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a8314e582c18830600b5e768901842806">  163</a></span>&#160;    <a class="code" href="d4d__radio__button_8h.html#a2f0f4d37bfff4d9f1a9f9908ed08d87a">D4D_RADIOBUTTON_STATUS</a>*  <a class="code" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a8314e582c18830600b5e768901842806">pStatus</a>;</div>
 <div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a46971caaa91320eacfb4774e2d4a1814">  164</a></span>&#160;    <a class="code" href="group__doxd4d__radio__button__type.html#ga810f2910ba05c9525bd7da3ed31c6109">D4D_RDBTN_ON_CHANGE</a> <a class="code" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html#a46971caaa91320eacfb4774e2d4a1814">OnChange</a>;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;} <a class="code" href="struct_d4_d___r_a_d_i_o_b_u_t_t_o_n.html">D4D_RADIOBUTTON</a>;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">/******************************************************************************</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">* Macros </span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">* Macros</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">******************************************************************************/</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">// getting the Radio Button structure from general OBJECT</span></div>
@@ -265,7 +263,7 @@ $(document).ready(function(){initNavTree('d4d__radio__button_8h_source.html','')
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="group__doxd4d__radio__button__macro.html#ga4ef10cc94a64bebcaaf86cbcbf8d91c3">  267</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STD_RADIOBUTTON(name, text, x, y, cx, cy, pbmpChecked, pbmpUnChecked, fontId, onchange) \</span></div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="preprocessor">    D4D_DECLARE_RADIOBUTTON(name, text, x, y, cx, cy, (D4D_RADIOBUTTON_F_DEFAULT), pbmpChecked, pbmpUnChecked, NULL, fontId, NULL, onchange, NULL)</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment">// Rounded radio button definition</span></div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
@@ -282,7 +280,7 @@ $(document).ready(function(){initNavTree('d4d__radio__button_8h_source.html','')
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00326"></a><span class="lineno"><a class="line" href="group__doxd4d__radio__button__macro.html#ga4007a32daee52f55d17fb481c54196f4">  326</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_RADIOBUTTON_INRAM(name, text, x, y, cx, cy, flags, pbmpChecked, pbmpUnChecked, pScheme, fontId, pUser, onchange, pOnUsrMsg) \</span></div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor">  _D4D_DECLARE_RADIOBUTTON(D4D_NO_CONST, name, text, x, y, cx, cy, 0, NULL, NULL, flags, pbmpChecked, pbmpUnChecked, pScheme, fontId, pUser, onchange, pOnUsrMsg)</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="group__doxd4d__radio__button__macro.html#ga42301aa387a078648c00720a7631e027">  332</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STD_RADIOBUTTON_INRAM(name, text, x, y, cx, cy, pbmpChecked, pbmpUnChecked, fontId, onchange) \</span></div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="preprocessor">    D4D_DECLARE_RADIOBUTTON_INRAM(name, text, x, y, cx, cy, (D4D_RADIOBUTTON_F_DEFAULT), pbmpChecked, pbmpUnChecked, NULL, fontId, NULL, onchange, NULL)</span></div>
@@ -297,7 +295,7 @@ $(document).ready(function(){initNavTree('d4d__radio__button_8h_source.html','')
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">/**************************************************************************/</span> </div>
 <div class="line"><a name="l00347"></a><span class="lineno"><a class="line" href="group__doxd4d__radio__button__macro.html#ga0b3f52040e56c462115b16ffc4897408">  347</a></span>&#160;<span class="preprocessor">#define D4D_DECLARE_STD_RRADIOBUTTON_INRAM(name, text, x, y, cx, cy, radius, pbmpChecked, pbmpUnChecked, fontId, onchange) \</span></div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="preprocessor">    D4D_DECLARE_RRADIOBUTTON_INRAM(name, text, x, y, cx, cy, radius, (D4D_RADIOBUTTON_F_DEFAULT), pbmpChecked, pbmpUnChecked, NULL, fontId, NULL, onchange, NULL)</span></div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="comment">* Global functions</span></div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="comment">******************************************************************************/</span></div>
@@ -345,7 +343,7 @@ $(document).ready(function(){initNavTree('d4d__radio__button_8h_source.html','')
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_efafac70b93b146ebc84eef59c6477bf.html">graphic_objects</a></li><li class="navelem"><a class="el" href="d4d__radio__button_8h.html">d4d_radio_button.h</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:25 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:26 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

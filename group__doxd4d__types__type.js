@@ -33,6 +33,7 @@ var group__doxd4d__types__type =
       [ "point", "group__doxd4d__types__type.html#a123873f18dd6aae213037cd5dd9de927", null ],
       [ "touched", "group__doxd4d__types__type.html#a6d3c3fdc13187c723239c2574f09b19a", null ]
     ] ],
+    [ "D4D_WCHAR_TYPE", "group__doxd4d__types__type.html#ga5773bfefb097a9c5cc86dfc8cbfe0599", null ],
     [ "NULL", "group__doxd4d__types__type.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4", null ],
     [ "Byte", "group__doxd4d__types__type.html#gae3a497195d617519e5353ea7b417940f", null ],
     [ "D4D_BOOL", "group__doxd4d__types__type.html#ga282e8e76dcee1993c566755a8976c7dc", null ],
@@ -46,7 +47,7 @@ var group__doxd4d__types__type =
     [ "D4D_KEYS", "group__doxd4d__types__type.html#ga67966c5400f37b88f6396212c5f129c4", null ],
     [ "D4D_MARGIN_PTR", "group__doxd4d__types__type.html#gae44afb821ca28cc42b25dd14ceadf68d", null ],
     [ "D4D_TCHAR", "group__doxd4d__types__type.html#ga694bba8ee4d726d2af74838c2b6960d3", null ],
-    [ "D4D_WCHAR", "group__doxd4d__types__type.html#gac1ba1090dea100237b6cd152e27f97ad", null ],
+    [ "D4D_WCHAR", "group__doxd4d__types__type.html#ga2b0346c9d340cfea5f05e4ce3782cefc", null ],
     [ "DLWord", "group__doxd4d__types__type.html#ga8e077f622504821aab989ea52663f912", null ],
     [ "LWord", "group__doxd4d__types__type.html#ga80002baaefd77ebb71f317214d4e4bf3", null ],
     [ "sByte", "group__doxd4d__types__type.html#gaa0c2c6a500dad45afc02baea68c403db", null ],

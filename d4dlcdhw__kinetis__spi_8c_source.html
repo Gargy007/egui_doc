@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('d4dlcdhw__kinetis__spi_8c_source.html'
 </div><!--header-->
 <div class="contents">
 <a href="d4dlcdhw__kinetis__spi_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -166,18 +164,18 @@ $(document).ready(function(){initNavTree('d4dlcdhw__kinetis__spi_8c_source.html'
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">// copilation enable preprocessor condition</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">// the string d4dtch_kinetis_spi_ID must be replaced by define created one line up</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#if (D4D_MK_STR(D4D_LLD_LCD_HW) == d4dlcdhw_kinetis_spi_ID)</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">// include of low level driver heaser file</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="comment">// it will be included into wole project only in case that this driver is selected in main D4D configuration file</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">  #include &quot;<a class="code" href="d4dlcdhw__kinetis__spi_8h.html">low_level_drivers\LCD\lcd_hw_interface\kinetis_spi_bm\d4dlcdhw_kinetis_spi.h</a>&quot;</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">/******************************************************************************</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">  * Macros </span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">  * Macros</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">  ******************************************************************************/</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">  #if D4D_COLOR_SYSTEM != D4D_COLOR_SYSTEM_RGB565</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #error The eGUI low level driver &quot;d4dlcdhw_kinetis_spi&quot; not supported selected type of D4D_COLOR_SYSTEM. To run this driver just select D4D_COLOR_SYSTEM_RGB565.</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #endif</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span>  <span class="comment">/******************************************************************************</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">  * Internal function prototypes </span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">  * Internal function prototypes</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">  ******************************************************************************/</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> D4DLCDHW_Init_Kinetis_Spi(<span class="keywordtype">void</span>);</div>
@@ -186,16 +184,16 @@ $(document).ready(function(){initNavTree('d4dlcdhw__kinetis__spi_8c_source.html'
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> D4DLCDHW_SendCmdWord_Kinetis_Spi(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> cmd);</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> D4DLCDHW_ReadDataWord_Kinetis_Spi(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> D4DLCDHW_ReadCmdWord_Kinetis_Spi(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> D4DLCDHW_PinCtl_Kinetis_Spi(<a class="code" href="group__doxd4d__lldapi__types.html#ga00cd63ffbd57b574f4d2a6f26a0770ec">D4DLCDHW_PINS</a> pinId, <a class="code" href="group__doxd4d__lldapi__types.html#ga82b27d036b9f9372d3b2f47774968b2b">D4DHW_PIN_STATE</a> setState); </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> D4DLCDHW_PinCtl_Kinetis_Spi(<a class="code" href="group__doxd4d__lldapi__types.html#ga00cd63ffbd57b574f4d2a6f26a0770ec">D4DLCDHW_PINS</a> pinId, <a class="code" href="group__doxd4d__lldapi__types.html#ga82b27d036b9f9372d3b2f47774968b2b">D4DHW_PIN_STATE</a> setState);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> D4DLCD_FlushBuffer_Kinetis_Spi(<a class="code" href="group__doxd4d__lldapi__types.html#gac76a9d7086895254b321491b62360b4f">D4DLCD_FLUSH_MODE</a> mode);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">/**************************************************************/</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="comment">// the main structure that contains low level driver api functions</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">// the name fo this structure is used for recognizing of configured low level driver of whole D4D</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="comment">// so this name has to be used in main configuration header file of D4D driver to enable this driver</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">const</span> <a class="code" href="group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d_h_w___f_u_n_c_t_i_o_n_s___s">D4DLCDHW_FUNCTIONS</a> d4dlcdhw_kinetis_spi = </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">const</span> <a class="code" href="group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d_h_w___f_u_n_c_t_i_o_n_s___s">D4DLCDHW_FUNCTIONS</a> d4dlcdhw_kinetis_spi =</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    D4DLCDHW_Init_Kinetis_Spi,    </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    D4DLCDHW_Init_Kinetis_Spi,</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    D4DLCDHW_SendDataWord_Kinetis_Spi,</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    D4DLCDHW_SendCmdWord_Kinetis_Spi,</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    D4DLCDHW_ReadDataWord_Kinetis_Spi,</div>
@@ -209,71 +207,71 @@ $(document).ready(function(){initNavTree('d4dlcdhw__kinetis__spi_8c_source.html'
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="comment">// FUNCTION:    D4DLCDHW_Init_Kinetis_Spi</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="comment">// DESCRIPTION: The function is used for initialization of this low level driver </span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="comment">//              </span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="comment">// DESCRIPTION: The function is used for initialization of this low level driver</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">// PARAMETERS:  none</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">//              </span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="comment">// RETURNS:     result: 1 - Success</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="comment">//                      0 - Failed</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------  </span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> D4DLCDHW_Init_Kinetis_Spi(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  { </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">// defined in spi_cfg.h</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">    #ifdef D4DLCD_DISPLAY_MCU_USER_INIT</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor"></span>      D4DLCD_DISPLAY_MCU_USER_INIT</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">    #endif  </span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor"></span>    </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#ae582da8c0c57a2b818676ef88df85dce">D4DLCD_SPI_PORT_INIT</a>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      D4DLCD_ASSERT_DC;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      D4DLCD_INIT_DC;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;         </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="comment">// Enable and clear SPI</span></div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#adfef9f99c40ab00301da89f34121fdec">D4DLCD_SPI_MCR</a> &amp;= (~ SPI_MCR_MDIS_MASK);</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#adfef9f99c40ab00301da89f34121fdec">D4DLCD_SPI_MCR</a> = SPI_MCR_HALT_MASK | SPI_MCR_CLR_TXF_MASK | SPI_MCR_CLR_RXF_MASK;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="comment">// 15+1 = 16-bit transfers, Fclk = Fsys/4</span></div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#ad6643b2168fb61fdff18aa681a3b8f5f">D4DLCD_SPI_CTAR0</a> = SPI_CTAR_FMSZ(15) | SPI_CTAR_BR(0);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor">    #ifdef D4DLCD_SPI_DBL_BRATE</span></div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor"></span>      <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#ad6643b2168fb61fdff18aa681a3b8f5f">D4DLCD_SPI_CTAR0</a> |= SPI_CTAR_DBR_MASK;   <span class="comment">// Dual Baudrate enable in config file</span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor"></span>      </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">// Set CS0-7 inactive high </span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">// Set CS0-7 inactive high</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#adfef9f99c40ab00301da89f34121fdec">D4DLCD_SPI_MCR</a> |= (SPI_MCR_PCSIS(1 &lt;&lt; (D4DLCD_SPI_PCS_ID))|SPI_MCR_MSTR_MASK);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment">// Disable all IRQs</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#ac1887faa2caf5f889e772fd26f5a1b94">D4DLCD_SPI_RSER</a> = 0;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">// clear Flag</span></div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#a46de9235831aa5cd72e31ce0d71b144f">D4DLCD_SPI_SR</a> = SPI_SR_TFFF_MASK;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#a46de9235831aa5cd72e31ce0d71b144f">D4DLCD_SPI_SR</a> = SPI_SR_TCF_MASK;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="comment">// Enable SPI</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#adfef9f99c40ab00301da89f34121fdec">D4DLCD_SPI_MCR</a> &amp;= (~ SPI_MCR_HALT_MASK);   </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordflow">return</span> 1;  </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#adfef9f99c40ab00301da89f34121fdec">D4DLCD_SPI_MCR</a> &amp;= (~ SPI_MCR_HALT_MASK);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  }</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  </div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <span class="comment">// FUNCTION:    D4DLCDHW_DeInit_Kinetis_Spi</span></div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="comment">// DESCRIPTION: The function is used for deinitialization of this low level driver </span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="comment">//              </span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="comment">// DESCRIPTION: The function is used for deinitialization of this low level driver</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <span class="comment">// PARAMETERS:  none</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <span class="comment">//              </span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="comment">// RETURNS:     result: 1 - Success</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="comment">//                      0 - Failed</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------  </span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> D4DLCDHW_DeInit_Kinetis_Spi(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  {</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">return</span> 1;  </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  }</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <span class="comment">// FUNCTION:    D4DLCDHW_SendDataWord_Kinetis_Spi</span></div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <span class="comment">// DESCRIPTION: The function send the one 16 bit variable into LCD  </span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <span class="comment">// DESCRIPTION: The function send the one 16 bit variable into LCD</span></div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="comment">// PARAMETERS:  unsigned short value    variable to send</span></div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="comment">//</span></div>
@@ -281,64 +279,64 @@ $(document).ready(function(){initNavTree('d4dlcdhw__kinetis__spi_8c_source.html'
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> D4DLCDHW_SendDataWord_Kinetis_Spi(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> value)</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  {</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="comment">// wait write buffer not full flag        </span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">while</span> (!(<a class="code" href="d4dlcdhw__kinetis__spi_8h.html#a46de9235831aa5cd72e31ce0d71b144f">D4DLCD_SPI_SR</a> &amp; SPI_SR_TFFF_MASK)){}; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="comment">// wait write buffer not full flag</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">while</span> (!(<a class="code" href="d4dlcdhw__kinetis__spi_8h.html#a46de9235831aa5cd72e31ce0d71b144f">D4DLCD_SPI_SR</a> &amp; SPI_SR_TFFF_MASK)){};</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="comment">// Assert CS0, Use config 0</span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#a56307ad5fd868faad1bae372fb15389b">D4DLCD_SPI_PUSHR</a> = SPI_PUSHR_PCS(1 &lt;&lt; (D4DLCD_SPI_PCS_ID)) | SPI_PUSHR_CTAS(0) | SPI_PUSHR_TXDATA((<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>)value);</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">while</span> (!(<a class="code" href="d4dlcdhw__kinetis__spi_8h.html#a46de9235831aa5cd72e31ce0d71b144f">D4DLCD_SPI_SR</a> &amp; SPI_SR_TCF_MASK)){};<span class="comment">// while shift-out complete</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="d4dlcdhw__kinetis__spi_8h.html#a46de9235831aa5cd72e31ce0d71b144f">D4DLCD_SPI_SR</a> = SPI_SR_TCF_MASK;           <span class="comment">// clear flag</span></div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  }</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="comment">// FUNCTION:    D4DLCDHW_SendCmdWord_Kinetis_Spi</span></div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="comment">// DESCRIPTION: The function send the one 16 bit command into LCD  </span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="comment">// DESCRIPTION: The function send the one 16 bit command into LCD</span></div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="comment">// PARAMETERS:  unsigned short cmd    command to send</span></div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  <span class="comment">// RETURNS:     none</span></div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> D4DLCDHW_SendCmdWord_Kinetis_Spi(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> cmd)</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  {       </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    D4DLCD_ASSERT_DC;                        <span class="comment">// DataCmd := 1 </span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    D4DLCD_ASSERT_DC;                        <span class="comment">// DataCmd := 1</span></div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    D4DLCDHW_SendDataWord_Kinetis_Spi(cmd);</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    D4DLCD_DEASSERT_DC;                      <span class="comment">// DataCmd := 0</span></div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  }</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="comment">// FUNCTION:    D4DLCDHW_ReadDataWord_Kinetis_Spi</span></div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="comment">// DESCRIPTION: The function reads the one 16 bit variable from LCD (if this function is supported)  </span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="comment">// DESCRIPTION: The function reads the one 16 bit variable from LCD (if this function is supported)</span></div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  <span class="comment">// PARAMETERS:  none</span></div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <span class="comment">// RETURNS:     unsigned short - the readed value</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  <span class="comment">//              </span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> D4DLCDHW_ReadDataWord_Kinetis_Spi(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  {       </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  {</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  }</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  </div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="comment">// FUNCTION:    D4DLCDHW_ReadCmdWord_Kinetis_Spi</span></div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  <span class="comment">// DESCRIPTION: The function reads the one 16 bit command from LCD (if this function is supported)  </span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  <span class="comment">// DESCRIPTION: The function reads the one 16 bit command from LCD (if this function is supported)</span></div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="comment">// PARAMETERS:  none</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="comment">// RETURNS:     unsigned short - the readed value</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="comment">//              </span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> D4DLCDHW_ReadCmdWord_Kinetis_Spi(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  {       </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  {</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  }</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="comment">// FUNCTION:    D4DLCDHW_PinCtl_Kinetis_Spi</span></div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <span class="comment">// SCOPE:       Low Level Driver API function</span></div>
@@ -348,7 +346,7 @@ $(document).ready(function(){initNavTree('d4dlcdhw__kinetis__spi_8c_source.html'
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  <span class="comment">//              D4DHW_PIN_STATE setState - Pin action</span></div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <span class="comment">// RETURNS:     for Get action retuns the pin value</span></div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> D4DLCDHW_PinCtl_Kinetis_Spi(<a class="code" href="group__doxd4d__lldapi__types.html#ga00cd63ffbd57b574f4d2a6f26a0770ec">D4DLCDHW_PINS</a> pinId, <a class="code" href="group__doxd4d__lldapi__types.html#ga82b27d036b9f9372d3b2f47774968b2b">D4DHW_PIN_STATE</a> setState)</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  {</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">switch</span>(pinId)</div>
@@ -357,7 +355,7 @@ $(document).ready(function(){initNavTree('d4dlcdhw__kinetis__spi_8c_source.html'
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <span class="keywordflow">switch</span>(setState)</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        {</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="preprocessor">          #ifdef D4DLCD_RESET</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="preprocessor"></span>          </div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba8b790c13692ee037eb5942e60deb4378">D4DHW_PIN_OUT</a>:</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;              <a class="code" href="d4dlcdhw__flexbus__16b_8h.html#afce5864678f6abfb944a7930e0fafe50">OUTPUT</a>(D4DLCD_RESET);</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;              <span class="keywordflow">break</span>;</div>
@@ -370,16 +368,16 @@ $(document).ready(function(){initNavTree('d4dlcdhw__kinetis__spi_8c_source.html'
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2babf80a3f0626cac79381265fc69e0740f">D4DHW_PIN_SET_0</a>:</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;              D4DLCD_ASSERT_RESET;</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;              <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="preprocessor">          #endif</span></div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="preprocessor"></span>        }</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga00cd63ffbd57b574f4d2a6f26a0770eca2fef9fcdf9d331556e03bf16e16a5d3f">D4DLCD_BACKLIGHT_PIN</a>:</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">switch</span>(setState)</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;          </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="preprocessor">          #ifdef D4DLCD_BACKLIGHT</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="preprocessor"></span>          </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2ba8b790c13692ee037eb5942e60deb4378">D4DHW_PIN_OUT</a>:</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;              <a class="code" href="d4dlcdhw__flexbus__16b_8h.html#afce5864678f6abfb944a7930e0fafe50">OUTPUT</a>(D4DLCD_BACKLIGHT);</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;              <span class="keywordflow">break</span>;</div>
@@ -391,18 +389,18 @@ $(document).ready(function(){initNavTree('d4dlcdhw__kinetis__spi_8c_source.html'
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;              <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="group__doxd4d__lldapi__types.html#gga82b27d036b9f9372d3b2f47774968b2babf80a3f0626cac79381265fc69e0740f">D4DHW_PIN_SET_0</a>:</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;              D4DLCD_ASSERT_BACKLIGHT;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;              <span class="keywordflow">break</span>; </div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;         </div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor">         #endif   </span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="preprocessor"></span>                    </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;              <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor">         #endif</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        }</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="keywordflow">break</span>;    </div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    }</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;       </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  }</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  </div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="comment">// FUNCTION:    D4DLCD_FlushBuffer_Kinetis_Spi</span></div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <span class="comment">// SCOPE:       Low Level Driver API function</span></div>
@@ -410,11 +408,11 @@ $(document).ready(function(){initNavTree('d4dlcdhw__kinetis__spi_8c_source.html'
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <span class="comment">//              driver the complete object is drawed and pending pixels should be flushed</span></div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <span class="comment">// PARAMETERS:  none</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <span class="comment">//              </span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <span class="comment">//</span></div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  <span class="comment">// RETURNS:     none</span></div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> D4DLCD_FlushBuffer_Kinetis_Spi(<a class="code" href="group__doxd4d__lldapi__types.html#gac76a9d7086895254b321491b62360b4f">D4DLCD_FLUSH_MODE</a> mode)</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  {       </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  {</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;     <a class="code" href="group__doxd4d__base__macro.html#gabc101da90c6cc47c3e73b24c82ba494a">D4D_UNUSED</a>(mode);</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  }</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
@@ -448,7 +446,7 @@ $(document).ready(function(){initNavTree('d4dlcdhw__kinetis__spi_8c_source.html'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_e63864f3cf47839db9022321f26e31ad.html">LCD</a></li><li class="navelem"><a class="el" href="dir_23a5828fc9116e21f9b2ccfa5fee5622.html">lcd_hw_interface</a></li><li class="navelem"><a class="el" href="dir_6b9d93c135f4d7f1bf5a372a9d8cf05a.html">kinetis_spi_bm</a></li><li class="navelem"><a class="el" href="d4dlcdhw__kinetis__spi_8c.html">d4dlcdhw_kinetis_spi.c</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:26 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:26 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"group__doxd4d__lldapi__types.html#ggac76a9d7086895254b321491b62360b4fae7aef24cd5ced5497e5d95f07830f4a5":[7,5,0,18,3],
+"group__doxd4d__lldapi__types.html#struct_d4_d___t_o_u_c_h_s_c_r_e_e_n___l_i_m_i_t_s___s":[7,5,0,0],
 "group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d___f_r_a_m_e_b_u_f_f___d_e_s_c___s":[7,5,0,1],
 "group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d___f_u_n_c_t_i_o_n_s___s":[7,5,0,3],
 "group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d_h_w___f_u_n_c_t_i_o_n_s___s":[7,5,0,4],
@@ -183,9 +185,9 @@ var NAVTREEINDEX3 =
 "group__doxd4d__picture__macro.html#ga04ab1349c7137584cd027974e81719ec":[7,25,2,7],
 "group__doxd4d__picture__macro.html#ga213af9c62f51ef03859395ac9eb1e746":[7,25,2,1],
 "group__doxd4d__picture__macro.html#ga2aeb363c25b6b15e692f9c42193224cf":[7,25,2,2],
-"group__doxd4d__picture__macro.html#ga515ad61d09c8b281bc239f15bcf95f82":[7,25,2,6],
 "group__doxd4d__picture__macro.html#ga5aba34210f03a8d7011bf09cb1930da8":[7,25,2,3],
 "group__doxd4d__picture__macro.html#ga722659d544297f0f40ab58e33d562f51":[7,25,2,0],
+"group__doxd4d__picture__macro.html#gaa281d76253712711c5dd0444078bf94d":[7,25,2,6],
 "group__doxd4d__picture__macro.html#gaa4c11e6e39878c0cb8b66362eb924aba":[7,25,2,4],
 "group__doxd4d__picture__macro.html#gab48c3b9b46b9906f666224b6e32013b3":[7,25,2,5],
 "group__doxd4d__picture__macro.html#gadae81c9df9fd8ece1c7bb25d8d7b8576":[7,25,2,8],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "group__doxd4d__scheme__const.html#ga76b61f2464a937d20cff64c854af136b":[7,9,0,8],
 "group__doxd4d__scheme__const.html#ga78e252f2768fc1a368aa9bb299d10838":[7,9,0,12],
 "group__doxd4d__scheme__const.html#ga7f63eab2065212ed5e725ca980cfe65c":[7,9,0,7],
-"group__doxd4d__scheme__const.html#ga82831d98384762735ba8211b3510d147":[7,9,0,10],
-"group__doxd4d__scheme__const.html#ga867dd81700c56cb4c3a2395284c35af8":[7,9,0,6],
-"group__doxd4d__scheme__const.html#ga9156df5207aca1514a356ad137b1cda5":[7,9,0,5]
+"group__doxd4d__scheme__const.html#ga82831d98384762735ba8211b3510d147":[7,9,0,10]
 };

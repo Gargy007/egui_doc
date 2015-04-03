@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 </div><!--header-->
 <div class="contents">
 <a href="d4dlcdhw__px__dcu__fb_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -170,11 +168,11 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">// it will be included into wole project only in case that this driver is selected in main D4D configuration file</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="d4dlcdhw__px__dcu__fb_8h.html">d4dlcdhw_px_dcu_fb.h</a>&quot;</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">/******************************************************************************</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"> * Macros </span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment"> * Macros</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"> ******************************************************************************/</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">/******************************************************************************</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"> * Internal function prototypes </span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"> * Internal function prototypes</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"> ******************************************************************************/</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> TWR_PXD10_SIUL_setup(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> EDT_setup(<span class="keywordtype">void</span>);</div>
@@ -193,11 +191,11 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">// the name fo this structure is used for recognizing of configured low level driver of whole D4D</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">// so this name has to be used in main configuration header file of D4D driver to enable this driver</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">const</span> <a class="code" href="group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d_h_w_f_b___f_u_n_c_t_i_o_n_s___s">D4DLCDHWFB_FUNCTIONS</a> d4dlcdhw_px_dcu_fb =</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{ </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;          D4DLCDHW_Init_PxDcuFb, </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;          D4DLCDHW_WriteData_PxDcuFb, </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;          D4DLCDHW_ReadData_PxDcuFb, </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;          D4DLCDHW_GetFbDescriptor_PxDcuFb, </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;          D4DLCDHW_Init_PxDcuFb,</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;          D4DLCDHW_WriteData_PxDcuFb,</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;          D4DLCDHW_ReadData_PxDcuFb,</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;          D4DLCDHW_GetFbDescriptor_PxDcuFb,</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;          D4DLCDHW_PinCtl_PxDcuFb,</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    D4DLCD_FlushBuffer_PxDcuFb,</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;          D4DLCDHW_DeInit_PxDcuFb</div>
@@ -205,23 +203,23 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">/**************************************************************/</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d___f_r_a_m_e_b_u_f_f___d_e_s_c___s">D4DLCD_FRAMEBUFF_DESC</a> d4dlcdhw_px_dcu_desc =</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;          {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a30274ae01ac3d59644bf70ac48c1b0db">D4DLCDHWFB_START_ADDRESS</a>, </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a6bd4c362288ba0519d5b2604286abb2a">D4DLCDHWFB_X_MAX</a>, </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a9337cd35e88ce1510b585e0fac5b46f0">D4DLCDHWFB_Y_MAX</a>, </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    <a class="code" href="d4dlcdhw__k70__lcdc_8h.html#a96f2adb70fcea8966ff465bb02f3712d">D4DLCDHWFB_BPP_BYTE</a> </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a30274ae01ac3d59644bf70ac48c1b0db">D4DLCDHWFB_START_ADDRESS</a>,</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a6bd4c362288ba0519d5b2604286abb2a">D4DLCDHWFB_X_MAX</a>,</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    <a class="code" href="d4dlcdhw__dragonfire__lcdc_8h.html#a9337cd35e88ce1510b585e0fac5b46f0">D4DLCDHWFB_Y_MAX</a>,</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    <a class="code" href="d4dlcdhw__k70__lcdc_8h.html#a96f2adb70fcea8966ff465bb02f3712d">D4DLCDHWFB_BPP_BYTE</a></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;          };</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">/**************************************************************/</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">// FUNCTION:    D4DLCDHW_Init_PxDcuFb</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">// DESCRIPTION: The function is used for initialization of this low level driver </span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">//              </span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">// DESCRIPTION: The function is used for initialization of this low level driver</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">// PARAMETERS:  none</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">//              </span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">// RETURNS:     result: 1 - Success</span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">//                      0 - Failed</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">//-----------------------------------------------------------------------------  </span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;uint32_t* clut_memory_test = (uint32_t*) 0xffe7e000;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> D4DLCDHW_Init_PxDcuFb(<span class="keywordtype">void</span>)</div>
@@ -256,7 +254,7 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="comment">//Tile settings</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        DCU.LAYER[i].CTRLDESCL7.B.TILE_VER_SIZE = 0;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        DCU.LAYER[i].CTRLDESCL7.B.TILE_HOR_SIZE = 0;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="comment">//Enable layer    </span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="comment">//Enable layer</span></div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        DCU.LAYER[i].CTRLDESCL4.B.EN = 0; <span class="comment">//Turn on the layer</span></div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    }</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
@@ -288,11 +286,11 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">#if D4DLCDHWFB_BPP_BYTE == 4</span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor"></span>    DCU.LAYER[i].CTRLDESCL4.B.BPP = 6; <span class="comment">// b0110 = 32 bpp (ARGB8888)</span></div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#elif D4DLCDHWFB_BPP_BYTE == 2</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor"></span>    DCU.LAYER[i].CTRLDESCL4.B.BPP = 4; <span class="comment">// b0100 = 16 bpp (RGB565) </span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor"></span>    DCU.LAYER[i].CTRLDESCL4.B.BPP = 4; <span class="comment">// b0100 = 16 bpp (RGB565)</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#elif D4DLCDHWFB_BPP_BYTE == 1</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor"></span>    DCU.LAYER[i].CTRLDESCL4.B.BPP = 3; <span class="comment">// b0011 = 8 bpp (RGB332)</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#else     </span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor"></span>    DCU.LAYER[i].CTRLDESCL4.B.BPP = 4; <span class="comment">// b0100 = 16 bpp (RGB565) </span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor"></span>    DCU.LAYER[i].CTRLDESCL4.B.BPP = 4; <span class="comment">// b0100 = 16 bpp (RGB565)</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">//Layer blending and enable</span></div>
@@ -310,7 +308,7 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment">//Tile settings</span></div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    DCU.LAYER[i].CTRLDESCL7.B.TILE_VER_SIZE = 0;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    DCU.LAYER[i].CTRLDESCL7.B.TILE_HOR_SIZE = 0;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">//Enable layer  </span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="comment">//Enable layer</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    DCU.LAYER[i].CTRLDESCL4.B.EN = 1; <span class="comment">//Turn on the layer</span></div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    DCU.DCU_MODE.B.DCU_MODE = 1; <span class="comment">// Standard Mode</span></div>
@@ -396,13 +394,13 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment">// FUNCTION:    D4DLCDHW_DeInit_PxDcuFb</span></div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">// DESCRIPTION: The function is used for deinitialization of this low level driver </span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">//              </span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">// DESCRIPTION: The function is used for deinitialization of this low level driver</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment">// PARAMETERS:  none</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment">//              </span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="comment">// RETURNS:     result: 1 - Success</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="comment">//                      0 - Failed</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="comment">//-----------------------------------------------------------------------------  </span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> D4DLCDHW_DeInit_PxDcuFb(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;{</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordflow">return</span> 1;</div>
@@ -411,7 +409,7 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment">// FUNCTION:    D4DLCDHW_SendDataWord_PxDcuFb</span></div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">// DESCRIPTION: The function send the one 16 bit variable into LCD  </span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">// DESCRIPTION: The function send the one 16 bit variable into LCD</span></div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="comment">// PARAMETERS:  unsigned long addr                address to write data</span></div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">//                                                                    unsigned short value    variable to send</span></div>
@@ -423,12 +421,12 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> D4DLCDHW_WriteData_PxDcuFb(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> addr, <a class="code" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> value)</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;{</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="preprocessor">#if TWR_PXD10_REV ==  TWR_PXD10_REV_B  </span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="preprocessor">#if TWR_PXD10_REV ==  TWR_PXD10_REV_B</span></div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="preprocessor"></span>    *((<a class="code" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a>*) addr) = value;</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="preprocessor"></span>    <a class="code" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> value_b, value_r;</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="preprocessor">#if D4DLCDHWFB_BPP_BYTE == 2  // b0100 = 16 bpp (RGB565) </span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="preprocessor">#if D4DLCDHWFB_BPP_BYTE == 2  // b0100 = 16 bpp (RGB565)</span></div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="preprocessor"></span>    <a class="code" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> value_b, value_r;</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    value_b = value &amp; 0b0000000000011111;</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    value_r = (value &amp; 0b1111100000000000) &gt;&gt; 11;</div>
@@ -446,12 +444,12 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="comment">// FUNCTION:    D4DLCDHW_ReadDataWord_PxDcuFb</span></div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">// DESCRIPTION: The function reads the one 16 bit variable from LCD (if this function is supported)  </span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">// DESCRIPTION: The function reads the one 16 bit variable from LCD (if this function is supported)</span></div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="comment">// PARAMETERS:  unsigned long addr                address to read data</span></div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="comment">// RETURNS:     unsigned short - the readed value</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="comment">//              </span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="keyword">static</span> <a class="code" href="group__doxd4d__types__type.html#gaa5900ad2e15cbb6e0cb577ca31bfb891">D4D_COLOR</a> D4DLCDHW_ReadData_PxDcuFb(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> addr)</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;{</div>
@@ -461,12 +459,12 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;<span class="comment">// FUNCTION:    D4DLCDHW_GetFbDescriptor_PxDcuFb</span></div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="comment">// SCOPE:       Low Level Driver API function</span></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">// DESCRIPTION: The function return the pointer on filled frame buffer descriptor  </span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">// DESCRIPTION: The function return the pointer on filled frame buffer descriptor</span></div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="comment">// PARAMETERS:  none</span></div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;<span class="comment">// RETURNS:     D4DLCD_FRAMEBUFF_DESC* - pointer on frame buffer descriptor</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="comment">//              </span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="keyword">static</span> <a class="code" href="group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d___f_r_a_m_e_b_u_f_f___d_e_s_c___s">D4DLCD_FRAMEBUFF_DESC</a>* D4DLCDHW_GetFbDescriptor_PxDcuFb(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;{</div>
@@ -496,7 +494,7 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">//              driver the complete object is drawed and pending pixels should be flushed</span></div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="comment">// PARAMETERS:  none</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="comment">//              </span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment">// RETURNS:     none</span></div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> D4DLCD_FlushBuffer_PxDcuFb(<a class="code" href="group__doxd4d__lldapi__types.html#gac76a9d7086895254b321491b62360b4f">D4DLCD_FLUSH_MODE</a> mode)</div>
@@ -526,7 +524,7 @@ $(document).ready(function(){initNavTree('d4dlcdhw__px__dcu__fb_8c_source.html',
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_e63864f3cf47839db9022321f26e31ad.html">LCD</a></li><li class="navelem"><a class="el" href="dir_23a5828fc9116e21f9b2ccfa5fee5622.html">lcd_hw_interface</a></li><li class="navelem"><a class="el" href="dir_6b0c512593609d667b2124f2058b5a9d.html">px_dcu_fb</a></li><li class="navelem"><a class="el" href="d4dlcdhw__px__dcu__fb_8c.html">d4dlcdhw_px_dcu_fb.c</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:26 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:26 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

@@ -41,7 +41,6 @@
    </div>
    <div id="projectbrief">Reference Manual</div>
    <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
-<!--
        <td id="donatebutton" style="padding-right"> 
        <div id="egui_donate_logo">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -53,7 +52,6 @@
         </form>
   	   </div>
     </td>
--->
   </td>
  </tr>
  </tbody>
@@ -122,25 +120,25 @@ $(document).ready(function(){initNavTree('d4dlcdhw__common_8c_source.html','');}
 </div><!--header-->
 <div class="contents">
 <a href="d4dlcdhw__common_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/**************************************************************************</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* Copyright 2014 by Petr Gargulak. eGUI Community.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* Copyright 2009-2013 by Petr Gargulak. Freescale Semiconductor, Inc.</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">***************************************************************************</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* This program is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3 </span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* it under the terms of the GNU Lesser General Public License Version 3</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* or later (the &quot;LGPL&quot;).</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">*</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">* As a special exception, the copyright holders of the eGUI project give you</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">* permission to link the eGUI sources with independent modules to produce an</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">* executable, regardless of the license terms of these independent modules,</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">* and to copy and distribute the resulting executable under terms of your</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">* choice, provided that you also meet, for each linked independent module,</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">* the terms and conditions of the license of that module.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based </span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library. </span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception </span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated </span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">* An independent module is a module which is not derived from or based</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">* on this library.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">* If you modify the eGUI sources, you may extend this exception</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">* to your version of the eGUI sources, but you are not obligated</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">* to do so. If you do not wish to do so, delete this</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">* exception statement from your version.</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">*</span></div>
@@ -156,38 +154,38 @@ $(document).ready(function(){initNavTree('d4dlcdhw__common_8c_source.html','');}
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="d4d_8h.html">d4d.h</a>&quot;</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="d4d__lldapi_8h.html">common_files/d4d_lldapi.h</a>&quot;</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="d4d__private_8h.html">common_files/d4d_private.h</a>&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="d4dlcdhw__common_8h.html">low_level_drivers\LCD\lcd_hw_interface\common_drivers\d4dlcdhw_common.h</a>&quot;</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="comment">/******************************************************************************</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">  * Macros </span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">  * Macros</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">  ******************************************************************************/</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="comment">/******************************************************************************</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">  * Functions definitions</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">  ******************************************************************************/</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">/**************************************************************/</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="comment">/**************************************************************/</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">/**************************************************************/</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="d4dlcdhw__common_8h.html#af7c00bbe1d4508fc589be18b0eba2b1d">   81</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="d4dlcdhw__common_8c.html#af7c00bbe1d4508fc589be18b0eba2b1d">D4DLCDHW_CommonInit</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;     </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="d4dlcdhw__common_8c.html#a48998d5cf76dc0435c5e6eba1cfac30d">   92</a></span>&#160;<span class="preprocessor">  #define MCU_BUS_CYCLES_100US (D4D_MCU_BUS_CLOCK / 10000) </span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor"></span>          </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="d4dlcdhw__common_8c.html#a48998d5cf76dc0435c5e6eba1cfac30d">   92</a></span>&#160;<span class="preprocessor">  #define MCU_BUS_CYCLES_100US (D4D_MCU_BUS_CLOCK / 10000)</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">  #ifdef MQX_CPU</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor"></span>    <span class="comment">// do nothing  </span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor"></span>    <span class="comment">// do nothing</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">  #elif (D4D_MCU_TYPE == D4D_HCS08)</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor"></span>  </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="d4dlcdhw__common_8c.html#a80095f30d2e8ed8ce11d8ef8921df2c2">   98</a></span>&#160;<span class="preprocessor">  #define MCU_BUS_CYCLES_100US_WITHOUT_OVERHEAD (MCU_BUS_CYCLES_100US - 18)</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="d4dlcdhw__common_8c.html#ac4d9233aff05bdb693278ef6fab204f6">   99</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #define DELAY_LOOP_CNT (MCU_BUS_CYCLES_100US_WITHOUT_OVERHEAD / 5)</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor"></span></div>
@@ -228,19 +226,19 @@ $(document).ready(function(){initNavTree('d4dlcdhw__common_8c_source.html','');}
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      rts                                <span class="comment">/* return from subroutine */</span></div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  }</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor"> #elif (D4D_MCU_TYPE == D4D_HCS12) || (D4D_MCU_TYPE == D4D_HCS12X)</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor"></span>   </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;   </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">   #define MCU_BUS_CYCLES_100US_WITHOUT_OVERHEAD (MCU_BUS_CYCLES_100US - 13)   </span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">   #define MCU_BUS_CYCLES_100US_WITHOUT_OVERHEAD (MCU_BUS_CYCLES_100US - 13)</span></div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor"></span><span class="preprocessor">   #define DELAY_LOOP_CNT (MCU_BUS_CYCLES_100US_WITHOUT_OVERHEAD /3)</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor"></span>   </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">   #pragma CODE_SEG __NEAR_SEG NON_BANKED</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor"></span><span class="preprocessor">   #pragma NO_ENTRY</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor"></span><span class="preprocessor">   #pragma NO_EXIT</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor"></span><span class="preprocessor">   #pragma MESSAGE DISABLE C5703</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor"></span>   </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;   <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="d4dlcdhw__common_8c.html#a57cfa4512a55d768757bb7440137ded1">Cpu_Delay100US</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> us100)</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  {</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <span class="comment">/* irremovable overhead (ignored): 13 cycles */</span></div>
@@ -273,12 +271,12 @@ $(document).ready(function(){initNavTree('d4dlcdhw__common_8c_source.html','');}
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">   #pragma CODE_SEG DEFAULT</span></div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor"></span> <span class="comment">//===========================================================================</span></div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor"> #elif (D4D_MCU_TYPE == D4D_MCF51) || (D4D_MCU_TYPE == D4D_MCF52) </span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor"> #elif (D4D_MCU_TYPE == D4D_MCF51) || (D4D_MCU_TYPE == D4D_MCF52)</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor"> #define MCU_BUS_CYCLES_100US_WITHOUT_OVERHEAD (MCU_BUS_CYCLES_100US - 9)</span></div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor"></span><span class="preprocessor"> #define DELAY_LOOP_CNT (unsigned int)(MCU_BUS_CYCLES_100US_WITHOUT_OVERHEAD / 3)</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="preprocessor"></span> </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  __declspec(register_abi) static <span class="keywordtype">void</span> <a class="code" href="d4dlcdhw__common_8c.html#a57cfa4512a55d768757bb7440137ded1">Cpu_Delay100US</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> us100:__D0)</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  {</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="comment">/* Total irremovable overhead: 9 cycles */</span></div>
@@ -318,7 +316,7 @@ $(document).ready(function(){initNavTree('d4dlcdhw__common_8c_source.html','');}
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;   {</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i;</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordflow">while</span>((us100--)){</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      <span class="keywordflow">for</span>(i=0; i &lt; (<a class="code" href="d4dlcdhw__common_8c.html#a48998d5cf76dc0435c5e6eba1cfac30d">MCU_BUS_CYCLES_100US</a>/10); i++) </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      <span class="keywordflow">for</span>(i=0; i &lt; (<a class="code" href="d4dlcdhw__common_8c.html#a48998d5cf76dc0435c5e6eba1cfac30d">MCU_BUS_CYCLES_100US</a>/10); i++)</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        {<span class="comment">// 10 cycles delay</span></div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;          <span class="keyword">asm</span>(<span class="stringliteral">&quot;NOP&quot;</span>);</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;          <span class="keyword">asm</span>(<span class="stringliteral">&quot;NOP&quot;</span>);</div>
@@ -332,7 +330,7 @@ $(document).ready(function(){initNavTree('d4dlcdhw__common_8c_source.html','');}
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;   {</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i;</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">while</span>((us100--)){</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;      <span class="keywordflow">for</span>(i=0; i &lt; (<a class="code" href="d4dlcdhw__common_8c.html#a48998d5cf76dc0435c5e6eba1cfac30d">MCU_BUS_CYCLES_100US</a>/10); i++) </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;      <span class="keywordflow">for</span>(i=0; i &lt; (<a class="code" href="d4dlcdhw__common_8c.html#a48998d5cf76dc0435c5e6eba1cfac30d">MCU_BUS_CYCLES_100US</a>/10); i++)</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        {<span class="comment">// 10 cycles delay</span></div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;          <span class="keyword">asm</span>(<span class="stringliteral">&quot;nop&quot;</span>);</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;          <span class="keyword">asm</span>(<span class="stringliteral">&quot;nop&quot;</span>);</div>
@@ -340,30 +338,30 @@ $(document).ready(function(){initNavTree('d4dlcdhw__common_8c_source.html','');}
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        }</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    }</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  }</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  </div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="preprocessor"> #else</span></div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #error &quot;Unsupported MCU type for delay loop in loe level common driver!&quot;</span></div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="preprocessor"> #endif</span></div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="d4dlcdhw__common_8h.html#a8088db4e4fae668b80189d435f8f4e50">  259</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="d4dlcdhw__common_8c.html#a8088db4e4fae668b80189d435f8f4e50">D4DLCD_Delay_ms_Common</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> period)   <span class="comment">//delay routine (milliseconds)</span></div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  {</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="preprocessor">    #ifdef MQX_CPU</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="preprocessor"></span>          _time_delay(period);          </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="preprocessor"></span>          _time_delay(period);</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="preprocessor">    #else</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="preprocessor"></span>        </div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;              <span class="keywordflow">while</span> (period != 0)</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;              {</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                    <a class="code" href="d4dlcdhw__common_8c.html#a57cfa4512a55d768757bb7440137ded1">Cpu_Delay100US</a> (10);          </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                  period--;    </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                    <a class="code" href="d4dlcdhw__common_8c.html#a57cfa4512a55d768757bb7440137ded1">Cpu_Delay100US</a> (10);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                  period--;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;              }</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor"></span>      </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  }  </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  }</div>
 <div class="ttc" id="d4d_8h_html"><div class="ttname"><a href="d4d_8h.html">d4d.h</a></div><div class="ttdoc">D4D Driver main header file. </div></div>
 <div class="ttc" id="d4dlcdhw__common_8c_html_af7c00bbe1d4508fc589be18b0eba2b1d"><div class="ttname"><a href="d4dlcdhw__common_8c.html#af7c00bbe1d4508fc589be18b0eba2b1d">D4DLCDHW_CommonInit</a></div><div class="ttdeci">void D4DLCDHW_CommonInit(void)</div><div class="ttdef"><b>Definition:</b> <a href="d4dlcdhw__common_8c_source.html#l00081">d4dlcdhw_common.c:81</a></div></div>
 <div class="ttc" id="d4d__private_8h_html"><div class="ttname"><a href="d4d__private_8h.html">d4d_private.h</a></div><div class="ttdoc">D4D Driver private header file. </div></div>
@@ -379,7 +377,7 @@ $(document).ready(function(){initNavTree('d4dlcdhw__common_8c_source.html','');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_7623eef2459778ced8635059d40268c5.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_2a088aab58bd3c93e347f181573ab340.html">D4D</a></li><li class="navelem"><a class="el" href="dir_cb1ce9769bc31832bd652d8a0feb7125.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_e63864f3cf47839db9022321f26e31ad.html">LCD</a></li><li class="navelem"><a class="el" href="dir_23a5828fc9116e21f9b2ccfa5fee5622.html">lcd_hw_interface</a></li><li class="navelem"><a class="el" href="dir_4a2e894ee4b3510d7d05eda30a97d365.html">common_drivers</a></li><li class="navelem"><a class="el" href="d4dlcdhw__common_8c.html">d4dlcdhw_common.c</a></li>
-    <li class="footer">Generated on Fri Feb 21 2014 08:32:26 for eGUI alias D4D by
+    <li class="footer">Generated on Fri Apr 3 2015 10:45:26 for eGUI alias D4D by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>
