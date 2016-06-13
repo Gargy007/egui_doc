@@ -1,22 +1,24 @@
 <map id="D4D_GetBmpWidth" name="D4D_GetBmpWidth">
-<area shape="rect" id="node2" href="$group__doxd4d__bmp__func.html#ga2cd1cee410c68efd7f9f5fe32da5ebe3" title="Function draw the bitmap on the specify coordination into rectangle. " alt="" coords="218,132,355,159"/>
-<area shape="rect" id="node3" href="$d4d__menu_8c.html#a4deadb9f8d3f47c9617d39e888a27f7a" title="D4D_GetIconsMaxSize" alt="" coords="208,183,365,209"/>
-<area shape="rect" id="node12" href="$d4d__screen_8c.html#af3d832c75f178551d95a60129a0ca88b" title="D4D_GetScrHeaderTitleOffset" alt="" coords="189,284,384,311"/>
-<area shape="rect" id="node4" href="$d4d__menu_8c.html#a80844eac32711afcf3dc7cdff34c1014" title="D4D_MenuValue2Coor" alt="" coords="433,157,586,184"/>
-<area shape="rect" id="node5" href="$d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="906,5,1038,32"/>
-<area shape="rect" id="node7" href="$d4d__menu_8c.html#ab0cb7791d811e8fb4ea8d09b3df6b054" title="D4D_MenuFocusNextItem" alt="" coords="646,107,821,133"/>
-<area shape="rect" id="node9" href="$d4d__menu_8c.html#a664a18b254e48df788c0a4e3f5361dd8" title="D4D_MenuFocusPreviousItem" alt="" coords="635,157,831,184"/>
-<area shape="rect" id="node10" href="$d4d__menu_8c.html#a30a111e7b85c1666f66f4c43cc29a6aa" title="D4D_MenuScrollBarSetup" alt="" coords="647,208,820,235"/>
-<area shape="rect" id="node6" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1113,107,1269,133"/>
-<area shape="rect" id="node8" href="$d4d__menu_8c.html#aeb5fe2dbdd4ec9f922f5d894750b604c" title="D4D_MenuOnKeyDown" alt="" coords="893,107,1051,133"/>
-<area shape="rect" id="node11" href="$d4d__menu_8c.html#a6ab43fd4338bde2868eb82cad52f2a89" title="D4D_MenuOnInit" alt="" coords="912,208,1032,235"/>
-<area shape="rect" id="node13" href="$d4d__screen_8c.html#a18d7e510aeb90ed092e9a0914d501943" title="D4D_DrawScreenNC" alt="" coords="438,309,581,336"/>
-<area shape="rect" id="node14" href="$d4d__screen_8c.html#acd4a0ec9fe607db2f8e67757620e4523" title="D4D_ChangeScreen" alt="" coords="664,309,803,336"/>
-<area shape="rect" id="node21" href="$d4d__screen_8c.html#a4b86c8fea137d0a0601eee6d88325c81" title="D4D_RedrawScreen" alt="" coords="1121,397,1260,424"/>
-<area shape="rect" id="node15" href="$group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="901,259,1043,285"/>
-<area shape="rect" id="node17" href="$group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="903,309,1041,336"/>
-<area shape="rect" id="node20" href="$group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="881,360,1063,387"/>
-<area shape="rect" id="node16" href="$group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1155,259,1226,285"/>
-<area shape="rect" id="node18" href="$d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1129,321,1253,348"/>
-<area shape="rect" id="node19" href="$group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1318,360,1394,387"/>
+<area shape="rect" id="node2" href="$group__doxd4d__bmp__func.html#ga2cd1cee410c68efd7f9f5fe32da5ebe3" title="Function draw the bitmap on the specify coordination into rectangle. " alt="" coords="218,183,355,209"/>
+<area shape="rect" id="node3" href="$d4d__menu_8c.html#a4deadb9f8d3f47c9617d39e888a27f7a" title="D4D_GetIconsMaxSize" alt="" coords="208,233,365,260"/>
+<area shape="rect" id="node13" href="$d4d__screen_8c.html#af3d832c75f178551d95a60129a0ca88b" title="D4D_GetScrHeaderTitleOffset" alt="" coords="189,335,384,361"/>
+<area shape="rect" id="node4" href="$d4d__menu_8c.html#a80844eac32711afcf3dc7cdff34c1014" title="D4D_MenuValue2Coor" alt="" coords="432,183,585,209"/>
+<area shape="rect" id="node5" href="$d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="903,5,1035,32"/>
+<area shape="rect" id="node7" href="$d4d__menu_8c.html#ab0cb7791d811e8fb4ea8d09b3df6b054" title="D4D_MenuFocusNextItem" alt="" coords="644,107,819,133"/>
+<area shape="rect" id="node9" href="$d4d__menu_8c.html#a664a18b254e48df788c0a4e3f5361dd8" title="D4D_MenuFocusPreviousItem" alt="" coords="633,157,829,184"/>
+<area shape="rect" id="node10" href="$d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="660,208,803,235"/>
+<area shape="rect" id="node11" href="$d4d__menu_8c.html#a30a111e7b85c1666f66f4c43cc29a6aa" title="D4D_MenuScrollBarSetup" alt="" coords="645,259,818,285"/>
+<area shape="rect" id="node6" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1113,132,1269,159"/>
+<area shape="rect" id="node8" href="$d4d__menu_8c.html#aeb5fe2dbdd4ec9f922f5d894750b604c" title="D4D_MenuOnKeyDown" alt="" coords="889,107,1048,133"/>
+<area shape="rect" id="node12" href="$d4d__menu_8c.html#a6ab43fd4338bde2868eb82cad52f2a89" title="D4D_MenuOnInit" alt="" coords="909,259,1029,285"/>
+<area shape="rect" id="node14" href="$d4d__screen_8c.html#a18d7e510aeb90ed092e9a0914d501943" title="D4D_DrawScreenNC" alt="" coords="437,360,580,387"/>
+<area shape="rect" id="node15" href="$d4d__screen_8c.html#acd4a0ec9fe607db2f8e67757620e4523" title="D4D_ChangeScreen" alt="" coords="662,360,801,387"/>
+<area shape="rect" id="node23" href="$d4d__screen_8c.html#a4b86c8fea137d0a0601eee6d88325c81" title="D4D_RedrawScreen" alt="" coords="1323,473,1461,500"/>
+<area shape="rect" id="node16" href="$group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="898,309,1039,336"/>
+<area shape="rect" id="node18" href="$group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="899,360,1038,387"/>
+<area shape="rect" id="node22" href="$group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="877,411,1060,437"/>
+<area shape="rect" id="node17" href="$group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1156,297,1227,324"/>
+<area shape="rect" id="node19" href="$d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1330,423,1454,449"/>
+<area shape="rect" id="node21" href="$d4d__private_8h.html#a46228ea57aaae9cc90c358f6e5463769" title="D4D_SendMessageBack" alt="" coords="1108,423,1275,449"/>
+<area shape="rect" id="node20" href="$group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1509,448,1585,475"/>
 </map>

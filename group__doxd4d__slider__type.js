@@ -6,6 +6,6 @@ var group__doxd4d__slider__type =
       [ "valueMin", "group__doxd4d__slider__type.html#a6ad7c79d7f4f4f44f2eb1e10094278aa", null ],
       [ "valueOrg", "group__doxd4d__slider__type.html#a5d45a871695acfdf6d381777d3a94cc1", null ]
     ] ],
-    [ "D4D_SLDR_ON_CHANGE", "group__doxd4d__slider__type.html#gae336d0fad962c60c4b6bbf5a6fd80ad7", null ],
+    [ "D4D_SLDR_ON_CHANGE", "group__doxd4d__slider__type.html#ga625c416026b8e1e21799895614aaafcf", null ],
     [ "D4D_SLIDER_VALUE", "group__doxd4d__slider__type.html#ga69cdfa357fa5eea9143d11db41b33304", null ]
 ];

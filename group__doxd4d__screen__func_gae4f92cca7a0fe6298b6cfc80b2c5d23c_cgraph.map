@@ -1,10 +1,12 @@
 <map id="D4D_GetScreenToClientPoint" name="D4D_GetScreenToClientPoint">
-<area shape="rect" id="node2" href="$d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="248,31,411,57"/>
-<area shape="rect" id="node3" href="$d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="459,5,597,32"/>
-<area shape="rect" id="node5" href="$group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="459,56,597,83"/>
-<area shape="rect" id="node4" href="$d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="667,5,768,32"/>
-<area shape="rect" id="node6" href="$group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="645,56,789,83"/>
-<area shape="rect" id="node7" href="$d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="837,5,992,32"/>
-<area shape="rect" id="node8" href="$d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="863,56,966,83"/>
-<area shape="rect" id="node9" href="$d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="841,107,988,133"/>
+<area shape="rect" id="node2" href="$d4d__screen_8c.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="247,81,409,108"/>
+<area shape="rect" id="node3" href="$d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="457,56,596,83"/>
+<area shape="rect" id="node5" href="$group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="457,107,596,133"/>
+<area shape="rect" id="node4" href="$d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="665,56,767,83"/>
+<area shape="rect" id="node6" href="$group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="644,107,788,133"/>
+<area shape="rect" id="node7" href="$d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="836,5,991,32"/>
+<area shape="rect" id="node8" href="$d4d__extsrc_8c.html#ad5f7a8e12821c9331687e1799cb6dbd6" title="The function returns length of string terminated by zero. " alt="" coords="867,56,959,83"/>
+<area shape="rect" id="node9" href="$d4d__extsrc_8c.html#a15ee464eccb4b4991292ebfb1d5b8849" title="The function copy string one string to other one (terminated by zero) " alt="" coords="863,107,964,133"/>
+<area shape="rect" id="node10" href="$d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="862,157,965,184"/>
+<area shape="rect" id="node11" href="$d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="840,208,987,235"/>
 </map>

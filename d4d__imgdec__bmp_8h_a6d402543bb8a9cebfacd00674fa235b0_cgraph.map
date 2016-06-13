@@ -1,21 +1,36 @@
 <map id="D4D_ImgDecBmpDraw" name="D4D_ImgDecBmpDraw">
 <area shape="rect" id="node2" href="$group__doxd4d__basic__draw__func.html#gad9ab8d211b69c39ba0327953005c69a9" title="Function that counts number of printed pixels in specified line of circle quadrant. " alt="" coords="208,5,427,32"/>
 <area shape="rect" id="node3" href="$d4d__imgdec__bmp_8c.html#adf5c1e8010dd3e7ff887c45399fa21d4" title="D4D_PrintPixel" alt="" coords="262,56,373,83"/>
-<area shape="rect" id="node5" href="$d4d__low_8c.html#a7df9d0f828a7a12cbf56d640217a7d8a" title="D4D_LCD_PutPixel" alt="" coords="1270,221,1405,248"/>
-<area shape="rect" id="node6" href="$group__doxd4d__basic__draw__func.html#gac00e96f797a9640ec342c688b2117f57" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="266,183,369,209"/>
-<area shape="rect" id="node18" href="$d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="235,284,399,311"/>
-<area shape="rect" id="node19" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="242,335,393,361"/>
-<area shape="rect" id="node20" href="$group__doxd4d__basic__draw__func.html#ga9eb1a2cf63817ad28be6eaf6876c7edb" title="Function draw filled rectangle with outline on the screen. " alt="" coords="496,347,589,373"/>
+<area shape="rect" id="node5" href="$d4d__low_8c.html#a7df9d0f828a7a12cbf56d640217a7d8a" title="D4D_LCD_PutPixel" alt="" coords="1317,284,1452,311"/>
+<area shape="rect" id="node6" href="$group__doxd4d__basic__draw__func.html#gac00e96f797a9640ec342c688b2117f57" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="266,169,369,196"/>
+<area shape="rect" id="node33" href="$d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="235,220,399,247"/>
+<area shape="rect" id="node34" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="242,271,393,297"/>
+<area shape="rect" id="node35" href="$group__doxd4d__basic__draw__func.html#ga9eb1a2cf63817ad28be6eaf6876c7edb" title="Function draw filled rectangle with outline on the screen. " alt="" coords="496,1196,589,1223"/>
 <area shape="rect" id="node4" href="$group__doxd4d__scheme__func.html#ga4ee216fb62548357ee1b19f460d29087" title="Compute the grayscale color. " alt="" coords="475,56,611,83"/>
-<area shape="rect" id="node7" href="$d4d__low_8c.html#a69f1735f580a19e4a777736f017cf0c1" title="D4D_LCD_RBox" alt="" coords="483,291,602,317"/>
-<area shape="rect" id="node14" href="$d4d__low_8c.html#a8f9c6276de8111853b9b73e87e2b004a" title="D4D_LCD_RRect" alt="" coords="481,208,604,235"/>
-<area shape="rect" id="node8" href="$d4d__low_8c.html#a450664aef631dc065b1d290e8b75f863" title="D4D_LCD_SwapCoor" alt="" coords="1454,348,1599,375"/>
-<area shape="rect" id="node9" href="$d4d__low_8c.html#a65810021c5d69c06eeefa40f0c800b60" title="D4D_LCD_Box" alt="" coords="1283,399,1392,425"/>
-<area shape="rect" id="node10" href="$d4d__low_8c.html#a0b3fcdb3eb314f2fe830cc257627de8c" title="D4D_LCD_QCircle" alt="" coords="659,284,789,311"/>
-<area shape="rect" id="node11" href="$d4d__low_8c.html#a8567ee4b31298bfe6f6e7959bcf5456f" title="D4D_LCD_QPlot8points" alt="" coords="838,309,999,336"/>
-<area shape="rect" id="node12" href="$d4d__low_8c.html#a97e36119e00202bde366aab6f0c61672" title="D4D_LCD_QPlot4pointsfill" alt="" coords="1048,360,1221,387"/>
-<area shape="rect" id="node13" href="$d4d__low_8c.html#afde60e05692fa0721250ce6925313e17" title="D4D_LCD_QPlot4points" alt="" coords="1054,259,1215,285"/>
-<area shape="rect" id="node15" href="$d4d__low_8c.html#a3aca803259156c65646263edab27275a" title="D4D_LCD_Line" alt="" coords="1079,309,1190,336"/>
-<area shape="rect" id="node17" href="$d4d__low_8c.html#a61637753b03d0ada6e7f8ca501f0e70b" title="D4D_LCD_Rect" alt="" coords="667,347,781,373"/>
-<area shape="rect" id="node16" href="$group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b" title="Calculation of absolute value &#45; 16 bit. " alt="" coords="1292,348,1383,375"/>
+<area shape="rect" id="node7" href="$d4d__low_8c.html#a69f1735f580a19e4a777736f017cf0c1" title="D4D_LCD_RBox" alt="" coords="483,183,602,209"/>
+<area shape="rect" id="node31" href="$d4d__low_8c.html#a8f9c6276de8111853b9b73e87e2b004a" title="D4D_LCD_RRect" alt="" coords="481,1095,604,1121"/>
+<area shape="rect" id="node8" href="$d4d__low_8c.html#a450664aef631dc065b1d290e8b75f863" title="D4D_LCD_SwapCoor" alt="" coords="1500,993,1645,1020"/>
+<area shape="rect" id="node9" href="$d4d__low_8c.html#a65810021c5d69c06eeefa40f0c800b60" title="D4D_LCD_Box" alt="" coords="1330,917,1439,944"/>
+<area shape="rect" id="node10" href="$d4d__low_8c.html#a0b3fcdb3eb314f2fe830cc257627de8c" title="D4D_LCD_QCircle" alt="" coords="659,689,788,716"/>
+<area shape="rect" id="node11" href="$d4d__low_8c.html#a8567ee4b31298bfe6f6e7959bcf5456f" title="D4D_LCD_QPlot8points" alt="" coords="861,309,1023,336"/>
+<area shape="rect" id="node14" href="$d4d__low_8h.html#a2c385da23a176f4d7022a01ddbbd5d5e" title="D4D_TCH_GetCalibrationStatus" alt="" coords="839,360,1045,387"/>
+<area shape="rect" id="node15" href="$d4d__low_8h.html#a76e01e6c04fb37c4f792ef44e3baed3e" title="D4D_TCH_GetCalibration" alt="" coords="858,411,1026,437"/>
+<area shape="rect" id="node16" href="$d4d__low_8h.html#ad223b2d4ffc9539f5e46ee8139748edb" title="D4D_TCH_SetCalibration" alt="" coords="859,461,1025,488"/>
+<area shape="rect" id="node17" href="$d4d__low_8h.html#a5820544b991949f751c8dc976d7ac781" title="D4D_TCH_GetCalibratedPosition" alt="" coords="836,512,1048,539"/>
+<area shape="rect" id="node18" href="$d4d__low_8h.html#adf857a4d50dd61679db438b5a34035db" title="D4D_TCH_GetRawPosition" alt="" coords="853,563,1031,589"/>
+<area shape="rect" id="node19" href="$d4d__low_8c.html#ad4b93d341f8432e4f88e1e2c008e64f7" title="D4D_DisplayWidth" alt="" coords="1117,664,1248,691"/>
+<area shape="rect" id="node20" href="$d4d__low_8c.html#a3fac64e0052ae517060666006dd44b4c" title="D4D_DisplayHeight" alt="" coords="1115,740,1250,767"/>
+<area shape="rect" id="node21" href="$d4d__low_8c.html#a60bdb861097afdf590fb48afd6155a74" title="D4D_TCH_DrawCalibrationPoint" alt="" coords="839,715,1045,741"/>
+<area shape="rect" id="node22" href="$d4d__low_8c.html#ae8db74a4cf98814632c42683f1ea2e9f" title="D4D_TCH_Calibrate" alt="" coords="873,765,1011,792"/>
+<area shape="rect" id="node23" href="$group__doxd4d__basic__draw__func.html#ga87ac0e1b96707ff946ef454e4f17f500" title="Function readraw complete screen by one color. " alt="" coords="879,816,1005,843"/>
+<area shape="rect" id="node24" href="$d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1132,867,1233,893"/>
+<area shape="rect" id="node25" href="$d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="873,917,1011,944"/>
+<area shape="rect" id="node26" href="$group__doxd4d__string__func.html#gaddaa9a36e054a4a40f5391f18c821c50" title="The function convert decimal unsigned 16 bit number to string. " alt="" coords="875,968,1009,995"/>
+<area shape="rect" id="node27" href="$group__doxd4d__basic__draw__func.html#gacba553dcf011737f9e0ee584387b514f" title="Function draw filled rectangle on the screen. " alt="" coords="1125,917,1240,944"/>
+<area shape="rect" id="node28" href="$d4d__font_8c.html#a361368f9b194c61a3f510a6dbd13cd4a" title="D4D_GetFontWidth" alt="" coords="875,1019,1009,1045"/>
+<area shape="rect" id="node29" href="$d4d__low_8c.html#a3aca803259156c65646263edab27275a" title="D4D_LCD_Line" alt="" coords="887,1120,997,1147"/>
+<area shape="rect" id="node12" href="$d4d__low_8c.html#a97e36119e00202bde366aab6f0c61672" title="D4D_LCD_QPlot4pointsfill" alt="" coords="1096,487,1269,513"/>
+<area shape="rect" id="node13" href="$d4d__low_8c.html#afde60e05692fa0721250ce6925313e17" title="D4D_LCD_QPlot4points" alt="" coords="1102,309,1263,336"/>
+<area shape="rect" id="node30" href="$group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b" title="Calculation of absolute value &#45; 16 bit. " alt="" coords="1137,1120,1228,1147"/>
+<area shape="rect" id="node32" href="$d4d__low_8c.html#a61637753b03d0ada6e7f8ca501f0e70b" title="D4D_LCD_Rect" alt="" coords="667,1196,780,1223"/>
 </map>

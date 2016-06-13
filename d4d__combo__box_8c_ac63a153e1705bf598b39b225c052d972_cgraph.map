@@ -1,22 +1,22 @@
 <map id="D4D_ComboBoxOnMessage" name="D4D_ComboBoxOnMessage">
-<area shape="rect" id="node2" href="$group__doxd4d__list__box__func.html#ga3690deaef195705cc4b006bfab0159f5" title="Function returns the current selected item index. " alt="" coords="245,5,395,32"/>
-<area shape="rect" id="node3" href="$group__doxd4d__edit__box__func.html#ga0e24154d4fe5ee55a21cd2e7e01daa82" title="The function clear whole edit box data. " alt="" coords="665,31,810,57"/>
-<area shape="rect" id="node6" href="$group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254" title="The function puts string on cursor position and updates cursor. " alt="" coords="243,183,397,209"/>
-<area shape="rect" id="node20" href="$group__doxd4d__list__box__func.html#ga1c74b381309142b76f1f29ce4b2e0394" title="Function gets the selected item text. " alt="" coords="867,335,1037,361"/>
-<area shape="rect" id="node21" href="$d4d__object_8c.html#a71af54d42c496cf96eb44fcb42c7928a" title="D4D_ObjOnMessage" alt="" coords="248,385,392,412"/>
-<area shape="rect" id="node4" href="$group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="1102,81,1247,108"/>
-<area shape="rect" id="node5" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="1336,81,1480,108"/>
-<area shape="rect" id="node7" href="$group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="1312,259,1504,285"/>
-<area shape="rect" id="node8" href="$group__doxd4d__edit__box__func.html#ga71575226e364b1edf67ca5348aa23bf4" title="The function puts one char on cursor position and updates cursor. " alt="" coords="453,208,600,235"/>
-<area shape="rect" id="node18" href="$group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="445,107,608,133"/>
-<area shape="rect" id="node19" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="451,157,602,184"/>
-<area shape="rect" id="node9" href="$d4d__edit__box_8c.html#a8ae69ab63cec13b3ebe92bf116210b69" title="D4D_EditBoxPutCharInt" alt="" coords="657,183,818,209"/>
-<area shape="rect" id="node15" href="$group__doxd4d__edit__box__func.html#gaccc64f7d124d35dd570e832a847c4464" title="The function chenge the cursor position to new one. " alt="" coords="873,132,1031,159"/>
-<area shape="rect" id="node10" href="$group__doxd4d__string__func.html#ga609e5f5ee7cea40f6d827def8e0cf1bd" title="The function find out the maximal text length that fits to maximal pixel width. " alt="" coords="1093,233,1257,260"/>
-<area shape="rect" id="node11" href="$d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b" title="D4D_GetCharWidth" alt="" coords="1340,183,1476,209"/>
-<area shape="rect" id="node12" href="$d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1585,157,1687,184"/>
-<area shape="rect" id="node13" href="$d4d__font_8c.html#a43acdd475ef7db17e00a6999cde00578" title="D4D_LCD_GetCharPlace" alt="" coords="1553,208,1719,235"/>
-<area shape="rect" id="node14" href="$d4d__font_8c.html#a4dc0aafa5f109feee7a6fea4e98e5df2" title="D4D_GetCharIndex" alt="" coords="1768,208,1901,235"/>
-<area shape="rect" id="node16" href="$group__doxd4d__string__func.html#gada3f65b64c55a4229740bbd7e721f0f8" title="The function returns width of text in pixels, also with tab table. " alt="" coords="1086,132,1263,159"/>
-<area shape="rect" id="node17" href="$d4d__font_8c.html#a39d8e8e703e0f108970fff86f6179bd1" title="D4D_GetNextTab" alt="" coords="1347,132,1469,159"/>
+<area shape="rect" id="node2" href="$group__doxd4d__list__box__func.html#ga3690deaef195705cc4b006bfab0159f5" title="Function returns the current selected item index. " alt="" coords="243,5,394,32"/>
+<area shape="rect" id="node3" href="$group__doxd4d__edit__box__func.html#ga0e24154d4fe5ee55a21cd2e7e01daa82" title="The function clear whole edit box data. " alt="" coords="663,31,808,57"/>
+<area shape="rect" id="node6" href="$group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254" title="The function puts string on cursor position and updates cursor. " alt="" coords="241,183,396,209"/>
+<area shape="rect" id="node20" href="$group__doxd4d__list__box__func.html#ga1c74b381309142b76f1f29ce4b2e0394" title="Function gets the selected item text. " alt="" coords="864,335,1033,361"/>
+<area shape="rect" id="node21" href="$d4d__object_8c.html#a71af54d42c496cf96eb44fcb42c7928a" title="D4D_ObjOnMessage" alt="" coords="247,385,391,412"/>
+<area shape="rect" id="node4" href="$group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="1097,81,1243,108"/>
+<area shape="rect" id="node5" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="1331,81,1475,108"/>
+<area shape="rect" id="node7" href="$group__doxd4d__string__func.html#ga07b135522d3dfd761361887272ae26dd" title="The function gets the real internal pointer to string. " alt="" coords="1307,259,1499,285"/>
+<area shape="rect" id="node8" href="$group__doxd4d__edit__box__func.html#ga71575226e364b1edf67ca5348aa23bf4" title="The function puts one char on cursor position and updates cursor. " alt="" coords="452,208,599,235"/>
+<area shape="rect" id="node18" href="$group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="444,107,607,133"/>
+<area shape="rect" id="node19" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="450,157,601,184"/>
+<area shape="rect" id="node9" href="$d4d__edit__box_8c.html#a8ae69ab63cec13b3ebe92bf116210b69" title="D4D_EditBoxPutCharInt" alt="" coords="655,183,816,209"/>
+<area shape="rect" id="node10" href="$group__doxd4d__string__func.html#ga609e5f5ee7cea40f6d827def8e0cf1bd" title="The function find out the maximal text length that fits to maximal pixel width. " alt="" coords="1088,233,1252,260"/>
+<area shape="rect" id="node15" href="$group__doxd4d__edit__box__func.html#gaccc64f7d124d35dd570e832a847c4464" title="The function chenge the cursor position to new one. " alt="" coords="869,132,1028,159"/>
+<area shape="rect" id="node11" href="$d4d__font_8c.html#aeec29ff309455ddb5adce0107561d47b" title="D4D_GetCharWidth" alt="" coords="1335,183,1471,209"/>
+<area shape="rect" id="node12" href="$d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1579,157,1681,184"/>
+<area shape="rect" id="node13" href="$d4d__font_8c.html#a43acdd475ef7db17e00a6999cde00578" title="D4D_LCD_GetCharPlace" alt="" coords="1547,208,1713,235"/>
+<area shape="rect" id="node14" href="$d4d__font_8c.html#a4dc0aafa5f109feee7a6fea4e98e5df2" title="D4D_GetCharIndex" alt="" coords="1761,208,1895,235"/>
+<area shape="rect" id="node16" href="$group__doxd4d__string__func.html#gada3f65b64c55a4229740bbd7e721f0f8" title="The function returns width of text in pixels, also with tab table. " alt="" coords="1081,132,1259,159"/>
+<area shape="rect" id="node17" href="$d4d__font_8c.html#a39d8e8e703e0f108970fff86f6179bd1" title="D4D_GetNextTab" alt="" coords="1341,132,1464,159"/>
 </map>

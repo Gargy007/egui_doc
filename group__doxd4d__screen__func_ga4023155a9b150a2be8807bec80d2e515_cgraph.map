@@ -1,5 +1,12 @@
 <map id="D4D_InitScreen" name="D4D_InitScreen">
-<area shape="rect" id="node2" href="$d4d__object_8c.html#ae69ba41c5b7c264ce9990bf1ad7019dd" title="D4D_SetObjectScreenPointer" alt="" coords="165,29,360,56"/>
-<area shape="rect" id="node3" href="$d4d__base_8c.html#ab590cc57b04b9e3733acbf137f929bba" title="D4D_SendMessageMask" alt="" coords="178,104,347,131"/>
-<area shape="rect" id="node4" href="$group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="185,155,340,181"/>
+<area shape="rect" id="node2" href="$d4d__object_8c.html#ae69ba41c5b7c264ce9990bf1ad7019dd" title="D4D_SetObjectScreenPointer" alt="" coords="165,35,360,62"/>
+<area shape="rect" id="node3" href="$d4d__base_8c.html#ab590cc57b04b9e3733acbf137f929bba" title="D4D_SendMessageMask" alt="" coords="178,110,347,136"/>
+<area shape="rect" id="node4" href="$group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="185,160,340,187"/>
+<area shape="rect" id="node5" href="$d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="408,86,552,112"/>
+<area shape="rect" id="node10" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="408,160,552,187"/>
+<area shape="rect" id="node11" href="$d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="411,211,549,238"/>
+<area shape="rect" id="node6" href="$d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1061,14,1264,40"/>
+<area shape="rect" id="node7" href="$d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="831,115,1013,142"/>
+<area shape="rect" id="node8" href="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="1087,115,1238,142"/>
+<area shape="rect" id="node9" href="$d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="600,49,783,90"/>
 </map>

@@ -1,55 +1,55 @@
 <map id="D4D_GetCharWidth" name="D4D_GetCharWidth">
-<area shape="rect" id="node2" href="$d4d__console_8c.html#aac9d2b3aeb5b3b7db5abedbe621eef31" title="D4D_CnslFindMaxTextLenght" alt="" coords="192,95,387,121"/>
-<area shape="rect" id="node3" href="$d4d__console_8c.html#a4aec40f52339c770d7c0bf4b30da952e" title="D4D_ConsoleOnDraw" alt="" coords="456,19,603,45"/>
-<area shape="rect" id="node5" href="$d4d__edit__box_8c.html#afda23f9d81aa217a8e7b4bc838a83847" title="D4D_EditBoxOnDraw" alt="" coords="456,69,603,96"/>
-<area shape="rect" id="node7" href="$group__doxd4d__edit__box__func.html#gaccc64f7d124d35dd570e832a847c4464" title="The function chenge the cursor position to new one. " alt="" coords="450,360,609,387"/>
-<area shape="rect" id="node15" href="$d4d__private_8h.html#a7a5b3bd7e4f168aa3b9879fd5d497f68" title="D4D_LCD_PrintChr" alt="" coords="223,297,356,324"/>
-<area shape="rect" id="node30" href="$group__doxd4d__string__func.html#ga30a1542cae1d27c9bfcfcfd02c4c873c" title="The function returns width of text in pixels. " alt="" coords="222,613,357,640"/>
-<area shape="rect" id="node41" href="$group__doxd4d__string__func.html#gada3f65b64c55a4229740bbd7e721f0f8" title="The function returns width of text in pixels, also with tab table. " alt="" coords="201,196,378,223"/>
-<area shape="rect" id="node42" href="$group__doxd4d__string__func.html#ga609e5f5ee7cea40f6d827def8e0cf1bd" title="The function find out the maximal text length that fits to maximal pixel width. " alt="" coords="207,399,371,425"/>
-<area shape="rect" id="node16" href="$d4d__string_8h.html#a8accd14b97d74f03ca1d9995720992fe" title="D4D_LCD_PrintStr" alt="" coords="464,247,595,273"/>
-<area shape="rect" id="node43" href="$d4d__text__box_8c.html#a213815404328027af186f37a0284e8e8" title="D4D_TextBoxGetWordSpecInt" alt="" coords="190,740,389,767"/>
-<area shape="rect" id="node54" href="$d4d__text__box_8c.html#a6e96ae30228ab801488d4a664634522b" title="D4D_TextBoxGetCharsToLine" alt="" coords="192,828,387,855"/>
-<area shape="rect" id="node4" href="$d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="688,5,859,32"/>
-<area shape="rect" id="node6" href="$d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1421,309,1592,336"/>
-<area shape="rect" id="node8" href="$d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1179,411,1335,437"/>
-<area shape="rect" id="node9" href="$d4d__edit__box_8c.html#ac04e4a23673e89c0b33068da720a8af0" title="D4D_EditBoxOnInit" alt="" coords="706,309,841,336"/>
-<area shape="rect" id="node10" href="$d4d__edit__box_8c.html#a8ae69ab63cec13b3ebe92bf116210b69" title="D4D_EditBoxPutCharInt" alt="" coords="693,461,854,488"/>
-<area shape="rect" id="node11" href="$group__doxd4d__edit__box__func.html#ga71575226e364b1edf67ca5348aa23bf4" title="The function puts one char on cursor position and updates cursor. " alt="" coords="945,461,1092,488"/>
-<area shape="rect" id="node12" href="$group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254" title="The function puts string on cursor position and updates cursor. " alt="" coords="1180,461,1335,488"/>
-<area shape="rect" id="node13" href="$d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1407,436,1606,463"/>
-<area shape="rect" id="node14" href="$d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972" title="D4D_ComboBoxOnMessage" alt="" coords="1413,487,1601,513"/>
-<area shape="rect" id="node17" href="$group__doxd4d__basic__draw__func.html#ga1813324d6d3fb8d6c4b77ee66e973d97" title="Function draw text on XY coordination with TAB function. " alt="" coords="701,259,846,285"/>
-<area shape="rect" id="node18" href="$group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111" title="Function draw text with TAB function in rectangle. " alt="" coords="695,208,851,235"/>
-<area shape="rect" id="node22" href="$group__doxd4d__basic__draw__func.html#ga0fc64a9353c4d9319f75a0554d45bc3c" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="936,107,1101,133"/>
-<area shape="rect" id="node19" href="$group__doxd4d__basic__draw__func.html#gadb313812718a9191072558b192a796c0" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="933,259,1104,285"/>
-<area shape="rect" id="node20" href="$group__doxd4d__basic__draw__func.html#ga061b16aca16a733400b188ffc9edc9ea" title="Function draw text with TAB function in rectangle. " alt="" coords="933,157,1105,184"/>
-<area shape="rect" id="node21" href="$group__doxd4d__basic__draw__func.html#ga7b6cd5259ee791dd0db29277bc0e1a2d" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="925,208,1112,235"/>
-<area shape="rect" id="node28" href="$d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773" title="D4D_TextBoxOnDraw" alt="" coords="1433,639,1581,665"/>
-<area shape="rect" id="node23" href="$group__doxd4d__basic__draw__func.html#gad0eca6a7cf5d6f26470de9ebca89c4e2" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="1168,208,1347,235"/>
-<area shape="rect" id="node24" href="$group__doxd4d__basic__draw__func.html#ga910b67c691e60e697818978e2c49f55a" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="1167,107,1348,133"/>
-<area shape="rect" id="node25" href="$group__doxd4d__basic__draw__func.html#ga0e320973d270d5adf0462b0ac2328269" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="1160,157,1355,184"/>
-<area shape="rect" id="node26" href="$d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="1197,5,1317,32"/>
-<area shape="rect" id="node27" href="$d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="1435,5,1579,32"/>
-<area shape="rect" id="node29" href="$d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1929,639,2101,665"/>
-<area shape="rect" id="node31" href="$d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67" title="D4D_GaugOnDraw" alt="" coords="464,664,595,691"/>
-<area shape="rect" id="node33" href="$d4d__group__box_8c.html#a54e514b02a2327f550d8ad9acae0e96c" title="D4D_GroupBoxOnDraw" alt="" coords="450,715,609,741"/>
-<area shape="rect" id="node35" href="$d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140" title="D4D_IconOnDraw" alt="" coords="467,765,591,792"/>
-<area shape="rect" id="node37" href="$d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="463,563,595,589"/>
-<area shape="rect" id="node39" href="$d4d__slider_8c.html#a60e15d945bece050aec9d38321fd2a95" title="D4D_SldrOnDraw" alt="" coords="468,613,591,640"/>
-<area shape="rect" id="node32" href="$d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="696,664,851,691"/>
-<area shape="rect" id="node34" href="$d4d__group__box_8c.html#a5e02a7833523423f991ee1e142d7d725" title="D4D_GroupBoxOnMessage" alt="" coords="682,715,865,741"/>
-<area shape="rect" id="node36" href="$d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="699,765,847,792"/>
-<area shape="rect" id="node38" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="695,563,851,589"/>
-<area shape="rect" id="node40" href="$d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="700,613,847,640"/>
-<area shape="rect" id="node44" href="$d4d__text__box_8c.html#adcacc5c76b66f54e82287a2254ad58a3" title="D4D_TextBoxGetWordSpec" alt="" coords="437,816,621,843"/>
-<area shape="rect" id="node45" href="$d4d__text__box_8c.html#ac29d1b3bd98c3d79e6ca08a8f86c026d" title="D4D_TextBoxGetMaxLineChars" alt="" coords="670,816,877,843"/>
-<area shape="rect" id="node46" href="$d4d__text__box_8c.html#aea39df6a545ad9a845f8a393c2baa84e" title="D4D_TextBoxGetLineCount" alt="" coords="928,639,1109,665"/>
-<area shape="rect" id="node48" href="$d4d__text__box_8c.html#a2511e5b05b4779181755aa356fc1da55" title="D4D_TextBoxFindLineStartChar" alt="" coords="1403,747,1610,773"/>
-<area shape="rect" id="node47" href="$d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb" title="D4D_TextBoxValue2Coor" alt="" coords="1173,639,1342,665"/>
-<area shape="rect" id="node50" href="$d4d__text__box_8c.html#ac3bfefe93d27aba170ef56fea53e0fcc" title="D4D_TextBoxScrollBarSetup" alt="" coords="1412,588,1601,615"/>
-<area shape="rect" id="node49" href="$d4d__text__box_8h.html#ac22412813d39c4a80111acb4b83a85da" title="D4D_TextBoxScrollBarsFeedBack" alt="" coords="1659,747,1880,773"/>
-<area shape="rect" id="node51" href="$d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374" title="D4D_TextBoxOnInit" alt="" coords="1701,588,1837,615"/>
-<area shape="rect" id="node52" href="$group__doxd4d__text__box__func.html#gaac5a5ecdeb225c15c8d4d0386b99f273" title="The function reinitialize whole object. " alt="" coords="1934,588,2095,615"/>
-<area shape="rect" id="node53" href="$group__doxd4d__text__box__func.html#ga39b0345e200085c6c1a6c3b3d6797195" title="The function change the text of the text box. " alt="" coords="1929,537,2100,564"/>
+<area shape="rect" id="node2" href="$d4d__console_8c.html#aac9d2b3aeb5b3b7db5abedbe621eef31" title="D4D_CnslFindMaxTextLenght" alt="" coords="191,68,386,95"/>
+<area shape="rect" id="node3" href="$d4d__console_8c.html#a4aec40f52339c770d7c0bf4b30da952e" title="D4D_ConsoleOnDraw" alt="" coords="455,9,601,36"/>
+<area shape="rect" id="node5" href="$d4d__edit__box_8c.html#afda23f9d81aa217a8e7b4bc838a83847" title="D4D_EditBoxOnDraw" alt="" coords="455,60,601,87"/>
+<area shape="rect" id="node7" href="$group__doxd4d__edit__box__func.html#gaccc64f7d124d35dd570e832a847c4464" title="The function chenge the cursor position to new one. " alt="" coords="449,361,607,388"/>
+<area shape="rect" id="node15" href="$d4d__private_8h.html#a7a5b3bd7e4f168aa3b9879fd5d497f68" title="D4D_LCD_PrintChr" alt="" coords="222,308,355,335"/>
+<area shape="rect" id="node16" href="$d4d__string_8h.html#a8accd14b97d74f03ca1d9995720992fe" title="D4D_LCD_PrintStr" alt="" coords="463,257,593,284"/>
+<area shape="rect" id="node30" href="$group__doxd4d__string__func.html#ga30a1542cae1d27c9bfcfcfd02c4c873c" title="The function returns width of text in pixels. " alt="" coords="221,615,356,641"/>
+<area shape="rect" id="node41" href="$group__doxd4d__string__func.html#gada3f65b64c55a4229740bbd7e721f0f8" title="The function returns width of text in pixels, also with tab table. " alt="" coords="200,207,377,233"/>
+<area shape="rect" id="node42" href="$group__doxd4d__string__func.html#ga609e5f5ee7cea40f6d827def8e0cf1bd" title="The function find out the maximal text length that fits to maximal pixel width. " alt="" coords="207,409,371,436"/>
+<area shape="rect" id="node43" href="$d4d__text__box_8c.html#a213815404328027af186f37a0284e8e8" title="D4D_TextBoxGetWordSpecInt" alt="" coords="189,703,388,729"/>
+<area shape="rect" id="node54" href="$d4d__text__box_8c.html#a6e96ae30228ab801488d4a664634522b" title="D4D_TextBoxGetCharsToLine" alt="" coords="191,829,386,856"/>
+<area shape="rect" id="node4" href="$d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="686,7,857,33"/>
+<area shape="rect" id="node6" href="$d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1418,311,1589,337"/>
+<area shape="rect" id="node8" href="$d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1177,361,1333,388"/>
+<area shape="rect" id="node9" href="$d4d__edit__box_8c.html#ac04e4a23673e89c0b33068da720a8af0" title="D4D_EditBoxOnInit" alt="" coords="704,311,839,337"/>
+<area shape="rect" id="node10" href="$d4d__edit__box_8c.html#a8ae69ab63cec13b3ebe92bf116210b69" title="D4D_EditBoxPutCharInt" alt="" coords="691,463,852,489"/>
+<area shape="rect" id="node11" href="$group__doxd4d__edit__box__func.html#ga71575226e364b1edf67ca5348aa23bf4" title="The function puts one char on cursor position and updates cursor. " alt="" coords="943,463,1089,489"/>
+<area shape="rect" id="node12" href="$group__doxd4d__edit__box__func.html#gaae1a3c1463772d47584b3058fadd6254" title="The function puts string on cursor position and updates cursor. " alt="" coords="1177,412,1332,439"/>
+<area shape="rect" id="node13" href="$d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1404,387,1603,413"/>
+<area shape="rect" id="node14" href="$d4d__combo__box_8c.html#ac63a153e1705bf598b39b225c052d972" title="D4D_ComboBoxOnMessage" alt="" coords="1409,437,1597,464"/>
+<area shape="rect" id="node17" href="$group__doxd4d__basic__draw__func.html#ga1813324d6d3fb8d6c4b77ee66e973d97" title="Function draw text on XY coordination with TAB function. " alt="" coords="699,260,844,287"/>
+<area shape="rect" id="node18" href="$group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111" title="Function draw text with TAB function in rectangle. " alt="" coords="693,209,849,236"/>
+<area shape="rect" id="node22" href="$group__doxd4d__basic__draw__func.html#ga0fc64a9353c4d9319f75a0554d45bc3c" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="933,108,1099,135"/>
+<area shape="rect" id="node19" href="$group__doxd4d__basic__draw__func.html#gadb313812718a9191072558b192a796c0" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="931,260,1101,287"/>
+<area shape="rect" id="node20" href="$group__doxd4d__basic__draw__func.html#ga061b16aca16a733400b188ffc9edc9ea" title="Function draw text with TAB function in rectangle. " alt="" coords="930,159,1102,185"/>
+<area shape="rect" id="node21" href="$group__doxd4d__basic__draw__func.html#ga7b6cd5259ee791dd0db29277bc0e1a2d" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="923,209,1109,236"/>
+<area shape="rect" id="node28" href="$d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773" title="D4D_TextBoxOnDraw" alt="" coords="1429,691,1577,717"/>
+<area shape="rect" id="node23" href="$group__doxd4d__basic__draw__func.html#gad0eca6a7cf5d6f26470de9ebca89c4e2" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="1165,209,1344,236"/>
+<area shape="rect" id="node24" href="$group__doxd4d__basic__draw__func.html#ga910b67c691e60e697818978e2c49f55a" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="1164,108,1345,135"/>
+<area shape="rect" id="node25" href="$group__doxd4d__basic__draw__func.html#ga0e320973d270d5adf0462b0ac2328269" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="1157,159,1352,185"/>
+<area shape="rect" id="node26" href="$d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="1195,7,1315,33"/>
+<area shape="rect" id="node27" href="$d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="1431,7,1575,33"/>
+<area shape="rect" id="node29" href="$d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1924,691,2096,717"/>
+<area shape="rect" id="node31" href="$d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67" title="D4D_GaugOnDraw" alt="" coords="463,665,593,692"/>
+<area shape="rect" id="node33" href="$d4d__group__box_8c.html#a54e514b02a2327f550d8ad9acae0e96c" title="D4D_GroupBoxOnDraw" alt="" coords="449,716,607,743"/>
+<area shape="rect" id="node35" href="$d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140" title="D4D_IconOnDraw" alt="" coords="466,767,590,793"/>
+<area shape="rect" id="node37" href="$d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="462,564,594,591"/>
+<area shape="rect" id="node39" href="$d4d__slider_8c.html#a60e15d945bece050aec9d38321fd2a95" title="D4D_SldrOnDraw" alt="" coords="467,615,589,641"/>
+<area shape="rect" id="node32" href="$d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="694,665,849,692"/>
+<area shape="rect" id="node34" href="$d4d__group__box_8c.html#a5e02a7833523423f991ee1e142d7d725" title="D4D_GroupBoxOnMessage" alt="" coords="680,716,863,743"/>
+<area shape="rect" id="node36" href="$d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="697,767,845,793"/>
+<area shape="rect" id="node38" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="693,564,849,591"/>
+<area shape="rect" id="node40" href="$d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="698,615,845,641"/>
+<area shape="rect" id="node44" href="$d4d__text__box_8c.html#adcacc5c76b66f54e82287a2254ad58a3" title="D4D_TextBoxGetWordSpec" alt="" coords="436,817,620,844"/>
+<area shape="rect" id="node45" href="$d4d__text__box_8c.html#ac29d1b3bd98c3d79e6ca08a8f86c026d" title="D4D_TextBoxGetMaxLineChars" alt="" coords="668,817,875,844"/>
+<area shape="rect" id="node46" href="$d4d__text__box_8c.html#aea39df6a545ad9a845f8a393c2baa84e" title="D4D_TextBoxGetLineCount" alt="" coords="925,792,1107,819"/>
+<area shape="rect" id="node48" href="$d4d__text__box_8c.html#a2511e5b05b4779181755aa356fc1da55" title="D4D_TextBoxFindLineStartChar" alt="" coords="1400,817,1607,844"/>
+<area shape="rect" id="node47" href="$d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb" title="D4D_TextBoxValue2Coor" alt="" coords="1170,741,1339,768"/>
+<area shape="rect" id="node50" href="$d4d__text__box_8c.html#ac3bfefe93d27aba170ef56fea53e0fcc" title="D4D_TextBoxScrollBarSetup" alt="" coords="1409,741,1598,768"/>
+<area shape="rect" id="node49" href="$d4d__text__box_8h.html#ac22412813d39c4a80111acb4b83a85da" title="D4D_TextBoxScrollBarsFeedBack" alt="" coords="1655,817,1876,844"/>
+<area shape="rect" id="node51" href="$d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374" title="D4D_TextBoxOnInit" alt="" coords="1697,741,1833,768"/>
+<area shape="rect" id="node52" href="$group__doxd4d__text__box__func.html#gaac5a5ecdeb225c15c8d4d0386b99f273" title="The function reinitialize whole object. " alt="" coords="1929,792,2091,819"/>
+<area shape="rect" id="node53" href="$group__doxd4d__text__box__func.html#ga39b0345e200085c6c1a6c3b3d6797195" title="The function change the text of the text box. " alt="" coords="1925,741,2095,768"/>
 </map>

@@ -15,14 +15,14 @@ var group__doxd4d__extsrc__type =
     [ "D4D_SEEK_CUR", "group__doxd4d__extsrc__type.html#gad25e973bce6918112e4277eaf6962452", null ],
     [ "D4D_SEEK_END", "group__doxd4d__extsrc__type.html#gac994436004f6c2f35fbf8d19f154e94e", null ],
     [ "D4D_SEEK_SET", "group__doxd4d__extsrc__type.html#ga28e6e11c73095878594070b939f9eff5", null ],
-    [ "D4DFILE_FCLOSE", "group__doxd4d__extsrc__type.html#gae8f7f4a85db120ebeea73a8f0b25fe48", null ],
-    [ "D4DFILE_FOPEN", "group__doxd4d__extsrc__type.html#ga46417258b10f7ba0c00dda839cd99cea", null ],
-    [ "D4DFILE_FSEEK", "group__doxd4d__extsrc__type.html#ga845f3037d401e176cfef3d0d6e63b969", null ],
-    [ "D4DFILE_FTELL", "group__doxd4d__extsrc__type.html#ga3628900698d43100321529ac67be8dd1", null ],
+    [ "D4DFILE_FCLOSE", "group__doxd4d__extsrc__type.html#ga799280d906c9dc7dd9f799b565d29b1a", null ],
+    [ "D4DFILE_FOPEN", "group__doxd4d__extsrc__type.html#ga6681ab19d953ad354c62d1b1a6021fd0", null ],
+    [ "D4DFILE_FSEEK", "group__doxd4d__extsrc__type.html#gaf88bdef267c48d013a564a132aef7828", null ],
+    [ "D4DFILE_FTELL", "group__doxd4d__extsrc__type.html#ga131d345b0360170c4e56c04f56779602", null ],
     [ "D4DFILE_FUNCTIONS", "group__doxd4d__extsrc__type.html#ga24b00695f10ffa1b65e4d0d22e475c9b", null ],
-    [ "D4DFILE_READ", "group__doxd4d__extsrc__type.html#gadc2af92f25ed15a477cb7f2cf85ecfba", null ],
-    [ "D4DFILE_WRITE", "group__doxd4d__extsrc__type.html#ga76f958f05e1979a86ab20d8a13e0fba2", null ],
+    [ "D4DFILE_READ", "group__doxd4d__extsrc__type.html#ga9f4750c927cbe171e95ec107216fa7df", null ],
+    [ "D4DFILE_WRITE", "group__doxd4d__extsrc__type.html#ga871b357360c24dfe92ead40f99c1ce44", null ],
     [ "D4DLOCALE_FUNCTIONS", "group__doxd4d__extsrc__type.html#ga55d47b09c74c5b39cade27ebbf2b39fc", null ],
-    [ "D4DLOCALE_GET_TRANSLATE_STR_LEN", "group__doxd4d__extsrc__type.html#ga24871855a59e364766a715ef5436b338", null ],
-    [ "D4DLOCALE_TRANSLATE_STR", "group__doxd4d__extsrc__type.html#ga438a41e967088864eec807904c0fcb62", null ]
+    [ "D4DLOCALE_GET_TRANSLATE_STR_LEN", "group__doxd4d__extsrc__type.html#ga73d3b9738b4056ceea67aac51d9545f1", null ],
+    [ "D4DLOCALE_TRANSLATE_STR", "group__doxd4d__extsrc__type.html#gaa6e23e571faa2493557e2ad96b079e46", null ]
 ];

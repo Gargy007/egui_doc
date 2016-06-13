@@ -1,111 +1,139 @@
 <map id="D4D_GetFontHeight" name="D4D_GetFontHeight">
-<area shape="rect" id="node2" href="$group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111" title="Function draw text with TAB function in rectangle. " alt="" coords="671,81,827,108"/>
-<area shape="rect" id="node6" href="$group__doxd4d__basic__draw__func.html#ga0fc64a9353c4d9319f75a0554d45bc3c" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="909,157,1075,184"/>
-<area shape="rect" id="node14" href="$d4d__console_8c.html#af24a955ab36f6586cc5ca859caf7e45e" title="D4D_CnslValue2Coor" alt="" coords="919,2108,1065,2135"/>
-<area shape="rect" id="node15" href="$d4d__console_8c.html#a4aec40f52339c770d7c0bf4b30da952e" title="D4D_ConsoleOnDraw" alt="" coords="1175,2159,1321,2185"/>
-<area shape="rect" id="node24" href="$d4d__edit__box_8c.html#afda23f9d81aa217a8e7b4bc838a83847" title="D4D_EditBoxOnDraw" alt="" coords="1175,1095,1321,1121"/>
-<area shape="rect" id="node26" href="$d4d__font_8h.html#a7edb57c2117912276696d659e12e214d" title="D4D_GetFontSize" alt="" coords="210,487,337,513"/>
-<area shape="rect" id="node27" href="$d4d__private_8h.html#a7a5b3bd7e4f168aa3b9879fd5d497f68" title="D4D_LCD_PrintChr" alt="" coords="207,335,340,361"/>
-<area shape="rect" id="node30" href="$d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67" title="D4D_GaugOnDraw" alt="" coords="1183,1601,1313,1628"/>
-<area shape="rect" id="node32" href="$d4d__graph_8c.html#a7f8af150b183c413a7728e39497ae9b3" title="D4D_GraphValue2Coor" alt="" coords="914,892,1070,919"/>
-<area shape="rect" id="node37" href="$d4d__graph_8c.html#a76aee1d400aae8592779ef15158c9339" title="D4D_GraphPrintLabel" alt="" coords="676,791,823,817"/>
-<area shape="rect" id="node33" href="$d4d__graph_8c.html#a640ef0f76a594f52ac2a87009342fc6d" title="D4D_GraphOnDraw" alt="" coords="1181,816,1315,843"/>
-<area shape="rect" id="node39" href="$d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140" title="D4D_IconOnDraw" alt="" coords="1186,1652,1310,1679"/>
-<area shape="rect" id="node41" href="$d4d__list__box_8c.html#ac74d1b8a4827dd38f6248fed3805b3f3" title="D4D_GetPositionCount" alt="" coords="429,411,585,437"/>
-<area shape="rect" id="node51" href="$d4d__menu_8c.html#a77f08cf5f7577778fcb48f3f905057ff" title="D4D_GetTitleBarHeight" alt="" coords="195,537,351,564"/>
-<area shape="rect" id="node52" href="$d4d__menu_8c.html#a80844eac32711afcf3dc7cdff34c1014" title="D4D_MenuValue2Coor" alt="" coords="915,588,1069,615"/>
-<area shape="rect" id="node53" href="$d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="1182,689,1314,716"/>
-<area shape="rect" id="node60" href="$d4d__screen_8c.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="192,1323,355,1349"/>
-<area shape="rect" id="node101" href="$d4d__screen_8c.html#a18d7e510aeb90ed092e9a0914d501943" title="D4D_DrawScreenNC" alt="" coords="678,2209,821,2236"/>
-<area shape="rect" id="node86" href="$d4d__slider_8c.html#a60e15d945bece050aec9d38321fd2a95" title="D4D_SldrOnDraw" alt="" coords="1187,1804,1309,1831"/>
-<area shape="rect" id="node28" href="$d4d__string_8h.html#a8accd14b97d74f03ca1d9995720992fe" title="D4D_LCD_PrintStr" alt="" coords="441,233,572,260"/>
-<area shape="rect" id="node88" href="$d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb" title="D4D_TextBoxValue2Coor" alt="" coords="907,1956,1077,1983"/>
-<area shape="rect" id="node12" href="$d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773" title="D4D_TextBoxOnDraw" alt="" coords="1174,1753,1322,1780"/>
-<area shape="rect" id="node3" href="$group__doxd4d__basic__draw__func.html#gadb313812718a9191072558b192a796c0" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="907,56,1077,83"/>
-<area shape="rect" id="node4" href="$group__doxd4d__basic__draw__func.html#ga061b16aca16a733400b188ffc9edc9ea" title="Function draw text with TAB function in rectangle. " alt="" coords="906,107,1078,133"/>
-<area shape="rect" id="node5" href="$group__doxd4d__basic__draw__func.html#ga7b6cd5259ee791dd0db29277bc0e1a2d" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="899,5,1085,32"/>
-<area shape="rect" id="node7" href="$group__doxd4d__basic__draw__func.html#gad0eca6a7cf5d6f26470de9ebca89c4e2" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="1159,81,1337,108"/>
-<area shape="rect" id="node8" href="$group__doxd4d__basic__draw__func.html#ga910b67c691e60e697818978e2c49f55a" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="1157,132,1339,159"/>
-<area shape="rect" id="node9" href="$group__doxd4d__basic__draw__func.html#ga0e320973d270d5adf0462b0ac2328269" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="1151,183,1345,209"/>
-<area shape="rect" id="node10" href="$d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="1188,1044,1308,1071"/>
-<area shape="rect" id="node11" href="$d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="1439,1044,1583,1071"/>
-<area shape="rect" id="node13" href="$d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1670,1804,1842,1831"/>
-<area shape="rect" id="node17" href="$d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="1191,2108,1305,2135"/>
-<area shape="rect" id="node18" href="$d4d__console_8c.html#aed9184953b7b6029a5d06c8dcf9313c9" title="D4D_CnslUpdateScrollbars" alt="" coords="1159,2057,1337,2084"/>
-<area shape="rect" id="node16" href="$d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="1425,2159,1596,2185"/>
-<area shape="rect" id="node19" href="$d4d__console_8c.html#ad4ecb03f16735d20cc49ffbb756d7a37" title="D4D_CnslNewLine" alt="" coords="1446,2108,1575,2135"/>
-<area shape="rect" id="node21" href="$group__doxd4d__console__func.html#ga826950533ef85db079652105cec49441" title="The function puts one char on cursor position and updates cursor. " alt="" coords="1891,2057,2018,2084"/>
-<area shape="rect" id="node23" href="$group__doxd4d__console__func.html#gaab75a500a23b24cd9f4c461d98e44487" title="The function update automatically the scroll bars to ensure visible position of cursor. " alt="" coords="1431,2057,1591,2084"/>
-<area shape="rect" id="node20" href="$d4d__console_8c.html#a4228dfd77d8dbf3a3f12c532561228eb" title="D4D_CnslPutCharInt" alt="" coords="1685,2057,1827,2084"/>
-<area shape="rect" id="node22" href="$group__doxd4d__console__func.html#gaa0fa842e0211a956e39193c0600cef5c" title="The function puts string on cursor position and updates cursor. " alt="" coords="2067,2057,2202,2084"/>
-<area shape="rect" id="node25" href="$d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1425,1095,1596,1121"/>
-<area shape="rect" id="node29" href="$group__doxd4d__basic__draw__func.html#ga1813324d6d3fb8d6c4b77ee66e973d97" title="Function draw text on XY coordination with TAB function. " alt="" coords="677,183,822,209"/>
-<area shape="rect" id="node31" href="$d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="1433,1601,1588,1628"/>
-<area shape="rect" id="node35" href="$group__doxd4d__graph__func.html#ga72090e3d00e9d587211ffbdbd0bc9488" title="The function returns the size of graph traces in axis X. " alt="" coords="1177,917,1319,944"/>
-<area shape="rect" id="node36" href="$group__doxd4d__graph__func.html#gab57fe23340875527877a19882b184637" title="Function sets the new scale of axis X of the graph. " alt="" coords="1173,968,1323,995"/>
-<area shape="rect" id="node34" href="$d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="1431,841,1590,868"/>
-<area shape="rect" id="node38" href="$d4d__graph_8c.html#afc1fe5446b67d4fe5692aaa2f144f30a" title="D4D_GraphDrawEmptyGraph" alt="" coords="897,791,1087,817"/>
-<area shape="rect" id="node40" href="$d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="1437,1652,1585,1679"/>
-<area shape="rect" id="node42" href="$d4d__list__box_8c.html#a3351b92af656eec9307512168a199e8e" title="D4D_ListBoxValue2Coor" alt="" coords="667,487,832,513"/>
-<area shape="rect" id="node47" href="$d4d__list__box_8c.html#a539cc327ca2ffeeeb537d58dabcff913" title="D4D_ListBoxFocusNextItem" alt="" coords="899,335,1085,361"/>
-<area shape="rect" id="node49" href="$d4d__list__box_8c.html#a8e64277eb0db5c64f9033128e0363ab1" title="D4D_ListBoxFocusPreviousItem" alt="" coords="888,284,1096,311"/>
-<area shape="rect" id="node45" href="$d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="926,436,1058,463"/>
-<area shape="rect" id="node50" href="$group__doxd4d__list__box__func.html#gafabebf1bfe5b1d4dea19acd07e62aeaa" title="Function ensure that the selected item in list will be scrolled to visible area. " alt="" coords="660,335,839,361"/>
-<area shape="rect" id="node43" href="$d4d__list__box_8c.html#a9b6a4954e7a9e0fa6e1c198bfbf93f9f" title="D4D_ListBoxOnDraw" alt="" coords="1176,487,1320,513"/>
-<area shape="rect" id="node44" href="$d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="1427,335,1595,361"/>
-<area shape="rect" id="node46" href="$group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="1154,436,1342,463"/>
-<area shape="rect" id="node48" href="$d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1171,284,1325,311"/>
-<area shape="rect" id="node55" href="$d4d__menu_8c.html#ab0cb7791d811e8fb4ea8d09b3df6b054" title="D4D_MenuFocusNextItem" alt="" coords="1161,588,1335,615"/>
-<area shape="rect" id="node57" href="$d4d__menu_8c.html#a664a18b254e48df788c0a4e3f5361dd8" title="D4D_MenuFocusPreviousItem" alt="" coords="1150,537,1346,564"/>
-<area shape="rect" id="node58" href="$d4d__menu_8c.html#a30a111e7b85c1666f66f4c43cc29a6aa" title="D4D_MenuScrollBarSetup" alt="" coords="1161,639,1335,665"/>
-<area shape="rect" id="node54" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1678,588,1834,615"/>
-<area shape="rect" id="node56" href="$d4d__menu_8c.html#aeb5fe2dbdd4ec9f922f5d894750b604c" title="D4D_MenuOnKeyDown" alt="" coords="1431,537,1590,564"/>
-<area shape="rect" id="node59" href="$d4d__menu_8c.html#a6ab43fd4338bde2868eb82cad52f2a89" title="D4D_MenuOnInit" alt="" coords="1451,639,1571,665"/>
-<area shape="rect" id="node61" href="$group__doxd4d__object__func.html#gaec5a3027b8480837f358672b9cfd0756" title="The function return the real client size of object. " alt="" coords="419,1373,594,1400"/>
-<area shape="rect" id="node62" href="$group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="410,1323,603,1349"/>
-<area shape="rect" id="node98" href="$group__doxd4d__screen__func.html#gae4f92cca7a0fe6298b6cfc80b2c5d23c" title="The function convert global screen point on the screen to the client point. " alt="" coords="410,740,603,767"/>
-<area shape="rect" id="node99" href="$group__doxd4d__screen__func.html#ga0e2476405b8ff066b3561696853d4ea4" title="The function check if the coordination are in screen area. " alt="" coords="437,1272,576,1299"/>
-<area shape="rect" id="node100" href="$d4d__screen_8c.html#a68e926dba9aeef87fddcf28175f1e0a9" title="D4D_GetScrHeaderExitBtnCoor" alt="" coords="403,1905,610,1932"/>
-<area shape="rect" id="node63" href="$d4d__private_8h.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="668,1399,831,1425"/>
-<area shape="rect" id="node95" href="$group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e" title="Function draw standard object frame based on the object settings and current state. " alt="" coords="932,1297,1052,1324"/>
-<area shape="rect" id="node64" href="$d4d__button_8c.html#a2a02f35c5ff0c7d4018b6c002e8bc681" title="D4D_BtnValue2Coor" alt="" coords="921,1044,1063,1071"/>
-<area shape="rect" id="node65" href="$d4d__check__box_8c.html#ae1e1a7f8ba52f1346f301c77196bc0ef" title="D4D_CheckBoxValue2Coor" alt="" coords="901,1247,1083,1273"/>
-<area shape="rect" id="node68" href="$d4d__edit__box_8c.html#aea58709077811f6272aa96c180d3954a" title="D4D_EditBoxValue2Coor" alt="" coords="909,1095,1075,1121"/>
-<area shape="rect" id="node69" href="$d4d__gauge_8c.html#a19ae4e69b08d36c269553590ca0f6226" title="D4D_GaugValue2Point" alt="" coords="915,1601,1069,1628"/>
-<area shape="rect" id="node96" href="$d4d__group__box_8c.html#a54e514b02a2327f550d8ad9acae0e96c" title="D4D_GroupBoxOnDraw" alt="" coords="1169,1152,1327,1179"/>
-<area shape="rect" id="node70" href="$d4d__icon_8c.html#a82d4c53289c4ae6f45ca0f1ce304944b" title="D4D_IconValue2Coor" alt="" coords="919,1652,1065,1679"/>
-<area shape="rect" id="node71" href="$d4d__label_8c.html#ad752123fbe220261f56f7c13064fe7bc" title="D4D_LblValue2Coor" alt="" coords="923,1399,1061,1425"/>
-<area shape="rect" id="node76" href="$d4d__progress__bar_8c.html#a48512f28833c7123f33c628f8472cb87" title="D4D_PrgrsBarValue2Coor" alt="" coords="906,1500,1078,1527"/>
-<area shape="rect" id="node79" href="$d4d__radio__button_8c.html#a8c73b31f5aef75f5e596d0cfc3010484" title="D4D_RadioButtonValue2Coor" alt="" coords="896,1551,1088,1577"/>
-<area shape="rect" id="node82" href="$d4d__scroll__bar_8c.html#aff2ec2058bcd3ab2f5969a78fa2fd3f1" title="D4D_ScrlBrValue2Coor" alt="" coords="913,1196,1071,1223"/>
-<area shape="rect" id="node85" href="$d4d__slider_8c.html#aefe3ee607eba35678eae0a6bb7d31e87" title="D4D_SldrValue2Coor" alt="" coords="920,1703,1064,1729"/>
-<area shape="rect" id="node74" href="$d4d__picture_8c.html#afc6c766a0f2dbf4feb79d3617940c251" title="D4D_PictOnDraw" alt="" coords="1187,1416,1309,1443"/>
-<area shape="rect" id="node66" href="$d4d__check__box_8c.html#ac94f137eecd1aa60daa53a5cd6b79161" title="D4D_CheckBoxOnDraw" alt="" coords="1168,1272,1328,1299"/>
-<area shape="rect" id="node67" href="$d4d__check__box_8c.html#a8b4e8a04f2da50934c48e0da7acbc641" title="D4D_CheckBoxOnMessage" alt="" coords="1419,1272,1603,1299"/>
-<area shape="rect" id="node72" href="$d4d__label_8c.html#afb4f76e75f5dbb4ef5ca211efe55e7ec" title="D4D_LabelOnDraw" alt="" coords="1183,1328,1313,1355"/>
-<area shape="rect" id="node73" href="$d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="1433,1328,1588,1355"/>
-<area shape="rect" id="node75" href="$d4d__picture_8c.html#a919ab5149061e609e029718b6e5a288f" title="D4D_PictOnMessage" alt="" coords="1437,1416,1584,1443"/>
-<area shape="rect" id="node77" href="$d4d__progress__bar_8c.html#a33da0e2c98a3ba0f6747aa681cd9f2af" title="D4D_PrgrsBarOnDraw" alt="" coords="1173,1485,1323,1512"/>
-<area shape="rect" id="node78" href="$d4d__progress__bar_8c.html#af3247d54c70c618bfea073d943050acd" title="D4D_PrgrsBarOnMessage" alt="" coords="1423,1485,1598,1512"/>
-<area shape="rect" id="node80" href="$d4d__radio__button_8c.html#a19119bf78713fd35f4d40684631a3a2b" title="D4D_RadioButtonOnDraw" alt="" coords="1163,1545,1333,1572"/>
-<area shape="rect" id="node81" href="$d4d__radio__button_8c.html#a241633d34878771833dc96ccc85ef95c" title="D4D_RadioButtonOnMessage" alt="" coords="1413,1545,1608,1572"/>
-<area shape="rect" id="node83" href="$d4d__scroll__bar_8c.html#ac4c442ecbebdefa83f0c9be779c8cdda" title="D4D_ScrlBrOnDraw" alt="" coords="1180,1215,1316,1241"/>
-<area shape="rect" id="node84" href="$d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1431,1215,1591,1241"/>
-<area shape="rect" id="node87" href="$d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1437,1804,1584,1831"/>
-<area shape="rect" id="node89" href="$d4d__text__box_8c.html#a2511e5b05b4779181755aa356fc1da55" title="D4D_TextBoxFindLineStartChar" alt="" coords="1145,1905,1351,1932"/>
-<area shape="rect" id="node91" href="$d4d__text__box_8c.html#ac3bfefe93d27aba170ef56fea53e0fcc" title="D4D_TextBoxScrollBarSetup" alt="" coords="1153,1956,1343,1983"/>
-<area shape="rect" id="node90" href="$d4d__text__box_8h.html#ac22412813d39c4a80111acb4b83a85da" title="D4D_TextBoxScrollBarsFeedBack" alt="" coords="1400,1905,1621,1932"/>
-<area shape="rect" id="node92" href="$d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374" title="D4D_TextBoxOnInit" alt="" coords="1443,1956,1579,1983"/>
-<area shape="rect" id="node93" href="$group__doxd4d__text__box__func.html#gaac5a5ecdeb225c15c8d4d0386b99f273" title="The function reinitialize whole object. " alt="" coords="1675,1956,1837,1983"/>
-<area shape="rect" id="node94" href="$group__doxd4d__text__box__func.html#ga39b0345e200085c6c1a6c3b3d6797195" title="The function change the text of the text box. " alt="" coords="1671,1905,1841,1932"/>
-<area shape="rect" id="node97" href="$d4d__group__box_8c.html#a5e02a7833523423f991ee1e142d7d725" title="D4D_GroupBoxOnMessage" alt="" coords="1419,1152,1602,1179"/>
-<area shape="rect" id="node110" href="$d4d__screen_8c.html#a38a46a9d789633b8938839b9ccf71041" title="D4D_ScrCheckExitBtnCoor" alt="" coords="659,1956,840,1983"/>
-<area shape="rect" id="node102" href="$d4d__screen_8c.html#acd4a0ec9fe607db2f8e67757620e4523" title="D4D_ChangeScreen" alt="" coords="923,2285,1061,2312"/>
-<area shape="rect" id="node109" href="$d4d__screen_8c.html#a4b86c8fea137d0a0601eee6d88325c81" title="D4D_RedrawScreen" alt="" coords="1441,2235,1580,2261"/>
-<area shape="rect" id="node103" href="$group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="1177,2311,1319,2337"/>
-<area shape="rect" id="node105" href="$group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="1179,2361,1317,2388"/>
-<area shape="rect" id="node108" href="$group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="1157,2260,1339,2287"/>
-<area shape="rect" id="node104" href="$group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1475,2311,1546,2337"/>
-<area shape="rect" id="node106" href="$d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1449,2361,1573,2388"/>
-<area shape="rect" id="node107" href="$group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1718,2297,1794,2324"/>
+<area shape="rect" id="node2" href="$group__doxd4d__basic__draw__func.html#gab332bc2c704ef43ec582ef625ea10111" title="Function draw text with TAB function in rectangle. " alt="" coords="897,82,1053,109"/>
+<area shape="rect" id="node6" href="$group__doxd4d__basic__draw__func.html#ga0fc64a9353c4d9319f75a0554d45bc3c" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="1147,234,1313,261"/>
+<area shape="rect" id="node12" href="$d4d__text__box_8c.html#ad2b24d189390c9b5140f7eea42ac4773" title="D4D_TextBoxOnDraw" alt="" coords="1156,1501,1304,1528"/>
+<area shape="rect" id="node14" href="$d4d__console_8c.html#af24a955ab36f6586cc5ca859caf7e45e" title="D4D_CnslValue2Coor" alt="" coords="901,2312,1048,2338"/>
+<area shape="rect" id="node15" href="$d4d__console_8c.html#a4aec40f52339c770d7c0bf4b30da952e" title="D4D_ConsoleOnDraw" alt="" coords="1157,2210,1303,2237"/>
+<area shape="rect" id="node24" href="$d4d__edit__box_8c.html#afda23f9d81aa217a8e7b4bc838a83847" title="D4D_EditBoxOnDraw" alt="" coords="1157,1653,1303,1680"/>
+<area shape="rect" id="node26" href="$d4d__font_8h.html#a7edb57c2117912276696d659e12e214d" title="D4D_GetFontSize" alt="" coords="210,2920,337,2946"/>
+<area shape="rect" id="node27" href="$d4d__private_8h.html#a7a5b3bd7e4f168aa3b9879fd5d497f68" title="D4D_LCD_PrintChr" alt="" coords="207,133,340,160"/>
+<area shape="rect" id="node28" href="$d4d__string_8h.html#a8accd14b97d74f03ca1d9995720992fe" title="D4D_LCD_PrintStr" alt="" coords="668,133,799,160"/>
+<area shape="rect" id="node30" href="$d4d__gauge_8c.html#ab5270c9136868e96ae29c6dc9bc63b67" title="D4D_GaugOnDraw" alt="" coords="1165,1704,1295,1730"/>
+<area shape="rect" id="node32" href="$d4d__graph_8c.html#a7f8af150b183c413a7728e39497ae9b3" title="D4D_GraphValue2Coor" alt="" coords="897,2413,1053,2440"/>
+<area shape="rect" id="node33" href="$d4d__graph_8c.html#a640ef0f76a594f52ac2a87009342fc6d" title="D4D_GraphOnDraw" alt="" coords="1163,2514,1297,2541"/>
+<area shape="rect" id="node37" href="$d4d__graph_8c.html#a76aee1d400aae8592779ef15158c9339" title="D4D_GraphPrintLabel" alt="" coords="660,2464,807,2490"/>
+<area shape="rect" id="node39" href="$d4d__icon_8c.html#afae00088914b63ae0bd0ad9999ef3140" title="D4D_IconOnDraw" alt="" coords="1168,1957,1292,1984"/>
+<area shape="rect" id="node41" href="$d4d__list__box_8c.html#ac74d1b8a4827dd38f6248fed3805b3f3" title="D4D_GetPositionCount" alt="" coords="421,2996,577,3022"/>
+<area shape="rect" id="node51" href="$d4d__low_8h.html#a0b3fcdb3eb314f2fe830cc257627de8c" title="D4D_LCD_QCircle" alt="" coords="209,690,338,717"/>
+<area shape="rect" id="node63" href="$d4d__menu_8c.html#abebe39b93b913aafb23900f34b22c669" title="D4D_MenuOnDraw" alt="" coords="1164,2666,1296,2693"/>
+<area shape="rect" id="node73" href="$d4d__slider_8c.html#a60e15d945bece050aec9d38321fd2a95" title="D4D_SldrOnDraw" alt="" coords="1169,1248,1291,1274"/>
+<area shape="rect" id="node75" href="$d4d__screen_8c.html#a18d7e510aeb90ed092e9a0914d501943" title="D4D_DrawScreenNC" alt="" coords="1159,1325,1301,1352"/>
+<area shape="rect" id="node104" href="$d4d__menu_8c.html#a77f08cf5f7577778fcb48f3f905057ff" title="D4D_GetTitleBarHeight" alt="" coords="195,2768,351,2794"/>
+<area shape="rect" id="node105" href="$d4d__menu_8c.html#a80844eac32711afcf3dc7cdff34c1014" title="D4D_MenuValue2Coor" alt="" coords="898,2768,1051,2794"/>
+<area shape="rect" id="node112" href="$d4d__screen_8c.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="192,2134,355,2161"/>
+<area shape="rect" id="node126" href="$d4d__text__box_8c.html#aaee54d97c7e6970870e02e6addfd99fb" title="D4D_TextBoxValue2Coor" alt="" coords="890,2058,1059,2085"/>
+<area shape="rect" id="node3" href="$group__doxd4d__basic__draw__func.html#gadb313812718a9191072558b192a796c0" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="1145,32,1315,58"/>
+<area shape="rect" id="node4" href="$group__doxd4d__basic__draw__func.html#ga061b16aca16a733400b188ffc9edc9ea" title="Function draw text with TAB function in rectangle. " alt="" coords="1144,82,1316,109"/>
+<area shape="rect" id="node5" href="$group__doxd4d__basic__draw__func.html#ga7b6cd5259ee791dd0db29277bc0e1a2d" title="Function draw text on XY coordination with TAB function in rectangle. " alt="" coords="1137,133,1323,160"/>
+<area shape="rect" id="node7" href="$group__doxd4d__basic__draw__func.html#gad0eca6a7cf5d6f26470de9ebca89c4e2" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="1403,184,1581,210"/>
+<area shape="rect" id="node8" href="$group__doxd4d__basic__draw__func.html#ga910b67c691e60e697818978e2c49f55a" title="Function draw text with TAB function in rectangle with round corners. " alt="" coords="1401,234,1583,261"/>
+<area shape="rect" id="node9" href="$group__doxd4d__basic__draw__func.html#ga0e320973d270d5adf0462b0ac2328269" title="Function draw text on XY coordination with TAB function in rectangle with round corners. " alt="" coords="1395,285,1589,312"/>
+<area shape="rect" id="node10" href="$d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="1432,513,1552,540"/>
+<area shape="rect" id="node11" href="$d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="1670,513,1814,540"/>
+<area shape="rect" id="node13" href="$d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1656,1756,1828,1782"/>
+<area shape="rect" id="node17" href="$d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="1173,2261,1287,2288"/>
+<area shape="rect" id="node18" href="$d4d__console_8c.html#aed9184953b7b6029a5d06c8dcf9313c9" title="D4D_CnslUpdateScrollbars" alt="" coords="1141,2312,1319,2338"/>
+<area shape="rect" id="node16" href="$d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="1407,2236,1577,2262"/>
+<area shape="rect" id="node19" href="$d4d__console_8c.html#ad4ecb03f16735d20cc49ffbb756d7a37" title="D4D_CnslNewLine" alt="" coords="1427,2464,1557,2490"/>
+<area shape="rect" id="node21" href="$group__doxd4d__console__func.html#ga826950533ef85db079652105cec49441" title="The function puts one char on cursor position and updates cursor. " alt="" coords="1901,2413,2028,2440"/>
+<area shape="rect" id="node23" href="$group__doxd4d__console__func.html#gaab75a500a23b24cd9f4c461d98e44487" title="The function update automatically the scroll bars to ensure visible position of cursor. " alt="" coords="1412,2312,1572,2338"/>
+<area shape="rect" id="node20" href="$d4d__console_8c.html#a4228dfd77d8dbf3a3f12c532561228eb" title="D4D_CnslPutCharInt" alt="" coords="1671,2413,1813,2440"/>
+<area shape="rect" id="node22" href="$group__doxd4d__console__func.html#gaa0fa842e0211a956e39193c0600cef5c" title="The function puts string on cursor position and updates cursor. " alt="" coords="2098,2413,2233,2440"/>
+<area shape="rect" id="node25" href="$d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1407,1653,1577,1680"/>
+<area shape="rect" id="node29" href="$group__doxd4d__basic__draw__func.html#ga1813324d6d3fb8d6c4b77ee66e973d97" title="Function draw text on XY coordination with TAB function. " alt="" coords="902,184,1047,210"/>
+<area shape="rect" id="node31" href="$d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="1415,1704,1569,1730"/>
+<area shape="rect" id="node34" href="$d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="1413,2514,1571,2541"/>
+<area shape="rect" id="node35" href="$group__doxd4d__graph__func.html#ga72090e3d00e9d587211ffbdbd0bc9488" title="The function returns the size of graph traces in axis X. " alt="" coords="1159,2362,1301,2389"/>
+<area shape="rect" id="node36" href="$group__doxd4d__graph__func.html#gab57fe23340875527877a19882b184637" title="Function sets the new scale of axis X of the graph. " alt="" coords="1155,2413,1305,2440"/>
+<area shape="rect" id="node38" href="$d4d__graph_8c.html#afc1fe5446b67d4fe5692aaa2f144f30a" title="D4D_GraphDrawEmptyGraph" alt="" coords="879,2514,1070,2541"/>
+<area shape="rect" id="node40" href="$d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="1418,1957,1566,1984"/>
+<area shape="rect" id="node42" href="$d4d__list__box_8c.html#a3351b92af656eec9307512168a199e8e" title="D4D_ListBoxValue2Coor" alt="" coords="892,2920,1057,2946"/>
+<area shape="rect" id="node46" href="$d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="1164,2970,1296,2997"/>
+<area shape="rect" id="node48" href="$d4d__list__box_8c.html#a539cc327ca2ffeeeb537d58dabcff913" title="D4D_ListBoxFocusNextItem" alt="" coords="881,3109,1068,3136"/>
+<area shape="rect" id="node49" href="$d4d__list__box_8c.html#a8e64277eb0db5c64f9033128e0363ab1" title="D4D_ListBoxFocusPreviousItem" alt="" coords="871,3033,1079,3060"/>
+<area shape="rect" id="node50" href="$group__doxd4d__list__box__func.html#gafabebf1bfe5b1d4dea19acd07e62aeaa" title="Function ensure that the selected item in list will be scrolled to visible area. " alt="" coords="644,3072,823,3098"/>
+<area shape="rect" id="node43" href="$d4d__list__box_8c.html#a9b6a4954e7a9e0fa6e1c198bfbf93f9f" title="D4D_ListBoxOnDraw" alt="" coords="1158,2920,1302,2946"/>
+<area shape="rect" id="node45" href="$d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1153,3021,1307,3048"/>
+<area shape="rect" id="node44" href="$d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="1408,3021,1576,3048"/>
+<area shape="rect" id="node47" href="$group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="1398,2970,1586,2997"/>
+<area shape="rect" id="node52" href="$group__doxd4d__basic__draw__func.html#ga409e219a4c36c83a774e1ab151dd3ca6" title="Function draw fill quadrant of circle on the screen. " alt="" coords="913,285,1037,312"/>
+<area shape="rect" id="node53" href="$group__doxd4d__basic__draw__func.html#ga318e53c274d0adcc68e86b03be8ab1b1" title="Function draw fill quadrant of circle on the screen. " alt="" coords="429,690,569,717"/>
+<area shape="rect" id="node54" href="$group__doxd4d__basic__draw__func.html#ga4ea4484aca8a7a3bdeaa24aa26bfd02a" title="Function draw quadrant of circle on the screen. " alt="" coords="446,918,553,945"/>
+<area shape="rect" id="node85" href="$group__doxd4d__basic__draw__func.html#ga1d7fa36dee22a835a5435df7aa95c3d4" title="Function draw quadrant of circle on the screen. " alt="" coords="438,741,561,768"/>
+<area shape="rect" id="node86" href="$d4d__low_8h.html#a69f1735f580a19e4a777736f017cf0c1" title="D4D_LCD_RBox" alt="" coords="440,513,559,540"/>
+<area shape="rect" id="node99" href="$d4d__low_8h.html#a8f9c6276de8111853b9b73e87e2b004a" title="D4D_LCD_RRect" alt="" coords="438,640,561,666"/>
+<area shape="rect" id="node55" href="$group__doxd4d__basic__draw__func.html#gab2a67b0452682941ea6930ad5df6a824" title="Function draw standard object bevel specified by parameters. " alt="" coords="691,1298,776,1325"/>
+<area shape="rect" id="node56" href="$group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e" title="Function draw standard object frame based on the object settings and current state. " alt="" coords="915,1552,1035,1578"/>
+<area shape="rect" id="node57" href="$d4d__check__box_8c.html#ac94f137eecd1aa60daa53a5cd6b79161" title="D4D_CheckBoxOnDraw" alt="" coords="1150,792,1310,818"/>
+<area shape="rect" id="node59" href="$d4d__group__box_8c.html#a54e514b02a2327f550d8ad9acae0e96c" title="D4D_GroupBoxOnDraw" alt="" coords="1151,1045,1309,1072"/>
+<area shape="rect" id="node61" href="$d4d__label_8c.html#afb4f76e75f5dbb4ef5ca211efe55e7ec" title="D4D_LabelOnDraw" alt="" coords="1165,1881,1295,1908"/>
+<area shape="rect" id="node65" href="$d4d__picture_8c.html#afc6c766a0f2dbf4feb79d3617940c251" title="D4D_PictOnDraw" alt="" coords="1169,1805,1291,1832"/>
+<area shape="rect" id="node67" href="$d4d__progress__bar_8c.html#a33da0e2c98a3ba0f6747aa681cd9f2af" title="D4D_PrgrsBarOnDraw" alt="" coords="1155,842,1305,869"/>
+<area shape="rect" id="node69" href="$d4d__radio__button_8c.html#a19119bf78713fd35f4d40684631a3a2b" title="D4D_RadioButtonOnDraw" alt="" coords="1145,1602,1315,1629"/>
+<area shape="rect" id="node71" href="$d4d__scroll__bar_8c.html#ac4c442ecbebdefa83f0c9be779c8cdda" title="D4D_ScrlBrOnDraw" alt="" coords="1162,1197,1298,1224"/>
+<area shape="rect" id="node58" href="$d4d__check__box_8c.html#a8b4e8a04f2da50934c48e0da7acbc641" title="D4D_CheckBoxOnMessage" alt="" coords="1400,792,1584,818"/>
+<area shape="rect" id="node60" href="$d4d__group__box_8c.html#a5e02a7833523423f991ee1e142d7d725" title="D4D_GroupBoxOnMessage" alt="" coords="1401,1045,1583,1072"/>
+<area shape="rect" id="node62" href="$d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="1415,1881,1569,1908"/>
+<area shape="rect" id="node64" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1664,2793,1820,2820"/>
+<area shape="rect" id="node66" href="$d4d__picture_8c.html#a919ab5149061e609e029718b6e5a288f" title="D4D_PictOnMessage" alt="" coords="1419,1805,1565,1832"/>
+<area shape="rect" id="node68" href="$d4d__progress__bar_8c.html#af3247d54c70c618bfea073d943050acd" title="D4D_PrgrsBarOnMessage" alt="" coords="1405,842,1579,869"/>
+<area shape="rect" id="node70" href="$d4d__radio__button_8c.html#a241633d34878771833dc96ccc85ef95c" title="D4D_RadioButtonOnMessage" alt="" coords="1395,1602,1589,1629"/>
+<area shape="rect" id="node72" href="$d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1412,1197,1572,1224"/>
+<area shape="rect" id="node74" href="$d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1419,1248,1565,1274"/>
+<area shape="rect" id="node76" href="$d4d__screen_8c.html#acd4a0ec9fe607db2f8e67757620e4523" title="D4D_ChangeScreen" alt="" coords="1423,1350,1561,1377"/>
+<area shape="rect" id="node84" href="$d4d__screen_8c.html#a4b86c8fea137d0a0601eee6d88325c81" title="D4D_RedrawScreen" alt="" coords="2096,1502,2235,1529"/>
+<area shape="rect" id="node77" href="$group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="1671,1376,1813,1402"/>
+<area shape="rect" id="node79" href="$group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="1673,1604,1811,1630"/>
+<area shape="rect" id="node83" href="$group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="1651,1325,1833,1352"/>
+<area shape="rect" id="node78" href="$group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1929,1376,2000,1402"/>
+<area shape="rect" id="node80" href="$d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="2103,1604,2227,1630"/>
+<area shape="rect" id="node82" href="$d4d__private_8h.html#a46228ea57aaae9cc90c358f6e5463769" title="D4D_SendMessageBack" alt="" coords="1881,2109,2048,2136"/>
+<area shape="rect" id="node81" href="$group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="2283,1553,2359,1580"/>
+<area shape="rect" id="node87" href="$group__doxd4d__basic__draw__func.html#ga8e67d983050dc41e2984a44af9f989c5" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="921,1450,1028,1477"/>
+<area shape="rect" id="node89" href="$group__doxd4d__basic__draw__func.html#ga625034711623c6e6321a0291805edb5b" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="672,513,795,540"/>
+<area shape="rect" id="node90" href="$group__doxd4d__basic__draw__func.html#ga3c9e01b18d97d43e7532b102ee562959" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="673,412,794,438"/>
+<area shape="rect" id="node91" href="$group__doxd4d__basic__draw__func.html#gaf5f8150298d6b829fcd373c1a21006ed" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="665,361,802,388"/>
+<area shape="rect" id="node92" href="$group__doxd4d__basic__draw__func.html#gac00e96f797a9640ec342c688b2117f57" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="682,462,785,489"/>
+<area shape="rect" id="node97" href="$group__doxd4d__basic__draw__func.html#gaa9693dc51fb4b0cb16f28fa3dacb5bb9" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="675,564,791,590"/>
+<area shape="rect" id="node88" href="$group__doxd4d__bmp__func.html#ga2cd1cee410c68efd7f9f5fe32da5ebe3" title="Function draw the bitmap on the specify coordination into rectangle. " alt="" coords="1161,1400,1299,1426"/>
+<area shape="rect" id="node93" href="$group__doxd4d__basic__draw__func.html#ga950feb5845ca062bf98e5aef1aa13b56" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="931,640,1018,666"/>
+<area shape="rect" id="node94" href="$d4d__imgdec__bmp_8h.html#a6d402543bb8a9cebfacd00674fa235b0" title="D4D_ImgDecBmpDraw" alt="" coords="897,386,1052,413"/>
+<area shape="rect" id="node95" href="$d4d__imgdec__d4d_8h.html#a86a2f81eb5c75da85d3665b4eab9952c" title="D4D_ImgDecExtD4DDraw" alt="" coords="889,437,1061,464"/>
+<area shape="rect" id="node96" href="$d4d__imgdec__d4dint_8h.html#abd2b2ea00aa9812f46930d4ab1eca21c" title="D4D_ImgDecIntD4DDraw" alt="" coords="891,336,1058,362"/>
+<area shape="rect" id="node98" href="$group__doxd4d__basic__draw__func.html#gab2cfa719cf1ab06fa3dfaa973652f5fb" title="Function draw filled rectangle with outline on the screen with round corners. " alt="" coords="925,741,1025,768"/>
+<area shape="rect" id="node100" href="$group__doxd4d__basic__draw__func.html#ga0396be35ce2a28935e3aed036cf52a80" title="Function draw rectangle on the screen with round corners. " alt="" coords="688,969,779,996"/>
+<area shape="rect" id="node101" href="$group__doxd4d__basic__draw__func.html#ga06cc2da148e435927c6ec8d0545797a5" title="Function draw rectangle on the screen with round corners. " alt="" coords="680,614,787,641"/>
+<area shape="rect" id="node102" href="$group__doxd4d__basic__draw__func.html#ga5a6bc954e40cc4addf10e0910f7108ba" title="Function draw rectangle on the screen with round corners. " alt="" coords="681,665,785,692"/>
+<area shape="rect" id="node103" href="$group__doxd4d__basic__draw__func.html#ga6643254f3567eb13cc950f12a2940d2f" title="Function draw rectangle on the screen with round corners. " alt="" coords="673,716,793,742"/>
+<area shape="rect" id="node106" href="$d4d__menu_8c.html#ab0cb7791d811e8fb4ea8d09b3df6b054" title="D4D_MenuFocusNextItem" alt="" coords="1143,2818,1317,2845"/>
+<area shape="rect" id="node108" href="$d4d__menu_8c.html#a664a18b254e48df788c0a4e3f5361dd8" title="D4D_MenuFocusPreviousItem" alt="" coords="1132,2869,1328,2896"/>
+<area shape="rect" id="node109" href="$d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="1421,2768,1563,2794"/>
+<area shape="rect" id="node110" href="$d4d__menu_8c.html#a30a111e7b85c1666f66f4c43cc29a6aa" title="D4D_MenuScrollBarSetup" alt="" coords="1143,2717,1317,2744"/>
+<area shape="rect" id="node107" href="$d4d__menu_8c.html#aeb5fe2dbdd4ec9f922f5d894750b604c" title="D4D_MenuOnKeyDown" alt="" coords="1413,2869,1571,2896"/>
+<area shape="rect" id="node111" href="$d4d__menu_8c.html#a6ab43fd4338bde2868eb82cad52f2a89" title="D4D_MenuOnInit" alt="" coords="1432,2717,1552,2744"/>
+<area shape="rect" id="node113" href="$group__doxd4d__object__func.html#gaec5a3027b8480837f358672b9cfd0756" title="The function return the real client size of object. " alt="" coords="412,2160,587,2186"/>
+<area shape="rect" id="node114" href="$group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="403,1754,596,1781"/>
+<area shape="rect" id="node133" href="$group__doxd4d__screen__func.html#gae4f92cca7a0fe6298b6cfc80b2c5d23c" title="The function convert global screen point on the screen to the client point. " alt="" coords="878,2616,1071,2642"/>
+<area shape="rect" id="node136" href="$group__doxd4d__screen__func.html#ga0e2476405b8ff066b3561696853d4ea4" title="The function check if the coordination are in screen area. " alt="" coords="1673,2109,1811,2136"/>
+<area shape="rect" id="node137" href="$d4d__screen_8c.html#a68e926dba9aeef87fddcf28175f1e0a9" title="D4D_GetScrHeaderExitBtnCoor" alt="" coords="871,2160,1078,2186"/>
+<area shape="rect" id="node115" href="$d4d__private_8h.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="652,1754,815,1781"/>
+<area shape="rect" id="node116" href="$d4d__button_8c.html#a2a02f35c5ff0c7d4018b6c002e8bc681" title="D4D_BtnValue2Coor" alt="" coords="904,538,1045,565"/>
+<area shape="rect" id="node117" href="$d4d__check__box_8c.html#ae1e1a7f8ba52f1346f301c77196bc0ef" title="D4D_CheckBoxValue2Coor" alt="" coords="884,792,1065,818"/>
+<area shape="rect" id="node118" href="$d4d__edit__box_8c.html#aea58709077811f6272aa96c180d3954a" title="D4D_EditBoxValue2Coor" alt="" coords="891,1754,1058,1781"/>
+<area shape="rect" id="node119" href="$d4d__gauge_8c.html#a19ae4e69b08d36c269553590ca0f6226" title="D4D_GaugValue2Point" alt="" coords="897,1805,1052,1832"/>
+<area shape="rect" id="node120" href="$d4d__icon_8c.html#a82d4c53289c4ae6f45ca0f1ce304944b" title="D4D_IconValue2Coor" alt="" coords="902,1957,1047,1984"/>
+<area shape="rect" id="node121" href="$d4d__label_8c.html#ad752123fbe220261f56f7c13064fe7bc" title="D4D_LblValue2Coor" alt="" coords="905,1906,1044,1933"/>
+<area shape="rect" id="node122" href="$d4d__progress__bar_8c.html#a48512f28833c7123f33c628f8472cb87" title="D4D_PrgrsBarValue2Coor" alt="" coords="889,842,1061,869"/>
+<area shape="rect" id="node123" href="$d4d__radio__button_8c.html#a8c73b31f5aef75f5e596d0cfc3010484" title="D4D_RadioButtonValue2Coor" alt="" coords="879,1704,1071,1730"/>
+<area shape="rect" id="node124" href="$d4d__scroll__bar_8c.html#aff2ec2058bcd3ab2f5969a78fa2fd3f1" title="D4D_ScrlBrValue2Coor" alt="" coords="896,1197,1053,1224"/>
+<area shape="rect" id="node125" href="$d4d__slider_8c.html#aefe3ee607eba35678eae0a6bb7d31e87" title="D4D_SldrValue2Coor" alt="" coords="903,1248,1047,1274"/>
+<area shape="rect" id="node127" href="$d4d__text__box_8c.html#a2511e5b05b4779181755aa356fc1da55" title="D4D_TextBoxFindLineStartChar" alt="" coords="1127,2008,1333,2034"/>
+<area shape="rect" id="node129" href="$d4d__text__box_8c.html#ac3bfefe93d27aba170ef56fea53e0fcc" title="D4D_TextBoxScrollBarSetup" alt="" coords="1135,2058,1325,2085"/>
+<area shape="rect" id="node128" href="$d4d__text__box_8h.html#ac22412813d39c4a80111acb4b83a85da" title="D4D_TextBoxScrollBarsFeedBack" alt="" coords="1381,2008,1603,2034"/>
+<area shape="rect" id="node130" href="$d4d__text__box_8c.html#af3c6ae4f96f1afb7d194557f28e67374" title="D4D_TextBoxOnInit" alt="" coords="1424,2058,1560,2085"/>
+<area shape="rect" id="node131" href="$group__doxd4d__text__box__func.html#gaac5a5ecdeb225c15c8d4d0386b99f273" title="The function reinitialize whole object. " alt="" coords="1661,2008,1823,2034"/>
+<area shape="rect" id="node132" href="$group__doxd4d__text__box__func.html#ga39b0345e200085c6c1a6c3b3d6797195" title="The function change the text of the text box. " alt="" coords="1657,2058,1827,2085"/>
+<area shape="rect" id="node134" href="$group__doxd4d__base__func.html#gaa77552bc19d7169fd2a2a429757471c9" title="Place to key event into key buffer. " alt="" coords="1163,2616,1297,2642"/>
+<area shape="rect" id="node135" href="$group__doxd4d__base__func.html#ga03787dc367561d85b499c0b5b12dbe37" title="Place to keys buffer new keys events by binary mask. " alt="" coords="1425,2616,1559,2642"/>
+<area shape="rect" id="node138" href="$d4d__screen_8c.html#a38a46a9d789633b8938839b9ccf71041" title="D4D_ScrCheckExitBtnCoor" alt="" coords="1651,2160,1833,2186"/>
 </map>

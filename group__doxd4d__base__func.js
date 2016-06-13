@@ -3,6 +3,7 @@ var group__doxd4d__base__func =
     [ "D4D_GetTextBuffWidth", "group__doxd4d__base__func.html#gac5e8837ee78e653bee17f3d3056439ff", null ],
     [ "D4D_GetTextBuffWidthTabAdj", "group__doxd4d__base__func.html#gaa9741343ad3e194355d3c073a449951e", null ],
     [ "D4D_ClearKeysBuffer", "group__doxd4d__base__func.html#ga019d5524f4ec9275c7f08d7296e0d546", null ],
+    [ "D4D_EnableSystemKeys", "group__doxd4d__base__func.html#ga106e2956df6f9e4c7c2c65207f4981e2", null ],
     [ "D4D_FlushOutput", "group__doxd4d__base__func.html#ga180a53071d2dac8947c5c3a7b358d67f", null ],
     [ "D4D_GetLongerSide", "group__doxd4d__base__func.html#ga554203ef6ce11c5eeecb35d6a8da0ab4", null ],
     [ "D4D_Init", "group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52", null ],

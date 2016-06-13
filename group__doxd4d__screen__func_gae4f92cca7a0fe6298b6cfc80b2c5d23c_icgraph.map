@@ -1,5 +1,10 @@
 <map id="D4D_GetScreenToClientPoint" name="D4D_GetScreenToClientPoint">
-<area shape="rect" id="node2" href="$d4d__menu_8c.html#a30a111e7b85c1666f66f4c43cc29a6aa" title="D4D_MenuScrollBarSetup" alt="" coords="248,5,421,32"/>
-<area shape="rect" id="node3" href="$d4d__menu_8c.html#a6ab43fd4338bde2868eb82cad52f2a89" title="D4D_MenuOnInit" alt="" coords="469,5,589,32"/>
-<area shape="rect" id="node4" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="638,5,794,32"/>
+<area shape="rect" id="node2" href="$group__doxd4d__base__func.html#gaa77552bc19d7169fd2a2a429757471c9" title="Place to key event into key buffer. " alt="" coords="266,5,401,32"/>
+<area shape="rect" id="node4" href="$d4d__private_8h.html#a46228ea57aaae9cc90c358f6e5463769" title="D4D_SendMessageBack" alt="" coords="250,80,417,107"/>
+<area shape="rect" id="node7" href="$d4d__menu_8c.html#a30a111e7b85c1666f66f4c43cc29a6aa" title="D4D_MenuScrollBarSetup" alt="" coords="247,131,420,157"/>
+<area shape="rect" id="node3" href="$group__doxd4d__base__func.html#ga03787dc367561d85b499c0b5b12dbe37" title="Place to keys buffer new keys events by binary mask. " alt="" coords="468,5,603,32"/>
+<area shape="rect" id="node5" href="$d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="473,80,597,107"/>
+<area shape="rect" id="node6" href="$group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="691,80,767,107"/>
+<area shape="rect" id="node8" href="$d4d__menu_8c.html#a6ab43fd4338bde2868eb82cad52f2a89" title="D4D_MenuOnInit" alt="" coords="475,131,595,157"/>
+<area shape="rect" id="node9" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="651,131,807,157"/>
 </map>

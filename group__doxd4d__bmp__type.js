@@ -5,11 +5,11 @@ var group__doxd4d__bmp__type =
       [ "pParam", "group__doxd4d__bmp__type.html#ac270856cc9e5e4d1ed8cbf89072eb4fc", null ]
     ] ],
     [ "D4D_EXTIMG_FUNC", "group__doxd4d__bmp__type.html#struct_d4_d___e_x_t_i_m_g___f_u_n_c", [
-      [ "D4D_ImgDecDraw", "group__doxd4d__bmp__type.html#af486973e386c9d54d808e7725120dd29", null ],
-      [ "D4D_ImgDecGetHeader", "group__doxd4d__bmp__type.html#a814c129a03127e693361e26c1dfe087d", null ],
-      [ "D4D_ImgDecGetHeight", "group__doxd4d__bmp__type.html#a786b7bb5daf81b6f83588ceb77244764", null ],
-      [ "D4D_ImgDecGetSize", "group__doxd4d__bmp__type.html#a4520552330468c52c8592145eee008c5", null ],
-      [ "D4D_ImgDecGetWidth", "group__doxd4d__bmp__type.html#a3aba694467c4b279a205f33ef25c462a", null ]
+      [ "D4D_ImgDecDraw", "group__doxd4d__bmp__type.html#a023758ddf91985fad33d5c597767d336", null ],
+      [ "D4D_ImgDecGetHeader", "group__doxd4d__bmp__type.html#a495b812577ba0c85711375d9c4954a31", null ],
+      [ "D4D_ImgDecGetHeight", "group__doxd4d__bmp__type.html#ab39e5c93947027801b5b1974d292813d", null ],
+      [ "D4D_ImgDecGetSize", "group__doxd4d__bmp__type.html#adfdce991051bd4cb6ecb20e80f20fec3", null ],
+      [ "D4D_ImgDecGetWidth", "group__doxd4d__bmp__type.html#a6fe7e89a7b9d145381099bc7e2b1187d", null ]
     ] ],
     [ "D4D_BMP_PROPERTIES", "group__doxd4d__bmp__type.html#ga138d45951f88dd9ccbd423f3f712d226", null ],
     [ "D4D_EXTIMG_TYPE", "group__doxd4d__bmp__type.html#ga1e0e6ad9ff632a8020788d2a93330d85", [

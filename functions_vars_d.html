@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>eGUI alias D4D: Data Fields - Variables</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="https://github.com/Gargy007/eGUI" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">eGUI alias D4D
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+   <!--<td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>-->
+       <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li><a href="functions.html"><span>All</span></a></li>
+      <li class="current"><a href="functions_vars.html"><span>Variables</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="functions_vars.html#index_a"><span>a</span></a></li>
+      <li><a href="functions_vars_b.html#index_b"><span>b</span></a></li>
+      <li><a href="functions_vars_c.html#index_c"><span>c</span></a></li>
+      <li class="current"><a href="functions_vars_d.html#index_d"><span>d</span></a></li>
+      <li><a href="functions_vars_e.html#index_e"><span>e</span></a></li>
+      <li><a href="functions_vars_f.html#index_f"><span>f</span></a></li>
+      <li><a href="functions_vars_g.html#index_g"><span>g</span></a></li>
+      <li><a href="functions_vars_h.html#index_h"><span>h</span></a></li>
+      <li><a href="functions_vars_i.html#index_i"><span>i</span></a></li>
+      <li><a href="functions_vars_k.html#index_k"><span>k</span></a></li>
+      <li><a href="functions_vars_l.html#index_l"><span>l</span></a></li>
+      <li><a href="functions_vars_m.html#index_m"><span>m</span></a></li>
+      <li><a href="functions_vars_n.html#index_n"><span>n</span></a></li>
+      <li><a href="functions_vars_o.html#index_o"><span>o</span></a></li>
+      <li><a href="functions_vars_p.html#index_p"><span>p</span></a></li>
+      <li><a href="functions_vars_r.html#index_r"><span>r</span></a></li>
+      <li><a href="functions_vars_s.html#index_s"><span>s</span></a></li>
+      <li><a href="functions_vars_t.html#index_t"><span>t</span></a></li>
+      <li><a href="functions_vars_u.html#index_u"><span>u</span></a></li>
+      <li><a href="functions_vars_v.html#index_v"><span>v</span></a></li>
+      <li><a href="functions_vars_w.html#index_w"><span>w</span></a></li>
+      <li><a href="functions_vars_x.html#index_x"><span>x</span></a></li>
+      <li><a href="functions_vars_y.html#index_y"><span>y</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_vars_d.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+&#160;
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>D4D_ImgDecDraw
+: <a class="el" href="group__doxd4d__bmp__type.html#a023758ddf91985fad33d5c597767d336">D4D_EXTIMG_FUNC</a>
+</li>
+<li>D4D_ImgDecGetHeader
+: <a class="el" href="group__doxd4d__bmp__type.html#a495b812577ba0c85711375d9c4954a31">D4D_EXTIMG_FUNC</a>
+</li>
+<li>D4D_ImgDecGetHeight
+: <a class="el" href="group__doxd4d__bmp__type.html#ab39e5c93947027801b5b1974d292813d">D4D_EXTIMG_FUNC</a>
+</li>
+<li>D4D_ImgDecGetSize
+: <a class="el" href="group__doxd4d__bmp__type.html#adfdce991051bd4cb6ecb20e80f20fec3">D4D_EXTIMG_FUNC</a>
+</li>
+<li>D4D_ImgDecGetWidth
+: <a class="el" href="group__doxd4d__bmp__type.html#a6fe7e89a7b9d145381099bc7e2b1187d">D4D_EXTIMG_FUNC</a>
+</li>
+<li>D4DFILE_fclose
+: <a class="el" href="group__doxd4d__extsrc__type.html#aa37c7e5745a688e68fc9effff1dc76fd">D4DFILE_FUNCTIONS_S</a>
+</li>
+<li>D4DFILE_fopen
+: <a class="el" href="group__doxd4d__extsrc__type.html#a6f06a31699e479b97fb8634b4dd597d5">D4DFILE_FUNCTIONS_S</a>
+</li>
+<li>D4DFILE_fseek
+: <a class="el" href="group__doxd4d__extsrc__type.html#a47d584c038371a5069a9890b54877864">D4DFILE_FUNCTIONS_S</a>
+</li>
+<li>D4DFILE_ftell
+: <a class="el" href="group__doxd4d__extsrc__type.html#a05c7548c0a08504feff18aa090a95ed6">D4DFILE_FUNCTIONS_S</a>
+</li>
+<li>D4DFILE_read
+: <a class="el" href="group__doxd4d__extsrc__type.html#a750bc54a0b3eb1462cf7cdf2d458f8e3">D4DFILE_FUNCTIONS_S</a>
+</li>
+<li>D4DFILE_write
+: <a class="el" href="group__doxd4d__extsrc__type.html#aaa92897ce4256d0869d36adcf456e5a9">D4DFILE_FUNCTIONS_S</a>
+</li>
+<li>D4DLCD_DeInit
+: <a class="el" href="group__doxd4d__lldapi__types.html#af41ab737732bec1ab3240a2b9ec72941">D4DLCD_FUNCTIONS_S</a>
+</li>
+<li>D4DLCD_Delay_ms
+: <a class="el" href="group__doxd4d__lldapi__types.html#a018c0cfe3d88135266fb8a62127ebc4e">D4DLCD_FUNCTIONS_S</a>
+</li>
+<li>D4DLCD_FlushBuffer
+: <a class="el" href="group__doxd4d__lldapi__types.html#a311f4cad306e6474e6df3b1436801cd0">D4DLCD_FUNCTIONS_S</a>
+</li>
+<li>D4DLCD_Init
+: <a class="el" href="group__doxd4d__lldapi__types.html#a989d3f4f36d00ccec94403b978be0dc3">D4DLCD_FUNCTIONS_S</a>
+</li>
+<li>D4DLCD_Read_PixelColor
+: <a class="el" href="group__doxd4d__lldapi__types.html#ac9f80e2a8f7c4185f97ac7cc2de07780">D4DLCD_FUNCTIONS_S</a>
+</li>
+<li>D4DLCD_Send_PixelColor
+: <a class="el" href="group__doxd4d__lldapi__types.html#ae2c8021154bce1ff165af8a63fc1b2bc">D4DLCD_FUNCTIONS_S</a>
+</li>
+<li>D4DLCD_SetOrientation
+: <a class="el" href="group__doxd4d__lldapi__types.html#a8392e6b6c0ba996ce320cbebcb0efa3d">D4DLCD_FUNCTIONS_S</a>
+</li>
+<li>D4DLCD_SetWindow
+: <a class="el" href="group__doxd4d__lldapi__types.html#a7571f6eba0911a1ae144b28a248e1ba9">D4DLCD_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHW_DeInit
+: <a class="el" href="group__doxd4d__lldapi__types.html#ad4e470ba2140157d9f3c8b4ba5623a00">D4DLCDHW_FUNCTIONS_S</a>
+, <a class="el" href="group__doxd4d__lldapi__types.html#ad4e470ba2140157d9f3c8b4ba5623a00">D4DLCDHWFB_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHW_FlushBuffer
+: <a class="el" href="group__doxd4d__lldapi__types.html#aaab45308cf98c95abdcb8948df50b6b4">D4DLCDHW_FUNCTIONS_S</a>
+, <a class="el" href="group__doxd4d__lldapi__types.html#aaab45308cf98c95abdcb8948df50b6b4">D4DLCDHWFB_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHW_GetFbDescriptor
+: <a class="el" href="group__doxd4d__lldapi__types.html#a3a92703385648b7e24e8c93329279d9a">D4DLCDHWFB_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHW_Init
+: <a class="el" href="group__doxd4d__lldapi__types.html#a8e6f5343a1d7b51b37ca8524e1ea1b53">D4DLCDHW_FUNCTIONS_S</a>
+, <a class="el" href="group__doxd4d__lldapi__types.html#a8e6f5343a1d7b51b37ca8524e1ea1b53">D4DLCDHWFB_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHW_PinCtl
+: <a class="el" href="group__doxd4d__lldapi__types.html#a28d403aaaceb3ef87aabc7f22f0ed015">D4DLCDHW_FUNCTIONS_S</a>
+, <a class="el" href="group__doxd4d__lldapi__types.html#a28d403aaaceb3ef87aabc7f22f0ed015">D4DLCDHWFB_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHW_ReadCmdWord
+: <a class="el" href="group__doxd4d__lldapi__types.html#ac08de0546739d3557c27ac1aa9ed9d60">D4DLCDHW_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHW_ReadData
+: <a class="el" href="group__doxd4d__lldapi__types.html#a31dfc36711b54e3205b4f091b51dd634">D4DLCDHWFB_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHW_ReadDataWord
+: <a class="el" href="group__doxd4d__lldapi__types.html#a3d4e7b684ec75d415c4871a0fdc6553b">D4DLCDHW_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHW_SendCmdWord
+: <a class="el" href="group__doxd4d__lldapi__types.html#a51a685aac888a34db4cf64a386c62f80">D4DLCDHW_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHW_SendDataWord
+: <a class="el" href="group__doxd4d__lldapi__types.html#a7609f8de7437417aedde3a13527e6e87">D4DLCDHW_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHW_WriteData
+: <a class="el" href="group__doxd4d__lldapi__types.html#ad84398ab1b399d5cc2a9c26c2c775839">D4DLCDHWFB_FUNCTIONS_S</a>
+</li>
+<li>D4DLCDHWFBK70LCDC_InitPanel
+: <a class="el" href="struct_d4_d_l_c_d_h_w_f_b_k70_l_c_d_c___f_u_n_c_t_i_o_n_s___s.html#a65438ab15a749f069a00be90146522cf">D4DLCDHWFBK70LCDC_FUNCTIONS_S</a>
+</li>
+<li>D4DLOCALE_GetTranslateStrLength
+: <a class="el" href="group__doxd4d__extsrc__type.html#a62fbd0e6a9834567bc02202ff6004980">D4DLOCALE_FUNCTIONS_S</a>
+</li>
+<li>D4DLOCALE_TranslateStr
+: <a class="el" href="group__doxd4d__extsrc__type.html#ab13d494407c6c07e2a9f5ae7fa519c1e">D4DLOCALE_FUNCTIONS_S</a>
+</li>
+<li>D4DMOUSE_DeInit
+: <a class="el" href="group__doxd4d__lldapi__types.html#a36f6bec17b551675d0770f208f3aa5d6">D4DMOUSE_FUNCTIONS_S</a>
+</li>
+<li>D4DMOUSE_GetDescriptor
+: <a class="el" href="group__doxd4d__lldapi__types.html#abaf60d77fcd7118ae23347bc2923b1c9">D4DMOUSE_FUNCTIONS_S</a>
+</li>
+<li>D4DMOUSE_Init
+: <a class="el" href="group__doxd4d__lldapi__types.html#a776b7f5481641045a5f005ec4478714e">D4DMOUSE_FUNCTIONS_S</a>
+</li>
+<li>D4DMOUSE_SetCoor
+: <a class="el" href="group__doxd4d__lldapi__types.html#a09cf555f67a079ed97a65d5acf5953af">D4DMOUSE_FUNCTIONS_S</a>
+</li>
+<li>D4DMOUSE_SetPointer
+: <a class="el" href="group__doxd4d__lldapi__types.html#a92fc37b6f927f8498ef6f896f69fab1e">D4DMOUSE_FUNCTIONS_S</a>
+</li>
+<li>D4DMOUSE_SetPointerBmp
+: <a class="el" href="group__doxd4d__lldapi__types.html#a4db427f2d7c6d12fc61b68589d9a94fb">D4DMOUSE_FUNCTIONS_S</a>
+</li>
+<li>D4DTCH_DeInit
+: <a class="el" href="group__doxd4d__lldapi__types.html#a715da009ed7d25d8c4fe317594f8fbfc">D4DTCH_FUNCTIONS_S</a>
+</li>
+<li>D4DTCH_GetPositionRaw
+: <a class="el" href="group__doxd4d__lldapi__types.html#a3b3926a79edfdd3d3dc31c40c44b6772">D4DTCH_FUNCTIONS_S</a>
+</li>
+<li>D4DTCH_GetRawLimits
+: <a class="el" href="group__doxd4d__lldapi__types.html#a6e6d06d269ef46ca5dbb5556b29f3933">D4DTCH_FUNCTIONS_S</a>
+</li>
+<li>D4DTCH_Init
+: <a class="el" href="group__doxd4d__lldapi__types.html#ae0e65a967770d7edb023dfe2a9df5a9c">D4DTCH_FUNCTIONS_S</a>
+</li>
+<li>D4DTCHHW_DeInit
+: <a class="el" href="group__doxd4d__lldapi__types.html#a64207423941b598fd47691e1d611cb3b">D4DTCHHW_FUNCTIONS_S</a>
+</li>
+<li>D4DTCHHW_GetRawLimits
+: <a class="el" href="group__doxd4d__lldapi__types.html#a2570d295034c2b54c60a8498171f44d0">D4DTCHHW_FUNCTIONS_S</a>
+</li>
+<li>D4DTCHHW_Init
+: <a class="el" href="group__doxd4d__lldapi__types.html#afd2324540f18376124f860f32d65661d">D4DTCHHW_FUNCTIONS_S</a>
+</li>
+<li>D4DTCHHW_PinCtl
+: <a class="el" href="group__doxd4d__lldapi__types.html#ab07cb24671dee1e3d5f0a6aad139ed8c">D4DTCHHW_FUNCTIONS_S</a>
+</li>
+<li>D4DTCHHW_ReadTouchAxis
+: <a class="el" href="group__doxd4d__lldapi__types.html#a3461eb5b31cd199792901a7b0e0593e3">D4DTCHHW_FUNCTIONS_S</a>
+</li>
+<li>D4DTCHHWCRTOUCH_DeInit
+: <a class="el" href="struct_d4_d_t_c_h_h_w_c_r_t_o_u_c_h___f_u_n_c_t_i_o_n_s___s.html#a3d70eb5e5e816875de82e1de76e46fc9">D4DTCHHWCRTOUCH_FUNCTIONS_S</a>
+</li>
+<li>D4DTCHHWCRTOUCH_Init
+: <a class="el" href="struct_d4_d_t_c_h_h_w_c_r_t_o_u_c_h___f_u_n_c_t_i_o_n_s___s.html#a880b3dd4d27143fbcba52845bb5f0754">D4DTCHHWCRTOUCH_FUNCTIONS_S</a>
+</li>
+<li>D4DTCHHWCRTOUCH_MultiReadBytes
+: <a class="el" href="struct_d4_d_t_c_h_h_w_c_r_t_o_u_c_h___f_u_n_c_t_i_o_n_s___s.html#a406ede574b0ee47f771a2b1e3931f7fd">D4DTCHHWCRTOUCH_FUNCTIONS_S</a>
+</li>
+<li>D4DTCHHWCRTOUCH_MultiWriteBytes
+: <a class="el" href="struct_d4_d_t_c_h_h_w_c_r_t_o_u_c_h___f_u_n_c_t_i_o_n_s___s.html#a2c235d24bbd39512620d673d61394716">D4DTCHHWCRTOUCH_FUNCTIONS_S</a>
+</li>
+<li>D4DTCHHWCRTOUCH_SetAddress
+: <a class="el" href="struct_d4_d_t_c_h_h_w_c_r_t_o_u_c_h___f_u_n_c_t_i_o_n_s___s.html#a467b0a401e84dd67d53166d8c25a6724">D4DTCHHWCRTOUCH_FUNCTIONS_S</a>
+</li>
+<li>D4DTCHHWCRTOUCH_SetBaudRate
+: <a class="el" href="struct_d4_d_t_c_h_h_w_c_r_t_o_u_c_h___f_u_n_c_t_i_o_n_s___s.html#ad52c63c40877a7be176671912f1965ba">D4DTCHHWCRTOUCH_FUNCTIONS_S</a>
+</li>
+<li>dataCnt
+: <a class="el" href="struct_d4_d___d4_d_b_m_p___d_e_c_o_d_e___s.html#a96a98a5e3c5a390282feea48ec22e181">D4D_D4DBMP_DECODE_S</a>
+</li>
+<li>dataIx
+: <a class="el" href="struct_d4_d___d4_d_b_m_p___d_e_c_o_d_e___s.html#a613651c00de9163cf5aff700462735a7">D4D_D4DBMP_DECODE_S</a>
+</li>
+<li>dataLenght
+: <a class="el" href="struct_d4_d___g_r_a_p_h.html#a6da9cf1b729ef997abac11272b91ef7c">D4D_GRAPH</a>
+</li>
+<li>dataOff
+: <a class="el" href="struct_d4_d___b_i_t_m_a_p_h_e_a_d_e_r.html#a4dda2239f088a9b7bd343c453ca0f628">D4D_BITMAPHEADER</a>
+</li>
+<li>dataOffset
+: <a class="el" href="struct_d4_d___e_x_t_s_r_c___h_e_a_d_e_r___d4_d__1___s.html#a404e5f7dc19fc494f9974926250ceacb">D4D_EXTSRC_HEADER_D4D_1_S</a>
+, <a class="el" href="struct_d4_d___e_x_t_s_r_c___h_e_a_d_e_r___d4_d___s.html#a404e5f7dc19fc494f9974926250ceacb">D4D_EXTSRC_HEADER_D4D_S</a>
+</li>
+<li>dataShowX
+: <a class="el" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#aac7986f71a318e592657997d77794fb5">D4D_GRAPH_DATA</a>
+</li>
+<li>dataSize
+: <a class="el" href="struct_d4_d___e_x_t_s_r_c___h_e_a_d_e_r___d4_d__1___s.html#a8cdacc092db68da648c8aecf4f23cba4">D4D_EXTSRC_HEADER_D4D_1_S</a>
+, <a class="el" href="struct_d4_d___e_x_t_s_r_c___h_e_a_d_e_r___d4_d___s.html#a8cdacc092db68da648c8aecf4f23cba4">D4D_EXTSRC_HEADER_D4D_S</a>
+</li>
+<li>desktop
+: <a class="el" href="group__doxd4d__scheme__type.html#a37de1f56aed63f2880cdf402c558edc1">D4D_CLR_SCHEME_SCR</a>
+</li>
+<li>draw
+: <a class="el" href="group__doxd4d__base__type.html#a47e2d41ba1f83dd4d861f430548850df">D4D_MESSAGE_S</a>
+</li>
+<li>drawActiveOnly
+: <a class="el" href="struct_d4_d___p_r_o_g_r_e_s_s___b_a_r___d_a_t_a.html#a2162f3b04496cd59cef87e48c935f916">D4D_PROGRESS_BAR_DATA</a>
+</li>
+<li>drigDrawedX
+: <a class="el" href="struct_d4_d___g_r_a_p_h___d_a_t_a.html#a30f60b867e890dfa18447ff0eca57bee">D4D_GRAPH_DATA</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Mon Jun 13 2016 21:08:42 for eGUI alias D4D by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
+  </ul>
+</div>
+</body>
+</html>

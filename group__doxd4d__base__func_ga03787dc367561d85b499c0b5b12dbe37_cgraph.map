@@ -1,3 +1,28 @@
 <map id="D4D_KeysChanged" name="D4D_KeysChanged">
-<area shape="rect" id="node2" href="$group__doxd4d__base__func.html#gaa77552bc19d7169fd2a2a429757471c9" title="Place to key event into key buffer. " alt="" coords="190,5,325,32"/>
+<area shape="rect" id="node2" href="$group__doxd4d__base__func.html#gaa77552bc19d7169fd2a2a429757471c9" title="Place to key event into key buffer. " alt="" coords="188,360,323,387"/>
+<area shape="rect" id="node3" href="$d4d_8h.html#ab7b7c4b3073afdc5ba2bedc553f3b2d8" title="D4D_GetTouchScreenCoordinates" alt="" coords="371,31,591,57"/>
+<area shape="rect" id="node4" href="$group__doxd4d__screen__func.html#gae4f92cca7a0fe6298b6cfc80b2c5d23c" title="The function convert global screen point on the screen to the client point. " alt="" coords="384,81,577,108"/>
+<area shape="rect" id="node15" href="$d4d_8h.html#a8b2fff7226f86ceb590b9ade64e1a570" title="D4D_CheckTouchScreen" alt="" coords="397,132,564,159"/>
+<area shape="rect" id="node16" href="$d4d_8h.html#a8fab3f920fa954c7dc218214669b59e4" title="D4D_PutTouchScreen" alt="" coords="405,183,556,209"/>
+<area shape="rect" id="node17" href="$d4d_8h.html#a114b971b5776ae86d78891fd088531ac" title="D4D_PutRawTouchScreen" alt="" coords="393,233,568,260"/>
+<area shape="rect" id="node18" href="$d4d_8h.html#a43bc5b8fb1156b5e448bd8adfc67fa2c" title="D4D_ClearTouchScreenEvents" alt="" coords="381,284,580,311"/>
+<area shape="rect" id="node19" href="$d4d_8h.html#af77c79d5c0ef6b086b468de809c79772" title="D4D_CalibrateTouchScreen" alt="" coords="390,335,571,361"/>
+<area shape="rect" id="node20" href="$d4d__low_8c.html#ae8db74a4cf98814632c42683f1ea2e9f" title="D4D_TCH_Calibrate" alt="" coords="412,385,549,412"/>
+<area shape="rect" id="node21" href="$group__doxd4d__screen__func.html#ga5633d19ba95be7b25045ed76d08bd2a7" title="The function mark the screen and its abject as &quot;redraw pending&quot;. " alt="" coords="407,436,555,463"/>
+<area shape="rect" id="node23" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="405,487,556,513"/>
+<area shape="rect" id="node24" href="$d4d_8h.html#a0390dde89ac0d05d9d9f4fe64694a800" title="D4D_GetTouchScreenCalibration" alt="" coords="375,537,587,564"/>
+<area shape="rect" id="node25" href="$d4d__low_8h.html#a76e01e6c04fb37c4f792ef44e3baed3e" title="D4D_TCH_GetCalibration" alt="" coords="397,588,565,615"/>
+<area shape="rect" id="node26" href="$d4d_8h.html#a92af8b41aa480f3454dadfe6cfab70e3" title="D4D_SetTouchScreenCalibration" alt="" coords="375,639,586,665"/>
+<area shape="rect" id="node27" href="$d4d__low_8h.html#ad223b2d4ffc9539f5e46ee8139748edb" title="D4D_TCH_SetCalibration" alt="" coords="397,689,564,716"/>
+<area shape="rect" id="node5" href="$d4d__screen_8c.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="639,81,801,108"/>
+<area shape="rect" id="node6" href="$d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="849,56,988,83"/>
+<area shape="rect" id="node8" href="$group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="849,107,988,133"/>
+<area shape="rect" id="node7" href="$d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1057,56,1159,83"/>
+<area shape="rect" id="node9" href="$group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1036,107,1180,133"/>
+<area shape="rect" id="node10" href="$d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1228,5,1383,32"/>
+<area shape="rect" id="node11" href="$d4d__extsrc_8c.html#ad5f7a8e12821c9331687e1799cb6dbd6" title="The function returns length of string terminated by zero. " alt="" coords="1259,56,1351,83"/>
+<area shape="rect" id="node12" href="$d4d__extsrc_8c.html#a15ee464eccb4b4991292ebfb1d5b8849" title="The function copy string one string to other one (terminated by zero) " alt="" coords="1255,107,1356,133"/>
+<area shape="rect" id="node13" href="$d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1254,157,1357,184"/>
+<area shape="rect" id="node14" href="$d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1232,208,1379,235"/>
+<area shape="rect" id="node22" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="648,436,792,463"/>
 </map>
