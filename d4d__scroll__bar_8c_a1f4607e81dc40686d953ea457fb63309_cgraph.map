@@ -1,81 +1,68 @@
 <map id="D4D_ScrlBrOnMessage" name="D4D_ScrlBrOnMessage">
-<area shape="rect" id="node2" href="$d4d__scroll__bar_8c.html#ac4c442ecbebdefa83f0c9be779c8cdda" title="D4D_ScrlBrOnDraw" alt="" coords="255,1209,391,1236"/>
-<area shape="rect" id="node65" href="$group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="713,1538,842,1565"/>
-<area shape="rect" id="node75" href="$group__doxd4d__scroll__bar__func.html#ga410dc4d48f9e8e49ef69f7c0273e5647" title="The function change the scroll bar position. " alt="" coords="687,1741,868,1768"/>
-<area shape="rect" id="node77" href="$group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="1166,1690,1311,1717"/>
-<area shape="rect" id="node78" href="$d4d__scroll__bar_8c.html#a3f79305aacf5805aadcda4b043e77c0a" title="D4D_ScrlBrOnKeyDown" alt="" coords="242,1741,405,1768"/>
-<area shape="rect" id="node79" href="$d4d_8h.html#ab7b7c4b3073afdc5ba2bedc553f3b2d8" title="D4D_GetTouchScreenCoordinates" alt="" coords="213,1893,433,1920"/>
-<area shape="rect" id="node80" href="$d4d__object_8c.html#a71af54d42c496cf96eb44fcb42c7928a" title="D4D_ObjOnMessage" alt="" coords="251,1944,395,1970"/>
-<area shape="rect" id="node3" href="$d4d__scroll__bar_8c.html#aff2ec2058bcd3ab2f5969a78fa2fd3f1" title="D4D_ScrlBrValue2Coor" alt="" coords="481,981,639,1008"/>
-<area shape="rect" id="node18" href="$group__doxd4d__scheme__func.html#ga4f46b75cc9161aaf0ca1c447a76e045b" title="Function return object current fore color. " alt="" coords="928,1842,1097,1869"/>
-<area shape="rect" id="node23" href="$group__doxd4d__scheme__func.html#gacd90e36cd0d99094155abb8b3f7fb74c" title="Function return object current background color. " alt="" coords="926,1792,1099,1818"/>
-<area shape="rect" id="node24" href="$group__doxd4d__basic__draw__func.html#ga8e67d983050dc41e2984a44af9f989c5" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="507,690,613,717"/>
-<area shape="rect" id="node48" href="$group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e" title="Function draw standard object frame based on the object settings and current state. " alt="" coords="500,1158,620,1185"/>
-<area shape="rect" id="node56" href="$group__doxd4d__basic__draw__func.html#gaab878b72dcc003891ceaf705088c611c" title="Function draw filled rectangle on the screen. " alt="" coords="963,1082,1062,1109"/>
-<area shape="rect" id="node57" href="$group__doxd4d__basic__draw__func.html#ga0396be35ce2a28935e3aed036cf52a80" title="Function draw rectangle on the screen with round corners. " alt="" coords="732,1184,823,1210"/>
-<area shape="rect" id="node60" href="$d4d__scroll__bar_8c.html#afabfa91273301d531fc0c9d4709c08f7" title="D4D_ScrlBrDrawArrow" alt="" coords="484,1437,636,1464"/>
-<area shape="rect" id="node4" href="$group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="916,905,1109,932"/>
-<area shape="rect" id="node15" href="$d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="696,930,859,957"/>
-<area shape="rect" id="node16" href="$group__doxd4d__math__func.html#ga5a56c9736dcf6155bfc3c5159780d106" title="Simple proportion unsigned calculation &#45; 16 bit. " alt="" coords="715,1032,839,1058"/>
-<area shape="rect" id="node5" href="$d4d__screen_8c.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="1157,221,1320,248"/>
-<area shape="rect" id="node6" href="$d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1405,221,1543,248"/>
-<area shape="rect" id="node8" href="$group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1405,120,1543,146"/>
-<area shape="rect" id="node7" href="$d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1669,272,1770,298"/>
-<area shape="rect" id="node9" href="$group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1647,120,1791,146"/>
-<area shape="rect" id="node10" href="$d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1873,221,2027,248"/>
-<area shape="rect" id="node11" href="$d4d__extsrc_8c.html#ad5f7a8e12821c9331687e1799cb6dbd6" title="The function returns length of string terminated by zero. " alt="" coords="1904,272,1996,298"/>
-<area shape="rect" id="node12" href="$d4d__extsrc_8c.html#a15ee464eccb4b4991292ebfb1d5b8849" title="The function copy string one string to other one (terminated by zero) " alt="" coords="1899,69,2001,96"/>
-<area shape="rect" id="node13" href="$d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1899,120,2001,146"/>
-<area shape="rect" id="node14" href="$d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1877,170,2023,197"/>
-<area shape="rect" id="node17" href="$d4d__math_8c.html#a6d93a98ed21d577f86d754ee79170876" title="D4D_Divide16" alt="" coords="961,1032,1064,1058"/>
-<area shape="rect" id="node19" href="$group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="1158,1842,1319,1869"/>
-<area shape="rect" id="node22" href="$group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="1183,1766,1294,1793"/>
-<area shape="rect" id="node20" href="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="2115,1716,2266,1742"/>
-<area shape="rect" id="node21" href="$d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="1392,1868,1556,1894"/>
-<area shape="rect" id="node25" href="$d4d__low_8c.html#a69f1735f580a19e4a777736f017cf0c1" title="D4D_LCD_RBox" alt="" coords="953,424,1072,450"/>
-<area shape="rect" id="node26" href="$d4d__low_8c.html#a450664aef631dc065b1d290e8b75f863" title="D4D_LCD_SwapCoor" alt="" coords="2118,1133,2263,1160"/>
-<area shape="rect" id="node27" href="$d4d__low_8c.html#a65810021c5d69c06eeefa40f0c800b60" title="D4D_LCD_Box" alt="" coords="1895,930,2005,957"/>
-<area shape="rect" id="node28" href="$d4d__low_8c.html#a0b3fcdb3eb314f2fe830cc257627de8c" title="D4D_LCD_QCircle" alt="" coords="1174,677,1303,704"/>
-<area shape="rect" id="node29" href="$d4d__low_8c.html#a7df9d0f828a7a12cbf56d640217a7d8a" title="D4D_LCD_PutPixel" alt="" coords="1883,1108,2017,1134"/>
-<area shape="rect" id="node30" href="$d4d__low_8c.html#a8567ee4b31298bfe6f6e7959bcf5456f" title="D4D_LCD_QPlot8points" alt="" coords="1393,1032,1555,1058"/>
-<area shape="rect" id="node33" href="$d4d__low_8h.html#a2c385da23a176f4d7022a01ddbbd5d5e" title="D4D_TCH_GetCalibrationStatus" alt="" coords="1371,930,1577,957"/>
-<area shape="rect" id="node34" href="$d4d__low_8h.html#a76e01e6c04fb37c4f792ef44e3baed3e" title="D4D_TCH_GetCalibration" alt="" coords="1390,373,1558,400"/>
-<area shape="rect" id="node35" href="$d4d__low_8h.html#ad223b2d4ffc9539f5e46ee8139748edb" title="D4D_TCH_SetCalibration" alt="" coords="1391,424,1557,450"/>
-<area shape="rect" id="node36" href="$d4d__low_8h.html#a5820544b991949f751c8dc976d7ac781" title="D4D_TCH_GetCalibratedPosition" alt="" coords="1368,474,1580,501"/>
-<area shape="rect" id="node37" href="$d4d__low_8h.html#adf857a4d50dd61679db438b5a34035db" title="D4D_TCH_GetRawPosition" alt="" coords="1385,525,1563,552"/>
-<area shape="rect" id="node38" href="$d4d__low_8c.html#ad4b93d341f8432e4f88e1e2c008e64f7" title="D4D_DisplayWidth" alt="" coords="1654,702,1785,729"/>
-<area shape="rect" id="node39" href="$d4d__low_8c.html#a3fac64e0052ae517060666006dd44b4c" title="D4D_DisplayHeight" alt="" coords="1652,829,1787,856"/>
-<area shape="rect" id="node40" href="$d4d__low_8c.html#a60bdb861097afdf590fb48afd6155a74" title="D4D_TCH_DrawCalibrationPoint" alt="" coords="1371,576,1577,602"/>
-<area shape="rect" id="node41" href="$d4d__low_8c.html#ae8db74a4cf98814632c42683f1ea2e9f" title="D4D_TCH_Calibrate" alt="" coords="1405,626,1543,653"/>
-<area shape="rect" id="node42" href="$group__doxd4d__basic__draw__func.html#ga87ac0e1b96707ff946ef454e4f17f500" title="Function readraw complete screen by one color. " alt="" coords="1411,778,1537,805"/>
-<area shape="rect" id="node43" href="$group__doxd4d__string__func.html#gaddaa9a36e054a4a40f5391f18c821c50" title="The function convert decimal unsigned 16 bit number to string. " alt="" coords="1407,728,1541,754"/>
-<area shape="rect" id="node44" href="$group__doxd4d__basic__draw__func.html#gacba553dcf011737f9e0ee584387b514f" title="Function draw filled rectangle on the screen. " alt="" coords="1662,880,1777,906"/>
-<area shape="rect" id="node45" href="$d4d__font_8c.html#a361368f9b194c61a3f510a6dbd13cd4a" title="D4D_GetFontWidth" alt="" coords="1407,322,1541,349"/>
-<area shape="rect" id="node46" href="$d4d__low_8c.html#a3aca803259156c65646263edab27275a" title="D4D_LCD_Line" alt="" coords="1419,1184,1529,1210"/>
-<area shape="rect" id="node31" href="$d4d__low_8c.html#a97e36119e00202bde366aab6f0c61672" title="D4D_LCD_QPlot4pointsfill" alt="" coords="1633,930,1806,957"/>
-<area shape="rect" id="node32" href="$d4d__low_8c.html#afde60e05692fa0721250ce6925313e17" title="D4D_LCD_QPlot4points" alt="" coords="1639,1032,1800,1058"/>
-<area shape="rect" id="node47" href="$group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b" title="Calculation of absolute value &#45; 16 bit. " alt="" coords="1674,1234,1765,1261"/>
-<area shape="rect" id="node49" href="$group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="696,1246,859,1273"/>
-<area shape="rect" id="node50" href="$group__doxd4d__basic__draw__func.html#gab2a67b0452682941ea6930ad5df6a824" title="Function draw standard object bevel specified by parameters. " alt="" coords="735,1133,820,1160"/>
-<area shape="rect" id="node51" href="$group__doxd4d__scheme__func.html#ga77e2ec7e804c88e475f5621053773268" title="Compute change of color intesity. " alt="" coords="927,1336,1098,1362"/>
-<area shape="rect" id="node55" href="$group__doxd4d__basic__draw__func.html#ga4ea4484aca8a7a3bdeaa24aa26bfd02a" title="Function draw quadrant of circle on the screen. " alt="" coords="959,1133,1066,1160"/>
-<area shape="rect" id="node52" href="$group__doxd4d__math__func.html#gace9b50d1b3fc631ced8489183a714804" title="Calculation of absolute value &#45; 8 bit. " alt="" coords="1200,1336,1277,1362"/>
-<area shape="rect" id="node53" href="$group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="1180,1386,1297,1413"/>
-<area shape="rect" id="node54" href="$d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1427,1386,1521,1413"/>
-<area shape="rect" id="node58" href="$d4d__low_8c.html#a8f9c6276de8111853b9b73e87e2b004a" title="D4D_LCD_RRect" alt="" coords="951,1184,1074,1210"/>
-<area shape="rect" id="node59" href="$d4d__low_8c.html#a61637753b03d0ada6e7f8ca501f0e70b" title="D4D_LCD_Rect" alt="" coords="1182,1184,1295,1210"/>
-<area shape="rect" id="node61" href="$group__doxd4d__basic__draw__func.html#gae1e6ddc28ad9fd3476000e7147a188f9" title="Function puts one pixel on the screen. " alt="" coords="1668,1285,1771,1312"/>
-<area shape="rect" id="node62" href="$group__doxd4d__base__func.html#ga691fbc50ade2bb5c302ccfca0fe87ec6" title="Function swap the point coordination. " alt="" coords="721,1488,834,1514"/>
-<area shape="rect" id="node63" href="$group__doxd4d__basic__draw__func.html#gaeaf75234e6158d0c84eb03c5eaef6eef" title="Function move logic cursor to new position. " alt="" coords="728,1437,827,1464"/>
-<area shape="rect" id="node64" href="$group__doxd4d__basic__draw__func.html#gaccc98a88c426ccb03b4a7c508872fd68" title="Function draw line on the screen. " alt="" coords="731,1322,823,1349"/>
-<area shape="rect" id="node69" href="$group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="957,1589,1068,1616"/>
-<area shape="rect" id="node66" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="937,1437,1088,1464"/>
-<area shape="rect" id="node67" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="1402,1589,1546,1616"/>
-<area shape="rect" id="node68" href="$d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="1170,1538,1307,1565"/>
-<area shape="rect" id="node70" href="$d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="1180,1640,1297,1666"/>
-<area shape="rect" id="node71" href="$d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="1402,1640,1546,1666"/>
-<area shape="rect" id="node72" href="$d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="2089,1564,2292,1590"/>
-<area shape="rect" id="node73" href="$d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1859,1614,2041,1641"/>
-<area shape="rect" id="node74" href="$d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="1628,1586,1811,1627"/>
-<area shape="rect" id="node76" href="$group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="934,1741,1091,1768"/>
+<area shape="rect" id="node2" href="$d4d__scroll__bar_8c.html#ac4c442ecbebdefa83f0c9be779c8cdda" title="D4D_ScrlBrOnDraw" alt="" coords="255,483,391,510"/>
+<area shape="rect" id="node52" href="$d4d__scroll__bar_8c.html#a3f79305aacf5805aadcda4b043e77c0a" title="D4D_ScrlBrOnKeyDown" alt="" coords="242,1269,405,1295"/>
+<area shape="rect" id="node53" href="$group__doxd4d__scroll__bar__func.html#ga410dc4d48f9e8e49ef69f7c0273e5647" title="The function change the scroll bar position. " alt="" coords="481,1218,663,1245"/>
+<area shape="rect" id="node55" href="$group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="945,1167,1091,1194"/>
+<area shape="rect" id="node57" href="$d4d_8h.html#ab7b7c4b3073afdc5ba2bedc553f3b2d8" title="D4D_GetTouchScreenCoordinates" alt="" coords="213,1319,433,1346"/>
+<area shape="rect" id="node58" href="$group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="259,1041,388,1067"/>
+<area shape="rect" id="node67" href="$d4d__object_8c.html#a71af54d42c496cf96eb44fcb42c7928a" title="D4D_ObjOnMessage" alt="" coords="251,1370,395,1397"/>
+<area shape="rect" id="node3" href="$d4d__scroll__bar_8c.html#aff2ec2058bcd3ab2f5969a78fa2fd3f1" title="D4D_ScrlBrValue2Coor" alt="" coords="493,610,651,637"/>
+<area shape="rect" id="node18" href="$group__doxd4d__scheme__func.html#ga4f46b75cc9161aaf0ca1c447a76e045b" title="Function return object current fore color. " alt="" coords="487,786,657,813"/>
+<area shape="rect" id="node23" href="$group__doxd4d__scheme__func.html#gacd90e36cd0d99094155abb8b3f7fb74c" title="Function return object current background color. " alt="" coords="485,735,659,762"/>
+<area shape="rect" id="node24" href="$group__doxd4d__basic__draw__func.html#ga8e67d983050dc41e2984a44af9f989c5" title="Function draw filled rectangle on the screen with round corners. " alt="" coords="519,254,625,281"/>
+<area shape="rect" id="node33" href="$group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e" title="Function draw standard object frame based on the object settings and current state. " alt="" coords="512,382,632,409"/>
+<area shape="rect" id="node41" href="$group__doxd4d__basic__draw__func.html#gaab878b72dcc003891ceaf705088c611c" title="Function draw filled rectangle on the screen. " alt="" coords="969,51,1067,78"/>
+<area shape="rect" id="node42" href="$group__doxd4d__basic__draw__func.html#ga0396be35ce2a28935e3aed036cf52a80" title="Function draw rectangle on the screen with round corners. " alt="" coords="747,407,837,434"/>
+<area shape="rect" id="node47" href="$d4d__scroll__bar_8c.html#afabfa91273301d531fc0c9d4709c08f7" title="D4D_ScrlBrDrawArrow" alt="" coords="1178,533,1330,559"/>
+<area shape="rect" id="node4" href="$group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="921,610,1115,637"/>
+<area shape="rect" id="node15" href="$d4d__base_8c.html#accc5380c29749c30aab246b10c532681" title="D4D_ComputeGeometry" alt="" coords="711,585,873,611"/>
+<area shape="rect" id="node16" href="$group__doxd4d__math__func.html#ga5a56c9736dcf6155bfc3c5159780d106" title="Simple proportion unsigned calculation &#45; 16 bit. " alt="" coords="730,686,854,713"/>
+<area shape="rect" id="node5" href="$d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="1173,685,1335,711"/>
+<area shape="rect" id="node6" href="$d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1415,735,1554,762"/>
+<area shape="rect" id="node8" href="$group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1415,685,1554,711"/>
+<area shape="rect" id="node7" href="$d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1675,735,1776,762"/>
+<area shape="rect" id="node9" href="$group__doxd4d__bmp__func.html#gabe9ce992fdfbc6558241ceab709a2d9a" title="Function returns the type of image source. " alt="" coords="1653,685,1797,711"/>
+<area shape="rect" id="node10" href="$d4d__extsrc_8h.html#a52cdd23a333071ed9cb9ce52d84451e3" title="D4D_GetFileExtension" alt="" coords="1875,634,2029,661"/>
+<area shape="rect" id="node11" href="$d4d__extsrc_8c.html#ad5f7a8e12821c9331687e1799cb6dbd6" title="The function returns length of string terminated by zero. " alt="" coords="1906,685,1998,711"/>
+<area shape="rect" id="node12" href="$d4d__extsrc_8c.html#a15ee464eccb4b4991292ebfb1d5b8849" title="The function copy string one string to other one (terminated by zero) " alt="" coords="1901,735,2003,762"/>
+<area shape="rect" id="node13" href="$d4d__extsrc_8c.html#ac667a2f5348399a4b6d7ad1b1401e879" title="The function convert all small alpha characters to upper in string(terminated by zero) ..." alt="" coords="1901,786,2003,813"/>
+<area shape="rect" id="node14" href="$d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1879,583,2025,610"/>
+<area shape="rect" id="node17" href="$d4d__math_8c.html#a6d93a98ed21d577f86d754ee79170876" title="D4D_Divide16" alt="" coords="967,685,1069,711"/>
+<area shape="rect" id="node19" href="$group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="711,761,873,787"/>
+<area shape="rect" id="node22" href="$group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="737,837,847,863"/>
+<area shape="rect" id="node20" href="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="1650,887,1801,914"/>
+<area shape="rect" id="node21" href="$d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="936,735,1100,762"/>
+<area shape="rect" id="node25" href="$d4d__low_8c.html#a69f1735f580a19e4a777736f017cf0c1" title="D4D_LCD_RBox" alt="" coords="959,178,1077,205"/>
+<area shape="rect" id="node26" href="$d4d__low_8c.html#a450664aef631dc065b1d290e8b75f863" title="D4D_LCD_SwapCoor" alt="" coords="2077,279,2223,306"/>
+<area shape="rect" id="node27" href="$d4d__low_8c.html#a65810021c5d69c06eeefa40f0c800b60" title="D4D_LCD_Box" alt="" coords="1897,229,2007,255"/>
+<area shape="rect" id="node28" href="$d4d__low_8c.html#a0b3fcdb3eb314f2fe830cc257627de8c" title="D4D_LCD_QCircle" alt="" coords="1189,229,1319,255"/>
+<area shape="rect" id="node29" href="$d4d__low_8c.html#a7df9d0f828a7a12cbf56d640217a7d8a" title="D4D_LCD_PutPixel" alt="" coords="1885,279,2019,306"/>
+<area shape="rect" id="node30" href="$d4d__low_8c.html#a8567ee4b31298bfe6f6e7959bcf5456f" title="D4D_LCD_QPlot8points" alt="" coords="1404,229,1565,255"/>
+<area shape="rect" id="node31" href="$d4d__low_8c.html#a97e36119e00202bde366aab6f0c61672" title="D4D_LCD_QPlot4pointsfill" alt="" coords="1639,229,1812,255"/>
+<area shape="rect" id="node32" href="$d4d__low_8c.html#afde60e05692fa0721250ce6925313e17" title="D4D_LCD_QPlot4points" alt="" coords="1645,279,1806,306"/>
+<area shape="rect" id="node34" href="$group__doxd4d__screen__func.html#gaf9622f04ac18e211c4eb5d1bab20984b" title="The function returns pointer to object that is focused in given screen. " alt="" coords="711,357,873,383"/>
+<area shape="rect" id="node35" href="$group__doxd4d__basic__draw__func.html#gab2a67b0452682941ea6930ad5df6a824" title="Function draw standard object bevel specified by parameters. " alt="" coords="749,229,835,255"/>
+<area shape="rect" id="node36" href="$group__doxd4d__scheme__func.html#ga77e2ec7e804c88e475f5621053773268" title="Compute change of color intesity. " alt="" coords="933,102,1103,129"/>
+<area shape="rect" id="node40" href="$group__doxd4d__basic__draw__func.html#ga4ea4484aca8a7a3bdeaa24aa26bfd02a" title="Function draw quadrant of circle on the screen. " alt="" coords="965,229,1071,255"/>
+<area shape="rect" id="node37" href="$group__doxd4d__math__func.html#gace9b50d1b3fc631ced8489183a714804" title="Calculation of absolute value &#45; 8 bit. " alt="" coords="1215,26,1293,53"/>
+<area shape="rect" id="node38" href="$group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="1195,77,1313,103"/>
+<area shape="rect" id="node39" href="$d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1437,77,1532,103"/>
+<area shape="rect" id="node43" href="$d4d__low_8c.html#a8f9c6276de8111853b9b73e87e2b004a" title="D4D_LCD_RRect" alt="" coords="957,381,1079,407"/>
+<area shape="rect" id="node44" href="$d4d__low_8c.html#a3aca803259156c65646263edab27275a" title="D4D_LCD_Line" alt="" coords="1670,381,1781,407"/>
+<area shape="rect" id="node46" href="$d4d__low_8c.html#a61637753b03d0ada6e7f8ca501f0e70b" title="D4D_LCD_Rect" alt="" coords="1197,330,1311,357"/>
+<area shape="rect" id="node45" href="$group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b" title="Calculation of absolute value &#45; 16 bit. " alt="" coords="1907,381,1997,407"/>
+<area shape="rect" id="node48" href="$group__doxd4d__basic__draw__func.html#gae1e6ddc28ad9fd3476000e7147a188f9" title="Function puts one pixel on the screen. " alt="" coords="1674,507,1777,534"/>
+<area shape="rect" id="node49" href="$group__doxd4d__base__func.html#ga691fbc50ade2bb5c302ccfca0fe87ec6" title="Function swap the point coordination. " alt="" coords="1428,634,1541,661"/>
+<area shape="rect" id="node50" href="$group__doxd4d__basic__draw__func.html#gaeaf75234e6158d0c84eb03c5eaef6eef" title="Function move logic cursor to new position. " alt="" coords="1435,583,1534,610"/>
+<area shape="rect" id="node51" href="$group__doxd4d__basic__draw__func.html#gaccc98a88c426ccb03b4a7c508872fd68" title="Function draw line on the screen. " alt="" coords="1439,482,1531,509"/>
+<area shape="rect" id="node54" href="$group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="713,1218,871,1245"/>
+<area shape="rect" id="node56" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="1182,1165,1326,1191"/>
+<area shape="rect" id="node59" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="497,965,647,991"/>
+<area shape="rect" id="node60" href="$d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="723,1066,861,1093"/>
+<area shape="rect" id="node61" href="$group__doxd4d__screen__func.html#ga810975732b282002f31aeac109dc246f" title="The function set the obejct focus to new object. " alt="" coords="517,1015,627,1042"/>
+<area shape="rect" id="node62" href="$d4d__screen_8c.html#a646fd57978a1ccdd2d96d1d10e9c09c3" title="D4D_FindObject" alt="" coords="733,965,851,991"/>
+<area shape="rect" id="node63" href="$d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="946,965,1090,991"/>
+<area shape="rect" id="node64" href="$d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1624,1039,1827,1066"/>
+<area shape="rect" id="node65" href="$d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1393,1039,1576,1066"/>
+<area shape="rect" id="node66" href="$d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="1163,960,1345,1001"/>
 </map>

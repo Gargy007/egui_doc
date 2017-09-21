@@ -19,54 +19,54 @@ var group__doxd4d__lldapi__types =
       [ "size_y", "group__doxd4d__lldapi__types.html#a6dfcb89f29db27247e0eb5f602794a3e", null ]
     ] ],
     [ "D4DLCD_FUNCTIONS_S", "group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d___f_u_n_c_t_i_o_n_s___s", [
-      [ "D4DLCD_DeInit", "group__doxd4d__lldapi__types.html#af41ab737732bec1ab3240a2b9ec72941", null ],
-      [ "D4DLCD_Delay_ms", "group__doxd4d__lldapi__types.html#a018c0cfe3d88135266fb8a62127ebc4e", null ],
-      [ "D4DLCD_FlushBuffer", "group__doxd4d__lldapi__types.html#a311f4cad306e6474e6df3b1436801cd0", null ],
-      [ "D4DLCD_Init", "group__doxd4d__lldapi__types.html#a989d3f4f36d00ccec94403b978be0dc3", null ],
-      [ "D4DLCD_Read_PixelColor", "group__doxd4d__lldapi__types.html#ac9f80e2a8f7c4185f97ac7cc2de07780", null ],
-      [ "D4DLCD_Send_PixelColor", "group__doxd4d__lldapi__types.html#ae2c8021154bce1ff165af8a63fc1b2bc", null ],
-      [ "D4DLCD_SetOrientation", "group__doxd4d__lldapi__types.html#a8392e6b6c0ba996ce320cbebcb0efa3d", null ],
-      [ "D4DLCD_SetWindow", "group__doxd4d__lldapi__types.html#a7571f6eba0911a1ae144b28a248e1ba9", null ]
+      [ "D4DLCD_DeInit", "group__doxd4d__lldapi__types.html#a5cf0237d7a0f0db75e46316a88696d02", null ],
+      [ "D4DLCD_Delay_ms", "group__doxd4d__lldapi__types.html#a491ab49531e9303cfa50db813631dc65", null ],
+      [ "D4DLCD_FlushBuffer", "group__doxd4d__lldapi__types.html#a120ff88cc638715c484ec50c21667a2d", null ],
+      [ "D4DLCD_Init", "group__doxd4d__lldapi__types.html#a68427040085d5604be6e4b70c756f151", null ],
+      [ "D4DLCD_Read_PixelColor", "group__doxd4d__lldapi__types.html#aa41333a5fa984055b4f124a8876868a6", null ],
+      [ "D4DLCD_Send_PixelColor", "group__doxd4d__lldapi__types.html#a8d98f937714efc32d6fb359888f5bd99", null ],
+      [ "D4DLCD_SetOrientation", "group__doxd4d__lldapi__types.html#ac70e5d8753e82ce33deb9b21cb970622", null ],
+      [ "D4DLCD_SetWindow", "group__doxd4d__lldapi__types.html#aa82cc20066989ded31b439b5f23fab48", null ]
     ] ],
     [ "D4DLCDHW_FUNCTIONS_S", "group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d_h_w___f_u_n_c_t_i_o_n_s___s", [
-      [ "D4DLCDHW_DeInit", "group__doxd4d__lldapi__types.html#ad4e470ba2140157d9f3c8b4ba5623a00", null ],
-      [ "D4DLCDHW_FlushBuffer", "group__doxd4d__lldapi__types.html#aaab45308cf98c95abdcb8948df50b6b4", null ],
-      [ "D4DLCDHW_Init", "group__doxd4d__lldapi__types.html#a8e6f5343a1d7b51b37ca8524e1ea1b53", null ],
-      [ "D4DLCDHW_PinCtl", "group__doxd4d__lldapi__types.html#a28d403aaaceb3ef87aabc7f22f0ed015", null ],
-      [ "D4DLCDHW_ReadCmdWord", "group__doxd4d__lldapi__types.html#ac08de0546739d3557c27ac1aa9ed9d60", null ],
-      [ "D4DLCDHW_ReadDataWord", "group__doxd4d__lldapi__types.html#a3d4e7b684ec75d415c4871a0fdc6553b", null ],
-      [ "D4DLCDHW_SendCmdWord", "group__doxd4d__lldapi__types.html#a51a685aac888a34db4cf64a386c62f80", null ],
-      [ "D4DLCDHW_SendDataWord", "group__doxd4d__lldapi__types.html#a7609f8de7437417aedde3a13527e6e87", null ]
+      [ "D4DLCDHW_DeInit", "group__doxd4d__lldapi__types.html#a633064001695cd0595917647fc77f12c", null ],
+      [ "D4DLCDHW_FlushBuffer", "group__doxd4d__lldapi__types.html#a58d81904c384b446d41013ce6bb0770c", null ],
+      [ "D4DLCDHW_Init", "group__doxd4d__lldapi__types.html#ab987934f5328c928940fab1459921362", null ],
+      [ "D4DLCDHW_PinCtl", "group__doxd4d__lldapi__types.html#ad15ff12d0e7470f6891b37018785259d", null ],
+      [ "D4DLCDHW_ReadCmdWord", "group__doxd4d__lldapi__types.html#ae0d74e13dfc943659585dcf2d1333ddb", null ],
+      [ "D4DLCDHW_ReadDataWord", "group__doxd4d__lldapi__types.html#a5d6381fb569ad4c0725a9863338e58cb", null ],
+      [ "D4DLCDHW_SendCmdWord", "group__doxd4d__lldapi__types.html#a1c96919b06e619c66f4c2c1cc20927ac", null ],
+      [ "D4DLCDHW_SendDataWord", "group__doxd4d__lldapi__types.html#a8c177f2936111d8d87283cb663bf535f", null ]
     ] ],
     [ "D4DLCDHWFB_FUNCTIONS_S", "group__doxd4d__lldapi__types.html#struct_d4_d_l_c_d_h_w_f_b___f_u_n_c_t_i_o_n_s___s", [
-      [ "D4DLCDHW_DeInit", "group__doxd4d__lldapi__types.html#ad4e470ba2140157d9f3c8b4ba5623a00", null ],
-      [ "D4DLCDHW_FlushBuffer", "group__doxd4d__lldapi__types.html#aaab45308cf98c95abdcb8948df50b6b4", null ],
-      [ "D4DLCDHW_GetFbDescriptor", "group__doxd4d__lldapi__types.html#a3a92703385648b7e24e8c93329279d9a", null ],
-      [ "D4DLCDHW_Init", "group__doxd4d__lldapi__types.html#a8e6f5343a1d7b51b37ca8524e1ea1b53", null ],
-      [ "D4DLCDHW_PinCtl", "group__doxd4d__lldapi__types.html#a28d403aaaceb3ef87aabc7f22f0ed015", null ],
-      [ "D4DLCDHW_ReadData", "group__doxd4d__lldapi__types.html#a31dfc36711b54e3205b4f091b51dd634", null ],
-      [ "D4DLCDHW_WriteData", "group__doxd4d__lldapi__types.html#ad84398ab1b399d5cc2a9c26c2c775839", null ]
+      [ "D4DLCDHW_DeInit", "group__doxd4d__lldapi__types.html#a633064001695cd0595917647fc77f12c", null ],
+      [ "D4DLCDHW_FlushBuffer", "group__doxd4d__lldapi__types.html#a58d81904c384b446d41013ce6bb0770c", null ],
+      [ "D4DLCDHW_GetFbDescriptor", "group__doxd4d__lldapi__types.html#a7bc33e73938e5fb52a8835e2718b816e", null ],
+      [ "D4DLCDHW_Init", "group__doxd4d__lldapi__types.html#ab987934f5328c928940fab1459921362", null ],
+      [ "D4DLCDHW_PinCtl", "group__doxd4d__lldapi__types.html#ad15ff12d0e7470f6891b37018785259d", null ],
+      [ "D4DLCDHW_ReadData", "group__doxd4d__lldapi__types.html#a844ada0f32753e8dd687f5f9b22fce12", null ],
+      [ "D4DLCDHW_WriteData", "group__doxd4d__lldapi__types.html#a0b5ec4bcef205a482e6ceae951fe3b1a", null ]
     ] ],
     [ "D4DTCH_FUNCTIONS_S", "group__doxd4d__lldapi__types.html#struct_d4_d_t_c_h___f_u_n_c_t_i_o_n_s___s", [
-      [ "D4DTCH_DeInit", "group__doxd4d__lldapi__types.html#a715da009ed7d25d8c4fe317594f8fbfc", null ],
-      [ "D4DTCH_GetPositionRaw", "group__doxd4d__lldapi__types.html#a3b3926a79edfdd3d3dc31c40c44b6772", null ],
-      [ "D4DTCH_GetRawLimits", "group__doxd4d__lldapi__types.html#a6e6d06d269ef46ca5dbb5556b29f3933", null ],
-      [ "D4DTCH_Init", "group__doxd4d__lldapi__types.html#ae0e65a967770d7edb023dfe2a9df5a9c", null ]
+      [ "D4DTCH_DeInit", "group__doxd4d__lldapi__types.html#acfbd0647cdd36bd364f435524d3c208f", null ],
+      [ "D4DTCH_GetPositionRaw", "group__doxd4d__lldapi__types.html#a5da40c23ce7b8d444c2e6b16b1bc9b4b", null ],
+      [ "D4DTCH_GetRawLimits", "group__doxd4d__lldapi__types.html#aa4e067874b76dabc042f49692d1edeb1", null ],
+      [ "D4DTCH_Init", "group__doxd4d__lldapi__types.html#af11dfcca7fec9ce6bf6eaedad84b8237", null ]
     ] ],
     [ "D4DTCHHW_FUNCTIONS_S", "group__doxd4d__lldapi__types.html#struct_d4_d_t_c_h_h_w___f_u_n_c_t_i_o_n_s___s", [
-      [ "D4DTCHHW_DeInit", "group__doxd4d__lldapi__types.html#a64207423941b598fd47691e1d611cb3b", null ],
-      [ "D4DTCHHW_GetRawLimits", "group__doxd4d__lldapi__types.html#a2570d295034c2b54c60a8498171f44d0", null ],
-      [ "D4DTCHHW_Init", "group__doxd4d__lldapi__types.html#afd2324540f18376124f860f32d65661d", null ],
-      [ "D4DTCHHW_PinCtl", "group__doxd4d__lldapi__types.html#ab07cb24671dee1e3d5f0a6aad139ed8c", null ],
-      [ "D4DTCHHW_ReadTouchAxis", "group__doxd4d__lldapi__types.html#a3461eb5b31cd199792901a7b0e0593e3", null ]
+      [ "D4DTCHHW_DeInit", "group__doxd4d__lldapi__types.html#ac0dc9fd421a5b44f858331a1a8727ec2", null ],
+      [ "D4DTCHHW_GetRawLimits", "group__doxd4d__lldapi__types.html#a585be6a4878e0f6673390c5697027eee", null ],
+      [ "D4DTCHHW_Init", "group__doxd4d__lldapi__types.html#a23489260d8e204e58fcce78e39cffbe6", null ],
+      [ "D4DTCHHW_PinCtl", "group__doxd4d__lldapi__types.html#abf93e07bddc952f1d274b22ad222463a", null ],
+      [ "D4DTCHHW_ReadTouchAxis", "group__doxd4d__lldapi__types.html#a5670724dca138a380f1b5c1937cb8038", null ]
     ] ],
     [ "D4DMOUSE_FUNCTIONS_S", "group__doxd4d__lldapi__types.html#struct_d4_d_m_o_u_s_e___f_u_n_c_t_i_o_n_s___s", [
-      [ "D4DMOUSE_DeInit", "group__doxd4d__lldapi__types.html#a36f6bec17b551675d0770f208f3aa5d6", null ],
-      [ "D4DMOUSE_GetDescriptor", "group__doxd4d__lldapi__types.html#abaf60d77fcd7118ae23347bc2923b1c9", null ],
-      [ "D4DMOUSE_Init", "group__doxd4d__lldapi__types.html#a776b7f5481641045a5f005ec4478714e", null ],
-      [ "D4DMOUSE_SetCoor", "group__doxd4d__lldapi__types.html#a09cf555f67a079ed97a65d5acf5953af", null ],
-      [ "D4DMOUSE_SetPointer", "group__doxd4d__lldapi__types.html#a92fc37b6f927f8498ef6f896f69fab1e", null ],
-      [ "D4DMOUSE_SetPointerBmp", "group__doxd4d__lldapi__types.html#a4db427f2d7c6d12fc61b68589d9a94fb", null ]
+      [ "D4DMOUSE_DeInit", "group__doxd4d__lldapi__types.html#a0b05482ad09ae35d51762acaed48bf42", null ],
+      [ "D4DMOUSE_GetDescriptor", "group__doxd4d__lldapi__types.html#a6af8f6d963630c3c38aab4765c5f1dbb", null ],
+      [ "D4DMOUSE_Init", "group__doxd4d__lldapi__types.html#ac46c0d09f92b5eff05bf57edd29cf3bf", null ],
+      [ "D4DMOUSE_SetCoor", "group__doxd4d__lldapi__types.html#a3161d2e7fd686ca47e0d67eb3a1aaf01", null ],
+      [ "D4DMOUSE_SetPointer", "group__doxd4d__lldapi__types.html#a50bf27fda64deade7795e428f48de094", null ],
+      [ "D4DMOUSE_SetPointerBmp", "group__doxd4d__lldapi__types.html#aba059db8654b3f872a09c43b21837fd2", null ]
     ] ],
     [ "D4D_TOUCHSCREEN_LIMITS", "group__doxd4d__lldapi__types.html#gad64755f8bedb27e173cf73a28da5aaa8", null ],
     [ "D4DLCD_FRAMEBUFF_DESC", "group__doxd4d__lldapi__types.html#ga4924991a073e756fd15bcb8230777b06", null ],

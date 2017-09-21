@@ -1,48 +1,39 @@
 <map id="D4D_FindNextParentSiblingObject" name="D4D_FindNextParentSiblingObject">
-<area shape="rect" id="node2" href="$d4d__private_8h.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="236,429,380,456"/>
-<area shape="rect" id="node3" href="$group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="428,347,583,373"/>
-<area shape="rect" id="node24" href="$d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="447,511,564,537"/>
-<area shape="rect" id="node4" href="$d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1580,221,1704,248"/>
-<area shape="rect" id="node6" href="$group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="1053,448,1177,475"/>
-<area shape="rect" id="node16" href="$group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94" title="Function enables object. " alt="" coords="1049,245,1181,272"/>
-<area shape="rect" id="node17" href="$group__doxd4d__screen__func.html#ga4023155a9b150a2be8807bec80d2e515" title="The function inits the screen and its objects for first time case. " alt="" coords="631,347,743,373"/>
-<area shape="rect" id="node5" href="$group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1813,221,1889,248"/>
-<area shape="rect" id="node7" href="$d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1266,448,1465,475"/>
-<area shape="rect" id="node8" href="$d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2" title="D4D_ComboBoxButtonFeedBack" alt="" coords="1535,600,1749,627"/>
-<area shape="rect" id="node9" href="$d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="1260,549,1471,576"/>
-<area shape="rect" id="node11" href="$d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="1308,397,1423,424"/>
-<area shape="rect" id="node13" href="$d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="1299,701,1431,728"/>
-<area shape="rect" id="node10" href="$d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00" title="D4D_ComboBoxListBoxMsgFeedBack" alt="" coords="1519,549,1765,576"/>
-<area shape="rect" id="node12" href="$d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="1557,397,1727,424"/>
-<area shape="rect" id="node14" href="$group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="1548,701,1736,728"/>
-<area shape="rect" id="node15" href="$d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="1558,828,1726,855"/>
-<area shape="rect" id="node18" href="$d4d__screen_8c.html#acd4a0ec9fe607db2f8e67757620e4523" title="D4D_ChangeScreen" alt="" coords="811,347,949,373"/>
-<area shape="rect" id="node19" href="$group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="1044,347,1185,373"/>
-<area shape="rect" id="node21" href="$group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="1045,296,1184,323"/>
-<area shape="rect" id="node23" href="$group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="1023,397,1206,424"/>
-<area shape="rect" id="node20" href="$group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1330,347,1401,373"/>
-<area shape="rect" id="node22" href="$d4d__private_8h.html#a46228ea57aaae9cc90c358f6e5463769" title="D4D_SendMessageBack" alt="" coords="1282,296,1449,323"/>
-<area shape="rect" id="node25" href="$group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="631,625,742,652"/>
-<area shape="rect" id="node26" href="$d4d__button_8c.html#a715ce41a514f22f4a66b7cd50b3c02b1" title="D4D_BtnKillFocus" alt="" coords="816,144,944,171"/>
-<area shape="rect" id="node28" href="$d4d__check__box_8c.html#a4ea5b3b4abc8aa8403de0ebf84ae71ee" title="D4D_CheckBoxKillFocus" alt="" coords="796,195,964,221"/>
-<area shape="rect" id="node30" href="$d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1037,752,1193,779"/>
-<area shape="rect" id="node32" href="$d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="803,701,957,728"/>
-<area shape="rect" id="node33" href="$d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="801,752,959,779"/>
-<area shape="rect" id="node34" href="$d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="806,803,954,829"/>
-<area shape="rect" id="node35" href="$d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="803,853,957,880"/>
-<area shape="rect" id="node36" href="$d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1037,904,1192,931"/>
-<area shape="rect" id="node37" href="$d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="1043,1005,1186,1032"/>
-<area shape="rect" id="node39" href="$group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="815,549,945,576"/>
-<area shape="rect" id="node40" href="$d4d__scroll__bar_8c.html#afabfa91273301d531fc0c9d4709c08f7" title="D4D_ScrlBrDrawArrow" alt="" coords="1039,955,1191,981"/>
-<area shape="rect" id="node43" href="$d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="1048,853,1181,880"/>
-<area shape="rect" id="node45" href="$d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1029,499,1201,525"/>
-<area shape="rect" id="node46" href="$d4d__radio__button_8c.html#ae10aff4b59f94c759dd3125d72aa1e75" title="D4D_RadioButtonKillFocus" alt="" coords="791,43,969,69"/>
-<area shape="rect" id="node27" href="$d4d__button_8c.html#aebc40654939be5554a6db3be63fdb2fc" title="D4D_BtnOnMessage" alt="" coords="1043,93,1187,120"/>
-<area shape="rect" id="node29" href="$d4d__check__box_8c.html#a8b4e8a04f2da50934c48e0da7acbc641" title="D4D_CheckBoxOnMessage" alt="" coords="1023,144,1207,171"/>
-<area shape="rect" id="node31" href="$d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1280,803,1451,829"/>
-<area shape="rect" id="node38" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1287,1005,1443,1032"/>
-<area shape="rect" id="node42" href="$d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1562,879,1722,905"/>
-<area shape="rect" id="node44" href="$d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1292,853,1439,880"/>
-<area shape="rect" id="node41" href="$d4d__scroll__bar_8c.html#ac4c442ecbebdefa83f0c9be779c8cdda" title="D4D_ScrlBrOnDraw" alt="" coords="1297,955,1433,981"/>
-<area shape="rect" id="node47" href="$d4d__radio__button_8c.html#a241633d34878771833dc96ccc85ef95c" title="D4D_RadioButtonOnMessage" alt="" coords="1017,43,1212,69"/>
+<area shape="rect" id="node2" href="$d4d__private_8h.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="236,287,380,313"/>
+<area shape="rect" id="node3" href="$group__doxd4d__screen__func.html#gafc9201d2faa22f94490fc60e90d417fe" title="The function change focus to the next object in the given screen. " alt="" coords="428,183,583,209"/>
+<area shape="rect" id="node23" href="$d4d__screen_8c.html#a646fd57978a1ccdd2d96d1d10e9c09c3" title="D4D_FindObject" alt="" coords="447,391,564,417"/>
+<area shape="rect" id="node4" href="$d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1271,5,1395,32"/>
+<area shape="rect" id="node6" href="$group__doxd4d__object__func.html#ga7601e6ac9dbba8f79957285677ccb039" title="Function control visibility of object on screen. " alt="" coords="1027,233,1151,260"/>
+<area shape="rect" id="node16" href="$group__doxd4d__object__func.html#gabf997423fac6283a6835b4a5d4591b94" title="Function enables object. " alt="" coords="1023,183,1155,209"/>
+<area shape="rect" id="node17" href="$group__doxd4d__screen__func.html#gaac5ac14a5451b0384f9c549bf1269e76" title="The function inits the screen and its objects for first time case. " alt="" coords="631,132,743,159"/>
+<area shape="rect" id="node5" href="$group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1572,5,1648,32"/>
+<area shape="rect" id="node7" href="$d4d__combo__box_8h.html#a93c9b88959332d0919dfe1b3d58148c4" title="D4D_ComboBoxListFeedBack" alt="" coords="1234,233,1433,260"/>
+<area shape="rect" id="node8" href="$d4d__combo__box_8h.html#a0e2c2fa6149fde05d54536f2423467e2" title="D4D_ComboBoxButtonFeedBack" alt="" coords="1503,183,1717,209"/>
+<area shape="rect" id="node9" href="$d4d__combo__box_8c.html#ac3dee6d3d73b3d684c9ec26156be36ef" title="D4D_ComboBoxStornoSelection" alt="" coords="1228,132,1439,159"/>
+<area shape="rect" id="node11" href="$d4d__console_8c.html#ad4a71a1de23a6f57713fcd6e4fc9d664" title="D4D_CnslOnInit" alt="" coords="1276,385,1391,412"/>
+<area shape="rect" id="node13" href="$d4d__list__box_8c.html#a42dabe25583ffcc5a14091edaa9ce1ae" title="D4D_ListBoxOnInit" alt="" coords="1267,335,1399,361"/>
+<area shape="rect" id="node10" href="$d4d__combo__box_8h.html#a4c34d2a53873687dae3ba56dc3db5f00" title="D4D_ComboBoxListBoxMsgFeedBack" alt="" coords="1487,132,1733,159"/>
+<area shape="rect" id="node12" href="$d4d__console_8c.html#aeb6821ec9a2274213cf18669d06c5ffd" title="D4D_ConsoleOnMessage" alt="" coords="1525,689,1695,716"/>
+<area shape="rect" id="node14" href="$group__doxd4d__list__box__func.html#ga19d160c64d98695bce0d42925c3f23f2" title="Function change the items list using by list box. " alt="" coords="1516,335,1704,361"/>
+<area shape="rect" id="node15" href="$d4d__list__box_8c.html#a25cfc79ce1a3deb1be04b4df49d018eb" title="D4D_ListBoxOnMessage" alt="" coords="1526,411,1694,437"/>
+<area shape="rect" id="node18" href="$d4d__screen_8c.html#a418b02e3506b4ae3a04588f62b2921d5" title="D4D_ChangeScreen" alt="" coords="801,107,939,133"/>
+<area shape="rect" id="node19" href="$group__doxd4d__screen__func.html#gac61f2b17a6a2869fc14e6d33236a139d" title="The function activate the new screen. " alt="" coords="1018,81,1159,108"/>
+<area shape="rect" id="node21" href="$group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="1019,31,1158,57"/>
+<area shape="rect" id="node22" href="$group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="997,132,1180,159"/>
+<area shape="rect" id="node20" href="$group__doxd4d__base__func.html#ga82f93efb98d14f27d9a41a6866c90cde" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1298,81,1369,108"/>
+<area shape="rect" id="node24" href="$group__doxd4d__screen__func.html#ga810975732b282002f31aeac109dc246f" title="The function set the obejct focus to new object. " alt="" coords="631,549,742,576"/>
+<area shape="rect" id="node25" href="$d4d__gauge_8c.html#af4b30bc28e048e9f52054f74f7ad37da" title="D4D_GaugOnMessage" alt="" coords="793,841,947,868"/>
+<area shape="rect" id="node26" href="$d4d__graph_8c.html#ab88d009181c7d9573f3b38d557d31dec" title="D4D_GraphOnMessage" alt="" coords="791,892,949,919"/>
+<area shape="rect" id="node27" href="$d4d__icon_8c.html#a847a2ae44532fd0fd94a3a335887423b" title="D4D_IconOnMessage" alt="" coords="796,360,944,387"/>
+<area shape="rect" id="node28" href="$d4d__label_8c.html#adefb7e6d410f891acac1b527fe541d5a" title="D4D_LabelOnMessage" alt="" coords="793,411,947,437"/>
+<area shape="rect" id="node29" href="$group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="805,461,935,488"/>
+<area shape="rect" id="node38" href="$d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1003,740,1175,767"/>
+<area shape="rect" id="node30" href="$d4d__edit__box_8c.html#a92cb2e7346fcd0539b514da3bb99183a" title="D4D_EditBoxOnKeyUp" alt="" coords="1011,436,1167,463"/>
+<area shape="rect" id="node31" href="$d4d__edit__box_8c.html#a2884b423a2c299514edcaba1ec306072" title="D4D_EditBoxOnMessage" alt="" coords="1248,487,1419,513"/>
+<area shape="rect" id="node32" href="$d4d__list__box_8c.html#a70d9acd3af4fec1ad6aae3d92ea6e21a" title="D4D_ListBoxOnKeyUp" alt="" coords="1256,436,1411,463"/>
+<area shape="rect" id="node33" href="$d4d__menu_8c.html#acdcf5709861c0a628202ff921ee12cc6" title="D4D_MenuOnKeyUp" alt="" coords="1017,537,1160,564"/>
+<area shape="rect" id="node35" href="$d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1009,487,1169,513"/>
+<area shape="rect" id="node36" href="$d4d__slider_8c.html#aa4ef12f091855399f7edff70017549fc" title="D4D_SldrOnKeyUp" alt="" coords="1022,639,1155,665"/>
+<area shape="rect" id="node37" href="$d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1260,613,1407,640"/>
+<area shape="rect" id="node34" href="$d4d__menu_8c.html#a020753f9eac391dd27bb75725c9b6096" title="D4D_MenuOnMessage" alt="" coords="1255,537,1411,564"/>
 </map>

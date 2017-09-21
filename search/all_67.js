@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['gauge',['gauge',['../group__doxd4d__scheme__type.html#af13ce5f25e7c11398fcfc29511abc8ab',1,'D4D_CLR_SCHEME_OBJ']]],
+  ['get',['GET',['../hw__iic__prv_8h.html#a784c41a02958c5fc15b972fd2a77c2ba',1,'hw_iic_prv.h']]],
+  ['get_5fdata_5fbyte',['GET_DATA_BYTE',['../d4d__imgdec__d4dint_8h.html#a33c7eedf725ac2b63e5505193e77c0dd',1,'d4d_imgdec_d4dint.h']]],
+  ['get_5fdata_5fbyte_5ffunc',['GET_DATA_BYTE_FUNC',['../d4d__imgdec__d4dint_8h.html#a956c62647b3a6e4dbc6b68d60b968a86',1,'d4d_imgdec_d4dint.h']]],
+  ['get_5fdata_5flong',['GET_DATA_LONG',['../d4d__imgdec__d4dint_8h.html#a3151b62d7b075ae97e86879836e4d9cd',1,'d4d_imgdec_d4dint.h']]],
+  ['get_5fdata_5flong_5ffunc',['GET_DATA_LONG_FUNC',['../d4d__imgdec__d4dint_8h.html#a3b539b43e604216ff6bdafc8e26a5fb8',1,'d4d_imgdec_d4dint.h']]],
+  ['get_5fdata_5fword',['GET_DATA_WORD',['../d4d__imgdec__d4dint_8h.html#ae61b859503ffa1c134b9e5a70ef7bffe',1,'d4d_imgdec_d4dint.h']]],
+  ['get_5fdata_5fword_5ffunc',['GET_DATA_WORD_FUNC',['../d4d__imgdec__d4dint_8h.html#a373317906381743fdf8313621efb0b98',1,'d4d_imgdec_d4dint.h']]],
+  ['getdatafunc',['GetDataFunc',['../struct_d4_d___d4_d_b_m_p___d_e_c_o_d_e___s.html#a6272e4f524f480354e1206e98128248f',1,'D4D_D4DBMP_DECODE_S']]],
+  ['getpxldecoder',['GetPxlDecoder',['../struct_d4_d___d4_d_b_m_p___d_e_c_o_d_e___s.html#a059f06f3abd3a89f485cdf7526ea2490',1,'D4D_D4DBMP_DECODE_S']]],
+  ['gettextbuffer',['GetTextBuffer',['../group__doxd4d__object__type.html#ab402de63473fcfd3b99bee3f22962d01',1,'D4D_OBJECT_SYS_FUNCTION_S']]],
+  ['graph',['graph',['../group__doxd4d__scheme__type.html#a38ecba13f8971adf1930aa11ed680ea6',1,'D4D_CLR_SCHEME_OBJ']]],
+  ['green',['Green',['../struct_d4_d___r_g_b_a___s.html#a4761b659687eaae979ae541bace1aed2',1,'D4D_RGBA_S::Green()'],['../struct_d4_d___b_g_r_a___s.html#a4761b659687eaae979ae541bace1aed2',1,'D4D_BGRA_S::Green()']]],
+  ['greyscale',['greyScale',['../struct_d4_d___d4_d_b_m_p___d_e_c_o_d_e___s.html#ad06d051ecaf98da497d4cb95b01dcd31',1,'D4D_D4DBMP_DECODE_S']]],
+  ['grid',['grid',['../group__doxd4d__scheme__type.html#a5c96b180fc27fdd24c7f04bc1e3bb715',1,'D4D_CLR_SCHEME_GRAPH::grid()'],['../struct_d4_d___g_r_a_p_h.html#ab2fdc7036db6c234901e37441cebe0c6',1,'D4D_GRAPH::grid()']]],
+  ['groupbox_5fmargindefault',['groupBox_marginDefault',['../d4d__group__box_8c.html#ae5e6cafbd1902daa349c9d8beac4e34f',1,'groupBox_marginDefault():&#160;d4d_group_box.c'],['../d4d__group__box_8h.html#ae5e6cafbd1902daa349c9d8beac4e34f',1,'groupBox_marginDefault():&#160;d4d_group_box.c']]]
+];

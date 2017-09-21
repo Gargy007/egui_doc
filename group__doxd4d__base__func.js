@@ -6,7 +6,7 @@ var group__doxd4d__base__func =
     [ "D4D_EnableSystemKeys", "group__doxd4d__base__func.html#ga106e2956df6f9e4c7c2c65207f4981e2", null ],
     [ "D4D_FlushOutput", "group__doxd4d__base__func.html#ga180a53071d2dac8947c5c3a7b358d67f", null ],
     [ "D4D_GetLongerSide", "group__doxd4d__base__func.html#ga554203ef6ce11c5eeecb35d6a8da0ab4", null ],
-    [ "D4D_Init", "group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52", null ],
+    [ "D4D_Init", "group__doxd4d__base__func.html#ga82f93efb98d14f27d9a41a6866c90cde", null ],
     [ "D4D_KeysChanged", "group__doxd4d__base__func.html#ga03787dc367561d85b499c0b5b12dbe37", null ],
     [ "D4D_NewKeyEvent", "group__doxd4d__base__func.html#gaa77552bc19d7169fd2a2a429757471c9", null ],
     [ "D4D_Poll", "group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b", null ],

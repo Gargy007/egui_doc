@@ -10,7 +10,7 @@
 <area shape="rect" id="node37" href="$group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="425,740,583,767"/>
 <area shape="rect" id="node5" href="$group__doxd4d__screen__func.html#ga1eb7eb33d47b83e63379713256eace5f" title="The function convert client point on the screen to the global screen point. " alt="" coords="635,208,828,235"/>
 <area shape="rect" id="node17" href="$group__doxd4d__object__func.html#gaaf05953a9b356907e827855274a15784" title="Function find out if the object is visible or not. " alt="" coords="1741,284,1844,311"/>
-<area shape="rect" id="node6" href="$d4d__screen_8c.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="876,208,1039,235"/>
+<area shape="rect" id="node6" href="$d4d__private_8h.html#a3c878628fb15057f286e4dcb835e1bb4" title="D4D_GetScrHeaderSize" alt="" coords="876,208,1039,235"/>
 <area shape="rect" id="node7" href="$d4d__font_8c.html#aae629b70981b64e916bda3d9229f7e83" title="D4D_GetFontHeight" alt="" coords="1089,208,1228,235"/>
 <area shape="rect" id="node9" href="$group__doxd4d__bmp__func.html#gaf9d004f6dfa39b1779436b038393e363" title="Function gets information about bitmap height. " alt="" coords="1089,144,1228,171"/>
 <area shape="rect" id="node8" href="$d4d__font_8c.html#acf704a759fded3786de7a83a0e783f2a" title="D4D_GetFont" alt="" coords="1300,208,1401,235"/>
@@ -22,15 +22,15 @@
 <area shape="rect" id="node15" href="$d4d__extsrc_8c.html#af627f992df1931d95ae84b44258dc65e" title="The function copare two strings (terminated by zero) " alt="" coords="1489,56,1635,83"/>
 <area shape="rect" id="node18" href="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="1958,436,2109,463"/>
 <area shape="rect" id="node22" href="$group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="667,487,796,513"/>
-<area shape="rect" id="node32" href="$group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="650,639,813,665"/>
-<area shape="rect" id="node33" href="$group__doxd4d__screen__func.html#gab37ec362fa71d6352ceac0a1558529fa" title="The function change focus to the next object in the given screen. " alt="" coords="880,613,1035,640"/>
-<area shape="rect" id="node34" href="$group__doxd4d__screen__func.html#ga5633d19ba95be7b25045ed76d08bd2a7" title="The function mark the screen and its abject as &quot;redraw pending&quot;. " alt="" coords="883,715,1031,741"/>
+<area shape="rect" id="node32" href="$group__doxd4d__screen__func.html#gaf9622f04ac18e211c4eb5d1bab20984b" title="The function returns pointer to object that is focused in given screen. " alt="" coords="650,639,813,665"/>
+<area shape="rect" id="node33" href="$group__doxd4d__screen__func.html#gafc9201d2faa22f94490fc60e90d417fe" title="The function change focus to the next object in the given screen. " alt="" coords="880,613,1035,640"/>
+<area shape="rect" id="node34" href="$group__doxd4d__screen__func.html#ga9e5cbba5fe3ced76f56e33fb7ec6f7a2" title="The function mark the screen and its abject as &quot;redraw pending&quot;. " alt="" coords="883,715,1031,741"/>
 <area shape="rect" id="node21" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="1087,688,1231,715"/>
 <area shape="rect" id="node23" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="882,461,1033,488"/>
 <area shape="rect" id="node24" href="$d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="1090,563,1227,589"/>
 <area shape="rect" id="node25" href="$group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="1103,435,1214,461"/>
-<area shape="rect" id="node26" href="$group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="902,512,1013,539"/>
-<area shape="rect" id="node27" href="$d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="1100,512,1217,539"/>
+<area shape="rect" id="node26" href="$group__doxd4d__screen__func.html#ga810975732b282002f31aeac109dc246f" title="The function set the obejct focus to new object. " alt="" coords="902,512,1013,539"/>
+<area shape="rect" id="node27" href="$d4d__screen_8c.html#a646fd57978a1ccdd2d96d1d10e9c09c3" title="D4D_FindObject" alt="" coords="1100,512,1217,539"/>
 <area shape="rect" id="node28" href="$d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="1279,541,1423,568"/>
 <area shape="rect" id="node29" href="$d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1932,613,2135,640"/>
 <area shape="rect" id="node30" href="$d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1701,512,1884,539"/>

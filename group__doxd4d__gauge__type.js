@@ -7,6 +7,6 @@ var group__doxd4d__gauge__type =
       [ "valueMin", "group__doxd4d__gauge__type.html#a1f6a95c398c3400b76d08827dfc41669", null ]
     ] ],
     [ "D4D_GAUGE_ANGLE", "group__doxd4d__gauge__type.html#ga5ace7d473e6f644f687116694a9b5715", null ],
-    [ "D4D_GAUGE_ON_CHANGE", "group__doxd4d__gauge__type.html#ga11da5c3a89d7cf93d235b740b74a751d", null ],
+    [ "D4D_GAUGE_ON_CHANGE", "group__doxd4d__gauge__type.html#ga773dd39adcb1d9c405732295d59aabd1", null ],
     [ "D4D_GAUGE_VALUE", "group__doxd4d__gauge__type.html#ga3f1cedcdd68e286d6af38bfc8597991f", null ]
 ];

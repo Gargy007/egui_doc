@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>eGUI alias D4D: d4dlcd_ili9341.c File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://www.mathjax.org/mathjax/MathJax.js"></script>
+<link href="eGUI.css" rel="stylesheet" type="text/css" />
+<link href="egui_style.xml" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="https://github.com/Gargy007/eGUI" target="_blank"><img alt="eGUI Logo" src="eGUI_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">eGUI alias D4D
+   &#160;<span id="projectnumber">Release 3.0</span>
+   </div>
+   <div id="projectbrief">Reference Manual</div>
+   <td id="originalcompanylogo"><a href="https://www.freescale.com/egui" target="_blank"><img alt="Freescale Logo" src="downloads/fsl_logo.gif"/></td>
+<!--
+       <td id="donatebutton" style="padding-right"> 
+       <div id="egui_donate_logo">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+        ">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+  	   </div>
+    </td>
+-->
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>	
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Introduction</span></a></li>
+      <li><a href="pages.html"><span>Pages</span></a></li>
+      <li><a href="modules.html"><span>Reference</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4dlcd__ili9341_8c.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle">
+<div class="title">d4dlcd_ili9341.c File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="d4d_8h_source.html">d4d.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="d4d__lldapi_8h_source.html">common_files/d4d_lldapi.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="d4d__private_8h_source.html">common_files/d4d_private.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for d4dlcd_ili9341.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="d4dlcd__ili9341_8c__incl.gif" border="0" usemap="#d4dlcd__ili9341_8c" alt=""/></div>
+<map name="d4dlcd__ili9341_8c" id="d4dlcd__ili9341_8c">
+<area shape="rect" id="node2" href="d4d_8h.html" title="D4D Driver main header file. " alt="" coords="2760,80,2815,107"/><area shape="rect" id="node38" href="d4d__lldapi_8h.html" title="D4D driver &#45; resistive touch screen driver function header file. " alt="" coords="141,80,316,107"/><area shape="rect" id="node39" href="d4d__private_8h.html" title="D4D Driver private header file. " alt="" coords="2839,80,3021,107"/><area shape="rect" id="node4" href="d4d__types_8h.html" title="D4D Driver global types header file. " alt="" coords="140,162,317,189"/><area shape="rect" id="node5" href="d4d__base_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="4507,162,4681,189"/><area shape="rect" id="node6" href="d4d__string_8h.html" title="D4D Driver strings header file. " alt="" coords="341,162,519,189"/><area shape="rect" id="node7" href="d4d__font_8h.html" title="D4D Driver fonts header file. " alt="" coords="2353,251,2520,278"/><area shape="rect" id="node8" href="d4d__basic__draw_8h.html" title="D4D Driver core and base functions header file. " alt="" coords="4950,155,5115,196"/><area shape="rect" id="node9" href="d4d__object_8h.html" title="D4D Driver object functions header file. " alt="" coords="5140,162,5320,189"/><area shape="rect" id="node10" href="d4d__low_8h.html" title="D4D driver low level graphic function header file. " alt="" coords="5344,162,5508,189"/><area shape="rect" id="node11" href="d4d__bmp_8h.html" title="D4D driver bmp decoder header file. " alt="" coords="4755,162,4926,189"/><area shape="rect" id="node15" href="d4d__extsrc_8h.html" title="D4D Driver extscr helper functions header file. " alt="" coords="543,162,725,189"/><area shape="rect" id="node16" href="d4d__math_8h.html" title="D4D Driver math helper functions header file. " alt="" coords="749,162,924,189"/><area shape="rect" id="node17" href="d4d__scheme_8h.html" title="D4D Driver color scheme header file. " alt="" coords="948,162,1139,189"/><area shape="rect" id="node18" href="d4d__screen_8h.html" title="D4D driver screen header file. " alt="" coords="1163,162,1347,189"/><area shape="rect" id="node19" href="d4d__mouse_8h.html" title="D4D Driver mouse functions header file. " alt="" coords="1371,162,1555,189"/><area shape="rect" id="node20" href="d4d__picture_8h.html" title="D4D Driver picture object header file. " alt="" coords="1579,155,1718,196"/><area shape="rect" id="node21" href="d4d__button_8h.html" title="D4D Driver button object header file. " alt="" coords="1742,155,1881,196"/><area shape="rect" id="node22" href="d4d__check__box_8h.html" title="D4D Driver check box object header file. " alt="" coords="1905,155,2043,196"/><area shape="rect" id="node23" href="d4d__gauge_8h.html" title="D4D Driver gauge object header file. " alt="" coords="2067,155,2206,196"/><area shape="rect" id="node24" href="d4d__slider_8h.html" title="D4D Driver slider object header file. " alt="" coords="2230,155,2369,196"/><area shape="rect" id="node25" href="d4d__label_8h.html" title="D4D Driver label object header file. " alt="" coords="2393,155,2531,196"/><area shape="rect" id="node26" href="d4d__icon_8h.html" title="D4D Driver icon object header file. " alt="" coords="2555,155,2694,196"/><area shape="rect" id="node27" href="d4d__menu_8h.html" title="D4D Driver menu object header file. " alt="" coords="2718,155,2857,196"/><area shape="rect" id="node28" href="d4d__graph_8h.html" title="D4D Driver graph object header file. " alt="" coords="2881,155,3019,196"/><area shape="rect" id="node29" href="d4d__scroll__bar_8h.html" title="D4D Driver label object header file. " alt="" coords="3043,155,3182,196"/><area shape="rect" id="node30" href="d4d__console_8h.html" title="D4D Driver label object header file. " alt="" coords="3206,155,3345,196"/><area shape="rect" id="node31" href="d4d__text__box_8h.html" title="D4D Driver label object header file. " alt="" coords="3369,155,3507,196"/><area shape="rect" id="node32" href="d4d__progress__bar_8h.html" title="D4D Driver progress_bar object header file. " alt="" coords="3531,155,3670,196"/><area shape="rect" id="node33" href="d4d__radio__button_8h.html" title="D4D Driver radio button object header file. " alt="" coords="3694,155,3833,196"/><area shape="rect" id="node34" href="d4d__group__box_8h.html" title="D4D Driver groupBox object header file. " alt="" coords="3857,155,3995,196"/><area shape="rect" id="node35" href="d4d__list__box_8h.html" title="D4D Driver listBox object header file. " alt="" coords="4019,155,4158,196"/><area shape="rect" id="node36" href="d4d__edit__box_8h.html" title="D4D Driver editBox object header file. " alt="" coords="4182,155,4321,196"/><area shape="rect" id="node37" href="d4d__combo__box_8h.html" title="D4D Driver comboBox object header file. " alt="" coords="4345,155,4483,196"/><area shape="rect" id="node12" href="d4d__imgdec__d4dint_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="4753,244,4929,285"/><area shape="rect" id="node13" href="d4d__imgdec__d4d_8h.html" title="D4D driver external pictures d4d decoder functions header file. " alt="" coords="4953,244,5129,285"/><area shape="rect" id="node14" href="d4d__imgdec__bmp_8h.html" title="D4D driver external bmp files decoder header file. " alt="" coords="4553,244,4729,285"/></map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga304ee26f7525fb56f83df9fd564ecec7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__doxd4d__lcd__const.html#ga304ee26f7525fb56f83df9fd564ecec7">d4dlcd_ili9341_ID</a></td></tr>
+<tr class="memdesc:ga304ee26f7525fb56f83df9fd564ecec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identification string of driver - must be same as name D4DLCD_FUNCTIONS structure + "_ID" it is used for enable the code for compilation.  <a href="group__doxd4d__lcd__const.html#ga304ee26f7525fb56f83df9fd564ecec7">More...</a><br/></td></tr>
+<tr class="separator:ga304ee26f7525fb56f83df9fd564ecec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_4e706179c936907122b0b714c59f94b0.html">GIT</a></li><li class="navelem"><a class="el" href="dir_e4f324340d2577398af1753f500d0d36.html">PRIVATE</a></li><li class="navelem"><a class="el" href="dir_a7c1bab50210d32b4e583be0fe304094.html">eGUI</a></li><li class="navelem"><a class="el" href="dir_428e15da087c6476810fded275e84f0f.html">D4D</a></li><li class="navelem"><a class="el" href="dir_82474c0d57c3ffe95ef44975c590d803.html">low_level_drivers</a></li><li class="navelem"><a class="el" href="dir_e92612fadbfdb0de0c7ccb9dc47e3221.html">LCD</a></li><li class="navelem"><a class="el" href="dir_f2c582ed5c2e491bbd90bf87d02d9ec6.html">lcd_controllers_drivers</a></li><li class="navelem"><a class="el" href="dir_1a373bc827131969828a07878773dda0.html">ili9341</a></li><li class="navelem"><a class="el" href="d4dlcd__ili9341_8c.html">d4dlcd_ili9341.c</a></li>
+    <li class="footer">Generated on Thu Sep 21 2017 08:47:45 for eGUI alias D4D by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
+  </ul>
+</div>
+</body>
+</html>

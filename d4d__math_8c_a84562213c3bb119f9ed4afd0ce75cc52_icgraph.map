@@ -1,6 +1,6 @@
 <map id="D4D_Divide8" name="D4D_Divide8">
 <area shape="rect" id="node2" href="$group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="148,360,265,387"/>
-<area shape="rect" id="node69" href="$group__doxd4d__math__func.html#ga0b5848c320410eed4c77c1ac1ee3c29f" title="Simple proportion signed calculation &#45; 8 bit. " alt="" coords="148,411,265,437"/>
+<area shape="rect" id="node68" href="$group__doxd4d__math__func.html#ga0b5848c320410eed4c77c1ac1ee3c29f" title="Simple proportion signed calculation &#45; 8 bit. " alt="" coords="148,411,265,437"/>
 <area shape="rect" id="node3" href="$d4d__gauge_8c.html#a3c77163e803d3968ccebd64ab6bde0bb" title="D4D_GaugeGetAnglePoint" alt="" coords="313,436,489,463"/>
 <area shape="rect" id="node7" href="$d4d__progress__bar_8c.html#a6711f0441481b808c7acd34281925059" title="D4D_PrgrsBarComputeColorBar" alt="" coords="537,360,744,387"/>
 <area shape="rect" id="node11" href="$group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="332,252,471,279"/>
@@ -22,7 +22,7 @@
 <area shape="rect" id="node21" href="$group__doxd4d__basic__draw__func.html#ga99611f55516a7d2a2596e47a28b6ee8d" title="Function draw filled rectangle with round corners with changing color (cross color from start to end ..." alt="" coords="1031,157,1231,184"/>
 <area shape="rect" id="node22" href="$d4d__progress__bar_8c.html#a33da0e2c98a3ba0f6747aa681cd9f2af" title="D4D_PrgrsBarOnDraw" alt="" coords="1055,360,1206,387"/>
 <area shape="rect" id="node18" href="$d4d__slider_8c.html#a60e15d945bece050aec9d38321fd2a95" title="D4D_SldrOnDraw" alt="" coords="1315,475,1437,501"/>
-<area shape="rect" id="node19" href="$d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1531,81,1678,108"/>
+<area shape="rect" id="node19" href="$d4d__slider_8c.html#a2722bea661ddf7872243241668a8af06" title="D4D_SldrOnMessage" alt="" coords="1521,81,1668,108"/>
 <area shape="rect" id="node24" href="$group__doxd4d__slider__func.html#gac9be4fb2a0566d958e15be179c03c135" title="Function Sets the slider value. " alt="" coords="822,56,953,83"/>
 <area shape="rect" id="node25" href="$group__doxd4d__slider__func.html#ga852cfa431a7bf11d77a7e4bb8d2df7a2" title="Function change the slider value by signed increment. " alt="" coords="1053,5,1208,32"/>
 <area shape="rect" id="node27" href="$group__doxd4d__slider__func.html#ga9f4c93f3b9d1c554571fc6365887ceb2" title="Function set the new limits of slider object. " alt="" coords="1065,56,1197,83"/>
@@ -30,7 +30,7 @@
 <area shape="rect" id="node29" href="$group__doxd4d__basic__draw__func.html#gab2a67b0452682941ea6930ad5df6a824" title="Function draw standard object bevel specified by parameters. " alt="" coords="598,1032,683,1059"/>
 <area shape="rect" id="node41" href="$d4d__group__box_8c.html#a54e514b02a2327f550d8ad9acae0e96c" title="D4D_GroupBoxOnDraw" alt="" coords="1051,1323,1210,1349"/>
 <area shape="rect" id="node30" href="$group__doxd4d__basic__draw__func.html#ga2a94dcb1c71ab3cd8c8008c5330a434e" title="Function draw standard object frame based on the object settings and current state. " alt="" coords="827,841,947,868"/>
-<area shape="rect" id="node59" href="$d4d__screen_8c.html#a18d7e510aeb90ed092e9a0914d501943" title="D4D_DrawScreenNC" alt="" coords="816,1221,959,1248"/>
+<area shape="rect" id="node59" href="$d4d__screen_8c.html#ab191df5be46baa1137d9655d9f88e787" title="D4D_DrawScreenNC" alt="" coords="816,1221,959,1248"/>
 <area shape="rect" id="node31" href="$d4d__button_8c.html#a957045cf6395214c8db89648e53e9b87" title="D4D_BtnOnDraw" alt="" coords="1071,1019,1191,1045"/>
 <area shape="rect" id="node33" href="$d4d__check__box_8c.html#ac94f137eecd1aa60daa53a5cd6b79161" title="D4D_CheckBoxOnDraw" alt="" coords="1051,1069,1211,1096"/>
 <area shape="rect" id="node35" href="$d4d__console_8c.html#a4aec40f52339c770d7c0bf4b30da952e" title="D4D_ConsoleOnDraw" alt="" coords="1057,1120,1204,1147"/>
@@ -58,13 +58,12 @@
 <area shape="rect" id="node54" href="$d4d__radio__button_8c.html#a241633d34878771833dc96ccc85ef95c" title="D4D_RadioButtonOnMessage" alt="" coords="1279,613,1473,640"/>
 <area shape="rect" id="node56" href="$d4d__scroll__bar_8c.html#a1f4607e81dc40686d953ea457fb63309" title="D4D_ScrlBrOnMessage" alt="" coords="1296,664,1456,691"/>
 <area shape="rect" id="node58" href="$d4d__text__box_8c.html#a8807cb5897d450b85dcf4c1c77c6ec02" title="D4D_TextBoxOnMessage" alt="" coords="1290,715,1462,741"/>
-<area shape="rect" id="node60" href="$d4d__screen_8c.html#acd4a0ec9fe607db2f8e67757620e4523" title="D4D_ChangeScreen" alt="" coords="1061,1272,1200,1299"/>
-<area shape="rect" id="node68" href="$d4d__screen_8c.html#a4b86c8fea137d0a0601eee6d88325c81" title="D4D_RedrawScreen" alt="" coords="1736,1233,1875,1260"/>
-<area shape="rect" id="node61" href="$group__doxd4d__screen__func.html#gaeda5819fd96fbac4e876e8970eed466a" title="The function activate the new screen. " alt="" coords="1305,1373,1447,1400"/>
+<area shape="rect" id="node60" href="$d4d__screen_8c.html#a418b02e3506b4ae3a04588f62b2921d5" title="D4D_ChangeScreen" alt="" coords="1061,1272,1200,1299"/>
+<area shape="rect" id="node67" href="$d4d__screen_8c.html#a4b86c8fea137d0a0601eee6d88325c81" title="D4D_RedrawScreen" alt="" coords="1525,1247,1664,1273"/>
+<area shape="rect" id="node61" href="$group__doxd4d__screen__func.html#gac61f2b17a6a2869fc14e6d33236a139d" title="The function activate the new screen. " alt="" coords="1305,1373,1447,1400"/>
 <area shape="rect" id="node63" href="$group__doxd4d__screen__func.html#ga13273202869b1b47b9baa489476554b7" title="The function return to previous screen recorded in the history. " alt="" coords="1307,1323,1445,1349"/>
-<area shape="rect" id="node67" href="$group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="1285,1272,1467,1299"/>
-<area shape="rect" id="node62" href="$group__doxd4d__base__func.html#ga27afdbc4fddc6b72eac88f6a9104fa52" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1569,1397,1640,1424"/>
-<area shape="rect" id="node64" href="$d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1743,1296,1867,1323"/>
-<area shape="rect" id="node66" href="$d4d__private_8h.html#a46228ea57aaae9cc90c358f6e5463769" title="D4D_SendMessageBack" alt="" coords="1521,1296,1688,1323"/>
-<area shape="rect" id="node65" href="$group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1923,1265,1999,1292"/>
+<area shape="rect" id="node66" href="$group__doxd4d__screen__func.html#ga76e52f1c98ee6760dab292fea2f3d8d9" title="The function return to base screen recorded in the history. " alt="" coords="1285,1272,1467,1299"/>
+<area shape="rect" id="node62" href="$group__doxd4d__base__func.html#ga82f93efb98d14f27d9a41a6866c90cde" title="Function inits the eGUI itself including all low level drivers. " alt="" coords="1559,1373,1630,1400"/>
+<area shape="rect" id="node64" href="$d4d__private_8h.html#a643048e622921c9622b02ce17854ef99" title="D4D_HandleKeys" alt="" coords="1533,1311,1657,1337"/>
+<area shape="rect" id="node65" href="$group__doxd4d__base__func.html#ga7d7714fbb85896d38654d8e5cee40e0b" title="Main eGUI function. Must be periodically called in main loop/task loop. " alt="" coords="1716,1279,1792,1305"/>
 </map>

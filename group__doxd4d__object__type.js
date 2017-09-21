@@ -1,9 +1,9 @@
 var group__doxd4d__object__type =
 [
     [ "D4D_OBJECT_SYS_FUNCTION_S", "group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___s_y_s___f_u_n_c_t_i_o_n___s", [
-      [ "CheckCoordinates", "group__doxd4d__object__type.html#a2f3c5c733203da5f147e667b03253ee1", null ],
-      [ "GetTextBuffer", "group__doxd4d__object__type.html#a74d371bbcf6ab1c9fe2faefee7a28cc5", null ],
-      [ "OnSysMessage", "group__doxd4d__object__type.html#a29933fe2765bfb94fdcd9a046b639059", null ],
+      [ "CheckCoordinates", "group__doxd4d__object__type.html#af9e287019462ad551e64e4f466b7f978", null ],
+      [ "GetTextBuffer", "group__doxd4d__object__type.html#ab402de63473fcfd3b99bee3f22962d01", null ],
+      [ "OnSysMessage", "group__doxd4d__object__type.html#ab02d6d31f702b3166e19186562ca98ee", null ],
       [ "strName", "group__doxd4d__object__type.html#a5fc20c52922706928c85ce60a69825df", null ]
     ] ],
     [ "D4D_OBJECT_DATA_S", "group__doxd4d__object__type.html#struct_d4_d___o_b_j_e_c_t___d_a_t_a___s", [
@@ -30,8 +30,8 @@ var group__doxd4d__object__type =
     [ "D4D_OBJECT_FLAGS", "group__doxd4d__object__type.html#ga71858c5a620da03be379dbf32b5094c7", null ],
     [ "D4D_OBJECT_INITFLAGS", "group__doxd4d__object__type.html#ga793005a6e9bdabb5d7a96322a6d89585", null ],
     [ "D4D_OBJECT_PTR", "group__doxd4d__object__type.html#gab3c44a4935a4a44262e260eb1189f4dd", null ],
-    [ "D4D_OBJECT_RELATIONS", "group__doxd4d__object__type.html#gaecfd400dc24a166166fbe4113736ac71", null ],
+    [ "D4D_OBJECT_RELATIONS", "group__doxd4d__object__type.html#gae8dfb28d998766e9f276cd6bcba484fd", null ],
     [ "D4D_OBJECT_SYS_FUNCTION", "group__doxd4d__object__type.html#ga360db674713a4fc170085622d5094200", null ],
     [ "D4D_OBJECT_USR_DATA", "group__doxd4d__object__type.html#ga192856452e50a2b1c9323b0d3fc0a935", null ],
-    [ "D4D_ON_USR_MSG", "group__doxd4d__object__type.html#gaabda5603c70039db65ab51879fb314c3", null ]
+    [ "D4D_ON_USR_MSG", "group__doxd4d__object__type.html#gab07ede2703fda04a94a0e32e939ccc69", null ]
 ];

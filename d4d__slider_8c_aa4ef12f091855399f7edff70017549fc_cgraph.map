@@ -1,26 +1,25 @@
 <map id="D4D_SldrOnKeyUp" name="D4D_SldrOnKeyUp">
-<area shape="rect" id="node2" href="$group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="205,160,334,187"/>
-<area shape="rect" id="node8" href="$group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="420,80,531,107"/>
-<area shape="rect" id="node14" href="$group__doxd4d__object__func.html#ga5a2ea7aad5eebfd12294a985a6f27368" title="Function returns the current keys capturing object pointer. " alt="" coords="187,223,352,249"/>
-<area shape="rect" id="node15" href="$group__doxd4d__slider__func.html#ga852cfa431a7bf11d77a7e4bb8d2df7a2" title="Function change the slider value by signed increment. " alt="" coords="192,280,347,307"/>
-<area shape="rect" id="node25" href="$group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="188,331,351,357"/>
-<area shape="rect" id="node3" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="400,131,551,157"/>
-<area shape="rect" id="node4" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="834,232,978,259"/>
+<area shape="rect" id="node2" href="$group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="205,156,334,183"/>
+<area shape="rect" id="node14" href="$group__doxd4d__object__func.html#ga5a2ea7aad5eebfd12294a985a6f27368" title="Function returns the current keys capturing object pointer. " alt="" coords="187,257,352,284"/>
+<area shape="rect" id="node15" href="$group__doxd4d__slider__func.html#ga852cfa431a7bf11d77a7e4bb8d2df7a2" title="Function change the slider value by signed increment. " alt="" coords="192,333,347,360"/>
+<area shape="rect" id="node3" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="400,80,551,107"/>
+<area shape="rect" id="node4" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="834,229,978,256"/>
 <area shape="rect" id="node5" href="$d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="619,181,757,208"/>
 <area shape="rect" id="node6" href="$group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="633,29,743,56"/>
-<area shape="rect" id="node7" href="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="1522,93,1673,120"/>
-<area shape="rect" id="node9" href="$d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="629,80,747,107"/>
-<area shape="rect" id="node10" href="$d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="834,93,978,120"/>
-<area shape="rect" id="node11" href="$d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1496,195,1699,221"/>
-<area shape="rect" id="node12" href="$d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1265,93,1448,120"/>
-<area shape="rect" id="node13" href="$d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="1035,145,1217,186"/>
-<area shape="rect" id="node16" href="$group__doxd4d__math__func.html#ga0f9b5feb47a6a564947f81d4c97bb131" title="Calculation of limitation value (signed) &#45; 8 bit. " alt="" coords="639,283,737,309"/>
+<area shape="rect" id="node8" href="$group__doxd4d__screen__func.html#ga810975732b282002f31aeac109dc246f" title="The function set the obejct focus to new object. " alt="" coords="420,131,531,157"/>
+<area shape="rect" id="node7" href="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="1522,84,1673,111"/>
+<area shape="rect" id="node9" href="$d4d__screen_8c.html#a646fd57978a1ccdd2d96d1d10e9c09c3" title="D4D_FindObject" alt="" coords="629,80,747,107"/>
+<area shape="rect" id="node10" href="$d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="834,83,978,109"/>
+<area shape="rect" id="node11" href="$d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1496,236,1699,263"/>
+<area shape="rect" id="node12" href="$d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1265,84,1448,111"/>
+<area shape="rect" id="node13" href="$d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="1035,134,1217,175"/>
+<area shape="rect" id="node16" href="$group__doxd4d__math__func.html#ga0f9b5feb47a6a564947f81d4c97bb131" title="Calculation of limitation value (signed) &#45; 8 bit. " alt="" coords="639,384,737,411"/>
 <area shape="rect" id="node17" href="$group__doxd4d__slider__func.html#gac9be4fb2a0566d958e15be179c03c135" title="Function Sets the slider value. " alt="" coords="410,333,541,360"/>
-<area shape="rect" id="node18" href="$d4d__slider_8c.html#a4af9d723f82995fc669e26b109a7dbd2" title="D4D_SldrComputeColorBar" alt="" coords="599,384,777,411"/>
-<area shape="rect" id="node24" href="$group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="615,333,761,360"/>
-<area shape="rect" id="node19" href="$group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="825,333,987,360"/>
-<area shape="rect" id="node21" href="$group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="1067,423,1185,449"/>
-<area shape="rect" id="node23" href="$group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="837,435,975,461"/>
-<area shape="rect" id="node20" href="$d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="1044,347,1208,373"/>
-<area shape="rect" id="node22" href="$d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1309,423,1404,449"/>
+<area shape="rect" id="node18" href="$d4d__slider_8c.html#a4af9d723f82995fc669e26b109a7dbd2" title="D4D_SldrComputeColorBar" alt="" coords="599,333,777,360"/>
+<area shape="rect" id="node24" href="$group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="615,283,761,309"/>
+<area shape="rect" id="node19" href="$group__doxd4d__scheme__func.html#ga0037c72f805b81afa1cef36f5bdb3711" title="Function return the pointer to current use object scheme of object. " alt="" coords="825,304,987,331"/>
+<area shape="rect" id="node21" href="$group__doxd4d__math__func.html#ga1710a1b4ba7ec0d739c0fab1ab5b4ed9" title="Simple proportion unsigned calculation &#45; 8 bit. " alt="" coords="1067,393,1185,420"/>
+<area shape="rect" id="node23" href="$group__doxd4d__scheme__func.html#gad7026b78ad2ceee2c7031f2e0110bed4" title="Compute cross color between two basic color in 256 steps. " alt="" coords="837,405,975,432"/>
+<area shape="rect" id="node20" href="$d4d_8h.html#aff79f1fe75542112c6a26f29eae32180" title="D4D_ScreenGetScheme" alt="" coords="1044,337,1208,364"/>
+<area shape="rect" id="node22" href="$d4d__math_8c.html#a84562213c3bb119f9ed4afd0ce75cc52" title="Fast 16/8=8 divide operation with rounding and saturation. " alt="" coords="1309,393,1404,420"/>
 </map>

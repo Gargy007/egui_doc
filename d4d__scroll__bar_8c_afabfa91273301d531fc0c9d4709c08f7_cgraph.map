@@ -1,27 +1,11 @@
 <map id="D4D_ScrlBrDrawArrow" name="D4D_ScrlBrDrawArrow">
-<area shape="rect" id="node2" href="$group__doxd4d__basic__draw__func.html#gae1e6ddc28ad9fd3476000e7147a188f9" title="Function puts one pixel on the screen. " alt="" coords="462,19,565,45"/>
-<area shape="rect" id="node4" href="$group__doxd4d__base__func.html#ga691fbc50ade2bb5c302ccfca0fe87ec6" title="Function swap the point coordination. " alt="" coords="239,145,353,172"/>
-<area shape="rect" id="node5" href="$group__doxd4d__basic__draw__func.html#gaeaf75234e6158d0c84eb03c5eaef6eef" title="Function move logic cursor to new position. " alt="" coords="247,196,345,223"/>
-<area shape="rect" id="node6" href="$group__doxd4d__basic__draw__func.html#gaccc98a88c426ccb03b4a7c508872fd68" title="Function draw line on the screen. " alt="" coords="250,95,342,121"/>
-<area shape="rect" id="node11" href="$group__doxd4d__screen__func.html#ga3ed73bc4536f45e2600dfdfdd8d13601" title="The function returns pointer to object that is focused in given screen. " alt="" coords="215,247,377,273"/>
-<area shape="rect" id="node12" href="$group__doxd4d__object__func.html#gaf785f10de38c2df9523cd3466035f93f" title="Function switch on capturing the keys to objects. " alt="" coords="231,297,361,324"/>
-<area shape="rect" id="node18" href="$group__doxd4d__screen__func.html#gac8938c4e965acfa7f40094d4508e039d" title="The function set the obejct focus to new object. " alt="" coords="458,384,569,411"/>
-<area shape="rect" id="node24" href="$group__doxd4d__scroll__bar__func.html#ga410dc4d48f9e8e49ef69f7c0273e5647" title="The function change the scroll bar position. " alt="" coords="205,448,387,475"/>
-<area shape="rect" id="node3" href="$d4d__low_8c.html#a7df9d0f828a7a12cbf56d640217a7d8a" title="D4D_LCD_PutPixel" alt="" coords="645,5,780,32"/>
-<area shape="rect" id="node7" href="$d4d__low_8c.html#a3aca803259156c65646263edab27275a" title="D4D_LCD_Line" alt="" coords="458,95,569,121"/>
-<area shape="rect" id="node8" href="$d4d__low_8c.html#a450664aef631dc065b1d290e8b75f863" title="D4D_LCD_SwapCoor" alt="" coords="833,81,979,108"/>
-<area shape="rect" id="node9" href="$d4d__low_8c.html#a65810021c5d69c06eeefa40f0c800b60" title="D4D_LCD_Box" alt="" coords="658,107,767,133"/>
-<area shape="rect" id="node10" href="$group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b" title="Calculation of absolute value &#45; 16 bit. " alt="" coords="667,157,758,184"/>
-<area shape="rect" id="node13" href="$group__doxd4d__screen__func.html#ga60bd18ea3f1e4d87c1eda36c0f4c01f9" title="Returns pointer to current active screen. " alt="" coords="438,181,589,208"/>
-<area shape="rect" id="node14" href="$d4d__object_8c.html#a9ea5194ba65b4124d374109fa782d237" title="D4D_SetObjectFlags" alt="" coords="834,384,978,411"/>
-<area shape="rect" id="node15" href="$d4d__base_8c.html#ad307c9584a62c2cb94cab1ea72ad3c47" title="D4D_SendMessage" alt="" coords="644,333,781,360"/>
-<area shape="rect" id="node16" href="$group__doxd4d__object__func.html#gada4f81524444a3cabef73d4fa2988b15" title="Function find out if the object is enabled or not. " alt="" coords="657,232,768,259"/>
-<area shape="rect" id="node17" href="$d4d__object_8c.html#aeb1e10fa1768c3ab69bae8f35fbdde9e" title="D4D_GetParentObject" alt="" coords="1514,351,1665,377"/>
-<area shape="rect" id="node19" href="$d4d__screen_8c.html#a8779d8ec70a52bbf56484fa8cd8b1884" title="D4D_FindObject" alt="" coords="654,435,771,461"/>
-<area shape="rect" id="node20" href="$d4d__object_8c.html#a60c5cc0c04e845b028fd591039d72b4f" title="D4D_FindNextObject" alt="" coords="834,435,978,461"/>
-<area shape="rect" id="node21" href="$d4d__object_8c.html#a52bc37a5836b83fb088514a94ef63258" title="D4D_FindNextObjectOnScreen" alt="" coords="1488,477,1691,504"/>
-<area shape="rect" id="node22" href="$d4d__object_8c.html#ac6d2a59c98f9f37d65a3ca2f2ac53a1a" title="D4D_FindNextSiblingObject" alt="" coords="1257,376,1440,403"/>
-<area shape="rect" id="node23" href="$d4d__object_8c.html#a94f877d36a6c5dde73c340fc90bfd42d" title="D4D_FindNextParentSibling\lObject" alt="" coords="1027,427,1209,469"/>
-<area shape="rect" id="node25" href="$group__doxd4d__scroll__bar__func.html#gaeb977966b3a19b8230a2e8f2b2a2949f" title="The function sets the scroll bar position. " alt="" coords="435,467,592,493"/>
-<area shape="rect" id="node26" href="$group__doxd4d__object__func.html#gaefb01366bfbf9ac020c19584a2a3c3b9" title="Function invalidate object to redraw on screen. " alt="" coords="640,485,785,512"/>
+<area shape="rect" id="node2" href="$group__doxd4d__basic__draw__func.html#gae1e6ddc28ad9fd3476000e7147a188f9" title="Function puts one pixel on the screen. " alt="" coords="371,5,473,32"/>
+<area shape="rect" id="node4" href="$group__doxd4d__base__func.html#ga691fbc50ade2bb5c302ccfca0fe87ec6" title="Function swap the point coordination. " alt="" coords="205,49,319,76"/>
+<area shape="rect" id="node5" href="$group__doxd4d__basic__draw__func.html#gaeaf75234e6158d0c84eb03c5eaef6eef" title="Function move logic cursor to new position. " alt="" coords="213,100,311,127"/>
+<area shape="rect" id="node6" href="$group__doxd4d__basic__draw__func.html#gaccc98a88c426ccb03b4a7c508872fd68" title="Function draw line on the screen. " alt="" coords="216,151,308,177"/>
+<area shape="rect" id="node3" href="$d4d__low_8c.html#a7df9d0f828a7a12cbf56d640217a7d8a" title="D4D_LCD_PutPixel" alt="" coords="525,17,660,44"/>
+<area shape="rect" id="node7" href="$d4d__low_8c.html#a3aca803259156c65646263edab27275a" title="D4D_LCD_Line" alt="" coords="367,125,477,152"/>
+<area shape="rect" id="node8" href="$d4d__low_8c.html#a450664aef631dc065b1d290e8b75f863" title="D4D_LCD_SwapCoor" alt="" coords="708,100,853,127"/>
+<area shape="rect" id="node9" href="$d4d__low_8c.html#a65810021c5d69c06eeefa40f0c800b60" title="D4D_LCD_Box" alt="" coords="538,125,647,152"/>
+<area shape="rect" id="node10" href="$group__doxd4d__math__func.html#ga5913b7126e093be7728640d43ce4803b" title="Calculation of absolute value &#45; 16 bit. " alt="" coords="547,176,638,203"/>
 </map>
